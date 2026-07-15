@@ -1,0 +1,921 @@
+{
+  "namespace": "Windows.Media.ClosedCaptioning",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "ClosedCaptionColor": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "White",
+          "value": "1"
+        },
+        {
+          "name": "Black",
+          "value": "2"
+        },
+        {
+          "name": "Red",
+          "value": "3"
+        },
+        {
+          "name": "Green",
+          "value": "4"
+        },
+        {
+          "name": "Blue",
+          "value": "5"
+        },
+        {
+          "name": "Yellow",
+          "value": "6"
+        },
+        {
+          "name": "Magenta",
+          "value": "7"
+        },
+        {
+          "name": "Cyan",
+          "value": "8"
+        }
+      ]
+    },
+    "ClosedCaptionEdgeEffect": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "None",
+          "value": "1"
+        },
+        {
+          "name": "Raised",
+          "value": "2"
+        },
+        {
+          "name": "Depressed",
+          "value": "3"
+        },
+        {
+          "name": "Uniform",
+          "value": "4"
+        },
+        {
+          "name": "DropShadow",
+          "value": "5"
+        }
+      ]
+    },
+    "ClosedCaptionOpacity": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "OneHundredPercent",
+          "value": "1"
+        },
+        {
+          "name": "SeventyFivePercent",
+          "value": "2"
+        },
+        {
+          "name": "TwentyFivePercent",
+          "value": "3"
+        },
+        {
+          "name": "ZeroPercent",
+          "value": "4"
+        }
+      ]
+    },
+    "ClosedCaptionSize": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "FiftyPercent",
+          "value": "1"
+        },
+        {
+          "name": "OneHundredPercent",
+          "value": "2"
+        },
+        {
+          "name": "OneHundredFiftyPercent",
+          "value": "3"
+        },
+        {
+          "name": "TwoHundredPercent",
+          "value": "4"
+        }
+      ]
+    },
+    "ClosedCaptionStyle": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "MonospacedWithSerifs",
+          "value": "1"
+        },
+        {
+          "name": "ProportionalWithSerifs",
+          "value": "2"
+        },
+        {
+          "name": "MonospacedWithoutSerifs",
+          "value": "3"
+        },
+        {
+          "name": "ProportionalWithoutSerifs",
+          "value": "4"
+        },
+        {
+          "name": "Casual",
+          "value": "5"
+        },
+        {
+          "name": "Cursive",
+          "value": "6"
+        },
+        {
+          "name": "SmallCapitals",
+          "value": "7"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IClosedCaptionPropertiesStatics": {
+      "guid": "10aa1f84-cc30-4141-b503-5272289e0c20",
+      "exclusive_to": "Windows.Media.ClosedCaptioning.ClosedCaptionProperties",
+      "methods": [
+        {
+          "name": "get_FontColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionColor",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ComputedFontColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_FontOpacity",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionOpacity",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_FontSize",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionSize",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_FontStyle",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionStyle",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_FontEffect",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionEdgeEffect",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_BackgroundColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionColor",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ComputedBackgroundColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_BackgroundOpacity",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionOpacity",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_RegionColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionColor",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ComputedRegionColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_RegionOpacity",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionOpacity",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BackgroundColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionColor",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          },
+          "getter": "get_BackgroundColor"
+        },
+        {
+          "name": "BackgroundOpacity",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionOpacity",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          },
+          "getter": "get_BackgroundOpacity"
+        },
+        {
+          "name": "ComputedBackgroundColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ComputedBackgroundColor"
+        },
+        {
+          "name": "ComputedFontColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ComputedFontColor"
+        },
+        {
+          "name": "ComputedRegionColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ComputedRegionColor"
+        },
+        {
+          "name": "FontColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionColor",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          },
+          "getter": "get_FontColor"
+        },
+        {
+          "name": "FontEffect",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionEdgeEffect",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          },
+          "getter": "get_FontEffect"
+        },
+        {
+          "name": "FontOpacity",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionOpacity",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          },
+          "getter": "get_FontOpacity"
+        },
+        {
+          "name": "FontSize",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionSize",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          },
+          "getter": "get_FontSize"
+        },
+        {
+          "name": "FontStyle",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionStyle",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          },
+          "getter": "get_FontStyle"
+        },
+        {
+          "name": "RegionColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionColor",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RegionColor"
+        },
+        {
+          "name": "RegionOpacity",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionOpacity",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RegionOpacity"
+        }
+      ]
+    },
+    "IClosedCaptionPropertiesStatics2": {
+      "guid": "9de26870-37de-4197-8845-9a48dc5ac317",
+      "exclusive_to": "Windows.Media.ClosedCaptioning.ClosedCaptionProperties",
+      "methods": [
+        {
+          "name": "add_PropertiesChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PropertiesChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "PropertiesChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_PropertiesChanged",
+          "remove_method": "remove_PropertiesChanged"
+        }
+      ]
+    },
+    "IClosedCaptionTheme": {
+      "guid": "d3974055-b9b5-52a4-b655-30661f73d1c1",
+      "exclusive_to": "Windows.Media.ClosedCaptioning.ClosedCaptionTheme",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_FontColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionColor",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ComputedFontColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_FontOpacity",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionOpacity",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_FontSize",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionSize",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_FontStyle",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionStyle",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_FontEffect",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionEdgeEffect",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_BackgroundColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionColor",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ComputedBackgroundColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_BackgroundOpacity",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionOpacity",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_RegionColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionColor",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ComputedRegionColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_RegionOpacity",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionOpacity",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BackgroundColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionColor",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          },
+          "getter": "get_BackgroundColor"
+        },
+        {
+          "name": "BackgroundOpacity",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionOpacity",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          },
+          "getter": "get_BackgroundOpacity"
+        },
+        {
+          "name": "ComputedBackgroundColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ComputedBackgroundColor"
+        },
+        {
+          "name": "ComputedFontColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ComputedFontColor"
+        },
+        {
+          "name": "ComputedRegionColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ComputedRegionColor"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "FontColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionColor",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          },
+          "getter": "get_FontColor"
+        },
+        {
+          "name": "FontEffect",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionEdgeEffect",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          },
+          "getter": "get_FontEffect"
+        },
+        {
+          "name": "FontOpacity",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionOpacity",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          },
+          "getter": "get_FontOpacity"
+        },
+        {
+          "name": "FontSize",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionSize",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          },
+          "getter": "get_FontSize"
+        },
+        {
+          "name": "FontStyle",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionStyle",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          },
+          "getter": "get_FontStyle"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "RegionColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionColor",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RegionColor"
+        },
+        {
+          "name": "RegionOpacity",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionOpacity",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RegionOpacity"
+        }
+      ]
+    },
+    "IClosedCaptionThemeStatics": {
+      "guid": "0938ae0f-214e-5760-88c9-bb3f1b54f3c7",
+      "exclusive_to": "Windows.Media.ClosedCaptioning.ClosedCaptionTheme",
+      "methods": [
+        {
+          "name": "GetAvailableThemes",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "ApiRef",
+              "name": "ClosedCaptionTheme",
+              "namespace": "Windows.Media.ClosedCaptioning",
+              "target_kind": "Class"
+            }
+          }
+        },
+        {
+          "name": "GetSelectedTheme",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ClosedCaptionTheme",
+            "namespace": "Windows.Media.ClosedCaptioning",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TrySetSelectedTheme",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ClosedCaptionTheme",
+                "namespace": "Windows.Media.ClosedCaptioning",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "add_ThemesChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ThemesChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_SelectedThemeChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SelectedThemeChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "SelectedThemeChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_SelectedThemeChanged",
+          "remove_method": "remove_SelectedThemeChanged"
+        },
+        {
+          "name": "ThemesChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ThemesChanged",
+          "remove_method": "remove_ThemesChanged"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "ClosedCaptionProperties": {
+      "static_interfaces": [
+        "Windows.Media.ClosedCaptioning.IClosedCaptionPropertiesStatics",
+        "Windows.Media.ClosedCaptioning.IClosedCaptionPropertiesStatics2"
+      ]
+    },
+    "ClosedCaptionTheme": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IClosedCaptionTheme",
+        "namespace": "Windows.Media.ClosedCaptioning",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosedCaptionTheme",
+          "namespace": "Windows.Media.ClosedCaptioning",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Media.ClosedCaptioning.IClosedCaptionThemeStatics"
+      ]
+    }
+  }
+}

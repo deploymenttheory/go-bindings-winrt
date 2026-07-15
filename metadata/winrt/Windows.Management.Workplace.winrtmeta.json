@@ -1,0 +1,83 @@
+{
+  "namespace": "Windows.Management.Workplace",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "MessagingSyncPolicy": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Disallowed",
+          "value": "0"
+        },
+        {
+          "name": "Allowed",
+          "value": "1"
+        },
+        {
+          "name": "Required",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IMdmAllowPolicyStatics": {
+      "guid": "c39709e7-741c-41f2-a4b6-314c31502586",
+      "exclusive_to": "Windows.Management.Workplace.MdmPolicy",
+      "methods": [
+        {
+          "name": "IsBrowserAllowed",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsCameraAllowed",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsMicrosoftAccountAllowed",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsStoreAllowed",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IMdmPolicyStatics2": {
+      "guid": "c99c7526-03d4-49f9-a993-43efccd265c4",
+      "exclusive_to": "Windows.Management.Workplace.MdmPolicy",
+      "methods": [
+        {
+          "name": "GetMessagingSyncPolicy",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MessagingSyncPolicy",
+            "namespace": "Windows.Management.Workplace",
+            "target_kind": "Enum"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "MdmPolicy": {
+      "static_interfaces": [
+        "Windows.Management.Workplace.IMdmPolicyStatics2",
+        "Windows.Management.Workplace.IMdmAllowPolicyStatics"
+      ]
+    }
+  }
+}

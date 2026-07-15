@@ -1,0 +1,744 @@
+{
+  "namespace": "Windows.Data.Pdf",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "PdfPageRotation": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Normal",
+          "value": "0"
+        },
+        {
+          "name": "Rotate90",
+          "value": "1"
+        },
+        {
+          "name": "Rotate180",
+          "value": "2"
+        },
+        {
+          "name": "Rotate270",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IPdfDocument": {
+      "guid": "ac7ebedd-80fa-4089-846e-81b77ff5a86c",
+      "exclusive_to": "Windows.Data.Pdf.PdfDocument",
+      "methods": [
+        {
+          "name": "GetPage",
+          "params": [
+            {
+              "name": "pageIndex",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PdfPage",
+            "namespace": "Windows.Data.Pdf",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PageCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_IsPasswordProtected",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsPasswordProtected",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPasswordProtected"
+        },
+        {
+          "name": "PageCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_PageCount"
+        }
+      ]
+    },
+    "IPdfDocumentStatics": {
+      "guid": "433a0b5f-c007-4788-90f2-08143d922599",
+      "exclusive_to": "Windows.Data.Pdf.PdfDocument",
+      "methods": [
+        {
+          "name": "LoadFromFileAsync",
+          "overload": "LoadFromFileAsync",
+          "params": [
+            {
+              "name": "file",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PdfDocument",
+                "namespace": "Windows.Data.Pdf",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "LoadFromFileAsync",
+          "overload": "LoadFromFileWithPasswordAsync",
+          "params": [
+            {
+              "name": "file",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "password",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PdfDocument",
+                "namespace": "Windows.Data.Pdf",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "LoadFromStreamAsync",
+          "overload": "LoadFromStreamAsync",
+          "params": [
+            {
+              "name": "inputStream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PdfDocument",
+                "namespace": "Windows.Data.Pdf",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "LoadFromStreamAsync",
+          "overload": "LoadFromStreamWithPasswordAsync",
+          "params": [
+            {
+              "name": "inputStream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "password",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PdfDocument",
+                "namespace": "Windows.Data.Pdf",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPdfPage": {
+      "guid": "9db4b0c8-5320-4cfc-ad76-493fdad0e594",
+      "exclusive_to": "Windows.Data.Pdf.PdfPage",
+      "methods": [
+        {
+          "name": "RenderToStreamAsync",
+          "overload": "RenderToStreamAsync",
+          "params": [
+            {
+              "name": "outputStream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "RenderToStreamAsync",
+          "overload": "RenderWithOptionsToStreamAsync",
+          "params": [
+            {
+              "name": "outputStream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PdfPageRenderOptions",
+                "namespace": "Windows.Data.Pdf",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "PreparePageAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Index",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Size",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Dimensions",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PdfPageDimensions",
+            "namespace": "Windows.Data.Pdf",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Rotation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PdfPageRotation",
+            "namespace": "Windows.Data.Pdf",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_PreferredZoom",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Dimensions",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PdfPageDimensions",
+            "namespace": "Windows.Data.Pdf",
+            "target_kind": "Class"
+          },
+          "getter": "get_Dimensions"
+        },
+        {
+          "name": "Index",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Index"
+        },
+        {
+          "name": "PreferredZoom",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_PreferredZoom"
+        },
+        {
+          "name": "Rotation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PdfPageRotation",
+            "namespace": "Windows.Data.Pdf",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Rotation"
+        },
+        {
+          "name": "Size",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Size"
+        }
+      ]
+    },
+    "IPdfPageDimensions": {
+      "guid": "22170471-313e-44e8-835d-63a3e7624a10",
+      "exclusive_to": "Windows.Data.Pdf.PdfPageDimensions",
+      "methods": [
+        {
+          "name": "get_MediaBox",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_CropBox",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_BleedBox",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_TrimBox",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_ArtBox",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ArtBox",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ArtBox"
+        },
+        {
+          "name": "BleedBox",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BleedBox"
+        },
+        {
+          "name": "CropBox",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_CropBox"
+        },
+        {
+          "name": "MediaBox",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_MediaBox"
+        },
+        {
+          "name": "TrimBox",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_TrimBox"
+        }
+      ]
+    },
+    "IPdfPageRenderOptions": {
+      "guid": "3c98056f-b7cf-4c29-9a04-52d90267f425",
+      "exclusive_to": "Windows.Data.Pdf.PdfPageRenderOptions",
+      "methods": [
+        {
+          "name": "get_SourceRect",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_SourceRect",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DestinationWidth",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_DestinationWidth",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DestinationHeight",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_DestinationHeight",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BackgroundColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_BackgroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsIgnoringHighContrast",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsIgnoringHighContrast",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BitmapEncoderId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "put_BitmapEncoderId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "BackgroundColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BackgroundColor",
+          "setter": "put_BackgroundColor"
+        },
+        {
+          "name": "BitmapEncoderId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_BitmapEncoderId",
+          "setter": "put_BitmapEncoderId"
+        },
+        {
+          "name": "DestinationHeight",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_DestinationHeight",
+          "setter": "put_DestinationHeight"
+        },
+        {
+          "name": "DestinationWidth",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_DestinationWidth",
+          "setter": "put_DestinationWidth"
+        },
+        {
+          "name": "IsIgnoringHighContrast",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsIgnoringHighContrast",
+          "setter": "put_IsIgnoringHighContrast"
+        },
+        {
+          "name": "SourceRect",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SourceRect",
+          "setter": "put_SourceRect"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "PdfDocument": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPdfDocument",
+        "namespace": "Windows.Data.Pdf",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPdfDocument",
+          "namespace": "Windows.Data.Pdf",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Data.Pdf.IPdfDocumentStatics"
+      ]
+    },
+    "PdfPage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPdfPage",
+        "namespace": "Windows.Data.Pdf",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPdfPage",
+          "namespace": "Windows.Data.Pdf",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PdfPageDimensions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPdfPageDimensions",
+        "namespace": "Windows.Data.Pdf",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPdfPageDimensions",
+          "namespace": "Windows.Data.Pdf",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PdfPageRenderOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPdfPageRenderOptions",
+        "namespace": "Windows.Data.Pdf",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPdfPageRenderOptions",
+          "namespace": "Windows.Data.Pdf",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  }
+}

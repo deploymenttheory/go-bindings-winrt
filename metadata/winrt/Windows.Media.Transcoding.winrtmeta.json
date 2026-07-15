@@ -1,0 +1,540 @@
+{
+  "namespace": "Windows.Media.Transcoding",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "MediaVideoProcessingAlgorithm": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "MrfCrf444",
+          "value": "1"
+        }
+      ]
+    },
+    "TranscodeFailureReason": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Unknown",
+          "value": "1"
+        },
+        {
+          "name": "InvalidProfile",
+          "value": "2"
+        },
+        {
+          "name": "CodecNotFound",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IMediaTranscoder": {
+      "guid": "190c99d2-a0aa-4d34-86bc-eed1b12c2f5b",
+      "exclusive_to": "Windows.Media.Transcoding.MediaTranscoder",
+      "methods": [
+        {
+          "name": "put_TrimStartTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TrimStartTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_TrimStopTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TrimStopTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_AlwaysReencode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AlwaysReencode",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_HardwareAccelerationEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_HardwareAccelerationEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "AddAudioEffect",
+          "overload": "AddAudioEffect",
+          "params": [
+            {
+              "name": "activatableClassId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddAudioEffect",
+          "overload": "AddAudioEffectWithSettings",
+          "params": [
+            {
+              "name": "activatableClassId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "effectRequired",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "configuration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPropertySet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddVideoEffect",
+          "overload": "AddVideoEffect",
+          "params": [
+            {
+              "name": "activatableClassId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddVideoEffect",
+          "overload": "AddVideoEffectWithSettings",
+          "params": [
+            {
+              "name": "activatableClassId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "effectRequired",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "configuration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPropertySet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ClearEffects"
+        },
+        {
+          "name": "PrepareFileTranscodeAsync",
+          "params": [
+            {
+              "name": "source",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "destination",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "profile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaEncodingProfile",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrepareTranscodeResult",
+                "namespace": "Windows.Media.Transcoding",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "PrepareStreamTranscodeAsync",
+          "params": [
+            {
+              "name": "source",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "destination",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "profile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaEncodingProfile",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrepareTranscodeResult",
+                "namespace": "Windows.Media.Transcoding",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AlwaysReencode",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AlwaysReencode",
+          "setter": "put_AlwaysReencode"
+        },
+        {
+          "name": "HardwareAccelerationEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HardwareAccelerationEnabled",
+          "setter": "put_HardwareAccelerationEnabled"
+        },
+        {
+          "name": "TrimStartTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_TrimStartTime",
+          "setter": "put_TrimStartTime"
+        },
+        {
+          "name": "TrimStopTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_TrimStopTime",
+          "setter": "put_TrimStopTime"
+        }
+      ]
+    },
+    "IMediaTranscoder2": {
+      "guid": "40531d74-35e0-4f04-8574-ca8bc4e5a082",
+      "exclusive_to": "Windows.Media.Transcoding.MediaTranscoder",
+      "methods": [
+        {
+          "name": "PrepareMediaStreamSourceTranscodeAsync",
+          "params": [
+            {
+              "name": "source",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IMediaSource",
+                "namespace": "Windows.Media.Core",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "destination",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "profile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaEncodingProfile",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrepareTranscodeResult",
+                "namespace": "Windows.Media.Transcoding",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_VideoProcessingAlgorithm",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaVideoProcessingAlgorithm",
+                "namespace": "Windows.Media.Transcoding",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_VideoProcessingAlgorithm",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaVideoProcessingAlgorithm",
+            "namespace": "Windows.Media.Transcoding",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "VideoProcessingAlgorithm",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaVideoProcessingAlgorithm",
+            "namespace": "Windows.Media.Transcoding",
+            "target_kind": "Enum"
+          },
+          "getter": "get_VideoProcessingAlgorithm",
+          "setter": "put_VideoProcessingAlgorithm"
+        }
+      ]
+    },
+    "IPrepareTranscodeResult": {
+      "guid": "05f25dce-994f-4a34-9d68-97ccce1730d6",
+      "exclusive_to": "Windows.Media.Transcoding.PrepareTranscodeResult",
+      "methods": [
+        {
+          "name": "get_CanTranscode",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_FailureReason",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TranscodeFailureReason",
+            "namespace": "Windows.Media.Transcoding",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "TranscodeAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncActionWithProgress`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CanTranscode",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanTranscode"
+        },
+        {
+          "name": "FailureReason",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TranscodeFailureReason",
+            "namespace": "Windows.Media.Transcoding",
+            "target_kind": "Enum"
+          },
+          "getter": "get_FailureReason"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "MediaTranscoder": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaTranscoder",
+        "namespace": "Windows.Media.Transcoding",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaTranscoder",
+          "namespace": "Windows.Media.Transcoding",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaTranscoder2",
+          "namespace": "Windows.Media.Transcoding",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "PrepareTranscodeResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrepareTranscodeResult",
+        "namespace": "Windows.Media.Transcoding",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrepareTranscodeResult",
+          "namespace": "Windows.Media.Transcoding",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

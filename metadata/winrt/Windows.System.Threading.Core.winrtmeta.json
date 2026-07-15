@@ -1,0 +1,329 @@
+{
+  "namespace": "Windows.System.Threading.Core",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IPreallocatedWorkItem": {
+      "guid": "b6daa9fc-bc5b-401a-a8b2-6e754d14daa6",
+      "exclusive_to": "Windows.System.Threading.Core.PreallocatedWorkItem",
+      "methods": [
+        {
+          "name": "RunAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IPreallocatedWorkItemFactory": {
+      "guid": "e3d32b45-dfea-469b-82c5-f6e3cefdeafb",
+      "exclusive_to": "Windows.System.Threading.Core.PreallocatedWorkItem",
+      "methods": [
+        {
+          "name": "CreateWorkItem",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WorkItemHandler",
+                "namespace": "Windows.System.Threading",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PreallocatedWorkItem",
+            "namespace": "Windows.System.Threading.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWorkItemWithPriority",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WorkItemHandler",
+                "namespace": "Windows.System.Threading",
+                "target_kind": "Delegate"
+              }
+            },
+            {
+              "name": "priority",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WorkItemPriority",
+                "namespace": "Windows.System.Threading",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PreallocatedWorkItem",
+            "namespace": "Windows.System.Threading.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWorkItemWithPriorityAndOptions",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WorkItemHandler",
+                "namespace": "Windows.System.Threading",
+                "target_kind": "Delegate"
+              }
+            },
+            {
+              "name": "priority",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WorkItemPriority",
+                "namespace": "Windows.System.Threading",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WorkItemOptions",
+                "namespace": "Windows.System.Threading",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PreallocatedWorkItem",
+            "namespace": "Windows.System.Threading.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISignalNotifier": {
+      "guid": "14285e06-63a7-4713-b6d9-62f64b56fb8b",
+      "exclusive_to": "Windows.System.Threading.Core.SignalNotifier",
+      "methods": [
+        {
+          "name": "Enable"
+        },
+        {
+          "name": "Terminate"
+        }
+      ]
+    },
+    "ISignalNotifierStatics": {
+      "guid": "1c4e4566-8400-46d3-a115-7d0c0dfc9f62",
+      "exclusive_to": "Windows.System.Threading.Core.SignalNotifier",
+      "methods": [
+        {
+          "name": "AttachToEvent",
+          "overload": "AttachToEvent",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SignalHandler",
+                "namespace": "Windows.System.Threading.Core",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SignalNotifier",
+            "namespace": "Windows.System.Threading.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "AttachToEvent",
+          "overload": "AttachToEventWithTimeout",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SignalHandler",
+                "namespace": "Windows.System.Threading.Core",
+                "target_kind": "Delegate"
+              }
+            },
+            {
+              "name": "timeout",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SignalNotifier",
+            "namespace": "Windows.System.Threading.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "AttachToSemaphore",
+          "overload": "AttachToSemaphore",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SignalHandler",
+                "namespace": "Windows.System.Threading.Core",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SignalNotifier",
+            "namespace": "Windows.System.Threading.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "AttachToSemaphore",
+          "overload": "AttachToSemaphoreWithTimeout",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SignalHandler",
+                "namespace": "Windows.System.Threading.Core",
+                "target_kind": "Delegate"
+              }
+            },
+            {
+              "name": "timeout",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SignalNotifier",
+            "namespace": "Windows.System.Threading.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "PreallocatedWorkItem": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPreallocatedWorkItem",
+        "namespace": "Windows.System.Threading.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPreallocatedWorkItem",
+          "namespace": "Windows.System.Threading.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.System.Threading.Core.IPreallocatedWorkItemFactory"
+      ]
+    },
+    "SignalNotifier": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISignalNotifier",
+        "namespace": "Windows.System.Threading.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISignalNotifier",
+          "namespace": "Windows.System.Threading.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.System.Threading.Core.ISignalNotifierStatics"
+      ]
+    }
+  },
+  "delegates": {
+    "SignalHandler": {
+      "guid": "923c402e-4721-440e-9dda-55b6f2e07710",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "signalNotifier",
+            "type": {
+              "kind": "ApiRef",
+              "name": "SignalNotifier",
+              "namespace": "Windows.System.Threading.Core",
+              "target_kind": "Class"
+            }
+          },
+          {
+            "name": "timedOut",
+            "type": {
+              "kind": "Native",
+              "name": "Bool"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

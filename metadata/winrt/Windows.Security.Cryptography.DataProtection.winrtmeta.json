@@ -1,0 +1,173 @@
+{
+  "namespace": "Windows.Security.Cryptography.DataProtection",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IDataProtectionProvider": {
+      "guid": "09639948-ed22-4270-bd1c-6d72c00f8787",
+      "exclusive_to": "Windows.Security.Cryptography.DataProtection.DataProtectionProvider",
+      "methods": [
+        {
+          "name": "ProtectAsync",
+          "params": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "UnprotectAsync",
+          "params": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ProtectStreamAsync",
+          "params": [
+            {
+              "name": "src",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "dest",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IOutputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "UnprotectStreamAsync",
+          "params": [
+            {
+              "name": "src",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "dest",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IOutputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IDataProtectionProviderFactory": {
+      "guid": "adf33dac-4932-4cdf-ac41-7214333514ca",
+      "exclusive_to": "Windows.Security.Cryptography.DataProtection.DataProtectionProvider",
+      "methods": [
+        {
+          "name": "CreateOverloadExplicit",
+          "params": [
+            {
+              "name": "protectionDescriptor",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DataProtectionProvider",
+            "namespace": "Windows.Security.Cryptography.DataProtection",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "DataProtectionProvider": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDataProtectionProvider",
+        "namespace": "Windows.Security.Cryptography.DataProtection",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDataProtectionProvider",
+          "namespace": "Windows.Security.Cryptography.DataProtection",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Security.Cryptography.DataProtection.IDataProtectionProviderFactory"
+      ]
+    }
+  }
+}

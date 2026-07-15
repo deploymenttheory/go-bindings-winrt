@@ -1,0 +1,3406 @@
+{
+  "namespace": "Windows.Gaming.Input",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "ArcadeStickButtons": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "StickUp",
+          "value": "1"
+        },
+        {
+          "name": "StickDown",
+          "value": "2"
+        },
+        {
+          "name": "StickLeft",
+          "value": "4"
+        },
+        {
+          "name": "StickRight",
+          "value": "8"
+        },
+        {
+          "name": "Action1",
+          "value": "16"
+        },
+        {
+          "name": "Action2",
+          "value": "32"
+        },
+        {
+          "name": "Action3",
+          "value": "64"
+        },
+        {
+          "name": "Action4",
+          "value": "128"
+        },
+        {
+          "name": "Action5",
+          "value": "256"
+        },
+        {
+          "name": "Action6",
+          "value": "512"
+        },
+        {
+          "name": "Special1",
+          "value": "1024"
+        },
+        {
+          "name": "Special2",
+          "value": "2048"
+        }
+      ]
+    },
+    "FlightStickButtons": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "FirePrimary",
+          "value": "1"
+        },
+        {
+          "name": "FireSecondary",
+          "value": "2"
+        }
+      ]
+    },
+    "GameControllerButtonLabel": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "XboxBack",
+          "value": "1"
+        },
+        {
+          "name": "XboxStart",
+          "value": "2"
+        },
+        {
+          "name": "XboxMenu",
+          "value": "3"
+        },
+        {
+          "name": "XboxView",
+          "value": "4"
+        },
+        {
+          "name": "XboxUp",
+          "value": "5"
+        },
+        {
+          "name": "XboxDown",
+          "value": "6"
+        },
+        {
+          "name": "XboxLeft",
+          "value": "7"
+        },
+        {
+          "name": "XboxRight",
+          "value": "8"
+        },
+        {
+          "name": "XboxA",
+          "value": "9"
+        },
+        {
+          "name": "XboxB",
+          "value": "10"
+        },
+        {
+          "name": "XboxX",
+          "value": "11"
+        },
+        {
+          "name": "XboxY",
+          "value": "12"
+        },
+        {
+          "name": "XboxLeftBumper",
+          "value": "13"
+        },
+        {
+          "name": "XboxLeftTrigger",
+          "value": "14"
+        },
+        {
+          "name": "XboxLeftStickButton",
+          "value": "15"
+        },
+        {
+          "name": "XboxRightBumper",
+          "value": "16"
+        },
+        {
+          "name": "XboxRightTrigger",
+          "value": "17"
+        },
+        {
+          "name": "XboxRightStickButton",
+          "value": "18"
+        },
+        {
+          "name": "XboxPaddle1",
+          "value": "19"
+        },
+        {
+          "name": "XboxPaddle2",
+          "value": "20"
+        },
+        {
+          "name": "XboxPaddle3",
+          "value": "21"
+        },
+        {
+          "name": "XboxPaddle4",
+          "value": "22"
+        },
+        {
+          "name": "Mode",
+          "value": "23"
+        },
+        {
+          "name": "Select",
+          "value": "24"
+        },
+        {
+          "name": "Menu",
+          "value": "25"
+        },
+        {
+          "name": "View",
+          "value": "26"
+        },
+        {
+          "name": "Back",
+          "value": "27"
+        },
+        {
+          "name": "Start",
+          "value": "28"
+        },
+        {
+          "name": "Options",
+          "value": "29"
+        },
+        {
+          "name": "Share",
+          "value": "30"
+        },
+        {
+          "name": "Up",
+          "value": "31"
+        },
+        {
+          "name": "Down",
+          "value": "32"
+        },
+        {
+          "name": "Left",
+          "value": "33"
+        },
+        {
+          "name": "Right",
+          "value": "34"
+        },
+        {
+          "name": "LetterA",
+          "value": "35"
+        },
+        {
+          "name": "LetterB",
+          "value": "36"
+        },
+        {
+          "name": "LetterC",
+          "value": "37"
+        },
+        {
+          "name": "LetterL",
+          "value": "38"
+        },
+        {
+          "name": "LetterR",
+          "value": "39"
+        },
+        {
+          "name": "LetterX",
+          "value": "40"
+        },
+        {
+          "name": "LetterY",
+          "value": "41"
+        },
+        {
+          "name": "LetterZ",
+          "value": "42"
+        },
+        {
+          "name": "Cross",
+          "value": "43"
+        },
+        {
+          "name": "Circle",
+          "value": "44"
+        },
+        {
+          "name": "Square",
+          "value": "45"
+        },
+        {
+          "name": "Triangle",
+          "value": "46"
+        },
+        {
+          "name": "LeftBumper",
+          "value": "47"
+        },
+        {
+          "name": "LeftTrigger",
+          "value": "48"
+        },
+        {
+          "name": "LeftStickButton",
+          "value": "49"
+        },
+        {
+          "name": "Left1",
+          "value": "50"
+        },
+        {
+          "name": "Left2",
+          "value": "51"
+        },
+        {
+          "name": "Left3",
+          "value": "52"
+        },
+        {
+          "name": "RightBumper",
+          "value": "53"
+        },
+        {
+          "name": "RightTrigger",
+          "value": "54"
+        },
+        {
+          "name": "RightStickButton",
+          "value": "55"
+        },
+        {
+          "name": "Right1",
+          "value": "56"
+        },
+        {
+          "name": "Right2",
+          "value": "57"
+        },
+        {
+          "name": "Right3",
+          "value": "58"
+        },
+        {
+          "name": "Paddle1",
+          "value": "59"
+        },
+        {
+          "name": "Paddle2",
+          "value": "60"
+        },
+        {
+          "name": "Paddle3",
+          "value": "61"
+        },
+        {
+          "name": "Paddle4",
+          "value": "62"
+        },
+        {
+          "name": "Plus",
+          "value": "63"
+        },
+        {
+          "name": "Minus",
+          "value": "64"
+        },
+        {
+          "name": "DownLeftArrow",
+          "value": "65"
+        },
+        {
+          "name": "DialLeft",
+          "value": "66"
+        },
+        {
+          "name": "DialRight",
+          "value": "67"
+        },
+        {
+          "name": "Suspension",
+          "value": "68"
+        }
+      ]
+    },
+    "GameControllerSwitchKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "TwoWay",
+          "value": "0"
+        },
+        {
+          "name": "FourWay",
+          "value": "1"
+        },
+        {
+          "name": "EightWay",
+          "value": "2"
+        }
+      ]
+    },
+    "GameControllerSwitchPosition": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Center",
+          "value": "0"
+        },
+        {
+          "name": "Up",
+          "value": "1"
+        },
+        {
+          "name": "UpRight",
+          "value": "2"
+        },
+        {
+          "name": "Right",
+          "value": "3"
+        },
+        {
+          "name": "DownRight",
+          "value": "4"
+        },
+        {
+          "name": "Down",
+          "value": "5"
+        },
+        {
+          "name": "DownLeft",
+          "value": "6"
+        },
+        {
+          "name": "Left",
+          "value": "7"
+        },
+        {
+          "name": "UpLeft",
+          "value": "8"
+        }
+      ]
+    },
+    "GamepadButtons": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Menu",
+          "value": "1"
+        },
+        {
+          "name": "View",
+          "value": "2"
+        },
+        {
+          "name": "A",
+          "value": "4"
+        },
+        {
+          "name": "B",
+          "value": "8"
+        },
+        {
+          "name": "X",
+          "value": "16"
+        },
+        {
+          "name": "Y",
+          "value": "32"
+        },
+        {
+          "name": "DPadUp",
+          "value": "64"
+        },
+        {
+          "name": "DPadDown",
+          "value": "128"
+        },
+        {
+          "name": "DPadLeft",
+          "value": "256"
+        },
+        {
+          "name": "DPadRight",
+          "value": "512"
+        },
+        {
+          "name": "LeftShoulder",
+          "value": "1024"
+        },
+        {
+          "name": "RightShoulder",
+          "value": "2048"
+        },
+        {
+          "name": "LeftThumbstick",
+          "value": "4096"
+        },
+        {
+          "name": "RightThumbstick",
+          "value": "8192"
+        },
+        {
+          "name": "Paddle1",
+          "value": "16384"
+        },
+        {
+          "name": "Paddle2",
+          "value": "32768"
+        },
+        {
+          "name": "Paddle3",
+          "value": "65536"
+        },
+        {
+          "name": "Paddle4",
+          "value": "131072"
+        }
+      ]
+    },
+    "OptionalUINavigationButtons": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Context1",
+          "value": "1"
+        },
+        {
+          "name": "Context2",
+          "value": "2"
+        },
+        {
+          "name": "Context3",
+          "value": "4"
+        },
+        {
+          "name": "Context4",
+          "value": "8"
+        },
+        {
+          "name": "PageUp",
+          "value": "16"
+        },
+        {
+          "name": "PageDown",
+          "value": "32"
+        },
+        {
+          "name": "PageLeft",
+          "value": "64"
+        },
+        {
+          "name": "PageRight",
+          "value": "128"
+        },
+        {
+          "name": "ScrollUp",
+          "value": "256"
+        },
+        {
+          "name": "ScrollDown",
+          "value": "512"
+        },
+        {
+          "name": "ScrollLeft",
+          "value": "1024"
+        },
+        {
+          "name": "ScrollRight",
+          "value": "2048"
+        }
+      ]
+    },
+    "RacingWheelButtons": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "PreviousGear",
+          "value": "1"
+        },
+        {
+          "name": "NextGear",
+          "value": "2"
+        },
+        {
+          "name": "DPadUp",
+          "value": "4"
+        },
+        {
+          "name": "DPadDown",
+          "value": "8"
+        },
+        {
+          "name": "DPadLeft",
+          "value": "16"
+        },
+        {
+          "name": "DPadRight",
+          "value": "32"
+        },
+        {
+          "name": "Button1",
+          "value": "64"
+        },
+        {
+          "name": "Button2",
+          "value": "128"
+        },
+        {
+          "name": "Button3",
+          "value": "256"
+        },
+        {
+          "name": "Button4",
+          "value": "512"
+        },
+        {
+          "name": "Button5",
+          "value": "1024"
+        },
+        {
+          "name": "Button6",
+          "value": "2048"
+        },
+        {
+          "name": "Button7",
+          "value": "4096"
+        },
+        {
+          "name": "Button8",
+          "value": "8192"
+        },
+        {
+          "name": "Button9",
+          "value": "16384"
+        },
+        {
+          "name": "Button10",
+          "value": "32768"
+        },
+        {
+          "name": "Button11",
+          "value": "65536"
+        },
+        {
+          "name": "Button12",
+          "value": "131072"
+        },
+        {
+          "name": "Button13",
+          "value": "262144"
+        },
+        {
+          "name": "Button14",
+          "value": "524288"
+        },
+        {
+          "name": "Button15",
+          "value": "1048576"
+        },
+        {
+          "name": "Button16",
+          "value": "2097152"
+        }
+      ]
+    },
+    "RequiredUINavigationButtons": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Menu",
+          "value": "1"
+        },
+        {
+          "name": "View",
+          "value": "2"
+        },
+        {
+          "name": "Accept",
+          "value": "4"
+        },
+        {
+          "name": "Cancel",
+          "value": "8"
+        },
+        {
+          "name": "Up",
+          "value": "16"
+        },
+        {
+          "name": "Down",
+          "value": "32"
+        },
+        {
+          "name": "Left",
+          "value": "64"
+        },
+        {
+          "name": "Right",
+          "value": "128"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "ArcadeStickReading": {
+      "fields": [
+        {
+          "name": "Timestamp",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "Buttons",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ArcadeStickButtons",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Enum"
+          }
+        }
+      ]
+    },
+    "FlightStickReading": {
+      "fields": [
+        {
+          "name": "Timestamp",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "Buttons",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FlightStickButtons",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "HatSwitch",
+          "type": {
+            "kind": "ApiRef",
+            "name": "GameControllerSwitchPosition",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Roll",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "Pitch",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "Yaw",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "Throttle",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        }
+      ]
+    },
+    "GamepadReading": {
+      "fields": [
+        {
+          "name": "Timestamp",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "Buttons",
+          "type": {
+            "kind": "ApiRef",
+            "name": "GamepadButtons",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "LeftTrigger",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "RightTrigger",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "LeftThumbstickX",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "LeftThumbstickY",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "RightThumbstickX",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "RightThumbstickY",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        }
+      ]
+    },
+    "GamepadVibration": {
+      "fields": [
+        {
+          "name": "LeftMotor",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "RightMotor",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "LeftTrigger",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "RightTrigger",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        }
+      ]
+    },
+    "RacingWheelReading": {
+      "fields": [
+        {
+          "name": "Timestamp",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "Buttons",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RacingWheelButtons",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "PatternShifterGear",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "Wheel",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "Throttle",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "Brake",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "Clutch",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "Handbrake",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        }
+      ]
+    },
+    "UINavigationReading": {
+      "fields": [
+        {
+          "name": "Timestamp",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "RequiredButtons",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RequiredUINavigationButtons",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "OptionalButtons",
+          "type": {
+            "kind": "ApiRef",
+            "name": "OptionalUINavigationButtons",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Enum"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IArcadeStick": {
+      "guid": "b14a539d-befb-4c81-8051-15ecf3b13036",
+      "exclusive_to": "Windows.Gaming.Input.ArcadeStick",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IGameController",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "GetButtonLabel",
+          "params": [
+            {
+              "name": "button",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ArcadeStickButtons",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "GameControllerButtonLabel",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetCurrentReading",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ArcadeStickReading",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Struct"
+          }
+        }
+      ]
+    },
+    "IArcadeStickStatics": {
+      "guid": "5c37b8c8-37b1-4ad8-9458-200f1a30018e",
+      "exclusive_to": "Windows.Gaming.Input.ArcadeStick",
+      "methods": [
+        {
+          "name": "add_ArcadeStickAdded",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ArcadeStick",
+                    "namespace": "Windows.Gaming.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ArcadeStickAdded",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ArcadeStickRemoved",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ArcadeStick",
+                    "namespace": "Windows.Gaming.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ArcadeStickRemoved",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ArcadeSticks",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ArcadeStick",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ArcadeSticks",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ArcadeStick",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_ArcadeSticks"
+        }
+      ],
+      "events": [
+        {
+          "name": "ArcadeStickAdded",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ArcadeStick",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ArcadeStickAdded",
+          "remove_method": "remove_ArcadeStickAdded"
+        },
+        {
+          "name": "ArcadeStickRemoved",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ArcadeStick",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ArcadeStickRemoved",
+          "remove_method": "remove_ArcadeStickRemoved"
+        }
+      ]
+    },
+    "IArcadeStickStatics2": {
+      "guid": "52b5d744-bb86-445a-b59c-596f0e2a49df",
+      "exclusive_to": "Windows.Gaming.Input.ArcadeStick",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IArcadeStickStatics",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "FromGameController",
+          "params": [
+            {
+              "name": "gameController",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IGameController",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ArcadeStick",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IFlightStick": {
+      "guid": "b4a2c01c-b83b-4459-a1a9-97b03c33da7c",
+      "exclusive_to": "Windows.Gaming.Input.FlightStick",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IGameController",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_HatSwitchKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GameControllerSwitchKind",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetButtonLabel",
+          "params": [
+            {
+              "name": "button",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FlightStickButtons",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "GameControllerButtonLabel",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetCurrentReading",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FlightStickReading",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HatSwitchKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "GameControllerSwitchKind",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Enum"
+          },
+          "getter": "get_HatSwitchKind"
+        }
+      ]
+    },
+    "IFlightStickStatics": {
+      "guid": "5514924a-fecc-435e-83dc-5cec8a18a520",
+      "exclusive_to": "Windows.Gaming.Input.FlightStick",
+      "methods": [
+        {
+          "name": "add_FlightStickAdded",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "FlightStick",
+                    "namespace": "Windows.Gaming.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_FlightStickAdded",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_FlightStickRemoved",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "FlightStick",
+                    "namespace": "Windows.Gaming.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_FlightStickRemoved",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FlightSticks",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "FlightStick",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FromGameController",
+          "params": [
+            {
+              "name": "gameController",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IGameController",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "FlightStick",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FlightSticks",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "FlightStick",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_FlightSticks"
+        }
+      ],
+      "events": [
+        {
+          "name": "FlightStickAdded",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "FlightStick",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_FlightStickAdded",
+          "remove_method": "remove_FlightStickAdded"
+        },
+        {
+          "name": "FlightStickRemoved",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "FlightStick",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_FlightStickRemoved",
+          "remove_method": "remove_FlightStickRemoved"
+        }
+      ]
+    },
+    "IGameController": {
+      "guid": "1baf6522-5f64-42c5-8267-b9fe2215bfbd",
+      "methods": [
+        {
+          "name": "add_HeadsetConnected",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IGameController",
+                    "namespace": "Windows.Gaming.Input",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "Headset",
+                    "namespace": "Windows.Gaming.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_HeadsetConnected",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_HeadsetDisconnected",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IGameController",
+                    "namespace": "Windows.Gaming.Input",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "Headset",
+                    "namespace": "Windows.Gaming.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_HeadsetDisconnected",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_UserChanged",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IGameController",
+                    "namespace": "Windows.Gaming.Input",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserChangedEventArgs",
+                    "namespace": "Windows.System",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_UserChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Headset",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Headset",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IsWireless",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Headset",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Headset",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Class"
+          },
+          "getter": "get_Headset"
+        },
+        {
+          "name": "IsWireless",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsWireless"
+        },
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ],
+      "events": [
+        {
+          "name": "HeadsetConnected",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IGameController",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "Headset",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_HeadsetConnected",
+          "remove_method": "remove_HeadsetConnected"
+        },
+        {
+          "name": "HeadsetDisconnected",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IGameController",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "Headset",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_HeadsetDisconnected",
+          "remove_method": "remove_HeadsetDisconnected"
+        },
+        {
+          "name": "UserChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IGameController",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "UserChangedEventArgs",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_UserChanged",
+          "remove_method": "remove_UserChanged"
+        }
+      ]
+    },
+    "IGameControllerBatteryInfo": {
+      "guid": "dcecc681-3963-4da6-955d-553f3b6f6161",
+      "methods": [
+        {
+          "name": "TryGetBatteryReport",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BatteryReport",
+            "namespace": "Windows.Devices.Power",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IGamepad": {
+      "guid": "bc7bb43c-0a69-3903-9e9d-a50f86a45de5",
+      "exclusive_to": "Windows.Gaming.Input.Gamepad",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IGameController",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Vibration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GamepadVibration",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Vibration",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "GamepadVibration",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetCurrentReading",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GamepadReading",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Vibration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "GamepadVibration",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Vibration",
+          "setter": "put_Vibration"
+        }
+      ]
+    },
+    "IGamepad2": {
+      "guid": "3c1689bd-5915-4245-b0c0-c89fae0308ff",
+      "exclusive_to": "Windows.Gaming.Input.Gamepad",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IGamepad",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGameController",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "GetButtonLabel",
+          "params": [
+            {
+              "name": "button",
+              "type": {
+                "kind": "ApiRef",
+                "name": "GamepadButtons",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "GameControllerButtonLabel",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Enum"
+          }
+        }
+      ]
+    },
+    "IGamepadStatics": {
+      "guid": "8bbce529-d49c-39e9-9560-e47dde96b7c8",
+      "exclusive_to": "Windows.Gaming.Input.Gamepad",
+      "methods": [
+        {
+          "name": "add_GamepadAdded",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Gamepad",
+                    "namespace": "Windows.Gaming.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_GamepadAdded",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_GamepadRemoved",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Gamepad",
+                    "namespace": "Windows.Gaming.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_GamepadRemoved",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Gamepads",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Gamepad",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Gamepads",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Gamepad",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Gamepads"
+        }
+      ],
+      "events": [
+        {
+          "name": "GamepadAdded",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Gamepad",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_GamepadAdded",
+          "remove_method": "remove_GamepadAdded"
+        },
+        {
+          "name": "GamepadRemoved",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Gamepad",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_GamepadRemoved",
+          "remove_method": "remove_GamepadRemoved"
+        }
+      ]
+    },
+    "IGamepadStatics2": {
+      "guid": "42676dc5-0856-47c4-9213-b395504c3a3c",
+      "exclusive_to": "Windows.Gaming.Input.Gamepad",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IGamepadStatics",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "FromGameController",
+          "params": [
+            {
+              "name": "gameController",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IGameController",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Gamepad",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IHeadset": {
+      "guid": "3fd156ef-6925-3fa8-9181-029c5223ae3b",
+      "exclusive_to": "Windows.Gaming.Input.Headset",
+      "methods": [
+        {
+          "name": "get_CaptureDeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RenderDeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CaptureDeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CaptureDeviceId"
+        },
+        {
+          "name": "RenderDeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RenderDeviceId"
+        }
+      ]
+    },
+    "IRacingWheel": {
+      "guid": "f546656f-e106-4c82-a90f-554012904b85",
+      "exclusive_to": "Windows.Gaming.Input.RacingWheel",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IGameController",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_HasClutch",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_HasHandbrake",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_HasPatternShifter",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_MaxPatternShifterGear",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MaxWheelAngle",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_WheelMotor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ForceFeedbackMotor",
+            "namespace": "Windows.Gaming.Input.ForceFeedback",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetButtonLabel",
+          "params": [
+            {
+              "name": "button",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RacingWheelButtons",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "GameControllerButtonLabel",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetCurrentReading",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RacingWheelReading",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HasClutch",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasClutch"
+        },
+        {
+          "name": "HasHandbrake",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasHandbrake"
+        },
+        {
+          "name": "HasPatternShifter",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasPatternShifter"
+        },
+        {
+          "name": "MaxPatternShifterGear",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MaxPatternShifterGear"
+        },
+        {
+          "name": "MaxWheelAngle",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_MaxWheelAngle"
+        },
+        {
+          "name": "WheelMotor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ForceFeedbackMotor",
+            "namespace": "Windows.Gaming.Input.ForceFeedback",
+            "target_kind": "Class"
+          },
+          "getter": "get_WheelMotor"
+        }
+      ]
+    },
+    "IRacingWheelStatics": {
+      "guid": "3ac12cd5-581b-4936-9f94-69f1e6514c7d",
+      "exclusive_to": "Windows.Gaming.Input.RacingWheel",
+      "methods": [
+        {
+          "name": "add_RacingWheelAdded",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RacingWheel",
+                    "namespace": "Windows.Gaming.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_RacingWheelAdded",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_RacingWheelRemoved",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RacingWheel",
+                    "namespace": "Windows.Gaming.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_RacingWheelRemoved",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RacingWheels",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RacingWheel",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RacingWheels",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RacingWheel",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_RacingWheels"
+        }
+      ],
+      "events": [
+        {
+          "name": "RacingWheelAdded",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RacingWheel",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_RacingWheelAdded",
+          "remove_method": "remove_RacingWheelAdded"
+        },
+        {
+          "name": "RacingWheelRemoved",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RacingWheel",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_RacingWheelRemoved",
+          "remove_method": "remove_RacingWheelRemoved"
+        }
+      ]
+    },
+    "IRacingWheelStatics2": {
+      "guid": "e666bcaa-edfd-4323-a9f6-3c384048d1ed",
+      "exclusive_to": "Windows.Gaming.Input.RacingWheel",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IRacingWheelStatics",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "FromGameController",
+          "params": [
+            {
+              "name": "gameController",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IGameController",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RacingWheel",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IRawGameController": {
+      "guid": "7cad6d91-a7e1-4f71-9a78-33e9c5dfea62",
+      "exclusive_to": "Windows.Gaming.Input.RawGameController",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IGameController",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_AxisCount",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_ButtonCount",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_ForceFeedbackMotors",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ForceFeedbackMotor",
+                "namespace": "Windows.Gaming.Input.ForceFeedback",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_HardwareProductId",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_HardwareVendorId",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_SwitchCount",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "GetButtonLabel",
+          "params": [
+            {
+              "name": "buttonIndex",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "GameControllerButtonLabel",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetCurrentReading",
+          "params": [
+            {
+              "name": "buttonArray",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "Bool"
+                }
+              },
+              "out": true
+            },
+            {
+              "name": "switchArray",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "GameControllerSwitchPosition",
+                  "namespace": "Windows.Gaming.Input",
+                  "target_kind": "Enum"
+                }
+              },
+              "out": true
+            },
+            {
+              "name": "axisArray",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "F64"
+                }
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "GetSwitchKind",
+          "params": [
+            {
+              "name": "switchIndex",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "GameControllerSwitchKind",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AxisCount",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_AxisCount"
+        },
+        {
+          "name": "ButtonCount",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_ButtonCount"
+        },
+        {
+          "name": "ForceFeedbackMotors",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ForceFeedbackMotor",
+                "namespace": "Windows.Gaming.Input.ForceFeedback",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_ForceFeedbackMotors"
+        },
+        {
+          "name": "HardwareProductId",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_HardwareProductId"
+        },
+        {
+          "name": "HardwareVendorId",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_HardwareVendorId"
+        },
+        {
+          "name": "SwitchCount",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_SwitchCount"
+        }
+      ]
+    },
+    "IRawGameController2": {
+      "guid": "43c0c035-bb73-4756-a787-3ed6bea617bd",
+      "exclusive_to": "Windows.Gaming.Input.RawGameController",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IRawGameController",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGameController",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_SimpleHapticsControllers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SimpleHapticsController",
+                "namespace": "Windows.Devices.Haptics",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_NonRoamableId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "NonRoamableId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NonRoamableId"
+        },
+        {
+          "name": "SimpleHapticsControllers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SimpleHapticsController",
+                "namespace": "Windows.Devices.Haptics",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_SimpleHapticsControllers"
+        }
+      ]
+    },
+    "IRawGameControllerStatics": {
+      "guid": "eb8d0792-e95a-4b19-afc7-0a59f8bf759e",
+      "exclusive_to": "Windows.Gaming.Input.RawGameController",
+      "methods": [
+        {
+          "name": "add_RawGameControllerAdded",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RawGameController",
+                    "namespace": "Windows.Gaming.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_RawGameControllerAdded",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_RawGameControllerRemoved",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RawGameController",
+                    "namespace": "Windows.Gaming.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_RawGameControllerRemoved",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RawGameControllers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RawGameController",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FromGameController",
+          "params": [
+            {
+              "name": "gameController",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IGameController",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RawGameController",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RawGameControllers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RawGameController",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_RawGameControllers"
+        }
+      ],
+      "events": [
+        {
+          "name": "RawGameControllerAdded",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RawGameController",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_RawGameControllerAdded",
+          "remove_method": "remove_RawGameControllerAdded"
+        },
+        {
+          "name": "RawGameControllerRemoved",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RawGameController",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_RawGameControllerRemoved",
+          "remove_method": "remove_RawGameControllerRemoved"
+        }
+      ]
+    },
+    "IUINavigationController": {
+      "guid": "e5aeefdd-f50e-4a55-8cdc-d33229548175",
+      "exclusive_to": "Windows.Gaming.Input.UINavigationController",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IGameController",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "GetCurrentReading",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UINavigationReading",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "GetOptionalButtonLabel",
+          "params": [
+            {
+              "name": "button",
+              "type": {
+                "kind": "ApiRef",
+                "name": "OptionalUINavigationButtons",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "GameControllerButtonLabel",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetRequiredButtonLabel",
+          "params": [
+            {
+              "name": "button",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RequiredUINavigationButtons",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "GameControllerButtonLabel",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Enum"
+          }
+        }
+      ]
+    },
+    "IUINavigationControllerStatics": {
+      "guid": "2f14930a-f6f8-4a48-8d89-94786cca0c2e",
+      "exclusive_to": "Windows.Gaming.Input.UINavigationController",
+      "methods": [
+        {
+          "name": "add_UINavigationControllerAdded",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UINavigationController",
+                    "namespace": "Windows.Gaming.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_UINavigationControllerAdded",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_UINavigationControllerRemoved",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UINavigationController",
+                    "namespace": "Windows.Gaming.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_UINavigationControllerRemoved",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_UINavigationControllers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UINavigationController",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "UINavigationControllers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UINavigationController",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_UINavigationControllers"
+        }
+      ],
+      "events": [
+        {
+          "name": "UINavigationControllerAdded",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UINavigationController",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_UINavigationControllerAdded",
+          "remove_method": "remove_UINavigationControllerAdded"
+        },
+        {
+          "name": "UINavigationControllerRemoved",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UINavigationController",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_UINavigationControllerRemoved",
+          "remove_method": "remove_UINavigationControllerRemoved"
+        }
+      ]
+    },
+    "IUINavigationControllerStatics2": {
+      "guid": "e0cb28e3-b20b-4b0b-9ed4-f3d53cec0de4",
+      "exclusive_to": "Windows.Gaming.Input.UINavigationController",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IUINavigationControllerStatics",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "FromGameController",
+          "params": [
+            {
+              "name": "gameController",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IGameController",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UINavigationController",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "ArcadeStick": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IArcadeStick",
+        "namespace": "Windows.Gaming.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IArcadeStick",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGameController",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGameControllerBatteryInfo",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Gaming.Input.IArcadeStickStatics2",
+        "Windows.Gaming.Input.IArcadeStickStatics"
+      ]
+    },
+    "FlightStick": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFlightStick",
+        "namespace": "Windows.Gaming.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFlightStick",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGameController",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGameControllerBatteryInfo",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Gaming.Input.IFlightStickStatics"
+      ]
+    },
+    "Gamepad": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGamepad",
+        "namespace": "Windows.Gaming.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGamepad",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGameController",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGamepad2",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGameControllerBatteryInfo",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Gaming.Input.IGamepadStatics2",
+        "Windows.Gaming.Input.IGamepadStatics"
+      ]
+    },
+    "Headset": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHeadset",
+        "namespace": "Windows.Gaming.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHeadset",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGameControllerBatteryInfo",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RacingWheel": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRacingWheel",
+        "namespace": "Windows.Gaming.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRacingWheel",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGameController",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGameControllerBatteryInfo",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Gaming.Input.IRacingWheelStatics",
+        "Windows.Gaming.Input.IRacingWheelStatics2"
+      ]
+    },
+    "RawGameController": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRawGameController",
+        "namespace": "Windows.Gaming.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRawGameController",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGameController",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGameControllerBatteryInfo",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRawGameController2",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Gaming.Input.IRawGameControllerStatics"
+      ]
+    },
+    "UINavigationController": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUINavigationController",
+        "namespace": "Windows.Gaming.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUINavigationController",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGameController",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGameControllerBatteryInfo",
+          "namespace": "Windows.Gaming.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Gaming.Input.IUINavigationControllerStatics2",
+        "Windows.Gaming.Input.IUINavigationControllerStatics"
+      ]
+    }
+  }
+}

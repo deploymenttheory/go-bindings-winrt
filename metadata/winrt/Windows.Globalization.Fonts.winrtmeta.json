@@ -1,0 +1,380 @@
+{
+  "namespace": "Windows.Globalization.Fonts",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "ILanguageFont": {
+      "guid": "b12e5c3a-b76d-459b-beeb-901151cd77d1",
+      "exclusive_to": "Windows.Globalization.Fonts.LanguageFont",
+      "methods": [
+        {
+          "name": "get_FontFamily",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_FontWeight",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FontWeight",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_FontStretch",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FontStretch",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_FontStyle",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FontStyle",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ScaleFactor",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FontFamily",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_FontFamily"
+        },
+        {
+          "name": "FontStretch",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FontStretch",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_FontStretch"
+        },
+        {
+          "name": "FontStyle",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FontStyle",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_FontStyle"
+        },
+        {
+          "name": "FontWeight",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FontWeight",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Struct"
+          },
+          "getter": "get_FontWeight"
+        },
+        {
+          "name": "ScaleFactor",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_ScaleFactor"
+        }
+      ]
+    },
+    "ILanguageFontGroup": {
+      "guid": "f33a7fc3-3a5c-4aea-b9ff-b39fb242f7f6",
+      "exclusive_to": "Windows.Globalization.Fonts.LanguageFontGroup",
+      "methods": [
+        {
+          "name": "get_UITextFont",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LanguageFont",
+            "namespace": "Windows.Globalization.Fonts",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_UIHeadingFont",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LanguageFont",
+            "namespace": "Windows.Globalization.Fonts",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_UITitleFont",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LanguageFont",
+            "namespace": "Windows.Globalization.Fonts",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_UICaptionFont",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LanguageFont",
+            "namespace": "Windows.Globalization.Fonts",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_UINotificationHeadingFont",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LanguageFont",
+            "namespace": "Windows.Globalization.Fonts",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_TraditionalDocumentFont",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LanguageFont",
+            "namespace": "Windows.Globalization.Fonts",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ModernDocumentFont",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LanguageFont",
+            "namespace": "Windows.Globalization.Fonts",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DocumentHeadingFont",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LanguageFont",
+            "namespace": "Windows.Globalization.Fonts",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_FixedWidthTextFont",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LanguageFont",
+            "namespace": "Windows.Globalization.Fonts",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DocumentAlternate1Font",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LanguageFont",
+            "namespace": "Windows.Globalization.Fonts",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DocumentAlternate2Font",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LanguageFont",
+            "namespace": "Windows.Globalization.Fonts",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DocumentAlternate1Font",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LanguageFont",
+            "namespace": "Windows.Globalization.Fonts",
+            "target_kind": "Class"
+          },
+          "getter": "get_DocumentAlternate1Font"
+        },
+        {
+          "name": "DocumentAlternate2Font",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LanguageFont",
+            "namespace": "Windows.Globalization.Fonts",
+            "target_kind": "Class"
+          },
+          "getter": "get_DocumentAlternate2Font"
+        },
+        {
+          "name": "DocumentHeadingFont",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LanguageFont",
+            "namespace": "Windows.Globalization.Fonts",
+            "target_kind": "Class"
+          },
+          "getter": "get_DocumentHeadingFont"
+        },
+        {
+          "name": "FixedWidthTextFont",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LanguageFont",
+            "namespace": "Windows.Globalization.Fonts",
+            "target_kind": "Class"
+          },
+          "getter": "get_FixedWidthTextFont"
+        },
+        {
+          "name": "ModernDocumentFont",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LanguageFont",
+            "namespace": "Windows.Globalization.Fonts",
+            "target_kind": "Class"
+          },
+          "getter": "get_ModernDocumentFont"
+        },
+        {
+          "name": "TraditionalDocumentFont",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LanguageFont",
+            "namespace": "Windows.Globalization.Fonts",
+            "target_kind": "Class"
+          },
+          "getter": "get_TraditionalDocumentFont"
+        },
+        {
+          "name": "UICaptionFont",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LanguageFont",
+            "namespace": "Windows.Globalization.Fonts",
+            "target_kind": "Class"
+          },
+          "getter": "get_UICaptionFont"
+        },
+        {
+          "name": "UIHeadingFont",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LanguageFont",
+            "namespace": "Windows.Globalization.Fonts",
+            "target_kind": "Class"
+          },
+          "getter": "get_UIHeadingFont"
+        },
+        {
+          "name": "UINotificationHeadingFont",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LanguageFont",
+            "namespace": "Windows.Globalization.Fonts",
+            "target_kind": "Class"
+          },
+          "getter": "get_UINotificationHeadingFont"
+        },
+        {
+          "name": "UITextFont",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LanguageFont",
+            "namespace": "Windows.Globalization.Fonts",
+            "target_kind": "Class"
+          },
+          "getter": "get_UITextFont"
+        },
+        {
+          "name": "UITitleFont",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LanguageFont",
+            "namespace": "Windows.Globalization.Fonts",
+            "target_kind": "Class"
+          },
+          "getter": "get_UITitleFont"
+        }
+      ]
+    },
+    "ILanguageFontGroupFactory": {
+      "guid": "fcaeac67-4e77-49c7-b856-dde934fc735b",
+      "exclusive_to": "Windows.Globalization.Fonts.LanguageFontGroup",
+      "methods": [
+        {
+          "name": "CreateLanguageFontGroup",
+          "params": [
+            {
+              "name": "languageTag",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "LanguageFontGroup",
+            "namespace": "Windows.Globalization.Fonts",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "LanguageFont": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILanguageFont",
+        "namespace": "Windows.Globalization.Fonts",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILanguageFont",
+          "namespace": "Windows.Globalization.Fonts",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "LanguageFontGroup": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILanguageFontGroup",
+        "namespace": "Windows.Globalization.Fonts",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILanguageFontGroup",
+          "namespace": "Windows.Globalization.Fonts",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Globalization.Fonts.ILanguageFontGroupFactory"
+      ]
+    }
+  }
+}

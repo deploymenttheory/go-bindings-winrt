@@ -1,0 +1,3031 @@
+{
+  "namespace": "Windows.Devices.Geolocation",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "AltitudeReferenceSystem": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unspecified",
+          "value": "0"
+        },
+        {
+          "name": "Terrain",
+          "value": "1"
+        },
+        {
+          "name": "Ellipsoid",
+          "value": "2"
+        },
+        {
+          "name": "Geoid",
+          "value": "3"
+        },
+        {
+          "name": "Surface",
+          "value": "4"
+        }
+      ]
+    },
+    "GeolocationAccessStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unspecified",
+          "value": "0"
+        },
+        {
+          "name": "Allowed",
+          "value": "1"
+        },
+        {
+          "name": "Denied",
+          "value": "2"
+        }
+      ]
+    },
+    "GeoshapeType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Geopoint",
+          "value": "0"
+        },
+        {
+          "name": "Geocircle",
+          "value": "1"
+        },
+        {
+          "name": "Geopath",
+          "value": "2"
+        },
+        {
+          "name": "GeoboundingBox",
+          "value": "3"
+        }
+      ]
+    },
+    "PositionAccuracy": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "High",
+          "value": "1"
+        }
+      ]
+    },
+    "PositionSource": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Cellular",
+          "value": "0"
+        },
+        {
+          "name": "Satellite",
+          "value": "1"
+        },
+        {
+          "name": "WiFi",
+          "value": "2"
+        },
+        {
+          "name": "IPAddress",
+          "value": "3"
+        },
+        {
+          "name": "Unknown",
+          "value": "4"
+        },
+        {
+          "name": "Default",
+          "value": "5"
+        },
+        {
+          "name": "Obfuscated",
+          "value": "6"
+        }
+      ]
+    },
+    "PositionStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Ready",
+          "value": "0"
+        },
+        {
+          "name": "Initializing",
+          "value": "1"
+        },
+        {
+          "name": "NoData",
+          "value": "2"
+        },
+        {
+          "name": "Disabled",
+          "value": "3"
+        },
+        {
+          "name": "NotInitialized",
+          "value": "4"
+        },
+        {
+          "name": "NotAvailable",
+          "value": "5"
+        }
+      ]
+    },
+    "VisitMonitoringScope": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Venue",
+          "value": "0"
+        },
+        {
+          "name": "City",
+          "value": "1"
+        }
+      ]
+    },
+    "VisitStateChange": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "TrackingLost",
+          "value": "0"
+        },
+        {
+          "name": "Arrived",
+          "value": "1"
+        },
+        {
+          "name": "Departed",
+          "value": "2"
+        },
+        {
+          "name": "OtherMovement",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "BasicGeoposition": {
+      "fields": [
+        {
+          "name": "Latitude",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "Longitude",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "Altitude",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ICivicAddress": {
+      "guid": "a8567a1a-64f4-4d48-bcea-f6b008eca34c",
+      "exclusive_to": "Windows.Devices.Geolocation.CivicAddress",
+      "methods": [
+        {
+          "name": "get_Country",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_State",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_City",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_PostalCode",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Timestamp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "City",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_City"
+        },
+        {
+          "name": "Country",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Country"
+        },
+        {
+          "name": "PostalCode",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PostalCode"
+        },
+        {
+          "name": "State",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_State"
+        },
+        {
+          "name": "Timestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Timestamp"
+        }
+      ]
+    },
+    "IGeoboundingBox": {
+      "guid": "0896c80b-274f-43da-9a06-cbfcdaeb4ec2",
+      "exclusive_to": "Windows.Devices.Geolocation.GeoboundingBox",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeoshape",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_NorthwestCorner",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BasicGeoposition",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_SoutheastCorner",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BasicGeoposition",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Center",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BasicGeoposition",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_MinAltitude",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_MaxAltitude",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Center",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BasicGeoposition",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Center"
+        },
+        {
+          "name": "MaxAltitude",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_MaxAltitude"
+        },
+        {
+          "name": "MinAltitude",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_MinAltitude"
+        },
+        {
+          "name": "NorthwestCorner",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BasicGeoposition",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_NorthwestCorner"
+        },
+        {
+          "name": "SoutheastCorner",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BasicGeoposition",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SoutheastCorner"
+        }
+      ]
+    },
+    "IGeoboundingBoxFactory": {
+      "guid": "4dfba589-0411-4abc-b3b5-5bbccb57d98c",
+      "exclusive_to": "Windows.Devices.Geolocation.GeoboundingBox",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "northwestCorner",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BasicGeoposition",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "southeastCorner",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BasicGeoposition",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "GeoboundingBox",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithAltitudeReference",
+          "params": [
+            {
+              "name": "northwestCorner",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BasicGeoposition",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "southeastCorner",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BasicGeoposition",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "altitudeReferenceSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AltitudeReferenceSystem",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "GeoboundingBox",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithAltitudeReferenceAndSpatialReference",
+          "params": [
+            {
+              "name": "northwestCorner",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BasicGeoposition",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "southeastCorner",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BasicGeoposition",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "altitudeReferenceSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AltitudeReferenceSystem",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "spatialReferenceId",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "GeoboundingBox",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IGeoboundingBoxStatics": {
+      "guid": "67b80708-e61a-4cd0-841b-93233792b5ca",
+      "exclusive_to": "Windows.Devices.Geolocation.GeoboundingBox",
+      "methods": [
+        {
+          "name": "TryCompute",
+          "overload": "TryCompute",
+          "params": [
+            {
+              "name": "positions",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BasicGeoposition",
+                    "namespace": "Windows.Devices.Geolocation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "GeoboundingBox",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryCompute",
+          "overload": "TryComputeWithAltitudeReference",
+          "params": [
+            {
+              "name": "positions",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BasicGeoposition",
+                    "namespace": "Windows.Devices.Geolocation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "altitudeRefSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AltitudeReferenceSystem",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "GeoboundingBox",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryCompute",
+          "overload": "TryComputeWithAltitudeReferenceAndSpatialReference",
+          "params": [
+            {
+              "name": "positions",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BasicGeoposition",
+                    "namespace": "Windows.Devices.Geolocation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "altitudeRefSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AltitudeReferenceSystem",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "spatialReferenceId",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "GeoboundingBox",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IGeocircle": {
+      "guid": "39e45843-a7f9-4e63-92a7-ba0c28d124b1",
+      "exclusive_to": "Windows.Devices.Geolocation.Geocircle",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeoshape",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Center",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BasicGeoposition",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Radius",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Center",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BasicGeoposition",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Center"
+        },
+        {
+          "name": "Radius",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Radius"
+        }
+      ]
+    },
+    "IGeocircleFactory": {
+      "guid": "afd6531f-72b1-4f7d-87cc-4ed4c9849c05",
+      "exclusive_to": "Windows.Devices.Geolocation.Geocircle",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "position",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BasicGeoposition",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "radius",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geocircle",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithAltitudeReferenceSystem",
+          "params": [
+            {
+              "name": "position",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BasicGeoposition",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "radius",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "altitudeReferenceSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AltitudeReferenceSystem",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geocircle",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithAltitudeReferenceSystemAndSpatialReferenceId",
+          "params": [
+            {
+              "name": "position",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BasicGeoposition",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "radius",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "altitudeReferenceSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AltitudeReferenceSystem",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "spatialReferenceId",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geocircle",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IGeocoordinate": {
+      "guid": "ee21a3aa-976a-4c70-803d-083ea55bcbc4",
+      "exclusive_to": "Windows.Devices.Geolocation.Geocoordinate",
+      "methods": [
+        {
+          "name": "get_Latitude",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_Longitude",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_Altitude",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Accuracy",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_AltitudeAccuracy",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Heading",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Speed",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Timestamp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Accuracy",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Accuracy"
+        },
+        {
+          "name": "Altitude",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          },
+          "getter": "get_Altitude"
+        },
+        {
+          "name": "AltitudeAccuracy",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          },
+          "getter": "get_AltitudeAccuracy"
+        },
+        {
+          "name": "Heading",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          },
+          "getter": "get_Heading"
+        },
+        {
+          "name": "Latitude",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Latitude"
+        },
+        {
+          "name": "Longitude",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Longitude"
+        },
+        {
+          "name": "Speed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          },
+          "getter": "get_Speed"
+        },
+        {
+          "name": "Timestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Timestamp"
+        }
+      ]
+    },
+    "IGeocoordinateSatelliteData": {
+      "guid": "c32a74d9-2608-474c-912c-06dd490f4af7",
+      "exclusive_to": "Windows.Devices.Geolocation.GeocoordinateSatelliteData",
+      "methods": [
+        {
+          "name": "get_PositionDilutionOfPrecision",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_HorizontalDilutionOfPrecision",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_VerticalDilutionOfPrecision",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HorizontalDilutionOfPrecision",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          },
+          "getter": "get_HorizontalDilutionOfPrecision"
+        },
+        {
+          "name": "PositionDilutionOfPrecision",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          },
+          "getter": "get_PositionDilutionOfPrecision"
+        },
+        {
+          "name": "VerticalDilutionOfPrecision",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          },
+          "getter": "get_VerticalDilutionOfPrecision"
+        }
+      ]
+    },
+    "IGeocoordinateSatelliteData2": {
+      "guid": "761c8cfd-a19d-5a51-80f5-71676115483e",
+      "exclusive_to": "Windows.Devices.Geolocation.GeocoordinateSatelliteData",
+      "methods": [
+        {
+          "name": "get_GeometricDilutionOfPrecision",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_TimeDilutionOfPrecision",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "GeometricDilutionOfPrecision",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          },
+          "getter": "get_GeometricDilutionOfPrecision"
+        },
+        {
+          "name": "TimeDilutionOfPrecision",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          },
+          "getter": "get_TimeDilutionOfPrecision"
+        }
+      ]
+    },
+    "IGeocoordinateWithPoint": {
+      "guid": "feea0525-d22c-4d46-b527-0b96066fc7db",
+      "exclusive_to": "Windows.Devices.Geolocation.Geocoordinate",
+      "methods": [
+        {
+          "name": "get_Point",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geopoint",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Point",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Geopoint",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Point"
+        }
+      ]
+    },
+    "IGeocoordinateWithPositionData": {
+      "guid": "95e634be-dbd6-40ac-b8f2-a65c0340d9a6",
+      "exclusive_to": "Windows.Devices.Geolocation.Geocoordinate",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeocoordinate",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_PositionSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PositionSource",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_SatelliteData",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GeocoordinateSatelliteData",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PositionSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PositionSource",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PositionSource"
+        },
+        {
+          "name": "SatelliteData",
+          "type": {
+            "kind": "ApiRef",
+            "name": "GeocoordinateSatelliteData",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          },
+          "getter": "get_SatelliteData"
+        }
+      ]
+    },
+    "IGeocoordinateWithPositionSourceTimestamp": {
+      "guid": "8543fc02-c9f1-4610-afe0-8bc3a6a87036",
+      "exclusive_to": "Windows.Devices.Geolocation.Geocoordinate",
+      "methods": [
+        {
+          "name": "get_PositionSourceTimestamp",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PositionSourceTimestamp",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_PositionSourceTimestamp"
+        }
+      ]
+    },
+    "IGeocoordinateWithRemoteSource": {
+      "guid": "397cebd7-ee38-5f3b-8900-c4a7bc9cf953",
+      "exclusive_to": "Windows.Devices.Geolocation.Geocoordinate",
+      "methods": [
+        {
+          "name": "get_IsRemoteSource",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsRemoteSource",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsRemoteSource"
+        }
+      ]
+    },
+    "IGeolocator": {
+      "guid": "a9c3bf62-4524-4989-8aa9-de019d2e551f",
+      "exclusive_to": "Windows.Devices.Geolocation.Geolocator",
+      "methods": [
+        {
+          "name": "get_DesiredAccuracy",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PositionAccuracy",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_DesiredAccuracy",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PositionAccuracy",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MovementThreshold",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_MovementThreshold",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ReportInterval",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_ReportInterval",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LocationStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PositionStatus",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetGeopositionAsync",
+          "overload": "GetGeopositionAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Geoposition",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetGeopositionAsync",
+          "overload": "GetGeopositionAsyncWithAgeAndTimeout",
+          "params": [
+            {
+              "name": "maximumAge",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "timeout",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Geoposition",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_PositionChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Geolocator",
+                    "namespace": "Windows.Devices.Geolocation",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PositionChangedEventArgs",
+                    "namespace": "Windows.Devices.Geolocation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PositionChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_StatusChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Geolocator",
+                    "namespace": "Windows.Devices.Geolocation",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "StatusChangedEventArgs",
+                    "namespace": "Windows.Devices.Geolocation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_StatusChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DesiredAccuracy",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PositionAccuracy",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DesiredAccuracy",
+          "setter": "put_DesiredAccuracy"
+        },
+        {
+          "name": "LocationStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PositionStatus",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Enum"
+          },
+          "getter": "get_LocationStatus"
+        },
+        {
+          "name": "MovementThreshold",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_MovementThreshold",
+          "setter": "put_MovementThreshold"
+        },
+        {
+          "name": "ReportInterval",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ReportInterval",
+          "setter": "put_ReportInterval"
+        }
+      ],
+      "events": [
+        {
+          "name": "PositionChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Geolocator",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PositionChangedEventArgs",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PositionChanged",
+          "remove_method": "remove_PositionChanged"
+        },
+        {
+          "name": "StatusChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Geolocator",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "StatusChangedEventArgs",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_StatusChanged",
+          "remove_method": "remove_StatusChanged"
+        }
+      ]
+    },
+    "IGeolocator2": {
+      "guid": "d1b42e6d-8891-43b4-ad36-27c6fe9a97b1",
+      "exclusive_to": "Windows.Devices.Geolocation.Geolocator",
+      "methods": [
+        {
+          "name": "AllowFallbackToConsentlessPositions"
+        }
+      ]
+    },
+    "IGeolocatorStatics": {
+      "guid": "9a8e7571-2df5-4591-9f87-eb5fd894e9b7",
+      "exclusive_to": "Windows.Devices.Geolocation.Geolocator",
+      "methods": [
+        {
+          "name": "RequestAccessAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "GeolocationAccessStatus",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetGeopositionHistoryAsync",
+          "overload": "GetGeopositionHistoryAsync",
+          "params": [
+            {
+              "name": "startTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Geoposition",
+                    "namespace": "Windows.Devices.Geolocation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetGeopositionHistoryAsync",
+          "overload": "GetGeopositionHistoryWithDurationAsync",
+          "params": [
+            {
+              "name": "startTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "duration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Geoposition",
+                    "namespace": "Windows.Devices.Geolocation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IGeolocatorStatics2": {
+      "guid": "993011a2-fa1c-4631-a71d-0dbeb1250d9c",
+      "exclusive_to": "Windows.Devices.Geolocation.Geolocator",
+      "methods": [
+        {
+          "name": "get_IsDefaultGeopositionRecommended",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_DefaultGeoposition",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BasicGeoposition",
+                    "namespace": "Windows.Devices.Geolocation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DefaultGeoposition",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BasicGeoposition",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DefaultGeoposition",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BasicGeoposition",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_DefaultGeoposition",
+          "setter": "put_DefaultGeoposition"
+        },
+        {
+          "name": "IsDefaultGeopositionRecommended",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsDefaultGeopositionRecommended"
+        }
+      ]
+    },
+    "IGeolocatorWithScalarAccuracy": {
+      "guid": "96f5d3c1-b80f-460a-994d-a96c47a51aa4",
+      "exclusive_to": "Windows.Devices.Geolocation.Geolocator",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeolocator",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_DesiredAccuracyInMeters",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_DesiredAccuracyInMeters",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "U4"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DesiredAccuracyInMeters",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_DesiredAccuracyInMeters",
+          "setter": "put_DesiredAccuracyInMeters"
+        }
+      ]
+    },
+    "IGeopath": {
+      "guid": "e53fd7b9-2da4-4714-a652-de8593289898",
+      "exclusive_to": "Windows.Devices.Geolocation.Geopath",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeoshape",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Positions",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BasicGeoposition",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Positions",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BasicGeoposition",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_Positions"
+        }
+      ]
+    },
+    "IGeopathFactory": {
+      "guid": "27bea9c8-c7e7-4359-9b9b-fca3e05ef593",
+      "exclusive_to": "Windows.Devices.Geolocation.Geopath",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "positions",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BasicGeoposition",
+                    "namespace": "Windows.Devices.Geolocation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geopath",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithAltitudeReference",
+          "params": [
+            {
+              "name": "positions",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BasicGeoposition",
+                    "namespace": "Windows.Devices.Geolocation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "altitudeReferenceSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AltitudeReferenceSystem",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geopath",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithAltitudeReferenceAndSpatialReference",
+          "params": [
+            {
+              "name": "positions",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BasicGeoposition",
+                    "namespace": "Windows.Devices.Geolocation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "altitudeReferenceSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AltitudeReferenceSystem",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "spatialReferenceId",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geopath",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IGeopoint": {
+      "guid": "6bfa00eb-e56e-49bb-9caf-cbaa78a8bcef",
+      "exclusive_to": "Windows.Devices.Geolocation.Geopoint",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeoshape",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BasicGeoposition",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Position",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BasicGeoposition",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Position"
+        }
+      ]
+    },
+    "IGeopointFactory": {
+      "guid": "db6b8d33-76bd-4e30-8af7-a844dc37b7a0",
+      "exclusive_to": "Windows.Devices.Geolocation.Geopoint",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "position",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BasicGeoposition",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geopoint",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithAltitudeReferenceSystem",
+          "params": [
+            {
+              "name": "position",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BasicGeoposition",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "altitudeReferenceSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AltitudeReferenceSystem",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geopoint",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithAltitudeReferenceSystemAndSpatialReferenceId",
+          "params": [
+            {
+              "name": "position",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BasicGeoposition",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "altitudeReferenceSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AltitudeReferenceSystem",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "spatialReferenceId",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geopoint",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IGeoposition": {
+      "guid": "c18d0454-7d41-4ff7-a957-9dffb4ef7f5b",
+      "exclusive_to": "Windows.Devices.Geolocation.Geoposition",
+      "methods": [
+        {
+          "name": "get_Coordinate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geocoordinate",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CivicAddress",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CivicAddress",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CivicAddress",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CivicAddress",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          },
+          "getter": "get_CivicAddress"
+        },
+        {
+          "name": "Coordinate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Geocoordinate",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Coordinate"
+        }
+      ]
+    },
+    "IGeoposition2": {
+      "guid": "7f62f697-8671-4b0d-86f8-474a8496187c",
+      "exclusive_to": "Windows.Devices.Geolocation.Geoposition",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeoposition",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_VenueData",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VenueData",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "VenueData",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VenueData",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          },
+          "getter": "get_VenueData"
+        }
+      ]
+    },
+    "IGeoshape": {
+      "guid": "c99ca2af-c729-43c1-8fab-d6dec914df7e",
+      "methods": [
+        {
+          "name": "get_GeoshapeType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GeoshapeType",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_SpatialReferenceId",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_AltitudeReferenceSystem",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AltitudeReferenceSystem",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AltitudeReferenceSystem",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AltitudeReferenceSystem",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AltitudeReferenceSystem"
+        },
+        {
+          "name": "GeoshapeType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "GeoshapeType",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Enum"
+          },
+          "getter": "get_GeoshapeType"
+        },
+        {
+          "name": "SpatialReferenceId",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SpatialReferenceId"
+        }
+      ]
+    },
+    "IGeovisit": {
+      "guid": "b1877a76-9ef6-41ab-a0dd-793ece76e2de",
+      "exclusive_to": "Windows.Devices.Geolocation.Geovisit",
+      "methods": [
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geoposition",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_StateChange",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VisitStateChange",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Timestamp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Position",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Geoposition",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Position"
+        },
+        {
+          "name": "StateChange",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VisitStateChange",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Enum"
+          },
+          "getter": "get_StateChange"
+        },
+        {
+          "name": "Timestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Timestamp"
+        }
+      ]
+    },
+    "IGeovisitMonitor": {
+      "guid": "80118aaf-5944-4591-83c1-396647f54f2c",
+      "exclusive_to": "Windows.Devices.Geolocation.GeovisitMonitor",
+      "methods": [
+        {
+          "name": "get_MonitoringScope",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VisitMonitoringScope",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Start",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VisitMonitoringScope",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Stop"
+        },
+        {
+          "name": "add_VisitStateChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "GeovisitMonitor",
+                    "namespace": "Windows.Devices.Geolocation",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "GeovisitStateChangedEventArgs",
+                    "namespace": "Windows.Devices.Geolocation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_VisitStateChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "MonitoringScope",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VisitMonitoringScope",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MonitoringScope"
+        }
+      ],
+      "events": [
+        {
+          "name": "VisitStateChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "GeovisitMonitor",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "GeovisitStateChangedEventArgs",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_VisitStateChanged",
+          "remove_method": "remove_VisitStateChanged"
+        }
+      ]
+    },
+    "IGeovisitMonitorStatics": {
+      "guid": "bcf976a7-bbf2-4cdd-95cf-554c82edfb87",
+      "exclusive_to": "Windows.Devices.Geolocation.GeovisitMonitor",
+      "methods": [
+        {
+          "name": "GetLastReportAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Geovisit",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IGeovisitStateChangedEventArgs": {
+      "guid": "ceb4d1ff-8b53-4968-beed-4cecd029ce15",
+      "exclusive_to": "Windows.Devices.Geolocation.GeovisitStateChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_Visit",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geovisit",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Visit",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Geovisit",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Visit"
+        }
+      ]
+    },
+    "IGeovisitTriggerDetails": {
+      "guid": "ea770d9e-d1c9-454b-99b7-b2f8cdd2482f",
+      "exclusive_to": "Windows.Devices.Geolocation.GeovisitTriggerDetails",
+      "methods": [
+        {
+          "name": "ReadReports",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Geovisit",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPositionChangedEventArgs": {
+      "guid": "37859ce5-9d1e-46c5-bf3b-6ad8cac1a093",
+      "exclusive_to": "Windows.Devices.Geolocation.PositionChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geoposition",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Position",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Geoposition",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Position"
+        }
+      ]
+    },
+    "IStatusChangedEventArgs": {
+      "guid": "3453d2da-8c93-4111-a205-9aecfc9be5c0",
+      "exclusive_to": "Windows.Devices.Geolocation.StatusChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PositionStatus",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PositionStatus",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IVenueData": {
+      "guid": "66f39187-60e3-4b2f-b527-4f53f1c3c677",
+      "exclusive_to": "Windows.Devices.Geolocation.VenueData",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Level",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "Level",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Level"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "CivicAddress": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICivicAddress",
+        "namespace": "Windows.Devices.Geolocation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICivicAddress",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "GeoboundingBox": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGeoboundingBox",
+        "namespace": "Windows.Devices.Geolocation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeoboundingBox",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGeoshape",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Geolocation.IGeoboundingBoxFactory"
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Geolocation.IGeoboundingBoxStatics"
+      ]
+    },
+    "Geocircle": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGeocircle",
+        "namespace": "Windows.Devices.Geolocation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeocircle",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGeoshape",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Geolocation.IGeocircleFactory"
+      ]
+    },
+    "Geocoordinate": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGeocoordinate",
+        "namespace": "Windows.Devices.Geolocation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeocoordinate",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGeocoordinateWithPositionData",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGeocoordinateWithPoint",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGeocoordinateWithPositionSourceTimestamp",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGeocoordinateWithRemoteSource",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "GeocoordinateSatelliteData": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGeocoordinateSatelliteData",
+        "namespace": "Windows.Devices.Geolocation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeocoordinateSatelliteData",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGeocoordinateSatelliteData2",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "Geolocator": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGeolocator",
+        "namespace": "Windows.Devices.Geolocation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeolocator",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGeolocatorWithScalarAccuracy",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGeolocator2",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Devices.Geolocation.IGeolocatorStatics",
+        "Windows.Devices.Geolocation.IGeolocatorStatics2"
+      ]
+    },
+    "Geopath": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGeopath",
+        "namespace": "Windows.Devices.Geolocation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeopath",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGeoshape",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Geolocation.IGeopathFactory"
+      ]
+    },
+    "Geopoint": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGeopoint",
+        "namespace": "Windows.Devices.Geolocation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeopoint",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGeoshape",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Geolocation.IGeopointFactory"
+      ]
+    },
+    "Geoposition": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGeoposition",
+        "namespace": "Windows.Devices.Geolocation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeoposition",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGeoposition2",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "Geovisit": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGeovisit",
+        "namespace": "Windows.Devices.Geolocation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeovisit",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "GeovisitMonitor": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGeovisitMonitor",
+        "namespace": "Windows.Devices.Geolocation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeovisitMonitor",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Devices.Geolocation.IGeovisitMonitorStatics"
+      ]
+    },
+    "GeovisitStateChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGeovisitStateChangedEventArgs",
+        "namespace": "Windows.Devices.Geolocation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeovisitStateChangedEventArgs",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "GeovisitTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGeovisitTriggerDetails",
+        "namespace": "Windows.Devices.Geolocation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeovisitTriggerDetails",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PositionChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPositionChangedEventArgs",
+        "namespace": "Windows.Devices.Geolocation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPositionChangedEventArgs",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "StatusChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStatusChangedEventArgs",
+        "namespace": "Windows.Devices.Geolocation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStatusChangedEventArgs",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VenueData": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVenueData",
+        "namespace": "Windows.Devices.Geolocation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVenueData",
+          "namespace": "Windows.Devices.Geolocation",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

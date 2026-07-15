@@ -1,0 +1,335 @@
+{
+  "namespace": "Windows.Media.Capture.Core",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IVariablePhotoCapturedEventArgs": {
+      "guid": "d1eb4c5c-1b53-4e4a-8b5c-db7887ac949b",
+      "exclusive_to": "Windows.Media.Capture.Core.VariablePhotoCapturedEventArgs",
+      "methods": [
+        {
+          "name": "get_Frame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CapturedFrame",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CaptureTimeOffset",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_UsedFrameControllerIndex",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_CapturedFrameControlValues",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CapturedFrameControlValues",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CaptureTimeOffset",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_CaptureTimeOffset"
+        },
+        {
+          "name": "CapturedFrameControlValues",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CapturedFrameControlValues",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          },
+          "getter": "get_CapturedFrameControlValues"
+        },
+        {
+          "name": "Frame",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CapturedFrame",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          },
+          "getter": "get_Frame"
+        },
+        {
+          "name": "UsedFrameControllerIndex",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_UsedFrameControllerIndex"
+        }
+      ]
+    },
+    "IVariablePhotoSequenceCapture": {
+      "guid": "d0112d1d-031e-4041-a6d6-bd742476a8ee",
+      "exclusive_to": "Windows.Media.Capture.Core.VariablePhotoSequenceCapture",
+      "methods": [
+        {
+          "name": "StartAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "StopAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "FinishAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "add_PhotoCaptured",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "VariablePhotoSequenceCapture",
+                    "namespace": "Windows.Media.Capture.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "VariablePhotoCapturedEventArgs",
+                    "namespace": "Windows.Media.Capture.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PhotoCaptured",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Stopped",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "VariablePhotoSequenceCapture",
+                    "namespace": "Windows.Media.Capture.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Stopped",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "PhotoCaptured",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VariablePhotoSequenceCapture",
+                "namespace": "Windows.Media.Capture.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "VariablePhotoCapturedEventArgs",
+                "namespace": "Windows.Media.Capture.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PhotoCaptured",
+          "remove_method": "remove_PhotoCaptured"
+        },
+        {
+          "name": "Stopped",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VariablePhotoSequenceCapture",
+                "namespace": "Windows.Media.Capture.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_Stopped",
+          "remove_method": "remove_Stopped"
+        }
+      ]
+    },
+    "IVariablePhotoSequenceCapture2": {
+      "guid": "fe2c62bc-50b0-43e3-917c-e3b92798942f",
+      "exclusive_to": "Windows.Media.Capture.Core.VariablePhotoSequenceCapture",
+      "methods": [
+        {
+          "name": "UpdateSettingsAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "VariablePhotoCapturedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVariablePhotoCapturedEventArgs",
+        "namespace": "Windows.Media.Capture.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVariablePhotoCapturedEventArgs",
+          "namespace": "Windows.Media.Capture.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VariablePhotoSequenceCapture": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVariablePhotoSequenceCapture",
+        "namespace": "Windows.Media.Capture.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVariablePhotoSequenceCapture",
+          "namespace": "Windows.Media.Capture.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVariablePhotoSequenceCapture2",
+          "namespace": "Windows.Media.Capture.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

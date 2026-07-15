@@ -1,0 +1,356 @@
+{
+  "namespace": "Windows.ApplicationModel.UserDataAccounts.Provider",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "UserDataAccountProviderOperationKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "AddAccount",
+          "value": "0"
+        },
+        {
+          "name": "Settings",
+          "value": "1"
+        },
+        {
+          "name": "ResolveErrors",
+          "value": "2"
+        }
+      ]
+    },
+    "UserDataAccountProviderPartnerAccountKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Exchange",
+          "value": "0"
+        },
+        {
+          "name": "PopOrImap",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IUserDataAccountPartnerAccountInfo": {
+      "guid": "5f200037-f6ef-4ec3-8630-012c59c1149f",
+      "exclusive_to": "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountPartnerAccountInfo",
+      "methods": [
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Priority",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_AccountKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataAccountProviderPartnerAccountKind",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts.Provider",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AccountKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataAccountProviderPartnerAccountKind",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts.Provider",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AccountKind"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "Priority",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Priority"
+        }
+      ]
+    },
+    "IUserDataAccountProviderAddAccountOperation": {
+      "guid": "b9c72530-3f84-4b5d-8eaa-45e97aa842ed",
+      "exclusive_to": "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderAddAccountOperation",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAccountProviderOperation",
+          "namespace": "Windows.ApplicationModel.UserDataAccounts.Provider",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_ContentKinds",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataAccountContentKinds",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_PartnerAccountInfos",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataAccountPartnerAccountInfo",
+                "namespace": "Windows.ApplicationModel.UserDataAccounts.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ReportCompleted",
+          "params": [
+            {
+              "name": "userDataAccountId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContentKinds",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataAccountContentKinds",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ContentKinds"
+        },
+        {
+          "name": "PartnerAccountInfos",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataAccountPartnerAccountInfo",
+                "namespace": "Windows.ApplicationModel.UserDataAccounts.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_PartnerAccountInfos"
+        }
+      ]
+    },
+    "IUserDataAccountProviderOperation": {
+      "guid": "a20aad63-888c-4a62-a3dd-34d07a802b2b",
+      "methods": [
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataAccountProviderOperationKind",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts.Provider",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataAccountProviderOperationKind",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts.Provider",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        }
+      ]
+    },
+    "IUserDataAccountProviderResolveErrorsOperation": {
+      "guid": "6235dc15-bfcb-41e1-9957-9759a28846cc",
+      "exclusive_to": "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderResolveErrorsOperation",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAccountProviderOperation",
+          "namespace": "Windows.ApplicationModel.UserDataAccounts.Provider",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_UserDataAccountId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ReportCompleted"
+        }
+      ],
+      "properties": [
+        {
+          "name": "UserDataAccountId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_UserDataAccountId"
+        }
+      ]
+    },
+    "IUserDataAccountProviderSettingsOperation": {
+      "guid": "92034db7-8648-4f30-acfa-3002658ca80d",
+      "exclusive_to": "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderSettingsOperation",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAccountProviderOperation",
+          "namespace": "Windows.ApplicationModel.UserDataAccounts.Provider",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_UserDataAccountId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ReportCompleted"
+        }
+      ],
+      "properties": [
+        {
+          "name": "UserDataAccountId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_UserDataAccountId"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "UserDataAccountPartnerAccountInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataAccountPartnerAccountInfo",
+        "namespace": "Windows.ApplicationModel.UserDataAccounts.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAccountPartnerAccountInfo",
+          "namespace": "Windows.ApplicationModel.UserDataAccounts.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataAccountProviderAddAccountOperation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataAccountProviderAddAccountOperation",
+        "namespace": "Windows.ApplicationModel.UserDataAccounts.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAccountProviderAddAccountOperation",
+          "namespace": "Windows.ApplicationModel.UserDataAccounts.Provider",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAccountProviderOperation",
+          "namespace": "Windows.ApplicationModel.UserDataAccounts.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataAccountProviderResolveErrorsOperation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataAccountProviderResolveErrorsOperation",
+        "namespace": "Windows.ApplicationModel.UserDataAccounts.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAccountProviderResolveErrorsOperation",
+          "namespace": "Windows.ApplicationModel.UserDataAccounts.Provider",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAccountProviderOperation",
+          "namespace": "Windows.ApplicationModel.UserDataAccounts.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataAccountProviderSettingsOperation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataAccountProviderSettingsOperation",
+        "namespace": "Windows.ApplicationModel.UserDataAccounts.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAccountProviderSettingsOperation",
+          "namespace": "Windows.ApplicationModel.UserDataAccounts.Provider",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAccountProviderOperation",
+          "namespace": "Windows.ApplicationModel.UserDataAccounts.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

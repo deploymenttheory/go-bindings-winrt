@@ -1,0 +1,477 @@
+{
+  "namespace": "Windows.Security.DataProtection",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "UserDataAvailability": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Always",
+          "value": "0"
+        },
+        {
+          "name": "AfterFirstUnlock",
+          "value": "1"
+        },
+        {
+          "name": "WhileUnlocked",
+          "value": "2"
+        }
+      ]
+    },
+    "UserDataBufferUnprotectStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Succeeded",
+          "value": "0"
+        },
+        {
+          "name": "Unavailable",
+          "value": "1"
+        }
+      ]
+    },
+    "UserDataStorageItemProtectionStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Succeeded",
+          "value": "0"
+        },
+        {
+          "name": "NotProtectable",
+          "value": "1"
+        },
+        {
+          "name": "DataUnavailable",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IUserDataAvailabilityStateChangedEventArgs": {
+      "guid": "a76582c9-06a2-4273-a803-834c9f87fbeb",
+      "exclusive_to": "Windows.Security.DataProtection.UserDataAvailabilityStateChangedEventArgs",
+      "methods": [
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IUserDataBufferUnprotectResult": {
+      "guid": "8efd0e90-fa9a-46a4-a377-01cebf1e74d8",
+      "exclusive_to": "Windows.Security.DataProtection.UserDataBufferUnprotectResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataBufferUnprotectStatus",
+            "namespace": "Windows.Security.DataProtection",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_UnprotectedBuffer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataBufferUnprotectStatus",
+            "namespace": "Windows.Security.DataProtection",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        },
+        {
+          "name": "UnprotectedBuffer",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_UnprotectedBuffer"
+        }
+      ]
+    },
+    "IUserDataProtectionManager": {
+      "guid": "1f13237d-b42e-4a88-9480-0f240924c876",
+      "exclusive_to": "Windows.Security.DataProtection.UserDataProtectionManager",
+      "methods": [
+        {
+          "name": "ProtectStorageItemAsync",
+          "params": [
+            {
+              "name": "storageItem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageItem",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "availability",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserDataAvailability",
+                "namespace": "Windows.Security.DataProtection",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataStorageItemProtectionStatus",
+                "namespace": "Windows.Security.DataProtection",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetStorageItemProtectionInfoAsync",
+          "params": [
+            {
+              "name": "storageItem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageItem",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataStorageItemProtectionInfo",
+                "namespace": "Windows.Security.DataProtection",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ProtectBufferAsync",
+          "params": [
+            {
+              "name": "unprotectedBuffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "availability",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserDataAvailability",
+                "namespace": "Windows.Security.DataProtection",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "UnprotectBufferAsync",
+          "params": [
+            {
+              "name": "protectedBuffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataBufferUnprotectResult",
+                "namespace": "Windows.Security.DataProtection",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "IsContinuedDataAvailabilityExpected",
+          "params": [
+            {
+              "name": "availability",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserDataAvailability",
+                "namespace": "Windows.Security.DataProtection",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "add_DataAvailabilityStateChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserDataProtectionManager",
+                    "namespace": "Windows.Security.DataProtection",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserDataAvailabilityStateChangedEventArgs",
+                    "namespace": "Windows.Security.DataProtection",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DataAvailabilityStateChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "DataAvailabilityStateChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataProtectionManager",
+                "namespace": "Windows.Security.DataProtection",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "UserDataAvailabilityStateChangedEventArgs",
+                "namespace": "Windows.Security.DataProtection",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_DataAvailabilityStateChanged",
+          "remove_method": "remove_DataAvailabilityStateChanged"
+        }
+      ]
+    },
+    "IUserDataProtectionManagerStatics": {
+      "guid": "977780e8-6dce-4fae-af85-782ac2cf4572",
+      "exclusive_to": "Windows.Security.DataProtection.UserDataProtectionManager",
+      "methods": [
+        {
+          "name": "TryGetDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataProtectionManager",
+            "namespace": "Windows.Security.DataProtection",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryGetForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataProtectionManager",
+            "namespace": "Windows.Security.DataProtection",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IUserDataStorageItemProtectionInfo": {
+      "guid": "5b6680f6-e87f-40a1-b19d-a6187a0c662f",
+      "exclusive_to": "Windows.Security.DataProtection.UserDataStorageItemProtectionInfo",
+      "methods": [
+        {
+          "name": "get_Availability",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataAvailability",
+            "namespace": "Windows.Security.DataProtection",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Availability",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataAvailability",
+            "namespace": "Windows.Security.DataProtection",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Availability"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "UserDataAvailabilityStateChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataAvailabilityStateChangedEventArgs",
+        "namespace": "Windows.Security.DataProtection",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAvailabilityStateChangedEventArgs",
+          "namespace": "Windows.Security.DataProtection",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataBufferUnprotectResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataBufferUnprotectResult",
+        "namespace": "Windows.Security.DataProtection",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataBufferUnprotectResult",
+          "namespace": "Windows.Security.DataProtection",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataProtectionManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataProtectionManager",
+        "namespace": "Windows.Security.DataProtection",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataProtectionManager",
+          "namespace": "Windows.Security.DataProtection",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Security.DataProtection.IUserDataProtectionManagerStatics"
+      ]
+    },
+    "UserDataStorageItemProtectionInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataStorageItemProtectionInfo",
+        "namespace": "Windows.Security.DataProtection",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataStorageItemProtectionInfo",
+          "namespace": "Windows.Security.DataProtection",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "namespace": "Windows.Data.Xml.Xsl",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IXsltProcessor": {
+      "guid": "7b64703f-550c-48c6-a90f-93a5b964518f",
+      "exclusive_to": "Windows.Data.Xml.Xsl.XsltProcessor",
+      "methods": [
+        {
+          "name": "TransformToString",
+          "params": [
+            {
+              "name": "inputNode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IXmlNode",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "IXsltProcessor2": {
+      "guid": "8da45c56-97a5-44cb-a8be-27d86280c70a",
+      "exclusive_to": "Windows.Data.Xml.Xsl.XsltProcessor",
+      "methods": [
+        {
+          "name": "TransformToDocument",
+          "params": [
+            {
+              "name": "inputNode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IXmlNode",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlDocument",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IXsltProcessorFactory": {
+      "guid": "274146c0-9a51-4663-bf30-0ef742146f20",
+      "exclusive_to": "Windows.Data.Xml.Xsl.XsltProcessor",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "document",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XmlDocument",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XsltProcessor",
+            "namespace": "Windows.Data.Xml.Xsl",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "XsltProcessor": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IXsltProcessor",
+        "namespace": "Windows.Data.Xml.Xsl",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IXsltProcessor",
+          "namespace": "Windows.Data.Xml.Xsl",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXsltProcessor2",
+          "namespace": "Windows.Data.Xml.Xsl",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Data.Xml.Xsl.IXsltProcessorFactory"
+      ]
+    }
+  }
+}

@@ -1,0 +1,1306 @@
+{
+  "namespace": "Windows.Devices.Lights",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "LampArrayKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Undefined",
+          "value": "0"
+        },
+        {
+          "name": "Keyboard",
+          "value": "1"
+        },
+        {
+          "name": "Mouse",
+          "value": "2"
+        },
+        {
+          "name": "GameController",
+          "value": "3"
+        },
+        {
+          "name": "Peripheral",
+          "value": "4"
+        },
+        {
+          "name": "Scene",
+          "value": "5"
+        },
+        {
+          "name": "Notification",
+          "value": "6"
+        },
+        {
+          "name": "Chassis",
+          "value": "7"
+        },
+        {
+          "name": "Wearable",
+          "value": "8"
+        },
+        {
+          "name": "Furniture",
+          "value": "9"
+        },
+        {
+          "name": "Art",
+          "value": "10"
+        },
+        {
+          "name": "Headset",
+          "value": "11"
+        },
+        {
+          "name": "Microphone",
+          "value": "12"
+        },
+        {
+          "name": "Speaker",
+          "value": "13"
+        }
+      ]
+    },
+    "LampPurposes": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "Undefined",
+          "value": "0"
+        },
+        {
+          "name": "Control",
+          "value": "1"
+        },
+        {
+          "name": "Accent",
+          "value": "2"
+        },
+        {
+          "name": "Branding",
+          "value": "4"
+        },
+        {
+          "name": "Status",
+          "value": "8"
+        },
+        {
+          "name": "Illumination",
+          "value": "16"
+        },
+        {
+          "name": "Presentation",
+          "value": "32"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ILamp": {
+      "guid": "047d5b9a-ea45-4b2b-b1a2-14dff00bde7b",
+      "exclusive_to": "Windows.Devices.Lights.Lamp",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IsEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BrightnessLevel",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_BrightnessLevel",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsColorSettable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Color",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Color",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_AvailabilityChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Lamp",
+                    "namespace": "Windows.Devices.Lights",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "LampAvailabilityChangedEventArgs",
+                    "namespace": "Windows.Devices.Lights",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_AvailabilityChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "BrightnessLevel",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_BrightnessLevel",
+          "setter": "put_BrightnessLevel"
+        },
+        {
+          "name": "Color",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Color",
+          "setter": "put_Color"
+        },
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        },
+        {
+          "name": "IsColorSettable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsColorSettable"
+        },
+        {
+          "name": "IsEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsEnabled",
+          "setter": "put_IsEnabled"
+        }
+      ],
+      "events": [
+        {
+          "name": "AvailabilityChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Lamp",
+                "namespace": "Windows.Devices.Lights",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "LampAvailabilityChangedEventArgs",
+                "namespace": "Windows.Devices.Lights",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_AvailabilityChanged",
+          "remove_method": "remove_AvailabilityChanged"
+        }
+      ]
+    },
+    "ILampArray": {
+      "guid": "7ace9787-c8a0-4e95-a1e0-d58676538649",
+      "exclusive_to": "Windows.Devices.Lights.LampArray",
+      "methods": [
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_HardwareVendorId",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_HardwareProductId",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_HardwareVersion",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_LampArrayKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LampArrayKind",
+            "namespace": "Windows.Devices.Lights",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_LampCount",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MinUpdateInterval",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_BoundingBox",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_IsEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BrightnessLevel",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_BrightnessLevel",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsConnected",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SupportsVirtualKeys",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetLampInfo",
+          "params": [
+            {
+              "name": "lampIndex",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "LampInfo",
+            "namespace": "Windows.Devices.Lights",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetIndicesForKey",
+          "params": [
+            {
+              "name": "key",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VirtualKey",
+                "namespace": "Windows.System",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "I4"
+            }
+          }
+        },
+        {
+          "name": "GetIndicesForPurposes",
+          "params": [
+            {
+              "name": "purposes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LampPurposes",
+                "namespace": "Windows.Devices.Lights",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "I4"
+            }
+          }
+        },
+        {
+          "name": "SetColor",
+          "params": [
+            {
+              "name": "desiredColor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetColorForIndex",
+          "params": [
+            {
+              "name": "lampIndex",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "desiredColor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetSingleColorForIndices",
+          "params": [
+            {
+              "name": "desiredColor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "lampIndexes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "I4"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetColorsForIndices",
+          "params": [
+            {
+              "name": "desiredColors",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Color",
+                  "namespace": "Windows.UI",
+                  "target_kind": "Struct"
+                }
+              }
+            },
+            {
+              "name": "lampIndexes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "I4"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetColorsForKey",
+          "params": [
+            {
+              "name": "desiredColor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "key",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VirtualKey",
+                "namespace": "Windows.System",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetColorsForKeys",
+          "params": [
+            {
+              "name": "desiredColors",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Color",
+                  "namespace": "Windows.UI",
+                  "target_kind": "Struct"
+                }
+              }
+            },
+            {
+              "name": "keys",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "VirtualKey",
+                  "namespace": "Windows.System",
+                  "target_kind": "Enum"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetColorsForPurposes",
+          "params": [
+            {
+              "name": "desiredColor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "purposes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LampPurposes",
+                "namespace": "Windows.Devices.Lights",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SendMessageAsync",
+          "params": [
+            {
+              "name": "messageId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "message",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "RequestMessageAsync",
+          "params": [
+            {
+              "name": "messageId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BoundingBox",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BoundingBox"
+        },
+        {
+          "name": "BrightnessLevel",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_BrightnessLevel",
+          "setter": "put_BrightnessLevel"
+        },
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        },
+        {
+          "name": "HardwareProductId",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_HardwareProductId"
+        },
+        {
+          "name": "HardwareVendorId",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_HardwareVendorId"
+        },
+        {
+          "name": "HardwareVersion",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_HardwareVersion"
+        },
+        {
+          "name": "IsConnected",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsConnected"
+        },
+        {
+          "name": "IsEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsEnabled",
+          "setter": "put_IsEnabled"
+        },
+        {
+          "name": "LampArrayKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LampArrayKind",
+            "namespace": "Windows.Devices.Lights",
+            "target_kind": "Enum"
+          },
+          "getter": "get_LampArrayKind"
+        },
+        {
+          "name": "LampCount",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_LampCount"
+        },
+        {
+          "name": "MinUpdateInterval",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_MinUpdateInterval"
+        },
+        {
+          "name": "SupportsVirtualKeys",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SupportsVirtualKeys"
+        }
+      ]
+    },
+    "ILampArray2": {
+      "guid": "050c181f-60a8-4711-a1af-1b1b4c658ea2",
+      "exclusive_to": "Windows.Devices.Lights.LampArray",
+      "methods": [
+        {
+          "name": "get_IsAvailable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "add_AvailabilityChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "LampArray",
+                    "namespace": "Windows.Devices.Lights",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_AvailabilityChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsAvailable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAvailable"
+        }
+      ],
+      "events": [
+        {
+          "name": "AvailabilityChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "LampArray",
+                "namespace": "Windows.Devices.Lights",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_AvailabilityChanged",
+          "remove_method": "remove_AvailabilityChanged"
+        }
+      ]
+    },
+    "ILampArrayStatics": {
+      "guid": "7bb8c98d-5fc1-452d-bb1f-4ad410d398ff",
+      "exclusive_to": "Windows.Devices.Lights.LampArray",
+      "methods": [
+        {
+          "name": "GetDeviceSelector",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "LampArray",
+                "namespace": "Windows.Devices.Lights",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ILampAvailabilityChangedEventArgs": {
+      "guid": "4f6e3ded-07a2-499d-9260-67e304532ba4",
+      "exclusive_to": "Windows.Devices.Lights.LampAvailabilityChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_IsAvailable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsAvailable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAvailable"
+        }
+      ]
+    },
+    "ILampInfo": {
+      "guid": "30bb521c-0acf-49da-8c10-150b9cf62713",
+      "exclusive_to": "Windows.Devices.Lights.LampInfo",
+      "methods": [
+        {
+          "name": "get_Index",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Purposes",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LampPurposes",
+            "namespace": "Windows.Devices.Lights",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_RedLevelCount",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_GreenLevelCount",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_BlueLevelCount",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_GainLevelCount",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_FixedColor",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetNearestSupportedColor",
+          "params": [
+            {
+              "name": "desiredColor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_UpdateLatency",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BlueLevelCount",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_BlueLevelCount"
+        },
+        {
+          "name": "FixedColor",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_FixedColor"
+        },
+        {
+          "name": "GainLevelCount",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_GainLevelCount"
+        },
+        {
+          "name": "GreenLevelCount",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_GreenLevelCount"
+        },
+        {
+          "name": "Index",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Index"
+        },
+        {
+          "name": "Position",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Position"
+        },
+        {
+          "name": "Purposes",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LampPurposes",
+            "namespace": "Windows.Devices.Lights",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Purposes"
+        },
+        {
+          "name": "RedLevelCount",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_RedLevelCount"
+        },
+        {
+          "name": "UpdateLatency",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_UpdateLatency"
+        }
+      ]
+    },
+    "ILampStatics": {
+      "guid": "a822416c-8885-401e-b821-8e8b38a8e8ec",
+      "exclusive_to": "Windows.Devices.Lights.Lamp",
+      "methods": [
+        {
+          "name": "GetDeviceSelector",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Lamp",
+                "namespace": "Windows.Devices.Lights",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDefaultAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Lamp",
+                "namespace": "Windows.Devices.Lights",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "Lamp": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILamp",
+        "namespace": "Windows.Devices.Lights",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILamp",
+          "namespace": "Windows.Devices.Lights",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Lights.ILampStatics"
+      ]
+    },
+    "LampArray": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILampArray",
+        "namespace": "Windows.Devices.Lights",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILampArray",
+          "namespace": "Windows.Devices.Lights",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ILampArray2",
+          "namespace": "Windows.Devices.Lights",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Lights.ILampArrayStatics"
+      ]
+    },
+    "LampAvailabilityChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILampAvailabilityChangedEventArgs",
+        "namespace": "Windows.Devices.Lights",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILampAvailabilityChangedEventArgs",
+          "namespace": "Windows.Devices.Lights",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "LampInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILampInfo",
+        "namespace": "Windows.Devices.Lights",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILampInfo",
+          "namespace": "Windows.Devices.Lights",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2000 @@
+{
+  "namespace": "Windows.UI.Composition.Scenes",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "SceneAlphaMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Opaque",
+          "value": "0"
+        },
+        {
+          "name": "AlphaTest",
+          "value": "1"
+        },
+        {
+          "name": "Blend",
+          "value": "2"
+        }
+      ]
+    },
+    "SceneAttributeSemantic": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Index",
+          "value": "0"
+        },
+        {
+          "name": "Vertex",
+          "value": "1"
+        },
+        {
+          "name": "Normal",
+          "value": "2"
+        },
+        {
+          "name": "TexCoord0",
+          "value": "3"
+        },
+        {
+          "name": "TexCoord1",
+          "value": "4"
+        },
+        {
+          "name": "Color",
+          "value": "5"
+        },
+        {
+          "name": "Tangent",
+          "value": "6"
+        }
+      ]
+    },
+    "SceneComponentType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "MeshRendererComponent",
+          "value": "0"
+        }
+      ]
+    },
+    "SceneWrappingMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "ClampToEdge",
+          "value": "0"
+        },
+        {
+          "name": "MirroredRepeat",
+          "value": "1"
+        },
+        {
+          "name": "Repeat",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ISceneBoundingBox": {
+      "guid": "5d8ffc70-c618-4083-8251-9962593114aa",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneBoundingBox",
+      "methods": [
+        {
+          "name": "get_Center",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Extents",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Max",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Min",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Size",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Center",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Center"
+        },
+        {
+          "name": "Extents",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Extents"
+        },
+        {
+          "name": "Max",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Max"
+        },
+        {
+          "name": "Min",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Min"
+        },
+        {
+          "name": "Size",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Size"
+        }
+      ]
+    },
+    "ISceneComponent": {
+      "guid": "ae20fc96-226c-44bd-95cb-dd5ed9ebe9a5",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneComponent",
+      "methods": [
+        {
+          "name": "get_ComponentType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneComponentType",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ComponentType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SceneComponentType",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ComponentType"
+        }
+      ]
+    },
+    "ISceneComponentCollection": {
+      "guid": "c483791c-5f46-45e4-b666-a3d2259f9b2e",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneComponentCollection"
+    },
+    "ISceneComponentFactory": {
+      "guid": "5fbc5574-ddd8-5889-ab5b-d8fa716e7c9e",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneComponent"
+    },
+    "ISceneMaterial": {
+      "guid": "8ca74b7c-30df-4e07-9490-37875af1a123",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneMaterial"
+    },
+    "ISceneMaterialFactory": {
+      "guid": "67536c19-a707-5254-a495-7fdc799893b9",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneMaterial"
+    },
+    "ISceneMaterialInput": {
+      "guid": "422a1642-1ef1-485c-97e9-ae6f95ad812f",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneMaterialInput"
+    },
+    "ISceneMaterialInputFactory": {
+      "guid": "a88feb74-7d0a-5e4c-a748-1015af9ca74f",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneMaterialInput"
+    },
+    "ISceneMesh": {
+      "guid": "ee9a1530-1155-4c0c-92bd-40020cf78347",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneMesh",
+      "methods": [
+        {
+          "name": "get_Bounds",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneBoundingBox",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PrimitiveTopology",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DirectXPrimitiveTopology",
+            "namespace": "Windows.Graphics.DirectX",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_PrimitiveTopology",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DirectXPrimitiveTopology",
+                "namespace": "Windows.Graphics.DirectX",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "FillMeshAttribute",
+          "params": [
+            {
+              "name": "semantic",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SceneAttributeSemantic",
+                "namespace": "Windows.UI.Composition.Scenes",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DirectXPixelFormat",
+                "namespace": "Windows.Graphics.DirectX",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "memory",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MemoryBuffer",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Bounds",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SceneBoundingBox",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          },
+          "getter": "get_Bounds"
+        },
+        {
+          "name": "PrimitiveTopology",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DirectXPrimitiveTopology",
+            "namespace": "Windows.Graphics.DirectX",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PrimitiveTopology",
+          "setter": "put_PrimitiveTopology"
+        }
+      ]
+    },
+    "ISceneMeshMaterialAttributeMap": {
+      "guid": "ce843171-3d43-4855-aa69-31ff988d049d",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneMeshMaterialAttributeMap"
+    },
+    "ISceneMeshRendererComponent": {
+      "guid": "9929f7e3-6364-477e-98fe-74ed9fd4c2de",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneMeshRendererComponent",
+      "methods": [
+        {
+          "name": "get_Material",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneMaterial",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Material",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SceneMaterial",
+                "namespace": "Windows.UI.Composition.Scenes",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Mesh",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneMesh",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Mesh",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SceneMesh",
+                "namespace": "Windows.UI.Composition.Scenes",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_UVMappings",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneMeshMaterialAttributeMap",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Material",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SceneMaterial",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          },
+          "getter": "get_Material",
+          "setter": "put_Material"
+        },
+        {
+          "name": "Mesh",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SceneMesh",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          },
+          "getter": "get_Mesh",
+          "setter": "put_Mesh"
+        },
+        {
+          "name": "UVMappings",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SceneMeshMaterialAttributeMap",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          },
+          "getter": "get_UVMappings"
+        }
+      ]
+    },
+    "ISceneMeshRendererComponentStatics": {
+      "guid": "4954f37a-4459-4521-bd6e-2b38b8d711ea",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneMeshRendererComponent",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "compositor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Compositor",
+                "namespace": "Windows.UI.Composition",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneMeshRendererComponent",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISceneMeshStatics": {
+      "guid": "8412316c-7b57-473f-966b-81dc277b1751",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneMesh",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "compositor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Compositor",
+                "namespace": "Windows.UI.Composition",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneMesh",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISceneMetallicRoughnessMaterial": {
+      "guid": "c1d91446-799c-429e-a4e4-5da645f18e61",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneMetallicRoughnessMaterial",
+      "methods": [
+        {
+          "name": "get_BaseColorInput",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneMaterialInput",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_BaseColorInput",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SceneMaterialInput",
+                "namespace": "Windows.UI.Composition.Scenes",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BaseColorFactor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector4",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_BaseColorFactor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector4",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MetallicFactor",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_MetallicFactor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MetallicRoughnessInput",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneMaterialInput",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_MetallicRoughnessInput",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SceneMaterialInput",
+                "namespace": "Windows.UI.Composition.Scenes",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RoughnessFactor",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_RoughnessFactor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "BaseColorFactor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector4",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BaseColorFactor",
+          "setter": "put_BaseColorFactor"
+        },
+        {
+          "name": "BaseColorInput",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SceneMaterialInput",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          },
+          "getter": "get_BaseColorInput",
+          "setter": "put_BaseColorInput"
+        },
+        {
+          "name": "MetallicFactor",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_MetallicFactor",
+          "setter": "put_MetallicFactor"
+        },
+        {
+          "name": "MetallicRoughnessInput",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SceneMaterialInput",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          },
+          "getter": "get_MetallicRoughnessInput",
+          "setter": "put_MetallicRoughnessInput"
+        },
+        {
+          "name": "RoughnessFactor",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_RoughnessFactor",
+          "setter": "put_RoughnessFactor"
+        }
+      ]
+    },
+    "ISceneMetallicRoughnessMaterialStatics": {
+      "guid": "3bddca50-6d9d-4531-8dc4-b27e3e49b7ab",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneMetallicRoughnessMaterial",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "compositor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Compositor",
+                "namespace": "Windows.UI.Composition",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneMetallicRoughnessMaterial",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISceneModelTransform": {
+      "guid": "c05576c2-32b1-4269-980d-b98537100ae4",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneModelTransform",
+      "methods": [
+        {
+          "name": "get_Orientation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Quaternion",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Orientation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Quaternion",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RotationAngle",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_RotationAngle",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RotationAngleInDegrees",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_RotationAngleInDegrees",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RotationAxis",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_RotationAxis",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Scale",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Scale",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Translation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Translation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Orientation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Quaternion",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Orientation",
+          "setter": "put_Orientation"
+        },
+        {
+          "name": "RotationAngle",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_RotationAngle",
+          "setter": "put_RotationAngle"
+        },
+        {
+          "name": "RotationAngleInDegrees",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_RotationAngleInDegrees",
+          "setter": "put_RotationAngleInDegrees"
+        },
+        {
+          "name": "RotationAxis",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_RotationAxis",
+          "setter": "put_RotationAxis"
+        },
+        {
+          "name": "Scale",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Scale",
+          "setter": "put_Scale"
+        },
+        {
+          "name": "Translation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Translation",
+          "setter": "put_Translation"
+        }
+      ]
+    },
+    "ISceneNode": {
+      "guid": "acf2c247-f307-4581-9c41-af2e29c3b016",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneNode",
+      "methods": [
+        {
+          "name": "get_Children",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneNodeCollection",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Components",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneComponentCollection",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Parent",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneNode",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Transform",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneModelTransform",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "FindFirstComponentOfType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SceneComponentType",
+                "namespace": "Windows.UI.Composition.Scenes",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneComponent",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Children",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SceneNodeCollection",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          },
+          "getter": "get_Children"
+        },
+        {
+          "name": "Components",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SceneComponentCollection",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          },
+          "getter": "get_Components"
+        },
+        {
+          "name": "Parent",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SceneNode",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          },
+          "getter": "get_Parent"
+        },
+        {
+          "name": "Transform",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SceneModelTransform",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          },
+          "getter": "get_Transform"
+        }
+      ]
+    },
+    "ISceneNodeCollection": {
+      "guid": "29ada101-2dd9-4332-be63-60d2cf4269f2",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneNodeCollection"
+    },
+    "ISceneNodeStatics": {
+      "guid": "579a0faa-be9d-4210-908c-93d15feed0b7",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneNode",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "compositor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Compositor",
+                "namespace": "Windows.UI.Composition",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneNode",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISceneObject": {
+      "guid": "1e94249b-0f1b-49eb-a819-877d8450005b",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneObject"
+    },
+    "ISceneObjectFactory": {
+      "guid": "14fe799a-33e4-52ef-956c-44229d21f2c1",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneObject"
+    },
+    "IScenePbrMaterial": {
+      "guid": "aab6ebbe-d680-46df-8294-b6800a9f95e7",
+      "exclusive_to": "Windows.UI.Composition.Scenes.ScenePbrMaterial",
+      "methods": [
+        {
+          "name": "get_AlphaCutoff",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_AlphaCutoff",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AlphaMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneAlphaMode",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_AlphaMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SceneAlphaMode",
+                "namespace": "Windows.UI.Composition.Scenes",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_EmissiveInput",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneMaterialInput",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_EmissiveInput",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SceneMaterialInput",
+                "namespace": "Windows.UI.Composition.Scenes",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_EmissiveFactor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_EmissiveFactor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsDoubleSided",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsDoubleSided",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_NormalInput",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneMaterialInput",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_NormalInput",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SceneMaterialInput",
+                "namespace": "Windows.UI.Composition.Scenes",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_NormalScale",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_NormalScale",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OcclusionInput",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneMaterialInput",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_OcclusionInput",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SceneMaterialInput",
+                "namespace": "Windows.UI.Composition.Scenes",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OcclusionStrength",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_OcclusionStrength",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AlphaCutoff",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_AlphaCutoff",
+          "setter": "put_AlphaCutoff"
+        },
+        {
+          "name": "AlphaMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SceneAlphaMode",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AlphaMode",
+          "setter": "put_AlphaMode"
+        },
+        {
+          "name": "EmissiveFactor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_EmissiveFactor",
+          "setter": "put_EmissiveFactor"
+        },
+        {
+          "name": "EmissiveInput",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SceneMaterialInput",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          },
+          "getter": "get_EmissiveInput",
+          "setter": "put_EmissiveInput"
+        },
+        {
+          "name": "IsDoubleSided",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsDoubleSided",
+          "setter": "put_IsDoubleSided"
+        },
+        {
+          "name": "NormalInput",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SceneMaterialInput",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          },
+          "getter": "get_NormalInput",
+          "setter": "put_NormalInput"
+        },
+        {
+          "name": "NormalScale",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_NormalScale",
+          "setter": "put_NormalScale"
+        },
+        {
+          "name": "OcclusionInput",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SceneMaterialInput",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          },
+          "getter": "get_OcclusionInput",
+          "setter": "put_OcclusionInput"
+        },
+        {
+          "name": "OcclusionStrength",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_OcclusionStrength",
+          "setter": "put_OcclusionStrength"
+        }
+      ]
+    },
+    "IScenePbrMaterialFactory": {
+      "guid": "2e3f3dfe-0b85-5727-b5be-b7d3cbac37fa",
+      "exclusive_to": "Windows.UI.Composition.Scenes.ScenePbrMaterial"
+    },
+    "ISceneRendererComponent": {
+      "guid": "f1acb857-cf4f-4025-9b25-a2d1944cf507",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneRendererComponent"
+    },
+    "ISceneRendererComponentFactory": {
+      "guid": "1db6ed6c-aa2c-5967-9035-56352dc69658",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneRendererComponent"
+    },
+    "ISceneSurfaceMaterialInput": {
+      "guid": "9937da5c-a9ca-4cfc-b3aa-088356518742",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneSurfaceMaterialInput",
+      "methods": [
+        {
+          "name": "get_BitmapInterpolationMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CompositionBitmapInterpolationMode",
+            "namespace": "Windows.UI.Composition",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_BitmapInterpolationMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CompositionBitmapInterpolationMode",
+                "namespace": "Windows.UI.Composition",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Surface",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ICompositionSurface",
+            "namespace": "Windows.UI.Composition",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_Surface",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ICompositionSurface",
+                "namespace": "Windows.UI.Composition",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_WrappingUMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneWrappingMode",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_WrappingUMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SceneWrappingMode",
+                "namespace": "Windows.UI.Composition.Scenes",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_WrappingVMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneWrappingMode",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_WrappingVMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SceneWrappingMode",
+                "namespace": "Windows.UI.Composition.Scenes",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "BitmapInterpolationMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CompositionBitmapInterpolationMode",
+            "namespace": "Windows.UI.Composition",
+            "target_kind": "Enum"
+          },
+          "getter": "get_BitmapInterpolationMode",
+          "setter": "put_BitmapInterpolationMode"
+        },
+        {
+          "name": "Surface",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ICompositionSurface",
+            "namespace": "Windows.UI.Composition",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Surface",
+          "setter": "put_Surface"
+        },
+        {
+          "name": "WrappingUMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SceneWrappingMode",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Enum"
+          },
+          "getter": "get_WrappingUMode",
+          "setter": "put_WrappingUMode"
+        },
+        {
+          "name": "WrappingVMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SceneWrappingMode",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Enum"
+          },
+          "getter": "get_WrappingVMode",
+          "setter": "put_WrappingVMode"
+        }
+      ]
+    },
+    "ISceneSurfaceMaterialInputStatics": {
+      "guid": "5a2394d3-6429-4589-bbcf-b84f4f3cfbfe",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneSurfaceMaterialInput",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "compositor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Compositor",
+                "namespace": "Windows.UI.Composition",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneSurfaceMaterialInput",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISceneVisual": {
+      "guid": "8e672c1e-d734-47b1-be14-3d694ffa4301",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneVisual",
+      "methods": [
+        {
+          "name": "get_Root",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneNode",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Root",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SceneNode",
+                "namespace": "Windows.UI.Composition.Scenes",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Root",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SceneNode",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          },
+          "getter": "get_Root",
+          "setter": "put_Root"
+        }
+      ]
+    },
+    "ISceneVisualStatics": {
+      "guid": "b8347e9a-50aa-4527-8d34-de4cb8ea88b4",
+      "exclusive_to": "Windows.UI.Composition.Scenes.SceneVisual",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "compositor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Compositor",
+                "namespace": "Windows.UI.Composition",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneVisual",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "SceneBoundingBox": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISceneBoundingBox",
+        "namespace": "Windows.UI.Composition.Scenes",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISceneBoundingBox",
+          "namespace": "Windows.UI.Composition.Scenes",
+          "target_kind": "Interface"
+        }
+      ],
+      "composable": true
+    },
+    "SceneComponent": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISceneComponent",
+        "namespace": "Windows.UI.Composition.Scenes",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISceneComponent",
+          "namespace": "Windows.UI.Composition.Scenes",
+          "target_kind": "Interface"
+        }
+      ],
+      "composable_factories": [
+        "Windows.UI.Composition.Scenes.ISceneComponentFactory"
+      ],
+      "composable": true
+    },
+    "SceneComponentCollection": {
+      "default_interface": {
+        "kind": "GenericInst",
+        "name": "IVector`1",
+        "namespace": "Windows.Foundation.Collections",
+        "target_kind": "Interface",
+        "args": [
+          {
+            "kind": "ApiRef",
+            "name": "SceneComponent",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          }
+        ]
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISceneComponentCollection",
+          "namespace": "Windows.UI.Composition.Scenes",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IVector`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "SceneComponent",
+              "namespace": "Windows.UI.Composition.Scenes",
+              "target_kind": "Class"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "SceneComponent",
+              "namespace": "Windows.UI.Composition.Scenes",
+              "target_kind": "Class"
+            }
+          ]
+        }
+      ],
+      "composable": true
+    },
+    "SceneMaterial": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISceneMaterial",
+        "namespace": "Windows.UI.Composition.Scenes",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISceneMaterial",
+          "namespace": "Windows.UI.Composition.Scenes",
+          "target_kind": "Interface"
+        }
+      ],
+      "composable_factories": [
+        "Windows.UI.Composition.Scenes.ISceneMaterialFactory"
+      ],
+      "composable": true
+    },
+    "SceneMaterialInput": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISceneMaterialInput",
+        "namespace": "Windows.UI.Composition.Scenes",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISceneMaterialInput",
+          "namespace": "Windows.UI.Composition.Scenes",
+          "target_kind": "Interface"
+        }
+      ],
+      "composable_factories": [
+        "Windows.UI.Composition.Scenes.ISceneMaterialInputFactory"
+      ],
+      "composable": true
+    },
+    "SceneMesh": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISceneMesh",
+        "namespace": "Windows.UI.Composition.Scenes",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISceneMesh",
+          "namespace": "Windows.UI.Composition.Scenes",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Composition.Scenes.ISceneMeshStatics"
+      ],
+      "composable": true
+    },
+    "SceneMeshMaterialAttributeMap": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISceneMeshMaterialAttributeMap",
+        "namespace": "Windows.UI.Composition.Scenes",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISceneMeshMaterialAttributeMap",
+          "namespace": "Windows.UI.Composition.Scenes",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IMap`2",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "Native",
+              "name": "HString"
+            },
+            {
+              "kind": "ApiRef",
+              "name": "SceneAttributeSemantic",
+              "namespace": "Windows.UI.Composition.Scenes",
+              "target_kind": "Enum"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "GenericInst",
+              "name": "IKeyValuePair`2",
+              "namespace": "Windows.Foundation.Collections",
+              "target_kind": "Interface",
+              "args": [
+                {
+                  "kind": "Native",
+                  "name": "HString"
+                },
+                {
+                  "kind": "ApiRef",
+                  "name": "SceneAttributeSemantic",
+                  "namespace": "Windows.UI.Composition.Scenes",
+                  "target_kind": "Enum"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "composable": true
+    },
+    "SceneMeshRendererComponent": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISceneMeshRendererComponent",
+        "namespace": "Windows.UI.Composition.Scenes",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISceneMeshRendererComponent",
+          "namespace": "Windows.UI.Composition.Scenes",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Composition.Scenes.ISceneMeshRendererComponentStatics"
+      ],
+      "composable": true
+    },
+    "SceneMetallicRoughnessMaterial": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISceneMetallicRoughnessMaterial",
+        "namespace": "Windows.UI.Composition.Scenes",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISceneMetallicRoughnessMaterial",
+          "namespace": "Windows.UI.Composition.Scenes",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Composition.Scenes.ISceneMetallicRoughnessMaterialStatics"
+      ],
+      "composable": true
+    },
+    "SceneModelTransform": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISceneModelTransform",
+        "namespace": "Windows.UI.Composition.Scenes",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISceneModelTransform",
+          "namespace": "Windows.UI.Composition.Scenes",
+          "target_kind": "Interface"
+        }
+      ],
+      "composable": true
+    },
+    "SceneNode": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISceneNode",
+        "namespace": "Windows.UI.Composition.Scenes",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISceneNode",
+          "namespace": "Windows.UI.Composition.Scenes",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Composition.Scenes.ISceneNodeStatics"
+      ],
+      "composable": true
+    },
+    "SceneNodeCollection": {
+      "default_interface": {
+        "kind": "GenericInst",
+        "name": "IVector`1",
+        "namespace": "Windows.Foundation.Collections",
+        "target_kind": "Interface",
+        "args": [
+          {
+            "kind": "ApiRef",
+            "name": "SceneNode",
+            "namespace": "Windows.UI.Composition.Scenes",
+            "target_kind": "Class"
+          }
+        ]
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISceneNodeCollection",
+          "namespace": "Windows.UI.Composition.Scenes",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IVector`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "SceneNode",
+              "namespace": "Windows.UI.Composition.Scenes",
+              "target_kind": "Class"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "SceneNode",
+              "namespace": "Windows.UI.Composition.Scenes",
+              "target_kind": "Class"
+            }
+          ]
+        }
+      ],
+      "composable": true
+    },
+    "SceneObject": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISceneObject",
+        "namespace": "Windows.UI.Composition.Scenes",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISceneObject",
+          "namespace": "Windows.UI.Composition.Scenes",
+          "target_kind": "Interface"
+        }
+      ],
+      "composable_factories": [
+        "Windows.UI.Composition.Scenes.ISceneObjectFactory"
+      ],
+      "composable": true
+    },
+    "ScenePbrMaterial": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IScenePbrMaterial",
+        "namespace": "Windows.UI.Composition.Scenes",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IScenePbrMaterial",
+          "namespace": "Windows.UI.Composition.Scenes",
+          "target_kind": "Interface"
+        }
+      ],
+      "composable_factories": [
+        "Windows.UI.Composition.Scenes.IScenePbrMaterialFactory"
+      ],
+      "composable": true
+    },
+    "SceneRendererComponent": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISceneRendererComponent",
+        "namespace": "Windows.UI.Composition.Scenes",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISceneRendererComponent",
+          "namespace": "Windows.UI.Composition.Scenes",
+          "target_kind": "Interface"
+        }
+      ],
+      "composable_factories": [
+        "Windows.UI.Composition.Scenes.ISceneRendererComponentFactory"
+      ],
+      "composable": true
+    },
+    "SceneSurfaceMaterialInput": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISceneSurfaceMaterialInput",
+        "namespace": "Windows.UI.Composition.Scenes",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISceneSurfaceMaterialInput",
+          "namespace": "Windows.UI.Composition.Scenes",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Composition.Scenes.ISceneSurfaceMaterialInputStatics"
+      ],
+      "composable": true
+    },
+    "SceneVisual": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISceneVisual",
+        "namespace": "Windows.UI.Composition.Scenes",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISceneVisual",
+          "namespace": "Windows.UI.Composition.Scenes",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Composition.Scenes.ISceneVisualStatics"
+      ],
+      "composable": true
+    }
+  }
+}

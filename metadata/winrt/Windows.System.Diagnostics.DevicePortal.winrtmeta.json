@@ -1,0 +1,606 @@
+{
+  "namespace": "Windows.System.Diagnostics.DevicePortal",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "DevicePortalConnectionClosedReason": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "ResourceLimitsExceeded",
+          "value": "1"
+        },
+        {
+          "name": "ProtocolError",
+          "value": "2"
+        },
+        {
+          "name": "NotAuthorized",
+          "value": "3"
+        },
+        {
+          "name": "UserNotPresent",
+          "value": "4"
+        },
+        {
+          "name": "ServiceTerminated",
+          "value": "5"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IDevicePortalConnection": {
+      "guid": "0f447f51-1198-4da1-8d54-bdef393e09b6",
+      "exclusive_to": "Windows.System.Diagnostics.DevicePortal.DevicePortalConnection",
+      "methods": [
+        {
+          "name": "add_Closed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DevicePortalConnection",
+                    "namespace": "Windows.System.Diagnostics.DevicePortal",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "DevicePortalConnectionClosedEventArgs",
+                    "namespace": "Windows.System.Diagnostics.DevicePortal",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Closed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_RequestReceived",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DevicePortalConnection",
+                    "namespace": "Windows.System.Diagnostics.DevicePortal",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "DevicePortalConnectionRequestReceivedEventArgs",
+                    "namespace": "Windows.System.Diagnostics.DevicePortal",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_RequestReceived",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "Closed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DevicePortalConnection",
+                "namespace": "Windows.System.Diagnostics.DevicePortal",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DevicePortalConnectionClosedEventArgs",
+                "namespace": "Windows.System.Diagnostics.DevicePortal",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Closed",
+          "remove_method": "remove_Closed"
+        },
+        {
+          "name": "RequestReceived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DevicePortalConnection",
+                "namespace": "Windows.System.Diagnostics.DevicePortal",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DevicePortalConnectionRequestReceivedEventArgs",
+                "namespace": "Windows.System.Diagnostics.DevicePortal",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_RequestReceived",
+          "remove_method": "remove_RequestReceived"
+        }
+      ]
+    },
+    "IDevicePortalConnectionClosedEventArgs": {
+      "guid": "fcf70e38-7032-428c-9f50-945c15a9f0cb",
+      "exclusive_to": "Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedEventArgs",
+      "methods": [
+        {
+          "name": "get_Reason",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DevicePortalConnectionClosedReason",
+            "namespace": "Windows.System.Diagnostics.DevicePortal",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Reason",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DevicePortalConnectionClosedReason",
+            "namespace": "Windows.System.Diagnostics.DevicePortal",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Reason"
+        }
+      ]
+    },
+    "IDevicePortalConnectionRequestReceivedEventArgs": {
+      "guid": "64dae045-6fda-4459-9ebd-ecce22e38559",
+      "exclusive_to": "Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionRequestReceivedEventArgs",
+      "methods": [
+        {
+          "name": "get_RequestMessage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpRequestMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ResponseMessage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpResponseMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RequestMessage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpRequestMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_RequestMessage"
+        },
+        {
+          "name": "ResponseMessage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpResponseMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_ResponseMessage"
+        }
+      ]
+    },
+    "IDevicePortalConnectionStatics": {
+      "guid": "4bbe31e7-e9b9-4645-8fed-a53eea0edbd6",
+      "exclusive_to": "Windows.System.Diagnostics.DevicePortal.DevicePortalConnection",
+      "methods": [
+        {
+          "name": "GetForAppServiceConnection",
+          "params": [
+            {
+              "name": "appServiceConnection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppServiceConnection",
+                "namespace": "Windows.ApplicationModel.AppService",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DevicePortalConnection",
+            "namespace": "Windows.System.Diagnostics.DevicePortal",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDevicePortalWebSocketConnection": {
+      "guid": "67657920-d65a-42f0-aef4-787808098b7b",
+      "exclusive_to": "Windows.System.Diagnostics.DevicePortal.DevicePortalConnection",
+      "methods": [
+        {
+          "name": "GetServerMessageWebSocketForRequest",
+          "overload": "GetServerMessageWebSocketForRequest",
+          "params": [
+            {
+              "name": "request",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpRequestMessage",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ServerMessageWebSocket",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetServerMessageWebSocketForRequest",
+          "overload": "GetServerMessageWebSocketForRequest2",
+          "params": [
+            {
+              "name": "request",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpRequestMessage",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "messageType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SocketMessageType",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "protocol",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ServerMessageWebSocket",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetServerMessageWebSocketForRequest",
+          "overload": "GetServerMessageWebSocketForRequest3",
+          "params": [
+            {
+              "name": "request",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpRequestMessage",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "messageType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SocketMessageType",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "protocol",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "outboundBufferSizeInBytes",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "maxMessageSize",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "receiveMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MessageWebSocketReceiveMode",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ServerMessageWebSocket",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetServerStreamWebSocketForRequest",
+          "overload": "GetServerStreamWebSocketForRequest",
+          "params": [
+            {
+              "name": "request",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpRequestMessage",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ServerStreamWebSocket",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetServerStreamWebSocketForRequest",
+          "overload": "GetServerStreamWebSocketForRequest2",
+          "params": [
+            {
+              "name": "request",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpRequestMessage",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "protocol",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "outboundBufferSizeInBytes",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "noDelay",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ServerStreamWebSocket",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDevicePortalWebSocketConnectionRequestReceivedEventArgs": {
+      "guid": "79fdcaba-175c-4739-9f74-dda797c35b3f",
+      "exclusive_to": "Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionRequestReceivedEventArgs",
+      "methods": [
+        {
+          "name": "get_IsWebSocketUpgradeRequest",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_WebSocketProtocolsRequested",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsWebSocketUpgradeRequest",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsWebSocketUpgradeRequest"
+        },
+        {
+          "name": "WebSocketProtocolsRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_WebSocketProtocolsRequested"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "DevicePortalConnection": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDevicePortalConnection",
+        "namespace": "Windows.System.Diagnostics.DevicePortal",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDevicePortalConnection",
+          "namespace": "Windows.System.Diagnostics.DevicePortal",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDevicePortalWebSocketConnection",
+          "namespace": "Windows.System.Diagnostics.DevicePortal",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.System.Diagnostics.DevicePortal.IDevicePortalConnectionStatics"
+      ]
+    },
+    "DevicePortalConnectionClosedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDevicePortalConnectionClosedEventArgs",
+        "namespace": "Windows.System.Diagnostics.DevicePortal",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDevicePortalConnectionClosedEventArgs",
+          "namespace": "Windows.System.Diagnostics.DevicePortal",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DevicePortalConnectionRequestReceivedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDevicePortalConnectionRequestReceivedEventArgs",
+        "namespace": "Windows.System.Diagnostics.DevicePortal",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDevicePortalConnectionRequestReceivedEventArgs",
+          "namespace": "Windows.System.Diagnostics.DevicePortal",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDevicePortalWebSocketConnectionRequestReceivedEventArgs",
+          "namespace": "Windows.System.Diagnostics.DevicePortal",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

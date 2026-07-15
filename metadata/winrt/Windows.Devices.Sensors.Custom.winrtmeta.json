@@ -1,0 +1,457 @@
+{
+  "namespace": "Windows.Devices.Sensors.Custom",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "ICustomSensor": {
+      "guid": "a136f9ad-4034-4b4d-99dd-531aac649c09",
+      "exclusive_to": "Windows.Devices.Sensors.Custom.CustomSensor",
+      "methods": [
+        {
+          "name": "GetCurrentReading",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CustomSensorReading",
+            "namespace": "Windows.Devices.Sensors.Custom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_MinimumReportInterval",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_ReportInterval",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ReportInterval",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "add_ReadingChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CustomSensor",
+                    "namespace": "Windows.Devices.Sensors.Custom",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CustomSensorReadingChangedEventArgs",
+                    "namespace": "Windows.Devices.Sensors.Custom",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ReadingChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        },
+        {
+          "name": "MinimumReportInterval",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MinimumReportInterval"
+        },
+        {
+          "name": "ReportInterval",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ReportInterval",
+          "setter": "put_ReportInterval"
+        }
+      ],
+      "events": [
+        {
+          "name": "ReadingChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CustomSensor",
+                "namespace": "Windows.Devices.Sensors.Custom",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CustomSensorReadingChangedEventArgs",
+                "namespace": "Windows.Devices.Sensors.Custom",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ReadingChanged",
+          "remove_method": "remove_ReadingChanged"
+        }
+      ]
+    },
+    "ICustomSensor2": {
+      "guid": "20db3111-ec58-4d9f-bfbd-e77825088510",
+      "exclusive_to": "Windows.Devices.Sensors.Custom.CustomSensor",
+      "methods": [
+        {
+          "name": "put_ReportLatency",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ReportLatency",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_MaxBatchSize",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "MaxBatchSize",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxBatchSize"
+        },
+        {
+          "name": "ReportLatency",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ReportLatency",
+          "setter": "put_ReportLatency"
+        }
+      ]
+    },
+    "ICustomSensorReading": {
+      "guid": "64004f4d-446a-4366-a87a-5f963268ec53",
+      "exclusive_to": "Windows.Devices.Sensors.Custom.CustomSensorReading",
+      "methods": [
+        {
+          "name": "get_Timestamp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "Timestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Timestamp"
+        }
+      ]
+    },
+    "ICustomSensorReading2": {
+      "guid": "223c98ea-bf73-4992-9a48-d3c897594ccb",
+      "exclusive_to": "Windows.Devices.Sensors.Custom.CustomSensorReading",
+      "methods": [
+        {
+          "name": "get_PerformanceCount",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PerformanceCount",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_PerformanceCount"
+        }
+      ]
+    },
+    "ICustomSensorReadingChangedEventArgs": {
+      "guid": "6b202023-cffd-4cc1-8ff0-e21823d76fcc",
+      "exclusive_to": "Windows.Devices.Sensors.Custom.CustomSensorReadingChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_Reading",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CustomSensorReading",
+            "namespace": "Windows.Devices.Sensors.Custom",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Reading",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CustomSensorReading",
+            "namespace": "Windows.Devices.Sensors.Custom",
+            "target_kind": "Class"
+          },
+          "getter": "get_Reading"
+        }
+      ]
+    },
+    "ICustomSensorStatics": {
+      "guid": "992052cf-f422-4c7d-836b-e7dc74a7124b",
+      "exclusive_to": "Windows.Devices.Sensors.Custom.CustomSensor",
+      "methods": [
+        {
+          "name": "GetDeviceSelector",
+          "params": [
+            {
+              "name": "interfaceId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "sensorId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CustomSensor",
+                "namespace": "Windows.Devices.Sensors.Custom",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "CustomSensor": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICustomSensor",
+        "namespace": "Windows.Devices.Sensors.Custom",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICustomSensor",
+          "namespace": "Windows.Devices.Sensors.Custom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICustomSensor2",
+          "namespace": "Windows.Devices.Sensors.Custom",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Sensors.Custom.ICustomSensorStatics"
+      ]
+    },
+    "CustomSensorReading": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICustomSensorReading",
+        "namespace": "Windows.Devices.Sensors.Custom",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICustomSensorReading",
+          "namespace": "Windows.Devices.Sensors.Custom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICustomSensorReading2",
+          "namespace": "Windows.Devices.Sensors.Custom",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CustomSensorReadingChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICustomSensorReadingChangedEventArgs",
+        "namespace": "Windows.Devices.Sensors.Custom",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICustomSensorReadingChangedEventArgs",
+          "namespace": "Windows.Devices.Sensors.Custom",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

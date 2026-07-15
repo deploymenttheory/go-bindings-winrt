@@ -1,0 +1,592 @@
+{
+  "namespace": "Windows.ApplicationModel.Search",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "ILocalContentSuggestionSettings": {
+      "guid": "eeaeb062-743d-456e-84a3-23f06f2d15d7",
+      "exclusive_to": "Windows.ApplicationModel.Search.LocalContentSuggestionSettings",
+      "methods": [
+        {
+          "name": "put_Enabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Enabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Locations",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StorageFolder",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_AqsFilter",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AqsFilter",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_PropertiesToMatch",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AqsFilter",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AqsFilter",
+          "setter": "put_AqsFilter"
+        },
+        {
+          "name": "Enabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Enabled",
+          "setter": "put_Enabled"
+        },
+        {
+          "name": "Locations",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StorageFolder",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Locations"
+        },
+        {
+          "name": "PropertiesToMatch",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_PropertiesToMatch"
+        }
+      ]
+    },
+    "ISearchPaneQueryLinguisticDetails": {
+      "guid": "82fb460e-0940-4b6d-b8d0-642b30989e15",
+      "exclusive_to": "Windows.ApplicationModel.Search.SearchPaneQueryLinguisticDetails",
+      "methods": [
+        {
+          "name": "get_QueryTextAlternatives",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_QueryTextCompositionStart",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_QueryTextCompositionLength",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "QueryTextAlternatives",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_QueryTextAlternatives"
+        },
+        {
+          "name": "QueryTextCompositionLength",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_QueryTextCompositionLength"
+        },
+        {
+          "name": "QueryTextCompositionStart",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_QueryTextCompositionStart"
+        }
+      ]
+    },
+    "ISearchQueryLinguisticDetails": {
+      "guid": "46a1205b-69c9-4745-b72f-a8a4fc8f24ae",
+      "exclusive_to": "Windows.ApplicationModel.Search.SearchQueryLinguisticDetails",
+      "methods": [
+        {
+          "name": "get_QueryTextAlternatives",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_QueryTextCompositionStart",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_QueryTextCompositionLength",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "QueryTextAlternatives",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_QueryTextAlternatives"
+        },
+        {
+          "name": "QueryTextCompositionLength",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_QueryTextCompositionLength"
+        },
+        {
+          "name": "QueryTextCompositionStart",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_QueryTextCompositionStart"
+        }
+      ]
+    },
+    "ISearchQueryLinguisticDetailsFactory": {
+      "guid": "cac6c3b8-3c64-4dfd-ad9f-479e4d4065a4",
+      "exclusive_to": "Windows.ApplicationModel.Search.SearchQueryLinguisticDetails",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "queryTextAlternatives",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "queryTextCompositionStart",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "queryTextCompositionLength",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SearchQueryLinguisticDetails",
+            "namespace": "Windows.ApplicationModel.Search",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISearchSuggestionCollection": {
+      "guid": "323a8a4b-fbea-4446-abbc-3da7915fdd3a",
+      "exclusive_to": "Windows.ApplicationModel.Search.SearchSuggestionCollection",
+      "methods": [
+        {
+          "name": "get_Size",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "AppendQuerySuggestion",
+          "params": [
+            {
+              "name": "text",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AppendQuerySuggestions",
+          "params": [
+            {
+              "name": "suggestions",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "AppendResultSuggestion",
+          "params": [
+            {
+              "name": "text",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "detailText",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "tag",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "image",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStreamReference",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "imageAlternateText",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AppendSearchSeparator",
+          "params": [
+            {
+              "name": "label",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Size",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Size"
+        }
+      ]
+    },
+    "ISearchSuggestionsRequest": {
+      "guid": "4e4e26a7-44e5-4039-9099-6000ead1f0c6",
+      "exclusive_to": "Windows.ApplicationModel.Search.SearchSuggestionsRequest",
+      "methods": [
+        {
+          "name": "get_IsCanceled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SearchSuggestionCollection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SearchSuggestionCollection",
+            "namespace": "Windows.ApplicationModel.Search",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SearchSuggestionsRequestDeferral",
+            "namespace": "Windows.ApplicationModel.Search",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsCanceled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsCanceled"
+        },
+        {
+          "name": "SearchSuggestionCollection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SearchSuggestionCollection",
+            "namespace": "Windows.ApplicationModel.Search",
+            "target_kind": "Class"
+          },
+          "getter": "get_SearchSuggestionCollection"
+        }
+      ]
+    },
+    "ISearchSuggestionsRequestDeferral": {
+      "guid": "b71598a9-c065-456d-a845-1eccec5dc28b",
+      "exclusive_to": "Windows.ApplicationModel.Search.SearchSuggestionsRequestDeferral",
+      "methods": [
+        {
+          "name": "Complete"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "LocalContentSuggestionSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILocalContentSuggestionSettings",
+        "namespace": "Windows.ApplicationModel.Search",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILocalContentSuggestionSettings",
+          "namespace": "Windows.ApplicationModel.Search",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "SearchPaneQueryLinguisticDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISearchPaneQueryLinguisticDetails",
+        "namespace": "Windows.ApplicationModel.Search",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISearchPaneQueryLinguisticDetails",
+          "namespace": "Windows.ApplicationModel.Search",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SearchQueryLinguisticDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISearchQueryLinguisticDetails",
+        "namespace": "Windows.ApplicationModel.Search",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISearchQueryLinguisticDetails",
+          "namespace": "Windows.ApplicationModel.Search",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Search.ISearchQueryLinguisticDetailsFactory"
+      ]
+    },
+    "SearchSuggestionCollection": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISearchSuggestionCollection",
+        "namespace": "Windows.ApplicationModel.Search",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISearchSuggestionCollection",
+          "namespace": "Windows.ApplicationModel.Search",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SearchSuggestionsRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISearchSuggestionsRequest",
+        "namespace": "Windows.ApplicationModel.Search",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISearchSuggestionsRequest",
+          "namespace": "Windows.ApplicationModel.Search",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SearchSuggestionsRequestDeferral": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISearchSuggestionsRequestDeferral",
+        "namespace": "Windows.ApplicationModel.Search",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISearchSuggestionsRequestDeferral",
+          "namespace": "Windows.ApplicationModel.Search",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

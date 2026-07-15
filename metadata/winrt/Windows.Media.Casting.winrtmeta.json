@@ -1,0 +1,1145 @@
+{
+  "namespace": "Windows.Media.Casting",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "CastingConnectionErrorStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Succeeded",
+          "value": "0"
+        },
+        {
+          "name": "DeviceDidNotRespond",
+          "value": "1"
+        },
+        {
+          "name": "DeviceError",
+          "value": "2"
+        },
+        {
+          "name": "DeviceLocked",
+          "value": "3"
+        },
+        {
+          "name": "ProtectedPlaybackFailed",
+          "value": "4"
+        },
+        {
+          "name": "InvalidCastingSource",
+          "value": "5"
+        },
+        {
+          "name": "Unknown",
+          "value": "6"
+        }
+      ]
+    },
+    "CastingConnectionState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Disconnected",
+          "value": "0"
+        },
+        {
+          "name": "Connected",
+          "value": "1"
+        },
+        {
+          "name": "Rendering",
+          "value": "2"
+        },
+        {
+          "name": "Disconnecting",
+          "value": "3"
+        },
+        {
+          "name": "Connecting",
+          "value": "4"
+        }
+      ]
+    },
+    "CastingPlaybackTypes": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Audio",
+          "value": "1"
+        },
+        {
+          "name": "Video",
+          "value": "2"
+        },
+        {
+          "name": "Picture",
+          "value": "4"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ICastingConnection": {
+      "guid": "cd951653-c2f1-4498-8b78-5fb4cd3640dd",
+      "exclusive_to": "Windows.Media.Casting.CastingConnection",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_State",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CastingConnectionState",
+            "namespace": "Windows.Media.Casting",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Device",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CastingDevice",
+            "namespace": "Windows.Media.Casting",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Source",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CastingSource",
+            "namespace": "Windows.Media.Casting",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Source",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CastingSource",
+                "namespace": "Windows.Media.Casting",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_StateChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CastingConnection",
+                    "namespace": "Windows.Media.Casting",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_StateChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ErrorOccurred",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CastingConnection",
+                    "namespace": "Windows.Media.Casting",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CastingConnectionErrorOccurredEventArgs",
+                    "namespace": "Windows.Media.Casting",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ErrorOccurred",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RequestStartCastingAsync",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CastingSource",
+                "namespace": "Windows.Media.Casting",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CastingConnectionErrorStatus",
+                "namespace": "Windows.Media.Casting",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "DisconnectAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CastingConnectionErrorStatus",
+                "namespace": "Windows.Media.Casting",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Device",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CastingDevice",
+            "namespace": "Windows.Media.Casting",
+            "target_kind": "Class"
+          },
+          "getter": "get_Device"
+        },
+        {
+          "name": "Source",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CastingSource",
+            "namespace": "Windows.Media.Casting",
+            "target_kind": "Class"
+          },
+          "getter": "get_Source",
+          "setter": "put_Source"
+        },
+        {
+          "name": "State",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CastingConnectionState",
+            "namespace": "Windows.Media.Casting",
+            "target_kind": "Enum"
+          },
+          "getter": "get_State"
+        }
+      ],
+      "events": [
+        {
+          "name": "ErrorOccurred",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CastingConnection",
+                "namespace": "Windows.Media.Casting",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CastingConnectionErrorOccurredEventArgs",
+                "namespace": "Windows.Media.Casting",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ErrorOccurred",
+          "remove_method": "remove_ErrorOccurred"
+        },
+        {
+          "name": "StateChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CastingConnection",
+                "namespace": "Windows.Media.Casting",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_StateChanged",
+          "remove_method": "remove_StateChanged"
+        }
+      ]
+    },
+    "ICastingConnectionErrorOccurredEventArgs": {
+      "guid": "a7fb3c69-8719-4f00-81fb-961863c79a32",
+      "exclusive_to": "Windows.Media.Casting.CastingConnectionErrorOccurredEventArgs",
+      "methods": [
+        {
+          "name": "get_ErrorStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CastingConnectionErrorStatus",
+            "namespace": "Windows.Media.Casting",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Message",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ErrorStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CastingConnectionErrorStatus",
+            "namespace": "Windows.Media.Casting",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ErrorStatus"
+        },
+        {
+          "name": "Message",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Message"
+        }
+      ]
+    },
+    "ICastingDevice": {
+      "guid": "de721c83-4a43-4ad1-a6d2-2492a796c3f2",
+      "exclusive_to": "Windows.Media.Casting.CastingDevice",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_FriendlyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Icon",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamWithContentType",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetSupportedCastingPlaybackTypesAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CastingPlaybackTypes",
+                "namespace": "Windows.Media.Casting",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateCastingConnection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CastingConnection",
+            "namespace": "Windows.Media.Casting",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FriendlyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_FriendlyName"
+        },
+        {
+          "name": "Icon",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamWithContentType",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Icon"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        }
+      ]
+    },
+    "ICastingDevicePicker": {
+      "guid": "dcd39924-0591-49be-aacb-4b82ee756a95",
+      "exclusive_to": "Windows.Media.Casting.CastingDevicePicker",
+      "methods": [
+        {
+          "name": "get_Filter",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CastingDevicePickerFilter",
+            "namespace": "Windows.Media.Casting",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Appearance",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DevicePickerAppearance",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_CastingDeviceSelected",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CastingDevicePicker",
+                    "namespace": "Windows.Media.Casting",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CastingDeviceSelectedEventArgs",
+                    "namespace": "Windows.Media.Casting",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CastingDeviceSelected",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_CastingDevicePickerDismissed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CastingDevicePicker",
+                    "namespace": "Windows.Media.Casting",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CastingDevicePickerDismissed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Show",
+          "overload": "Show",
+          "params": [
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Show",
+          "overload": "ShowWithPlacement",
+          "params": [
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "preferredPlacement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Placement",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Hide"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Appearance",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DevicePickerAppearance",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          },
+          "getter": "get_Appearance"
+        },
+        {
+          "name": "Filter",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CastingDevicePickerFilter",
+            "namespace": "Windows.Media.Casting",
+            "target_kind": "Class"
+          },
+          "getter": "get_Filter"
+        }
+      ],
+      "events": [
+        {
+          "name": "CastingDevicePickerDismissed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CastingDevicePicker",
+                "namespace": "Windows.Media.Casting",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_CastingDevicePickerDismissed",
+          "remove_method": "remove_CastingDevicePickerDismissed"
+        },
+        {
+          "name": "CastingDeviceSelected",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CastingDevicePicker",
+                "namespace": "Windows.Media.Casting",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CastingDeviceSelectedEventArgs",
+                "namespace": "Windows.Media.Casting",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_CastingDeviceSelected",
+          "remove_method": "remove_CastingDeviceSelected"
+        }
+      ]
+    },
+    "ICastingDevicePickerFilter": {
+      "guid": "be8c619c-b563-4354-ae33-9fdaad8c6291",
+      "exclusive_to": "Windows.Media.Casting.CastingDevicePickerFilter",
+      "methods": [
+        {
+          "name": "get_SupportsAudio",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_SupportsAudio",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SupportsVideo",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_SupportsVideo",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SupportsPictures",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_SupportsPictures",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SupportedCastingSources",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CastingSource",
+                "namespace": "Windows.Media.Casting",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SupportedCastingSources",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CastingSource",
+                "namespace": "Windows.Media.Casting",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_SupportedCastingSources"
+        },
+        {
+          "name": "SupportsAudio",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SupportsAudio",
+          "setter": "put_SupportsAudio"
+        },
+        {
+          "name": "SupportsPictures",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SupportsPictures",
+          "setter": "put_SupportsPictures"
+        },
+        {
+          "name": "SupportsVideo",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SupportsVideo",
+          "setter": "put_SupportsVideo"
+        }
+      ]
+    },
+    "ICastingDeviceSelectedEventArgs": {
+      "guid": "dc439e86-dd57-4d0d-9400-af45e4fb3663",
+      "exclusive_to": "Windows.Media.Casting.CastingDeviceSelectedEventArgs",
+      "methods": [
+        {
+          "name": "get_SelectedCastingDevice",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CastingDevice",
+            "namespace": "Windows.Media.Casting",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SelectedCastingDevice",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CastingDevice",
+            "namespace": "Windows.Media.Casting",
+            "target_kind": "Class"
+          },
+          "getter": "get_SelectedCastingDevice"
+        }
+      ]
+    },
+    "ICastingDeviceStatics": {
+      "guid": "e7d958d7-4d13-4237-a365-4c4f6a4cfd2f",
+      "exclusive_to": "Windows.Media.Casting.CastingDevice",
+      "methods": [
+        {
+          "name": "GetDeviceSelector",
+          "params": [
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CastingPlaybackTypes",
+                "namespace": "Windows.Media.Casting",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDeviceSelectorFromCastingSourceAsync",
+          "params": [
+            {
+              "name": "castingSource",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CastingSource",
+                "namespace": "Windows.Media.Casting",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CastingDevice",
+                "namespace": "Windows.Media.Casting",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "DeviceInfoSupportsCastingAsync",
+          "params": [
+            {
+              "name": "device",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceInformation",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ICastingSource": {
+      "guid": "f429ea72-3467-47e6-a027-522923e9d727",
+      "exclusive_to": "Windows.Media.Casting.CastingSource",
+      "methods": [
+        {
+          "name": "get_PreferredSourceUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_PreferredSourceUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "PreferredSourceUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_PreferredSourceUri",
+          "setter": "put_PreferredSourceUri"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "CastingConnection": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICastingConnection",
+        "namespace": "Windows.Media.Casting",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICastingConnection",
+          "namespace": "Windows.Media.Casting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CastingConnectionErrorOccurredEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICastingConnectionErrorOccurredEventArgs",
+        "namespace": "Windows.Media.Casting",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICastingConnectionErrorOccurredEventArgs",
+          "namespace": "Windows.Media.Casting",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CastingDevice": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICastingDevice",
+        "namespace": "Windows.Media.Casting",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICastingDevice",
+          "namespace": "Windows.Media.Casting",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Media.Casting.ICastingDeviceStatics"
+      ]
+    },
+    "CastingDevicePicker": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICastingDevicePicker",
+        "namespace": "Windows.Media.Casting",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICastingDevicePicker",
+          "namespace": "Windows.Media.Casting",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "CastingDevicePickerFilter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICastingDevicePickerFilter",
+        "namespace": "Windows.Media.Casting",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICastingDevicePickerFilter",
+          "namespace": "Windows.Media.Casting",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CastingDeviceSelectedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICastingDeviceSelectedEventArgs",
+        "namespace": "Windows.Media.Casting",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICastingDeviceSelectedEventArgs",
+          "namespace": "Windows.Media.Casting",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CastingSource": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICastingSource",
+        "namespace": "Windows.Media.Casting",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICastingSource",
+          "namespace": "Windows.Media.Casting",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

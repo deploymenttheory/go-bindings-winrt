@@ -1,0 +1,1446 @@
+{
+  "namespace": "Windows.ApplicationModel.Store.Preview",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "DeliveryOptimizationDownloadMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Simple",
+          "value": "0"
+        },
+        {
+          "name": "HttpOnly",
+          "value": "1"
+        },
+        {
+          "name": "Lan",
+          "value": "2"
+        },
+        {
+          "name": "Group",
+          "value": "3"
+        },
+        {
+          "name": "Internet",
+          "value": "4"
+        },
+        {
+          "name": "Bypass",
+          "value": "5"
+        }
+      ]
+    },
+    "DeliveryOptimizationDownloadModeSource": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "Policy",
+          "value": "1"
+        }
+      ]
+    },
+    "StoreLogOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "TryElevate",
+          "value": "1"
+        }
+      ]
+    },
+    "StorePreviewProductPurchaseStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Succeeded",
+          "value": "0"
+        },
+        {
+          "name": "AlreadyPurchased",
+          "value": "1"
+        },
+        {
+          "name": "NotFulfilled",
+          "value": "2"
+        },
+        {
+          "name": "NotPurchased",
+          "value": "3"
+        }
+      ]
+    },
+    "StoreSystemFeature": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "ArchitectureX86",
+          "value": "0"
+        },
+        {
+          "name": "ArchitectureX64",
+          "value": "1"
+        },
+        {
+          "name": "ArchitectureArm",
+          "value": "2"
+        },
+        {
+          "name": "DirectX9",
+          "value": "3"
+        },
+        {
+          "name": "DirectX10",
+          "value": "4"
+        },
+        {
+          "name": "DirectX11",
+          "value": "5"
+        },
+        {
+          "name": "D3D12HardwareFL11",
+          "value": "6"
+        },
+        {
+          "name": "D3D12HardwareFL12",
+          "value": "7"
+        },
+        {
+          "name": "Memory300MB",
+          "value": "8"
+        },
+        {
+          "name": "Memory750MB",
+          "value": "9"
+        },
+        {
+          "name": "Memory1GB",
+          "value": "10"
+        },
+        {
+          "name": "Memory2GB",
+          "value": "11"
+        },
+        {
+          "name": "CameraFront",
+          "value": "12"
+        },
+        {
+          "name": "CameraRear",
+          "value": "13"
+        },
+        {
+          "name": "Gyroscope",
+          "value": "14"
+        },
+        {
+          "name": "Hover",
+          "value": "15"
+        },
+        {
+          "name": "Magnetometer",
+          "value": "16"
+        },
+        {
+          "name": "Nfc",
+          "value": "17"
+        },
+        {
+          "name": "Resolution720P",
+          "value": "18"
+        },
+        {
+          "name": "ResolutionWvga",
+          "value": "19"
+        },
+        {
+          "name": "ResolutionWvgaOr720P",
+          "value": "20"
+        },
+        {
+          "name": "ResolutionWxga",
+          "value": "21"
+        },
+        {
+          "name": "ResolutionWvgaOrWxga",
+          "value": "22"
+        },
+        {
+          "name": "ResolutionWxgaOr720P",
+          "value": "23"
+        },
+        {
+          "name": "Memory4GB",
+          "value": "24"
+        },
+        {
+          "name": "Memory6GB",
+          "value": "25"
+        },
+        {
+          "name": "Memory8GB",
+          "value": "26"
+        },
+        {
+          "name": "Memory12GB",
+          "value": "27"
+        },
+        {
+          "name": "Memory16GB",
+          "value": "28"
+        },
+        {
+          "name": "Memory20GB",
+          "value": "29"
+        },
+        {
+          "name": "VideoMemory2GB",
+          "value": "30"
+        },
+        {
+          "name": "VideoMemory4GB",
+          "value": "31"
+        },
+        {
+          "name": "VideoMemory6GB",
+          "value": "32"
+        },
+        {
+          "name": "VideoMemory1GB",
+          "value": "33"
+        },
+        {
+          "name": "ArchitectureArm64",
+          "value": "34"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IDeliveryOptimizationSettings": {
+      "guid": "1810fda0-e853-565e-b874-7a8a7b9a0e0f",
+      "exclusive_to": "Windows.ApplicationModel.Store.Preview.DeliveryOptimizationSettings",
+      "methods": [
+        {
+          "name": "get_DownloadMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeliveryOptimizationDownloadMode",
+            "namespace": "Windows.ApplicationModel.Store.Preview",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_DownloadModeSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeliveryOptimizationDownloadModeSource",
+            "namespace": "Windows.ApplicationModel.Store.Preview",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DownloadMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeliveryOptimizationDownloadMode",
+            "namespace": "Windows.ApplicationModel.Store.Preview",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DownloadMode"
+        },
+        {
+          "name": "DownloadModeSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeliveryOptimizationDownloadModeSource",
+            "namespace": "Windows.ApplicationModel.Store.Preview",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DownloadModeSource"
+        }
+      ]
+    },
+    "IDeliveryOptimizationSettingsStatics": {
+      "guid": "5c817caf-aed5-5999-b4c9-8c60898bc4f3",
+      "exclusive_to": "Windows.ApplicationModel.Store.Preview.DeliveryOptimizationSettings",
+      "methods": [
+        {
+          "name": "GetCurrentSettings",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeliveryOptimizationSettings",
+            "namespace": "Windows.ApplicationModel.Store.Preview",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IStoreConfigurationStatics": {
+      "guid": "728f7fc0-8628-42ec-84a2-07780eb44d8b",
+      "exclusive_to": "Windows.ApplicationModel.Store.Preview.StoreConfiguration",
+      "methods": [
+        {
+          "name": "SetSystemConfiguration",
+          "params": [
+            {
+              "name": "catalogHardwareManufacturerId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "catalogStoreContentModifierId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "systemConfigurationExpiration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "catalogHardwareDescriptor",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetMobileOperatorConfiguration",
+          "params": [
+            {
+              "name": "mobileOperatorId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "appDownloadLimitInMegabytes",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "updateDownloadLimitInMegabytes",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetStoreWebAccountId",
+          "params": [
+            {
+              "name": "webAccountId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "IsStoreWebAccountId",
+          "params": [
+            {
+              "name": "webAccountId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_HardwareManufacturerInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StoreHardwareManufacturerInfo",
+            "namespace": "Windows.ApplicationModel.Store.Preview",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "FilterUnsupportedSystemFeaturesAsync",
+          "params": [
+            {
+              "name": "systemFeatures",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "StoreSystemFeature",
+                    "namespace": "Windows.ApplicationModel.Store.Preview",
+                    "target_kind": "Enum"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "StoreSystemFeature",
+                    "namespace": "Windows.ApplicationModel.Store.Preview",
+                    "target_kind": "Enum"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HardwareManufacturerInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StoreHardwareManufacturerInfo",
+            "namespace": "Windows.ApplicationModel.Store.Preview",
+            "target_kind": "Class"
+          },
+          "getter": "get_HardwareManufacturerInfo"
+        }
+      ]
+    },
+    "IStoreConfigurationStatics2": {
+      "guid": "657c4595-c8b7-4fe9-9f4c-4d71027d347e",
+      "exclusive_to": "Windows.ApplicationModel.Store.Preview.StoreConfiguration",
+      "methods": [
+        {
+          "name": "get_PurchasePromptingPolicy",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_PurchasePromptingPolicy",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "U4"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "PurchasePromptingPolicy",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_PurchasePromptingPolicy",
+          "setter": "put_PurchasePromptingPolicy"
+        }
+      ]
+    },
+    "IStoreConfigurationStatics3": {
+      "guid": "6d45f57c-f144-4cb5-9d3f-4eb05e30b6d3",
+      "exclusive_to": "Windows.ApplicationModel.Store.Preview.StoreConfiguration",
+      "methods": [
+        {
+          "name": "HasStoreWebAccount",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "HasStoreWebAccountForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetStoreLogDataAsync",
+          "params": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StoreLogOptions",
+                "namespace": "Windows.ApplicationModel.Store.Preview",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStreamReference",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SetStoreWebAccountIdForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "webAccountId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "IsStoreWebAccountIdForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "webAccountId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetPurchasePromptingPolicyForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SetPurchasePromptingPolicyForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "U4"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IStoreConfigurationStatics4": {
+      "guid": "20ff56d2-4ee3-4cf0-9b12-552c03310f75",
+      "exclusive_to": "Windows.ApplicationModel.Store.Preview.StoreConfiguration",
+      "methods": [
+        {
+          "name": "GetStoreWebAccountId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetStoreWebAccountIdForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "SetEnterpriseStoreWebAccountId",
+          "params": [
+            {
+              "name": "webAccountId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetEnterpriseStoreWebAccountIdForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "webAccountId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetEnterpriseStoreWebAccountId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetEnterpriseStoreWebAccountIdForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ShouldRestrictToEnterpriseStoreOnly",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "ShouldRestrictToEnterpriseStoreOnlyForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IStoreConfigurationStatics5": {
+      "guid": "f7613191-8fa9-49db-822b-0160e7e4e5c5",
+      "exclusive_to": "Windows.ApplicationModel.Store.Preview.StoreConfiguration",
+      "methods": [
+        {
+          "name": "IsPinToDesktopSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsPinToTaskbarSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsPinToStartSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "PinToDesktop",
+          "params": [
+            {
+              "name": "appPackageFamilyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "PinToDesktopForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "appPackageFamilyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IStoreHardwareManufacturerInfo": {
+      "guid": "f292dc08-c654-43ac-a21f-34801c9d3388",
+      "exclusive_to": "Windows.ApplicationModel.Store.Preview.StoreHardwareManufacturerInfo",
+      "methods": [
+        {
+          "name": "get_HardwareManufacturerId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_StoreContentModifierId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ModelName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ManufacturerName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HardwareManufacturerId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HardwareManufacturerId"
+        },
+        {
+          "name": "ManufacturerName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ManufacturerName"
+        },
+        {
+          "name": "ModelName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ModelName"
+        },
+        {
+          "name": "StoreContentModifierId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_StoreContentModifierId"
+        }
+      ]
+    },
+    "IStorePreview": {
+      "guid": "8a157241-840e-49a9-bc01-5d5b01fbc8e9",
+      "exclusive_to": "Windows.ApplicationModel.Store.Preview.StorePreview",
+      "methods": [
+        {
+          "name": "RequestProductPurchaseByProductIdAndSkuIdAsync",
+          "params": [
+            {
+              "name": "productId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "skuId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StorePreviewPurchaseResults",
+                "namespace": "Windows.ApplicationModel.Store.Preview",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "LoadAddOnProductInfosAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "StorePreviewProductInfo",
+                    "namespace": "Windows.ApplicationModel.Store.Preview",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IStorePreviewProductInfo": {
+      "guid": "1937dbb3-6c01-4c9d-85cd-5babaac2b351",
+      "exclusive_to": "Windows.ApplicationModel.Store.Preview.StorePreviewProductInfo",
+      "methods": [
+        {
+          "name": "get_ProductId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ProductType",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Title",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Description",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SkuInfoList",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StorePreviewSkuInfo",
+                "namespace": "Windows.ApplicationModel.Store.Preview",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Description",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Description"
+        },
+        {
+          "name": "ProductId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ProductId"
+        },
+        {
+          "name": "ProductType",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ProductType"
+        },
+        {
+          "name": "SkuInfoList",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StorePreviewSkuInfo",
+                "namespace": "Windows.ApplicationModel.Store.Preview",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_SkuInfoList"
+        },
+        {
+          "name": "Title",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Title"
+        }
+      ]
+    },
+    "IStorePreviewPurchaseResults": {
+      "guid": "b0daaed1-d6c5-4e53-a043-fba0d8e61231",
+      "exclusive_to": "Windows.ApplicationModel.Store.Preview.StorePreviewPurchaseResults",
+      "methods": [
+        {
+          "name": "get_ProductPurchaseStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorePreviewProductPurchaseStatus",
+            "namespace": "Windows.ApplicationModel.Store.Preview",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ProductPurchaseStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StorePreviewProductPurchaseStatus",
+            "namespace": "Windows.ApplicationModel.Store.Preview",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ProductPurchaseStatus"
+        }
+      ]
+    },
+    "IStorePreviewSkuInfo": {
+      "guid": "81fd76e2-0b26-48d9-98ce-27461c669d6c",
+      "exclusive_to": "Windows.ApplicationModel.Store.Preview.StorePreviewSkuInfo",
+      "methods": [
+        {
+          "name": "get_ProductId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SkuId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SkuType",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Title",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Description",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CustomDeveloperData",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CurrencyCode",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_FormattedListPrice",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ExtendedData",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CurrencyCode",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CurrencyCode"
+        },
+        {
+          "name": "CustomDeveloperData",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CustomDeveloperData"
+        },
+        {
+          "name": "Description",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Description"
+        },
+        {
+          "name": "ExtendedData",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ExtendedData"
+        },
+        {
+          "name": "FormattedListPrice",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_FormattedListPrice"
+        },
+        {
+          "name": "ProductId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ProductId"
+        },
+        {
+          "name": "SkuId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SkuId"
+        },
+        {
+          "name": "SkuType",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SkuType"
+        },
+        {
+          "name": "Title",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Title"
+        }
+      ]
+    },
+    "IWebAuthenticationCoreManagerHelper": {
+      "guid": "06a50525-e715-4123-9276-9d6f865ba55f",
+      "exclusive_to": "Windows.ApplicationModel.Store.Preview.WebAuthenticationCoreManagerHelper",
+      "methods": [
+        {
+          "name": "RequestTokenWithUIElementHostingAsync",
+          "overload": "RequestTokenWithUIElementHostingAsync",
+          "params": [
+            {
+              "name": "request",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebTokenRequest",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "uiElement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElement",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebTokenRequestResult",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestTokenWithUIElementHostingAsync",
+          "overload": "RequestTokenWithUIElementHostingAndWebAccountAsync",
+          "params": [
+            {
+              "name": "request",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebTokenRequest",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "webAccount",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAccount",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "uiElement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElement",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebTokenRequestResult",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "DeliveryOptimizationSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeliveryOptimizationSettings",
+        "namespace": "Windows.ApplicationModel.Store.Preview",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeliveryOptimizationSettings",
+          "namespace": "Windows.ApplicationModel.Store.Preview",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.ApplicationModel.Store.Preview.IDeliveryOptimizationSettingsStatics"
+      ]
+    },
+    "StoreConfiguration": {
+      "static_interfaces": [
+        "Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics3",
+        "Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics4",
+        "Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics2",
+        "Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics5",
+        "Windows.ApplicationModel.Store.Preview.IStoreConfigurationStatics"
+      ]
+    },
+    "StoreHardwareManufacturerInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStoreHardwareManufacturerInfo",
+        "namespace": "Windows.ApplicationModel.Store.Preview",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStoreHardwareManufacturerInfo",
+          "namespace": "Windows.ApplicationModel.Store.Preview",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "StorePreview": {
+      "static_interfaces": [
+        "Windows.ApplicationModel.Store.Preview.IStorePreview"
+      ]
+    },
+    "StorePreviewProductInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStorePreviewProductInfo",
+        "namespace": "Windows.ApplicationModel.Store.Preview",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStorePreviewProductInfo",
+          "namespace": "Windows.ApplicationModel.Store.Preview",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "StorePreviewPurchaseResults": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStorePreviewPurchaseResults",
+        "namespace": "Windows.ApplicationModel.Store.Preview",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStorePreviewPurchaseResults",
+          "namespace": "Windows.ApplicationModel.Store.Preview",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "StorePreviewSkuInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStorePreviewSkuInfo",
+        "namespace": "Windows.ApplicationModel.Store.Preview",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStorePreviewSkuInfo",
+          "namespace": "Windows.ApplicationModel.Store.Preview",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebAuthenticationCoreManagerHelper": {
+      "static_interfaces": [
+        "Windows.ApplicationModel.Store.Preview.IWebAuthenticationCoreManagerHelper"
+      ]
+    }
+  }
+}

@@ -1,0 +1,3262 @@
+{
+  "namespace": "Windows.ApplicationModel.Payments",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "PaymentCanMakePaymentResultStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "Yes",
+          "value": "1"
+        },
+        {
+          "name": "No",
+          "value": "2"
+        },
+        {
+          "name": "NotAllowed",
+          "value": "3"
+        },
+        {
+          "name": "UserNotSignedIn",
+          "value": "4"
+        },
+        {
+          "name": "SpecifiedPaymentMethodIdsNotSupported",
+          "value": "5"
+        },
+        {
+          "name": "NoQualifyingCardOnFile",
+          "value": "6"
+        }
+      ]
+    },
+    "PaymentOptionPresence": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Optional",
+          "value": "1"
+        },
+        {
+          "name": "Required",
+          "value": "2"
+        }
+      ]
+    },
+    "PaymentRequestChangeKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "ShippingOption",
+          "value": "0"
+        },
+        {
+          "name": "ShippingAddress",
+          "value": "1"
+        }
+      ]
+    },
+    "PaymentRequestCompletionStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Succeeded",
+          "value": "0"
+        },
+        {
+          "name": "Failed",
+          "value": "1"
+        },
+        {
+          "name": "Unknown",
+          "value": "2"
+        }
+      ]
+    },
+    "PaymentRequestStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Succeeded",
+          "value": "0"
+        },
+        {
+          "name": "Failed",
+          "value": "1"
+        },
+        {
+          "name": "Canceled",
+          "value": "2"
+        }
+      ]
+    },
+    "PaymentShippingType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Shipping",
+          "value": "0"
+        },
+        {
+          "name": "Delivery",
+          "value": "1"
+        },
+        {
+          "name": "Pickup",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IPaymentAddress": {
+      "guid": "5f2264e9-6f3a-4166-a018-0a0b06bb32b5",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentAddress",
+      "methods": [
+        {
+          "name": "get_Country",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Country",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AddressLines",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_AddressLines",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Region",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Region",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_City",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_City",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DependentLocality",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DependentLocality",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PostalCode",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_PostalCode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SortingCode",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_SortingCode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LanguageCode",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_LanguageCode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Organization",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Organization",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Recipient",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Recipient",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PhoneNumber",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_PhoneNumber",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AddressLines",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_AddressLines",
+          "setter": "put_AddressLines"
+        },
+        {
+          "name": "City",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_City",
+          "setter": "put_City"
+        },
+        {
+          "name": "Country",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Country",
+          "setter": "put_Country"
+        },
+        {
+          "name": "DependentLocality",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DependentLocality",
+          "setter": "put_DependentLocality"
+        },
+        {
+          "name": "LanguageCode",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LanguageCode",
+          "setter": "put_LanguageCode"
+        },
+        {
+          "name": "Organization",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Organization",
+          "setter": "put_Organization"
+        },
+        {
+          "name": "PhoneNumber",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PhoneNumber",
+          "setter": "put_PhoneNumber"
+        },
+        {
+          "name": "PostalCode",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PostalCode",
+          "setter": "put_PostalCode"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "Recipient",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Recipient",
+          "setter": "put_Recipient"
+        },
+        {
+          "name": "Region",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Region",
+          "setter": "put_Region"
+        },
+        {
+          "name": "SortingCode",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SortingCode",
+          "setter": "put_SortingCode"
+        }
+      ]
+    },
+    "IPaymentCanMakePaymentResult": {
+      "guid": "7696fe55-d5d3-4d3d-b345-45591759c510",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentCanMakePaymentResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentCanMakePaymentResultStatus",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentCanMakePaymentResultStatus",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IPaymentCanMakePaymentResultFactory": {
+      "guid": "bbdcaa3e-7d49-4f69-aa53-2a0f8164b7c9",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentCanMakePaymentResult",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentCanMakePaymentResultStatus",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentCanMakePaymentResult",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPaymentCurrencyAmount": {
+      "guid": "e3a3e9e0-b41f-4987-bdcb-071331f2daa4",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentCurrencyAmount",
+      "methods": [
+        {
+          "name": "get_Currency",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Currency",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CurrencySystem",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_CurrencySystem",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Value",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Currency",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Currency",
+          "setter": "put_Currency"
+        },
+        {
+          "name": "CurrencySystem",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CurrencySystem",
+          "setter": "put_CurrencySystem"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Value",
+          "setter": "put_Value"
+        }
+      ]
+    },
+    "IPaymentCurrencyAmountFactory": {
+      "guid": "3257d338-140c-4575-8535-f773178c09a7",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentCurrencyAmount",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "currency",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentCurrencyAmount",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithCurrencySystem",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "currency",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "currencySystem",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentCurrencyAmount",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPaymentDetails": {
+      "guid": "53bb2d7d-e0eb-4053-8eae-ce7c48e02945",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentDetails",
+      "methods": [
+        {
+          "name": "get_Total",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentItem",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Total",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentItem",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DisplayItems",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PaymentItem",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_DisplayItems",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PaymentItem",
+                    "namespace": "Windows.ApplicationModel.Payments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ShippingOptions",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PaymentShippingOption",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_ShippingOptions",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PaymentShippingOption",
+                    "namespace": "Windows.ApplicationModel.Payments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Modifiers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PaymentDetailsModifier",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Modifiers",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PaymentDetailsModifier",
+                    "namespace": "Windows.ApplicationModel.Payments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayItems",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PaymentItem",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_DisplayItems",
+          "setter": "put_DisplayItems"
+        },
+        {
+          "name": "Modifiers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PaymentDetailsModifier",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Modifiers",
+          "setter": "put_Modifiers"
+        },
+        {
+          "name": "ShippingOptions",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PaymentShippingOption",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_ShippingOptions",
+          "setter": "put_ShippingOptions"
+        },
+        {
+          "name": "Total",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentItem",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          },
+          "getter": "get_Total",
+          "setter": "put_Total"
+        }
+      ]
+    },
+    "IPaymentDetailsFactory": {
+      "guid": "cfe8afee-c0ea-4ca1-8bc7-6de67b1f3763",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentDetails",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "total",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentItem",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentDetails",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithDisplayItems",
+          "params": [
+            {
+              "name": "total",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentItem",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "displayItems",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PaymentItem",
+                    "namespace": "Windows.ApplicationModel.Payments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentDetails",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPaymentDetailsModifier": {
+      "guid": "be1c7d65-4323-41d7-b305-dfcb765f69de",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentDetailsModifier",
+      "methods": [
+        {
+          "name": "get_JsonData",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SupportedMethodIds",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Total",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentItem",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_AdditionalDisplayItems",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PaymentItem",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AdditionalDisplayItems",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PaymentItem",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_AdditionalDisplayItems"
+        },
+        {
+          "name": "JsonData",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_JsonData"
+        },
+        {
+          "name": "SupportedMethodIds",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_SupportedMethodIds"
+        },
+        {
+          "name": "Total",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentItem",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          },
+          "getter": "get_Total"
+        }
+      ]
+    },
+    "IPaymentDetailsModifierFactory": {
+      "guid": "79005286-54de-429c-9e4f-5dce6e10ebce",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentDetailsModifier",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "supportedMethodIds",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "total",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentItem",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentDetailsModifier",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithAdditionalDisplayItems",
+          "params": [
+            {
+              "name": "supportedMethodIds",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "total",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentItem",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "additionalDisplayItems",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PaymentItem",
+                    "namespace": "Windows.ApplicationModel.Payments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentDetailsModifier",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithAdditionalDisplayItemsAndJsonData",
+          "params": [
+            {
+              "name": "supportedMethodIds",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "total",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentItem",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "additionalDisplayItems",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PaymentItem",
+                    "namespace": "Windows.ApplicationModel.Payments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "jsonData",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentDetailsModifier",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPaymentItem": {
+      "guid": "685ac88b-79b2-4b76-9e03-a876223dfe72",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentItem",
+      "methods": [
+        {
+          "name": "get_Label",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Label",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Amount",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentCurrencyAmount",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Amount",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentCurrencyAmount",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Pending",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Pending",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Amount",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentCurrencyAmount",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          },
+          "getter": "get_Amount",
+          "setter": "put_Amount"
+        },
+        {
+          "name": "Label",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Label",
+          "setter": "put_Label"
+        },
+        {
+          "name": "Pending",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Pending",
+          "setter": "put_Pending"
+        }
+      ]
+    },
+    "IPaymentItemFactory": {
+      "guid": "c6ab7ad8-2503-4d1d-a778-02b2e5927b2c",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentItem",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "label",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "amount",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentCurrencyAmount",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentItem",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPaymentMediator": {
+      "guid": "fb0ee829-ec0c-449a-83da-7ae3073365a2",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentMediator",
+      "methods": [
+        {
+          "name": "GetSupportedMethodIdsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "SubmitPaymentRequestAsync",
+          "overload": "SubmitPaymentRequestAsync",
+          "params": [
+            {
+              "name": "paymentRequest",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentRequest",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PaymentRequestSubmitResult",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SubmitPaymentRequestAsync",
+          "overload": "SubmitPaymentRequestWithChangeHandlerAsync",
+          "params": [
+            {
+              "name": "paymentRequest",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentRequest",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "changeHandler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentRequestChangedHandler",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PaymentRequestSubmitResult",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPaymentMediator2": {
+      "guid": "ceef98f1-e407-4128-8e73-d93d5f822786",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentMediator",
+      "methods": [
+        {
+          "name": "CanMakePaymentAsync",
+          "params": [
+            {
+              "name": "paymentRequest",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentRequest",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PaymentCanMakePaymentResult",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPaymentMerchantInfo": {
+      "guid": "63445050-0e94-4ed6-aacb-e6012bd327a7",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentMerchantInfo",
+      "methods": [
+        {
+          "name": "get_PackageFullName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Uri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PackageFullName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PackageFullName"
+        },
+        {
+          "name": "Uri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Uri"
+        }
+      ]
+    },
+    "IPaymentMerchantInfoFactory": {
+      "guid": "9e89ced3-ccb7-4167-a8ec-e10ae96dbcd1",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentMerchantInfo",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentMerchantInfo",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPaymentMethodData": {
+      "guid": "d1d3caf4-de98-4129-b1b7-c3ad86237bf4",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentMethodData",
+      "methods": [
+        {
+          "name": "get_SupportedMethodIds",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_JsonData",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "JsonData",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_JsonData"
+        },
+        {
+          "name": "SupportedMethodIds",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_SupportedMethodIds"
+        }
+      ]
+    },
+    "IPaymentMethodDataFactory": {
+      "guid": "8addd27f-9baa-4a82-8342-a8210992a36b",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentMethodData",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "supportedMethodIds",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentMethodData",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithJsonData",
+          "params": [
+            {
+              "name": "supportedMethodIds",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "jsonData",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentMethodData",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPaymentOptions": {
+      "guid": "aaa30854-1f2b-4365-8251-01b58915a5bc",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentOptions",
+      "methods": [
+        {
+          "name": "get_RequestPayerEmail",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentOptionPresence",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_RequestPayerEmail",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentOptionPresence",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RequestPayerName",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentOptionPresence",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_RequestPayerName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentOptionPresence",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RequestPayerPhoneNumber",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentOptionPresence",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_RequestPayerPhoneNumber",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentOptionPresence",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RequestShipping",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_RequestShipping",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ShippingType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentShippingType",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_ShippingType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentShippingType",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "RequestPayerEmail",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentOptionPresence",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RequestPayerEmail",
+          "setter": "put_RequestPayerEmail"
+        },
+        {
+          "name": "RequestPayerName",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentOptionPresence",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RequestPayerName",
+          "setter": "put_RequestPayerName"
+        },
+        {
+          "name": "RequestPayerPhoneNumber",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentOptionPresence",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RequestPayerPhoneNumber",
+          "setter": "put_RequestPayerPhoneNumber"
+        },
+        {
+          "name": "RequestShipping",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_RequestShipping",
+          "setter": "put_RequestShipping"
+        },
+        {
+          "name": "ShippingType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentShippingType",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ShippingType",
+          "setter": "put_ShippingType"
+        }
+      ]
+    },
+    "IPaymentRequest": {
+      "guid": "b74942e1-ed7b-47eb-bc08-78cc5d6896b6",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentRequest",
+      "methods": [
+        {
+          "name": "get_MerchantInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentMerchantInfo",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Details",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentDetails",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_MethodData",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PaymentMethodData",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Options",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentOptions",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Details",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentDetails",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          },
+          "getter": "get_Details"
+        },
+        {
+          "name": "MerchantInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentMerchantInfo",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          },
+          "getter": "get_MerchantInfo"
+        },
+        {
+          "name": "MethodData",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PaymentMethodData",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_MethodData"
+        },
+        {
+          "name": "Options",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentOptions",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          },
+          "getter": "get_Options"
+        }
+      ]
+    },
+    "IPaymentRequest2": {
+      "guid": "b63ccfb5-5998-493e-a04c-67048a50f141",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentRequest",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        }
+      ]
+    },
+    "IPaymentRequestChangedArgs": {
+      "guid": "c6145e44-cd8b-4be4-b555-27c99194c0c5",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentRequestChangedArgs",
+      "methods": [
+        {
+          "name": "get_ChangeKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentRequestChangeKind",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ShippingAddress",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentAddress",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_SelectedShippingOption",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentShippingOption",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "Acknowledge",
+          "params": [
+            {
+              "name": "changeResult",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentRequestChangedResult",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ChangeKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentRequestChangeKind",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ChangeKind"
+        },
+        {
+          "name": "SelectedShippingOption",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentShippingOption",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          },
+          "getter": "get_SelectedShippingOption"
+        },
+        {
+          "name": "ShippingAddress",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentAddress",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          },
+          "getter": "get_ShippingAddress"
+        }
+      ]
+    },
+    "IPaymentRequestChangedResult": {
+      "guid": "df699e5c-16c4-47ad-9401-8440ec0757db",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentRequestChangedResult",
+      "methods": [
+        {
+          "name": "get_ChangeAcceptedByMerchant",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_ChangeAcceptedByMerchant",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Message",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Message",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_UpdatedPaymentDetails",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentDetails",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_UpdatedPaymentDetails",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentDetails",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ChangeAcceptedByMerchant",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ChangeAcceptedByMerchant",
+          "setter": "put_ChangeAcceptedByMerchant"
+        },
+        {
+          "name": "Message",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Message",
+          "setter": "put_Message"
+        },
+        {
+          "name": "UpdatedPaymentDetails",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentDetails",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          },
+          "getter": "get_UpdatedPaymentDetails",
+          "setter": "put_UpdatedPaymentDetails"
+        }
+      ]
+    },
+    "IPaymentRequestChangedResultFactory": {
+      "guid": "08740f56-1d33-4431-814b-67ea24bf21db",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentRequestChangedResult",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "changeAcceptedByMerchant",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentRequestChangedResult",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithPaymentDetails",
+          "params": [
+            {
+              "name": "changeAcceptedByMerchant",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "updatedPaymentDetails",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentDetails",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentRequestChangedResult",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPaymentRequestFactory": {
+      "guid": "3e8a79dc-6b74-42d3-b103-f0de35fb1848",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentRequest",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "details",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentDetails",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "methodData",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PaymentMethodData",
+                    "namespace": "Windows.ApplicationModel.Payments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentRequest",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithMerchantInfo",
+          "params": [
+            {
+              "name": "details",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentDetails",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "methodData",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PaymentMethodData",
+                    "namespace": "Windows.ApplicationModel.Payments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "merchantInfo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentMerchantInfo",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentRequest",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithMerchantInfoAndOptions",
+          "params": [
+            {
+              "name": "details",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentDetails",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "methodData",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PaymentMethodData",
+                    "namespace": "Windows.ApplicationModel.Payments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "merchantInfo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentMerchantInfo",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentOptions",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentRequest",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPaymentRequestFactory2": {
+      "guid": "e6ce1325-a506-4372-b7ef-1a031d5662d1",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentRequest",
+      "methods": [
+        {
+          "name": "CreateWithMerchantInfoOptionsAndId",
+          "params": [
+            {
+              "name": "details",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentDetails",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "methodData",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PaymentMethodData",
+                    "namespace": "Windows.ApplicationModel.Payments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "merchantInfo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentMerchantInfo",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentOptions",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentRequest",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPaymentRequestSubmitResult": {
+      "guid": "7b9c3912-30f2-4e90-b249-8ce7d78ffe56",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentRequestSubmitResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentRequestStatus",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Response",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentResponse",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Response",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentResponse",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          },
+          "getter": "get_Response"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentRequestStatus",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IPaymentResponse": {
+      "guid": "e1389457-8bd2-4888-9fa8-97985545108e",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentResponse",
+      "methods": [
+        {
+          "name": "get_PaymentToken",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentToken",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ShippingOption",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentShippingOption",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ShippingAddress",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentAddress",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PayerEmail",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_PayerName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_PayerPhoneNumber",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "CompleteAsync",
+          "params": [
+            {
+              "name": "status",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentRequestCompletionStatus",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PayerEmail",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PayerEmail"
+        },
+        {
+          "name": "PayerName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PayerName"
+        },
+        {
+          "name": "PayerPhoneNumber",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PayerPhoneNumber"
+        },
+        {
+          "name": "PaymentToken",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentToken",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          },
+          "getter": "get_PaymentToken"
+        },
+        {
+          "name": "ShippingAddress",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentAddress",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          },
+          "getter": "get_ShippingAddress"
+        },
+        {
+          "name": "ShippingOption",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentShippingOption",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          },
+          "getter": "get_ShippingOption"
+        }
+      ]
+    },
+    "IPaymentShippingOption": {
+      "guid": "13372ada-9753-4574-8966-93145a76c7f9",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentShippingOption",
+      "methods": [
+        {
+          "name": "get_Label",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Label",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Amount",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentCurrencyAmount",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Amount",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentCurrencyAmount",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Tag",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Tag",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsSelected",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsSelected",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Amount",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentCurrencyAmount",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          },
+          "getter": "get_Amount",
+          "setter": "put_Amount"
+        },
+        {
+          "name": "IsSelected",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSelected",
+          "setter": "put_IsSelected"
+        },
+        {
+          "name": "Label",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Label",
+          "setter": "put_Label"
+        },
+        {
+          "name": "Tag",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Tag",
+          "setter": "put_Tag"
+        }
+      ]
+    },
+    "IPaymentShippingOptionFactory": {
+      "guid": "5de5f917-b2d7-446b-9d73-6123fbca3bc6",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentShippingOption",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "label",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "amount",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentCurrencyAmount",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentShippingOption",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithSelected",
+          "params": [
+            {
+              "name": "label",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "amount",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentCurrencyAmount",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "selected",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentShippingOption",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithSelectedAndTag",
+          "params": [
+            {
+              "name": "label",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "amount",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentCurrencyAmount",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "selected",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "tag",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentShippingOption",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPaymentToken": {
+      "guid": "bbcac013-ccd0-41f2-b2a1-0a2e4b5dce25",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentToken",
+      "methods": [
+        {
+          "name": "get_PaymentMethodId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_JsonDetails",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "JsonDetails",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_JsonDetails"
+        },
+        {
+          "name": "PaymentMethodId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PaymentMethodId"
+        }
+      ]
+    },
+    "IPaymentTokenFactory": {
+      "guid": "988cd7aa-4753-4904-8373-dd7b08b995c1",
+      "exclusive_to": "Windows.ApplicationModel.Payments.PaymentToken",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "paymentMethodId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentToken",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithJsonDetails",
+          "params": [
+            {
+              "name": "paymentMethodId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "jsonDetails",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentToken",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "PaymentAddress": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPaymentAddress",
+        "namespace": "Windows.ApplicationModel.Payments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPaymentAddress",
+          "namespace": "Windows.ApplicationModel.Payments",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "PaymentCanMakePaymentResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPaymentCanMakePaymentResult",
+        "namespace": "Windows.ApplicationModel.Payments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPaymentCanMakePaymentResult",
+          "namespace": "Windows.ApplicationModel.Payments",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Payments.IPaymentCanMakePaymentResultFactory"
+      ]
+    },
+    "PaymentCurrencyAmount": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPaymentCurrencyAmount",
+        "namespace": "Windows.ApplicationModel.Payments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPaymentCurrencyAmount",
+          "namespace": "Windows.ApplicationModel.Payments",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Payments.IPaymentCurrencyAmountFactory"
+      ]
+    },
+    "PaymentDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPaymentDetails",
+        "namespace": "Windows.ApplicationModel.Payments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPaymentDetails",
+          "namespace": "Windows.ApplicationModel.Payments",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.ApplicationModel.Payments.IPaymentDetailsFactory"
+      ]
+    },
+    "PaymentDetailsModifier": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPaymentDetailsModifier",
+        "namespace": "Windows.ApplicationModel.Payments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPaymentDetailsModifier",
+          "namespace": "Windows.ApplicationModel.Payments",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Payments.IPaymentDetailsModifierFactory"
+      ]
+    },
+    "PaymentItem": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPaymentItem",
+        "namespace": "Windows.ApplicationModel.Payments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPaymentItem",
+          "namespace": "Windows.ApplicationModel.Payments",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Payments.IPaymentItemFactory"
+      ]
+    },
+    "PaymentMediator": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPaymentMediator",
+        "namespace": "Windows.ApplicationModel.Payments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPaymentMediator",
+          "namespace": "Windows.ApplicationModel.Payments",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPaymentMediator2",
+          "namespace": "Windows.ApplicationModel.Payments",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "PaymentMerchantInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPaymentMerchantInfo",
+        "namespace": "Windows.ApplicationModel.Payments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPaymentMerchantInfo",
+          "namespace": "Windows.ApplicationModel.Payments",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.ApplicationModel.Payments.IPaymentMerchantInfoFactory"
+      ]
+    },
+    "PaymentMethodData": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPaymentMethodData",
+        "namespace": "Windows.ApplicationModel.Payments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPaymentMethodData",
+          "namespace": "Windows.ApplicationModel.Payments",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Payments.IPaymentMethodDataFactory"
+      ]
+    },
+    "PaymentOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPaymentOptions",
+        "namespace": "Windows.ApplicationModel.Payments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPaymentOptions",
+          "namespace": "Windows.ApplicationModel.Payments",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "PaymentRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPaymentRequest",
+        "namespace": "Windows.ApplicationModel.Payments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPaymentRequest",
+          "namespace": "Windows.ApplicationModel.Payments",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPaymentRequest2",
+          "namespace": "Windows.ApplicationModel.Payments",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Payments.IPaymentRequestFactory2",
+        "Windows.ApplicationModel.Payments.IPaymentRequestFactory"
+      ]
+    },
+    "PaymentRequestChangedArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPaymentRequestChangedArgs",
+        "namespace": "Windows.ApplicationModel.Payments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPaymentRequestChangedArgs",
+          "namespace": "Windows.ApplicationModel.Payments",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PaymentRequestChangedResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPaymentRequestChangedResult",
+        "namespace": "Windows.ApplicationModel.Payments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPaymentRequestChangedResult",
+          "namespace": "Windows.ApplicationModel.Payments",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Payments.IPaymentRequestChangedResultFactory"
+      ]
+    },
+    "PaymentRequestSubmitResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPaymentRequestSubmitResult",
+        "namespace": "Windows.ApplicationModel.Payments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPaymentRequestSubmitResult",
+          "namespace": "Windows.ApplicationModel.Payments",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PaymentResponse": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPaymentResponse",
+        "namespace": "Windows.ApplicationModel.Payments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPaymentResponse",
+          "namespace": "Windows.ApplicationModel.Payments",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PaymentShippingOption": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPaymentShippingOption",
+        "namespace": "Windows.ApplicationModel.Payments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPaymentShippingOption",
+          "namespace": "Windows.ApplicationModel.Payments",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Payments.IPaymentShippingOptionFactory"
+      ]
+    },
+    "PaymentToken": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPaymentToken",
+        "namespace": "Windows.ApplicationModel.Payments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPaymentToken",
+          "namespace": "Windows.ApplicationModel.Payments",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Payments.IPaymentTokenFactory"
+      ]
+    }
+  },
+  "delegates": {
+    "PaymentRequestChangedHandler": {
+      "guid": "5078b9e1-f398-4f2c-a27e-94d371cf6c7d",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "paymentRequest",
+            "type": {
+              "kind": "ApiRef",
+              "name": "PaymentRequest",
+              "namespace": "Windows.ApplicationModel.Payments",
+              "target_kind": "Class"
+            }
+          },
+          {
+            "name": "args",
+            "type": {
+              "kind": "ApiRef",
+              "name": "PaymentRequestChangedArgs",
+              "namespace": "Windows.ApplicationModel.Payments",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

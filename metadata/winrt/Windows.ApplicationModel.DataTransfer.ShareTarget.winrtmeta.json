@@ -1,0 +1,351 @@
+{
+  "namespace": "Windows.ApplicationModel.DataTransfer.ShareTarget",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IQuickLink": {
+      "guid": "603e4308-f0be-4adc-acc9-8b27ab9cf556",
+      "exclusive_to": "Windows.ApplicationModel.DataTransfer.ShareTarget.QuickLink",
+      "methods": [
+        {
+          "name": "get_Title",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Title",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Thumbnail",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Thumbnail",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RandomAccessStreamReference",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Id",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SupportedDataFormats",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SupportedFileTypes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id",
+          "setter": "put_Id"
+        },
+        {
+          "name": "SupportedDataFormats",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_SupportedDataFormats"
+        },
+        {
+          "name": "SupportedFileTypes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_SupportedFileTypes"
+        },
+        {
+          "name": "Thumbnail",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Class"
+          },
+          "getter": "get_Thumbnail",
+          "setter": "put_Thumbnail"
+        },
+        {
+          "name": "Title",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Title",
+          "setter": "put_Title"
+        }
+      ]
+    },
+    "IShareOperation": {
+      "guid": "2246bab8-d0f8-41c1-a82a-4137db6504fb",
+      "exclusive_to": "Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation",
+      "methods": [
+        {
+          "name": "get_Data",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DataPackageView",
+            "namespace": "Windows.ApplicationModel.DataTransfer",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_QuickLinkId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "RemoveThisQuickLink"
+        },
+        {
+          "name": "ReportStarted"
+        },
+        {
+          "name": "ReportDataRetrieved"
+        },
+        {
+          "name": "ReportSubmittedBackgroundTask"
+        },
+        {
+          "name": "ReportCompleted",
+          "overload": "ReportCompletedWithQuickLink",
+          "params": [
+            {
+              "name": "quicklink",
+              "type": {
+                "kind": "ApiRef",
+                "name": "QuickLink",
+                "namespace": "Windows.ApplicationModel.DataTransfer.ShareTarget",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ReportCompleted",
+          "overload": "ReportCompleted"
+        },
+        {
+          "name": "ReportError",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Data",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DataPackageView",
+            "namespace": "Windows.ApplicationModel.DataTransfer",
+            "target_kind": "Class"
+          },
+          "getter": "get_Data"
+        },
+        {
+          "name": "QuickLinkId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_QuickLinkId"
+        }
+      ]
+    },
+    "IShareOperation2": {
+      "guid": "0ffb97c1-9778-4a09-8e5b-cb5e482d0555",
+      "exclusive_to": "Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation",
+      "methods": [
+        {
+          "name": "DismissUI"
+        }
+      ]
+    },
+    "IShareOperation3": {
+      "guid": "5ef6b382-b7a7-4571-a2a6-994a034988b2",
+      "exclusive_to": "Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation",
+      "methods": [
+        {
+          "name": "get_Contacts",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Contact",
+                "namespace": "Windows.ApplicationModel.Contacts",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Contacts",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Contact",
+                "namespace": "Windows.ApplicationModel.Contacts",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Contacts"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "QuickLink": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IQuickLink",
+        "namespace": "Windows.ApplicationModel.DataTransfer.ShareTarget",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IQuickLink",
+          "namespace": "Windows.ApplicationModel.DataTransfer.ShareTarget",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "ShareOperation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IShareOperation",
+        "namespace": "Windows.ApplicationModel.DataTransfer.ShareTarget",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IShareOperation",
+          "namespace": "Windows.ApplicationModel.DataTransfer.ShareTarget",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IShareOperation2",
+          "namespace": "Windows.ApplicationModel.DataTransfer.ShareTarget",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IShareOperation3",
+          "namespace": "Windows.ApplicationModel.DataTransfer.ShareTarget",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

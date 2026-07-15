@@ -1,0 +1,6162 @@
+{
+  "namespace": "Windows.Devices.Perception",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "PerceptionFrameSourceAccessStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unspecified",
+          "value": "0"
+        },
+        {
+          "name": "Allowed",
+          "value": "1"
+        },
+        {
+          "name": "DeniedByUser",
+          "value": "2"
+        },
+        {
+          "name": "DeniedBySystem",
+          "value": "3"
+        }
+      ]
+    },
+    "PerceptionFrameSourcePropertyChangeStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "Accepted",
+          "value": "1"
+        },
+        {
+          "name": "LostControl",
+          "value": "2"
+        },
+        {
+          "name": "PropertyNotSupported",
+          "value": "3"
+        },
+        {
+          "name": "PropertyReadOnly",
+          "value": "4"
+        },
+        {
+          "name": "ValueOutOfRange",
+          "value": "5"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IKnownCameraIntrinsicsPropertiesStatics": {
+      "guid": "08c03978-437a-4d97-a663-fd3195600249",
+      "exclusive_to": "Windows.Devices.Perception.KnownCameraIntrinsicsProperties",
+      "methods": [
+        {
+          "name": "get_FocalLength",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_PrincipalPoint",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RadialDistortion",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TangentialDistortion",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FocalLength",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_FocalLength"
+        },
+        {
+          "name": "PrincipalPoint",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PrincipalPoint"
+        },
+        {
+          "name": "RadialDistortion",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RadialDistortion"
+        },
+        {
+          "name": "TangentialDistortion",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TangentialDistortion"
+        }
+      ]
+    },
+    "IKnownPerceptionColorFrameSourcePropertiesStatics": {
+      "guid": "5df1cca2-01f8-4a87-b859-d5e5b7e1de4b",
+      "exclusive_to": "Windows.Devices.Perception.KnownPerceptionColorFrameSourceProperties",
+      "methods": [
+        {
+          "name": "get_Exposure",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AutoExposureEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ExposureCompensation",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AutoExposureEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AutoExposureEnabled"
+        },
+        {
+          "name": "Exposure",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Exposure"
+        },
+        {
+          "name": "ExposureCompensation",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ExposureCompensation"
+        }
+      ]
+    },
+    "IKnownPerceptionDepthFrameSourcePropertiesStatics": {
+      "guid": "5df1cca2-01f8-4a87-b859-d5e5b7e1de4a",
+      "exclusive_to": "Windows.Devices.Perception.KnownPerceptionDepthFrameSourceProperties",
+      "methods": [
+        {
+          "name": "get_MinDepth",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MaxDepth",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "MaxDepth",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MaxDepth"
+        },
+        {
+          "name": "MinDepth",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MinDepth"
+        }
+      ]
+    },
+    "IKnownPerceptionFrameSourcePropertiesStatics": {
+      "guid": "5df1cca2-01f8-4a87-b859-d5e5b7e1de47",
+      "exclusive_to": "Windows.Devices.Perception.KnownPerceptionFrameSourceProperties",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_PhysicalDeviceIds",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_FrameKind",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DeviceModelVersion",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_EnclosureLocation",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceModelVersion",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceModelVersion"
+        },
+        {
+          "name": "EnclosureLocation",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EnclosureLocation"
+        },
+        {
+          "name": "FrameKind",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_FrameKind"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "PhysicalDeviceIds",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PhysicalDeviceIds"
+        }
+      ]
+    },
+    "IKnownPerceptionFrameSourcePropertiesStatics2": {
+      "guid": "a9c86871-05dc-4a4d-8a5c-a4ecf26bbc46",
+      "exclusive_to": "Windows.Devices.Perception.KnownPerceptionFrameSourceProperties",
+      "methods": [
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        }
+      ]
+    },
+    "IKnownPerceptionInfraredFrameSourcePropertiesStatics": {
+      "guid": "5df1cca2-01f8-4a87-b859-d5e5b7e1de49",
+      "exclusive_to": "Windows.Devices.Perception.KnownPerceptionInfraredFrameSourceProperties",
+      "methods": [
+        {
+          "name": "get_Exposure",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AutoExposureEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ExposureCompensation",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ActiveIlluminationEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AmbientSubtractionEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_StructureLightPatternEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_InterleavedIlluminationEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ActiveIlluminationEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ActiveIlluminationEnabled"
+        },
+        {
+          "name": "AmbientSubtractionEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AmbientSubtractionEnabled"
+        },
+        {
+          "name": "AutoExposureEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AutoExposureEnabled"
+        },
+        {
+          "name": "Exposure",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Exposure"
+        },
+        {
+          "name": "ExposureCompensation",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ExposureCompensation"
+        },
+        {
+          "name": "InterleavedIlluminationEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_InterleavedIlluminationEnabled"
+        },
+        {
+          "name": "StructureLightPatternEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_StructureLightPatternEnabled"
+        }
+      ]
+    },
+    "IKnownPerceptionVideoFrameSourcePropertiesStatics": {
+      "guid": "5df1cca2-01f8-4a87-b859-d5e5b7e1de48",
+      "exclusive_to": "Windows.Devices.Perception.KnownPerceptionVideoFrameSourceProperties",
+      "methods": [
+        {
+          "name": "get_VideoProfile",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SupportedVideoProfiles",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AvailableVideoProfiles",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IsMirrored",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CameraIntrinsics",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AvailableVideoProfiles",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AvailableVideoProfiles"
+        },
+        {
+          "name": "CameraIntrinsics",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CameraIntrinsics"
+        },
+        {
+          "name": "IsMirrored",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_IsMirrored"
+        },
+        {
+          "name": "SupportedVideoProfiles",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SupportedVideoProfiles"
+        },
+        {
+          "name": "VideoProfile",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_VideoProfile"
+        }
+      ]
+    },
+    "IKnownPerceptionVideoProfilePropertiesStatics": {
+      "guid": "8f08e2e7-5a76-43e3-a13a-da3d91a9ef98",
+      "exclusive_to": "Windows.Devices.Perception.KnownPerceptionVideoProfileProperties",
+      "methods": [
+        {
+          "name": "get_BitmapPixelFormat",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BitmapAlphaMode",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Width",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Height",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_FrameDuration",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BitmapAlphaMode",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BitmapAlphaMode"
+        },
+        {
+          "name": "BitmapPixelFormat",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BitmapPixelFormat"
+        },
+        {
+          "name": "FrameDuration",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_FrameDuration"
+        },
+        {
+          "name": "Height",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Height"
+        },
+        {
+          "name": "Width",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Width"
+        }
+      ]
+    },
+    "IPerceptionColorFrame": {
+      "guid": "fe621549-2cbf-4f94-9861-f817ea317747",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionColorFrame",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_VideoFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoFrame",
+            "namespace": "Windows.Media",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "VideoFrame",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoFrame",
+            "namespace": "Windows.Media",
+            "target_kind": "Class"
+          },
+          "getter": "get_VideoFrame"
+        }
+      ]
+    },
+    "IPerceptionColorFrameArrivedEventArgs": {
+      "guid": "8fad02d5-86f7-4d8d-b966-5a3761ba9f59",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionColorFrameArrivedEventArgs",
+      "methods": [
+        {
+          "name": "get_RelativeTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "TryOpenFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionColorFrame",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RelativeTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_RelativeTime"
+        }
+      ]
+    },
+    "IPerceptionColorFrameReader": {
+      "guid": "7650f56e-b9f5-461b-83ad-f222af2aaadc",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionColorFrameReader",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "add_FrameArrived",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionColorFrameReader",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionColorFrameArrivedEventArgs",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_FrameArrived",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Source",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionColorFrameSource",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IsPaused",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsPaused",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TryReadLatestFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionColorFrame",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsPaused",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPaused",
+          "setter": "put_IsPaused"
+        },
+        {
+          "name": "Source",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PerceptionColorFrameSource",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          },
+          "getter": "get_Source"
+        }
+      ],
+      "events": [
+        {
+          "name": "FrameArrived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionColorFrameReader",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionColorFrameArrivedEventArgs",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_FrameArrived",
+          "remove_method": "remove_FrameArrived"
+        }
+      ]
+    },
+    "IPerceptionColorFrameSource": {
+      "guid": "dc6dba7c-0b58-468d-9ca1-6db04cc0477c",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionColorFrameSource",
+      "methods": [
+        {
+          "name": "add_AvailableChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionColorFrameSource",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_AvailableChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ActiveChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionColorFrameSource",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ActiveChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PropertiesChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionColorFrameSource",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionFrameSourcePropertiesChangedEventArgs",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PropertiesChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_VideoProfileChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionColorFrameSource",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_VideoProfileChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_CameraIntrinsicsChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionColorFrameSource",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CameraIntrinsicsChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DeviceKind",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Available",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Active",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsControlled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SupportedVideoProfiles",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionVideoProfile",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_AvailableVideoProfiles",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionVideoProfile",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_VideoProfile",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionVideoProfile",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CameraIntrinsics",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CameraIntrinsics",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "AcquireControlSession",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionControlSession",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CanControlIndependentlyFrom",
+          "params": [
+            {
+              "name": "targetId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsCorrelatedWith",
+          "params": [
+            {
+              "name": "targetId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TryGetTransformTo",
+          "params": [
+            {
+              "name": "targetId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "result",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Matrix4x4",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TryGetDepthCorrelatedCameraIntrinsicsAsync",
+          "params": [
+            {
+              "name": "correlatedDepthFrameSource",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrameSource",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthCorrelatedCameraIntrinsics",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryGetDepthCorrelatedCoordinateMapperAsync",
+          "params": [
+            {
+              "name": "targetSourceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "correlatedDepthFrameSource",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrameSource",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthCorrelatedCoordinateMapper",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TrySetVideoProfileAsync",
+          "params": [
+            {
+              "name": "controlSession",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionControlSession",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "profile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionVideoProfile",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionFrameSourcePropertyChangeResult",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "OpenReader",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionColorFrameReader",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Active",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Active"
+        },
+        {
+          "name": "Available",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Available"
+        },
+        {
+          "name": "AvailableVideoProfiles",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionVideoProfile",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_AvailableVideoProfiles"
+        },
+        {
+          "name": "CameraIntrinsics",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CameraIntrinsics",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_CameraIntrinsics"
+        },
+        {
+          "name": "DeviceKind",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceKind"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "IsControlled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsControlled"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "SupportedVideoProfiles",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionVideoProfile",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_SupportedVideoProfiles"
+        },
+        {
+          "name": "VideoProfile",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PerceptionVideoProfile",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          },
+          "getter": "get_VideoProfile"
+        }
+      ],
+      "events": [
+        {
+          "name": "ActiveChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionColorFrameSource",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ActiveChanged",
+          "remove_method": "remove_ActiveChanged"
+        },
+        {
+          "name": "AvailableChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionColorFrameSource",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_AvailableChanged",
+          "remove_method": "remove_AvailableChanged"
+        },
+        {
+          "name": "CameraIntrinsicsChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionColorFrameSource",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_CameraIntrinsicsChanged",
+          "remove_method": "remove_CameraIntrinsicsChanged"
+        },
+        {
+          "name": "PropertiesChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionColorFrameSource",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionFrameSourcePropertiesChangedEventArgs",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PropertiesChanged",
+          "remove_method": "remove_PropertiesChanged"
+        },
+        {
+          "name": "VideoProfileChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionColorFrameSource",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_VideoProfileChanged",
+          "remove_method": "remove_VideoProfileChanged"
+        }
+      ]
+    },
+    "IPerceptionColorFrameSource2": {
+      "guid": "f88008e5-5631-45ed-ad98-8c6aa04cfb91",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionColorFrameSource",
+      "methods": [
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        }
+      ]
+    },
+    "IPerceptionColorFrameSourceAddedEventArgs": {
+      "guid": "d16bf4e6-da24-442c-bbd5-55549b5b94f3",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionColorFrameSourceAddedEventArgs",
+      "methods": [
+        {
+          "name": "get_FrameSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionColorFrameSource",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FrameSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PerceptionColorFrameSource",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          },
+          "getter": "get_FrameSource"
+        }
+      ]
+    },
+    "IPerceptionColorFrameSourceRemovedEventArgs": {
+      "guid": "d277fa69-eb4c-42ef-ba4f-288f615c93c1",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionColorFrameSourceRemovedEventArgs",
+      "methods": [
+        {
+          "name": "get_FrameSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionColorFrameSource",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FrameSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PerceptionColorFrameSource",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          },
+          "getter": "get_FrameSource"
+        }
+      ]
+    },
+    "IPerceptionColorFrameSourceStatics": {
+      "guid": "5df3cca2-01f8-4a87-b859-d5e5b7e1de49",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionColorFrameSource",
+      "methods": [
+        {
+          "name": "CreateWatcher",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionColorFrameSourceWatcher",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "FindAllAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionColorFrameSource",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionColorFrameSource",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestAccessAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionFrameSourceAccessStatus",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPerceptionColorFrameSourceWatcher": {
+      "guid": "96bd1392-e667-40c4-89f9-1462dea6a9cc",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionColorFrameSourceWatcher",
+      "methods": [
+        {
+          "name": "add_SourceAdded",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionColorFrameSourceWatcher",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionColorFrameSourceAddedEventArgs",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SourceAdded",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_SourceRemoved",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionColorFrameSourceWatcher",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionColorFrameSourceRemovedEventArgs",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SourceRemoved",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Stopped",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionColorFrameSourceWatcher",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Stopped",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_EnumerationCompleted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionColorFrameSourceWatcher",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_EnumerationCompleted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceWatcherStatus",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Start"
+        },
+        {
+          "name": "Stop"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceWatcherStatus",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ],
+      "events": [
+        {
+          "name": "EnumerationCompleted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionColorFrameSourceWatcher",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_EnumerationCompleted",
+          "remove_method": "remove_EnumerationCompleted"
+        },
+        {
+          "name": "SourceAdded",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionColorFrameSourceWatcher",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionColorFrameSourceAddedEventArgs",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SourceAdded",
+          "remove_method": "remove_SourceAdded"
+        },
+        {
+          "name": "SourceRemoved",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionColorFrameSourceWatcher",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionColorFrameSourceRemovedEventArgs",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SourceRemoved",
+          "remove_method": "remove_SourceRemoved"
+        },
+        {
+          "name": "Stopped",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionColorFrameSourceWatcher",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_Stopped",
+          "remove_method": "remove_Stopped"
+        }
+      ]
+    },
+    "IPerceptionControlSession": {
+      "guid": "99998653-5a3d-417f-9239-f1889e548b48",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionControlSession",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "add_ControlLost",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionControlSession",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ControlLost",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TrySetPropertyAsync",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionFrameSourcePropertyChangeResult",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "events": [
+        {
+          "name": "ControlLost",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionControlSession",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ControlLost",
+          "remove_method": "remove_ControlLost"
+        }
+      ]
+    },
+    "IPerceptionDepthCorrelatedCameraIntrinsics": {
+      "guid": "6548ca01-86de-5be1-6582-807fcf4c95cf",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionDepthCorrelatedCameraIntrinsics",
+      "methods": [
+        {
+          "name": "UnprojectPixelAtCorrelatedDepth",
+          "params": [
+            {
+              "name": "pixelCoordinate",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "depthFrame",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrame",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "UnprojectPixelsAtCorrelatedDepth",
+          "params": [
+            {
+              "name": "sourceCoordinates",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Point",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            },
+            {
+              "name": "depthFrame",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrame",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "results",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Vector3",
+                  "namespace": "Windows.Foundation.Numerics",
+                  "target_kind": "Struct"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "UnprojectRegionPixelsAtCorrelatedDepthAsync",
+          "params": [
+            {
+              "name": "region",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "depthFrame",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrame",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "results",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Vector3",
+                  "namespace": "Windows.Foundation.Numerics",
+                  "target_kind": "Struct"
+                }
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "UnprojectAllPixelsAtCorrelatedDepthAsync",
+          "params": [
+            {
+              "name": "depthFrame",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrame",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "results",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Vector3",
+                  "namespace": "Windows.Foundation.Numerics",
+                  "target_kind": "Struct"
+                }
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IPerceptionDepthCorrelatedCoordinateMapper": {
+      "guid": "5b4d9d1d-b5f6-469c-b8c2-b97a45e6863b",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionDepthCorrelatedCoordinateMapper",
+      "methods": [
+        {
+          "name": "MapPixelToTarget",
+          "params": [
+            {
+              "name": "sourcePixelCoordinate",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "depthFrame",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrame",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "MapPixelsToTarget",
+          "params": [
+            {
+              "name": "sourceCoordinates",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Point",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            },
+            {
+              "name": "depthFrame",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrame",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "results",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Point",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "MapRegionOfPixelsToTargetAsync",
+          "params": [
+            {
+              "name": "region",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "depthFrame",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrame",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "targetCoordinates",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Point",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "MapAllPixelsToTargetAsync",
+          "params": [
+            {
+              "name": "depthFrame",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrame",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "targetCoordinates",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Point",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IPerceptionDepthFrame": {
+      "guid": "a37b81fc-9906-4ffd-9161-0024b360b657",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionDepthFrame",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_VideoFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoFrame",
+            "namespace": "Windows.Media",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "VideoFrame",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoFrame",
+            "namespace": "Windows.Media",
+            "target_kind": "Class"
+          },
+          "getter": "get_VideoFrame"
+        }
+      ]
+    },
+    "IPerceptionDepthFrameArrivedEventArgs": {
+      "guid": "443d25b2-b282-4637-9173-ac978435c985",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionDepthFrameArrivedEventArgs",
+      "methods": [
+        {
+          "name": "get_RelativeTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "TryOpenFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionDepthFrame",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RelativeTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_RelativeTime"
+        }
+      ]
+    },
+    "IPerceptionDepthFrameReader": {
+      "guid": "b1a3c09f-299b-4612-a4f7-270f25a096ec",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionDepthFrameReader",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "add_FrameArrived",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionDepthFrameReader",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionDepthFrameArrivedEventArgs",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_FrameArrived",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Source",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionDepthFrameSource",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IsPaused",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsPaused",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TryReadLatestFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionDepthFrame",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsPaused",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPaused",
+          "setter": "put_IsPaused"
+        },
+        {
+          "name": "Source",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PerceptionDepthFrameSource",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          },
+          "getter": "get_Source"
+        }
+      ],
+      "events": [
+        {
+          "name": "FrameArrived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrameReader",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrameArrivedEventArgs",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_FrameArrived",
+          "remove_method": "remove_FrameArrived"
+        }
+      ]
+    },
+    "IPerceptionDepthFrameSource": {
+      "guid": "79d433d6-47fb-4df1-bfc9-f01d40bd9942",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionDepthFrameSource",
+      "methods": [
+        {
+          "name": "add_AvailableChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionDepthFrameSource",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_AvailableChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ActiveChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionDepthFrameSource",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ActiveChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PropertiesChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionDepthFrameSource",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionFrameSourcePropertiesChangedEventArgs",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PropertiesChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_VideoProfileChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionDepthFrameSource",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_VideoProfileChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_CameraIntrinsicsChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionDepthFrameSource",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CameraIntrinsicsChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DeviceKind",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Available",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Active",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsControlled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SupportedVideoProfiles",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionVideoProfile",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_AvailableVideoProfiles",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionVideoProfile",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_VideoProfile",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionVideoProfile",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CameraIntrinsics",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CameraIntrinsics",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "AcquireControlSession",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionControlSession",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CanControlIndependentlyFrom",
+          "params": [
+            {
+              "name": "targetId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsCorrelatedWith",
+          "params": [
+            {
+              "name": "targetId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TryGetTransformTo",
+          "params": [
+            {
+              "name": "targetId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "result",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Matrix4x4",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TryGetDepthCorrelatedCameraIntrinsicsAsync",
+          "params": [
+            {
+              "name": "target",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrameSource",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthCorrelatedCameraIntrinsics",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryGetDepthCorrelatedCoordinateMapperAsync",
+          "params": [
+            {
+              "name": "targetId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "depthFrameSourceToMapWith",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrameSource",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthCorrelatedCoordinateMapper",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TrySetVideoProfileAsync",
+          "params": [
+            {
+              "name": "controlSession",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionControlSession",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "profile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionVideoProfile",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionFrameSourcePropertyChangeResult",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "OpenReader",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionDepthFrameReader",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Active",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Active"
+        },
+        {
+          "name": "Available",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Available"
+        },
+        {
+          "name": "AvailableVideoProfiles",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionVideoProfile",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_AvailableVideoProfiles"
+        },
+        {
+          "name": "CameraIntrinsics",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CameraIntrinsics",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_CameraIntrinsics"
+        },
+        {
+          "name": "DeviceKind",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceKind"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "IsControlled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsControlled"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "SupportedVideoProfiles",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionVideoProfile",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_SupportedVideoProfiles"
+        },
+        {
+          "name": "VideoProfile",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PerceptionVideoProfile",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          },
+          "getter": "get_VideoProfile"
+        }
+      ],
+      "events": [
+        {
+          "name": "ActiveChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrameSource",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ActiveChanged",
+          "remove_method": "remove_ActiveChanged"
+        },
+        {
+          "name": "AvailableChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrameSource",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_AvailableChanged",
+          "remove_method": "remove_AvailableChanged"
+        },
+        {
+          "name": "CameraIntrinsicsChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrameSource",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_CameraIntrinsicsChanged",
+          "remove_method": "remove_CameraIntrinsicsChanged"
+        },
+        {
+          "name": "PropertiesChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrameSource",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionFrameSourcePropertiesChangedEventArgs",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PropertiesChanged",
+          "remove_method": "remove_PropertiesChanged"
+        },
+        {
+          "name": "VideoProfileChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrameSource",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_VideoProfileChanged",
+          "remove_method": "remove_VideoProfileChanged"
+        }
+      ]
+    },
+    "IPerceptionDepthFrameSource2": {
+      "guid": "e3d23d2e-6e2c-4e6d-91d9-704cd8dff79d",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionDepthFrameSource",
+      "methods": [
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        }
+      ]
+    },
+    "IPerceptionDepthFrameSourceAddedEventArgs": {
+      "guid": "93a48168-8bf8-45d2-a2f8-4ac0931cc7a6",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionDepthFrameSourceAddedEventArgs",
+      "methods": [
+        {
+          "name": "get_FrameSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionDepthFrameSource",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FrameSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PerceptionDepthFrameSource",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          },
+          "getter": "get_FrameSource"
+        }
+      ]
+    },
+    "IPerceptionDepthFrameSourceRemovedEventArgs": {
+      "guid": "a0c0cc4d-e96c-4d81-86dd-38b95e49c6df",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionDepthFrameSourceRemovedEventArgs",
+      "methods": [
+        {
+          "name": "get_FrameSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionDepthFrameSource",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FrameSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PerceptionDepthFrameSource",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          },
+          "getter": "get_FrameSource"
+        }
+      ]
+    },
+    "IPerceptionDepthFrameSourceStatics": {
+      "guid": "5df3cca2-01f8-4a87-b859-d5e5b7e1de48",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionDepthFrameSource",
+      "methods": [
+        {
+          "name": "CreateWatcher",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionDepthFrameSourceWatcher",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "FindAllAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionDepthFrameSource",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrameSource",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestAccessAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionFrameSourceAccessStatus",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPerceptionDepthFrameSourceWatcher": {
+      "guid": "780e96d1-8d02-4d2b-ada4-5ba624a0eb10",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionDepthFrameSourceWatcher",
+      "methods": [
+        {
+          "name": "add_SourceAdded",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionDepthFrameSourceWatcher",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionDepthFrameSourceAddedEventArgs",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SourceAdded",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_SourceRemoved",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionDepthFrameSourceWatcher",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionDepthFrameSourceRemovedEventArgs",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SourceRemoved",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Stopped",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionDepthFrameSourceWatcher",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Stopped",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_EnumerationCompleted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionDepthFrameSourceWatcher",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_EnumerationCompleted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceWatcherStatus",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Start"
+        },
+        {
+          "name": "Stop"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceWatcherStatus",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ],
+      "events": [
+        {
+          "name": "EnumerationCompleted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrameSourceWatcher",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_EnumerationCompleted",
+          "remove_method": "remove_EnumerationCompleted"
+        },
+        {
+          "name": "SourceAdded",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrameSourceWatcher",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrameSourceAddedEventArgs",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SourceAdded",
+          "remove_method": "remove_SourceAdded"
+        },
+        {
+          "name": "SourceRemoved",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrameSourceWatcher",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrameSourceRemovedEventArgs",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SourceRemoved",
+          "remove_method": "remove_SourceRemoved"
+        },
+        {
+          "name": "Stopped",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrameSourceWatcher",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_Stopped",
+          "remove_method": "remove_Stopped"
+        }
+      ]
+    },
+    "IPerceptionFrameSourcePropertiesChangedEventArgs": {
+      "guid": "6c68e068-bcf1-4ecc-b891-7625d1244b6b",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionFrameSourcePropertiesChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_CollectionChange",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CollectionChange",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Key",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CollectionChange",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CollectionChange",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CollectionChange"
+        },
+        {
+          "name": "Key",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Key"
+        }
+      ]
+    },
+    "IPerceptionFrameSourcePropertyChangeResult": {
+      "guid": "1e33390a-3c90-4d22-b898-f42bba6418ff",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionFrameSourcePropertyChangeResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionFrameSourcePropertyChangeStatus",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_NewValue",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "NewValue",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_NewValue"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PerceptionFrameSourcePropertyChangeStatus",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IPerceptionInfraredFrame": {
+      "guid": "b0886276-849e-4c7a-8ae6-b56064532153",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionInfraredFrame",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_VideoFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoFrame",
+            "namespace": "Windows.Media",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "VideoFrame",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoFrame",
+            "namespace": "Windows.Media",
+            "target_kind": "Class"
+          },
+          "getter": "get_VideoFrame"
+        }
+      ]
+    },
+    "IPerceptionInfraredFrameArrivedEventArgs": {
+      "guid": "9f77fac7-b4bd-4857-9d50-be8ef075daef",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionInfraredFrameArrivedEventArgs",
+      "methods": [
+        {
+          "name": "get_RelativeTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "TryOpenFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionInfraredFrame",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RelativeTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_RelativeTime"
+        }
+      ]
+    },
+    "IPerceptionInfraredFrameReader": {
+      "guid": "7960ce18-d39b-4fc8-a04a-929734c6756c",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionInfraredFrameReader",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "add_FrameArrived",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionInfraredFrameReader",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionInfraredFrameArrivedEventArgs",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_FrameArrived",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Source",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionInfraredFrameSource",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IsPaused",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsPaused",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TryReadLatestFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionInfraredFrame",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsPaused",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPaused",
+          "setter": "put_IsPaused"
+        },
+        {
+          "name": "Source",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PerceptionInfraredFrameSource",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          },
+          "getter": "get_Source"
+        }
+      ],
+      "events": [
+        {
+          "name": "FrameArrived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionInfraredFrameReader",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionInfraredFrameArrivedEventArgs",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_FrameArrived",
+          "remove_method": "remove_FrameArrived"
+        }
+      ]
+    },
+    "IPerceptionInfraredFrameSource": {
+      "guid": "55b08742-1808-494e-9e30-9d2a7be8f700",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionInfraredFrameSource",
+      "methods": [
+        {
+          "name": "add_AvailableChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionInfraredFrameSource",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_AvailableChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ActiveChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionInfraredFrameSource",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ActiveChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PropertiesChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionInfraredFrameSource",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionFrameSourcePropertiesChangedEventArgs",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PropertiesChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_VideoProfileChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionInfraredFrameSource",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_VideoProfileChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_CameraIntrinsicsChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionInfraredFrameSource",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CameraIntrinsicsChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DeviceKind",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Available",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Active",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsControlled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SupportedVideoProfiles",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionVideoProfile",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_AvailableVideoProfiles",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionVideoProfile",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_VideoProfile",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionVideoProfile",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CameraIntrinsics",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CameraIntrinsics",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "AcquireControlSession",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionControlSession",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CanControlIndependentlyFrom",
+          "params": [
+            {
+              "name": "targetId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsCorrelatedWith",
+          "params": [
+            {
+              "name": "targetId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TryGetTransformTo",
+          "params": [
+            {
+              "name": "targetId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "result",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Matrix4x4",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TryGetDepthCorrelatedCameraIntrinsicsAsync",
+          "params": [
+            {
+              "name": "target",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrameSource",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthCorrelatedCameraIntrinsics",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryGetDepthCorrelatedCoordinateMapperAsync",
+          "params": [
+            {
+              "name": "targetId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "depthFrameSourceToMapWith",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthFrameSource",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionDepthCorrelatedCoordinateMapper",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TrySetVideoProfileAsync",
+          "params": [
+            {
+              "name": "controlSession",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionControlSession",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "profile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionVideoProfile",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionFrameSourcePropertyChangeResult",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "OpenReader",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionInfraredFrameReader",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Active",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Active"
+        },
+        {
+          "name": "Available",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Available"
+        },
+        {
+          "name": "AvailableVideoProfiles",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionVideoProfile",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_AvailableVideoProfiles"
+        },
+        {
+          "name": "CameraIntrinsics",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CameraIntrinsics",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_CameraIntrinsics"
+        },
+        {
+          "name": "DeviceKind",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceKind"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "IsControlled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsControlled"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "SupportedVideoProfiles",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionVideoProfile",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_SupportedVideoProfiles"
+        },
+        {
+          "name": "VideoProfile",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PerceptionVideoProfile",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          },
+          "getter": "get_VideoProfile"
+        }
+      ],
+      "events": [
+        {
+          "name": "ActiveChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionInfraredFrameSource",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ActiveChanged",
+          "remove_method": "remove_ActiveChanged"
+        },
+        {
+          "name": "AvailableChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionInfraredFrameSource",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_AvailableChanged",
+          "remove_method": "remove_AvailableChanged"
+        },
+        {
+          "name": "CameraIntrinsicsChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionInfraredFrameSource",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_CameraIntrinsicsChanged",
+          "remove_method": "remove_CameraIntrinsicsChanged"
+        },
+        {
+          "name": "PropertiesChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionInfraredFrameSource",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionFrameSourcePropertiesChangedEventArgs",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PropertiesChanged",
+          "remove_method": "remove_PropertiesChanged"
+        },
+        {
+          "name": "VideoProfileChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionInfraredFrameSource",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_VideoProfileChanged",
+          "remove_method": "remove_VideoProfileChanged"
+        }
+      ]
+    },
+    "IPerceptionInfraredFrameSource2": {
+      "guid": "dcd4d798-4b0b-4300-8d85-410817faa032",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionInfraredFrameSource",
+      "methods": [
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        }
+      ]
+    },
+    "IPerceptionInfraredFrameSourceAddedEventArgs": {
+      "guid": "6d334120-95ce-4660-907a-d98035aa2b7c",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionInfraredFrameSourceAddedEventArgs",
+      "methods": [
+        {
+          "name": "get_FrameSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionInfraredFrameSource",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FrameSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PerceptionInfraredFrameSource",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          },
+          "getter": "get_FrameSource"
+        }
+      ]
+    },
+    "IPerceptionInfraredFrameSourceRemovedEventArgs": {
+      "guid": "ea1a8071-7a70-4a61-af94-07303853f695",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionInfraredFrameSourceRemovedEventArgs",
+      "methods": [
+        {
+          "name": "get_FrameSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionInfraredFrameSource",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FrameSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PerceptionInfraredFrameSource",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          },
+          "getter": "get_FrameSource"
+        }
+      ]
+    },
+    "IPerceptionInfraredFrameSourceStatics": {
+      "guid": "5df3cca2-01f8-4a87-b859-d5e5b7e1de47",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionInfraredFrameSource",
+      "methods": [
+        {
+          "name": "CreateWatcher",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionInfraredFrameSourceWatcher",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "FindAllAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionInfraredFrameSource",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionInfraredFrameSource",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestAccessAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionFrameSourceAccessStatus",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPerceptionInfraredFrameSourceWatcher": {
+      "guid": "383cff99-d70c-444d-a8b0-720c2e66fe3b",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionInfraredFrameSourceWatcher",
+      "methods": [
+        {
+          "name": "add_SourceAdded",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionInfraredFrameSourceWatcher",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionInfraredFrameSourceAddedEventArgs",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SourceAdded",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_SourceRemoved",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionInfraredFrameSourceWatcher",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionInfraredFrameSourceRemovedEventArgs",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SourceRemoved",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Stopped",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionInfraredFrameSourceWatcher",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Stopped",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_EnumerationCompleted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionInfraredFrameSourceWatcher",
+                    "namespace": "Windows.Devices.Perception",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_EnumerationCompleted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceWatcherStatus",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Start"
+        },
+        {
+          "name": "Stop"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceWatcherStatus",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ],
+      "events": [
+        {
+          "name": "EnumerationCompleted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionInfraredFrameSourceWatcher",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_EnumerationCompleted",
+          "remove_method": "remove_EnumerationCompleted"
+        },
+        {
+          "name": "SourceAdded",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionInfraredFrameSourceWatcher",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionInfraredFrameSourceAddedEventArgs",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SourceAdded",
+          "remove_method": "remove_SourceAdded"
+        },
+        {
+          "name": "SourceRemoved",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionInfraredFrameSourceWatcher",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionInfraredFrameSourceRemovedEventArgs",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SourceRemoved",
+          "remove_method": "remove_SourceRemoved"
+        },
+        {
+          "name": "Stopped",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionInfraredFrameSourceWatcher",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_Stopped",
+          "remove_method": "remove_Stopped"
+        }
+      ]
+    },
+    "IPerceptionVideoProfile": {
+      "guid": "75763ea3-011a-470e-8225-6f05ade25648",
+      "exclusive_to": "Windows.Devices.Perception.PerceptionVideoProfile",
+      "methods": [
+        {
+          "name": "get_BitmapPixelFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapPixelFormat",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_BitmapAlphaMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapAlphaMode",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Width",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Height",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_FrameDuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "IsEqual",
+          "params": [
+            {
+              "name": "other",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionVideoProfile",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BitmapAlphaMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapAlphaMode",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Enum"
+          },
+          "getter": "get_BitmapAlphaMode"
+        },
+        {
+          "name": "BitmapPixelFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapPixelFormat",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Enum"
+          },
+          "getter": "get_BitmapPixelFormat"
+        },
+        {
+          "name": "FrameDuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_FrameDuration"
+        },
+        {
+          "name": "Height",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Height"
+        },
+        {
+          "name": "Width",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Width"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "KnownCameraIntrinsicsProperties": {
+      "static_interfaces": [
+        "Windows.Devices.Perception.IKnownCameraIntrinsicsPropertiesStatics"
+      ]
+    },
+    "KnownPerceptionColorFrameSourceProperties": {
+      "static_interfaces": [
+        "Windows.Devices.Perception.IKnownPerceptionColorFrameSourcePropertiesStatics"
+      ]
+    },
+    "KnownPerceptionDepthFrameSourceProperties": {
+      "static_interfaces": [
+        "Windows.Devices.Perception.IKnownPerceptionDepthFrameSourcePropertiesStatics"
+      ]
+    },
+    "KnownPerceptionFrameSourceProperties": {
+      "static_interfaces": [
+        "Windows.Devices.Perception.IKnownPerceptionFrameSourcePropertiesStatics2",
+        "Windows.Devices.Perception.IKnownPerceptionFrameSourcePropertiesStatics"
+      ]
+    },
+    "KnownPerceptionInfraredFrameSourceProperties": {
+      "static_interfaces": [
+        "Windows.Devices.Perception.IKnownPerceptionInfraredFrameSourcePropertiesStatics"
+      ]
+    },
+    "KnownPerceptionVideoFrameSourceProperties": {
+      "static_interfaces": [
+        "Windows.Devices.Perception.IKnownPerceptionVideoFrameSourcePropertiesStatics"
+      ]
+    },
+    "KnownPerceptionVideoProfileProperties": {
+      "static_interfaces": [
+        "Windows.Devices.Perception.IKnownPerceptionVideoProfilePropertiesStatics"
+      ]
+    },
+    "PerceptionColorFrame": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionColorFrame",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionColorFrame",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionColorFrameArrivedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionColorFrameArrivedEventArgs",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionColorFrameArrivedEventArgs",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionColorFrameReader": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionColorFrameReader",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionColorFrameReader",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionColorFrameSource": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionColorFrameSource",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionColorFrameSource",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionColorFrameSource2",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Perception.IPerceptionColorFrameSourceStatics"
+      ]
+    },
+    "PerceptionColorFrameSourceAddedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionColorFrameSourceAddedEventArgs",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionColorFrameSourceAddedEventArgs",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionColorFrameSourceRemovedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionColorFrameSourceRemovedEventArgs",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionColorFrameSourceRemovedEventArgs",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionColorFrameSourceWatcher": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionColorFrameSourceWatcher",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionColorFrameSourceWatcher",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionControlSession": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionControlSession",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionControlSession",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionDepthCorrelatedCameraIntrinsics": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionDepthCorrelatedCameraIntrinsics",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionDepthCorrelatedCameraIntrinsics",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionDepthCorrelatedCoordinateMapper": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionDepthCorrelatedCoordinateMapper",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionDepthCorrelatedCoordinateMapper",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionDepthFrame": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionDepthFrame",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionDepthFrame",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionDepthFrameArrivedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionDepthFrameArrivedEventArgs",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionDepthFrameArrivedEventArgs",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionDepthFrameReader": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionDepthFrameReader",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionDepthFrameReader",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionDepthFrameSource": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionDepthFrameSource",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionDepthFrameSource",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionDepthFrameSource2",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Perception.IPerceptionDepthFrameSourceStatics"
+      ]
+    },
+    "PerceptionDepthFrameSourceAddedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionDepthFrameSourceAddedEventArgs",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionDepthFrameSourceAddedEventArgs",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionDepthFrameSourceRemovedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionDepthFrameSourceRemovedEventArgs",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionDepthFrameSourceRemovedEventArgs",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionDepthFrameSourceWatcher": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionDepthFrameSourceWatcher",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionDepthFrameSourceWatcher",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionFrameSourcePropertiesChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionFrameSourcePropertiesChangedEventArgs",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionFrameSourcePropertiesChangedEventArgs",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionFrameSourcePropertyChangeResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionFrameSourcePropertyChangeResult",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionFrameSourcePropertyChangeResult",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionInfraredFrame": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionInfraredFrame",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionInfraredFrame",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionInfraredFrameArrivedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionInfraredFrameArrivedEventArgs",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionInfraredFrameArrivedEventArgs",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionInfraredFrameReader": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionInfraredFrameReader",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionInfraredFrameReader",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionInfraredFrameSource": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionInfraredFrameSource",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionInfraredFrameSource",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionInfraredFrameSource2",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Perception.IPerceptionInfraredFrameSourceStatics"
+      ]
+    },
+    "PerceptionInfraredFrameSourceAddedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionInfraredFrameSourceAddedEventArgs",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionInfraredFrameSourceAddedEventArgs",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionInfraredFrameSourceRemovedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionInfraredFrameSourceRemovedEventArgs",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionInfraredFrameSourceRemovedEventArgs",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionInfraredFrameSourceWatcher": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionInfraredFrameSourceWatcher",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionInfraredFrameSourceWatcher",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionVideoProfile": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionVideoProfile",
+        "namespace": "Windows.Devices.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionVideoProfile",
+          "namespace": "Windows.Devices.Perception",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

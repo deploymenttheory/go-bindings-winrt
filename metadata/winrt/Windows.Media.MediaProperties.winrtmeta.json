@@ -1,0 +1,3994 @@
+{
+  "namespace": "Windows.Media.MediaProperties",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "AudioEncodingQuality": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Auto",
+          "value": "0"
+        },
+        {
+          "name": "High",
+          "value": "1"
+        },
+        {
+          "name": "Medium",
+          "value": "2"
+        },
+        {
+          "name": "Low",
+          "value": "3"
+        }
+      ]
+    },
+    "MediaMirroringOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Horizontal",
+          "value": "1"
+        },
+        {
+          "name": "Vertical",
+          "value": "2"
+        }
+      ]
+    },
+    "MediaPixelFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Nv12",
+          "value": "0"
+        },
+        {
+          "name": "Bgra8",
+          "value": "1"
+        },
+        {
+          "name": "P010",
+          "value": "2"
+        }
+      ]
+    },
+    "MediaRotation": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Clockwise90Degrees",
+          "value": "1"
+        },
+        {
+          "name": "Clockwise180Degrees",
+          "value": "2"
+        },
+        {
+          "name": "Clockwise270Degrees",
+          "value": "3"
+        }
+      ]
+    },
+    "MediaThumbnailFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Bmp",
+          "value": "0"
+        },
+        {
+          "name": "Bgra8",
+          "value": "1"
+        }
+      ]
+    },
+    "SphericalVideoFrameFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Unsupported",
+          "value": "1"
+        },
+        {
+          "name": "Equirectangular",
+          "value": "2"
+        }
+      ]
+    },
+    "StereoscopicVideoPackingMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "SideBySide",
+          "value": "1"
+        },
+        {
+          "name": "TopBottom",
+          "value": "2"
+        }
+      ]
+    },
+    "VideoEncodingQuality": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Auto",
+          "value": "0"
+        },
+        {
+          "name": "HD1080p",
+          "value": "1"
+        },
+        {
+          "name": "HD720p",
+          "value": "2"
+        },
+        {
+          "name": "Wvga",
+          "value": "3"
+        },
+        {
+          "name": "Ntsc",
+          "value": "4"
+        },
+        {
+          "name": "Pal",
+          "value": "5"
+        },
+        {
+          "name": "Vga",
+          "value": "6"
+        },
+        {
+          "name": "Qvga",
+          "value": "7"
+        },
+        {
+          "name": "Uhd2160p",
+          "value": "8"
+        },
+        {
+          "name": "Uhd4320p",
+          "value": "9"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IAudioEncodingProperties": {
+      "guid": "62bc7a16-005c-4b3b-8a0b-0a090e9687f3",
+      "exclusive_to": "Windows.Media.MediaProperties.AudioEncodingProperties",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaEncodingProperties",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "put_Bitrate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Bitrate",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_ChannelCount",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ChannelCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_SampleRate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SampleRate",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_BitsPerSample",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BitsPerSample",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Bitrate",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Bitrate",
+          "setter": "put_Bitrate"
+        },
+        {
+          "name": "BitsPerSample",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_BitsPerSample",
+          "setter": "put_BitsPerSample"
+        },
+        {
+          "name": "ChannelCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ChannelCount",
+          "setter": "put_ChannelCount"
+        },
+        {
+          "name": "SampleRate",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SampleRate",
+          "setter": "put_SampleRate"
+        }
+      ]
+    },
+    "IAudioEncodingProperties2": {
+      "guid": "c45d54da-80bd-4c23-80d5-72d4a181e894",
+      "exclusive_to": "Windows.Media.MediaProperties.AudioEncodingProperties",
+      "methods": [
+        {
+          "name": "get_IsSpatial",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsSpatial",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSpatial"
+        }
+      ]
+    },
+    "IAudioEncodingProperties3": {
+      "guid": "87600341-748c-4f8d-b0fd-10caf08ff087",
+      "exclusive_to": "Windows.Media.MediaProperties.AudioEncodingProperties",
+      "methods": [
+        {
+          "name": "Copy",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IAudioEncodingPropertiesStatics": {
+      "guid": "0cad332c-ebe9-4527-b36d-e42a13cf38db",
+      "exclusive_to": "Windows.Media.MediaProperties.AudioEncodingProperties",
+      "methods": [
+        {
+          "name": "CreateAac",
+          "params": [
+            {
+              "name": "sampleRate",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "channelCount",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "bitrate",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateAacAdts",
+          "params": [
+            {
+              "name": "sampleRate",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "channelCount",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "bitrate",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateMp3",
+          "params": [
+            {
+              "name": "sampleRate",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "channelCount",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "bitrate",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreatePcm",
+          "params": [
+            {
+              "name": "sampleRate",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "channelCount",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "bitsPerSample",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWma",
+          "params": [
+            {
+              "name": "sampleRate",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "channelCount",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "bitrate",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IAudioEncodingPropertiesStatics2": {
+      "guid": "7489316f-77a0-433d-8ed5-4040280e8665",
+      "exclusive_to": "Windows.Media.MediaProperties.AudioEncodingProperties",
+      "methods": [
+        {
+          "name": "CreateAlac",
+          "params": [
+            {
+              "name": "sampleRate",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "channelCount",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "bitsPerSample",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFlac",
+          "params": [
+            {
+              "name": "sampleRate",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "channelCount",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "bitsPerSample",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IAudioEncodingPropertiesWithFormatUserData": {
+      "guid": "98f10d79-13ea-49ff-be70-2673db69702c",
+      "exclusive_to": "Windows.Media.MediaProperties.AudioEncodingProperties",
+      "methods": [
+        {
+          "name": "SetFormatUserData",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetFormatUserData",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              },
+              "out": true
+            }
+          ]
+        }
+      ]
+    },
+    "IAv1ProfileIdsStatics": {
+      "guid": "9105812b-7c09-5882-88a4-678008a5174d",
+      "exclusive_to": "Windows.Media.MediaProperties.Av1ProfileIds",
+      "methods": [
+        {
+          "name": "get_MainChromaSubsampling420BitDepth8",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MainChromaSubsampling420BitDepth10",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MainChromaSubsampling400BitDepth8",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MainChromaSubsampling400BitDepth10",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_HighChromaSubsampling444BitDepth8",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_HighChromaSubsampling444BitDepth10",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_ProfessionalChromaSubsampling420BitDepth12",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_ProfessionalChromaSubsampling400BitDepth12",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_ProfessionalChromaSubsampling444BitDepth12",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_ProfessionalChromaSubsampling422BitDepth8",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_ProfessionalChromaSubsampling422BitDepth10",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_ProfessionalChromaSubsampling422BitDepth12",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HighChromaSubsampling444BitDepth10",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_HighChromaSubsampling444BitDepth10"
+        },
+        {
+          "name": "HighChromaSubsampling444BitDepth8",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_HighChromaSubsampling444BitDepth8"
+        },
+        {
+          "name": "MainChromaSubsampling400BitDepth10",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MainChromaSubsampling400BitDepth10"
+        },
+        {
+          "name": "MainChromaSubsampling400BitDepth8",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MainChromaSubsampling400BitDepth8"
+        },
+        {
+          "name": "MainChromaSubsampling420BitDepth10",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MainChromaSubsampling420BitDepth10"
+        },
+        {
+          "name": "MainChromaSubsampling420BitDepth8",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MainChromaSubsampling420BitDepth8"
+        },
+        {
+          "name": "ProfessionalChromaSubsampling400BitDepth12",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_ProfessionalChromaSubsampling400BitDepth12"
+        },
+        {
+          "name": "ProfessionalChromaSubsampling420BitDepth12",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_ProfessionalChromaSubsampling420BitDepth12"
+        },
+        {
+          "name": "ProfessionalChromaSubsampling422BitDepth10",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_ProfessionalChromaSubsampling422BitDepth10"
+        },
+        {
+          "name": "ProfessionalChromaSubsampling422BitDepth12",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_ProfessionalChromaSubsampling422BitDepth12"
+        },
+        {
+          "name": "ProfessionalChromaSubsampling422BitDepth8",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_ProfessionalChromaSubsampling422BitDepth8"
+        },
+        {
+          "name": "ProfessionalChromaSubsampling444BitDepth12",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_ProfessionalChromaSubsampling444BitDepth12"
+        }
+      ]
+    },
+    "IContainerEncodingProperties": {
+      "guid": "59ac2a57-b32a-479e-8a61-4b7f2e9e7ea0",
+      "exclusive_to": "Windows.Media.MediaProperties.ContainerEncodingProperties",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaEncodingProperties",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "IContainerEncodingProperties2": {
+      "guid": "b272c029-ae26-4819-baad-ad7a49b0a876",
+      "exclusive_to": "Windows.Media.MediaProperties.ContainerEncodingProperties",
+      "methods": [
+        {
+          "name": "Copy",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ContainerEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IH264ProfileIdsStatics": {
+      "guid": "38654ca7-846a-4f97-a2e5-c3a15bbf70fd",
+      "exclusive_to": "Windows.Media.MediaProperties.H264ProfileIds",
+      "methods": [
+        {
+          "name": "get_ConstrainedBaseline",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Baseline",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Extended",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Main",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_High",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_High10",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_High422",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_High444",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_StereoHigh",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MultiviewHigh",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Baseline",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Baseline"
+        },
+        {
+          "name": "ConstrainedBaseline",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_ConstrainedBaseline"
+        },
+        {
+          "name": "Extended",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Extended"
+        },
+        {
+          "name": "High",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_High"
+        },
+        {
+          "name": "High10",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_High10"
+        },
+        {
+          "name": "High422",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_High422"
+        },
+        {
+          "name": "High444",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_High444"
+        },
+        {
+          "name": "Main",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Main"
+        },
+        {
+          "name": "MultiviewHigh",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MultiviewHigh"
+        },
+        {
+          "name": "StereoHigh",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_StereoHigh"
+        }
+      ]
+    },
+    "IHevcProfileIdsStatics": {
+      "guid": "1e50d280-2aa7-53c1-973f-2189fa656f53",
+      "exclusive_to": "Windows.Media.MediaProperties.HevcProfileIds",
+      "methods": [
+        {
+          "name": "get_MainChromaSubsampling420BitDepth8",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MainChromaSubsampling420BitDepth10",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MainChromaSubsampling420BitDepth12",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MainChromaSubsampling422BitDepth10",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MainChromaSubsampling422BitDepth12",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MainChromaSubsampling444BitDepth8",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MainChromaSubsampling444BitDepth10",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MainChromaSubsampling444BitDepth12",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MonochromeBitDepth12",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MonochromeBitDepth16",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MainIntraChromaSubsampling420BitDepth8",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MainIntraChromaSubsampling420BitDepth10",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MainIntraChromaSubsampling420BitDepth12",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MainIntraChromaSubsampling422BitDepth10",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MainIntraChromaSubsampling422BitDepth12",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MainIntraChromaSubsampling444BitDepth8",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MainIntraChromaSubsampling444BitDepth10",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MainIntraChromaSubsampling444BitDepth12",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MainIntraChromaSubsampling444BitDepth16",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MainStillChromaSubsampling420BitDepth8",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MainStillChromaSubsampling444BitDepth8",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MainStillChromaSubsampling444BitDepth16",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "MainChromaSubsampling420BitDepth10",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MainChromaSubsampling420BitDepth10"
+        },
+        {
+          "name": "MainChromaSubsampling420BitDepth12",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MainChromaSubsampling420BitDepth12"
+        },
+        {
+          "name": "MainChromaSubsampling420BitDepth8",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MainChromaSubsampling420BitDepth8"
+        },
+        {
+          "name": "MainChromaSubsampling422BitDepth10",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MainChromaSubsampling422BitDepth10"
+        },
+        {
+          "name": "MainChromaSubsampling422BitDepth12",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MainChromaSubsampling422BitDepth12"
+        },
+        {
+          "name": "MainChromaSubsampling444BitDepth10",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MainChromaSubsampling444BitDepth10"
+        },
+        {
+          "name": "MainChromaSubsampling444BitDepth12",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MainChromaSubsampling444BitDepth12"
+        },
+        {
+          "name": "MainChromaSubsampling444BitDepth8",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MainChromaSubsampling444BitDepth8"
+        },
+        {
+          "name": "MainIntraChromaSubsampling420BitDepth10",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MainIntraChromaSubsampling420BitDepth10"
+        },
+        {
+          "name": "MainIntraChromaSubsampling420BitDepth12",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MainIntraChromaSubsampling420BitDepth12"
+        },
+        {
+          "name": "MainIntraChromaSubsampling420BitDepth8",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MainIntraChromaSubsampling420BitDepth8"
+        },
+        {
+          "name": "MainIntraChromaSubsampling422BitDepth10",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MainIntraChromaSubsampling422BitDepth10"
+        },
+        {
+          "name": "MainIntraChromaSubsampling422BitDepth12",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MainIntraChromaSubsampling422BitDepth12"
+        },
+        {
+          "name": "MainIntraChromaSubsampling444BitDepth10",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MainIntraChromaSubsampling444BitDepth10"
+        },
+        {
+          "name": "MainIntraChromaSubsampling444BitDepth12",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MainIntraChromaSubsampling444BitDepth12"
+        },
+        {
+          "name": "MainIntraChromaSubsampling444BitDepth16",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MainIntraChromaSubsampling444BitDepth16"
+        },
+        {
+          "name": "MainIntraChromaSubsampling444BitDepth8",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MainIntraChromaSubsampling444BitDepth8"
+        },
+        {
+          "name": "MainStillChromaSubsampling420BitDepth8",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MainStillChromaSubsampling420BitDepth8"
+        },
+        {
+          "name": "MainStillChromaSubsampling444BitDepth16",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MainStillChromaSubsampling444BitDepth16"
+        },
+        {
+          "name": "MainStillChromaSubsampling444BitDepth8",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MainStillChromaSubsampling444BitDepth8"
+        },
+        {
+          "name": "MonochromeBitDepth12",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MonochromeBitDepth12"
+        },
+        {
+          "name": "MonochromeBitDepth16",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MonochromeBitDepth16"
+        }
+      ]
+    },
+    "IImageEncodingProperties": {
+      "guid": "78625635-f331-4189-b1c3-b48d5ae034f1",
+      "exclusive_to": "Windows.Media.MediaProperties.ImageEncodingProperties",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaEncodingProperties",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "put_Width",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Width",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_Height",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Height",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Height",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Height",
+          "setter": "put_Height"
+        },
+        {
+          "name": "Width",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Width",
+          "setter": "put_Width"
+        }
+      ]
+    },
+    "IImageEncodingProperties2": {
+      "guid": "c854a2df-c923-469b-ac8e-6a9f3c1cd9e3",
+      "exclusive_to": "Windows.Media.MediaProperties.ImageEncodingProperties",
+      "methods": [
+        {
+          "name": "Copy",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ImageEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IImageEncodingPropertiesStatics": {
+      "guid": "257c68dc-8b99-439e-aa59-913a36161297",
+      "exclusive_to": "Windows.Media.MediaProperties.ImageEncodingProperties",
+      "methods": [
+        {
+          "name": "CreateJpeg",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ImageEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreatePng",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ImageEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateJpegXR",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ImageEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IImageEncodingPropertiesStatics2": {
+      "guid": "f6c25b29-3824-46b0-956e-501329e1be3c",
+      "exclusive_to": "Windows.Media.MediaProperties.ImageEncodingProperties",
+      "methods": [
+        {
+          "name": "CreateUncompressed",
+          "params": [
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaPixelFormat",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ImageEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateBmp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ImageEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IImageEncodingPropertiesStatics3": {
+      "guid": "48f4814d-a2ff-48dc-8ea0-e90680663656",
+      "exclusive_to": "Windows.Media.MediaProperties.ImageEncodingProperties",
+      "methods": [
+        {
+          "name": "CreateHeif",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ImageEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMediaEncodingProfile": {
+      "guid": "e7dbf5a8-1db9-4783-876b-3dfe12acfdb3",
+      "exclusive_to": "Windows.Media.MediaProperties.MediaEncodingProfile",
+      "methods": [
+        {
+          "name": "put_Audio",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AudioEncodingProperties",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Audio",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Video",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VideoEncodingProperties",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Video",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Container",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ContainerEncodingProperties",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Container",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ContainerEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Audio",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AudioEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          },
+          "getter": "get_Audio",
+          "setter": "put_Audio"
+        },
+        {
+          "name": "Container",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ContainerEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          },
+          "getter": "get_Container",
+          "setter": "put_Container"
+        },
+        {
+          "name": "Video",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          },
+          "getter": "get_Video",
+          "setter": "put_Video"
+        }
+      ]
+    },
+    "IMediaEncodingProfile2": {
+      "guid": "349b3e0a-4035-488e-9877-85632865ed10",
+      "exclusive_to": "Windows.Media.MediaProperties.MediaEncodingProfile",
+      "methods": [
+        {
+          "name": "SetAudioTracks",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AudioStreamDescriptor",
+                    "namespace": "Windows.Media.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetAudioTracks",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AudioStreamDescriptor",
+                "namespace": "Windows.Media.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SetVideoTracks",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "VideoStreamDescriptor",
+                    "namespace": "Windows.Media.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetVideoTracks",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VideoStreamDescriptor",
+                "namespace": "Windows.Media.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IMediaEncodingProfile3": {
+      "guid": "ba6ebe88-7570-4e69-accf-5611ad015f88",
+      "exclusive_to": "Windows.Media.MediaProperties.MediaEncodingProfile",
+      "methods": [
+        {
+          "name": "SetTimedMetadataTracks",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "TimedMetadataStreamDescriptor",
+                    "namespace": "Windows.Media.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetTimedMetadataTracks",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimedMetadataStreamDescriptor",
+                "namespace": "Windows.Media.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IMediaEncodingProfileStatics": {
+      "guid": "197f352c-2ede-4a45-a896-817a4854f8fe",
+      "exclusive_to": "Windows.Media.MediaProperties.MediaEncodingProfile",
+      "methods": [
+        {
+          "name": "CreateM4a",
+          "params": [
+            {
+              "name": "quality",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AudioEncodingQuality",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaEncodingProfile",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateMp3",
+          "params": [
+            {
+              "name": "quality",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AudioEncodingQuality",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaEncodingProfile",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWma",
+          "params": [
+            {
+              "name": "quality",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AudioEncodingQuality",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaEncodingProfile",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateMp4",
+          "params": [
+            {
+              "name": "quality",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VideoEncodingQuality",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaEncodingProfile",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWmv",
+          "params": [
+            {
+              "name": "quality",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VideoEncodingQuality",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaEncodingProfile",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFromFileAsync",
+          "params": [
+            {
+              "name": "file",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaEncodingProfile",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateFromStreamAsync",
+          "params": [
+            {
+              "name": "stream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaEncodingProfile",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IMediaEncodingProfileStatics2": {
+      "guid": "ce8de74f-6af4-4288-8fe2-79adf1f79a43",
+      "exclusive_to": "Windows.Media.MediaProperties.MediaEncodingProfile",
+      "methods": [
+        {
+          "name": "CreateWav",
+          "params": [
+            {
+              "name": "quality",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AudioEncodingQuality",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaEncodingProfile",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateAvi",
+          "params": [
+            {
+              "name": "quality",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VideoEncodingQuality",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaEncodingProfile",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMediaEncodingProfileStatics3": {
+      "guid": "90dac5aa-cf76-4294-a9ed-1a1420f51f6b",
+      "exclusive_to": "Windows.Media.MediaProperties.MediaEncodingProfile",
+      "methods": [
+        {
+          "name": "CreateAlac",
+          "params": [
+            {
+              "name": "quality",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AudioEncodingQuality",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaEncodingProfile",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFlac",
+          "params": [
+            {
+              "name": "quality",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AudioEncodingQuality",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaEncodingProfile",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateHevc",
+          "params": [
+            {
+              "name": "quality",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VideoEncodingQuality",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaEncodingProfile",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMediaEncodingProfileStatics4": {
+      "guid": "6fafd7b5-9404-514a-81dd-c9444d648af0",
+      "exclusive_to": "Windows.Media.MediaProperties.MediaEncodingProfile",
+      "methods": [
+        {
+          "name": "CreateVp9",
+          "params": [
+            {
+              "name": "quality",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VideoEncodingQuality",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaEncodingProfile",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateAv1",
+          "params": [
+            {
+              "name": "quality",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VideoEncodingQuality",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaEncodingProfile",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMediaEncodingProperties": {
+      "guid": "b4002af6-acd4-4e5a-a24b-5d7498a8b8c4",
+      "methods": [
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaPropertySet",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Type",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Subtype",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Subtype",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaPropertySet",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "Subtype",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Subtype",
+          "setter": "put_Subtype"
+        },
+        {
+          "name": "Type",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Type"
+        }
+      ]
+    },
+    "IMediaEncodingSubtypesStatics": {
+      "guid": "37b6580e-a171-4464-ba5a-53189e48c1c8",
+      "exclusive_to": "Windows.Media.MediaProperties.MediaEncodingSubtypes",
+      "methods": [
+        {
+          "name": "get_Aac",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AacAdts",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Ac3",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AmrNb",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AmrWb",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Argb32",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Asf",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Avi",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Bgra8",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Bmp",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Eac3",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Float",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Gif",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_H263",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_H264",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_H264Es",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Hevc",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_HevcEs",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Iyuv",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Jpeg",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_JpegXr",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Mjpg",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Mpeg",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Mpeg1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Mpeg2",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Mp3",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Mpeg4",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Nv12",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Pcm",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Png",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Rgb24",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Rgb32",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Tiff",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Wave",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Wma8",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Wma9",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Wmv3",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Wvc1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Yuy2",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Yv12",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Aac",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Aac"
+        },
+        {
+          "name": "AacAdts",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AacAdts"
+        },
+        {
+          "name": "Ac3",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Ac3"
+        },
+        {
+          "name": "AmrNb",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AmrNb"
+        },
+        {
+          "name": "AmrWb",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AmrWb"
+        },
+        {
+          "name": "Argb32",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Argb32"
+        },
+        {
+          "name": "Asf",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Asf"
+        },
+        {
+          "name": "Avi",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Avi"
+        },
+        {
+          "name": "Bgra8",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Bgra8"
+        },
+        {
+          "name": "Bmp",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Bmp"
+        },
+        {
+          "name": "Eac3",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Eac3"
+        },
+        {
+          "name": "Float",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Float"
+        },
+        {
+          "name": "Gif",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Gif"
+        },
+        {
+          "name": "H263",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_H263"
+        },
+        {
+          "name": "H264",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_H264"
+        },
+        {
+          "name": "H264Es",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_H264Es"
+        },
+        {
+          "name": "Hevc",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Hevc"
+        },
+        {
+          "name": "HevcEs",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HevcEs"
+        },
+        {
+          "name": "Iyuv",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Iyuv"
+        },
+        {
+          "name": "Jpeg",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Jpeg"
+        },
+        {
+          "name": "JpegXr",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_JpegXr"
+        },
+        {
+          "name": "Mjpg",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Mjpg"
+        },
+        {
+          "name": "Mp3",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Mp3"
+        },
+        {
+          "name": "Mpeg",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Mpeg"
+        },
+        {
+          "name": "Mpeg1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Mpeg1"
+        },
+        {
+          "name": "Mpeg2",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Mpeg2"
+        },
+        {
+          "name": "Mpeg4",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Mpeg4"
+        },
+        {
+          "name": "Nv12",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Nv12"
+        },
+        {
+          "name": "Pcm",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Pcm"
+        },
+        {
+          "name": "Png",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Png"
+        },
+        {
+          "name": "Rgb24",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Rgb24"
+        },
+        {
+          "name": "Rgb32",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Rgb32"
+        },
+        {
+          "name": "Tiff",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Tiff"
+        },
+        {
+          "name": "Wave",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Wave"
+        },
+        {
+          "name": "Wma8",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Wma8"
+        },
+        {
+          "name": "Wma9",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Wma9"
+        },
+        {
+          "name": "Wmv3",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Wmv3"
+        },
+        {
+          "name": "Wvc1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Wvc1"
+        },
+        {
+          "name": "Yuy2",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Yuy2"
+        },
+        {
+          "name": "Yv12",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Yv12"
+        }
+      ]
+    },
+    "IMediaEncodingSubtypesStatics2": {
+      "guid": "4b7cd23d-42ff-4d33-8531-0626bee4b52d",
+      "exclusive_to": "Windows.Media.MediaProperties.MediaEncodingSubtypes",
+      "methods": [
+        {
+          "name": "get_Vp9",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_L8",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_L16",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_D16",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "D16",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_D16"
+        },
+        {
+          "name": "L16",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_L16"
+        },
+        {
+          "name": "L8",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_L8"
+        },
+        {
+          "name": "Vp9",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Vp9"
+        }
+      ]
+    },
+    "IMediaEncodingSubtypesStatics3": {
+      "guid": "ba2414e4-883d-464e-a44f-097da08ef7ff",
+      "exclusive_to": "Windows.Media.MediaProperties.MediaEncodingSubtypes",
+      "methods": [
+        {
+          "name": "get_Alac",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Flac",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Alac",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Alac"
+        },
+        {
+          "name": "Flac",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Flac"
+        }
+      ]
+    },
+    "IMediaEncodingSubtypesStatics4": {
+      "guid": "ddece58a-3949-4644-8a2c-59ef02c642fa",
+      "exclusive_to": "Windows.Media.MediaProperties.MediaEncodingSubtypes",
+      "methods": [
+        {
+          "name": "get_P010",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "P010",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_P010"
+        }
+      ]
+    },
+    "IMediaEncodingSubtypesStatics5": {
+      "guid": "5ad4a007-ffce-4760-9828-5d0c99637e6a",
+      "exclusive_to": "Windows.Media.MediaProperties.MediaEncodingSubtypes",
+      "methods": [
+        {
+          "name": "get_Heif",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Heif",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Heif"
+        }
+      ]
+    },
+    "IMediaEncodingSubtypesStatics6": {
+      "guid": "a1252973-a984-5912-93bb-54e7e569e053",
+      "exclusive_to": "Windows.Media.MediaProperties.MediaEncodingSubtypes",
+      "methods": [
+        {
+          "name": "get_Pgs",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Srt",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Ssa",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_VobSub",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Pgs",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Pgs"
+        },
+        {
+          "name": "Srt",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Srt"
+        },
+        {
+          "name": "Ssa",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Ssa"
+        },
+        {
+          "name": "VobSub",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_VobSub"
+        }
+      ]
+    },
+    "IMediaEncodingSubtypesStatics7": {
+      "guid": "92f2dca7-9937-52a1-b619-ddfad81cd99c",
+      "exclusive_to": "Windows.Media.MediaProperties.MediaEncodingSubtypes",
+      "methods": [
+        {
+          "name": "get_Av1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Av1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Av1"
+        }
+      ]
+    },
+    "IMediaRatio": {
+      "guid": "d2d0fee5-8929-401d-ac78-7d357e378163",
+      "exclusive_to": "Windows.Media.MediaProperties.MediaRatio",
+      "methods": [
+        {
+          "name": "put_Numerator",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Numerator",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_Denominator",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Denominator",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Denominator",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Denominator",
+          "setter": "put_Denominator"
+        },
+        {
+          "name": "Numerator",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Numerator",
+          "setter": "put_Numerator"
+        }
+      ]
+    },
+    "IMpeg2ProfileIdsStatics": {
+      "guid": "a461ff85-e57a-4128-9b21-d5331b04235c",
+      "exclusive_to": "Windows.Media.MediaProperties.Mpeg2ProfileIds",
+      "methods": [
+        {
+          "name": "get_Simple",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Main",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_SignalNoiseRatioScalable",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_SpatiallyScalable",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_High",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "High",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_High"
+        },
+        {
+          "name": "Main",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Main"
+        },
+        {
+          "name": "SignalNoiseRatioScalable",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_SignalNoiseRatioScalable"
+        },
+        {
+          "name": "Simple",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Simple"
+        },
+        {
+          "name": "SpatiallyScalable",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_SpatiallyScalable"
+        }
+      ]
+    },
+    "ITimedMetadataEncodingProperties": {
+      "guid": "51cd30d3-d690-4cfa-97f4-4a398e9db420",
+      "exclusive_to": "Windows.Media.MediaProperties.TimedMetadataEncodingProperties",
+      "methods": [
+        {
+          "name": "SetFormatUserData",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetFormatUserData",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "Copy",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimedMetadataEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ITimedMetadataEncodingPropertiesStatics": {
+      "guid": "6629bb67-6e55-5643-89a0-7a7e8d85b52c",
+      "exclusive_to": "Windows.Media.MediaProperties.TimedMetadataEncodingProperties",
+      "methods": [
+        {
+          "name": "CreatePgs",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimedMetadataEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateSrt",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimedMetadataEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateSsa",
+          "params": [
+            {
+              "name": "formatUserData",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimedMetadataEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateVobSub",
+          "params": [
+            {
+              "name": "formatUserData",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimedMetadataEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IVideoEncodingProperties": {
+      "guid": "76ee6c9a-37c2-4f2a-880a-1282bbb4373d",
+      "exclusive_to": "Windows.Media.MediaProperties.VideoEncodingProperties",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaEncodingProperties",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "put_Bitrate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Bitrate",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_Width",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Width",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_Height",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Height",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_FrameRate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaRatio",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PixelAspectRatio",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaRatio",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Bitrate",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Bitrate",
+          "setter": "put_Bitrate"
+        },
+        {
+          "name": "FrameRate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaRatio",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          },
+          "getter": "get_FrameRate"
+        },
+        {
+          "name": "Height",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Height",
+          "setter": "put_Height"
+        },
+        {
+          "name": "PixelAspectRatio",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaRatio",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          },
+          "getter": "get_PixelAspectRatio"
+        },
+        {
+          "name": "Width",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Width",
+          "setter": "put_Width"
+        }
+      ]
+    },
+    "IVideoEncodingProperties2": {
+      "guid": "f743a1ef-d465-4290-a94b-ef0f1528f8e3",
+      "exclusive_to": "Windows.Media.MediaProperties.VideoEncodingProperties",
+      "methods": [
+        {
+          "name": "SetFormatUserData",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetFormatUserData",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "put_ProfileId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ProfileId",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ProfileId",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_ProfileId",
+          "setter": "put_ProfileId"
+        }
+      ]
+    },
+    "IVideoEncodingProperties3": {
+      "guid": "386bcdc4-873a-479f-b3eb-56c1fcbec6d7",
+      "exclusive_to": "Windows.Media.MediaProperties.VideoEncodingProperties",
+      "methods": [
+        {
+          "name": "get_StereoscopicVideoPackingMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StereoscopicVideoPackingMode",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "StereoscopicVideoPackingMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StereoscopicVideoPackingMode",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Enum"
+          },
+          "getter": "get_StereoscopicVideoPackingMode"
+        }
+      ]
+    },
+    "IVideoEncodingProperties4": {
+      "guid": "724ef014-c10c-40f2-9d72-3ee13b45fa8e",
+      "exclusive_to": "Windows.Media.MediaProperties.VideoEncodingProperties",
+      "methods": [
+        {
+          "name": "get_SphericalVideoFrameFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SphericalVideoFrameFormat",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SphericalVideoFrameFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SphericalVideoFrameFormat",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SphericalVideoFrameFormat"
+        }
+      ]
+    },
+    "IVideoEncodingProperties5": {
+      "guid": "4959080f-272f-4ece-a4df-c0ccdb33d840",
+      "exclusive_to": "Windows.Media.MediaProperties.VideoEncodingProperties",
+      "methods": [
+        {
+          "name": "Copy",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IVideoEncodingPropertiesStatics": {
+      "guid": "3ce14d44-1dc5-43db-9f38-ebebf90152cb",
+      "exclusive_to": "Windows.Media.MediaProperties.VideoEncodingProperties",
+      "methods": [
+        {
+          "name": "CreateH264",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateMpeg2",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateUncompressed",
+          "params": [
+            {
+              "name": "subtype",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "width",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "height",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IVideoEncodingPropertiesStatics2": {
+      "guid": "cf1ebd5d-49fe-4d00-b59a-cfa4dfc51944",
+      "exclusive_to": "Windows.Media.MediaProperties.VideoEncodingProperties",
+      "methods": [
+        {
+          "name": "CreateHevc",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IVideoEncodingPropertiesStatics3": {
+      "guid": "65b46685-60da-5e51-91a2-b38c4763b872",
+      "exclusive_to": "Windows.Media.MediaProperties.VideoEncodingProperties",
+      "methods": [
+        {
+          "name": "CreateVp9",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateAv1",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IVp9ProfileIdsStatics": {
+      "guid": "20311a55-fe06-5883-92d9-6080c97743e5",
+      "exclusive_to": "Windows.Media.MediaProperties.Vp9ProfileIds",
+      "methods": [
+        {
+          "name": "get_Profile0ChromaSubsampling420BitDepth8",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Profile2ChromaSubsampling420BitDepth10",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Profile2ChromaSubsampling420BitDepth12",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Profile0ChromaSubsampling420BitDepth8",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Profile0ChromaSubsampling420BitDepth8"
+        },
+        {
+          "name": "Profile2ChromaSubsampling420BitDepth10",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Profile2ChromaSubsampling420BitDepth10"
+        },
+        {
+          "name": "Profile2ChromaSubsampling420BitDepth12",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Profile2ChromaSubsampling420BitDepth12"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AudioEncodingProperties": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAudioEncodingProperties",
+        "namespace": "Windows.Media.MediaProperties",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAudioEncodingProperties",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaEncodingProperties",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAudioEncodingPropertiesWithFormatUserData",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAudioEncodingProperties2",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAudioEncodingProperties3",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Media.MediaProperties.IAudioEncodingPropertiesStatics",
+        "Windows.Media.MediaProperties.IAudioEncodingPropertiesStatics2"
+      ]
+    },
+    "Av1ProfileIds": {
+      "static_interfaces": [
+        "Windows.Media.MediaProperties.IAv1ProfileIdsStatics"
+      ]
+    },
+    "ContainerEncodingProperties": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IContainerEncodingProperties",
+        "namespace": "Windows.Media.MediaProperties",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IContainerEncodingProperties",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaEncodingProperties",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IContainerEncodingProperties2",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "H264ProfileIds": {
+      "static_interfaces": [
+        "Windows.Media.MediaProperties.IH264ProfileIdsStatics"
+      ]
+    },
+    "HevcProfileIds": {
+      "static_interfaces": [
+        "Windows.Media.MediaProperties.IHevcProfileIdsStatics"
+      ]
+    },
+    "ImageEncodingProperties": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IImageEncodingProperties",
+        "namespace": "Windows.Media.MediaProperties",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IImageEncodingProperties",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaEncodingProperties",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IImageEncodingProperties2",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Media.MediaProperties.IImageEncodingPropertiesStatics",
+        "Windows.Media.MediaProperties.IImageEncodingPropertiesStatics2",
+        "Windows.Media.MediaProperties.IImageEncodingPropertiesStatics3"
+      ]
+    },
+    "MediaEncodingProfile": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaEncodingProfile",
+        "namespace": "Windows.Media.MediaProperties",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaEncodingProfile",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaEncodingProfile2",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaEncodingProfile3",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Media.MediaProperties.IMediaEncodingProfileStatics2",
+        "Windows.Media.MediaProperties.IMediaEncodingProfileStatics4",
+        "Windows.Media.MediaProperties.IMediaEncodingProfileStatics",
+        "Windows.Media.MediaProperties.IMediaEncodingProfileStatics3"
+      ]
+    },
+    "MediaEncodingSubtypes": {
+      "static_interfaces": [
+        "Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics2",
+        "Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics6",
+        "Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics4",
+        "Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics3",
+        "Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics5",
+        "Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics",
+        "Windows.Media.MediaProperties.IMediaEncodingSubtypesStatics7"
+      ]
+    },
+    "MediaPropertySet": {
+      "default_interface": {
+        "kind": "GenericInst",
+        "name": "IMap`2",
+        "namespace": "Windows.Foundation.Collections",
+        "target_kind": "Interface",
+        "args": [
+          {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          {
+            "kind": "Native",
+            "name": "Object"
+          }
+        ]
+      },
+      "interfaces": [
+        {
+          "kind": "GenericInst",
+          "name": "IMap`2",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "Native",
+              "name": "Guid"
+            },
+            {
+              "kind": "Native",
+              "name": "Object"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "GenericInst",
+              "name": "IKeyValuePair`2",
+              "namespace": "Windows.Foundation.Collections",
+              "target_kind": "Interface",
+              "args": [
+                {
+                  "kind": "Native",
+                  "name": "Guid"
+                },
+                {
+                  "kind": "Native",
+                  "name": "Object"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "activatable_direct": true
+    },
+    "MediaRatio": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaRatio",
+        "namespace": "Windows.Media.MediaProperties",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaRatio",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "Mpeg2ProfileIds": {
+      "static_interfaces": [
+        "Windows.Media.MediaProperties.IMpeg2ProfileIdsStatics"
+      ]
+    },
+    "TimedMetadataEncodingProperties": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaEncodingProperties",
+        "namespace": "Windows.Media.MediaProperties",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITimedMetadataEncodingProperties",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaEncodingProperties",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Media.MediaProperties.ITimedMetadataEncodingPropertiesStatics"
+      ]
+    },
+    "VideoEncodingProperties": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVideoEncodingProperties",
+        "namespace": "Windows.Media.MediaProperties",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVideoEncodingProperties",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaEncodingProperties",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVideoEncodingProperties2",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVideoEncodingProperties3",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVideoEncodingProperties4",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVideoEncodingProperties5",
+          "namespace": "Windows.Media.MediaProperties",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Media.MediaProperties.IVideoEncodingPropertiesStatics3",
+        "Windows.Media.MediaProperties.IVideoEncodingPropertiesStatics2",
+        "Windows.Media.MediaProperties.IVideoEncodingPropertiesStatics"
+      ]
+    },
+    "Vp9ProfileIds": {
+      "static_interfaces": [
+        "Windows.Media.MediaProperties.IVp9ProfileIdsStatics"
+      ]
+    }
+  }
+}

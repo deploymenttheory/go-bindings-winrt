@@ -1,0 +1,404 @@
+{
+  "namespace": "Windows.Security.Authentication.Web",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "TokenBindingKeyType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Rsa2048",
+          "value": "0"
+        },
+        {
+          "name": "EcdsaP256",
+          "value": "1"
+        },
+        {
+          "name": "AnyExisting",
+          "value": "2"
+        }
+      ]
+    },
+    "WebAuthenticationOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "SilentMode",
+          "value": "1"
+        },
+        {
+          "name": "UseTitle",
+          "value": "2"
+        },
+        {
+          "name": "UseHttpPost",
+          "value": "4"
+        },
+        {
+          "name": "UseCorporateNetwork",
+          "value": "8"
+        }
+      ]
+    },
+    "WebAuthenticationStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "UserCancel",
+          "value": "1"
+        },
+        {
+          "name": "ErrorHttp",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IWebAuthenticationBrokerStatics": {
+      "guid": "2f149f1a-e673-40b5-bc22-201a6864a37b",
+      "exclusive_to": "Windows.Security.Authentication.Web.WebAuthenticationBroker",
+      "methods": [
+        {
+          "name": "AuthenticateAsync",
+          "overload": "AuthenticateWithCallbackUriAsync",
+          "params": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAuthenticationOptions",
+                "namespace": "Windows.Security.Authentication.Web",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "requestUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "callbackUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebAuthenticationResult",
+                "namespace": "Windows.Security.Authentication.Web",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "AuthenticateAsync",
+          "overload": "AuthenticateWithoutCallbackUriAsync",
+          "params": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAuthenticationOptions",
+                "namespace": "Windows.Security.Authentication.Web",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "requestUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebAuthenticationResult",
+                "namespace": "Windows.Security.Authentication.Web",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetCurrentApplicationCallbackUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IWebAuthenticationBrokerStatics2": {
+      "guid": "73cdfb9e-14e7-41da-a971-aaf4410b621e",
+      "exclusive_to": "Windows.Security.Authentication.Web.WebAuthenticationBroker",
+      "methods": [
+        {
+          "name": "AuthenticateAndContinue",
+          "overload": "AuthenticateAndContinue",
+          "params": [
+            {
+              "name": "requestUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AuthenticateAndContinue",
+          "overload": "AuthenticateWithCallbackUriAndContinue",
+          "params": [
+            {
+              "name": "requestUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "callbackUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AuthenticateAndContinue",
+          "overload": "AuthenticateWithCallbackUriContinuationDataAndOptionsAndContinue",
+          "params": [
+            {
+              "name": "requestUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "callbackUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "continuationData",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ValueSet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAuthenticationOptions",
+                "namespace": "Windows.Security.Authentication.Web",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AuthenticateSilentlyAsync",
+          "overload": "AuthenticateSilentlyAsync",
+          "params": [
+            {
+              "name": "requestUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebAuthenticationResult",
+                "namespace": "Windows.Security.Authentication.Web",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "AuthenticateSilentlyAsync",
+          "overload": "AuthenticateSilentlyWithOptionsAsync",
+          "params": [
+            {
+              "name": "requestUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAuthenticationOptions",
+                "namespace": "Windows.Security.Authentication.Web",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebAuthenticationResult",
+                "namespace": "Windows.Security.Authentication.Web",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IWebAuthenticationResult": {
+      "guid": "64002b4b-ede9-470a-a5cd-0323faf6e262",
+      "exclusive_to": "Windows.Security.Authentication.Web.WebAuthenticationResult",
+      "methods": [
+        {
+          "name": "get_ResponseData",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ResponseStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebAuthenticationStatus",
+            "namespace": "Windows.Security.Authentication.Web",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ResponseErrorDetail",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ResponseData",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ResponseData"
+        },
+        {
+          "name": "ResponseErrorDetail",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ResponseErrorDetail"
+        },
+        {
+          "name": "ResponseStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebAuthenticationStatus",
+            "namespace": "Windows.Security.Authentication.Web",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ResponseStatus"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "WebAuthenticationBroker": {
+      "static_interfaces": [
+        "Windows.Security.Authentication.Web.IWebAuthenticationBrokerStatics",
+        "Windows.Security.Authentication.Web.IWebAuthenticationBrokerStatics2"
+      ]
+    },
+    "WebAuthenticationResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebAuthenticationResult",
+        "namespace": "Windows.Security.Authentication.Web",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebAuthenticationResult",
+          "namespace": "Windows.Security.Authentication.Web",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

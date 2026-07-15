@@ -1,0 +1,4185 @@
+{
+  "namespace": "Windows.Graphics.Printing.Workflow",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "PdlConversionHostBasedProcessingOperations": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "PageRotation",
+          "value": "1"
+        },
+        {
+          "name": "PageOrdering",
+          "value": "2"
+        },
+        {
+          "name": "Copies",
+          "value": "4"
+        },
+        {
+          "name": "BlankPageInsertion",
+          "value": "8"
+        },
+        {
+          "name": "All",
+          "value": "4294967295"
+        }
+      ]
+    },
+    "PrintWorkflowAttributesMergePolicy": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "MergePreferPrintTicketOnConflict",
+          "value": "0"
+        },
+        {
+          "name": "MergePreferPsaOnConflict",
+          "value": "1"
+        },
+        {
+          "name": "DoNotMergeWithPrintTicket",
+          "value": "2"
+        }
+      ]
+    },
+    "PrintWorkflowJobAbortReason": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "JobFailed",
+          "value": "0"
+        },
+        {
+          "name": "UserCanceled",
+          "value": "1"
+        }
+      ]
+    },
+    "PrintWorkflowJobIssueKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Other",
+          "value": "0"
+        },
+        {
+          "name": "AttentionRequired",
+          "value": "1"
+        },
+        {
+          "name": "DoorOpen",
+          "value": "2"
+        },
+        {
+          "name": "MarkerSupplyLow",
+          "value": "3"
+        },
+        {
+          "name": "MarkerSupplyEmpty",
+          "value": "4"
+        },
+        {
+          "name": "MediaJam",
+          "value": "5"
+        },
+        {
+          "name": "MediaEmpty",
+          "value": "6"
+        },
+        {
+          "name": "MediaLow",
+          "value": "7"
+        },
+        {
+          "name": "OutputAreaAlmostFull",
+          "value": "8"
+        },
+        {
+          "name": "OutputAreaFull",
+          "value": "9"
+        },
+        {
+          "name": "JobPrintingError",
+          "value": "10"
+        }
+      ]
+    },
+    "PrintWorkflowPdlConversionType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "XpsToPdf",
+          "value": "0"
+        },
+        {
+          "name": "XpsToPwgr",
+          "value": "1"
+        },
+        {
+          "name": "XpsToPclm",
+          "value": "2"
+        },
+        {
+          "name": "XpsToTiff",
+          "value": "3"
+        }
+      ]
+    },
+    "PrintWorkflowPrinterJobStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Error",
+          "value": "0"
+        },
+        {
+          "name": "Aborted",
+          "value": "1"
+        },
+        {
+          "name": "InProgress",
+          "value": "2"
+        },
+        {
+          "name": "Completed",
+          "value": "3"
+        }
+      ]
+    },
+    "PrintWorkflowSessionStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Started",
+          "value": "0"
+        },
+        {
+          "name": "Completed",
+          "value": "1"
+        },
+        {
+          "name": "Aborted",
+          "value": "2"
+        },
+        {
+          "name": "Closed",
+          "value": "3"
+        },
+        {
+          "name": "PdlDataAvailableForModification",
+          "value": "4"
+        }
+      ]
+    },
+    "PrintWorkflowSubmittedStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Succeeded",
+          "value": "0"
+        },
+        {
+          "name": "Canceled",
+          "value": "1"
+        },
+        {
+          "name": "Failed",
+          "value": "2"
+        }
+      ]
+    },
+    "PrintWorkflowUICompletionStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Completed",
+          "value": "0"
+        },
+        {
+          "name": "LaunchFailed",
+          "value": "1"
+        },
+        {
+          "name": "JobFailed",
+          "value": "2"
+        },
+        {
+          "name": "UserCanceled",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IPrintWorkflowBackgroundSession": {
+      "guid": "5b7913ba-0c5e-528a-7458-86a46cbddc45",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSession",
+      "methods": [
+        {
+          "name": "add_SetupRequested",
+          "params": [
+            {
+              "name": "setupEventHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintWorkflowBackgroundSession",
+                    "namespace": "Windows.Graphics.Printing.Workflow",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintWorkflowBackgroundSetupRequestedEventArgs",
+                    "namespace": "Windows.Graphics.Printing.Workflow",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SetupRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Submitted",
+          "params": [
+            {
+              "name": "submittedEventHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintWorkflowBackgroundSession",
+                    "namespace": "Windows.Graphics.Printing.Workflow",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintWorkflowSubmittedEventArgs",
+                    "namespace": "Windows.Graphics.Printing.Workflow",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Submitted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowSessionStatus",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Start"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowSessionStatus",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ],
+      "events": [
+        {
+          "name": "SetupRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowBackgroundSession",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowBackgroundSetupRequestedEventArgs",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SetupRequested",
+          "remove_method": "remove_SetupRequested"
+        },
+        {
+          "name": "Submitted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowBackgroundSession",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowSubmittedEventArgs",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Submitted",
+          "remove_method": "remove_Submitted"
+        }
+      ]
+    },
+    "IPrintWorkflowBackgroundSetupRequestedEventArgs": {
+      "guid": "43e97342-1750-59c9-61fb-383748a20362",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowBackgroundSetupRequestedEventArgs",
+      "methods": [
+        {
+          "name": "GetUserPrintTicketAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WorkflowPrintTicket",
+                "namespace": "Windows.Graphics.Printing.PrintTicket",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Configuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowConfiguration",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetRequiresUI"
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Configuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowConfiguration",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_Configuration"
+        }
+      ]
+    },
+    "IPrintWorkflowConfiguration": {
+      "guid": "d0aac4ed-fd4b-5df5-4bb6-8d0d159ebe3f",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowConfiguration",
+      "methods": [
+        {
+          "name": "get_SourceAppDisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_JobTitle",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SessionId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "JobTitle",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_JobTitle"
+        },
+        {
+          "name": "SessionId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SessionId"
+        },
+        {
+          "name": "SourceAppDisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SourceAppDisplayName"
+        }
+      ]
+    },
+    "IPrintWorkflowConfiguration2": {
+      "guid": "de350a50-a6d4-5be2-8b9a-09d3d39ea780",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowConfiguration",
+      "methods": [
+        {
+          "name": "AbortPrintFlow",
+          "params": [
+            {
+              "name": "reason",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowJobAbortReason",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IPrintWorkflowForegroundSession": {
+      "guid": "c79b63d0-f8ec-4ceb-953a-c8876157dd33",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSession",
+      "methods": [
+        {
+          "name": "add_SetupRequested",
+          "params": [
+            {
+              "name": "setupEventHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintWorkflowForegroundSession",
+                    "namespace": "Windows.Graphics.Printing.Workflow",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintWorkflowForegroundSetupRequestedEventArgs",
+                    "namespace": "Windows.Graphics.Printing.Workflow",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SetupRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_XpsDataAvailable",
+          "params": [
+            {
+              "name": "xpsDataAvailableEventHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintWorkflowForegroundSession",
+                    "namespace": "Windows.Graphics.Printing.Workflow",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintWorkflowXpsDataAvailableEventArgs",
+                    "namespace": "Windows.Graphics.Printing.Workflow",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_XpsDataAvailable",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowSessionStatus",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Start"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowSessionStatus",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ],
+      "events": [
+        {
+          "name": "SetupRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowForegroundSession",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowForegroundSetupRequestedEventArgs",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SetupRequested",
+          "remove_method": "remove_SetupRequested"
+        },
+        {
+          "name": "XpsDataAvailable",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowForegroundSession",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowXpsDataAvailableEventArgs",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_XpsDataAvailable",
+          "remove_method": "remove_XpsDataAvailable"
+        }
+      ]
+    },
+    "IPrintWorkflowForegroundSetupRequestedEventArgs": {
+      "guid": "bbe38247-9c1b-4dd3-9b2b-c80468d941b3",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowForegroundSetupRequestedEventArgs",
+      "methods": [
+        {
+          "name": "GetUserPrintTicketAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WorkflowPrintTicket",
+                "namespace": "Windows.Graphics.Printing.PrintTicket",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Configuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowConfiguration",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Configuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowConfiguration",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_Configuration"
+        }
+      ]
+    },
+    "IPrintWorkflowJobActivatedEventArgs": {
+      "guid": "d4bd5e6d-034e-5e00-a616-f961a033dcc8",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowJobActivatedEventArgs",
+      "methods": [
+        {
+          "name": "get_Session",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowJobUISession",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Session",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowJobUISession",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_Session"
+        }
+      ]
+    },
+    "IPrintWorkflowJobBackgroundSession": {
+      "guid": "c5ec6ad8-20c9-5d51-8507-2734b46f96c5",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowJobBackgroundSession",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowSessionStatus",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_JobStarting",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintWorkflowJobBackgroundSession",
+                    "namespace": "Windows.Graphics.Printing.Workflow",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintWorkflowJobStartingEventArgs",
+                    "namespace": "Windows.Graphics.Printing.Workflow",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_JobStarting",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PdlModificationRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintWorkflowJobBackgroundSession",
+                    "namespace": "Windows.Graphics.Printing.Workflow",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintWorkflowPdlModificationRequestedEventArgs",
+                    "namespace": "Windows.Graphics.Printing.Workflow",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PdlModificationRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Start"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowSessionStatus",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ],
+      "events": [
+        {
+          "name": "JobStarting",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowJobBackgroundSession",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowJobStartingEventArgs",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_JobStarting",
+          "remove_method": "remove_JobStarting"
+        },
+        {
+          "name": "PdlModificationRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowJobBackgroundSession",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowPdlModificationRequestedEventArgs",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PdlModificationRequested",
+          "remove_method": "remove_PdlModificationRequested"
+        }
+      ]
+    },
+    "IPrintWorkflowJobBackgroundSession2": {
+      "guid": "592aadaf-ef26-5a55-ad21-5f63ffcf8366",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowJobBackgroundSession",
+      "methods": [
+        {
+          "name": "add_JobIssueDetected",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintWorkflowJobBackgroundSession",
+                    "namespace": "Windows.Graphics.Printing.Workflow",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintWorkflowJobIssueDetectedEventArgs",
+                    "namespace": "Windows.Graphics.Printing.Workflow",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_JobIssueDetected",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "JobIssueDetected",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowJobBackgroundSession",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowJobIssueDetectedEventArgs",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_JobIssueDetected",
+          "remove_method": "remove_JobIssueDetected"
+        }
+      ]
+    },
+    "IPrintWorkflowJobBackgroundSession3": {
+      "guid": "5757086c-edcc-5a94-90ec-a0a87c1115e7",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowJobBackgroundSession",
+      "methods": [
+        {
+          "name": "add_JobStatusChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintWorkflowJobBackgroundSession",
+                    "namespace": "Windows.Graphics.Printing.Workflow",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintWorkflowPrinterJobStatusChangedEventArgs",
+                    "namespace": "Windows.Graphics.Printing.Workflow",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_JobStatusChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "JobStatusChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowJobBackgroundSession",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowPrinterJobStatusChangedEventArgs",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_JobStatusChanged",
+          "remove_method": "remove_JobStatusChanged"
+        }
+      ]
+    },
+    "IPrintWorkflowJobIssueDetectedEventArgs": {
+      "guid": "de58a46e-e41e-550a-a9fb-4b1f93fb9d98",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowJobIssueDetectedEventArgs",
+      "methods": [
+        {
+          "name": "get_JobIssueKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowJobIssueKind",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ExtendedError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_SkipSystemErrorToast",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_SkipSystemErrorToast",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PrinterJob",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPrinterJob",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Configuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowConfiguration",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_UILauncher",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowUILauncher",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Configuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowConfiguration",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_Configuration"
+        },
+        {
+          "name": "ExtendedError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtendedError"
+        },
+        {
+          "name": "JobIssueKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowJobIssueKind",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Enum"
+          },
+          "getter": "get_JobIssueKind"
+        },
+        {
+          "name": "PrinterJob",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPrinterJob",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_PrinterJob"
+        },
+        {
+          "name": "SkipSystemErrorToast",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SkipSystemErrorToast",
+          "setter": "put_SkipSystemErrorToast"
+        },
+        {
+          "name": "UILauncher",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowUILauncher",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_UILauncher"
+        }
+      ]
+    },
+    "IPrintWorkflowJobNotificationEventArgs": {
+      "guid": "0ae16fba-5398-5eba-b472-978650186a9a",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowJobNotificationEventArgs",
+      "methods": [
+        {
+          "name": "get_Configuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowConfiguration",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PrinterJob",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPrinterJob",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Configuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowConfiguration",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_Configuration"
+        },
+        {
+          "name": "PrinterJob",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPrinterJob",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_PrinterJob"
+        }
+      ]
+    },
+    "IPrintWorkflowJobStartingEventArgs": {
+      "guid": "e3d99ba8-31ad-5e09-b0d7-601b97f161ad",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowJobStartingEventArgs",
+      "methods": [
+        {
+          "name": "get_Configuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowConfiguration",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Printer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppPrintDevice",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetSkipSystemRendering"
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Configuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowConfiguration",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_Configuration"
+        },
+        {
+          "name": "Printer",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IppPrintDevice",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          },
+          "getter": "get_Printer"
+        }
+      ]
+    },
+    "IPrintWorkflowJobStartingEventArgs2": {
+      "guid": "7deded67-d3dc-5b23-8690-4ebfc0f0914a",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowJobStartingEventArgs",
+      "methods": [
+        {
+          "name": "get_IsIppCompressionEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "DisableIppCompressionForJob"
+        },
+        {
+          "name": "get_SkipSystemFaxUI",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_SkipSystemFaxUI",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsIppCompressionEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsIppCompressionEnabled"
+        },
+        {
+          "name": "SkipSystemFaxUI",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SkipSystemFaxUI",
+          "setter": "put_SkipSystemFaxUI"
+        }
+      ]
+    },
+    "IPrintWorkflowJobTriggerDetails": {
+      "guid": "ff296129-60e2-51db-ba8c-e2ccddb516b9",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowJobTriggerDetails",
+      "methods": [
+        {
+          "name": "get_PrintWorkflowJobSession",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowJobBackgroundSession",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PrintWorkflowJobSession",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowJobBackgroundSession",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_PrintWorkflowJobSession"
+        }
+      ]
+    },
+    "IPrintWorkflowJobUISession": {
+      "guid": "00c8736b-7637-5687-a302-0f664d2aac65",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowJobUISession",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowSessionStatus",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_PdlDataAvailable",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintWorkflowJobUISession",
+                    "namespace": "Windows.Graphics.Printing.Workflow",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintWorkflowPdlDataAvailableEventArgs",
+                    "namespace": "Windows.Graphics.Printing.Workflow",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PdlDataAvailable",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_JobNotification",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintWorkflowJobUISession",
+                    "namespace": "Windows.Graphics.Printing.Workflow",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintWorkflowJobNotificationEventArgs",
+                    "namespace": "Windows.Graphics.Printing.Workflow",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_JobNotification",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Start"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowSessionStatus",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ],
+      "events": [
+        {
+          "name": "JobNotification",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowJobUISession",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowJobNotificationEventArgs",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_JobNotification",
+          "remove_method": "remove_JobNotification"
+        },
+        {
+          "name": "PdlDataAvailable",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowJobUISession",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowPdlDataAvailableEventArgs",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PdlDataAvailable",
+          "remove_method": "remove_PdlDataAvailable"
+        }
+      ]
+    },
+    "IPrintWorkflowJobUISession2": {
+      "guid": "a8529368-9174-5c78-9fdb-894a82e92ada",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowJobUISession",
+      "methods": [
+        {
+          "name": "add_VirtualPrinterUIDataAvailable",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintWorkflowJobUISession",
+                    "namespace": "Windows.Graphics.Printing.Workflow",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintWorkflowVirtualPrinterUIEventArgs",
+                    "namespace": "Windows.Graphics.Printing.Workflow",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_VirtualPrinterUIDataAvailable",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "VirtualPrinterUIDataAvailable",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowJobUISession",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowVirtualPrinterUIEventArgs",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_VirtualPrinterUIDataAvailable",
+          "remove_method": "remove_VirtualPrinterUIDataAvailable"
+        }
+      ]
+    },
+    "IPrintWorkflowObjectModelProvider": {
+      "guid": "e3a9f883-6a2d-489b-bc1f-7aab44249622"
+    },
+    "IPrintWorkflowObjectModelSourceFileContent": {
+      "guid": "c36c8a6a-8a2a-419a-b3c3-2090e6bfab2f",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelSourceFileContent"
+    },
+    "IPrintWorkflowObjectModelSourceFileContentFactory": {
+      "guid": "93b1b903-f013-56d6-b708-99ac2ccb12ee",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelSourceFileContent",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "xpsStream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowObjectModelSourceFileContent",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPrintWorkflowObjectModelTargetPackage": {
+      "guid": "7d96bc74-9b54-4ca1-ad3a-979c3d44ddac",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowObjectModelTargetPackage"
+    },
+    "IPrintWorkflowPdlConverter": {
+      "guid": "40604b62-0ae4-51f1-818f-731dc0b005ab",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlConverter",
+      "methods": [
+        {
+          "name": "ConvertPdlAsync",
+          "params": [
+            {
+              "name": "printTicket",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WorkflowPrintTicket",
+                "namespace": "Windows.Graphics.Printing.PrintTicket",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "inputStream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "outputStream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IOutputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IPrintWorkflowPdlConverter2": {
+      "guid": "854ceec1-7837-5b93-b7af-57a6998c2f71",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlConverter",
+      "methods": [
+        {
+          "name": "ConvertPdlAsync",
+          "params": [
+            {
+              "name": "printTicket",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WorkflowPrintTicket",
+                "namespace": "Windows.Graphics.Printing.PrintTicket",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "inputStream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "outputStream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IOutputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "hostBasedProcessingOperations",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PdlConversionHostBasedProcessingOperations",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IPrintWorkflowPdlConverter3": {
+      "guid": "6b556b4f-3756-5da6-b1f7-8f9e89f629fb",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlConverter",
+      "methods": [
+        {
+          "name": "ConvertPdlFromObjectModelAsync",
+          "params": [
+            {
+              "name": "printTicket",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WorkflowPrintTicket",
+                "namespace": "Windows.Graphics.Printing.PrintTicket",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "objectModelProvider",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPrintWorkflowObjectModelProvider",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "outputStream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IOutputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "hostBasedProcessingOperations",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PdlConversionHostBasedProcessingOperations",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IPrintWorkflowPdlDataAvailableEventArgs": {
+      "guid": "d4ad6b50-1547-5991-a0ef-e2ee20211518",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlDataAvailableEventArgs",
+      "methods": [
+        {
+          "name": "get_Configuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowConfiguration",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PrinterJob",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPrinterJob",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_SourceContent",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPdlSourceContent",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Configuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowConfiguration",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_Configuration"
+        },
+        {
+          "name": "PrinterJob",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPrinterJob",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_PrinterJob"
+        },
+        {
+          "name": "SourceContent",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPdlSourceContent",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_SourceContent"
+        }
+      ]
+    },
+    "IPrintWorkflowPdlModificationRequestedEventArgs": {
+      "guid": "1a339a61-2e13-5edd-a707-ceec61d7333b",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlModificationRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_Configuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowConfiguration",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PrinterJob",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPrinterJob",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_SourceContent",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPdlSourceContent",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_UILauncher",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowUILauncher",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateJobOnPrinter",
+          "params": [
+            {
+              "name": "targetContentType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPdlTargetStream",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateJobOnPrinterWithAttributes",
+          "params": [
+            {
+              "name": "jobAttributes",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "GenericInst",
+                    "name": "IKeyValuePair`2",
+                    "namespace": "Windows.Foundation.Collections",
+                    "target_kind": "Interface",
+                    "args": [
+                      {
+                        "kind": "Native",
+                        "name": "HString"
+                      },
+                      {
+                        "kind": "ApiRef",
+                        "name": "IppAttributeValue",
+                        "namespace": "Windows.Devices.Printers",
+                        "target_kind": "Class"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "name": "targetContentType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPdlTargetStream",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateJobOnPrinterWithAttributesBuffer",
+          "params": [
+            {
+              "name": "jobAttributesBuffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "targetContentType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPdlTargetStream",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetPdlConverter",
+          "params": [
+            {
+              "name": "conversionType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowPdlConversionType",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPdlConverter",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Configuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowConfiguration",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_Configuration"
+        },
+        {
+          "name": "PrinterJob",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPrinterJob",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_PrinterJob"
+        },
+        {
+          "name": "SourceContent",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPdlSourceContent",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_SourceContent"
+        },
+        {
+          "name": "UILauncher",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowUILauncher",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_UILauncher"
+        }
+      ]
+    },
+    "IPrintWorkflowPdlModificationRequestedEventArgs2": {
+      "guid": "8d692147-6c62-5e31-a0e7-d49f92c111c0",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlModificationRequestedEventArgs",
+      "methods": [
+        {
+          "name": "CreateJobOnPrinterWithAttributes",
+          "params": [
+            {
+              "name": "jobAttributes",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "GenericInst",
+                    "name": "IKeyValuePair`2",
+                    "namespace": "Windows.Foundation.Collections",
+                    "target_kind": "Interface",
+                    "args": [
+                      {
+                        "kind": "Native",
+                        "name": "HString"
+                      },
+                      {
+                        "kind": "ApiRef",
+                        "name": "IppAttributeValue",
+                        "namespace": "Windows.Devices.Printers",
+                        "target_kind": "Class"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "name": "targetContentType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "operationAttributes",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "GenericInst",
+                    "name": "IKeyValuePair`2",
+                    "namespace": "Windows.Foundation.Collections",
+                    "target_kind": "Interface",
+                    "args": [
+                      {
+                        "kind": "Native",
+                        "name": "HString"
+                      },
+                      {
+                        "kind": "ApiRef",
+                        "name": "IppAttributeValue",
+                        "namespace": "Windows.Devices.Printers",
+                        "target_kind": "Class"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "name": "jobAttributesMergePolicy",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowAttributesMergePolicy",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "operationAttributesMergePolicy",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowAttributesMergePolicy",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPdlTargetStream",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateJobOnPrinterWithAttributesBuffer",
+          "params": [
+            {
+              "name": "jobAttributesBuffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "targetContentType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "operationAttributesBuffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "jobAttributesMergePolicy",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowAttributesMergePolicy",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "operationAttributesMergePolicy",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowAttributesMergePolicy",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPdlTargetStream",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPrintWorkflowPdlModificationRequestedEventArgs3": {
+      "guid": "1f50a7d4-db49-5d3e-ba27-b366cb25cd7e",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlModificationRequestedEventArgs",
+      "methods": [
+        {
+          "name": "DisableIppCompressionForJob"
+        }
+      ]
+    },
+    "IPrintWorkflowPdlSourceContent": {
+      "guid": "92f7fc41-32b8-56ab-845e-b1e68b3aedd5",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlSourceContent",
+      "methods": [
+        {
+          "name": "get_ContentType",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetInputStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IInputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetContentFileAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContentType",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ContentType"
+        }
+      ]
+    },
+    "IPrintWorkflowPdlTargetStream": {
+      "guid": "a742dfe5-1ee3-52a9-9f9f-2e2043180fd1",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowPdlTargetStream",
+      "methods": [
+        {
+          "name": "GetOutputStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IOutputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "CompleteStreamSubmission",
+          "params": [
+            {
+              "name": "status",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowSubmittedStatus",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IPrintWorkflowPrinterJob": {
+      "guid": "12009f94-0d14-5443-bc09-250311ce570b",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowPrinterJob",
+      "methods": [
+        {
+          "name": "get_JobId",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Printer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppPrintDevice",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetJobStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPrinterJobStatus",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetJobPrintTicket",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WorkflowPrintTicket",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetJobAttributesAsBuffer",
+          "params": [
+            {
+              "name": "attributeNames",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetJobAttributes",
+          "params": [
+            {
+              "name": "attributeNames",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "IppAttributeValue",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SetJobAttributesFromBuffer",
+          "params": [
+            {
+              "name": "jobAttributesBuffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppSetAttributesResult",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetJobAttributes",
+          "params": [
+            {
+              "name": "jobAttributes",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "GenericInst",
+                    "name": "IKeyValuePair`2",
+                    "namespace": "Windows.Foundation.Collections",
+                    "target_kind": "Interface",
+                    "args": [
+                      {
+                        "kind": "Native",
+                        "name": "HString"
+                      },
+                      {
+                        "kind": "ApiRef",
+                        "name": "IppAttributeValue",
+                        "namespace": "Windows.Devices.Printers",
+                        "target_kind": "Class"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppSetAttributesResult",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "JobId",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_JobId"
+        },
+        {
+          "name": "Printer",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IppPrintDevice",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          },
+          "getter": "get_Printer"
+        }
+      ]
+    },
+    "IPrintWorkflowPrinterJob2": {
+      "guid": "747e21d7-69a9-5229-b8f0-874ca1a8871b",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowPrinterJob",
+      "methods": [
+        {
+          "name": "ConvertPrintTicketToJobAttributes",
+          "params": [
+            {
+              "name": "printTicket",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WorkflowPrintTicket",
+                "namespace": "Windows.Graphics.Printing.PrintTicket",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "targetPdlFormat",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "IppAttributeValue",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPrintWorkflowPrinterJob3": {
+      "guid": "f0c8eeec-66ac-5e14-8906-0de610769368",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowPrinterJob",
+      "methods": [
+        {
+          "name": "get_IsPassthroughJobWithAttributes",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetPassthroughJobAttributes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "IppAttributeValue",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetPassthroughJobOperationAttributes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "IppAttributeValue",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsPassthroughJobWithAttributes",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPassthroughJobWithAttributes"
+        }
+      ]
+    },
+    "IPrintWorkflowPrinterJobStatusChangedEventArgs": {
+      "guid": "4a6275b9-be67-5718-921a-348c56f9d25f",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowPrinterJobStatusChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_PrinterJob",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPrinterJob",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Configuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowConfiguration",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Configuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowConfiguration",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_Configuration"
+        },
+        {
+          "name": "PrinterJob",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPrinterJob",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_PrinterJob"
+        }
+      ]
+    },
+    "IPrintWorkflowSourceContent": {
+      "guid": "1a28c641-ceb1-4533-bb73-fbe63eefdb18",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowSourceContent",
+      "methods": [
+        {
+          "name": "GetJobPrintTicketAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WorkflowPrintTicket",
+                "namespace": "Windows.Graphics.Printing.PrintTicket",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetSourceSpoolDataAsStreamContent",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowSpoolStreamContent",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetSourceSpoolDataAsXpsObjectModel",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowObjectModelSourceFileContent",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPrintWorkflowSpoolStreamContent": {
+      "guid": "72e55ece-e406-4b74-84e1-3ff3fdcdaf70",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowSpoolStreamContent",
+      "methods": [
+        {
+          "name": "GetInputStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IInputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IPrintWorkflowStreamTarget": {
+      "guid": "b23bba84-8565-488b-9839-1c9e7c7aa916",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowStreamTarget",
+      "methods": [
+        {
+          "name": "GetOutputStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IOutputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IPrintWorkflowSubmittedEventArgs": {
+      "guid": "3add0a41-3794-5569-5c87-40e8ff720f83",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedEventArgs",
+      "methods": [
+        {
+          "name": "get_Operation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowSubmittedOperation",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetTarget",
+          "params": [
+            {
+              "name": "jobPrintTicket",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WorkflowPrintTicket",
+                "namespace": "Windows.Graphics.Printing.PrintTicket",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowTarget",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Operation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowSubmittedOperation",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_Operation"
+        }
+      ]
+    },
+    "IPrintWorkflowSubmittedOperation": {
+      "guid": "2e4e6216-3be1-5f0f-5c81-a5a2bd4eab0e",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowSubmittedOperation",
+      "methods": [
+        {
+          "name": "Complete",
+          "params": [
+            {
+              "name": "status",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowSubmittedStatus",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Configuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowConfiguration",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_XpsContent",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowSourceContent",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Configuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowConfiguration",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_Configuration"
+        },
+        {
+          "name": "XpsContent",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowSourceContent",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_XpsContent"
+        }
+      ]
+    },
+    "IPrintWorkflowTarget": {
+      "guid": "29da276c-0a73-5aed-4f3d-970d3251f057",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowTarget",
+      "methods": [
+        {
+          "name": "get_TargetAsStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowStreamTarget",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_TargetAsXpsObjectModelPackage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowObjectModelTargetPackage",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "TargetAsStream",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowStreamTarget",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_TargetAsStream"
+        },
+        {
+          "name": "TargetAsXpsObjectModelPackage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowObjectModelTargetPackage",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_TargetAsXpsObjectModelPackage"
+        }
+      ]
+    },
+    "IPrintWorkflowTriggerDetails": {
+      "guid": "5739d868-9d86-4052-b0cb-f310becd59bb",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowTriggerDetails",
+      "methods": [
+        {
+          "name": "get_PrintWorkflowSession",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowBackgroundSession",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PrintWorkflowSession",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowBackgroundSession",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_PrintWorkflowSession"
+        }
+      ]
+    },
+    "IPrintWorkflowUIActivatedEventArgs": {
+      "guid": "bc8a844d-09eb-5746-72a6-8dc8b5edbe9b",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowUIActivatedEventArgs",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_PrintWorkflowSession",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowForegroundSession",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PrintWorkflowSession",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowForegroundSession",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_PrintWorkflowSession"
+        }
+      ]
+    },
+    "IPrintWorkflowUILauncher": {
+      "guid": "64e9e22f-14cc-5828-96fb-39163fb6c378",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowUILauncher",
+      "methods": [
+        {
+          "name": "IsUILaunchEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "LaunchAndCompleteUIAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowUICompletionStatus",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPrintWorkflowVirtualPrinterDataAvailableEventArgs": {
+      "guid": "6b7d5003-14a8-5d52-a428-07330fbab11f",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowVirtualPrinterDataAvailableEventArgs",
+      "methods": [
+        {
+          "name": "get_Configuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowConfiguration",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_SourceContent",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPdlSourceContent",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_UILauncher",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowUILauncher",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetJobPrintTicket",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WorkflowPrintTicket",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetPdlConverter",
+          "params": [
+            {
+              "name": "conversionType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowPdlConversionType",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPdlConverter",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetTargetFileAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CompleteJob",
+          "params": [
+            {
+              "name": "status",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowSubmittedStatus",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Configuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowConfiguration",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_Configuration"
+        },
+        {
+          "name": "SourceContent",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPdlSourceContent",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_SourceContent"
+        },
+        {
+          "name": "UILauncher",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowUILauncher",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_UILauncher"
+        }
+      ]
+    },
+    "IPrintWorkflowVirtualPrinterSession": {
+      "guid": "aa3926f2-8485-5c27-a016-9d39e3ba2614",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowVirtualPrinterSession",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowSessionStatus",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Printer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppPrintDevice",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_VirtualPrinterDataAvailable",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintWorkflowVirtualPrinterSession",
+                    "namespace": "Windows.Graphics.Printing.Workflow",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintWorkflowVirtualPrinterDataAvailableEventArgs",
+                    "namespace": "Windows.Graphics.Printing.Workflow",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_VirtualPrinterDataAvailable",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Start"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Printer",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IppPrintDevice",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          },
+          "getter": "get_Printer"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowSessionStatus",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ],
+      "events": [
+        {
+          "name": "VirtualPrinterDataAvailable",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowVirtualPrinterSession",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PrintWorkflowVirtualPrinterDataAvailableEventArgs",
+                "namespace": "Windows.Graphics.Printing.Workflow",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_VirtualPrinterDataAvailable",
+          "remove_method": "remove_VirtualPrinterDataAvailable"
+        }
+      ]
+    },
+    "IPrintWorkflowVirtualPrinterTriggerDetails": {
+      "guid": "ff8f2297-727b-53ec-b9e0-f393f72d4e50",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowVirtualPrinterTriggerDetails",
+      "methods": [
+        {
+          "name": "get_VirtualPrinterSession",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowVirtualPrinterSession",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "VirtualPrinterSession",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowVirtualPrinterSession",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_VirtualPrinterSession"
+        }
+      ]
+    },
+    "IPrintWorkflowVirtualPrinterUIEventArgs": {
+      "guid": "334dbbca-bf10-585f-b7e0-58c4aa43a03f",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowVirtualPrinterUIEventArgs",
+      "methods": [
+        {
+          "name": "get_Configuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowConfiguration",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Printer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppPrintDevice",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_SourceContent",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPdlSourceContent",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetJobPrintTicket",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WorkflowPrintTicket",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Configuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowConfiguration",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_Configuration"
+        },
+        {
+          "name": "Printer",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IppPrintDevice",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          },
+          "getter": "get_Printer"
+        },
+        {
+          "name": "SourceContent",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowPdlSourceContent",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_SourceContent"
+        }
+      ]
+    },
+    "IPrintWorkflowXpsDataAvailableEventArgs": {
+      "guid": "4d11c331-54d1-434e-be0e-82c5fa58e5b2",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowXpsDataAvailableEventArgs",
+      "methods": [
+        {
+          "name": "get_Operation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowSubmittedOperation",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Operation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintWorkflowSubmittedOperation",
+            "namespace": "Windows.Graphics.Printing.Workflow",
+            "target_kind": "Class"
+          },
+          "getter": "get_Operation"
+        }
+      ]
+    },
+    "IPrintWorkflowXpsObjectModelProvider": {
+      "guid": "97d8c1ad-96d7-56cc-b660-a71495632ceb",
+      "exclusive_to": "Windows.Graphics.Printing.Workflow.PrintWorkflowXpsObjectModelProvider"
+    }
+  },
+  "classes": {
+    "PrintWorkflowBackgroundSession": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowBackgroundSession",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowBackgroundSession",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowBackgroundSetupRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowBackgroundSetupRequestedEventArgs",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowBackgroundSetupRequestedEventArgs",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowConfiguration": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowConfiguration",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowConfiguration2",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowConfiguration",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowForegroundSession": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowForegroundSession",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowForegroundSession",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowForegroundSetupRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowForegroundSetupRequestedEventArgs",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowForegroundSetupRequestedEventArgs",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowJobActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowJobActivatedEventArgs",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowJobActivatedEventArgs",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowJobBackgroundSession": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowJobBackgroundSession",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowJobBackgroundSession",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowJobBackgroundSession2",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowJobBackgroundSession3",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowJobIssueDetectedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowJobIssueDetectedEventArgs",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowJobIssueDetectedEventArgs",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowJobNotificationEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowJobNotificationEventArgs",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowJobNotificationEventArgs",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowJobStartingEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowJobStartingEventArgs",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowJobStartingEventArgs",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowJobStartingEventArgs2",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowJobTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowJobTriggerDetails",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowJobTriggerDetails",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowJobUISession": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowJobUISession",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowJobUISession",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowJobUISession2",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowObjectModelSourceFileContent": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowObjectModelSourceFileContent",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowObjectModelSourceFileContent",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Graphics.Printing.Workflow.IPrintWorkflowObjectModelSourceFileContentFactory"
+      ]
+    },
+    "PrintWorkflowObjectModelTargetPackage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowObjectModelTargetPackage",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowObjectModelTargetPackage",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowPdlConverter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowPdlConverter",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowPdlConverter",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowPdlConverter2",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowPdlConverter3",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowPdlDataAvailableEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowPdlDataAvailableEventArgs",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowPdlDataAvailableEventArgs",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowPdlModificationRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowPdlModificationRequestedEventArgs",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowPdlModificationRequestedEventArgs",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowPdlModificationRequestedEventArgs2",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowPdlModificationRequestedEventArgs3",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowPdlSourceContent": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowPdlSourceContent",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowPdlSourceContent",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowPdlTargetStream": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowPdlTargetStream",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowPdlTargetStream",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowPrinterJob": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowPrinterJob",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowPrinterJob",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowPrinterJob2",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowPrinterJob3",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowPrinterJobStatusChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowPrinterJobStatusChangedEventArgs",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowPrinterJobStatusChangedEventArgs",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowSourceContent": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowSourceContent",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowSourceContent",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowSpoolStreamContent": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowSpoolStreamContent",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowSpoolStreamContent",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowStreamTarget": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowStreamTarget",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowStreamTarget",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowSubmittedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowSubmittedEventArgs",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowSubmittedEventArgs",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowSubmittedOperation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowSubmittedOperation",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowSubmittedOperation",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowTarget": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowTarget",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowTarget",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowTriggerDetails",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowTriggerDetails",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowUIActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowUIActivatedEventArgs",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowUIActivatedEventArgs",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowUILauncher": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowUILauncher",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowUILauncher",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowVirtualPrinterDataAvailableEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowVirtualPrinterDataAvailableEventArgs",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowVirtualPrinterDataAvailableEventArgs",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowVirtualPrinterSession": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowVirtualPrinterSession",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowVirtualPrinterSession",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowVirtualPrinterTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowVirtualPrinterTriggerDetails",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowVirtualPrinterTriggerDetails",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowVirtualPrinterUIEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowVirtualPrinterUIEventArgs",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowVirtualPrinterUIEventArgs",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowXpsDataAvailableEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowXpsDataAvailableEventArgs",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowXpsDataAvailableEventArgs",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintWorkflowXpsObjectModelProvider": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintWorkflowObjectModelProvider",
+        "namespace": "Windows.Graphics.Printing.Workflow",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowXpsObjectModelProvider",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintWorkflowObjectModelProvider",
+          "namespace": "Windows.Graphics.Printing.Workflow",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  }
+}

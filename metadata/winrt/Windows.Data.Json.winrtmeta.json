@@ -1,0 +1,964 @@
+{
+  "namespace": "Windows.Data.Json",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "JsonErrorStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "InvalidJsonString",
+          "value": "1"
+        },
+        {
+          "name": "InvalidJsonNumber",
+          "value": "2"
+        },
+        {
+          "name": "JsonValueNotFound",
+          "value": "3"
+        },
+        {
+          "name": "ImplementationLimit",
+          "value": "4"
+        }
+      ]
+    },
+    "JsonValueType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Null",
+          "value": "0"
+        },
+        {
+          "name": "Boolean",
+          "value": "1"
+        },
+        {
+          "name": "Number",
+          "value": "2"
+        },
+        {
+          "name": "String",
+          "value": "3"
+        },
+        {
+          "name": "Array",
+          "value": "4"
+        },
+        {
+          "name": "Object",
+          "value": "5"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IJsonArray": {
+      "guid": "08c1ddb6-0cbd-4a9a-b5d3-2f852dc37e81",
+      "exclusive_to": "Windows.Data.Json.JsonArray",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IJsonValue",
+          "namespace": "Windows.Data.Json",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "GetObjectAt",
+          "params": [
+            {
+              "name": "index",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "JsonObject",
+            "namespace": "Windows.Data.Json",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetArrayAt",
+          "params": [
+            {
+              "name": "index",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "JsonArray",
+            "namespace": "Windows.Data.Json",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetStringAt",
+          "params": [
+            {
+              "name": "index",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetNumberAt",
+          "params": [
+            {
+              "name": "index",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "GetBooleanAt",
+          "params": [
+            {
+              "name": "index",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IJsonArrayStatics": {
+      "guid": "db1434a9-e164-499f-93e2-8a8f49bb90ba",
+      "exclusive_to": "Windows.Data.Json.JsonArray",
+      "methods": [
+        {
+          "name": "Parse",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "JsonArray",
+            "namespace": "Windows.Data.Json",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryParse",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "result",
+              "type": {
+                "kind": "ApiRef",
+                "name": "JsonArray",
+                "namespace": "Windows.Data.Json",
+                "target_kind": "Class"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IJsonErrorStatics2": {
+      "guid": "404030da-87d0-436c-83ab-fc7b12c0cc26",
+      "exclusive_to": "Windows.Data.Json.JsonError",
+      "methods": [
+        {
+          "name": "GetJsonStatus",
+          "params": [
+            {
+              "name": "hresult",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "JsonErrorStatus",
+            "namespace": "Windows.Data.Json",
+            "target_kind": "Enum"
+          }
+        }
+      ]
+    },
+    "IJsonObject": {
+      "guid": "064e24dd-29c2-4f83-9ac1-9ee11578beb3",
+      "exclusive_to": "Windows.Data.Json.JsonObject",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IJsonValue",
+          "namespace": "Windows.Data.Json",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "GetNamedValue",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "JsonValue",
+            "namespace": "Windows.Data.Json",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetNamedValue",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IJsonValue",
+                "namespace": "Windows.Data.Json",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetNamedObject",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "JsonObject",
+            "namespace": "Windows.Data.Json",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetNamedArray",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "JsonArray",
+            "namespace": "Windows.Data.Json",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetNamedString",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetNamedNumber",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "GetNamedBoolean",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IJsonObjectStatics": {
+      "guid": "2289f159-54de-45d8-abcc-22603fa066a0",
+      "exclusive_to": "Windows.Data.Json.JsonObject",
+      "methods": [
+        {
+          "name": "Parse",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "JsonObject",
+            "namespace": "Windows.Data.Json",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryParse",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "result",
+              "type": {
+                "kind": "ApiRef",
+                "name": "JsonObject",
+                "namespace": "Windows.Data.Json",
+                "target_kind": "Class"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IJsonObjectWithDefaultValues": {
+      "guid": "d960d2a2-b7f0-4f00-8e44-d82cf415ea13",
+      "exclusive_to": "Windows.Data.Json.JsonObject",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IJsonObject",
+          "namespace": "Windows.Data.Json",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IJsonValue",
+          "namespace": "Windows.Data.Json",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "GetNamedValue",
+          "overload": "GetNamedValueOrDefault",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "defaultValue",
+              "type": {
+                "kind": "ApiRef",
+                "name": "JsonValue",
+                "namespace": "Windows.Data.Json",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "JsonValue",
+            "namespace": "Windows.Data.Json",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetNamedObject",
+          "overload": "GetNamedObjectOrDefault",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "defaultValue",
+              "type": {
+                "kind": "ApiRef",
+                "name": "JsonObject",
+                "namespace": "Windows.Data.Json",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "JsonObject",
+            "namespace": "Windows.Data.Json",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetNamedString",
+          "overload": "GetNamedStringOrDefault",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "defaultValue",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetNamedArray",
+          "overload": "GetNamedArrayOrDefault",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "defaultValue",
+              "type": {
+                "kind": "ApiRef",
+                "name": "JsonArray",
+                "namespace": "Windows.Data.Json",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "JsonArray",
+            "namespace": "Windows.Data.Json",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetNamedNumber",
+          "overload": "GetNamedNumberOrDefault",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "defaultValue",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "GetNamedBoolean",
+          "overload": "GetNamedBooleanOrDefault",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "defaultValue",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IJsonValue": {
+      "guid": "a3219ecb-f0b3-4dcd-beee-19d48cd3ed1e",
+      "methods": [
+        {
+          "name": "get_ValueType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "JsonValueType",
+            "namespace": "Windows.Data.Json",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Stringify",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetNumber",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "GetBoolean",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetArray",
+          "return": {
+            "kind": "ApiRef",
+            "name": "JsonArray",
+            "namespace": "Windows.Data.Json",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetObject",
+          "return": {
+            "kind": "ApiRef",
+            "name": "JsonObject",
+            "namespace": "Windows.Data.Json",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ValueType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "JsonValueType",
+            "namespace": "Windows.Data.Json",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ValueType"
+        }
+      ]
+    },
+    "IJsonValueStatics": {
+      "guid": "5f6b544a-2f53-48e1-91a3-f78b50a6345c",
+      "exclusive_to": "Windows.Data.Json.JsonValue",
+      "methods": [
+        {
+          "name": "Parse",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "JsonValue",
+            "namespace": "Windows.Data.Json",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryParse",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "result",
+              "type": {
+                "kind": "ApiRef",
+                "name": "JsonValue",
+                "namespace": "Windows.Data.Json",
+                "target_kind": "Class"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "CreateBooleanValue",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "JsonValue",
+            "namespace": "Windows.Data.Json",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateNumberValue",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "JsonValue",
+            "namespace": "Windows.Data.Json",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateStringValue",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "JsonValue",
+            "namespace": "Windows.Data.Json",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IJsonValueStatics2": {
+      "guid": "1d9ecbe4-3fe8-4335-8392-93d8e36865f0",
+      "exclusive_to": "Windows.Data.Json.JsonValue",
+      "methods": [
+        {
+          "name": "CreateNullValue",
+          "return": {
+            "kind": "ApiRef",
+            "name": "JsonValue",
+            "namespace": "Windows.Data.Json",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "JsonArray": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IJsonArray",
+        "namespace": "Windows.Data.Json",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IJsonArray",
+          "namespace": "Windows.Data.Json",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IJsonValue",
+          "namespace": "Windows.Data.Json",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IVector`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "IJsonValue",
+              "namespace": "Windows.Data.Json",
+              "target_kind": "Interface"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "IJsonValue",
+              "namespace": "Windows.Data.Json",
+              "target_kind": "Interface"
+            }
+          ]
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Data.Json.IJsonArrayStatics"
+      ]
+    },
+    "JsonError": {
+      "static_interfaces": [
+        "Windows.Data.Json.IJsonErrorStatics2"
+      ]
+    },
+    "JsonObject": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IJsonObject",
+        "namespace": "Windows.Data.Json",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IJsonObject",
+          "namespace": "Windows.Data.Json",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IJsonValue",
+          "namespace": "Windows.Data.Json",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IMap`2",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "Native",
+              "name": "HString"
+            },
+            {
+              "kind": "ApiRef",
+              "name": "IJsonValue",
+              "namespace": "Windows.Data.Json",
+              "target_kind": "Interface"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "GenericInst",
+              "name": "IKeyValuePair`2",
+              "namespace": "Windows.Foundation.Collections",
+              "target_kind": "Interface",
+              "args": [
+                {
+                  "kind": "Native",
+                  "name": "HString"
+                },
+                {
+                  "kind": "ApiRef",
+                  "name": "IJsonValue",
+                  "namespace": "Windows.Data.Json",
+                  "target_kind": "Interface"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IJsonObjectWithDefaultValues",
+          "namespace": "Windows.Data.Json",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Data.Json.IJsonObjectStatics"
+      ]
+    },
+    "JsonValue": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IJsonValue",
+        "namespace": "Windows.Data.Json",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IJsonValue",
+          "namespace": "Windows.Data.Json",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Data.Json.IJsonValueStatics2",
+        "Windows.Data.Json.IJsonValueStatics"
+      ]
+    }
+  }
+}

@@ -1,0 +1,925 @@
+{
+  "namespace": "Windows.System.Power",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "BatteryStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "NotPresent",
+          "value": "0"
+        },
+        {
+          "name": "Discharging",
+          "value": "1"
+        },
+        {
+          "name": "Idle",
+          "value": "2"
+        },
+        {
+          "name": "Charging",
+          "value": "3"
+        }
+      ]
+    },
+    "EnergySaverStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Disabled",
+          "value": "0"
+        },
+        {
+          "name": "Off",
+          "value": "1"
+        },
+        {
+          "name": "On",
+          "value": "2"
+        }
+      ]
+    },
+    "PowerSupplyStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "NotPresent",
+          "value": "0"
+        },
+        {
+          "name": "Inadequate",
+          "value": "1"
+        },
+        {
+          "name": "Adequate",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IBackgroundEnergyManagerStatics": {
+      "guid": "b3161d95-1180-4376-96e1-4095568147ce",
+      "exclusive_to": "Windows.System.Power.BackgroundEnergyManager",
+      "methods": [
+        {
+          "name": "get_LowUsageLevel",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_NearMaxAcceptableUsageLevel",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_MaxAcceptableUsageLevel",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_ExcessiveUsageLevel",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_NearTerminationUsageLevel",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_TerminationUsageLevel",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_RecentEnergyUsage",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_RecentEnergyUsageLevel",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "add_RecentEnergyUsageIncreased",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_RecentEnergyUsageIncreased",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_RecentEnergyUsageReturnedToLow",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_RecentEnergyUsageReturnedToLow",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExcessiveUsageLevel",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ExcessiveUsageLevel"
+        },
+        {
+          "name": "LowUsageLevel",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_LowUsageLevel"
+        },
+        {
+          "name": "MaxAcceptableUsageLevel",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxAcceptableUsageLevel"
+        },
+        {
+          "name": "NearMaxAcceptableUsageLevel",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_NearMaxAcceptableUsageLevel"
+        },
+        {
+          "name": "NearTerminationUsageLevel",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_NearTerminationUsageLevel"
+        },
+        {
+          "name": "RecentEnergyUsage",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_RecentEnergyUsage"
+        },
+        {
+          "name": "RecentEnergyUsageLevel",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_RecentEnergyUsageLevel"
+        },
+        {
+          "name": "TerminationUsageLevel",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_TerminationUsageLevel"
+        }
+      ],
+      "events": [
+        {
+          "name": "RecentEnergyUsageIncreased",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_RecentEnergyUsageIncreased",
+          "remove_method": "remove_RecentEnergyUsageIncreased"
+        },
+        {
+          "name": "RecentEnergyUsageReturnedToLow",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_RecentEnergyUsageReturnedToLow",
+          "remove_method": "remove_RecentEnergyUsageReturnedToLow"
+        }
+      ]
+    },
+    "IForegroundEnergyManagerStatics": {
+      "guid": "9ff86872-e677-4814-9a20-5337ca732b98",
+      "exclusive_to": "Windows.System.Power.ForegroundEnergyManager",
+      "methods": [
+        {
+          "name": "get_LowUsageLevel",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_NearMaxAcceptableUsageLevel",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_MaxAcceptableUsageLevel",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_ExcessiveUsageLevel",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_RecentEnergyUsage",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_RecentEnergyUsageLevel",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "add_RecentEnergyUsageIncreased",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_RecentEnergyUsageIncreased",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_RecentEnergyUsageReturnedToLow",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_RecentEnergyUsageReturnedToLow",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExcessiveUsageLevel",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ExcessiveUsageLevel"
+        },
+        {
+          "name": "LowUsageLevel",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_LowUsageLevel"
+        },
+        {
+          "name": "MaxAcceptableUsageLevel",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxAcceptableUsageLevel"
+        },
+        {
+          "name": "NearMaxAcceptableUsageLevel",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_NearMaxAcceptableUsageLevel"
+        },
+        {
+          "name": "RecentEnergyUsage",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_RecentEnergyUsage"
+        },
+        {
+          "name": "RecentEnergyUsageLevel",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_RecentEnergyUsageLevel"
+        }
+      ],
+      "events": [
+        {
+          "name": "RecentEnergyUsageIncreased",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_RecentEnergyUsageIncreased",
+          "remove_method": "remove_RecentEnergyUsageIncreased"
+        },
+        {
+          "name": "RecentEnergyUsageReturnedToLow",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_RecentEnergyUsageReturnedToLow",
+          "remove_method": "remove_RecentEnergyUsageReturnedToLow"
+        }
+      ]
+    },
+    "IPowerManagerStatics": {
+      "guid": "1394825d-62ce-4364-98d5-aa28c7fbd15b",
+      "exclusive_to": "Windows.System.Power.PowerManager",
+      "methods": [
+        {
+          "name": "get_EnergySaverStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EnergySaverStatus",
+            "namespace": "Windows.System.Power",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_EnergySaverStatusChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_EnergySaverStatusChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BatteryStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BatteryStatus",
+            "namespace": "Windows.System.Power",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_BatteryStatusChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_BatteryStatusChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PowerSupplyStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PowerSupplyStatus",
+            "namespace": "Windows.System.Power",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_PowerSupplyStatusChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PowerSupplyStatusChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RemainingChargePercent",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "add_RemainingChargePercentChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_RemainingChargePercentChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RemainingDischargeTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "add_RemainingDischargeTimeChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_RemainingDischargeTimeChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "BatteryStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BatteryStatus",
+            "namespace": "Windows.System.Power",
+            "target_kind": "Enum"
+          },
+          "getter": "get_BatteryStatus"
+        },
+        {
+          "name": "EnergySaverStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EnergySaverStatus",
+            "namespace": "Windows.System.Power",
+            "target_kind": "Enum"
+          },
+          "getter": "get_EnergySaverStatus"
+        },
+        {
+          "name": "PowerSupplyStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PowerSupplyStatus",
+            "namespace": "Windows.System.Power",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PowerSupplyStatus"
+        },
+        {
+          "name": "RemainingChargePercent",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_RemainingChargePercent"
+        },
+        {
+          "name": "RemainingDischargeTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_RemainingDischargeTime"
+        }
+      ],
+      "events": [
+        {
+          "name": "BatteryStatusChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_BatteryStatusChanged",
+          "remove_method": "remove_BatteryStatusChanged"
+        },
+        {
+          "name": "EnergySaverStatusChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_EnergySaverStatusChanged",
+          "remove_method": "remove_EnergySaverStatusChanged"
+        },
+        {
+          "name": "PowerSupplyStatusChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_PowerSupplyStatusChanged",
+          "remove_method": "remove_PowerSupplyStatusChanged"
+        },
+        {
+          "name": "RemainingChargePercentChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_RemainingChargePercentChanged",
+          "remove_method": "remove_RemainingChargePercentChanged"
+        },
+        {
+          "name": "RemainingDischargeTimeChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_RemainingDischargeTimeChanged",
+          "remove_method": "remove_RemainingDischargeTimeChanged"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "BackgroundEnergyManager": {
+      "static_interfaces": [
+        "Windows.System.Power.IBackgroundEnergyManagerStatics"
+      ]
+    },
+    "ForegroundEnergyManager": {
+      "static_interfaces": [
+        "Windows.System.Power.IForegroundEnergyManagerStatics"
+      ]
+    },
+    "PowerManager": {
+      "static_interfaces": [
+        "Windows.System.Power.IPowerManagerStatics"
+      ]
+    }
+  }
+}

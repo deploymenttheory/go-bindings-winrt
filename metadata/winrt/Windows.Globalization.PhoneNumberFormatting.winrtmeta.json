@@ -1,0 +1,553 @@
+{
+  "namespace": "Windows.Globalization.PhoneNumberFormatting",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "PhoneNumberFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "E164",
+          "value": "0"
+        },
+        {
+          "name": "International",
+          "value": "1"
+        },
+        {
+          "name": "National",
+          "value": "2"
+        },
+        {
+          "name": "Rfc3966",
+          "value": "3"
+        }
+      ]
+    },
+    "PhoneNumberMatchResult": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "NoMatch",
+          "value": "0"
+        },
+        {
+          "name": "ShortNationalSignificantNumberMatch",
+          "value": "1"
+        },
+        {
+          "name": "NationalSignificantNumberMatch",
+          "value": "2"
+        },
+        {
+          "name": "ExactMatch",
+          "value": "3"
+        }
+      ]
+    },
+    "PhoneNumberParseResult": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Valid",
+          "value": "0"
+        },
+        {
+          "name": "NotANumber",
+          "value": "1"
+        },
+        {
+          "name": "InvalidCountryCode",
+          "value": "2"
+        },
+        {
+          "name": "TooShort",
+          "value": "3"
+        },
+        {
+          "name": "TooLong",
+          "value": "4"
+        }
+      ]
+    },
+    "PredictedPhoneNumberKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "FixedLine",
+          "value": "0"
+        },
+        {
+          "name": "Mobile",
+          "value": "1"
+        },
+        {
+          "name": "FixedLineOrMobile",
+          "value": "2"
+        },
+        {
+          "name": "TollFree",
+          "value": "3"
+        },
+        {
+          "name": "PremiumRate",
+          "value": "4"
+        },
+        {
+          "name": "SharedCost",
+          "value": "5"
+        },
+        {
+          "name": "Voip",
+          "value": "6"
+        },
+        {
+          "name": "PersonalNumber",
+          "value": "7"
+        },
+        {
+          "name": "Pager",
+          "value": "8"
+        },
+        {
+          "name": "UniversalAccountNumber",
+          "value": "9"
+        },
+        {
+          "name": "Voicemail",
+          "value": "10"
+        },
+        {
+          "name": "Unknown",
+          "value": "11"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IPhoneNumberFormatter": {
+      "guid": "1556b49e-bad4-4b4a-900d-4407adb7c981",
+      "exclusive_to": "Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormatter",
+      "methods": [
+        {
+          "name": "Format",
+          "overload": "Format",
+          "params": [
+            {
+              "name": "number",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhoneNumberInfo",
+                "namespace": "Windows.Globalization.PhoneNumberFormatting",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "Format",
+          "overload": "FormatWithOutputFormat",
+          "params": [
+            {
+              "name": "number",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhoneNumberInfo",
+                "namespace": "Windows.Globalization.PhoneNumberFormatting",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "numberFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhoneNumberFormat",
+                "namespace": "Windows.Globalization.PhoneNumberFormatting",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FormatPartialString",
+          "params": [
+            {
+              "name": "number",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FormatString",
+          "params": [
+            {
+              "name": "number",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FormatStringWithLeftToRightMarkers",
+          "params": [
+            {
+              "name": "number",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "IPhoneNumberFormatterStatics": {
+      "guid": "5ca6f931-84d9-414b-ab4e-a0552c878602",
+      "exclusive_to": "Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormatter",
+      "methods": [
+        {
+          "name": "TryCreate",
+          "params": [
+            {
+              "name": "regionCode",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "phoneNumber",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhoneNumberFormatter",
+                "namespace": "Windows.Globalization.PhoneNumberFormatting",
+                "target_kind": "Class"
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "GetCountryCodeForRegion",
+          "params": [
+            {
+              "name": "regionCode",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "GetNationalDirectDialingPrefixForRegion",
+          "params": [
+            {
+              "name": "regionCode",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "stripNonDigit",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "WrapWithLeftToRightMarkers",
+          "params": [
+            {
+              "name": "number",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "IPhoneNumberInfo": {
+      "guid": "1c7ce4dd-c8b4-4ea3-9aef-b342e2c5b417",
+      "exclusive_to": "Windows.Globalization.PhoneNumberFormatting.PhoneNumberInfo",
+      "methods": [
+        {
+          "name": "get_CountryCode",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_PhoneNumber",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetLengthOfGeographicalAreaCode",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "GetNationalSignificantNumber",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetLengthOfNationalDestinationCode",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "PredictNumberKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PredictedPhoneNumberKind",
+            "namespace": "Windows.Globalization.PhoneNumberFormatting",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetGeographicRegionCode",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "CheckNumberMatch",
+          "params": [
+            {
+              "name": "otherNumber",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhoneNumberInfo",
+                "namespace": "Windows.Globalization.PhoneNumberFormatting",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhoneNumberMatchResult",
+            "namespace": "Windows.Globalization.PhoneNumberFormatting",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CountryCode",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_CountryCode"
+        },
+        {
+          "name": "PhoneNumber",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PhoneNumber"
+        }
+      ]
+    },
+    "IPhoneNumberInfoFactory": {
+      "guid": "8202b964-adaa-4cff-8fcf-17e7516a28ff",
+      "exclusive_to": "Windows.Globalization.PhoneNumberFormatting.PhoneNumberInfo",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "number",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhoneNumberInfo",
+            "namespace": "Windows.Globalization.PhoneNumberFormatting",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPhoneNumberInfoStatics": {
+      "guid": "5b3f4f6a-86a9-40e9-8649-6d61161928d4",
+      "exclusive_to": "Windows.Globalization.PhoneNumberFormatting.PhoneNumberInfo",
+      "methods": [
+        {
+          "name": "TryParse",
+          "overload": "TryParse",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "phoneNumber",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhoneNumberInfo",
+                "namespace": "Windows.Globalization.PhoneNumberFormatting",
+                "target_kind": "Class"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhoneNumberParseResult",
+            "namespace": "Windows.Globalization.PhoneNumberFormatting",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "TryParse",
+          "overload": "TryParseWithRegion",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "regionCode",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "phoneNumber",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhoneNumberInfo",
+                "namespace": "Windows.Globalization.PhoneNumberFormatting",
+                "target_kind": "Class"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhoneNumberParseResult",
+            "namespace": "Windows.Globalization.PhoneNumberFormatting",
+            "target_kind": "Enum"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "PhoneNumberFormatter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhoneNumberFormatter",
+        "namespace": "Windows.Globalization.PhoneNumberFormatting",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhoneNumberFormatter",
+          "namespace": "Windows.Globalization.PhoneNumberFormatting",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Globalization.PhoneNumberFormatting.IPhoneNumberFormatterStatics"
+      ]
+    },
+    "PhoneNumberInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhoneNumberInfo",
+        "namespace": "Windows.Globalization.PhoneNumberFormatting",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhoneNumberInfo",
+          "namespace": "Windows.Globalization.PhoneNumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfoFactory"
+      ],
+      "static_interfaces": [
+        "Windows.Globalization.PhoneNumberFormatting.IPhoneNumberInfoStatics"
+      ]
+    }
+  }
+}

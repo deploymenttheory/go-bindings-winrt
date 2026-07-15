@@ -1,0 +1,78 @@
+{
+  "namespace": "Windows.ApplicationModel.UserActivities.Core",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "ICoreUserActivityManagerStatics": {
+      "guid": "ca3adb02-a4be-4d4d-bfa8-6795f4264efb",
+      "exclusive_to": "Windows.ApplicationModel.UserActivities.Core.CoreUserActivityManager",
+      "methods": [
+        {
+          "name": "CreateUserActivitySessionInBackground",
+          "params": [
+            {
+              "name": "activity",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserActivity",
+                "namespace": "Windows.ApplicationModel.UserActivities",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserActivitySession",
+            "namespace": "Windows.ApplicationModel.UserActivities",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "DeleteUserActivitySessionsInTimeRangeAsync",
+          "params": [
+            {
+              "name": "channel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserActivityChannel",
+                "namespace": "Windows.ApplicationModel.UserActivities",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "startTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "endTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "CoreUserActivityManager": {
+      "static_interfaces": [
+        "Windows.ApplicationModel.UserActivities.Core.ICoreUserActivityManagerStatics"
+      ]
+    }
+  }
+}

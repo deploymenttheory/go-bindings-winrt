@@ -1,0 +1,2659 @@
+{
+  "namespace": "Windows.Media.Miracast",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "MiracastReceiverApplySettingsStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "UnknownFailure",
+          "value": "1"
+        },
+        {
+          "name": "MiracastNotSupported",
+          "value": "2"
+        },
+        {
+          "name": "AccessDenied",
+          "value": "3"
+        },
+        {
+          "name": "FriendlyNameTooLong",
+          "value": "4"
+        },
+        {
+          "name": "ModelNameTooLong",
+          "value": "5"
+        },
+        {
+          "name": "ModelNumberTooLong",
+          "value": "6"
+        },
+        {
+          "name": "InvalidSettings",
+          "value": "7"
+        }
+      ]
+    },
+    "MiracastReceiverAuthorizationMethod": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "ConfirmConnection",
+          "value": "1"
+        },
+        {
+          "name": "PinDisplayIfRequested",
+          "value": "2"
+        },
+        {
+          "name": "PinDisplayRequired",
+          "value": "3"
+        }
+      ]
+    },
+    "MiracastReceiverDisconnectReason": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Finished",
+          "value": "0"
+        },
+        {
+          "name": "AppSpecificError",
+          "value": "1"
+        },
+        {
+          "name": "ConnectionNotAccepted",
+          "value": "2"
+        },
+        {
+          "name": "DisconnectedByUser",
+          "value": "3"
+        },
+        {
+          "name": "FailedToStartStreaming",
+          "value": "4"
+        },
+        {
+          "name": "MediaDecodingError",
+          "value": "5"
+        },
+        {
+          "name": "MediaStreamingError",
+          "value": "6"
+        },
+        {
+          "name": "MediaDecryptionError",
+          "value": "7"
+        }
+      ]
+    },
+    "MiracastReceiverGameControllerDeviceUsageMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "AsGameController",
+          "value": "0"
+        },
+        {
+          "name": "AsMouseAndKeyboard",
+          "value": "1"
+        }
+      ]
+    },
+    "MiracastReceiverListeningStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "NotListening",
+          "value": "0"
+        },
+        {
+          "name": "Listening",
+          "value": "1"
+        },
+        {
+          "name": "ConnectionPending",
+          "value": "2"
+        },
+        {
+          "name": "Connected",
+          "value": "3"
+        },
+        {
+          "name": "DisabledByPolicy",
+          "value": "4"
+        },
+        {
+          "name": "TemporarilyDisabled",
+          "value": "5"
+        }
+      ]
+    },
+    "MiracastReceiverSessionStartStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "UnknownFailure",
+          "value": "1"
+        },
+        {
+          "name": "MiracastNotSupported",
+          "value": "2"
+        },
+        {
+          "name": "AccessDenied",
+          "value": "3"
+        }
+      ]
+    },
+    "MiracastReceiverWiFiStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "MiracastSupportUndetermined",
+          "value": "0"
+        },
+        {
+          "name": "MiracastNotSupported",
+          "value": "1"
+        },
+        {
+          "name": "MiracastSupportNotOptimized",
+          "value": "2"
+        },
+        {
+          "name": "MiracastSupported",
+          "value": "3"
+        }
+      ]
+    },
+    "MiracastTransmitterAuthorizationStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Undecided",
+          "value": "0"
+        },
+        {
+          "name": "Allowed",
+          "value": "1"
+        },
+        {
+          "name": "AlwaysPrompt",
+          "value": "2"
+        },
+        {
+          "name": "Blocked",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IMiracastReceiver": {
+      "guid": "7a315258-e444-51b4-aff7-b88daa1229e0",
+      "exclusive_to": "Windows.Media.Miracast.MiracastReceiver",
+      "methods": [
+        {
+          "name": "GetDefaultSettings",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverSettings",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetCurrentSettings",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverSettings",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetCurrentSettingsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverSettings",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "DisconnectAllAndApplySettings",
+          "params": [
+            {
+              "name": "settings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverSettings",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverApplySettingsResult",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "DisconnectAllAndApplySettingsAsync",
+          "params": [
+            {
+              "name": "settings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverSettings",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverApplySettingsResult",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverStatus",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetStatusAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverStatus",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_StatusChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "MiracastReceiver",
+                    "namespace": "Windows.Media.Miracast",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_StatusChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CreateSession",
+          "params": [
+            {
+              "name": "view",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreApplicationView",
+                "namespace": "Windows.ApplicationModel.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverSession",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateSessionAsync",
+          "params": [
+            {
+              "name": "view",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreApplicationView",
+                "namespace": "Windows.ApplicationModel.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverSession",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ClearKnownTransmitters"
+        },
+        {
+          "name": "RemoveKnownTransmitter",
+          "params": [
+            {
+              "name": "transmitter",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MiracastTransmitter",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "StatusChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MiracastReceiver",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_StatusChanged",
+          "remove_method": "remove_StatusChanged"
+        }
+      ]
+    },
+    "IMiracastReceiverApplySettingsResult": {
+      "guid": "d0aa6272-09cd-58e1-a4f2-5d5143d312f9",
+      "exclusive_to": "Windows.Media.Miracast.MiracastReceiverApplySettingsResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverApplySettingsStatus",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ExtendedError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExtendedError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtendedError"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverApplySettingsStatus",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IMiracastReceiverConnection": {
+      "guid": "704b2f36-d2e5-551f-a854-f822b7917d28",
+      "exclusive_to": "Windows.Media.Miracast.MiracastReceiverConnection",
+      "methods": [
+        {
+          "name": "Disconnect",
+          "overload": "Disconnect",
+          "params": [
+            {
+              "name": "reason",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverDisconnectReason",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Disconnect",
+          "overload": "DisconnectWithMessage",
+          "params": [
+            {
+              "name": "reason",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverDisconnectReason",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "message",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Pause"
+        },
+        {
+          "name": "PauseAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "Resume"
+        },
+        {
+          "name": "ResumeAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Transmitter",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MiracastTransmitter",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_InputDevices",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverInputDevices",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CursorImageChannel",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverCursorImageChannel",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_StreamControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverStreamControl",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CursorImageChannel",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverCursorImageChannel",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          },
+          "getter": "get_CursorImageChannel"
+        },
+        {
+          "name": "InputDevices",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverInputDevices",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          },
+          "getter": "get_InputDevices"
+        },
+        {
+          "name": "StreamControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverStreamControl",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          },
+          "getter": "get_StreamControl"
+        },
+        {
+          "name": "Transmitter",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MiracastTransmitter",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          },
+          "getter": "get_Transmitter"
+        }
+      ]
+    },
+    "IMiracastReceiverConnectionCreatedEventArgs": {
+      "guid": "7d8dfa39-307a-5c0f-94bd-d0c69d169982",
+      "exclusive_to": "Windows.Media.Miracast.MiracastReceiverConnectionCreatedEventArgs",
+      "methods": [
+        {
+          "name": "get_Connection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverConnection",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Pin",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Connection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverConnection",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          },
+          "getter": "get_Connection"
+        },
+        {
+          "name": "Pin",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Pin"
+        }
+      ]
+    },
+    "IMiracastReceiverCursorImageChannel": {
+      "guid": "d9ac332d-723a-5a9d-b90a-81153efa2a0f",
+      "exclusive_to": "Windows.Media.Miracast.MiracastReceiverCursorImageChannel",
+      "methods": [
+        {
+          "name": "get_IsEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_MaxImageSize",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SizeInt32",
+            "namespace": "Windows.Graphics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PointInt32",
+            "namespace": "Windows.Graphics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_ImageStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamWithContentType",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "add_ImageStreamChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "MiracastReceiverCursorImageChannel",
+                    "namespace": "Windows.Media.Miracast",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ImageStreamChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PositionChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "MiracastReceiverCursorImageChannel",
+                    "namespace": "Windows.Media.Miracast",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PositionChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ImageStream",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamWithContentType",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_ImageStream"
+        },
+        {
+          "name": "IsEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsEnabled"
+        },
+        {
+          "name": "MaxImageSize",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SizeInt32",
+            "namespace": "Windows.Graphics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_MaxImageSize"
+        },
+        {
+          "name": "Position",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PointInt32",
+            "namespace": "Windows.Graphics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Position"
+        }
+      ],
+      "events": [
+        {
+          "name": "ImageStreamChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverCursorImageChannel",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ImageStreamChanged",
+          "remove_method": "remove_ImageStreamChanged"
+        },
+        {
+          "name": "PositionChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverCursorImageChannel",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_PositionChanged",
+          "remove_method": "remove_PositionChanged"
+        }
+      ]
+    },
+    "IMiracastReceiverCursorImageChannelSettings": {
+      "guid": "ccdbedff-bd00-5b9c-8e4c-00cacf86b634",
+      "exclusive_to": "Windows.Media.Miracast.MiracastReceiverCursorImageChannelSettings",
+      "methods": [
+        {
+          "name": "get_IsEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MaxImageSize",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SizeInt32",
+            "namespace": "Windows.Graphics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_MaxImageSize",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SizeInt32",
+                "namespace": "Windows.Graphics",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsEnabled",
+          "setter": "put_IsEnabled"
+        },
+        {
+          "name": "MaxImageSize",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SizeInt32",
+            "namespace": "Windows.Graphics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_MaxImageSize",
+          "setter": "put_MaxImageSize"
+        }
+      ]
+    },
+    "IMiracastReceiverDisconnectedEventArgs": {
+      "guid": "d9a15e5e-5fee-57e6-b4b0-04727db93229",
+      "exclusive_to": "Windows.Media.Miracast.MiracastReceiverDisconnectedEventArgs",
+      "methods": [
+        {
+          "name": "get_Connection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverConnection",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Connection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverConnection",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          },
+          "getter": "get_Connection"
+        }
+      ]
+    },
+    "IMiracastReceiverGameControllerDevice": {
+      "guid": "2d7171e8-bed4-5118-a058-e2477eb5888d",
+      "exclusive_to": "Windows.Media.Miracast.MiracastReceiverGameControllerDevice",
+      "methods": [
+        {
+          "name": "get_TransmitInput",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_TransmitInput",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsRequestedByTransmitter",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsTransmittingInput",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Mode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverGameControllerDeviceUsageMode",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Mode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverGameControllerDeviceUsageMode",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Changed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "MiracastReceiverGameControllerDevice",
+                    "namespace": "Windows.Media.Miracast",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Changed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsRequestedByTransmitter",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsRequestedByTransmitter"
+        },
+        {
+          "name": "IsTransmittingInput",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsTransmittingInput"
+        },
+        {
+          "name": "Mode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverGameControllerDeviceUsageMode",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Mode",
+          "setter": "put_Mode"
+        },
+        {
+          "name": "TransmitInput",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_TransmitInput",
+          "setter": "put_TransmitInput"
+        }
+      ],
+      "events": [
+        {
+          "name": "Changed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverGameControllerDevice",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_Changed",
+          "remove_method": "remove_Changed"
+        }
+      ]
+    },
+    "IMiracastReceiverInputDevices": {
+      "guid": "da35bb02-28aa-5ee8-96f5-a42901c66f00",
+      "exclusive_to": "Windows.Media.Miracast.MiracastReceiverInputDevices",
+      "methods": [
+        {
+          "name": "get_Keyboard",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverKeyboardDevice",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_GameController",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverGameControllerDevice",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "GameController",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverGameControllerDevice",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          },
+          "getter": "get_GameController"
+        },
+        {
+          "name": "Keyboard",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverKeyboardDevice",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          },
+          "getter": "get_Keyboard"
+        }
+      ]
+    },
+    "IMiracastReceiverKeyboardDevice": {
+      "guid": "beb67272-06c0-54ff-ac96-217464ff2501",
+      "exclusive_to": "Windows.Media.Miracast.MiracastReceiverKeyboardDevice",
+      "methods": [
+        {
+          "name": "get_TransmitInput",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_TransmitInput",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsRequestedByTransmitter",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsTransmittingInput",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "add_Changed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "MiracastReceiverKeyboardDevice",
+                    "namespace": "Windows.Media.Miracast",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Changed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsRequestedByTransmitter",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsRequestedByTransmitter"
+        },
+        {
+          "name": "IsTransmittingInput",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsTransmittingInput"
+        },
+        {
+          "name": "TransmitInput",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_TransmitInput",
+          "setter": "put_TransmitInput"
+        }
+      ],
+      "events": [
+        {
+          "name": "Changed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverKeyboardDevice",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_Changed",
+          "remove_method": "remove_Changed"
+        }
+      ]
+    },
+    "IMiracastReceiverMediaSourceCreatedEventArgs": {
+      "guid": "17cf519e-1246-531d-945a-6b158e39c3aa",
+      "exclusive_to": "Windows.Media.Miracast.MiracastReceiverMediaSourceCreatedEventArgs",
+      "methods": [
+        {
+          "name": "get_Connection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverConnection",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_MediaSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaSource",
+            "namespace": "Windows.Media.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CursorImageChannelSettings",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverCursorImageChannelSettings",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Connection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverConnection",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          },
+          "getter": "get_Connection"
+        },
+        {
+          "name": "CursorImageChannelSettings",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverCursorImageChannelSettings",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          },
+          "getter": "get_CursorImageChannelSettings"
+        },
+        {
+          "name": "MediaSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaSource",
+            "namespace": "Windows.Media.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_MediaSource"
+        }
+      ]
+    },
+    "IMiracastReceiverSession": {
+      "guid": "1d2bcdb4-ef8b-5209-bfc9-c32116504803",
+      "exclusive_to": "Windows.Media.Miracast.MiracastReceiverSession",
+      "methods": [
+        {
+          "name": "add_ConnectionCreated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "MiracastReceiverSession",
+                    "namespace": "Windows.Media.Miracast",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "MiracastReceiverConnectionCreatedEventArgs",
+                    "namespace": "Windows.Media.Miracast",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ConnectionCreated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_MediaSourceCreated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "MiracastReceiverSession",
+                    "namespace": "Windows.Media.Miracast",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "MiracastReceiverMediaSourceCreatedEventArgs",
+                    "namespace": "Windows.Media.Miracast",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_MediaSourceCreated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Disconnected",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "MiracastReceiverSession",
+                    "namespace": "Windows.Media.Miracast",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "MiracastReceiverDisconnectedEventArgs",
+                    "namespace": "Windows.Media.Miracast",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Disconnected",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AllowConnectionTakeover",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AllowConnectionTakeover",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MaxSimultaneousConnections",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_MaxSimultaneousConnections",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Start",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverSessionStartResult",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "StartAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverSessionStartResult",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllowConnectionTakeover",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AllowConnectionTakeover",
+          "setter": "put_AllowConnectionTakeover"
+        },
+        {
+          "name": "MaxSimultaneousConnections",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MaxSimultaneousConnections",
+          "setter": "put_MaxSimultaneousConnections"
+        }
+      ],
+      "events": [
+        {
+          "name": "ConnectionCreated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverSession",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverConnectionCreatedEventArgs",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ConnectionCreated",
+          "remove_method": "remove_ConnectionCreated"
+        },
+        {
+          "name": "Disconnected",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverSession",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverDisconnectedEventArgs",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Disconnected",
+          "remove_method": "remove_Disconnected"
+        },
+        {
+          "name": "MediaSourceCreated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverSession",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverMediaSourceCreatedEventArgs",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_MediaSourceCreated",
+          "remove_method": "remove_MediaSourceCreated"
+        }
+      ]
+    },
+    "IMiracastReceiverSessionStartResult": {
+      "guid": "b7c573ee-40ca-51ff-95f2-c9de34f2e90e",
+      "exclusive_to": "Windows.Media.Miracast.MiracastReceiverSessionStartResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverSessionStartStatus",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ExtendedError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExtendedError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtendedError"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverSessionStartStatus",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IMiracastReceiverSettings": {
+      "guid": "57cd2f24-c55a-5fbe-9464-eb05307705dd",
+      "exclusive_to": "Windows.Media.Miracast.MiracastReceiverSettings",
+      "methods": [
+        {
+          "name": "get_FriendlyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_FriendlyName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ModelName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_ModelName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ModelNumber",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_ModelNumber",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AuthorizationMethod",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverAuthorizationMethod",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_AuthorizationMethod",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverAuthorizationMethod",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RequireAuthorizationFromKnownTransmitters",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_RequireAuthorizationFromKnownTransmitters",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AuthorizationMethod",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverAuthorizationMethod",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AuthorizationMethod",
+          "setter": "put_AuthorizationMethod"
+        },
+        {
+          "name": "FriendlyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_FriendlyName",
+          "setter": "put_FriendlyName"
+        },
+        {
+          "name": "ModelName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ModelName",
+          "setter": "put_ModelName"
+        },
+        {
+          "name": "ModelNumber",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ModelNumber",
+          "setter": "put_ModelNumber"
+        },
+        {
+          "name": "RequireAuthorizationFromKnownTransmitters",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_RequireAuthorizationFromKnownTransmitters",
+          "setter": "put_RequireAuthorizationFromKnownTransmitters"
+        }
+      ]
+    },
+    "IMiracastReceiverStatus": {
+      "guid": "c28a5591-23ab-519e-ad09-90bff6dcc87e",
+      "exclusive_to": "Windows.Media.Miracast.MiracastReceiverStatus",
+      "methods": [
+        {
+          "name": "get_ListeningStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverListeningStatus",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_WiFiStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverWiFiStatus",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_IsConnectionTakeoverSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_MaxSimultaneousConnections",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_KnownTransmitters",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MiracastTransmitter",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsConnectionTakeoverSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsConnectionTakeoverSupported"
+        },
+        {
+          "name": "KnownTransmitters",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MiracastTransmitter",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_KnownTransmitters"
+        },
+        {
+          "name": "ListeningStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverListeningStatus",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ListeningStatus"
+        },
+        {
+          "name": "MaxSimultaneousConnections",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MaxSimultaneousConnections"
+        },
+        {
+          "name": "WiFiStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverWiFiStatus",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Enum"
+          },
+          "getter": "get_WiFiStatus"
+        }
+      ]
+    },
+    "IMiracastReceiverStreamControl": {
+      "guid": "38ea2d8b-2769-5ad7-8a8a-254b9df7ba82",
+      "exclusive_to": "Windows.Media.Miracast.MiracastReceiverStreamControl",
+      "methods": [
+        {
+          "name": "GetVideoStreamSettings",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MiracastReceiverVideoStreamSettings",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetVideoStreamSettingsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverVideoStreamSettings",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SuggestVideoStreamSettings",
+          "params": [
+            {
+              "name": "settings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverVideoStreamSettings",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SuggestVideoStreamSettingsAsync",
+          "params": [
+            {
+              "name": "settings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverVideoStreamSettings",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_MuteAudio",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_MuteAudio",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "MuteAudio",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_MuteAudio",
+          "setter": "put_MuteAudio"
+        }
+      ]
+    },
+    "IMiracastReceiverVideoStreamSettings": {
+      "guid": "169b5e1b-149d-52d0-b126-6f89744e4f50",
+      "exclusive_to": "Windows.Media.Miracast.MiracastReceiverVideoStreamSettings",
+      "methods": [
+        {
+          "name": "get_Size",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SizeInt32",
+            "namespace": "Windows.Graphics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Size",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SizeInt32",
+                "namespace": "Windows.Graphics",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Bitrate",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_Bitrate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Bitrate",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Bitrate",
+          "setter": "put_Bitrate"
+        },
+        {
+          "name": "Size",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SizeInt32",
+            "namespace": "Windows.Graphics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Size",
+          "setter": "put_Size"
+        }
+      ]
+    },
+    "IMiracastTransmitter": {
+      "guid": "342d79fd-2e64-5508-8a30-833d1eac70d0",
+      "exclusive_to": "Windows.Media.Miracast.MiracastTransmitter",
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Name",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AuthorizationStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MiracastTransmitterAuthorizationStatus",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_AuthorizationStatus",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MiracastTransmitterAuthorizationStatus",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetConnections",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MiracastReceiverConnection",
+                "namespace": "Windows.Media.Miracast",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_MacAddress",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_LastConnectionTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AuthorizationStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MiracastTransmitterAuthorizationStatus",
+            "namespace": "Windows.Media.Miracast",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AuthorizationStatus",
+          "setter": "put_AuthorizationStatus"
+        },
+        {
+          "name": "LastConnectionTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_LastConnectionTime"
+        },
+        {
+          "name": "MacAddress",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MacAddress"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name",
+          "setter": "put_Name"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "MiracastReceiver": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMiracastReceiver",
+        "namespace": "Windows.Media.Miracast",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMiracastReceiver",
+          "namespace": "Windows.Media.Miracast",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "MiracastReceiverApplySettingsResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMiracastReceiverApplySettingsResult",
+        "namespace": "Windows.Media.Miracast",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMiracastReceiverApplySettingsResult",
+          "namespace": "Windows.Media.Miracast",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MiracastReceiverConnection": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMiracastReceiverConnection",
+        "namespace": "Windows.Media.Miracast",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMiracastReceiverConnection",
+          "namespace": "Windows.Media.Miracast",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MiracastReceiverConnectionCreatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMiracastReceiverConnectionCreatedEventArgs",
+        "namespace": "Windows.Media.Miracast",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMiracastReceiverConnectionCreatedEventArgs",
+          "namespace": "Windows.Media.Miracast",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MiracastReceiverCursorImageChannel": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMiracastReceiverCursorImageChannel",
+        "namespace": "Windows.Media.Miracast",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMiracastReceiverCursorImageChannel",
+          "namespace": "Windows.Media.Miracast",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MiracastReceiverCursorImageChannelSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMiracastReceiverCursorImageChannelSettings",
+        "namespace": "Windows.Media.Miracast",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMiracastReceiverCursorImageChannelSettings",
+          "namespace": "Windows.Media.Miracast",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MiracastReceiverDisconnectedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMiracastReceiverDisconnectedEventArgs",
+        "namespace": "Windows.Media.Miracast",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMiracastReceiverDisconnectedEventArgs",
+          "namespace": "Windows.Media.Miracast",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MiracastReceiverGameControllerDevice": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMiracastReceiverGameControllerDevice",
+        "namespace": "Windows.Media.Miracast",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMiracastReceiverGameControllerDevice",
+          "namespace": "Windows.Media.Miracast",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MiracastReceiverInputDevices": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMiracastReceiverInputDevices",
+        "namespace": "Windows.Media.Miracast",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMiracastReceiverInputDevices",
+          "namespace": "Windows.Media.Miracast",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MiracastReceiverKeyboardDevice": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMiracastReceiverKeyboardDevice",
+        "namespace": "Windows.Media.Miracast",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMiracastReceiverKeyboardDevice",
+          "namespace": "Windows.Media.Miracast",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MiracastReceiverMediaSourceCreatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMiracastReceiverMediaSourceCreatedEventArgs",
+        "namespace": "Windows.Media.Miracast",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMiracastReceiverMediaSourceCreatedEventArgs",
+          "namespace": "Windows.Media.Miracast",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MiracastReceiverSession": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMiracastReceiverSession",
+        "namespace": "Windows.Media.Miracast",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMiracastReceiverSession",
+          "namespace": "Windows.Media.Miracast",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MiracastReceiverSessionStartResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMiracastReceiverSessionStartResult",
+        "namespace": "Windows.Media.Miracast",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMiracastReceiverSessionStartResult",
+          "namespace": "Windows.Media.Miracast",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MiracastReceiverSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMiracastReceiverSettings",
+        "namespace": "Windows.Media.Miracast",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMiracastReceiverSettings",
+          "namespace": "Windows.Media.Miracast",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MiracastReceiverStatus": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMiracastReceiverStatus",
+        "namespace": "Windows.Media.Miracast",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMiracastReceiverStatus",
+          "namespace": "Windows.Media.Miracast",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MiracastReceiverStreamControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMiracastReceiverStreamControl",
+        "namespace": "Windows.Media.Miracast",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMiracastReceiverStreamControl",
+          "namespace": "Windows.Media.Miracast",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MiracastReceiverVideoStreamSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMiracastReceiverVideoStreamSettings",
+        "namespace": "Windows.Media.Miracast",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMiracastReceiverVideoStreamSettings",
+          "namespace": "Windows.Media.Miracast",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MiracastTransmitter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMiracastTransmitter",
+        "namespace": "Windows.Media.Miracast",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMiracastTransmitter",
+          "namespace": "Windows.Media.Miracast",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

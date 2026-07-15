@@ -1,0 +1,298 @@
+{
+  "namespace": "Windows.Web",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "WebErrorStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "CertificateCommonNameIsIncorrect",
+          "value": "1"
+        },
+        {
+          "name": "CertificateExpired",
+          "value": "2"
+        },
+        {
+          "name": "CertificateContainsErrors",
+          "value": "3"
+        },
+        {
+          "name": "CertificateRevoked",
+          "value": "4"
+        },
+        {
+          "name": "CertificateIsInvalid",
+          "value": "5"
+        },
+        {
+          "name": "ServerUnreachable",
+          "value": "6"
+        },
+        {
+          "name": "Timeout",
+          "value": "7"
+        },
+        {
+          "name": "ErrorHttpInvalidServerResponse",
+          "value": "8"
+        },
+        {
+          "name": "ConnectionAborted",
+          "value": "9"
+        },
+        {
+          "name": "ConnectionReset",
+          "value": "10"
+        },
+        {
+          "name": "Disconnected",
+          "value": "11"
+        },
+        {
+          "name": "HttpToHttpsOnRedirection",
+          "value": "12"
+        },
+        {
+          "name": "HttpsToHttpOnRedirection",
+          "value": "13"
+        },
+        {
+          "name": "CannotConnect",
+          "value": "14"
+        },
+        {
+          "name": "HostNameNotResolved",
+          "value": "15"
+        },
+        {
+          "name": "OperationCanceled",
+          "value": "16"
+        },
+        {
+          "name": "RedirectFailed",
+          "value": "17"
+        },
+        {
+          "name": "UnexpectedStatusCode",
+          "value": "18"
+        },
+        {
+          "name": "UnexpectedRedirection",
+          "value": "19"
+        },
+        {
+          "name": "UnexpectedClientError",
+          "value": "20"
+        },
+        {
+          "name": "UnexpectedServerError",
+          "value": "21"
+        },
+        {
+          "name": "InsufficientRangeSupport",
+          "value": "22"
+        },
+        {
+          "name": "MissingContentLengthSupport",
+          "value": "23"
+        },
+        {
+          "name": "MultipleChoices",
+          "value": "300"
+        },
+        {
+          "name": "MovedPermanently",
+          "value": "301"
+        },
+        {
+          "name": "Found",
+          "value": "302"
+        },
+        {
+          "name": "SeeOther",
+          "value": "303"
+        },
+        {
+          "name": "NotModified",
+          "value": "304"
+        },
+        {
+          "name": "UseProxy",
+          "value": "305"
+        },
+        {
+          "name": "TemporaryRedirect",
+          "value": "307"
+        },
+        {
+          "name": "BadRequest",
+          "value": "400"
+        },
+        {
+          "name": "Unauthorized",
+          "value": "401"
+        },
+        {
+          "name": "PaymentRequired",
+          "value": "402"
+        },
+        {
+          "name": "Forbidden",
+          "value": "403"
+        },
+        {
+          "name": "NotFound",
+          "value": "404"
+        },
+        {
+          "name": "MethodNotAllowed",
+          "value": "405"
+        },
+        {
+          "name": "NotAcceptable",
+          "value": "406"
+        },
+        {
+          "name": "ProxyAuthenticationRequired",
+          "value": "407"
+        },
+        {
+          "name": "RequestTimeout",
+          "value": "408"
+        },
+        {
+          "name": "Conflict",
+          "value": "409"
+        },
+        {
+          "name": "Gone",
+          "value": "410"
+        },
+        {
+          "name": "LengthRequired",
+          "value": "411"
+        },
+        {
+          "name": "PreconditionFailed",
+          "value": "412"
+        },
+        {
+          "name": "RequestEntityTooLarge",
+          "value": "413"
+        },
+        {
+          "name": "RequestUriTooLong",
+          "value": "414"
+        },
+        {
+          "name": "UnsupportedMediaType",
+          "value": "415"
+        },
+        {
+          "name": "RequestedRangeNotSatisfiable",
+          "value": "416"
+        },
+        {
+          "name": "ExpectationFailed",
+          "value": "417"
+        },
+        {
+          "name": "InternalServerError",
+          "value": "500"
+        },
+        {
+          "name": "NotImplemented",
+          "value": "501"
+        },
+        {
+          "name": "BadGateway",
+          "value": "502"
+        },
+        {
+          "name": "ServiceUnavailable",
+          "value": "503"
+        },
+        {
+          "name": "GatewayTimeout",
+          "value": "504"
+        },
+        {
+          "name": "HttpVersionNotSupported",
+          "value": "505"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IUriToStreamResolver": {
+      "guid": "b0aba86a-9aeb-4d3a-9590-003e3ca7e290",
+      "methods": [
+        {
+          "name": "UriToStreamAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IWebErrorStatics": {
+      "guid": "fe616766-bf27-4064-87b7-6563bb11ce2e",
+      "exclusive_to": "Windows.Web.WebError",
+      "methods": [
+        {
+          "name": "GetStatus",
+          "params": [
+            {
+              "name": "hresult",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebErrorStatus",
+            "namespace": "Windows.Web",
+            "target_kind": "Enum"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "WebError": {
+      "static_interfaces": [
+        "Windows.Web.IWebErrorStatics"
+      ]
+    }
+  }
+}

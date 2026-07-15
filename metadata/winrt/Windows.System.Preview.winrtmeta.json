@@ -1,0 +1,353 @@
+{
+  "namespace": "Windows.System.Preview",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "HingeState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "Closed",
+          "value": "1"
+        },
+        {
+          "name": "Concave",
+          "value": "2"
+        },
+        {
+          "name": "Flat",
+          "value": "3"
+        },
+        {
+          "name": "Convex",
+          "value": "4"
+        },
+        {
+          "name": "Full",
+          "value": "5"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ITwoPanelHingedDevicePosturePreview": {
+      "guid": "72245c31-4b39-42a6-8e73-7235ade16853",
+      "exclusive_to": "Windows.System.Preview.TwoPanelHingedDevicePosturePreview",
+      "methods": [
+        {
+          "name": "GetCurrentPostureAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TwoPanelHingedDevicePosturePreviewReading",
+                "namespace": "Windows.System.Preview",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_PostureChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "TwoPanelHingedDevicePosturePreview",
+                    "namespace": "Windows.System.Preview",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs",
+                    "namespace": "Windows.System.Preview",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PostureChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "PostureChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TwoPanelHingedDevicePosturePreview",
+                "namespace": "Windows.System.Preview",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs",
+                "namespace": "Windows.System.Preview",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PostureChanged",
+          "remove_method": "remove_PostureChanged"
+        }
+      ]
+    },
+    "ITwoPanelHingedDevicePosturePreviewReading": {
+      "guid": "a0251452-4ad6-4b38-8426-c59a15493a7d",
+      "exclusive_to": "Windows.System.Preview.TwoPanelHingedDevicePosturePreviewReading",
+      "methods": [
+        {
+          "name": "get_Timestamp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_HingeState",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HingeState",
+            "namespace": "Windows.System.Preview",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Panel1Orientation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SimpleOrientation",
+            "namespace": "Windows.Devices.Sensors",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Panel1Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Panel2Orientation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SimpleOrientation",
+            "namespace": "Windows.Devices.Sensors",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Panel2Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HingeState",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HingeState",
+            "namespace": "Windows.System.Preview",
+            "target_kind": "Enum"
+          },
+          "getter": "get_HingeState"
+        },
+        {
+          "name": "Panel1Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Panel1Id"
+        },
+        {
+          "name": "Panel1Orientation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SimpleOrientation",
+            "namespace": "Windows.Devices.Sensors",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Panel1Orientation"
+        },
+        {
+          "name": "Panel2Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Panel2Id"
+        },
+        {
+          "name": "Panel2Orientation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SimpleOrientation",
+            "namespace": "Windows.Devices.Sensors",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Panel2Orientation"
+        },
+        {
+          "name": "Timestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Timestamp"
+        }
+      ]
+    },
+    "ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs": {
+      "guid": "2d2d1bc6-02ce-474a-a556-a75b1cf93a03",
+      "exclusive_to": "Windows.System.Preview.TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_Reading",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TwoPanelHingedDevicePosturePreviewReading",
+            "namespace": "Windows.System.Preview",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Reading",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TwoPanelHingedDevicePosturePreviewReading",
+            "namespace": "Windows.System.Preview",
+            "target_kind": "Class"
+          },
+          "getter": "get_Reading"
+        }
+      ]
+    },
+    "ITwoPanelHingedDevicePosturePreviewStatics": {
+      "guid": "0c4733d2-57e0-4180-bd5e-f31a2138423e",
+      "exclusive_to": "Windows.System.Preview.TwoPanelHingedDevicePosturePreview",
+      "methods": [
+        {
+          "name": "GetDefaultAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TwoPanelHingedDevicePosturePreview",
+                "namespace": "Windows.System.Preview",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "TwoPanelHingedDevicePosturePreview": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITwoPanelHingedDevicePosturePreview",
+        "namespace": "Windows.System.Preview",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITwoPanelHingedDevicePosturePreview",
+          "namespace": "Windows.System.Preview",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.System.Preview.ITwoPanelHingedDevicePosturePreviewStatics"
+      ]
+    },
+    "TwoPanelHingedDevicePosturePreviewReading": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITwoPanelHingedDevicePosturePreviewReading",
+        "namespace": "Windows.System.Preview",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITwoPanelHingedDevicePosturePreviewReading",
+          "namespace": "Windows.System.Preview",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs",
+        "namespace": "Windows.System.Preview",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs",
+          "namespace": "Windows.System.Preview",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

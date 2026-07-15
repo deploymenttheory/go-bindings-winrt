@@ -1,0 +1,832 @@
+{
+  "namespace": "Windows.UI.Xaml.Navigation",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "NavigationCacheMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Disabled",
+          "value": "0"
+        },
+        {
+          "name": "Required",
+          "value": "1"
+        },
+        {
+          "name": "Enabled",
+          "value": "2"
+        }
+      ]
+    },
+    "NavigationMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "New",
+          "value": "0"
+        },
+        {
+          "name": "Back",
+          "value": "1"
+        },
+        {
+          "name": "Forward",
+          "value": "2"
+        },
+        {
+          "name": "Refresh",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IFrameNavigationOptions": {
+      "guid": "b539ad2a-9fb7-520a-8f41-57a50c59cf92",
+      "exclusive_to": "Windows.UI.Xaml.Navigation.FrameNavigationOptions",
+      "methods": [
+        {
+          "name": "get_IsNavigationStackEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsNavigationStackEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TransitionInfoOverride",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NavigationTransitionInfo",
+            "namespace": "Windows.UI.Xaml.Media.Animation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_TransitionInfoOverride",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NavigationTransitionInfo",
+                "namespace": "Windows.UI.Xaml.Media.Animation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsNavigationStackEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsNavigationStackEnabled",
+          "setter": "put_IsNavigationStackEnabled"
+        },
+        {
+          "name": "TransitionInfoOverride",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NavigationTransitionInfo",
+            "namespace": "Windows.UI.Xaml.Media.Animation",
+            "target_kind": "Class"
+          },
+          "getter": "get_TransitionInfoOverride",
+          "setter": "put_TransitionInfoOverride"
+        }
+      ]
+    },
+    "IFrameNavigationOptionsFactory": {
+      "guid": "d4681e41-7e6d-5c7c-aca0-478681cc6fce",
+      "exclusive_to": "Windows.UI.Xaml.Navigation.FrameNavigationOptions",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "baseInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "innerInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "FrameNavigationOptions",
+            "namespace": "Windows.UI.Xaml.Navigation",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "INavigatingCancelEventArgs": {
+      "guid": "fd1d67ae-eafb-4079-be80-6dc92a03aedf",
+      "exclusive_to": "Windows.UI.Xaml.Navigation.NavigatingCancelEventArgs",
+      "methods": [
+        {
+          "name": "get_Cancel",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Cancel",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_NavigationMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NavigationMode",
+            "namespace": "Windows.UI.Xaml.Navigation",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_SourcePageType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TypeName",
+            "namespace": "Windows.UI.Xaml.Interop",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Cancel",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Cancel",
+          "setter": "put_Cancel"
+        },
+        {
+          "name": "NavigationMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NavigationMode",
+            "namespace": "Windows.UI.Xaml.Navigation",
+            "target_kind": "Enum"
+          },
+          "getter": "get_NavigationMode"
+        },
+        {
+          "name": "SourcePageType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TypeName",
+            "namespace": "Windows.UI.Xaml.Interop",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SourcePageType"
+        }
+      ]
+    },
+    "INavigatingCancelEventArgs2": {
+      "guid": "5407b704-8147-4343-838f-dd1ee908c137",
+      "exclusive_to": "Windows.UI.Xaml.Navigation.NavigatingCancelEventArgs",
+      "methods": [
+        {
+          "name": "get_Parameter",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "get_NavigationTransitionInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NavigationTransitionInfo",
+            "namespace": "Windows.UI.Xaml.Media.Animation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "NavigationTransitionInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NavigationTransitionInfo",
+            "namespace": "Windows.UI.Xaml.Media.Animation",
+            "target_kind": "Class"
+          },
+          "getter": "get_NavigationTransitionInfo"
+        },
+        {
+          "name": "Parameter",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_Parameter"
+        }
+      ]
+    },
+    "INavigationEventArgs": {
+      "guid": "b6aa9834-6691-44d1-bdf7-58820c27b0d0",
+      "exclusive_to": "Windows.UI.Xaml.Navigation.NavigationEventArgs",
+      "methods": [
+        {
+          "name": "get_Content",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "get_Parameter",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "get_SourcePageType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TypeName",
+            "namespace": "Windows.UI.Xaml.Interop",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_NavigationMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NavigationMode",
+            "namespace": "Windows.UI.Xaml.Navigation",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Uri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Uri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Content",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_Content"
+        },
+        {
+          "name": "NavigationMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NavigationMode",
+            "namespace": "Windows.UI.Xaml.Navigation",
+            "target_kind": "Enum"
+          },
+          "getter": "get_NavigationMode"
+        },
+        {
+          "name": "Parameter",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_Parameter"
+        },
+        {
+          "name": "SourcePageType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TypeName",
+            "namespace": "Windows.UI.Xaml.Interop",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SourcePageType"
+        },
+        {
+          "name": "Uri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Uri",
+          "setter": "put_Uri"
+        }
+      ]
+    },
+    "INavigationEventArgs2": {
+      "guid": "dbff71d9-979a-4b2e-a49b-3bb17fdef574",
+      "exclusive_to": "Windows.UI.Xaml.Navigation.NavigationEventArgs",
+      "methods": [
+        {
+          "name": "get_NavigationTransitionInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NavigationTransitionInfo",
+            "namespace": "Windows.UI.Xaml.Media.Animation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "NavigationTransitionInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NavigationTransitionInfo",
+            "namespace": "Windows.UI.Xaml.Media.Animation",
+            "target_kind": "Class"
+          },
+          "getter": "get_NavigationTransitionInfo"
+        }
+      ]
+    },
+    "INavigationFailedEventArgs": {
+      "guid": "11c1dff7-36c2-4102-b2ef-0217a97289b3",
+      "exclusive_to": "Windows.UI.Xaml.Navigation.NavigationFailedEventArgs",
+      "methods": [
+        {
+          "name": "get_Exception",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SourcePageType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TypeName",
+            "namespace": "Windows.UI.Xaml.Interop",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Exception",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Exception"
+        },
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        },
+        {
+          "name": "SourcePageType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TypeName",
+            "namespace": "Windows.UI.Xaml.Interop",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SourcePageType"
+        }
+      ]
+    },
+    "IPageStackEntry": {
+      "guid": "ef8814a6-9388-4aca-8572-405194069080",
+      "exclusive_to": "Windows.UI.Xaml.Navigation.PageStackEntry",
+      "methods": [
+        {
+          "name": "get_SourcePageType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TypeName",
+            "namespace": "Windows.UI.Xaml.Interop",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Parameter",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "get_NavigationTransitionInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NavigationTransitionInfo",
+            "namespace": "Windows.UI.Xaml.Media.Animation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "NavigationTransitionInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NavigationTransitionInfo",
+            "namespace": "Windows.UI.Xaml.Media.Animation",
+            "target_kind": "Class"
+          },
+          "getter": "get_NavigationTransitionInfo"
+        },
+        {
+          "name": "Parameter",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_Parameter"
+        },
+        {
+          "name": "SourcePageType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TypeName",
+            "namespace": "Windows.UI.Xaml.Interop",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SourcePageType"
+        }
+      ]
+    },
+    "IPageStackEntryFactory": {
+      "guid": "4454048a-a8b9-4f78-9b84-1f51f58851ff",
+      "exclusive_to": "Windows.UI.Xaml.Navigation.PageStackEntry",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "sourcePageType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TypeName",
+                "namespace": "Windows.UI.Xaml.Interop",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "parameter",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "navigationTransitionInfo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NavigationTransitionInfo",
+                "namespace": "Windows.UI.Xaml.Media.Animation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PageStackEntry",
+            "namespace": "Windows.UI.Xaml.Navigation",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPageStackEntryStatics": {
+      "guid": "aceff8e3-246c-4033-9f01-01cb0da5254e",
+      "exclusive_to": "Windows.UI.Xaml.Navigation.PageStackEntry",
+      "methods": [
+        {
+          "name": "get_SourcePageTypeProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SourcePageTypeProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_SourcePageTypeProperty"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "FrameNavigationOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFrameNavigationOptions",
+        "namespace": "Windows.UI.Xaml.Navigation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFrameNavigationOptions",
+          "namespace": "Windows.UI.Xaml.Navigation",
+          "target_kind": "Interface"
+        }
+      ],
+      "composable_factories": [
+        "Windows.UI.Xaml.Navigation.IFrameNavigationOptionsFactory"
+      ]
+    },
+    "NavigatingCancelEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INavigatingCancelEventArgs",
+        "namespace": "Windows.UI.Xaml.Navigation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INavigatingCancelEventArgs",
+          "namespace": "Windows.UI.Xaml.Navigation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "INavigatingCancelEventArgs2",
+          "namespace": "Windows.UI.Xaml.Navigation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "NavigationEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INavigationEventArgs",
+        "namespace": "Windows.UI.Xaml.Navigation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INavigationEventArgs",
+          "namespace": "Windows.UI.Xaml.Navigation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "INavigationEventArgs2",
+          "namespace": "Windows.UI.Xaml.Navigation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "NavigationFailedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INavigationFailedEventArgs",
+        "namespace": "Windows.UI.Xaml.Navigation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INavigationFailedEventArgs",
+          "namespace": "Windows.UI.Xaml.Navigation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PageStackEntry": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPageStackEntry",
+        "namespace": "Windows.UI.Xaml.Navigation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPageStackEntry",
+          "namespace": "Windows.UI.Xaml.Navigation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.UI.Xaml.Navigation.IPageStackEntryFactory"
+      ],
+      "static_interfaces": [
+        "Windows.UI.Xaml.Navigation.IPageStackEntryStatics"
+      ],
+      "composable": true
+    }
+  },
+  "delegates": {
+    "LoadCompletedEventHandler": {
+      "guid": "aebaf785-43fc-4e2c-95c3-97ae84eabc8e",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "NavigationEventArgs",
+              "namespace": "Windows.UI.Xaml.Navigation",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "NavigatedEventHandler": {
+      "guid": "7bd1cf54-23cf-4cce-b2f5-4ce78d96896e",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "NavigationEventArgs",
+              "namespace": "Windows.UI.Xaml.Navigation",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "NavigatingCancelEventHandler": {
+      "guid": "75d6a78f-a302-4489-9898-24ea49182910",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "NavigatingCancelEventArgs",
+              "namespace": "Windows.UI.Xaml.Navigation",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "NavigationFailedEventHandler": {
+      "guid": "4dab4671-12b2-43c7-b892-9be2dcd3e88d",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "NavigationFailedEventArgs",
+              "namespace": "Windows.UI.Xaml.Navigation",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "NavigationStoppedEventHandler": {
+      "guid": "f0117ddb-12fa-4d8d-8b26-b383d09c2b3c",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "NavigationEventArgs",
+              "namespace": "Windows.UI.Xaml.Navigation",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

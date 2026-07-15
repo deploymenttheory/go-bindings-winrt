@@ -1,0 +1,1008 @@
+{
+  "namespace": "Windows.Globalization.DateTimeFormatting",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "DayFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Default",
+          "value": "1"
+        }
+      ]
+    },
+    "DayOfWeekFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Default",
+          "value": "1"
+        },
+        {
+          "name": "Abbreviated",
+          "value": "2"
+        },
+        {
+          "name": "Full",
+          "value": "3"
+        }
+      ]
+    },
+    "HourFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Default",
+          "value": "1"
+        }
+      ]
+    },
+    "MinuteFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Default",
+          "value": "1"
+        }
+      ]
+    },
+    "MonthFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Default",
+          "value": "1"
+        },
+        {
+          "name": "Abbreviated",
+          "value": "2"
+        },
+        {
+          "name": "Full",
+          "value": "3"
+        },
+        {
+          "name": "Numeric",
+          "value": "4"
+        }
+      ]
+    },
+    "SecondFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Default",
+          "value": "1"
+        }
+      ]
+    },
+    "YearFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Default",
+          "value": "1"
+        },
+        {
+          "name": "Abbreviated",
+          "value": "2"
+        },
+        {
+          "name": "Full",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IDateTimeFormatter": {
+      "guid": "95eeca10-73e0-4e4b-a183-3d6ad0ba35ec",
+      "exclusive_to": "Windows.Globalization.DateTimeFormatting.DateTimeFormatter",
+      "methods": [
+        {
+          "name": "get_Languages",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_GeographicRegion",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Calendar",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Clock",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NumeralSystem",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_NumeralSystem",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Patterns",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Template",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "Format",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IncludeYear",
+          "return": {
+            "kind": "ApiRef",
+            "name": "YearFormat",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_IncludeMonth",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MonthFormat",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_IncludeDayOfWeek",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DayOfWeekFormat",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_IncludeDay",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DayFormat",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_IncludeHour",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HourFormat",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_IncludeMinute",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MinuteFormat",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_IncludeSecond",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SecondFormat",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ResolvedLanguage",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ResolvedGeographicRegion",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Calendar",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Calendar"
+        },
+        {
+          "name": "Clock",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Clock"
+        },
+        {
+          "name": "GeographicRegion",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_GeographicRegion"
+        },
+        {
+          "name": "IncludeDay",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DayFormat",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Enum"
+          },
+          "getter": "get_IncludeDay"
+        },
+        {
+          "name": "IncludeDayOfWeek",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DayOfWeekFormat",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Enum"
+          },
+          "getter": "get_IncludeDayOfWeek"
+        },
+        {
+          "name": "IncludeHour",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HourFormat",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Enum"
+          },
+          "getter": "get_IncludeHour"
+        },
+        {
+          "name": "IncludeMinute",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MinuteFormat",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Enum"
+          },
+          "getter": "get_IncludeMinute"
+        },
+        {
+          "name": "IncludeMonth",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MonthFormat",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Enum"
+          },
+          "getter": "get_IncludeMonth"
+        },
+        {
+          "name": "IncludeSecond",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SecondFormat",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Enum"
+          },
+          "getter": "get_IncludeSecond"
+        },
+        {
+          "name": "IncludeYear",
+          "type": {
+            "kind": "ApiRef",
+            "name": "YearFormat",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Enum"
+          },
+          "getter": "get_IncludeYear"
+        },
+        {
+          "name": "Languages",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Languages"
+        },
+        {
+          "name": "NumeralSystem",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NumeralSystem",
+          "setter": "put_NumeralSystem"
+        },
+        {
+          "name": "Patterns",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Patterns"
+        },
+        {
+          "name": "ResolvedGeographicRegion",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ResolvedGeographicRegion"
+        },
+        {
+          "name": "ResolvedLanguage",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ResolvedLanguage"
+        },
+        {
+          "name": "Template",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Template"
+        }
+      ]
+    },
+    "IDateTimeFormatter2": {
+      "guid": "27c91a86-bdaa-4fd0-9e36-671d5aa5ee03",
+      "exclusive_to": "Windows.Globalization.DateTimeFormatting.DateTimeFormatter",
+      "methods": [
+        {
+          "name": "Format",
+          "overload": "FormatUsingTimeZone",
+          "params": [
+            {
+              "name": "datetime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "timeZoneId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "IDateTimeFormatterFactory": {
+      "guid": "ec8d8a53-1a2e-412d-8815-3b745fb1a2a0",
+      "exclusive_to": "Windows.Globalization.DateTimeFormatting.DateTimeFormatter",
+      "methods": [
+        {
+          "name": "CreateDateTimeFormatter",
+          "params": [
+            {
+              "name": "formatTemplate",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTimeFormatter",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateDateTimeFormatterLanguages",
+          "params": [
+            {
+              "name": "formatTemplate",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "languages",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTimeFormatter",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateDateTimeFormatterContext",
+          "params": [
+            {
+              "name": "formatTemplate",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "languages",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "geographicRegion",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "calendar",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "clock",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTimeFormatter",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateDateTimeFormatterDate",
+          "params": [
+            {
+              "name": "yearFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "YearFormat",
+                "namespace": "Windows.Globalization.DateTimeFormatting",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "monthFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MonthFormat",
+                "namespace": "Windows.Globalization.DateTimeFormatting",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "dayFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DayFormat",
+                "namespace": "Windows.Globalization.DateTimeFormatting",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "dayOfWeekFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DayOfWeekFormat",
+                "namespace": "Windows.Globalization.DateTimeFormatting",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTimeFormatter",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateDateTimeFormatterTime",
+          "params": [
+            {
+              "name": "hourFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HourFormat",
+                "namespace": "Windows.Globalization.DateTimeFormatting",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "minuteFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MinuteFormat",
+                "namespace": "Windows.Globalization.DateTimeFormatting",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "secondFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SecondFormat",
+                "namespace": "Windows.Globalization.DateTimeFormatting",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTimeFormatter",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateDateTimeFormatterDateTimeLanguages",
+          "params": [
+            {
+              "name": "yearFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "YearFormat",
+                "namespace": "Windows.Globalization.DateTimeFormatting",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "monthFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MonthFormat",
+                "namespace": "Windows.Globalization.DateTimeFormatting",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "dayFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DayFormat",
+                "namespace": "Windows.Globalization.DateTimeFormatting",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "dayOfWeekFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DayOfWeekFormat",
+                "namespace": "Windows.Globalization.DateTimeFormatting",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "hourFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HourFormat",
+                "namespace": "Windows.Globalization.DateTimeFormatting",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "minuteFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MinuteFormat",
+                "namespace": "Windows.Globalization.DateTimeFormatting",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "secondFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SecondFormat",
+                "namespace": "Windows.Globalization.DateTimeFormatting",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "languages",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTimeFormatter",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateDateTimeFormatterDateTimeContext",
+          "params": [
+            {
+              "name": "yearFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "YearFormat",
+                "namespace": "Windows.Globalization.DateTimeFormatting",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "monthFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MonthFormat",
+                "namespace": "Windows.Globalization.DateTimeFormatting",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "dayFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DayFormat",
+                "namespace": "Windows.Globalization.DateTimeFormatting",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "dayOfWeekFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DayOfWeekFormat",
+                "namespace": "Windows.Globalization.DateTimeFormatting",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "hourFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HourFormat",
+                "namespace": "Windows.Globalization.DateTimeFormatting",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "minuteFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MinuteFormat",
+                "namespace": "Windows.Globalization.DateTimeFormatting",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "secondFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SecondFormat",
+                "namespace": "Windows.Globalization.DateTimeFormatting",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "languages",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "geographicRegion",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "calendar",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "clock",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTimeFormatter",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDateTimeFormatterStatics": {
+      "guid": "bfcde7c0-df4c-4a2e-9012-f47daf3f1212",
+      "exclusive_to": "Windows.Globalization.DateTimeFormatting.DateTimeFormatter",
+      "methods": [
+        {
+          "name": "get_LongDate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTimeFormatter",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_LongTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTimeFormatter",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ShortDate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTimeFormatter",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ShortTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTimeFormatter",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "LongDate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTimeFormatter",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Class"
+          },
+          "getter": "get_LongDate"
+        },
+        {
+          "name": "LongTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTimeFormatter",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Class"
+          },
+          "getter": "get_LongTime"
+        },
+        {
+          "name": "ShortDate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTimeFormatter",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Class"
+          },
+          "getter": "get_ShortDate"
+        },
+        {
+          "name": "ShortTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTimeFormatter",
+            "namespace": "Windows.Globalization.DateTimeFormatting",
+            "target_kind": "Class"
+          },
+          "getter": "get_ShortTime"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "DateTimeFormatter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDateTimeFormatter",
+        "namespace": "Windows.Globalization.DateTimeFormatting",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDateTimeFormatter",
+          "namespace": "Windows.Globalization.DateTimeFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDateTimeFormatter2",
+          "namespace": "Windows.Globalization.DateTimeFormatting",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Globalization.DateTimeFormatting.IDateTimeFormatterFactory"
+      ],
+      "static_interfaces": [
+        "Windows.Globalization.DateTimeFormatting.IDateTimeFormatterStatics"
+      ]
+    }
+  }
+}

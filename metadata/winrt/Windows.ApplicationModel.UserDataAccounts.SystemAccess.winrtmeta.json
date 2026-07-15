@@ -1,0 +1,1619 @@
+{
+  "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "DeviceAccountAuthenticationType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Basic",
+          "value": "0"
+        },
+        {
+          "name": "OAuth",
+          "value": "1"
+        },
+        {
+          "name": "SingleSignOn",
+          "value": "2"
+        }
+      ]
+    },
+    "DeviceAccountIconId": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Exchange",
+          "value": "0"
+        },
+        {
+          "name": "Msa",
+          "value": "1"
+        },
+        {
+          "name": "Outlook",
+          "value": "2"
+        },
+        {
+          "name": "Generic",
+          "value": "3"
+        }
+      ]
+    },
+    "DeviceAccountMailAgeFilter": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "All",
+          "value": "0"
+        },
+        {
+          "name": "Last1Day",
+          "value": "1"
+        },
+        {
+          "name": "Last3Days",
+          "value": "2"
+        },
+        {
+          "name": "Last7Days",
+          "value": "3"
+        },
+        {
+          "name": "Last14Days",
+          "value": "4"
+        },
+        {
+          "name": "Last30Days",
+          "value": "5"
+        },
+        {
+          "name": "Last90Days",
+          "value": "6"
+        }
+      ]
+    },
+    "DeviceAccountServerType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Exchange",
+          "value": "0"
+        },
+        {
+          "name": "Pop",
+          "value": "1"
+        },
+        {
+          "name": "Imap",
+          "value": "2"
+        }
+      ]
+    },
+    "DeviceAccountSyncScheduleKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Manual",
+          "value": "0"
+        },
+        {
+          "name": "Every15Minutes",
+          "value": "1"
+        },
+        {
+          "name": "Every30Minutes",
+          "value": "2"
+        },
+        {
+          "name": "Every60Minutes",
+          "value": "3"
+        },
+        {
+          "name": "Every2Hours",
+          "value": "4"
+        },
+        {
+          "name": "Daily",
+          "value": "5"
+        },
+        {
+          "name": "AsItemsArrive",
+          "value": "6"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IDeviceAccountConfiguration": {
+      "guid": "ad0123a3-fbdc-4d1b-be43-5a27ea4a1b63",
+      "exclusive_to": "Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountConfiguration",
+      "methods": [
+        {
+          "name": "get_AccountName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_AccountName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DeviceAccountTypeId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DeviceAccountTypeId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ServerType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceAccountServerType",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_ServerType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceAccountServerType",
+                "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_EmailAddress",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_EmailAddress",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Domain",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Domain",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_EmailSyncEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_EmailSyncEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ContactsSyncEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_ContactsSyncEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CalendarSyncEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_CalendarSyncEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IncomingServerAddress",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_IncomingServerAddress",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IncomingServerPort",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_IncomingServerPort",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IncomingServerRequiresSsl",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IncomingServerRequiresSsl",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IncomingServerUsername",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_IncomingServerUsername",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OutgoingServerAddress",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_OutgoingServerAddress",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OutgoingServerPort",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_OutgoingServerPort",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OutgoingServerRequiresSsl",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_OutgoingServerRequiresSsl",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OutgoingServerUsername",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_OutgoingServerUsername",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AccountName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AccountName",
+          "setter": "put_AccountName"
+        },
+        {
+          "name": "CalendarSyncEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CalendarSyncEnabled",
+          "setter": "put_CalendarSyncEnabled"
+        },
+        {
+          "name": "ContactsSyncEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ContactsSyncEnabled",
+          "setter": "put_ContactsSyncEnabled"
+        },
+        {
+          "name": "DeviceAccountTypeId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceAccountTypeId",
+          "setter": "put_DeviceAccountTypeId"
+        },
+        {
+          "name": "Domain",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Domain",
+          "setter": "put_Domain"
+        },
+        {
+          "name": "EmailAddress",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailAddress",
+          "setter": "put_EmailAddress"
+        },
+        {
+          "name": "EmailSyncEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_EmailSyncEnabled",
+          "setter": "put_EmailSyncEnabled"
+        },
+        {
+          "name": "IncomingServerAddress",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_IncomingServerAddress",
+          "setter": "put_IncomingServerAddress"
+        },
+        {
+          "name": "IncomingServerPort",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_IncomingServerPort",
+          "setter": "put_IncomingServerPort"
+        },
+        {
+          "name": "IncomingServerRequiresSsl",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IncomingServerRequiresSsl",
+          "setter": "put_IncomingServerRequiresSsl"
+        },
+        {
+          "name": "IncomingServerUsername",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_IncomingServerUsername",
+          "setter": "put_IncomingServerUsername"
+        },
+        {
+          "name": "OutgoingServerAddress",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_OutgoingServerAddress",
+          "setter": "put_OutgoingServerAddress"
+        },
+        {
+          "name": "OutgoingServerPort",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_OutgoingServerPort",
+          "setter": "put_OutgoingServerPort"
+        },
+        {
+          "name": "OutgoingServerRequiresSsl",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_OutgoingServerRequiresSsl",
+          "setter": "put_OutgoingServerRequiresSsl"
+        },
+        {
+          "name": "OutgoingServerUsername",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_OutgoingServerUsername",
+          "setter": "put_OutgoingServerUsername"
+        },
+        {
+          "name": "ServerType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceAccountServerType",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ServerType",
+          "setter": "put_ServerType"
+        }
+      ]
+    },
+    "IDeviceAccountConfiguration2": {
+      "guid": "f2b2e5a6-728d-4a4a-8945-2bf8580136de",
+      "exclusive_to": "Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountConfiguration",
+      "methods": [
+        {
+          "name": "get_IncomingServerCredential",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_IncomingServerCredential",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PasswordCredential",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OutgoingServerCredential",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_OutgoingServerCredential",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PasswordCredential",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OAuthRefreshToken",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_OAuthRefreshToken",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsExternallyManaged",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsExternallyManaged",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AccountIconId",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceAccountIconId",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_AccountIconId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceAccountIconId",
+                "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AuthenticationType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceAccountAuthenticationType",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_AuthenticationType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceAccountAuthenticationType",
+                "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsSsoAuthenticationSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SsoAccountId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_SsoAccountId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AlwaysDownloadFullMessage",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AlwaysDownloadFullMessage",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DoesPolicyAllowMailSync",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SyncScheduleKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceAccountSyncScheduleKind",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_SyncScheduleKind",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceAccountSyncScheduleKind",
+                "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MailAgeFilter",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceAccountMailAgeFilter",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_MailAgeFilter",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceAccountMailAgeFilter",
+                "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsClientAuthenticationCertificateRequired",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsClientAuthenticationCertificateRequired",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AutoSelectAuthenticationCertificate",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AutoSelectAuthenticationCertificate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AuthenticationCertificateId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_AuthenticationCertificateId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CardDavSyncScheduleKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceAccountSyncScheduleKind",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_CardDavSyncScheduleKind",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceAccountSyncScheduleKind",
+                "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CalDavSyncScheduleKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceAccountSyncScheduleKind",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_CalDavSyncScheduleKind",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceAccountSyncScheduleKind",
+                "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CardDavServerUrl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_CardDavServerUrl",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CardDavRequiresSsl",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_CardDavRequiresSsl",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CalDavServerUrl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_CalDavServerUrl",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CalDavRequiresSsl",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_CalDavRequiresSsl",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_WasModifiedByUser",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_WasModifiedByUser",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_WasIncomingServerCertificateHashConfirmed",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_WasIncomingServerCertificateHashConfirmed",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IncomingServerCertificateHash",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_IncomingServerCertificateHash",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsOutgoingServerAuthenticationRequired",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsOutgoingServerAuthenticationRequired",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsOutgoingServerAuthenticationEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsOutgoingServerAuthenticationEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_WasOutgoingServerCertificateHashConfirmed",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_WasOutgoingServerCertificateHashConfirmed",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OutgoingServerCertificateHash",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_OutgoingServerCertificateHash",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsSyncScheduleManagedBySystem",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsSyncScheduleManagedBySystem",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AccountIconId",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceAccountIconId",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AccountIconId",
+          "setter": "put_AccountIconId"
+        },
+        {
+          "name": "AlwaysDownloadFullMessage",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AlwaysDownloadFullMessage",
+          "setter": "put_AlwaysDownloadFullMessage"
+        },
+        {
+          "name": "AuthenticationCertificateId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AuthenticationCertificateId",
+          "setter": "put_AuthenticationCertificateId"
+        },
+        {
+          "name": "AuthenticationType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceAccountAuthenticationType",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AuthenticationType",
+          "setter": "put_AuthenticationType"
+        },
+        {
+          "name": "AutoSelectAuthenticationCertificate",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AutoSelectAuthenticationCertificate",
+          "setter": "put_AutoSelectAuthenticationCertificate"
+        },
+        {
+          "name": "CalDavRequiresSsl",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CalDavRequiresSsl",
+          "setter": "put_CalDavRequiresSsl"
+        },
+        {
+          "name": "CalDavServerUrl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_CalDavServerUrl",
+          "setter": "put_CalDavServerUrl"
+        },
+        {
+          "name": "CalDavSyncScheduleKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceAccountSyncScheduleKind",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CalDavSyncScheduleKind",
+          "setter": "put_CalDavSyncScheduleKind"
+        },
+        {
+          "name": "CardDavRequiresSsl",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CardDavRequiresSsl",
+          "setter": "put_CardDavRequiresSsl"
+        },
+        {
+          "name": "CardDavServerUrl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_CardDavServerUrl",
+          "setter": "put_CardDavServerUrl"
+        },
+        {
+          "name": "CardDavSyncScheduleKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceAccountSyncScheduleKind",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CardDavSyncScheduleKind",
+          "setter": "put_CardDavSyncScheduleKind"
+        },
+        {
+          "name": "DoesPolicyAllowMailSync",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_DoesPolicyAllowMailSync"
+        },
+        {
+          "name": "IncomingServerCertificateHash",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_IncomingServerCertificateHash",
+          "setter": "put_IncomingServerCertificateHash"
+        },
+        {
+          "name": "IncomingServerCredential",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          },
+          "getter": "get_IncomingServerCredential",
+          "setter": "put_IncomingServerCredential"
+        },
+        {
+          "name": "IsClientAuthenticationCertificateRequired",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsClientAuthenticationCertificateRequired",
+          "setter": "put_IsClientAuthenticationCertificateRequired"
+        },
+        {
+          "name": "IsExternallyManaged",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsExternallyManaged",
+          "setter": "put_IsExternallyManaged"
+        },
+        {
+          "name": "IsOutgoingServerAuthenticationEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsOutgoingServerAuthenticationEnabled",
+          "setter": "put_IsOutgoingServerAuthenticationEnabled"
+        },
+        {
+          "name": "IsOutgoingServerAuthenticationRequired",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsOutgoingServerAuthenticationRequired",
+          "setter": "put_IsOutgoingServerAuthenticationRequired"
+        },
+        {
+          "name": "IsSsoAuthenticationSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSsoAuthenticationSupported"
+        },
+        {
+          "name": "IsSyncScheduleManagedBySystem",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSyncScheduleManagedBySystem",
+          "setter": "put_IsSyncScheduleManagedBySystem"
+        },
+        {
+          "name": "MailAgeFilter",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceAccountMailAgeFilter",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MailAgeFilter",
+          "setter": "put_MailAgeFilter"
+        },
+        {
+          "name": "OAuthRefreshToken",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_OAuthRefreshToken",
+          "setter": "put_OAuthRefreshToken"
+        },
+        {
+          "name": "OutgoingServerCertificateHash",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_OutgoingServerCertificateHash",
+          "setter": "put_OutgoingServerCertificateHash"
+        },
+        {
+          "name": "OutgoingServerCredential",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          },
+          "getter": "get_OutgoingServerCredential",
+          "setter": "put_OutgoingServerCredential"
+        },
+        {
+          "name": "SsoAccountId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SsoAccountId",
+          "setter": "put_SsoAccountId"
+        },
+        {
+          "name": "SyncScheduleKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceAccountSyncScheduleKind",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SyncScheduleKind",
+          "setter": "put_SyncScheduleKind"
+        },
+        {
+          "name": "WasIncomingServerCertificateHashConfirmed",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_WasIncomingServerCertificateHashConfirmed",
+          "setter": "put_WasIncomingServerCertificateHashConfirmed"
+        },
+        {
+          "name": "WasModifiedByUser",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_WasModifiedByUser",
+          "setter": "put_WasModifiedByUser"
+        },
+        {
+          "name": "WasOutgoingServerCertificateHashConfirmed",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_WasOutgoingServerCertificateHashConfirmed",
+          "setter": "put_WasOutgoingServerCertificateHashConfirmed"
+        }
+      ]
+    },
+    "IUserDataAccountSystemAccessManagerStatics": {
+      "guid": "9d6b11b9-cbe5-45f5-822b-c267b81dbdb6",
+      "exclusive_to": "Windows.ApplicationModel.UserDataAccounts.SystemAccess.UserDataAccountSystemAccessManager",
+      "methods": [
+        {
+          "name": "AddAndShowDeviceAccountsAsync",
+          "params": [
+            {
+              "name": "accounts",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DeviceAccountConfiguration",
+                    "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IUserDataAccountSystemAccessManagerStatics2": {
+      "guid": "943f854d-4b4e-439f-83d3-979b27c05ac7",
+      "exclusive_to": "Windows.ApplicationModel.UserDataAccounts.SystemAccess.UserDataAccountSystemAccessManager",
+      "methods": [
+        {
+          "name": "SuppressLocalAccountWithAccountAsync",
+          "params": [
+            {
+              "name": "userDataAccountId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "CreateDeviceAccountAsync",
+          "params": [
+            {
+              "name": "account",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceAccountConfiguration",
+                "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "DeleteDeviceAccountAsync",
+          "params": [
+            {
+              "name": "accountId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetDeviceAccountConfigurationAsync",
+          "params": [
+            {
+              "name": "accountId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceAccountConfiguration",
+                "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "DeviceAccountConfiguration": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeviceAccountConfiguration",
+        "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceAccountConfiguration",
+          "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceAccountConfiguration2",
+          "namespace": "Windows.ApplicationModel.UserDataAccounts.SystemAccess",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "UserDataAccountSystemAccessManager": {
+      "static_interfaces": [
+        "Windows.ApplicationModel.UserDataAccounts.SystemAccess.IUserDataAccountSystemAccessManagerStatics2",
+        "Windows.ApplicationModel.UserDataAccounts.SystemAccess.IUserDataAccountSystemAccessManagerStatics"
+      ]
+    }
+  }
+}

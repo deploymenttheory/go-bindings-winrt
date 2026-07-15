@@ -1,0 +1,890 @@
+{
+  "namespace": "Windows.Security.Authentication.OnlineId",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "CredentialPromptType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "PromptIfNeeded",
+          "value": "0"
+        },
+        {
+          "name": "RetypeCredentials",
+          "value": "1"
+        },
+        {
+          "name": "DoNotPrompt",
+          "value": "2"
+        }
+      ]
+    },
+    "OnlineIdSystemTicketStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "Error",
+          "value": "1"
+        },
+        {
+          "name": "ServiceConnectionError",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IOnlineIdAuthenticator": {
+      "guid": "a003f58a-29ab-4817-b884-d7516dad18b9",
+      "exclusive_to": "Windows.Security.Authentication.OnlineId.OnlineIdAuthenticator",
+      "methods": [
+        {
+          "name": "AuthenticateUserAsync",
+          "overload": "AuthenticateUserAsync",
+          "params": [
+            {
+              "name": "request",
+              "type": {
+                "kind": "ApiRef",
+                "name": "OnlineIdServiceTicketRequest",
+                "namespace": "Windows.Security.Authentication.OnlineId",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserAuthenticationOperation",
+            "namespace": "Windows.Security.Authentication.OnlineId",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "AuthenticateUserAsync",
+          "overload": "AuthenticateUserAsyncAdvanced",
+          "params": [
+            {
+              "name": "requests",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "OnlineIdServiceTicketRequest",
+                    "namespace": "Windows.Security.Authentication.OnlineId",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "credentialPromptType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CredentialPromptType",
+                "namespace": "Windows.Security.Authentication.OnlineId",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserAuthenticationOperation",
+            "namespace": "Windows.Security.Authentication.OnlineId",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SignOutUserAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SignOutUserOperation",
+            "namespace": "Windows.Security.Authentication.OnlineId",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ApplicationId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ApplicationId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_CanSignOut",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_AuthenticatedSafeCustomerId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ApplicationId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_ApplicationId",
+          "setter": "put_ApplicationId"
+        },
+        {
+          "name": "AuthenticatedSafeCustomerId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AuthenticatedSafeCustomerId"
+        },
+        {
+          "name": "CanSignOut",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanSignOut"
+        }
+      ]
+    },
+    "IOnlineIdServiceTicket": {
+      "guid": "c95c547f-d781-4a94-acb8-c59874238c26",
+      "exclusive_to": "Windows.Security.Authentication.OnlineId.OnlineIdServiceTicket",
+      "methods": [
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "OnlineIdServiceTicketRequest",
+            "namespace": "Windows.Security.Authentication.OnlineId",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ErrorCode",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ErrorCode",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_ErrorCode"
+        },
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "OnlineIdServiceTicketRequest",
+            "namespace": "Windows.Security.Authentication.OnlineId",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "IOnlineIdServiceTicketRequest": {
+      "guid": "297445d3-fb63-4135-8909-4e354c061466",
+      "exclusive_to": "Windows.Security.Authentication.OnlineId.OnlineIdServiceTicketRequest",
+      "methods": [
+        {
+          "name": "get_Service",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Policy",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Policy",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Policy"
+        },
+        {
+          "name": "Service",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Service"
+        }
+      ]
+    },
+    "IOnlineIdServiceTicketRequestFactory": {
+      "guid": "bebb0a08-9e73-4077-9614-08614c0bc245",
+      "exclusive_to": "Windows.Security.Authentication.OnlineId.OnlineIdServiceTicketRequest",
+      "methods": [
+        {
+          "name": "CreateOnlineIdServiceTicketRequest",
+          "params": [
+            {
+              "name": "service",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "policy",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "OnlineIdServiceTicketRequest",
+            "namespace": "Windows.Security.Authentication.OnlineId",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateOnlineIdServiceTicketRequestAdvanced",
+          "params": [
+            {
+              "name": "service",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "OnlineIdServiceTicketRequest",
+            "namespace": "Windows.Security.Authentication.OnlineId",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IOnlineIdSystemAuthenticatorForUser": {
+      "guid": "5798befb-1de4-4186-a2e6-b563f86aaf44",
+      "exclusive_to": "Windows.Security.Authentication.OnlineId.OnlineIdSystemAuthenticatorForUser",
+      "methods": [
+        {
+          "name": "GetTicketAsync",
+          "overload": "GetTicketAsync",
+          "params": [
+            {
+              "name": "request",
+              "type": {
+                "kind": "ApiRef",
+                "name": "OnlineIdServiceTicketRequest",
+                "namespace": "Windows.Security.Authentication.OnlineId",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "OnlineIdSystemTicketResult",
+                "namespace": "Windows.Security.Authentication.OnlineId",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_ApplicationId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ApplicationId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ApplicationId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_ApplicationId",
+          "setter": "put_ApplicationId"
+        },
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ]
+    },
+    "IOnlineIdSystemAuthenticatorStatics": {
+      "guid": "85047792-f634-41e3-96a4-5164e902c740",
+      "exclusive_to": "Windows.Security.Authentication.OnlineId.OnlineIdSystemAuthenticator",
+      "methods": [
+        {
+          "name": "get_Default",
+          "return": {
+            "kind": "ApiRef",
+            "name": "OnlineIdSystemAuthenticatorForUser",
+            "namespace": "Windows.Security.Authentication.OnlineId",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "OnlineIdSystemAuthenticatorForUser",
+            "namespace": "Windows.Security.Authentication.OnlineId",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Default",
+          "type": {
+            "kind": "ApiRef",
+            "name": "OnlineIdSystemAuthenticatorForUser",
+            "namespace": "Windows.Security.Authentication.OnlineId",
+            "target_kind": "Class"
+          },
+          "getter": "get_Default"
+        }
+      ]
+    },
+    "IOnlineIdSystemIdentity": {
+      "guid": "743cd20d-b6ca-434d-8124-53ea12685307",
+      "exclusive_to": "Windows.Security.Authentication.OnlineId.OnlineIdSystemIdentity",
+      "methods": [
+        {
+          "name": "get_Ticket",
+          "return": {
+            "kind": "ApiRef",
+            "name": "OnlineIdServiceTicket",
+            "namespace": "Windows.Security.Authentication.OnlineId",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "Ticket",
+          "type": {
+            "kind": "ApiRef",
+            "name": "OnlineIdServiceTicket",
+            "namespace": "Windows.Security.Authentication.OnlineId",
+            "target_kind": "Class"
+          },
+          "getter": "get_Ticket"
+        }
+      ]
+    },
+    "IOnlineIdSystemTicketResult": {
+      "guid": "db0a5ff8-b098-4acd-9d13-9e640652b5b6",
+      "exclusive_to": "Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketResult",
+      "methods": [
+        {
+          "name": "get_Identity",
+          "return": {
+            "kind": "ApiRef",
+            "name": "OnlineIdSystemIdentity",
+            "namespace": "Windows.Security.Authentication.OnlineId",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "OnlineIdSystemTicketStatus",
+            "namespace": "Windows.Security.Authentication.OnlineId",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ExtendedError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExtendedError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtendedError"
+        },
+        {
+          "name": "Identity",
+          "type": {
+            "kind": "ApiRef",
+            "name": "OnlineIdSystemIdentity",
+            "namespace": "Windows.Security.Authentication.OnlineId",
+            "target_kind": "Class"
+          },
+          "getter": "get_Identity"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "OnlineIdSystemTicketStatus",
+            "namespace": "Windows.Security.Authentication.OnlineId",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IUserIdentity": {
+      "guid": "2146d9cd-0742-4be3-8a1c-7c7ae679aa88",
+      "exclusive_to": "Windows.Security.Authentication.OnlineId.UserIdentity",
+      "methods": [
+        {
+          "name": "get_Tickets",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "OnlineIdServiceTicket",
+                "namespace": "Windows.Security.Authentication.OnlineId",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SafeCustomerId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SignInName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_FirstName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_LastName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IsBetaAccount",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsConfirmedPC",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FirstName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_FirstName"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "IsBetaAccount",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsBetaAccount"
+        },
+        {
+          "name": "IsConfirmedPC",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsConfirmedPC"
+        },
+        {
+          "name": "LastName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LastName"
+        },
+        {
+          "name": "SafeCustomerId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SafeCustomerId"
+        },
+        {
+          "name": "SignInName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SignInName"
+        },
+        {
+          "name": "Tickets",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "OnlineIdServiceTicket",
+                "namespace": "Windows.Security.Authentication.OnlineId",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Tickets"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "OnlineIdAuthenticator": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IOnlineIdAuthenticator",
+        "namespace": "Windows.Security.Authentication.OnlineId",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IOnlineIdAuthenticator",
+          "namespace": "Windows.Security.Authentication.OnlineId",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "OnlineIdServiceTicket": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IOnlineIdServiceTicket",
+        "namespace": "Windows.Security.Authentication.OnlineId",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IOnlineIdServiceTicket",
+          "namespace": "Windows.Security.Authentication.OnlineId",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "OnlineIdServiceTicketRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IOnlineIdServiceTicketRequest",
+        "namespace": "Windows.Security.Authentication.OnlineId",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IOnlineIdServiceTicketRequest",
+          "namespace": "Windows.Security.Authentication.OnlineId",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Security.Authentication.OnlineId.IOnlineIdServiceTicketRequestFactory"
+      ]
+    },
+    "OnlineIdSystemAuthenticator": {
+      "static_interfaces": [
+        "Windows.Security.Authentication.OnlineId.IOnlineIdSystemAuthenticatorStatics"
+      ]
+    },
+    "OnlineIdSystemAuthenticatorForUser": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IOnlineIdSystemAuthenticatorForUser",
+        "namespace": "Windows.Security.Authentication.OnlineId",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IOnlineIdSystemAuthenticatorForUser",
+          "namespace": "Windows.Security.Authentication.OnlineId",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "OnlineIdSystemIdentity": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IOnlineIdSystemIdentity",
+        "namespace": "Windows.Security.Authentication.OnlineId",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IOnlineIdSystemIdentity",
+          "namespace": "Windows.Security.Authentication.OnlineId",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "OnlineIdSystemTicketResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IOnlineIdSystemTicketResult",
+        "namespace": "Windows.Security.Authentication.OnlineId",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IOnlineIdSystemTicketResult",
+          "namespace": "Windows.Security.Authentication.OnlineId",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SignOutUserOperation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAsyncAction",
+        "namespace": "Windows.Foundation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAsyncAction",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAsyncInfo",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserAuthenticationOperation": {
+      "default_interface": {
+        "kind": "GenericInst",
+        "name": "IAsyncOperation`1",
+        "namespace": "Windows.Foundation",
+        "target_kind": "Interface",
+        "args": [
+          {
+            "kind": "ApiRef",
+            "name": "UserIdentity",
+            "namespace": "Windows.Security.Authentication.OnlineId",
+            "target_kind": "Class"
+          }
+        ]
+      },
+      "interfaces": [
+        {
+          "kind": "GenericInst",
+          "name": "IAsyncOperation`1",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "UserIdentity",
+              "namespace": "Windows.Security.Authentication.OnlineId",
+              "target_kind": "Class"
+            }
+          ]
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAsyncInfo",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserIdentity": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserIdentity",
+        "namespace": "Windows.Security.Authentication.OnlineId",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserIdentity",
+          "namespace": "Windows.Security.Authentication.OnlineId",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

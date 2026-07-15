@@ -1,0 +1,557 @@
+{
+  "namespace": "Windows.System.RemoteDesktop.Provider",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "RemoteDesktopConnectionStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Connecting",
+          "value": "0"
+        },
+        {
+          "name": "Connected",
+          "value": "1"
+        },
+        {
+          "name": "UserInputNeeded",
+          "value": "2"
+        },
+        {
+          "name": "Disconnected",
+          "value": "3"
+        }
+      ]
+    },
+    "RemoteDesktopLocalAction": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "ShowBluetoothSettings",
+          "value": "0"
+        },
+        {
+          "name": "ShowSystemSoundSettings",
+          "value": "1"
+        },
+        {
+          "name": "ShowSystemDisplaySettings",
+          "value": "2"
+        },
+        {
+          "name": "ShowSystemAccountSettings",
+          "value": "3"
+        },
+        {
+          "name": "ShowLocalSettings",
+          "value": "4"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IPerformLocalActionRequestedEventArgs": {
+      "guid": "59359f4f-0862-53a3-a3b3-c932fb718cdc",
+      "exclusive_to": "Windows.System.RemoteDesktop.Provider.PerformLocalActionRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_Action",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteDesktopLocalAction",
+            "namespace": "Windows.System.RemoteDesktop.Provider",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Action",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteDesktopLocalAction",
+            "namespace": "Windows.System.RemoteDesktop.Provider",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Action"
+        }
+      ]
+    },
+    "IRemoteDesktopConnectionInfo": {
+      "guid": "68bd69d6-6dea-543b-b737-f347919f5093",
+      "exclusive_to": "Windows.System.RemoteDesktop.Provider.RemoteDesktopConnectionInfo",
+      "methods": [
+        {
+          "name": "SetConnectionStatus",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RemoteDesktopConnectionStatus",
+                "namespace": "Windows.System.RemoteDesktop.Provider",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SwitchToLocalSession"
+        }
+      ]
+    },
+    "IRemoteDesktopConnectionInfo2": {
+      "guid": "871c0b26-23bf-5d3c-bc35-a85c405e25e6",
+      "exclusive_to": "Windows.System.RemoteDesktop.Provider.RemoteDesktopConnectionInfo",
+      "methods": [
+        {
+          "name": "PerformLocalActionFromRemote",
+          "params": [
+            {
+              "name": "action",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RemoteDesktopLocalAction",
+                "namespace": "Windows.System.RemoteDesktop.Provider",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IRemoteDesktopConnectionInfoStatics": {
+      "guid": "4a7dc5a1-3368-5a75-bb78-807df7ebc439",
+      "exclusive_to": "Windows.System.RemoteDesktop.Provider.RemoteDesktopConnectionInfo",
+      "methods": [
+        {
+          "name": "GetForLaunchUri",
+          "params": [
+            {
+              "name": "launchUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "windowId",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WindowId",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteDesktopConnectionInfo",
+            "namespace": "Windows.System.RemoteDesktop.Provider",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IRemoteDesktopConnectionRemoteInfo": {
+      "guid": "2a3dfa7e-a7ab-547e-9a6a-4c565bbb8d71",
+      "exclusive_to": "Windows.System.RemoteDesktop.Provider.RemoteDesktopConnectionRemoteInfo",
+      "methods": [
+        {
+          "name": "ReportSwitched"
+        },
+        {
+          "name": "add_SwitchToLocalSessionRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteDesktopConnectionRemoteInfo",
+                    "namespace": "Windows.System.RemoteDesktop.Provider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SwitchToLocalSessionRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PerformLocalActionRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteDesktopConnectionRemoteInfo",
+                    "namespace": "Windows.System.RemoteDesktop.Provider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerformLocalActionRequestedEventArgs",
+                    "namespace": "Windows.System.RemoteDesktop.Provider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PerformLocalActionRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "PerformLocalActionRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteDesktopConnectionRemoteInfo",
+                "namespace": "Windows.System.RemoteDesktop.Provider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PerformLocalActionRequestedEventArgs",
+                "namespace": "Windows.System.RemoteDesktop.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PerformLocalActionRequested",
+          "remove_method": "remove_PerformLocalActionRequested"
+        },
+        {
+          "name": "SwitchToLocalSessionRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteDesktopConnectionRemoteInfo",
+                "namespace": "Windows.System.RemoteDesktop.Provider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_SwitchToLocalSessionRequested",
+          "remove_method": "remove_SwitchToLocalSessionRequested"
+        }
+      ]
+    },
+    "IRemoteDesktopConnectionRemoteInfoStatics": {
+      "guid": "b590e64a-e4c9-53e8-b83d-a0db3676246a",
+      "exclusive_to": "Windows.System.RemoteDesktop.Provider.RemoteDesktopConnectionRemoteInfo",
+      "methods": [
+        {
+          "name": "IsSwitchSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetForLaunchUri",
+          "params": [
+            {
+              "name": "launchUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteDesktopConnectionRemoteInfo",
+            "namespace": "Windows.System.RemoteDesktop.Provider",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IRemoteDesktopInfo": {
+      "guid": "d185bb25-2f1e-5098-b9e0-f46d6358c5c4",
+      "exclusive_to": "Windows.System.RemoteDesktop.Provider.RemoteDesktopInfo",
+      "methods": [
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        }
+      ]
+    },
+    "IRemoteDesktopInfoFactory": {
+      "guid": "ad0e8d58-b56f-5a8b-b419-8002ee0c5ee9",
+      "exclusive_to": "Windows.System.RemoteDesktop.Provider.RemoteDesktopInfo",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "displayName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteDesktopInfo",
+            "namespace": "Windows.System.RemoteDesktop.Provider",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IRemoteDesktopRegistrarStatics": {
+      "guid": "687c2750-46d9-5de3-8dc3-84a9202cecfb",
+      "exclusive_to": "Windows.System.RemoteDesktop.Provider.RemoteDesktopRegistrar",
+      "methods": [
+        {
+          "name": "get_DesktopInfos",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteDesktopInfo",
+                "namespace": "Windows.System.RemoteDesktop.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "IsSwitchToLocalSessionEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DesktopInfos",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteDesktopInfo",
+                "namespace": "Windows.System.RemoteDesktop.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_DesktopInfos"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "PerformLocalActionRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerformLocalActionRequestedEventArgs",
+        "namespace": "Windows.System.RemoteDesktop.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerformLocalActionRequestedEventArgs",
+          "namespace": "Windows.System.RemoteDesktop.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteDesktopConnectionInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteDesktopConnectionInfo",
+        "namespace": "Windows.System.RemoteDesktop.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteDesktopConnectionInfo",
+          "namespace": "Windows.System.RemoteDesktop.Provider",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteDesktopConnectionInfo2",
+          "namespace": "Windows.System.RemoteDesktop.Provider",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.System.RemoteDesktop.Provider.IRemoteDesktopConnectionInfoStatics"
+      ]
+    },
+    "RemoteDesktopConnectionRemoteInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteDesktopConnectionRemoteInfo",
+        "namespace": "Windows.System.RemoteDesktop.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteDesktopConnectionRemoteInfo",
+          "namespace": "Windows.System.RemoteDesktop.Provider",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.System.RemoteDesktop.Provider.IRemoteDesktopConnectionRemoteInfoStatics"
+      ]
+    },
+    "RemoteDesktopInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteDesktopInfo",
+        "namespace": "Windows.System.RemoteDesktop.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteDesktopInfo",
+          "namespace": "Windows.System.RemoteDesktop.Provider",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.System.RemoteDesktop.Provider.IRemoteDesktopInfoFactory"
+      ]
+    },
+    "RemoteDesktopRegistrar": {
+      "static_interfaces": [
+        "Windows.System.RemoteDesktop.Provider.IRemoteDesktopRegistrarStatics"
+      ]
+    }
+  }
+}

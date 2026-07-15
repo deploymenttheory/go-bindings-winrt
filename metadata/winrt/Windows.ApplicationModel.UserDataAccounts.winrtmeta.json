@@ -1,0 +1,1141 @@
+{
+  "namespace": "Windows.ApplicationModel.UserDataAccounts",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "UserDataAccountContentKinds": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "Email",
+          "value": "1"
+        },
+        {
+          "name": "Contact",
+          "value": "2"
+        },
+        {
+          "name": "Appointment",
+          "value": "4"
+        }
+      ]
+    },
+    "UserDataAccountOtherAppReadAccess": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "SystemOnly",
+          "value": "0"
+        },
+        {
+          "name": "Full",
+          "value": "1"
+        },
+        {
+          "name": "None",
+          "value": "2"
+        }
+      ]
+    },
+    "UserDataAccountStoreAccessType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "AllAccountsReadOnly",
+          "value": "0"
+        },
+        {
+          "name": "AppAccountsReadWrite",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IUserDataAccount": {
+      "guid": "b9c4367e-b348-4910-be94-4ad4bba6dea7",
+      "exclusive_to": "Windows.ApplicationModel.UserDataAccounts.UserDataAccount",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_UserDisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_UserDisplayName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OtherAppReadAccess",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataAccountOtherAppReadAccess",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_OtherAppReadAccess",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserDataAccountOtherAppReadAccess",
+                "namespace": "Windows.ApplicationModel.UserDataAccounts",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Icon",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_DeviceAccountTypeId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_PackageFamilyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "SaveAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "DeleteAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "FindAppointmentCalendarsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppointmentCalendar",
+                    "namespace": "Windows.ApplicationModel.Appointments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindEmailMailboxesAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailMailbox",
+                    "namespace": "Windows.ApplicationModel.Email",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindContactListsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ContactList",
+                    "namespace": "Windows.ApplicationModel.Contacts",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindContactAnnotationListsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ContactAnnotationList",
+                    "namespace": "Windows.ApplicationModel.Contacts",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceAccountTypeId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceAccountTypeId"
+        },
+        {
+          "name": "Icon",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Icon"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "OtherAppReadAccess",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataAccountOtherAppReadAccess",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts",
+            "target_kind": "Enum"
+          },
+          "getter": "get_OtherAppReadAccess",
+          "setter": "put_OtherAppReadAccess"
+        },
+        {
+          "name": "PackageFamilyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PackageFamilyName"
+        },
+        {
+          "name": "UserDisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_UserDisplayName",
+          "setter": "put_UserDisplayName"
+        }
+      ]
+    },
+    "IUserDataAccount2": {
+      "guid": "078cd89f-de82-404b-8195-c8a3ac198f60",
+      "exclusive_to": "Windows.ApplicationModel.UserDataAccounts.UserDataAccount",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAccount",
+          "namespace": "Windows.ApplicationModel.UserDataAccounts",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_EnterpriseId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IsProtectedUnderLock",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EnterpriseId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EnterpriseId"
+        },
+        {
+          "name": "IsProtectedUnderLock",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsProtectedUnderLock"
+        }
+      ]
+    },
+    "IUserDataAccount3": {
+      "guid": "01533845-6c43-4286-9d69-3e1709a1f266",
+      "exclusive_to": "Windows.ApplicationModel.UserDataAccounts.UserDataAccount",
+      "methods": [
+        {
+          "name": "get_ExplictReadAccessPackageFamilyNames",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DisplayName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName",
+          "setter": "put_DisplayName"
+        },
+        {
+          "name": "ExplictReadAccessPackageFamilyNames",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_ExplictReadAccessPackageFamilyNames"
+        }
+      ]
+    },
+    "IUserDataAccount4": {
+      "guid": "c4315210-eae5-4f0a-a8b2-1cca115e008f",
+      "exclusive_to": "Windows.ApplicationModel.UserDataAccounts.UserDataAccount",
+      "methods": [
+        {
+          "name": "get_CanShowCreateContactGroup",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_CanShowCreateContactGroup",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ProviderProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IPropertySet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "FindUserDataTaskListsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserDataTaskList",
+                    "namespace": "Windows.ApplicationModel.UserDataTasks",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindContactGroupsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ContactGroup",
+                    "namespace": "Windows.ApplicationModel.Contacts",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryShowCreateContactGroupAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_IsProtectedUnderLock",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "put_Icon",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStreamReference",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CanShowCreateContactGroup",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanShowCreateContactGroup",
+          "setter": "put_CanShowCreateContactGroup"
+        },
+        {
+          "name": "Icon",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "setter": "put_Icon"
+        },
+        {
+          "name": "IsProtectedUnderLock",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "setter": "put_IsProtectedUnderLock"
+        },
+        {
+          "name": "ProviderProperties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IPropertySet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface"
+          },
+          "getter": "get_ProviderProperties"
+        }
+      ]
+    },
+    "IUserDataAccountManagerForUser": {
+      "guid": "56a6e8db-db8f-41ab-a65f-8c5971aac982",
+      "exclusive_to": "Windows.ApplicationModel.UserDataAccounts.UserDataAccountManagerForUser",
+      "methods": [
+        {
+          "name": "RequestStoreAsync",
+          "params": [
+            {
+              "name": "storeAccessType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserDataAccountStoreAccessType",
+                "namespace": "Windows.ApplicationModel.UserDataAccounts",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataAccountStore",
+                "namespace": "Windows.ApplicationModel.UserDataAccounts",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ]
+    },
+    "IUserDataAccountManagerStatics": {
+      "guid": "0d9b89ea-1928-4a20-86d5-3c737f7dc3b0",
+      "exclusive_to": "Windows.ApplicationModel.UserDataAccounts.UserDataAccountManager",
+      "methods": [
+        {
+          "name": "RequestStoreAsync",
+          "params": [
+            {
+              "name": "storeAccessType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserDataAccountStoreAccessType",
+                "namespace": "Windows.ApplicationModel.UserDataAccounts",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataAccountStore",
+                "namespace": "Windows.ApplicationModel.UserDataAccounts",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowAddAccountAsync",
+          "params": [
+            {
+              "name": "contentKinds",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserDataAccountContentKinds",
+                "namespace": "Windows.ApplicationModel.UserDataAccounts",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowAccountSettingsAsync",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ShowAccountErrorResolverAsync",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IUserDataAccountManagerStatics2": {
+      "guid": "6a3ded88-316b-435e-b534-f7d4b4b7dba6",
+      "exclusive_to": "Windows.ApplicationModel.UserDataAccounts.UserDataAccountManager",
+      "methods": [
+        {
+          "name": "GetForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataAccountManagerForUser",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IUserDataAccountStore": {
+      "guid": "2073b0ad-7d0a-4e76-bf45-2368f978a59a",
+      "exclusive_to": "Windows.ApplicationModel.UserDataAccounts.UserDataAccountStore",
+      "methods": [
+        {
+          "name": "FindAccountsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserDataAccount",
+                    "namespace": "Windows.ApplicationModel.UserDataAccounts",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetAccountAsync",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataAccount",
+                "namespace": "Windows.ApplicationModel.UserDataAccounts",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateAccountAsync",
+          "params": [
+            {
+              "name": "userDisplayName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataAccount",
+                "namespace": "Windows.ApplicationModel.UserDataAccounts",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IUserDataAccountStore2": {
+      "guid": "b1e0aef7-9560-4631-8af0-061d30161469",
+      "exclusive_to": "Windows.ApplicationModel.UserDataAccounts.UserDataAccountStore",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAccountStore",
+          "namespace": "Windows.ApplicationModel.UserDataAccounts",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "CreateAccountAsync",
+          "overload": "CreateAccountWithPackageRelativeAppIdAsync",
+          "params": [
+            {
+              "name": "userDisplayName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packageRelativeAppId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataAccount",
+                "namespace": "Windows.ApplicationModel.UserDataAccounts",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_StoreChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserDataAccountStore",
+                    "namespace": "Windows.ApplicationModel.UserDataAccounts",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserDataAccountStoreChangedEventArgs",
+                    "namespace": "Windows.ApplicationModel.UserDataAccounts",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_StoreChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "StoreChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataAccountStore",
+                "namespace": "Windows.ApplicationModel.UserDataAccounts",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "UserDataAccountStoreChangedEventArgs",
+                "namespace": "Windows.ApplicationModel.UserDataAccounts",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_StoreChanged",
+          "remove_method": "remove_StoreChanged"
+        }
+      ]
+    },
+    "IUserDataAccountStore3": {
+      "guid": "8142c094-f3c9-478b-b117-6585bebb6789",
+      "exclusive_to": "Windows.ApplicationModel.UserDataAccounts.UserDataAccountStore",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAccountStore",
+          "namespace": "Windows.ApplicationModel.UserDataAccounts",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "CreateAccountAsync",
+          "overload": "CreateAccountWithPackageRelativeAppIdAndEnterpriseIdAsync",
+          "params": [
+            {
+              "name": "userDisplayName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packageRelativeAppId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "enterpriseId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataAccount",
+                "namespace": "Windows.ApplicationModel.UserDataAccounts",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IUserDataAccountStoreChangedEventArgs": {
+      "guid": "84e3e2e5-8820-4512-b1f6-2e035be1072c",
+      "exclusive_to": "Windows.ApplicationModel.UserDataAccounts.UserDataAccountStoreChangedEventArgs",
+      "methods": [
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "UserDataAccount": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataAccount",
+        "namespace": "Windows.ApplicationModel.UserDataAccounts",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAccount",
+          "namespace": "Windows.ApplicationModel.UserDataAccounts",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAccount2",
+          "namespace": "Windows.ApplicationModel.UserDataAccounts",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAccount3",
+          "namespace": "Windows.ApplicationModel.UserDataAccounts",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAccount4",
+          "namespace": "Windows.ApplicationModel.UserDataAccounts",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataAccountManager": {
+      "static_interfaces": [
+        "Windows.ApplicationModel.UserDataAccounts.IUserDataAccountManagerStatics2",
+        "Windows.ApplicationModel.UserDataAccounts.IUserDataAccountManagerStatics"
+      ]
+    },
+    "UserDataAccountManagerForUser": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataAccountManagerForUser",
+        "namespace": "Windows.ApplicationModel.UserDataAccounts",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAccountManagerForUser",
+          "namespace": "Windows.ApplicationModel.UserDataAccounts",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataAccountStore": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataAccountStore",
+        "namespace": "Windows.ApplicationModel.UserDataAccounts",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAccountStore",
+          "namespace": "Windows.ApplicationModel.UserDataAccounts",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAccountStore2",
+          "namespace": "Windows.ApplicationModel.UserDataAccounts",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAccountStore3",
+          "namespace": "Windows.ApplicationModel.UserDataAccounts",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataAccountStoreChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataAccountStoreChangedEventArgs",
+        "namespace": "Windows.ApplicationModel.UserDataAccounts",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAccountStoreChangedEventArgs",
+          "namespace": "Windows.ApplicationModel.UserDataAccounts",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

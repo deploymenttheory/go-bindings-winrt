@@ -1,0 +1,186 @@
+{
+  "namespace": "Windows.UI.Accessibility",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IScreenReaderPositionChangedEventArgs": {
+      "guid": "557eb5e5-54d0-5ccd-9fc5-ed33357f8a9f",
+      "exclusive_to": "Windows.UI.Accessibility.ScreenReaderPositionChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_ScreenPositionInRawPixels",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_IsReadingText",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsReadingText",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsReadingText"
+        },
+        {
+          "name": "ScreenPositionInRawPixels",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ScreenPositionInRawPixels"
+        }
+      ]
+    },
+    "IScreenReaderService": {
+      "guid": "19475427-eac0-50d3-bdd9-9b487a226256",
+      "exclusive_to": "Windows.UI.Accessibility.ScreenReaderService",
+      "methods": [
+        {
+          "name": "get_CurrentScreenReaderPosition",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ScreenReaderPositionChangedEventArgs",
+            "namespace": "Windows.UI.Accessibility",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_ScreenReaderPositionChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ScreenReaderService",
+                    "namespace": "Windows.UI.Accessibility",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "ScreenReaderPositionChangedEventArgs",
+                    "namespace": "Windows.UI.Accessibility",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ScreenReaderPositionChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CurrentScreenReaderPosition",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ScreenReaderPositionChangedEventArgs",
+            "namespace": "Windows.UI.Accessibility",
+            "target_kind": "Class"
+          },
+          "getter": "get_CurrentScreenReaderPosition"
+        }
+      ],
+      "events": [
+        {
+          "name": "ScreenReaderPositionChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ScreenReaderService",
+                "namespace": "Windows.UI.Accessibility",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "ScreenReaderPositionChangedEventArgs",
+                "namespace": "Windows.UI.Accessibility",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ScreenReaderPositionChanged",
+          "remove_method": "remove_ScreenReaderPositionChanged"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "ScreenReaderPositionChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IScreenReaderPositionChangedEventArgs",
+        "namespace": "Windows.UI.Accessibility",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IScreenReaderPositionChangedEventArgs",
+          "namespace": "Windows.UI.Accessibility",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ScreenReaderService": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IScreenReaderService",
+        "namespace": "Windows.UI.Accessibility",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IScreenReaderService",
+          "namespace": "Windows.UI.Accessibility",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  }
+}

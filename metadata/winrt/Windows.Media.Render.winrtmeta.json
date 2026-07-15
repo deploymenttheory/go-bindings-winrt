@@ -1,0 +1,60 @@
+{
+  "namespace": "Windows.Media.Render",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "AudioRenderCategory": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Other",
+          "value": "0"
+        },
+        {
+          "name": "ForegroundOnlyMedia",
+          "value": "1"
+        },
+        {
+          "name": "BackgroundCapableMedia",
+          "value": "2"
+        },
+        {
+          "name": "Communications",
+          "value": "3"
+        },
+        {
+          "name": "Alerts",
+          "value": "4"
+        },
+        {
+          "name": "SoundEffects",
+          "value": "5"
+        },
+        {
+          "name": "GameEffects",
+          "value": "6"
+        },
+        {
+          "name": "GameMedia",
+          "value": "7"
+        },
+        {
+          "name": "GameChat",
+          "value": "8"
+        },
+        {
+          "name": "Speech",
+          "value": "9"
+        },
+        {
+          "name": "Movie",
+          "value": "10"
+        },
+        {
+          "name": "Media",
+          "value": "11"
+        }
+      ]
+    }
+  }
+}

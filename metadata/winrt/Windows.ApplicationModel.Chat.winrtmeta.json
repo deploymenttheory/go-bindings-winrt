@@ -1,0 +1,6128 @@
+{
+  "namespace": "Windows.ApplicationModel.Chat",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "ChatConversationThreadingKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Participants",
+          "value": "0"
+        },
+        {
+          "name": "ContactId",
+          "value": "1"
+        },
+        {
+          "name": "ConversationId",
+          "value": "2"
+        },
+        {
+          "name": "Custom",
+          "value": "3"
+        }
+      ]
+    },
+    "ChatItemKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Message",
+          "value": "0"
+        },
+        {
+          "name": "Conversation",
+          "value": "1"
+        }
+      ]
+    },
+    "ChatMessageChangeType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "MessageCreated",
+          "value": "0"
+        },
+        {
+          "name": "MessageModified",
+          "value": "1"
+        },
+        {
+          "name": "MessageDeleted",
+          "value": "2"
+        },
+        {
+          "name": "ChangeTrackingLost",
+          "value": "3"
+        }
+      ]
+    },
+    "ChatMessageKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Standard",
+          "value": "0"
+        },
+        {
+          "name": "FileTransferRequest",
+          "value": "1"
+        },
+        {
+          "name": "TransportCustom",
+          "value": "2"
+        },
+        {
+          "name": "JoinedConversation",
+          "value": "3"
+        },
+        {
+          "name": "LeftConversation",
+          "value": "4"
+        },
+        {
+          "name": "OtherParticipantJoinedConversation",
+          "value": "5"
+        },
+        {
+          "name": "OtherParticipantLeftConversation",
+          "value": "6"
+        }
+      ]
+    },
+    "ChatMessageOperatorKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unspecified",
+          "value": "0"
+        },
+        {
+          "name": "Sms",
+          "value": "1"
+        },
+        {
+          "name": "Mms",
+          "value": "2"
+        },
+        {
+          "name": "Rcs",
+          "value": "3"
+        }
+      ]
+    },
+    "ChatMessageStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Draft",
+          "value": "0"
+        },
+        {
+          "name": "Sending",
+          "value": "1"
+        },
+        {
+          "name": "Sent",
+          "value": "2"
+        },
+        {
+          "name": "SendRetryNeeded",
+          "value": "3"
+        },
+        {
+          "name": "SendFailed",
+          "value": "4"
+        },
+        {
+          "name": "Received",
+          "value": "5"
+        },
+        {
+          "name": "ReceiveDownloadNeeded",
+          "value": "6"
+        },
+        {
+          "name": "ReceiveDownloadFailed",
+          "value": "7"
+        },
+        {
+          "name": "ReceiveDownloading",
+          "value": "8"
+        },
+        {
+          "name": "Deleted",
+          "value": "9"
+        },
+        {
+          "name": "Declined",
+          "value": "10"
+        },
+        {
+          "name": "Cancelled",
+          "value": "11"
+        },
+        {
+          "name": "Recalled",
+          "value": "12"
+        },
+        {
+          "name": "ReceiveRetryNeeded",
+          "value": "13"
+        }
+      ]
+    },
+    "ChatMessageTransportKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Text",
+          "value": "0"
+        },
+        {
+          "name": "Untriaged",
+          "value": "1"
+        },
+        {
+          "name": "Blocked",
+          "value": "2"
+        },
+        {
+          "name": "Custom",
+          "value": "3"
+        }
+      ]
+    },
+    "ChatMessageValidationStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Valid",
+          "value": "0"
+        },
+        {
+          "name": "NoRecipients",
+          "value": "1"
+        },
+        {
+          "name": "InvalidData",
+          "value": "2"
+        },
+        {
+          "name": "MessageTooLarge",
+          "value": "3"
+        },
+        {
+          "name": "TooManyRecipients",
+          "value": "4"
+        },
+        {
+          "name": "TransportInactive",
+          "value": "5"
+        },
+        {
+          "name": "TransportNotFound",
+          "value": "6"
+        },
+        {
+          "name": "TooManyAttachments",
+          "value": "7"
+        },
+        {
+          "name": "InvalidRecipients",
+          "value": "8"
+        },
+        {
+          "name": "InvalidBody",
+          "value": "9"
+        },
+        {
+          "name": "InvalidOther",
+          "value": "10"
+        },
+        {
+          "name": "ValidWithLargeMessage",
+          "value": "11"
+        },
+        {
+          "name": "VoiceRoamingRestriction",
+          "value": "12"
+        },
+        {
+          "name": "DataRoamingRestriction",
+          "value": "13"
+        }
+      ]
+    },
+    "ChatRestoreHistorySpan": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "LastMonth",
+          "value": "0"
+        },
+        {
+          "name": "LastYear",
+          "value": "1"
+        },
+        {
+          "name": "AnyTime",
+          "value": "2"
+        }
+      ]
+    },
+    "ChatStoreChangedEventKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "NotificationsMissed",
+          "value": "0"
+        },
+        {
+          "name": "StoreModified",
+          "value": "1"
+        },
+        {
+          "name": "MessageCreated",
+          "value": "2"
+        },
+        {
+          "name": "MessageModified",
+          "value": "3"
+        },
+        {
+          "name": "MessageDeleted",
+          "value": "4"
+        },
+        {
+          "name": "ConversationModified",
+          "value": "5"
+        },
+        {
+          "name": "ConversationDeleted",
+          "value": "6"
+        },
+        {
+          "name": "ConversationTransportDeleted",
+          "value": "7"
+        }
+      ]
+    },
+    "ChatTransportErrorCodeCategory": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Http",
+          "value": "1"
+        },
+        {
+          "name": "Network",
+          "value": "2"
+        },
+        {
+          "name": "MmsServer",
+          "value": "3"
+        }
+      ]
+    },
+    "ChatTransportInterpretedErrorCode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Unknown",
+          "value": "1"
+        },
+        {
+          "name": "InvalidRecipientAddress",
+          "value": "2"
+        },
+        {
+          "name": "NetworkConnectivity",
+          "value": "3"
+        },
+        {
+          "name": "ServiceDenied",
+          "value": "4"
+        },
+        {
+          "name": "Timeout",
+          "value": "5"
+        }
+      ]
+    },
+    "RcsServiceKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Chat",
+          "value": "0"
+        },
+        {
+          "name": "GroupChat",
+          "value": "1"
+        },
+        {
+          "name": "FileTransfer",
+          "value": "2"
+        },
+        {
+          "name": "Capability",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IChatCapabilities": {
+      "guid": "3aff77bc-39c9-4dd1-ad2d-3964dd9d403f",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatCapabilities",
+      "methods": [
+        {
+          "name": "get_IsOnline",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsChatCapable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsFileTransferCapable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsGeoLocationPushCapable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsIntegratedMessagingCapable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsChatCapable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsChatCapable"
+        },
+        {
+          "name": "IsFileTransferCapable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsFileTransferCapable"
+        },
+        {
+          "name": "IsGeoLocationPushCapable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsGeoLocationPushCapable"
+        },
+        {
+          "name": "IsIntegratedMessagingCapable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsIntegratedMessagingCapable"
+        },
+        {
+          "name": "IsOnline",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsOnline"
+        }
+      ]
+    },
+    "IChatCapabilitiesManagerStatics": {
+      "guid": "b57a2f30-7041-458e-b0cf-7c0d9fea333a",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatCapabilitiesManager",
+      "methods": [
+        {
+          "name": "GetCachedCapabilitiesAsync",
+          "overload": "GetCachedCapabilitiesAsync",
+          "params": [
+            {
+              "name": "address",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChatCapabilities",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetCapabilitiesFromNetworkAsync",
+          "overload": "GetCapabilitiesFromNetworkAsync",
+          "params": [
+            {
+              "name": "address",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChatCapabilities",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IChatCapabilitiesManagerStatics2": {
+      "guid": "e30d4274-d5c1-4ac9-9ffc-40e69184fec8",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatCapabilitiesManager",
+      "methods": [
+        {
+          "name": "GetCachedCapabilitiesAsync",
+          "overload": "GetCachedCapabilitiesForTransportAsync",
+          "params": [
+            {
+              "name": "address",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "transportId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChatCapabilities",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetCapabilitiesFromNetworkAsync",
+          "overload": "GetCapabilitiesFromNetworkForTransportAsync",
+          "params": [
+            {
+              "name": "address",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "transportId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChatCapabilities",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IChatConversation": {
+      "guid": "a58c080d-1a6f-46dc-8f3d-f5028660b6ee",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatConversation",
+      "methods": [
+        {
+          "name": "get_HasUnreadMessages",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Subject",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Subject",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsConversationMuted",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsConversationMuted",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MostRecentMessageId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Participants",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ThreadingInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatConversationThreadingInfo",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "DeleteAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetMessageReader",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatMessageReader",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "MarkMessagesAsReadAsync",
+          "overload": "MarkAllMessagesAsReadAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "MarkMessagesAsReadAsync",
+          "overload": "MarkMessagesAsReadAsync",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SaveAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "NotifyLocalParticipantComposing",
+          "params": [
+            {
+              "name": "transportId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "participantAddress",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "isComposing",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "NotifyRemoteParticipantComposing",
+          "params": [
+            {
+              "name": "transportId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "participantAddress",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "isComposing",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_RemoteParticipantComposingChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ChatConversation",
+                    "namespace": "Windows.ApplicationModel.Chat",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteParticipantComposingChangedEventArgs",
+                    "namespace": "Windows.ApplicationModel.Chat",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_RemoteParticipantComposingChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "HasUnreadMessages",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasUnreadMessages"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "IsConversationMuted",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsConversationMuted",
+          "setter": "put_IsConversationMuted"
+        },
+        {
+          "name": "MostRecentMessageId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MostRecentMessageId"
+        },
+        {
+          "name": "Participants",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Participants"
+        },
+        {
+          "name": "Subject",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Subject",
+          "setter": "put_Subject"
+        },
+        {
+          "name": "ThreadingInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ChatConversationThreadingInfo",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          },
+          "getter": "get_ThreadingInfo"
+        }
+      ],
+      "events": [
+        {
+          "name": "RemoteParticipantComposingChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChatConversation",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "RemoteParticipantComposingChangedEventArgs",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_RemoteParticipantComposingChanged",
+          "remove_method": "remove_RemoteParticipantComposingChanged"
+        }
+      ]
+    },
+    "IChatConversation2": {
+      "guid": "0a030cd1-983a-47aa-9a90-ee48ee997b59",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatConversation",
+      "methods": [
+        {
+          "name": "get_CanModifyParticipants",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_CanModifyParticipants",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CanModifyParticipants",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanModifyParticipants",
+          "setter": "put_CanModifyParticipants"
+        }
+      ]
+    },
+    "IChatConversationReader": {
+      "guid": "055136d2-de32-4a47-a93a-b3dc0833852b",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatConversationReader",
+      "methods": [
+        {
+          "name": "ReadBatchAsync",
+          "overload": "ReadBatchAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ChatConversation",
+                    "namespace": "Windows.ApplicationModel.Chat",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "ReadBatchAsync",
+          "overload": "ReadBatchWithCountAsync",
+          "params": [
+            {
+              "name": "count",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ChatConversation",
+                    "namespace": "Windows.ApplicationModel.Chat",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IChatConversationThreadingInfo": {
+      "guid": "331c21dc-7a07-4422-a32c-24be7c6dab24",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatConversationThreadingInfo",
+      "methods": [
+        {
+          "name": "get_ContactId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_ContactId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Custom",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Custom",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ConversationId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_ConversationId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Participants",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatConversationThreadingKind",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Kind",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ChatConversationThreadingKind",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContactId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ContactId",
+          "setter": "put_ContactId"
+        },
+        {
+          "name": "ConversationId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ConversationId",
+          "setter": "put_ConversationId"
+        },
+        {
+          "name": "Custom",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Custom",
+          "setter": "put_Custom"
+        },
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ChatConversationThreadingKind",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind",
+          "setter": "put_Kind"
+        },
+        {
+          "name": "Participants",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Participants"
+        }
+      ]
+    },
+    "IChatItem": {
+      "guid": "8751d000-ceb1-4243-b803-15d45a1dd428",
+      "methods": [
+        {
+          "name": "get_ItemKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatItemKind",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ItemKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ChatItemKind",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ItemKind"
+        }
+      ]
+    },
+    "IChatMessage": {
+      "guid": "4b39052a-1142-5089-76da-f2db3d17cd05",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessage",
+      "methods": [
+        {
+          "name": "get_Attachments",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChatMessageAttachment",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Body",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Body",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_From",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IsForwardingDisabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsIncoming",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsRead",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_LocalTimestamp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_NetworkTimestamp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Recipients",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_RecipientSendStatuses",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "ChatMessageStatus",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatMessageStatus",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Subject",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TransportFriendlyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TransportId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_TransportId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Attachments",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChatMessageAttachment",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Attachments"
+        },
+        {
+          "name": "Body",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Body",
+          "setter": "put_Body"
+        },
+        {
+          "name": "From",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_From"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "IsForwardingDisabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsForwardingDisabled"
+        },
+        {
+          "name": "IsIncoming",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsIncoming"
+        },
+        {
+          "name": "IsRead",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsRead"
+        },
+        {
+          "name": "LocalTimestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_LocalTimestamp"
+        },
+        {
+          "name": "NetworkTimestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_NetworkTimestamp"
+        },
+        {
+          "name": "RecipientSendStatuses",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "ChatMessageStatus",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_RecipientSendStatuses"
+        },
+        {
+          "name": "Recipients",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Recipients"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ChatMessageStatus",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        },
+        {
+          "name": "Subject",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Subject"
+        },
+        {
+          "name": "TransportFriendlyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TransportFriendlyName"
+        },
+        {
+          "name": "TransportId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TransportId",
+          "setter": "put_TransportId"
+        }
+      ]
+    },
+    "IChatMessage2": {
+      "guid": "86668332-543f-49f5-ac71-6c2afc6565fd",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessage",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessage3",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessage",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_EstimatedDownloadSize",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "put_EstimatedDownloadSize",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ]
+        },
+        {
+          "name": "put_From",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsAutoReply",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsAutoReply",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "put_IsForwardingDisabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsReplyDisabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsIncoming",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "put_IsRead",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsSeen",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsSeen",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsSimMessage",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_LocalTimestamp",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MessageKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatMessageKind",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_MessageKind",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ChatMessageKind",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MessageOperatorKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatMessageOperatorKind",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_MessageOperatorKind",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ChatMessageOperatorKind",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "put_NetworkTimestamp",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsReceivedDuringQuietHours",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsReceivedDuringQuietHours",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "put_RemoteId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "put_Status",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ChatMessageStatus",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "put_Subject",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ShouldSuppressNotification",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_ShouldSuppressNotification",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ThreadingInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatConversationThreadingInfo",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ThreadingInfo",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ChatConversationThreadingInfo",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RecipientsDeliveryInfos",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChatRecipientDeliveryInfo",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EstimatedDownloadSize",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_EstimatedDownloadSize",
+          "setter": "put_EstimatedDownloadSize"
+        },
+        {
+          "name": "From",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "setter": "put_From"
+        },
+        {
+          "name": "IsAutoReply",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAutoReply",
+          "setter": "put_IsAutoReply"
+        },
+        {
+          "name": "IsForwardingDisabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "setter": "put_IsForwardingDisabled"
+        },
+        {
+          "name": "IsIncoming",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "setter": "put_IsIncoming"
+        },
+        {
+          "name": "IsRead",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "setter": "put_IsRead"
+        },
+        {
+          "name": "IsReceivedDuringQuietHours",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsReceivedDuringQuietHours",
+          "setter": "put_IsReceivedDuringQuietHours"
+        },
+        {
+          "name": "IsReplyDisabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsReplyDisabled"
+        },
+        {
+          "name": "IsSeen",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSeen",
+          "setter": "put_IsSeen"
+        },
+        {
+          "name": "IsSimMessage",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSimMessage"
+        },
+        {
+          "name": "LocalTimestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "setter": "put_LocalTimestamp"
+        },
+        {
+          "name": "MessageKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ChatMessageKind",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MessageKind",
+          "setter": "put_MessageKind"
+        },
+        {
+          "name": "MessageOperatorKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ChatMessageOperatorKind",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MessageOperatorKind",
+          "setter": "put_MessageOperatorKind"
+        },
+        {
+          "name": "NetworkTimestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "setter": "put_NetworkTimestamp"
+        },
+        {
+          "name": "RecipientsDeliveryInfos",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChatRecipientDeliveryInfo",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_RecipientsDeliveryInfos"
+        },
+        {
+          "name": "RemoteId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "setter": "put_RemoteId"
+        },
+        {
+          "name": "ShouldSuppressNotification",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ShouldSuppressNotification",
+          "setter": "put_ShouldSuppressNotification"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ChatMessageStatus",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          },
+          "setter": "put_Status"
+        },
+        {
+          "name": "Subject",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "setter": "put_Subject"
+        },
+        {
+          "name": "ThreadingInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ChatConversationThreadingInfo",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          },
+          "getter": "get_ThreadingInfo",
+          "setter": "put_ThreadingInfo"
+        }
+      ]
+    },
+    "IChatMessage3": {
+      "guid": "74eb2fb0-3ba7-459f-8e0b-e8af0febd9ad",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessage",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessage",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_RemoteId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RemoteId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RemoteId"
+        }
+      ]
+    },
+    "IChatMessage4": {
+      "guid": "2d144b0f-d2bf-460c-aa68-6d3f8483c9bf",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessage",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessage",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_SyncId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_SyncId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "SyncId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SyncId",
+          "setter": "put_SyncId"
+        }
+      ]
+    },
+    "IChatMessageAttachment": {
+      "guid": "c7c4fd74-bf63-58eb-508c-8b863ff16b67",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessageAttachment",
+      "methods": [
+        {
+          "name": "get_DataStreamReference",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_DataStreamReference",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStreamReference",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_GroupId",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_GroupId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MimeType",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_MimeType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Text",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Text",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DataStreamReference",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_DataStreamReference",
+          "setter": "put_DataStreamReference"
+        },
+        {
+          "name": "GroupId",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_GroupId",
+          "setter": "put_GroupId"
+        },
+        {
+          "name": "MimeType",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MimeType",
+          "setter": "put_MimeType"
+        },
+        {
+          "name": "Text",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Text",
+          "setter": "put_Text"
+        }
+      ]
+    },
+    "IChatMessageAttachment2": {
+      "guid": "5ed99270-7dd1-4a87-a8ce-acdd87d80dc8",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessageAttachment",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageAttachment",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Thumbnail",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_Thumbnail",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStreamReference",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TransferProgress",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_TransferProgress",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OriginalFileName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_OriginalFileName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "OriginalFileName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_OriginalFileName",
+          "setter": "put_OriginalFileName"
+        },
+        {
+          "name": "Thumbnail",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Thumbnail",
+          "setter": "put_Thumbnail"
+        },
+        {
+          "name": "TransferProgress",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_TransferProgress",
+          "setter": "put_TransferProgress"
+        }
+      ]
+    },
+    "IChatMessageAttachmentFactory": {
+      "guid": "205852a2-a356-5b71-6ca9-66c985b7d0d5",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessageAttachment",
+      "methods": [
+        {
+          "name": "CreateChatMessageAttachment",
+          "params": [
+            {
+              "name": "mimeType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "dataStreamReference",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStreamReference",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatMessageAttachment",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IChatMessageBlockingStatic": {
+      "guid": "f6b9a380-cdea-11e4-8830-0800200c9a66",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessageBlocking",
+      "methods": [
+        {
+          "name": "MarkMessageAsBlockedAsync",
+          "params": [
+            {
+              "name": "localChatMessageId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "blocked",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IChatMessageChange": {
+      "guid": "1c18c355-421e-54b8-6d38-6b3a6c82fccc",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessageChange",
+      "methods": [
+        {
+          "name": "get_ChangeType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatMessageChangeType",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Message",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatMessage",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ChangeType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ChatMessageChangeType",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ChangeType"
+        },
+        {
+          "name": "Message",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ChatMessage",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          },
+          "getter": "get_Message"
+        }
+      ]
+    },
+    "IChatMessageChangeReader": {
+      "guid": "14267020-28ce-5f26-7b05-9a5c7cce87ca",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessageChangeReader",
+      "methods": [
+        {
+          "name": "AcceptChanges"
+        },
+        {
+          "name": "AcceptChangesThrough",
+          "params": [
+            {
+              "name": "lastChangeToAcknowledge",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ChatMessageChange",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ReadBatchAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ChatMessageChange",
+                    "namespace": "Windows.ApplicationModel.Chat",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IChatMessageChangeTracker": {
+      "guid": "60b7f066-70a0-5224-508c-242ef7c1d06f",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessageChangeTracker",
+      "methods": [
+        {
+          "name": "Enable"
+        },
+        {
+          "name": "GetChangeReader",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatMessageChangeReader",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "Reset"
+        }
+      ]
+    },
+    "IChatMessageChangedDeferral": {
+      "guid": "fbc6b30c-788c-4dcc-ace7-6282382968cf",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessageChangedDeferral",
+      "methods": [
+        {
+          "name": "Complete"
+        }
+      ]
+    },
+    "IChatMessageChangedEventArgs": {
+      "guid": "b6b73e2d-691c-4edf-8660-6eb9896892e3",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessageChangedEventArgs",
+      "methods": [
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatMessageChangedDeferral",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IChatMessageManager2Statics": {
+      "guid": "1d45390f-9f4f-4e35-964e-1b9ca61ac044",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessageManager",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageManagerStatic",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "RegisterTransportAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetTransportAsync",
+          "params": [
+            {
+              "name": "transportId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChatMessageTransport",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IChatMessageManagerStatic": {
+      "guid": "f15c60f7-d5e8-5e92-556d-e03b60253104",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessageManager",
+      "methods": [
+        {
+          "name": "GetTransportsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ChatMessageTransport",
+                    "namespace": "Windows.ApplicationModel.Chat",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestStoreAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChatMessageStore",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowComposeSmsMessageAsync",
+          "params": [
+            {
+              "name": "message",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ChatMessage",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ShowSmsSettings"
+        }
+      ]
+    },
+    "IChatMessageManagerStatics3": {
+      "guid": "208b830d-6755-48cc-9ab3-fd03c463fc92",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessageManager",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageManagerStatic",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "RequestSyncManagerAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChatSyncManager",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IChatMessageNotificationTriggerDetails": {
+      "guid": "fd344dfb-3063-4e17-8586-c6c08262e6c0",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessageNotificationTriggerDetails",
+      "methods": [
+        {
+          "name": "get_ChatMessage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatMessage",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ChatMessage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ChatMessage",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          },
+          "getter": "get_ChatMessage"
+        }
+      ]
+    },
+    "IChatMessageNotificationTriggerDetails2": {
+      "guid": "6bb522e0-aa07-4fd1-9471-77934fb75ee6",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessageNotificationTriggerDetails",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageNotificationTriggerDetails",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_ShouldDisplayToast",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_ShouldUpdateDetailText",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_ShouldUpdateBadge",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_ShouldUpdateActionCenter",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ShouldDisplayToast",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ShouldDisplayToast"
+        },
+        {
+          "name": "ShouldUpdateActionCenter",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ShouldUpdateActionCenter"
+        },
+        {
+          "name": "ShouldUpdateBadge",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ShouldUpdateBadge"
+        },
+        {
+          "name": "ShouldUpdateDetailText",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ShouldUpdateDetailText"
+        }
+      ]
+    },
+    "IChatMessageReader": {
+      "guid": "b6ea78ce-4489-56f9-76aa-e204682514cf",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessageReader",
+      "methods": [
+        {
+          "name": "ReadBatchAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ChatMessage",
+                    "namespace": "Windows.ApplicationModel.Chat",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IChatMessageReader2": {
+      "guid": "89643683-64bb-470d-9df4-0de8be1a05bf",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessageReader",
+      "methods": [
+        {
+          "name": "ReadBatchAsync",
+          "overload": "ReadBatchWithCountAsync",
+          "params": [
+            {
+              "name": "count",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ChatMessage",
+                    "namespace": "Windows.ApplicationModel.Chat",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IChatMessageStore": {
+      "guid": "31f2fd01-ccf6-580b-4976-0a07dd5d3b47",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessageStore",
+      "methods": [
+        {
+          "name": "get_ChangeTracker",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatMessageChangeTracker",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "DeleteMessageAsync",
+          "params": [
+            {
+              "name": "localMessageId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "DownloadMessageAsync",
+          "params": [
+            {
+              "name": "localChatMessageId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetMessageAsync",
+          "params": [
+            {
+              "name": "localChatMessageId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChatMessage",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetMessageReader",
+          "overload": "GetMessageReader1",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatMessageReader",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetMessageReader",
+          "overload": "GetMessageReader2",
+          "params": [
+            {
+              "name": "recentTimeLimit",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatMessageReader",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "MarkMessageReadAsync",
+          "params": [
+            {
+              "name": "localChatMessageId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "RetrySendMessageAsync",
+          "params": [
+            {
+              "name": "localChatMessageId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SendMessageAsync",
+          "params": [
+            {
+              "name": "chatMessage",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ChatMessage",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ValidateMessage",
+          "params": [
+            {
+              "name": "chatMessage",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ChatMessage",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatMessageValidationResult",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_MessageChanged",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ChatMessageStore",
+                    "namespace": "Windows.ApplicationModel.Chat",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "ChatMessageChangedEventArgs",
+                    "namespace": "Windows.ApplicationModel.Chat",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_MessageChanged",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ChangeTracker",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ChatMessageChangeTracker",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          },
+          "getter": "get_ChangeTracker"
+        }
+      ],
+      "events": [
+        {
+          "name": "MessageChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChatMessageStore",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "ChatMessageChangedEventArgs",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_MessageChanged",
+          "remove_method": "remove_MessageChanged"
+        }
+      ]
+    },
+    "IChatMessageStore2": {
+      "guid": "ad4dc4ee-3ad4-491b-b311-abdf9bb22768",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessageStore",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageStore",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "ForwardMessageAsync",
+          "params": [
+            {
+              "name": "localChatMessageId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "addresses",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChatMessage",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetConversationAsync",
+          "overload": "GetConversationAsync",
+          "params": [
+            {
+              "name": "conversationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChatConversation",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetConversationAsync",
+          "overload": "GetConversationForTransportsAsync",
+          "params": [
+            {
+              "name": "conversationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "transportIds",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChatConversation",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetConversationFromThreadingInfoAsync",
+          "params": [
+            {
+              "name": "threadingInfo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ChatConversationThreadingInfo",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChatConversation",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetConversationReader",
+          "overload": "GetConversationReader",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatConversationReader",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetConversationReader",
+          "overload": "GetConversationForTransportsReader",
+          "params": [
+            {
+              "name": "transportIds",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatConversationReader",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetMessageByRemoteIdAsync",
+          "params": [
+            {
+              "name": "transportId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "remoteId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChatMessage",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetUnseenCountAsync",
+          "overload": "GetUnseenCountAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetUnseenCountAsync",
+          "overload": "GetUnseenCountForTransportsReaderAsync",
+          "params": [
+            {
+              "name": "transportIds",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "MarkAsSeenAsync",
+          "overload": "MarkAsSeenAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "MarkAsSeenAsync",
+          "overload": "MarkAsSeenForTransportsAsync",
+          "params": [
+            {
+              "name": "transportIds",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetSearchReader",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ChatQueryOptions",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatSearchReader",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SaveMessageAsync",
+          "params": [
+            {
+              "name": "chatMessage",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ChatMessage",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "TryCancelDownloadMessageAsync",
+          "params": [
+            {
+              "name": "localChatMessageId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryCancelSendMessageAsync",
+          "params": [
+            {
+              "name": "localChatMessageId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_StoreChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ChatMessageStore",
+                    "namespace": "Windows.ApplicationModel.Chat",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "ChatMessageStoreChangedEventArgs",
+                    "namespace": "Windows.ApplicationModel.Chat",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_StoreChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "StoreChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChatMessageStore",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "ChatMessageStoreChangedEventArgs",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_StoreChanged",
+          "remove_method": "remove_StoreChanged"
+        }
+      ]
+    },
+    "IChatMessageStore3": {
+      "guid": "9adbbb09-4345-4ec1-8b74-b7338243719c",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessageStore",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageStore",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "GetMessageBySyncIdAsync",
+          "params": [
+            {
+              "name": "syncId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChatMessage",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IChatMessageStoreChangedEventArgs": {
+      "guid": "65c66fac-fe8c-46d4-9119-57b8410311d5",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessageStoreChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatStoreChangedEventKind",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ChatStoreChangedEventKind",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        }
+      ]
+    },
+    "IChatMessageTransport": {
+      "guid": "63a9dbf8-e6b3-5c9a-5f85-d47925b9bd18",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessageTransport",
+      "methods": [
+        {
+          "name": "get_IsAppSetAsNotificationProvider",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsActive",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_TransportFriendlyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TransportId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "RequestSetAsNotificationProviderAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsActive",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsActive"
+        },
+        {
+          "name": "IsAppSetAsNotificationProvider",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAppSetAsNotificationProvider"
+        },
+        {
+          "name": "TransportFriendlyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TransportFriendlyName"
+        },
+        {
+          "name": "TransportId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TransportId"
+        }
+      ]
+    },
+    "IChatMessageTransport2": {
+      "guid": "90a75622-d84a-4c22-a94d-544444edc8a1",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessageTransport",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageTransport",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Configuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatMessageTransportConfiguration",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_TransportKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatMessageTransportKind",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Configuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ChatMessageTransportConfiguration",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          },
+          "getter": "get_Configuration"
+        },
+        {
+          "name": "TransportKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ChatMessageTransportKind",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          },
+          "getter": "get_TransportKind"
+        }
+      ]
+    },
+    "IChatMessageTransportConfiguration": {
+      "guid": "879ff725-1a08-4aca-a075-3355126312e6",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessageTransportConfiguration",
+      "methods": [
+        {
+          "name": "get_MaxAttachmentCount",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MaxMessageSizeInKilobytes",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MaxRecipientCount",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_SupportedVideoFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaEncodingProfile",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ExtendedProperties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExtendedProperties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_ExtendedProperties"
+        },
+        {
+          "name": "MaxAttachmentCount",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MaxAttachmentCount"
+        },
+        {
+          "name": "MaxMessageSizeInKilobytes",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MaxMessageSizeInKilobytes"
+        },
+        {
+          "name": "MaxRecipientCount",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MaxRecipientCount"
+        },
+        {
+          "name": "SupportedVideoFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaEncodingProfile",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          },
+          "getter": "get_SupportedVideoFormat"
+        }
+      ]
+    },
+    "IChatMessageValidationResult": {
+      "guid": "25e93a03-28ec-5889-569b-7e486b126f18",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatMessageValidationResult",
+      "methods": [
+        {
+          "name": "get_MaxPartCount",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_PartCount",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_RemainingCharacterCountInPart",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatMessageValidationStatus",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "MaxPartCount",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_MaxPartCount"
+        },
+        {
+          "name": "PartCount",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_PartCount"
+        },
+        {
+          "name": "RemainingCharacterCountInPart",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_RemainingCharacterCountInPart"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ChatMessageValidationStatus",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IChatQueryOptions": {
+      "guid": "2fd364a6-bf36-42f7-b7e7-923c0aabfe16",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatQueryOptions",
+      "methods": [
+        {
+          "name": "get_SearchString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_SearchString",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "SearchString",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SearchString",
+          "setter": "put_SearchString"
+        }
+      ]
+    },
+    "IChatRecipientDeliveryInfo": {
+      "guid": "ffc7b2a2-283c-4c0a-8a0e-8c33bdbf0545",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo",
+      "methods": [
+        {
+          "name": "get_TransportAddress",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_TransportAddress",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DeliveryTime",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_DeliveryTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ReadTime",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_ReadTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TransportErrorCodeCategory",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatTransportErrorCodeCategory",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_TransportInterpretedErrorCode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatTransportInterpretedErrorCode",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_TransportErrorCode",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_IsErrorPermanent",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatMessageStatus",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeliveryTime",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_DeliveryTime",
+          "setter": "put_DeliveryTime"
+        },
+        {
+          "name": "IsErrorPermanent",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsErrorPermanent"
+        },
+        {
+          "name": "ReadTime",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ReadTime",
+          "setter": "put_ReadTime"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ChatMessageStatus",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        },
+        {
+          "name": "TransportAddress",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TransportAddress",
+          "setter": "put_TransportAddress"
+        },
+        {
+          "name": "TransportErrorCode",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_TransportErrorCode"
+        },
+        {
+          "name": "TransportErrorCodeCategory",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ChatTransportErrorCodeCategory",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          },
+          "getter": "get_TransportErrorCodeCategory"
+        },
+        {
+          "name": "TransportInterpretedErrorCode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ChatTransportInterpretedErrorCode",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          },
+          "getter": "get_TransportInterpretedErrorCode"
+        }
+      ]
+    },
+    "IChatSearchReader": {
+      "guid": "4665fe49-9020-4752-980d-39612325f589",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatSearchReader",
+      "methods": [
+        {
+          "name": "ReadBatchAsync",
+          "overload": "ReadBatchAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IChatItem",
+                    "namespace": "Windows.ApplicationModel.Chat",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "ReadBatchAsync",
+          "overload": "ReadBatchWithCountAsync",
+          "params": [
+            {
+              "name": "count",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IChatItem",
+                    "namespace": "Windows.ApplicationModel.Chat",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IChatSyncConfiguration": {
+      "guid": "09f869b2-69f4-4aff-82b6-06992ff402d2",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatSyncConfiguration",
+      "methods": [
+        {
+          "name": "get_IsSyncEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsSyncEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RestoreHistorySpan",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatRestoreHistorySpan",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_RestoreHistorySpan",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ChatRestoreHistorySpan",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsSyncEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSyncEnabled",
+          "setter": "put_IsSyncEnabled"
+        },
+        {
+          "name": "RestoreHistorySpan",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ChatRestoreHistorySpan",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RestoreHistorySpan",
+          "setter": "put_RestoreHistorySpan"
+        }
+      ]
+    },
+    "IChatSyncManager": {
+      "guid": "7ba52c63-2650-486f-b4b4-6bd9d3d63c84",
+      "exclusive_to": "Windows.ApplicationModel.Chat.ChatSyncManager",
+      "methods": [
+        {
+          "name": "get_Configuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChatSyncConfiguration",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "AssociateAccountAsync",
+          "params": [
+            {
+              "name": "webAccount",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAccount",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "UnassociateAccountAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "IsAccountAssociated",
+          "params": [
+            {
+              "name": "webAccount",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAccount",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "StartSync"
+        },
+        {
+          "name": "SetConfigurationAsync",
+          "params": [
+            {
+              "name": "configuration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ChatSyncConfiguration",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Configuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ChatSyncConfiguration",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          },
+          "getter": "get_Configuration"
+        }
+      ]
+    },
+    "IRcsEndUserMessage": {
+      "guid": "d7cda5eb-cbd7-4f3b-8526-b506dec35c53",
+      "exclusive_to": "Windows.ApplicationModel.Chat.RcsEndUserMessage",
+      "methods": [
+        {
+          "name": "get_TransportId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Title",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Text",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IsPinRequired",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Actions",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RcsEndUserMessageAction",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SendResponseAsync",
+          "params": [
+            {
+              "name": "action",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RcsEndUserMessageAction",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SendResponseWithPinAsync",
+          "params": [
+            {
+              "name": "action",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RcsEndUserMessageAction",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "pin",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Actions",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RcsEndUserMessageAction",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Actions"
+        },
+        {
+          "name": "IsPinRequired",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPinRequired"
+        },
+        {
+          "name": "Text",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Text"
+        },
+        {
+          "name": "Title",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Title"
+        },
+        {
+          "name": "TransportId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TransportId"
+        }
+      ]
+    },
+    "IRcsEndUserMessageAction": {
+      "guid": "92378737-9b42-46d3-9d5e-3c1b2dae7cb8",
+      "exclusive_to": "Windows.ApplicationModel.Chat.RcsEndUserMessageAction",
+      "methods": [
+        {
+          "name": "get_Label",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Label",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Label"
+        }
+      ]
+    },
+    "IRcsEndUserMessageAvailableEventArgs": {
+      "guid": "2d45ae01-3f89-41ea-9702-9e9ed411aa98",
+      "exclusive_to": "Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableEventArgs",
+      "methods": [
+        {
+          "name": "get_IsMessageAvailable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Message",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RcsEndUserMessage",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsMessageAvailable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsMessageAvailable"
+        },
+        {
+          "name": "Message",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RcsEndUserMessage",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          },
+          "getter": "get_Message"
+        }
+      ]
+    },
+    "IRcsEndUserMessageAvailableTriggerDetails": {
+      "guid": "5b97742d-351f-4692-b41e-1b035dc18986",
+      "exclusive_to": "Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableTriggerDetails",
+      "methods": [
+        {
+          "name": "get_Title",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Text",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Text",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Text"
+        },
+        {
+          "name": "Title",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Title"
+        }
+      ]
+    },
+    "IRcsEndUserMessageManager": {
+      "guid": "3054ae5a-4d1f-4b59-9433-126c734e86a6",
+      "exclusive_to": "Windows.ApplicationModel.Chat.RcsEndUserMessageManager",
+      "methods": [
+        {
+          "name": "add_MessageAvailableChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RcsEndUserMessageManager",
+                    "namespace": "Windows.ApplicationModel.Chat",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "RcsEndUserMessageAvailableEventArgs",
+                    "namespace": "Windows.ApplicationModel.Chat",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_MessageAvailableChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "MessageAvailableChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RcsEndUserMessageManager",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "RcsEndUserMessageAvailableEventArgs",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_MessageAvailableChanged",
+          "remove_method": "remove_MessageAvailableChanged"
+        }
+      ]
+    },
+    "IRcsManagerStatics": {
+      "guid": "7d270ac5-0abd-4f31-9b99-a59e71a7b731",
+      "exclusive_to": "Windows.ApplicationModel.Chat.RcsManager",
+      "methods": [
+        {
+          "name": "GetEndUserMessageManager",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RcsEndUserMessageManager",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetTransportsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RcsTransport",
+                    "namespace": "Windows.ApplicationModel.Chat",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetTransportAsync",
+          "params": [
+            {
+              "name": "transportId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RcsTransport",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "LeaveConversationAsync",
+          "params": [
+            {
+              "name": "conversation",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ChatConversation",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IRcsManagerStatics2": {
+      "guid": "cd49ad18-ad8a-42aa-8eeb-a798a8808959",
+      "exclusive_to": "Windows.ApplicationModel.Chat.RcsManager",
+      "methods": [
+        {
+          "name": "add_TransportListChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_TransportListChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "TransportListChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_TransportListChanged",
+          "remove_method": "remove_TransportListChanged"
+        }
+      ]
+    },
+    "IRcsServiceKindSupportedChangedEventArgs": {
+      "guid": "f47ea244-e783-4866-b3a7-4e5ccf023070",
+      "exclusive_to": "Windows.ApplicationModel.Chat.RcsServiceKindSupportedChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_ServiceKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RcsServiceKind",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ServiceKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RcsServiceKind",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ServiceKind"
+        }
+      ]
+    },
+    "IRcsTransport": {
+      "guid": "fea34759-f37c-4319-8546-ec84d21d30ff",
+      "exclusive_to": "Windows.ApplicationModel.Chat.RcsTransport",
+      "methods": [
+        {
+          "name": "get_ExtendedProperties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_IsActive",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_TransportFriendlyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TransportId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Configuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RcsTransportConfiguration",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "IsStoreAndForwardEnabled",
+          "params": [
+            {
+              "name": "serviceKind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RcsServiceKind",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsServiceKindSupported",
+          "params": [
+            {
+              "name": "serviceKind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RcsServiceKind",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "add_ServiceKindSupportedChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RcsTransport",
+                    "namespace": "Windows.ApplicationModel.Chat",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "RcsServiceKindSupportedChangedEventArgs",
+                    "namespace": "Windows.ApplicationModel.Chat",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ServiceKindSupportedChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Configuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RcsTransportConfiguration",
+            "namespace": "Windows.ApplicationModel.Chat",
+            "target_kind": "Class"
+          },
+          "getter": "get_Configuration"
+        },
+        {
+          "name": "ExtendedProperties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_ExtendedProperties"
+        },
+        {
+          "name": "IsActive",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsActive"
+        },
+        {
+          "name": "TransportFriendlyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TransportFriendlyName"
+        },
+        {
+          "name": "TransportId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TransportId"
+        }
+      ],
+      "events": [
+        {
+          "name": "ServiceKindSupportedChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RcsTransport",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "RcsServiceKindSupportedChangedEventArgs",
+                "namespace": "Windows.ApplicationModel.Chat",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ServiceKindSupportedChanged",
+          "remove_method": "remove_ServiceKindSupportedChanged"
+        }
+      ]
+    },
+    "IRcsTransportConfiguration": {
+      "guid": "1fccb102-2472-4bb9-9988-c1211c83e8a9",
+      "exclusive_to": "Windows.ApplicationModel.Chat.RcsTransportConfiguration",
+      "methods": [
+        {
+          "name": "get_MaxAttachmentCount",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MaxMessageSizeInKilobytes",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MaxGroupMessageSizeInKilobytes",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MaxRecipientCount",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MaxFileSizeInKilobytes",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_WarningFileSizeInKilobytes",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "MaxAttachmentCount",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MaxAttachmentCount"
+        },
+        {
+          "name": "MaxFileSizeInKilobytes",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MaxFileSizeInKilobytes"
+        },
+        {
+          "name": "MaxGroupMessageSizeInKilobytes",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MaxGroupMessageSizeInKilobytes"
+        },
+        {
+          "name": "MaxMessageSizeInKilobytes",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MaxMessageSizeInKilobytes"
+        },
+        {
+          "name": "MaxRecipientCount",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MaxRecipientCount"
+        },
+        {
+          "name": "WarningFileSizeInKilobytes",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_WarningFileSizeInKilobytes"
+        }
+      ]
+    },
+    "IRemoteParticipantComposingChangedEventArgs": {
+      "guid": "1ec045a7-cfc9-45c9-9876-449f2bc180f5",
+      "exclusive_to": "Windows.ApplicationModel.Chat.RemoteParticipantComposingChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_TransportId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ParticipantAddress",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IsComposing",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsComposing",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsComposing"
+        },
+        {
+          "name": "ParticipantAddress",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ParticipantAddress"
+        },
+        {
+          "name": "TransportId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TransportId"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "ChatCapabilities": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatCapabilities",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatCapabilities",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ChatCapabilitiesManager": {
+      "static_interfaces": [
+        "Windows.ApplicationModel.Chat.IChatCapabilitiesManagerStatics2",
+        "Windows.ApplicationModel.Chat.IChatCapabilitiesManagerStatics"
+      ]
+    },
+    "ChatConversation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatConversation",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatConversation",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IChatConversation2",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IChatItem",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ChatConversationReader": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatConversationReader",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatConversationReader",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ChatConversationThreadingInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatConversationThreadingInfo",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatConversationThreadingInfo",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "ChatMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatMessage",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessage",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessage2",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessage3",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessage4",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IChatItem",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "ChatMessageAttachment": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatMessageAttachment",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageAttachment",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageAttachment2",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Chat.IChatMessageAttachmentFactory"
+      ]
+    },
+    "ChatMessageBlocking": {
+      "static_interfaces": [
+        "Windows.ApplicationModel.Chat.IChatMessageBlockingStatic"
+      ]
+    },
+    "ChatMessageChange": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatMessageChange",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageChange",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ChatMessageChangeReader": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatMessageChangeReader",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageChangeReader",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ChatMessageChangeTracker": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatMessageChangeTracker",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageChangeTracker",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ChatMessageChangedDeferral": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatMessageChangedDeferral",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageChangedDeferral",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ChatMessageChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatMessageChangedEventArgs",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageChangedEventArgs",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ChatMessageManager": {
+      "static_interfaces": [
+        "Windows.ApplicationModel.Chat.IChatMessageManager2Statics",
+        "Windows.ApplicationModel.Chat.IChatMessageManagerStatic",
+        "Windows.ApplicationModel.Chat.IChatMessageManagerStatics3"
+      ]
+    },
+    "ChatMessageNotificationTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatMessageNotificationTriggerDetails",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageNotificationTriggerDetails",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageNotificationTriggerDetails2",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ChatMessageReader": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatMessageReader",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageReader",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageReader2",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ChatMessageStore": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatMessageStore",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageStore",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageStore2",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageStore3",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ChatMessageStoreChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatMessageStoreChangedEventArgs",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageStoreChangedEventArgs",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ChatMessageTransport": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatMessageTransport",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageTransport",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageTransport2",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ChatMessageTransportConfiguration": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatMessageTransportConfiguration",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageTransportConfiguration",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ChatMessageValidationResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatMessageValidationResult",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageValidationResult",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ChatQueryOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatQueryOptions",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatQueryOptions",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "ChatRecipientDeliveryInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatRecipientDeliveryInfo",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatRecipientDeliveryInfo",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "ChatSearchReader": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatSearchReader",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatSearchReader",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ChatSyncConfiguration": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatSyncConfiguration",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatSyncConfiguration",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ChatSyncManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatSyncManager",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChatSyncManager",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RcsEndUserMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRcsEndUserMessage",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRcsEndUserMessage",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RcsEndUserMessageAction": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRcsEndUserMessageAction",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRcsEndUserMessageAction",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RcsEndUserMessageAvailableEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRcsEndUserMessageAvailableEventArgs",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRcsEndUserMessageAvailableEventArgs",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RcsEndUserMessageAvailableTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRcsEndUserMessageAvailableTriggerDetails",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRcsEndUserMessageAvailableTriggerDetails",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RcsEndUserMessageManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRcsEndUserMessageManager",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRcsEndUserMessageManager",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RcsManager": {
+      "static_interfaces": [
+        "Windows.ApplicationModel.Chat.IRcsManagerStatics",
+        "Windows.ApplicationModel.Chat.IRcsManagerStatics2"
+      ]
+    },
+    "RcsServiceKindSupportedChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRcsServiceKindSupportedChangedEventArgs",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRcsServiceKindSupportedChangedEventArgs",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RcsTransport": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRcsTransport",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRcsTransport",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RcsTransportConfiguration": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRcsTransportConfiguration",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRcsTransportConfiguration",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteParticipantComposingChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteParticipantComposingChangedEventArgs",
+        "namespace": "Windows.ApplicationModel.Chat",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteParticipantComposingChangedEventArgs",
+          "namespace": "Windows.ApplicationModel.Chat",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

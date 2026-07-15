@@ -1,0 +1,6462 @@
+{
+  "namespace": "Windows.Networking.Vpn",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "VpnAppIdType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "PackageFamilyName",
+          "value": "0"
+        },
+        {
+          "name": "FullyQualifiedBinaryName",
+          "value": "1"
+        },
+        {
+          "name": "FilePath",
+          "value": "2"
+        }
+      ]
+    },
+    "VpnAuthenticationMethod": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Mschapv2",
+          "value": "0"
+        },
+        {
+          "name": "Eap",
+          "value": "1"
+        },
+        {
+          "name": "Certificate",
+          "value": "2"
+        },
+        {
+          "name": "PresharedKey",
+          "value": "3"
+        }
+      ]
+    },
+    "VpnChannelActivityEventType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Idle",
+          "value": "0"
+        },
+        {
+          "name": "Active",
+          "value": "1"
+        }
+      ]
+    },
+    "VpnChannelRequestCredentialsOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Retrying",
+          "value": "1"
+        },
+        {
+          "name": "UseForSingleSignIn",
+          "value": "2"
+        }
+      ]
+    },
+    "VpnCredentialType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "UsernamePassword",
+          "value": "0"
+        },
+        {
+          "name": "UsernameOtpPin",
+          "value": "1"
+        },
+        {
+          "name": "UsernamePasswordAndPin",
+          "value": "2"
+        },
+        {
+          "name": "UsernamePasswordChange",
+          "value": "3"
+        },
+        {
+          "name": "SmartCard",
+          "value": "4"
+        },
+        {
+          "name": "ProtectedCertificate",
+          "value": "5"
+        },
+        {
+          "name": "UnProtectedCertificate",
+          "value": "6"
+        }
+      ]
+    },
+    "VpnDataPathType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Send",
+          "value": "0"
+        },
+        {
+          "name": "Receive",
+          "value": "1"
+        }
+      ]
+    },
+    "VpnDomainNameType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Suffix",
+          "value": "0"
+        },
+        {
+          "name": "FullyQualified",
+          "value": "1"
+        },
+        {
+          "name": "Reserved",
+          "value": "65535"
+        }
+      ]
+    },
+    "VpnIPProtocol": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Tcp",
+          "value": "6"
+        },
+        {
+          "name": "Udp",
+          "value": "17"
+        },
+        {
+          "name": "Icmp",
+          "value": "1"
+        },
+        {
+          "name": "Ipv6Icmp",
+          "value": "58"
+        },
+        {
+          "name": "Igmp",
+          "value": "2"
+        },
+        {
+          "name": "Pgm",
+          "value": "113"
+        }
+      ]
+    },
+    "VpnManagementConnectionStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Disconnected",
+          "value": "0"
+        },
+        {
+          "name": "Disconnecting",
+          "value": "1"
+        },
+        {
+          "name": "Connected",
+          "value": "2"
+        },
+        {
+          "name": "Connecting",
+          "value": "3"
+        }
+      ]
+    },
+    "VpnManagementErrorStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Ok",
+          "value": "0"
+        },
+        {
+          "name": "Other",
+          "value": "1"
+        },
+        {
+          "name": "InvalidXmlSyntax",
+          "value": "2"
+        },
+        {
+          "name": "ProfileNameTooLong",
+          "value": "3"
+        },
+        {
+          "name": "ProfileInvalidAppId",
+          "value": "4"
+        },
+        {
+          "name": "AccessDenied",
+          "value": "5"
+        },
+        {
+          "name": "CannotFindProfile",
+          "value": "6"
+        },
+        {
+          "name": "AlreadyDisconnecting",
+          "value": "7"
+        },
+        {
+          "name": "AlreadyConnected",
+          "value": "8"
+        },
+        {
+          "name": "GeneralAuthenticationFailure",
+          "value": "9"
+        },
+        {
+          "name": "EapFailure",
+          "value": "10"
+        },
+        {
+          "name": "SmartCardFailure",
+          "value": "11"
+        },
+        {
+          "name": "CertificateFailure",
+          "value": "12"
+        },
+        {
+          "name": "ServerConfiguration",
+          "value": "13"
+        },
+        {
+          "name": "NoConnection",
+          "value": "14"
+        },
+        {
+          "name": "ServerConnection",
+          "value": "15"
+        },
+        {
+          "name": "UserNamePassword",
+          "value": "16"
+        },
+        {
+          "name": "DnsNotResolvable",
+          "value": "17"
+        },
+        {
+          "name": "InvalidIP",
+          "value": "18"
+        }
+      ]
+    },
+    "VpnNativeProtocolType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Pptp",
+          "value": "0"
+        },
+        {
+          "name": "L2tp",
+          "value": "1"
+        },
+        {
+          "name": "IpsecIkev2",
+          "value": "2"
+        }
+      ]
+    },
+    "VpnPacketBufferStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Ok",
+          "value": "0"
+        },
+        {
+          "name": "InvalidBufferSize",
+          "value": "1"
+        }
+      ]
+    },
+    "VpnRoutingPolicyType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "SplitRouting",
+          "value": "0"
+        },
+        {
+          "name": "ForceAllTrafficOverVpn",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IVpnAppId": {
+      "guid": "7b06a635-5c58-41d9-94a7-bfbcf1d8ca54",
+      "exclusive_to": "Windows.Networking.Vpn.VpnAppId",
+      "methods": [
+        {
+          "name": "get_Type",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnAppIdType",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Type",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnAppIdType",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Value",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Type",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VpnAppIdType",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Type",
+          "setter": "put_Type"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Value",
+          "setter": "put_Value"
+        }
+      ]
+    },
+    "IVpnAppIdFactory": {
+      "guid": "46adfd2a-0aab-4fdb-821d-d3ddc919788b",
+      "exclusive_to": "Windows.Networking.Vpn.VpnAppId",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnAppIdType",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnAppId",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IVpnChannel": {
+      "guid": "4ac78d07-d1a8-4303-a091-c8d2e0915bc3",
+      "exclusive_to": "Windows.Networking.Vpn.VpnChannel",
+      "methods": [
+        {
+          "name": "AssociateTransport",
+          "params": [
+            {
+              "name": "mainOuterTunnelTransport",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "optionalOuterTunnelTransport",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Start",
+          "overload": "Start",
+          "params": [
+            {
+              "name": "assignedClientIPv4list",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "HostName",
+                    "namespace": "Windows.Networking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "assignedClientIPv6list",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "HostName",
+                    "namespace": "Windows.Networking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "vpnInterfaceId",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnInterfaceId",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "routeScope",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnRouteAssignment",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "namespaceScope",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnNamespaceAssignment",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "mtuSize",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "maxFrameSize",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "optimizeForLowCostNetwork",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "mainOuterTunnelTransport",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "optionalOuterTunnelTransport",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Stop"
+        },
+        {
+          "name": "RequestCredentials",
+          "params": [
+            {
+              "name": "credType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnCredentialType",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "isRetry",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "isSingleSignOnCredential",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "certificate",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnPickedCredential",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "RequestVpnPacketBuffer",
+          "params": [
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnDataPathType",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "vpnPacketBuffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnPacketBuffer",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "LogDiagnosticMessage",
+          "params": [
+            {
+              "name": "message",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Configuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnChannelConfiguration",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_ActivityChange",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "VpnChannel",
+                    "namespace": "Windows.Networking.Vpn",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "VpnChannelActivityEventArgs",
+                    "namespace": "Windows.Networking.Vpn",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ActivityChange",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "put_PlugInContext",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PlugInContext",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "get_SystemHealth",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnSystemHealth",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "RequestCustomPrompt",
+          "params": [
+            {
+              "name": "customPrompt",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IVpnCustomPrompt",
+                    "namespace": "Windows.Networking.Vpn",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetErrorMessage",
+          "params": [
+            {
+              "name": "message",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetAllowedSslTlsVersions",
+          "params": [
+            {
+              "name": "tunnelTransport",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "useTls12",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Configuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VpnChannelConfiguration",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          },
+          "getter": "get_Configuration"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "PlugInContext",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_PlugInContext",
+          "setter": "put_PlugInContext"
+        },
+        {
+          "name": "SystemHealth",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VpnSystemHealth",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          },
+          "getter": "get_SystemHealth"
+        }
+      ],
+      "events": [
+        {
+          "name": "ActivityChange",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnChannel",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "VpnChannelActivityEventArgs",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ActivityChange",
+          "remove_method": "remove_ActivityChange"
+        }
+      ]
+    },
+    "IVpnChannel2": {
+      "guid": "2255d165-993b-4629-ad60-f1c3f3537f50",
+      "exclusive_to": "Windows.Networking.Vpn.VpnChannel",
+      "methods": [
+        {
+          "name": "StartWithMainTransport",
+          "params": [
+            {
+              "name": "assignedClientIPv4list",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "HostName",
+                    "namespace": "Windows.Networking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "assignedClientIPv6list",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "HostName",
+                    "namespace": "Windows.Networking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "vpnInterfaceId",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnInterfaceId",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "assignedRoutes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnRouteAssignment",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "assignedDomainName",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnDomainNameAssignment",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "mtuSize",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "maxFrameSize",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "Reserved",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "mainOuterTunnelTransport",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        },
+        {
+          "name": "StartExistingTransports",
+          "params": [
+            {
+              "name": "assignedClientIPv4list",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "HostName",
+                    "namespace": "Windows.Networking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "assignedClientIPv6list",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "HostName",
+                    "namespace": "Windows.Networking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "vpnInterfaceId",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnInterfaceId",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "assignedRoutes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnRouteAssignment",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "assignedDomainName",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnDomainNameAssignment",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "mtuSize",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "maxFrameSize",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "Reserved",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ActivityStateChange",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "VpnChannel",
+                    "namespace": "Windows.Networking.Vpn",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "VpnChannelActivityStateChangedArgs",
+                    "namespace": "Windows.Networking.Vpn",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ActivityStateChange",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetVpnSendPacketBuffer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnPacketBuffer",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetVpnReceivePacketBuffer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnPacketBuffer",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "RequestCustomPromptAsync",
+          "params": [
+            {
+              "name": "customPromptElement",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IVpnCustomPromptElement",
+                    "namespace": "Windows.Networking.Vpn",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "RequestCredentialsAsync",
+          "overload": "RequestCredentialsWithCertificateAsync",
+          "params": [
+            {
+              "name": "credType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnCredentialType",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "credOptions",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "certificate",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnCredential",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestCredentialsAsync",
+          "overload": "RequestCredentialsWithOptionsAsync",
+          "params": [
+            {
+              "name": "credType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnCredentialType",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "credOptions",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnCredential",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestCredentialsAsync",
+          "overload": "RequestCredentialsSimpleAsync",
+          "params": [
+            {
+              "name": "credType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnCredentialType",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnCredential",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TerminateConnection",
+          "params": [
+            {
+              "name": "message",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "StartWithTrafficFilter",
+          "overload": "StartWithTrafficFilter",
+          "params": [
+            {
+              "name": "assignedClientIpv4List",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "HostName",
+                    "namespace": "Windows.Networking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "assignedClientIpv6List",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "HostName",
+                    "namespace": "Windows.Networking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "vpnInterfaceId",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnInterfaceId",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "assignedRoutes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnRouteAssignment",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "assignedNamespace",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnDomainNameAssignment",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "mtuSize",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "maxFrameSize",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "reserved",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "mainOuterTunnelTransport",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "optionalOuterTunnelTransport",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "assignedTrafficFilters",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnTrafficFilterAssignment",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "ActivityStateChange",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnChannel",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "VpnChannelActivityStateChangedArgs",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ActivityStateChange",
+          "remove_method": "remove_ActivityStateChange"
+        }
+      ]
+    },
+    "IVpnChannel4": {
+      "guid": "d7266ede-2937-419d-9570-486aebb81803",
+      "exclusive_to": "Windows.Networking.Vpn.VpnChannel",
+      "methods": [
+        {
+          "name": "AddAndAssociateTransport",
+          "params": [
+            {
+              "name": "transport",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "context",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        },
+        {
+          "name": "StartWithTrafficFilter",
+          "overload": "StartWithMultipleTransports",
+          "params": [
+            {
+              "name": "assignedClientIpv4Addresses",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "HostName",
+                    "namespace": "Windows.Networking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "assignedClientIpv6Addresses",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "HostName",
+                    "namespace": "Windows.Networking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "vpninterfaceId",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnInterfaceId",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "assignedRoutes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnRouteAssignment",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "assignedNamespace",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnDomainNameAssignment",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "mtuSize",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "maxFrameSize",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "reserved",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "transports",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "assignedTrafficFilters",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnTrafficFilterAssignment",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ReplaceAndAssociateTransport",
+          "params": [
+            {
+              "name": "transport",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "context",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        },
+        {
+          "name": "StartReconnectingTransport",
+          "params": [
+            {
+              "name": "transport",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "context",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetSlotTypeForTransportContext",
+          "params": [
+            {
+              "name": "context",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ControlChannelTriggerStatus",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_CurrentRequestTransportContext",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CurrentRequestTransportContext",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_CurrentRequestTransportContext"
+        }
+      ]
+    },
+    "IVpnChannel5": {
+      "guid": "de7a0992-8384-4fbc-882c-1fd23124cd3b",
+      "exclusive_to": "Windows.Networking.Vpn.VpnChannel",
+      "methods": [
+        {
+          "name": "AppendVpnReceivePacketBuffer",
+          "params": [
+            {
+              "name": "decapsulatedPacketBuffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnPacketBuffer",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AppendVpnSendPacketBuffer",
+          "params": [
+            {
+              "name": "encapsulatedPacketBuffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnPacketBuffer",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "FlushVpnReceivePacketBuffers"
+        },
+        {
+          "name": "FlushVpnSendPacketBuffers"
+        }
+      ]
+    },
+    "IVpnChannel6": {
+      "guid": "55843696-bd63-49c5-abca-5da77885551a",
+      "exclusive_to": "Windows.Networking.Vpn.VpnChannel",
+      "methods": [
+        {
+          "name": "ActivateForeground",
+          "params": [
+            {
+              "name": "packageRelativeAppId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "sharedContext",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ValueSet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IVpnChannelActivityEventArgs": {
+      "guid": "a36c88f2-afdc-4775-855d-d4ac0a35fc55",
+      "exclusive_to": "Windows.Networking.Vpn.VpnChannelActivityEventArgs",
+      "methods": [
+        {
+          "name": "get_Type",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnChannelActivityEventType",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Type",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VpnChannelActivityEventType",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Type"
+        }
+      ]
+    },
+    "IVpnChannelActivityStateChangedArgs": {
+      "guid": "3d750565-fdc0-4bbe-a23b-45fffc6d97a1",
+      "exclusive_to": "Windows.Networking.Vpn.VpnChannelActivityStateChangedArgs",
+      "methods": [
+        {
+          "name": "get_ActivityState",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnChannelActivityEventType",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ActivityState",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VpnChannelActivityEventType",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ActivityState"
+        }
+      ]
+    },
+    "IVpnChannelConfiguration": {
+      "guid": "0e2ddca2-2012-4fe4-b179-8c652c6d107e",
+      "exclusive_to": "Windows.Networking.Vpn.VpnChannelConfiguration",
+      "methods": [
+        {
+          "name": "get_ServerServiceName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ServerHostNameList",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_CustomField",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CustomField",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CustomField"
+        },
+        {
+          "name": "ServerHostNameList",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_ServerHostNameList"
+        },
+        {
+          "name": "ServerServiceName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ServerServiceName"
+        }
+      ]
+    },
+    "IVpnChannelConfiguration2": {
+      "guid": "f30b574c-7824-471c-a118-63dbc93ae4c7",
+      "exclusive_to": "Windows.Networking.Vpn.VpnChannelConfiguration",
+      "methods": [
+        {
+          "name": "get_ServerUris",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ServerUris",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_ServerUris"
+        }
+      ]
+    },
+    "IVpnChannelStatics": {
+      "guid": "88eb062d-e818-4ffd-98a6-363e3736c95d",
+      "methods": [
+        {
+          "name": "ProcessEventAsync",
+          "params": [
+            {
+              "name": "thirdPartyPlugIn",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "event",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IVpnCredential": {
+      "guid": "b7e78af3-a46d-404b-8729-1832522853ac",
+      "methods": [
+        {
+          "name": "get_PasskeyCredential",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CertificateCredential",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_AdditionalPin",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_OldPasswordCredential",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AdditionalPin",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AdditionalPin"
+        },
+        {
+          "name": "CertificateCredential",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          },
+          "getter": "get_CertificateCredential"
+        },
+        {
+          "name": "OldPasswordCredential",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          },
+          "getter": "get_OldPasswordCredential"
+        },
+        {
+          "name": "PasskeyCredential",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          },
+          "getter": "get_PasskeyCredential"
+        }
+      ]
+    },
+    "IVpnCustomCheckBox": {
+      "guid": "43878753-03c5-4e61-93d7-a957714c4282",
+      "exclusive_to": "Windows.Networking.Vpn.VpnCustomCheckBox",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomPrompt",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "put_InitialCheckState",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_InitialCheckState",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Checked",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Checked",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Checked"
+        },
+        {
+          "name": "InitialCheckState",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_InitialCheckState",
+          "setter": "put_InitialCheckState"
+        }
+      ]
+    },
+    "IVpnCustomComboBox": {
+      "guid": "9a24158e-dba1-4c6f-8270-dcf3c9761c4c",
+      "exclusive_to": "Windows.Networking.Vpn.VpnCustomComboBox",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomPrompt",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "put_OptionsText",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OptionsText",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Selected",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "OptionsText",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_OptionsText",
+          "setter": "put_OptionsText"
+        },
+        {
+          "name": "Selected",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Selected"
+        }
+      ]
+    },
+    "IVpnCustomEditBox": {
+      "guid": "3002d9a0-cfbf-4c0b-8f3c-66f503c20b39",
+      "exclusive_to": "Windows.Networking.Vpn.VpnCustomEditBox",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomPrompt",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "put_DefaultText",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DefaultText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_NoEcho",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_NoEcho",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Text",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DefaultText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DefaultText",
+          "setter": "put_DefaultText"
+        },
+        {
+          "name": "NoEcho",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_NoEcho",
+          "setter": "put_NoEcho"
+        },
+        {
+          "name": "Text",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Text"
+        }
+      ]
+    },
+    "IVpnCustomErrorBox": {
+      "guid": "9ec4efb2-c942-42af-b223-588b48328721",
+      "exclusive_to": "Windows.Networking.Vpn.VpnCustomErrorBox",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomPrompt",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "IVpnCustomPrompt": {
+      "guid": "9b2ebe7b-87d5-433c-b4f6-eee6aa68a244",
+      "methods": [
+        {
+          "name": "put_Label",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Label",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Compulsory",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Compulsory",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Bordered",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Bordered",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Bordered",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Bordered",
+          "setter": "put_Bordered"
+        },
+        {
+          "name": "Compulsory",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Compulsory",
+          "setter": "put_Compulsory"
+        },
+        {
+          "name": "Label",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Label",
+          "setter": "put_Label"
+        }
+      ]
+    },
+    "IVpnCustomPromptBooleanInput": {
+      "guid": "c4c9a69e-ff47-4527-9f27-a49292019979",
+      "exclusive_to": "Windows.Networking.Vpn.VpnCustomPromptBooleanInput",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomPromptElement",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "put_InitialValue",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_InitialValue",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InitialValue",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_InitialValue",
+          "setter": "put_InitialValue"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "IVpnCustomPromptElement": {
+      "guid": "73bd5638-6f04-404d-93dd-50a44924a38b",
+      "methods": [
+        {
+          "name": "put_DisplayName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Compulsory",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Compulsory",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Emphasized",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Emphasized",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Compulsory",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Compulsory",
+          "setter": "put_Compulsory"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName",
+          "setter": "put_DisplayName"
+        },
+        {
+          "name": "Emphasized",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Emphasized",
+          "setter": "put_Emphasized"
+        }
+      ]
+    },
+    "IVpnCustomPromptOptionSelector": {
+      "guid": "3b8f34d9-8ec1-4e95-9a4e-7ba64d38f330",
+      "exclusive_to": "Windows.Networking.Vpn.VpnCustomPromptOptionSelector",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomPromptElement",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Options",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SelectedIndex",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Options",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Options"
+        },
+        {
+          "name": "SelectedIndex",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SelectedIndex"
+        }
+      ]
+    },
+    "IVpnCustomPromptText": {
+      "guid": "3bc8bdee-3a42-49a3-abdd-07b2edea752d",
+      "exclusive_to": "Windows.Networking.Vpn.VpnCustomPromptText",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomPromptElement",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "put_Text",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Text",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Text",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Text",
+          "setter": "put_Text"
+        }
+      ]
+    },
+    "IVpnCustomPromptTextInput": {
+      "guid": "c9da9c75-913c-47d5-88ba-48fc48930235",
+      "exclusive_to": "Windows.Networking.Vpn.VpnCustomPromptTextInput",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomPromptElement",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "put_PlaceholderText",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PlaceholderText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_IsTextHidden",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsTextHidden",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Text",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsTextHidden",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsTextHidden",
+          "setter": "put_IsTextHidden"
+        },
+        {
+          "name": "PlaceholderText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PlaceholderText",
+          "setter": "put_PlaceholderText"
+        },
+        {
+          "name": "Text",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Text"
+        }
+      ]
+    },
+    "IVpnCustomTextBox": {
+      "guid": "daa4c3ca-8f23-4d36-91f1-76d937827942",
+      "exclusive_to": "Windows.Networking.Vpn.VpnCustomTextBox",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomPrompt",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "put_DisplayText",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DisplayText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayText",
+          "setter": "put_DisplayText"
+        }
+      ]
+    },
+    "IVpnDomainNameAssignment": {
+      "guid": "4135b141-ccdb-49b5-9401-039a8ae767e9",
+      "exclusive_to": "Windows.Networking.Vpn.VpnDomainNameAssignment",
+      "methods": [
+        {
+          "name": "get_DomainNameList",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnDomainNameInfo",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_ProxyAutoConfigurationUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ProxyAutoConfigurationUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DomainNameList",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnDomainNameInfo",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_DomainNameList"
+        },
+        {
+          "name": "ProxyAutoConfigurationUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_ProxyAutoConfigurationUri",
+          "setter": "put_ProxyAutoConfigurationUri"
+        }
+      ]
+    },
+    "IVpnDomainNameInfo": {
+      "guid": "ad2eb82f-ea8e-4f7a-843e-1a87e32e1b9a",
+      "exclusive_to": "Windows.Networking.Vpn.VpnDomainNameInfo",
+      "methods": [
+        {
+          "name": "put_DomainName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DomainName",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_DomainNameType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnDomainNameType",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DomainNameType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnDomainNameType",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_DnsServers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_WebProxyServers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DnsServers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_DnsServers"
+        },
+        {
+          "name": "DomainName",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          },
+          "getter": "get_DomainName",
+          "setter": "put_DomainName"
+        },
+        {
+          "name": "DomainNameType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VpnDomainNameType",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DomainNameType",
+          "setter": "put_DomainNameType"
+        },
+        {
+          "name": "WebProxyServers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_WebProxyServers"
+        }
+      ]
+    },
+    "IVpnDomainNameInfo2": {
+      "guid": "ab871151-6c53-4828-9883-d886de104407",
+      "exclusive_to": "Windows.Networking.Vpn.VpnDomainNameInfo",
+      "methods": [
+        {
+          "name": "get_WebProxyUris",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "WebProxyUris",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_WebProxyUris"
+        }
+      ]
+    },
+    "IVpnDomainNameInfoFactory": {
+      "guid": "2507bb75-028f-4688-8d3a-c4531df37da8",
+      "methods": [
+        {
+          "name": "CreateVpnDomainNameInfo",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "nameType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnDomainNameType",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "dnsServerList",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "HostName",
+                    "namespace": "Windows.Networking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "proxyServerList",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "HostName",
+                    "namespace": "Windows.Networking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnDomainNameInfo",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IVpnForegroundActivatedEventArgs": {
+      "guid": "85b465b0-cadb-4d70-ac92-543a24dc9ebc",
+      "exclusive_to": "Windows.Networking.Vpn.VpnForegroundActivatedEventArgs",
+      "methods": [
+        {
+          "name": "get_ProfileName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SharedContext",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ActivationOperation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnForegroundActivationOperation",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ActivationOperation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VpnForegroundActivationOperation",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          },
+          "getter": "get_ActivationOperation"
+        },
+        {
+          "name": "ProfileName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ProfileName"
+        },
+        {
+          "name": "SharedContext",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          },
+          "getter": "get_SharedContext"
+        }
+      ]
+    },
+    "IVpnForegroundActivationOperation": {
+      "guid": "9e010d57-f17a-4bd5-9b6d-f984f1297d3c",
+      "exclusive_to": "Windows.Networking.Vpn.VpnForegroundActivationOperation",
+      "methods": [
+        {
+          "name": "Complete",
+          "params": [
+            {
+              "name": "result",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ValueSet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IVpnInterfaceId": {
+      "guid": "9e2ddca2-1712-4ce4-b179-8c652c6d1011",
+      "exclusive_to": "Windows.Networking.Vpn.VpnInterfaceId",
+      "methods": [
+        {
+          "name": "GetAddressInfo",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              },
+              "out": true
+            }
+          ]
+        }
+      ]
+    },
+    "IVpnInterfaceIdFactory": {
+      "guid": "9e2ddca2-1712-4ce4-b179-8c652c6d1000",
+      "methods": [
+        {
+          "name": "CreateVpnInterfaceId",
+          "params": [
+            {
+              "name": "address",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnInterfaceId",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IVpnManagementAgent": {
+      "guid": "193696cd-a5c4-4abe-852b-785be4cb3e34",
+      "exclusive_to": "Windows.Networking.Vpn.VpnManagementAgent",
+      "methods": [
+        {
+          "name": "AddProfileFromXmlAsync",
+          "params": [
+            {
+              "name": "xml",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnManagementErrorStatus",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "AddProfileFromObjectAsync",
+          "params": [
+            {
+              "name": "profile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IVpnProfile",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnManagementErrorStatus",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "UpdateProfileFromXmlAsync",
+          "params": [
+            {
+              "name": "xml",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnManagementErrorStatus",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "UpdateProfileFromObjectAsync",
+          "params": [
+            {
+              "name": "profile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IVpnProfile",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnManagementErrorStatus",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetProfilesAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IVpnProfile",
+                    "namespace": "Windows.Networking.Vpn",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "DeleteProfileAsync",
+          "params": [
+            {
+              "name": "profile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IVpnProfile",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnManagementErrorStatus",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ConnectProfileAsync",
+          "params": [
+            {
+              "name": "profile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IVpnProfile",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnManagementErrorStatus",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ConnectProfileWithPasswordCredentialAsync",
+          "params": [
+            {
+              "name": "profile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IVpnProfile",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "passwordCredential",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PasswordCredential",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnManagementErrorStatus",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "DisconnectProfileAsync",
+          "params": [
+            {
+              "name": "profile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IVpnProfile",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnManagementErrorStatus",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IVpnNamespaceAssignment": {
+      "guid": "d7f7db18-307d-4c0e-bd62-8fa270bbadd6",
+      "exclusive_to": "Windows.Networking.Vpn.VpnNamespaceAssignment",
+      "methods": [
+        {
+          "name": "put_NamespaceList",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVector`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "VpnNamespaceInfo",
+                    "namespace": "Windows.Networking.Vpn",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_NamespaceList",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnNamespaceInfo",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_ProxyAutoConfigUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ProxyAutoConfigUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "NamespaceList",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnNamespaceInfo",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_NamespaceList",
+          "setter": "put_NamespaceList"
+        },
+        {
+          "name": "ProxyAutoConfigUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_ProxyAutoConfigUri",
+          "setter": "put_ProxyAutoConfigUri"
+        }
+      ]
+    },
+    "IVpnNamespaceInfo": {
+      "guid": "30edfb43-444f-44c5-8167-a35a91f1af94",
+      "exclusive_to": "Windows.Networking.Vpn.VpnNamespaceInfo",
+      "methods": [
+        {
+          "name": "put_Namespace",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Namespace",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DnsServers",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVector`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "HostName",
+                    "namespace": "Windows.Networking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DnsServers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_WebProxyServers",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVector`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "HostName",
+                    "namespace": "Windows.Networking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_WebProxyServers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DnsServers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_DnsServers",
+          "setter": "put_DnsServers"
+        },
+        {
+          "name": "Namespace",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Namespace",
+          "setter": "put_Namespace"
+        },
+        {
+          "name": "WebProxyServers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_WebProxyServers",
+          "setter": "put_WebProxyServers"
+        }
+      ]
+    },
+    "IVpnNamespaceInfoFactory": {
+      "guid": "cb3e951a-b0ce-442b-acbb-5f99b202c31c",
+      "methods": [
+        {
+          "name": "CreateVpnNamespaceInfo",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "dnsServerList",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVector`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "HostName",
+                    "namespace": "Windows.Networking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "proxyServerList",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVector`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "HostName",
+                    "namespace": "Windows.Networking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnNamespaceInfo",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IVpnNativeProfile": {
+      "guid": "a4aee29e-6417-4333-9842-f0a66db69802",
+      "exclusive_to": "Windows.Networking.Vpn.VpnNativeProfile",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnProfile",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Servers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_RoutingPolicyType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnRoutingPolicyType",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_RoutingPolicyType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnRoutingPolicyType",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_NativeProtocolType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnNativeProtocolType",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_NativeProtocolType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnNativeProtocolType",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_UserAuthenticationMethod",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnAuthenticationMethod",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_UserAuthenticationMethod",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnAuthenticationMethod",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TunnelAuthenticationMethod",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnAuthenticationMethod",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_TunnelAuthenticationMethod",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnAuthenticationMethod",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_EapConfiguration",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_EapConfiguration",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "EapConfiguration",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EapConfiguration",
+          "setter": "put_EapConfiguration"
+        },
+        {
+          "name": "NativeProtocolType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VpnNativeProtocolType",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          },
+          "getter": "get_NativeProtocolType",
+          "setter": "put_NativeProtocolType"
+        },
+        {
+          "name": "RoutingPolicyType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VpnRoutingPolicyType",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RoutingPolicyType",
+          "setter": "put_RoutingPolicyType"
+        },
+        {
+          "name": "Servers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Servers"
+        },
+        {
+          "name": "TunnelAuthenticationMethod",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VpnAuthenticationMethod",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          },
+          "getter": "get_TunnelAuthenticationMethod",
+          "setter": "put_TunnelAuthenticationMethod"
+        },
+        {
+          "name": "UserAuthenticationMethod",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VpnAuthenticationMethod",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          },
+          "getter": "get_UserAuthenticationMethod",
+          "setter": "put_UserAuthenticationMethod"
+        }
+      ]
+    },
+    "IVpnNativeProfile2": {
+      "guid": "0fec2467-cdb5-4ac7-b5a3-0afb5ec47682",
+      "exclusive_to": "Windows.Networking.Vpn.VpnNativeProfile",
+      "methods": [
+        {
+          "name": "get_RequireVpnClientAppUI",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_RequireVpnClientAppUI",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ConnectionStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnManagementConnectionStatus",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ConnectionStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VpnManagementConnectionStatus",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ConnectionStatus"
+        },
+        {
+          "name": "RequireVpnClientAppUI",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_RequireVpnClientAppUI",
+          "setter": "put_RequireVpnClientAppUI"
+        }
+      ]
+    },
+    "IVpnPacketBuffer": {
+      "guid": "c2f891fc-4d5c-4a63-b70d-4e307eacce55",
+      "exclusive_to": "Windows.Networking.Vpn.VpnPacketBuffer",
+      "methods": [
+        {
+          "name": "get_Buffer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Buffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Status",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnPacketBufferStatus",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnPacketBufferStatus",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_TransportAffinity",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TransportAffinity",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Buffer",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Buffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Class"
+          },
+          "getter": "get_Buffer"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VpnPacketBufferStatus",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status",
+          "setter": "put_Status"
+        },
+        {
+          "name": "TransportAffinity",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_TransportAffinity",
+          "setter": "put_TransportAffinity"
+        }
+      ]
+    },
+    "IVpnPacketBuffer2": {
+      "guid": "665e91f0-8805-4bf5-a619-2e84882e6b4f",
+      "exclusive_to": "Windows.Networking.Vpn.VpnPacketBuffer",
+      "methods": [
+        {
+          "name": "get_AppId",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnAppId",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppId",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VpnAppId",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          },
+          "getter": "get_AppId"
+        }
+      ]
+    },
+    "IVpnPacketBuffer3": {
+      "guid": "e256072f-107b-4c40-b127-5bc53e0ad960",
+      "exclusive_to": "Windows.Networking.Vpn.VpnPacketBuffer",
+      "methods": [
+        {
+          "name": "put_TransportContext",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TransportContext",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "TransportContext",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_TransportContext",
+          "setter": "put_TransportContext"
+        }
+      ]
+    },
+    "IVpnPacketBufferFactory": {
+      "guid": "9e2ddca2-1712-4ce4-b179-8c652c6d9999",
+      "methods": [
+        {
+          "name": "CreateVpnPacketBuffer",
+          "params": [
+            {
+              "name": "parentBuffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnPacketBuffer",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "offset",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "length",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnPacketBuffer",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IVpnPacketBufferList": {
+      "guid": "c2f891fc-4d5c-4a63-b70d-4e307eacce77",
+      "exclusive_to": "Windows.Networking.Vpn.VpnPacketBufferList",
+      "requires": [
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "VpnPacketBuffer",
+              "namespace": "Windows.Networking.Vpn",
+              "target_kind": "Class"
+            }
+          ]
+        }
+      ],
+      "methods": [
+        {
+          "name": "Append",
+          "params": [
+            {
+              "name": "nextVpnPacketBuffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnPacketBuffer",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddAtBegin",
+          "params": [
+            {
+              "name": "nextVpnPacketBuffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnPacketBuffer",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RemoveAtEnd",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnPacketBuffer",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "RemoveAtBegin",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnPacketBuffer",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "Clear"
+        },
+        {
+          "name": "put_Status",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnPacketBufferStatus",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnPacketBufferStatus",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Size",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Size",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Size"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VpnPacketBufferStatus",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status",
+          "setter": "put_Status"
+        }
+      ]
+    },
+    "IVpnPacketBufferList2": {
+      "guid": "3e7acfe5-ea1e-482a-8d98-c065f57d89ea",
+      "exclusive_to": "Windows.Networking.Vpn.VpnPacketBufferList",
+      "requires": [
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "VpnPacketBuffer",
+              "namespace": "Windows.Networking.Vpn",
+              "target_kind": "Class"
+            }
+          ]
+        }
+      ],
+      "methods": [
+        {
+          "name": "AddLeadingPacket",
+          "params": [
+            {
+              "name": "nextVpnPacketBuffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnPacketBuffer",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RemoveLeadingPacket",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnPacketBuffer",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "AddTrailingPacket",
+          "params": [
+            {
+              "name": "nextVpnPacketBuffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnPacketBuffer",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RemoveTrailingPacket",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnPacketBuffer",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IVpnPickedCredential": {
+      "guid": "9a793ac7-8854-4e52-ad97-24dd9a842bce",
+      "exclusive_to": "Windows.Networking.Vpn.VpnPickedCredential",
+      "methods": [
+        {
+          "name": "get_PasskeyCredential",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_AdditionalPin",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_OldPasswordCredential",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AdditionalPin",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AdditionalPin"
+        },
+        {
+          "name": "OldPasswordCredential",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          },
+          "getter": "get_OldPasswordCredential"
+        },
+        {
+          "name": "PasskeyCredential",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          },
+          "getter": "get_PasskeyCredential"
+        }
+      ]
+    },
+    "IVpnPlugIn": {
+      "guid": "ceb78d07-d0a8-4703-a091-c8c2c0915bc4",
+      "methods": [
+        {
+          "name": "Connect",
+          "params": [
+            {
+              "name": "channel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnChannel",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Disconnect",
+          "params": [
+            {
+              "name": "channel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnChannel",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetKeepAlivePayload",
+          "params": [
+            {
+              "name": "channel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnChannel",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "keepAlivePacket",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnPacketBuffer",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "Encapsulate",
+          "params": [
+            {
+              "name": "channel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnChannel",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "packets",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnPacketBufferList",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "encapulatedPackets",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnPacketBufferList",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Decapsulate",
+          "params": [
+            {
+              "name": "channel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnChannel",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "encapBuffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnPacketBuffer",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "decapsulatedPackets",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnPacketBufferList",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "controlPacketsToSend",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnPacketBufferList",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IVpnPlugInProfile": {
+      "guid": "0edf0da4-4f00-4589-8d7b-4bf988f6542c",
+      "exclusive_to": "Windows.Networking.Vpn.VpnPlugInProfile",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnProfile",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_ServerUris",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_CustomConfiguration",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_CustomConfiguration",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_VpnPluginPackageFamilyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_VpnPluginPackageFamilyName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CustomConfiguration",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CustomConfiguration",
+          "setter": "put_CustomConfiguration"
+        },
+        {
+          "name": "ServerUris",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_ServerUris"
+        },
+        {
+          "name": "VpnPluginPackageFamilyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_VpnPluginPackageFamilyName",
+          "setter": "put_VpnPluginPackageFamilyName"
+        }
+      ]
+    },
+    "IVpnPlugInProfile2": {
+      "guid": "611c4892-cf94-4ad6-ba99-00f4ff34565e",
+      "exclusive_to": "Windows.Networking.Vpn.VpnPlugInProfile",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnProfile",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_RequireVpnClientAppUI",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_RequireVpnClientAppUI",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ConnectionStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnManagementConnectionStatus",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ConnectionStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VpnManagementConnectionStatus",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ConnectionStatus"
+        },
+        {
+          "name": "RequireVpnClientAppUI",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_RequireVpnClientAppUI",
+          "setter": "put_RequireVpnClientAppUI"
+        }
+      ]
+    },
+    "IVpnPlugInReconnectTransport": {
+      "guid": "9d5a1092-bb46-4d34-9d88-f217893076f4",
+      "methods": [
+        {
+          "name": "ReconnectTransport",
+          "params": [
+            {
+              "name": "channel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnChannel",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "context",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IVpnProfile": {
+      "guid": "7875b751-b0d7-43db-8a93-d3fe2479e56a",
+      "methods": [
+        {
+          "name": "get_ProfileName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_ProfileName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AppTriggers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnAppId",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Routes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnRoute",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_DomainNameInfoList",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnDomainNameInfo",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_TrafficFilters",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnTrafficFilter",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_RememberCredentials",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_RememberCredentials",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AlwaysOn",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AlwaysOn",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AlwaysOn",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AlwaysOn",
+          "setter": "put_AlwaysOn"
+        },
+        {
+          "name": "AppTriggers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnAppId",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_AppTriggers"
+        },
+        {
+          "name": "DomainNameInfoList",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnDomainNameInfo",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_DomainNameInfoList"
+        },
+        {
+          "name": "ProfileName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ProfileName",
+          "setter": "put_ProfileName"
+        },
+        {
+          "name": "RememberCredentials",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_RememberCredentials",
+          "setter": "put_RememberCredentials"
+        },
+        {
+          "name": "Routes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnRoute",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Routes"
+        },
+        {
+          "name": "TrafficFilters",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnTrafficFilter",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_TrafficFilters"
+        }
+      ]
+    },
+    "IVpnRoute": {
+      "guid": "b5731b83-0969-4699-938e-7776db29cfb3",
+      "exclusive_to": "Windows.Networking.Vpn.VpnRoute",
+      "methods": [
+        {
+          "name": "put_Address",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Address",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_PrefixSize",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PrefixSize",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Address",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          },
+          "getter": "get_Address",
+          "setter": "put_Address"
+        },
+        {
+          "name": "PrefixSize",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_PrefixSize",
+          "setter": "put_PrefixSize"
+        }
+      ]
+    },
+    "IVpnRouteAssignment": {
+      "guid": "db64de22-ce39-4a76-9550-f61039f80e48",
+      "exclusive_to": "Windows.Networking.Vpn.VpnRouteAssignment",
+      "methods": [
+        {
+          "name": "put_Ipv4InclusionRoutes",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVector`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "VpnRoute",
+                    "namespace": "Windows.Networking.Vpn",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "put_Ipv6InclusionRoutes",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVector`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "VpnRoute",
+                    "namespace": "Windows.Networking.Vpn",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Ipv4InclusionRoutes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnRoute",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Ipv6InclusionRoutes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnRoute",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Ipv4ExclusionRoutes",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVector`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "VpnRoute",
+                    "namespace": "Windows.Networking.Vpn",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "put_Ipv6ExclusionRoutes",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVector`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "VpnRoute",
+                    "namespace": "Windows.Networking.Vpn",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Ipv4ExclusionRoutes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnRoute",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Ipv6ExclusionRoutes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnRoute",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_ExcludeLocalSubnets",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ExcludeLocalSubnets",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExcludeLocalSubnets",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ExcludeLocalSubnets",
+          "setter": "put_ExcludeLocalSubnets"
+        },
+        {
+          "name": "Ipv4ExclusionRoutes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnRoute",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Ipv4ExclusionRoutes",
+          "setter": "put_Ipv4ExclusionRoutes"
+        },
+        {
+          "name": "Ipv4InclusionRoutes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnRoute",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Ipv4InclusionRoutes",
+          "setter": "put_Ipv4InclusionRoutes"
+        },
+        {
+          "name": "Ipv6ExclusionRoutes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnRoute",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Ipv6ExclusionRoutes",
+          "setter": "put_Ipv6ExclusionRoutes"
+        },
+        {
+          "name": "Ipv6InclusionRoutes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnRoute",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Ipv6InclusionRoutes",
+          "setter": "put_Ipv6InclusionRoutes"
+        }
+      ]
+    },
+    "IVpnRouteFactory": {
+      "guid": "bdeab5ff-45cf-4b99-83fb-db3bc2672b02",
+      "methods": [
+        {
+          "name": "CreateVpnRoute",
+          "params": [
+            {
+              "name": "address",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "prefixSize",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnRoute",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IVpnSystemHealth": {
+      "guid": "99a8f8af-c0ee-4e75-817a-f231aee5123d",
+      "exclusive_to": "Windows.Networking.Vpn.VpnSystemHealth",
+      "methods": [
+        {
+          "name": "get_StatementOfHealth",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Buffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "StatementOfHealth",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Buffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Class"
+          },
+          "getter": "get_StatementOfHealth"
+        }
+      ]
+    },
+    "IVpnTrafficFilter": {
+      "guid": "2f691b60-6c9f-47f5-ac36-bb1b042e2c50",
+      "exclusive_to": "Windows.Networking.Vpn.VpnTrafficFilter",
+      "methods": [
+        {
+          "name": "get_AppId",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnAppId",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_AppId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnAppId",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AppClaims",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Protocol",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnIPProtocol",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Protocol",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnIPProtocol",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LocalPortRanges",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_RemotePortRanges",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_LocalAddressRanges",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_RemoteAddressRanges",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_RoutingPolicyType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnRoutingPolicyType",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_RoutingPolicyType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnRoutingPolicyType",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppClaims",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_AppClaims"
+        },
+        {
+          "name": "AppId",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VpnAppId",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          },
+          "getter": "get_AppId",
+          "setter": "put_AppId"
+        },
+        {
+          "name": "LocalAddressRanges",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_LocalAddressRanges"
+        },
+        {
+          "name": "LocalPortRanges",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_LocalPortRanges"
+        },
+        {
+          "name": "Protocol",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VpnIPProtocol",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Protocol",
+          "setter": "put_Protocol"
+        },
+        {
+          "name": "RemoteAddressRanges",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_RemoteAddressRanges"
+        },
+        {
+          "name": "RemotePortRanges",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_RemotePortRanges"
+        },
+        {
+          "name": "RoutingPolicyType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VpnRoutingPolicyType",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RoutingPolicyType",
+          "setter": "put_RoutingPolicyType"
+        }
+      ]
+    },
+    "IVpnTrafficFilterAssignment": {
+      "guid": "56ccd45c-e664-471e-89cd-601603b9e0f3",
+      "exclusive_to": "Windows.Networking.Vpn.VpnTrafficFilterAssignment",
+      "methods": [
+        {
+          "name": "get_TrafficFilterList",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnTrafficFilter",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_AllowOutbound",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AllowOutbound",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AllowInbound",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AllowInbound",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllowInbound",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AllowInbound",
+          "setter": "put_AllowInbound"
+        },
+        {
+          "name": "AllowOutbound",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AllowOutbound",
+          "setter": "put_AllowOutbound"
+        },
+        {
+          "name": "TrafficFilterList",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VpnTrafficFilter",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_TrafficFilterList"
+        }
+      ]
+    },
+    "IVpnTrafficFilterFactory": {
+      "guid": "480d41d5-7f99-474c-86ee-96df168318f1",
+      "exclusive_to": "Windows.Networking.Vpn.VpnTrafficFilter",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "appId",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VpnAppId",
+                "namespace": "Windows.Networking.Vpn",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VpnTrafficFilter",
+            "namespace": "Windows.Networking.Vpn",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "VpnAppId": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnAppId",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnAppId",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Networking.Vpn.IVpnAppIdFactory"
+      ]
+    },
+    "VpnChannel": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnChannel",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnChannel",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVpnChannel2",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVpnChannel4",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVpnChannel5",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVpnChannel6",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Networking.Vpn.IVpnChannelStatics"
+      ]
+    },
+    "VpnChannelActivityEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnChannelActivityEventArgs",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnChannelActivityEventArgs",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VpnChannelActivityStateChangedArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnChannelActivityStateChangedArgs",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnChannelActivityStateChangedArgs",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VpnChannelConfiguration": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnChannelConfiguration",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnChannelConfiguration",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVpnChannelConfiguration2",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VpnCredential": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnCredential",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCredential",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VpnCustomCheckBox": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnCustomCheckBox",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomCheckBox",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomPrompt",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "VpnCustomComboBox": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnCustomComboBox",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomComboBox",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomPrompt",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "VpnCustomEditBox": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnCustomEditBox",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomEditBox",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomPrompt",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "VpnCustomErrorBox": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnCustomErrorBox",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomErrorBox",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomPrompt",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "VpnCustomPromptBooleanInput": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnCustomPromptBooleanInput",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomPromptBooleanInput",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomPromptElement",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "VpnCustomPromptOptionSelector": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnCustomPromptOptionSelector",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomPromptOptionSelector",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomPromptElement",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "VpnCustomPromptText": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnCustomPromptText",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomPromptText",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomPromptElement",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "VpnCustomPromptTextInput": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnCustomPromptTextInput",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomPromptTextInput",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomPromptElement",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "VpnCustomTextBox": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnCustomTextBox",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomTextBox",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVpnCustomPrompt",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "VpnDomainNameAssignment": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnDomainNameAssignment",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnDomainNameAssignment",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "VpnDomainNameInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnDomainNameInfo",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnDomainNameInfo",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVpnDomainNameInfo2",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Networking.Vpn.IVpnDomainNameInfoFactory"
+      ]
+    },
+    "VpnForegroundActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnForegroundActivatedEventArgs",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnForegroundActivatedEventArgs",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VpnForegroundActivationOperation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnForegroundActivationOperation",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnForegroundActivationOperation",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VpnInterfaceId": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnInterfaceId",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnInterfaceId",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Networking.Vpn.IVpnInterfaceIdFactory"
+      ]
+    },
+    "VpnManagementAgent": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnManagementAgent",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnManagementAgent",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "VpnNamespaceAssignment": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnNamespaceAssignment",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnNamespaceAssignment",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "VpnNamespaceInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnNamespaceInfo",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnNamespaceInfo",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Networking.Vpn.IVpnNamespaceInfoFactory"
+      ]
+    },
+    "VpnNativeProfile": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnNativeProfile",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnNativeProfile",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVpnProfile",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVpnNativeProfile2",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "VpnPacketBuffer": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnPacketBuffer",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnPacketBuffer",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVpnPacketBuffer2",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVpnPacketBuffer3",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Networking.Vpn.IVpnPacketBufferFactory"
+      ]
+    },
+    "VpnPacketBufferList": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnPacketBufferList",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnPacketBufferList",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "VpnPacketBuffer",
+              "namespace": "Windows.Networking.Vpn",
+              "target_kind": "Class"
+            }
+          ]
+        }
+      ]
+    },
+    "VpnPickedCredential": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnPickedCredential",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnPickedCredential",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VpnPlugInProfile": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnPlugInProfile",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnPlugInProfile",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVpnProfile",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVpnPlugInProfile2",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "VpnRoute": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnRoute",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnRoute",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Networking.Vpn.IVpnRouteFactory"
+      ]
+    },
+    "VpnRouteAssignment": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnRouteAssignment",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnRouteAssignment",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "VpnSystemHealth": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnSystemHealth",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnSystemHealth",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VpnTrafficFilter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnTrafficFilter",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnTrafficFilter",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Networking.Vpn.IVpnTrafficFilterFactory"
+      ]
+    },
+    "VpnTrafficFilterAssignment": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVpnTrafficFilterAssignment",
+        "namespace": "Windows.Networking.Vpn",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVpnTrafficFilterAssignment",
+          "namespace": "Windows.Networking.Vpn",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  }
+}

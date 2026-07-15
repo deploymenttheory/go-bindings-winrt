@@ -1,0 +1,1736 @@
+{
+  "namespace": "Windows.UI.ViewManagement.Core",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "CoreInputViewKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "Keyboard",
+          "value": "1"
+        },
+        {
+          "name": "Handwriting",
+          "value": "2"
+        },
+        {
+          "name": "Emoji",
+          "value": "3"
+        },
+        {
+          "name": "Symbols",
+          "value": "4"
+        },
+        {
+          "name": "Clipboard",
+          "value": "5"
+        },
+        {
+          "name": "Dictation",
+          "value": "6"
+        },
+        {
+          "name": "Gamepad",
+          "value": "7"
+        }
+      ]
+    },
+    "CoreInputViewOcclusionKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Docked",
+          "value": "0"
+        },
+        {
+          "name": "Floating",
+          "value": "1"
+        },
+        {
+          "name": "Overlay",
+          "value": "2"
+        }
+      ]
+    },
+    "CoreInputViewXYFocusTransferDirection": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Up",
+          "value": "0"
+        },
+        {
+          "name": "Right",
+          "value": "1"
+        },
+        {
+          "name": "Down",
+          "value": "2"
+        },
+        {
+          "name": "Left",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ICoreFrameworkInputView": {
+      "guid": "d77c94ae-46b8-5d4a-9489-8ddec3d639a6",
+      "exclusive_to": "Windows.UI.ViewManagement.Core.CoreFrameworkInputView",
+      "methods": [
+        {
+          "name": "add_PrimaryViewAnimationStarting",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreFrameworkInputView",
+                    "namespace": "Windows.UI.ViewManagement.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreFrameworkInputViewAnimationStartingEventArgs",
+                    "namespace": "Windows.UI.ViewManagement.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PrimaryViewAnimationStarting",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_OcclusionsChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreFrameworkInputView",
+                    "namespace": "Windows.UI.ViewManagement.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreFrameworkInputViewOcclusionsChangedEventArgs",
+                    "namespace": "Windows.UI.ViewManagement.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_OcclusionsChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "OcclusionsChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreFrameworkInputView",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CoreFrameworkInputViewOcclusionsChangedEventArgs",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_OcclusionsChanged",
+          "remove_method": "remove_OcclusionsChanged"
+        },
+        {
+          "name": "PrimaryViewAnimationStarting",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreFrameworkInputView",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CoreFrameworkInputViewAnimationStartingEventArgs",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PrimaryViewAnimationStarting",
+          "remove_method": "remove_PrimaryViewAnimationStarting"
+        }
+      ]
+    },
+    "ICoreFrameworkInputViewAnimationStartingEventArgs": {
+      "guid": "c0ec901c-bba4-501b-ae8b-65c9e756a719",
+      "exclusive_to": "Windows.UI.ViewManagement.Core.CoreFrameworkInputViewAnimationStartingEventArgs",
+      "methods": [
+        {
+          "name": "get_Occlusions",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreInputViewOcclusion",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_FrameworkAnimationRecommended",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_AnimationDuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AnimationDuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_AnimationDuration"
+        },
+        {
+          "name": "FrameworkAnimationRecommended",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_FrameworkAnimationRecommended"
+        },
+        {
+          "name": "Occlusions",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreInputViewOcclusion",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Occlusions"
+        }
+      ]
+    },
+    "ICoreFrameworkInputViewOcclusionsChangedEventArgs": {
+      "guid": "f36f4949-c82c-53d1-a75d-2b2baf0d9b0d",
+      "exclusive_to": "Windows.UI.ViewManagement.Core.CoreFrameworkInputViewOcclusionsChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_Occlusions",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreInputViewOcclusion",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled"
+        },
+        {
+          "name": "Occlusions",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreInputViewOcclusion",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Occlusions"
+        }
+      ]
+    },
+    "ICoreFrameworkInputViewStatics": {
+      "guid": "6eebd9b6-eac2-5f8b-975f-772ee3e42eeb",
+      "exclusive_to": "Windows.UI.ViewManagement.Core.CoreFrameworkInputView",
+      "methods": [
+        {
+          "name": "GetForUIContext",
+          "params": [
+            {
+              "name": "context",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIContext",
+                "namespace": "Windows.UI",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreFrameworkInputView",
+            "namespace": "Windows.UI.ViewManagement.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetForCurrentView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreFrameworkInputView",
+            "namespace": "Windows.UI.ViewManagement.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ICoreInputView": {
+      "guid": "c770cd7a-7001-4c32-bf94-25c1f554cbf1",
+      "exclusive_to": "Windows.UI.ViewManagement.Core.CoreInputView",
+      "methods": [
+        {
+          "name": "add_OcclusionsChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreInputView",
+                    "namespace": "Windows.UI.ViewManagement.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreInputViewOcclusionsChangedEventArgs",
+                    "namespace": "Windows.UI.ViewManagement.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_OcclusionsChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetCoreInputViewOcclusions",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreInputViewOcclusion",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryShowPrimaryView",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TryHidePrimaryView",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "events": [
+        {
+          "name": "OcclusionsChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreInputView",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CoreInputViewOcclusionsChangedEventArgs",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_OcclusionsChanged",
+          "remove_method": "remove_OcclusionsChanged"
+        }
+      ]
+    },
+    "ICoreInputView2": {
+      "guid": "0ed726c1-e09a-4ae8-aedf-dfa4857d1a01",
+      "exclusive_to": "Windows.UI.ViewManagement.Core.CoreInputView",
+      "methods": [
+        {
+          "name": "add_XYFocusTransferringFromPrimaryView",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreInputView",
+                    "namespace": "Windows.UI.ViewManagement.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreInputViewTransferringXYFocusEventArgs",
+                    "namespace": "Windows.UI.ViewManagement.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_XYFocusTransferringFromPrimaryView",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_XYFocusTransferredToPrimaryView",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreInputView",
+                    "namespace": "Windows.UI.ViewManagement.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_XYFocusTransferredToPrimaryView",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TryTransferXYFocusToPrimaryView",
+          "params": [
+            {
+              "name": "origin",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "direction",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreInputViewXYFocusTransferDirection",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "events": [
+        {
+          "name": "XYFocusTransferredToPrimaryView",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreInputView",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_XYFocusTransferredToPrimaryView",
+          "remove_method": "remove_XYFocusTransferredToPrimaryView"
+        },
+        {
+          "name": "XYFocusTransferringFromPrimaryView",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreInputView",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CoreInputViewTransferringXYFocusEventArgs",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_XYFocusTransferringFromPrimaryView",
+          "remove_method": "remove_XYFocusTransferringFromPrimaryView"
+        }
+      ]
+    },
+    "ICoreInputView3": {
+      "guid": "bc941653-3ab9-4849-8f58-46e7f0353cfc",
+      "exclusive_to": "Windows.UI.ViewManagement.Core.CoreInputView",
+      "methods": [
+        {
+          "name": "TryShow",
+          "overload": "TryShow",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TryShow",
+          "overload": "TryShowWithKind",
+          "params": [
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreInputViewKind",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TryHide",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "ICoreInputView4": {
+      "guid": "002863d6-d9ef-57eb-8cef-77f6ce1b7ee7",
+      "exclusive_to": "Windows.UI.ViewManagement.Core.CoreInputView",
+      "methods": [
+        {
+          "name": "add_PrimaryViewShowing",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreInputView",
+                    "namespace": "Windows.UI.ViewManagement.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreInputViewShowingEventArgs",
+                    "namespace": "Windows.UI.ViewManagement.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PrimaryViewShowing",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PrimaryViewHiding",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreInputView",
+                    "namespace": "Windows.UI.ViewManagement.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreInputViewHidingEventArgs",
+                    "namespace": "Windows.UI.ViewManagement.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PrimaryViewHiding",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "PrimaryViewHiding",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreInputView",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CoreInputViewHidingEventArgs",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PrimaryViewHiding",
+          "remove_method": "remove_PrimaryViewHiding"
+        },
+        {
+          "name": "PrimaryViewShowing",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreInputView",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CoreInputViewShowingEventArgs",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PrimaryViewShowing",
+          "remove_method": "remove_PrimaryViewShowing"
+        }
+      ]
+    },
+    "ICoreInputView5": {
+      "guid": "136316e0-c6d5-5c57-811e-1ad8a99ba6ab",
+      "exclusive_to": "Windows.UI.ViewManagement.Core.CoreInputView",
+      "methods": [
+        {
+          "name": "IsKindSupported",
+          "params": [
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreInputViewKind",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "add_SupportedKindsChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreInputView",
+                    "namespace": "Windows.UI.ViewManagement.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SupportedKindsChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PrimaryViewAnimationStarting",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreInputView",
+                    "namespace": "Windows.UI.ViewManagement.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreInputViewAnimationStartingEventArgs",
+                    "namespace": "Windows.UI.ViewManagement.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PrimaryViewAnimationStarting",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "PrimaryViewAnimationStarting",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreInputView",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CoreInputViewAnimationStartingEventArgs",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PrimaryViewAnimationStarting",
+          "remove_method": "remove_PrimaryViewAnimationStarting"
+        },
+        {
+          "name": "SupportedKindsChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreInputView",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_SupportedKindsChanged",
+          "remove_method": "remove_SupportedKindsChanged"
+        }
+      ]
+    },
+    "ICoreInputViewAnimationStartingEventArgs": {
+      "guid": "a9144af2-b55c-5ea1-b8ab-5340f3e94897",
+      "exclusive_to": "Windows.UI.ViewManagement.Core.CoreInputViewAnimationStartingEventArgs",
+      "methods": [
+        {
+          "name": "get_Occlusions",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreInputViewOcclusion",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AnimationDuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AnimationDuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_AnimationDuration"
+        },
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        },
+        {
+          "name": "Occlusions",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreInputViewOcclusion",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Occlusions"
+        }
+      ]
+    },
+    "ICoreInputViewHidingEventArgs": {
+      "guid": "eada47bd-bac5-5336-848d-41083584daad",
+      "exclusive_to": "Windows.UI.ViewManagement.Core.CoreInputViewHidingEventArgs",
+      "methods": [
+        {
+          "name": "TryCancel",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "ICoreInputViewOcclusion": {
+      "guid": "cc36ce06-3865-4177-b5f5-8b65e0b9ce84",
+      "exclusive_to": "Windows.UI.ViewManagement.Core.CoreInputViewOcclusion",
+      "methods": [
+        {
+          "name": "get_OccludingRect",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_OcclusionKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreInputViewOcclusionKind",
+            "namespace": "Windows.UI.ViewManagement.Core",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "OccludingRect",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_OccludingRect"
+        },
+        {
+          "name": "OcclusionKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreInputViewOcclusionKind",
+            "namespace": "Windows.UI.ViewManagement.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_OcclusionKind"
+        }
+      ]
+    },
+    "ICoreInputViewOcclusionsChangedEventArgs": {
+      "guid": "be1027e8-b3ee-4df7-9554-89cdc66082c2",
+      "exclusive_to": "Windows.UI.ViewManagement.Core.CoreInputViewOcclusionsChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_Occlusions",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreInputViewOcclusion",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        },
+        {
+          "name": "Occlusions",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreInputViewOcclusion",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Occlusions"
+        }
+      ]
+    },
+    "ICoreInputViewShowingEventArgs": {
+      "guid": "ca52261b-fb9e-5daf-a98c-262b8b76af50",
+      "exclusive_to": "Windows.UI.ViewManagement.Core.CoreInputViewShowingEventArgs",
+      "methods": [
+        {
+          "name": "TryCancel",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "ICoreInputViewStatics": {
+      "guid": "7d9b97cd-edbe-49cf-a54f-337de052907f",
+      "exclusive_to": "Windows.UI.ViewManagement.Core.CoreInputView",
+      "methods": [
+        {
+          "name": "GetForCurrentView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreInputView",
+            "namespace": "Windows.UI.ViewManagement.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ICoreInputViewStatics2": {
+      "guid": "7ebc0862-d049-4e52-87b0-1e90e98c49ed",
+      "exclusive_to": "Windows.UI.ViewManagement.Core.CoreInputView",
+      "methods": [
+        {
+          "name": "GetForUIContext",
+          "params": [
+            {
+              "name": "context",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIContext",
+                "namespace": "Windows.UI",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreInputView",
+            "namespace": "Windows.UI.ViewManagement.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ICoreInputViewTransferringXYFocusEventArgs": {
+      "guid": "04de169f-ba02-4850-8b55-d82d03ba6d7f",
+      "exclusive_to": "Windows.UI.ViewManagement.Core.CoreInputViewTransferringXYFocusEventArgs",
+      "methods": [
+        {
+          "name": "get_Origin",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Direction",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreInputViewXYFocusTransferDirection",
+            "namespace": "Windows.UI.ViewManagement.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_TransferHandled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TransferHandled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_KeepPrimaryViewVisible",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_KeepPrimaryViewVisible",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Direction",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreInputViewXYFocusTransferDirection",
+            "namespace": "Windows.UI.ViewManagement.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Direction"
+        },
+        {
+          "name": "KeepPrimaryViewVisible",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_KeepPrimaryViewVisible",
+          "setter": "put_KeepPrimaryViewVisible"
+        },
+        {
+          "name": "Origin",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Origin"
+        },
+        {
+          "name": "TransferHandled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_TransferHandled",
+          "setter": "put_TransferHandled"
+        }
+      ]
+    },
+    "IUISettingsController": {
+      "guid": "78a51ac4-15c0-5a1b-a75b-acbf9cb8bb9e",
+      "exclusive_to": "Windows.UI.ViewManagement.Core.UISettingsController",
+      "methods": [
+        {
+          "name": "SetAdvancedEffectsEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetAnimationsEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetAutoHideScrollBars",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetMessageDuration",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetTextScaleFactor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IUISettingsControllerStatics": {
+      "guid": "eb3c68cc-c220-578c-8119-7db324ed26a6",
+      "exclusive_to": "Windows.UI.ViewManagement.Core.UISettingsController",
+      "methods": [
+        {
+          "name": "RequestDefaultAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UISettingsController",
+                "namespace": "Windows.UI.ViewManagement.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "CoreFrameworkInputView": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreFrameworkInputView",
+        "namespace": "Windows.UI.ViewManagement.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreFrameworkInputView",
+          "namespace": "Windows.UI.ViewManagement.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.ViewManagement.Core.ICoreFrameworkInputViewStatics"
+      ]
+    },
+    "CoreFrameworkInputViewAnimationStartingEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreFrameworkInputViewAnimationStartingEventArgs",
+        "namespace": "Windows.UI.ViewManagement.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreFrameworkInputViewAnimationStartingEventArgs",
+          "namespace": "Windows.UI.ViewManagement.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreFrameworkInputViewOcclusionsChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreFrameworkInputViewOcclusionsChangedEventArgs",
+        "namespace": "Windows.UI.ViewManagement.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreFrameworkInputViewOcclusionsChangedEventArgs",
+          "namespace": "Windows.UI.ViewManagement.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreInputView": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreInputView",
+        "namespace": "Windows.UI.ViewManagement.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreInputView",
+          "namespace": "Windows.UI.ViewManagement.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreInputView2",
+          "namespace": "Windows.UI.ViewManagement.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreInputView3",
+          "namespace": "Windows.UI.ViewManagement.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreInputView4",
+          "namespace": "Windows.UI.ViewManagement.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreInputView5",
+          "namespace": "Windows.UI.ViewManagement.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.ViewManagement.Core.ICoreInputViewStatics",
+        "Windows.UI.ViewManagement.Core.ICoreInputViewStatics2"
+      ]
+    },
+    "CoreInputViewAnimationStartingEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreInputViewAnimationStartingEventArgs",
+        "namespace": "Windows.UI.ViewManagement.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreInputViewAnimationStartingEventArgs",
+          "namespace": "Windows.UI.ViewManagement.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreInputViewHidingEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreInputViewHidingEventArgs",
+        "namespace": "Windows.UI.ViewManagement.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreInputViewHidingEventArgs",
+          "namespace": "Windows.UI.ViewManagement.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreInputViewOcclusion": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreInputViewOcclusion",
+        "namespace": "Windows.UI.ViewManagement.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreInputViewOcclusion",
+          "namespace": "Windows.UI.ViewManagement.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreInputViewOcclusionsChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreInputViewOcclusionsChangedEventArgs",
+        "namespace": "Windows.UI.ViewManagement.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreInputViewOcclusionsChangedEventArgs",
+          "namespace": "Windows.UI.ViewManagement.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreInputViewShowingEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreInputViewShowingEventArgs",
+        "namespace": "Windows.UI.ViewManagement.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreInputViewShowingEventArgs",
+          "namespace": "Windows.UI.ViewManagement.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreInputViewTransferringXYFocusEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreInputViewTransferringXYFocusEventArgs",
+        "namespace": "Windows.UI.ViewManagement.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreInputViewTransferringXYFocusEventArgs",
+          "namespace": "Windows.UI.ViewManagement.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UISettingsController": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUISettingsController",
+        "namespace": "Windows.UI.ViewManagement.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUISettingsController",
+          "namespace": "Windows.UI.ViewManagement.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.ViewManagement.Core.IUISettingsControllerStatics"
+      ]
+    }
+  }
+}

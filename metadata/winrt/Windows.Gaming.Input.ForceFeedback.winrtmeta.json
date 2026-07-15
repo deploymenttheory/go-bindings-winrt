@@ -1,0 +1,1051 @@
+{
+  "namespace": "Windows.Gaming.Input.ForceFeedback",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "ConditionForceEffectKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Spring",
+          "value": "0"
+        },
+        {
+          "name": "Damper",
+          "value": "1"
+        },
+        {
+          "name": "Inertia",
+          "value": "2"
+        },
+        {
+          "name": "Friction",
+          "value": "3"
+        }
+      ]
+    },
+    "ForceFeedbackEffectAxes": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "X",
+          "value": "1"
+        },
+        {
+          "name": "Y",
+          "value": "2"
+        },
+        {
+          "name": "Z",
+          "value": "4"
+        }
+      ]
+    },
+    "ForceFeedbackEffectState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Stopped",
+          "value": "0"
+        },
+        {
+          "name": "Running",
+          "value": "1"
+        },
+        {
+          "name": "Paused",
+          "value": "2"
+        },
+        {
+          "name": "Faulted",
+          "value": "3"
+        }
+      ]
+    },
+    "ForceFeedbackLoadEffectResult": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Succeeded",
+          "value": "0"
+        },
+        {
+          "name": "EffectStorageFull",
+          "value": "1"
+        },
+        {
+          "name": "EffectNotSupported",
+          "value": "2"
+        }
+      ]
+    },
+    "PeriodicForceEffectKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "SquareWave",
+          "value": "0"
+        },
+        {
+          "name": "SineWave",
+          "value": "1"
+        },
+        {
+          "name": "TriangleWave",
+          "value": "2"
+        },
+        {
+          "name": "SawtoothWaveUp",
+          "value": "3"
+        },
+        {
+          "name": "SawtoothWaveDown",
+          "value": "4"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IConditionForceEffect": {
+      "guid": "32d1ea68-3695-4e69-85c0-cd1944189140",
+      "exclusive_to": "Windows.Gaming.Input.ForceFeedback.ConditionForceEffect",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IForceFeedbackEffect",
+          "namespace": "Windows.Gaming.Input.ForceFeedback",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ConditionForceEffectKind",
+            "namespace": "Windows.Gaming.Input.ForceFeedback",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "SetParameters",
+          "params": [
+            {
+              "name": "direction",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "positiveCoefficient",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "negativeCoefficient",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "maxPositiveMagnitude",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "maxNegativeMagnitude",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "deadZone",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "bias",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ConditionForceEffectKind",
+            "namespace": "Windows.Gaming.Input.ForceFeedback",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        }
+      ]
+    },
+    "IConditionForceEffectFactory": {
+      "guid": "91a99264-1810-4eb6-a773-bfd3b8cddbab",
+      "exclusive_to": "Windows.Gaming.Input.ForceFeedback.ConditionForceEffect",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "effectKind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ConditionForceEffectKind",
+                "namespace": "Windows.Gaming.Input.ForceFeedback",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ConditionForceEffect",
+            "namespace": "Windows.Gaming.Input.ForceFeedback",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IConstantForceEffect": {
+      "guid": "9bfa0140-f3c7-415c-b068-0f068734bce0",
+      "exclusive_to": "Windows.Gaming.Input.ForceFeedback.ConstantForceEffect",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IForceFeedbackEffect",
+          "namespace": "Windows.Gaming.Input.ForceFeedback",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "SetParameters",
+          "params": [
+            {
+              "name": "vector",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "duration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetParametersWithEnvelope",
+          "params": [
+            {
+              "name": "vector",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "attackGain",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "sustainGain",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "releaseGain",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "startDelay",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "attackDuration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "sustainDuration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "releaseDuration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "repeatCount",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IForceFeedbackEffect": {
+      "guid": "a17fba0c-2ae4-48c2-8063-eabd0777cb89",
+      "methods": [
+        {
+          "name": "get_Gain",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_Gain",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_State",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ForceFeedbackEffectState",
+            "namespace": "Windows.Gaming.Input.ForceFeedback",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Start"
+        },
+        {
+          "name": "Stop"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Gain",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Gain",
+          "setter": "put_Gain"
+        },
+        {
+          "name": "State",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ForceFeedbackEffectState",
+            "namespace": "Windows.Gaming.Input.ForceFeedback",
+            "target_kind": "Enum"
+          },
+          "getter": "get_State"
+        }
+      ]
+    },
+    "IForceFeedbackMotor": {
+      "guid": "8d3d417c-a5ea-4516-8026-2b00f74ef6e5",
+      "exclusive_to": "Windows.Gaming.Input.ForceFeedback.ForceFeedbackMotor",
+      "methods": [
+        {
+          "name": "get_AreEffectsPaused",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_MasterGain",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_MasterGain",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SupportedAxes",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ForceFeedbackEffectAxes",
+            "namespace": "Windows.Gaming.Input.ForceFeedback",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "LoadEffectAsync",
+          "params": [
+            {
+              "name": "effect",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IForceFeedbackEffect",
+                "namespace": "Windows.Gaming.Input.ForceFeedback",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ForceFeedbackLoadEffectResult",
+                "namespace": "Windows.Gaming.Input.ForceFeedback",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "PauseAllEffects"
+        },
+        {
+          "name": "ResumeAllEffects"
+        },
+        {
+          "name": "StopAllEffects"
+        },
+        {
+          "name": "TryDisableAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryEnableAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryResetAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryUnloadEffectAsync",
+          "params": [
+            {
+              "name": "effect",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IForceFeedbackEffect",
+                "namespace": "Windows.Gaming.Input.ForceFeedback",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AreEffectsPaused",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AreEffectsPaused"
+        },
+        {
+          "name": "IsEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsEnabled"
+        },
+        {
+          "name": "MasterGain",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_MasterGain",
+          "setter": "put_MasterGain"
+        },
+        {
+          "name": "SupportedAxes",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ForceFeedbackEffectAxes",
+            "namespace": "Windows.Gaming.Input.ForceFeedback",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SupportedAxes"
+        }
+      ]
+    },
+    "IPeriodicForceEffect": {
+      "guid": "5c5138d7-fc75-4d52-9a0a-efe4cab5fe64",
+      "exclusive_to": "Windows.Gaming.Input.ForceFeedback.PeriodicForceEffect",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IForceFeedbackEffect",
+          "namespace": "Windows.Gaming.Input.ForceFeedback",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PeriodicForceEffectKind",
+            "namespace": "Windows.Gaming.Input.ForceFeedback",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "SetParameters",
+          "params": [
+            {
+              "name": "vector",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "frequency",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "phase",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "bias",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "duration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetParametersWithEnvelope",
+          "params": [
+            {
+              "name": "vector",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "frequency",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "phase",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "bias",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "attackGain",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "sustainGain",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "releaseGain",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "startDelay",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "attackDuration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "sustainDuration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "releaseDuration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "repeatCount",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PeriodicForceEffectKind",
+            "namespace": "Windows.Gaming.Input.ForceFeedback",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        }
+      ]
+    },
+    "IPeriodicForceEffectFactory": {
+      "guid": "6f62eb1a-9851-477b-b318-35ecaa15070f",
+      "exclusive_to": "Windows.Gaming.Input.ForceFeedback.PeriodicForceEffect",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "effectKind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PeriodicForceEffectKind",
+                "namespace": "Windows.Gaming.Input.ForceFeedback",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PeriodicForceEffect",
+            "namespace": "Windows.Gaming.Input.ForceFeedback",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IRampForceEffect": {
+      "guid": "f1f81259-1ca6-4080-b56d-b43f3354d052",
+      "exclusive_to": "Windows.Gaming.Input.ForceFeedback.RampForceEffect",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IForceFeedbackEffect",
+          "namespace": "Windows.Gaming.Input.ForceFeedback",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "SetParameters",
+          "params": [
+            {
+              "name": "startVector",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "endVector",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "duration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetParametersWithEnvelope",
+          "params": [
+            {
+              "name": "startVector",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "endVector",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "attackGain",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "sustainGain",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "releaseGain",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "startDelay",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "attackDuration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "sustainDuration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "releaseDuration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "repeatCount",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "classes": {
+    "ConditionForceEffect": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IForceFeedbackEffect",
+        "namespace": "Windows.Gaming.Input.ForceFeedback",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IForceFeedbackEffect",
+          "namespace": "Windows.Gaming.Input.ForceFeedback",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IConditionForceEffect",
+          "namespace": "Windows.Gaming.Input.ForceFeedback",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Gaming.Input.ForceFeedback.IConditionForceEffectFactory"
+      ]
+    },
+    "ConstantForceEffect": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IForceFeedbackEffect",
+        "namespace": "Windows.Gaming.Input.ForceFeedback",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IForceFeedbackEffect",
+          "namespace": "Windows.Gaming.Input.ForceFeedback",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IConstantForceEffect",
+          "namespace": "Windows.Gaming.Input.ForceFeedback",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "ForceFeedbackMotor": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IForceFeedbackMotor",
+        "namespace": "Windows.Gaming.Input.ForceFeedback",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IForceFeedbackMotor",
+          "namespace": "Windows.Gaming.Input.ForceFeedback",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PeriodicForceEffect": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IForceFeedbackEffect",
+        "namespace": "Windows.Gaming.Input.ForceFeedback",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IForceFeedbackEffect",
+          "namespace": "Windows.Gaming.Input.ForceFeedback",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPeriodicForceEffect",
+          "namespace": "Windows.Gaming.Input.ForceFeedback",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Gaming.Input.ForceFeedback.IPeriodicForceEffectFactory"
+      ]
+    },
+    "RampForceEffect": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IForceFeedbackEffect",
+        "namespace": "Windows.Gaming.Input.ForceFeedback",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IForceFeedbackEffect",
+          "namespace": "Windows.Gaming.Input.ForceFeedback",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRampForceEffect",
+          "namespace": "Windows.Gaming.Input.ForceFeedback",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  }
+}

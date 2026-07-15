@@ -1,0 +1,1766 @@
+{
+  "namespace": "Windows.Graphics.Printing.PrintTicket",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "PrintTicketFeatureSelectionType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "PickOne",
+          "value": "0"
+        },
+        {
+          "name": "PickMany",
+          "value": "1"
+        }
+      ]
+    },
+    "PrintTicketParameterDataType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Integer",
+          "value": "0"
+        },
+        {
+          "name": "NumericString",
+          "value": "1"
+        },
+        {
+          "name": "String",
+          "value": "2"
+        }
+      ]
+    },
+    "PrintTicketValueType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Integer",
+          "value": "0"
+        },
+        {
+          "name": "String",
+          "value": "1"
+        },
+        {
+          "name": "Unknown",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IPrintTicketCapabilities": {
+      "guid": "8c45508b-bbdc-4256-a142-2fd615ecb416",
+      "exclusive_to": "Windows.Graphics.Printing.PrintTicket.PrintTicketCapabilities",
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_XmlNamespace",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_XmlNode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_DocumentBindingFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DocumentCollateFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DocumentDuplexFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DocumentHolePunchFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DocumentInputBinFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DocumentNUpFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DocumentStapleFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_JobPasscodeFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PageBorderlessFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PageMediaSizeFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PageMediaTypeFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PageOrientationFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PageOutputColorFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PageOutputQualityFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PageResolutionFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetFeature",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "xmlNamespace",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetParameterDefinition",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "xmlNamespace",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketParameterDefinition",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DocumentBindingFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_DocumentBindingFeature"
+        },
+        {
+          "name": "DocumentCollateFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_DocumentCollateFeature"
+        },
+        {
+          "name": "DocumentDuplexFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_DocumentDuplexFeature"
+        },
+        {
+          "name": "DocumentHolePunchFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_DocumentHolePunchFeature"
+        },
+        {
+          "name": "DocumentInputBinFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_DocumentInputBinFeature"
+        },
+        {
+          "name": "DocumentNUpFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_DocumentNUpFeature"
+        },
+        {
+          "name": "DocumentStapleFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_DocumentStapleFeature"
+        },
+        {
+          "name": "JobPasscodeFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_JobPasscodeFeature"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        },
+        {
+          "name": "PageBorderlessFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_PageBorderlessFeature"
+        },
+        {
+          "name": "PageMediaSizeFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_PageMediaSizeFeature"
+        },
+        {
+          "name": "PageMediaTypeFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_PageMediaTypeFeature"
+        },
+        {
+          "name": "PageOrientationFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_PageOrientationFeature"
+        },
+        {
+          "name": "PageOutputColorFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_PageOutputColorFeature"
+        },
+        {
+          "name": "PageOutputQualityFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_PageOutputQualityFeature"
+        },
+        {
+          "name": "PageResolutionFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_PageResolutionFeature"
+        },
+        {
+          "name": "XmlNamespace",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_XmlNamespace"
+        },
+        {
+          "name": "XmlNode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          },
+          "getter": "get_XmlNode"
+        }
+      ]
+    },
+    "IPrintTicketFeature": {
+      "guid": "e7607d6a-59f5-4103-8858-b97710963d39",
+      "exclusive_to": "Windows.Graphics.Printing.PrintTicket.PrintTicketFeature",
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_XmlNamespace",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_XmlNode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetOption",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "xmlNamespace",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketOption",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Options",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintTicketOption",
+                "namespace": "Windows.Graphics.Printing.PrintTicket",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetSelectedOption",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketOption",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetSelectedOption",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintTicketOption",
+                "namespace": "Windows.Graphics.Printing.PrintTicket",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SelectionType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeatureSelectionType",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        },
+        {
+          "name": "Options",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintTicketOption",
+                "namespace": "Windows.Graphics.Printing.PrintTicket",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Options"
+        },
+        {
+          "name": "SelectionType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeatureSelectionType",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SelectionType"
+        },
+        {
+          "name": "XmlNamespace",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_XmlNamespace"
+        },
+        {
+          "name": "XmlNode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          },
+          "getter": "get_XmlNode"
+        }
+      ]
+    },
+    "IPrintTicketOption": {
+      "guid": "b086cf90-b367-4e4b-bd48-9c78a0bb31ce",
+      "exclusive_to": "Windows.Graphics.Printing.PrintTicket.PrintTicketOption",
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_XmlNamespace",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_XmlNode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetPropertyNode",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "xmlNamespace",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetScoredPropertyNode",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "xmlNamespace",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetPropertyValue",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "xmlNamespace",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketValue",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetScoredPropertyValue",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "xmlNamespace",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketValue",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        },
+        {
+          "name": "XmlNamespace",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_XmlNamespace"
+        },
+        {
+          "name": "XmlNode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          },
+          "getter": "get_XmlNode"
+        }
+      ]
+    },
+    "IPrintTicketParameterDefinition": {
+      "guid": "d6bab4e4-2962-4c01-b7f3-9a9294eb8335",
+      "exclusive_to": "Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDefinition",
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_XmlNamespace",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_XmlNode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_DataType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketParameterDataType",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_UnitType",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RangeMin",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_RangeMax",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DataType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketParameterDataType",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DataType"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        },
+        {
+          "name": "RangeMax",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_RangeMax"
+        },
+        {
+          "name": "RangeMin",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_RangeMin"
+        },
+        {
+          "name": "UnitType",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_UnitType"
+        },
+        {
+          "name": "XmlNamespace",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_XmlNamespace"
+        },
+        {
+          "name": "XmlNode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          },
+          "getter": "get_XmlNode"
+        }
+      ]
+    },
+    "IPrintTicketParameterInitializer": {
+      "guid": "5e3335bb-a0a5-48b1-9d5c-07116ddc597a",
+      "exclusive_to": "Windows.Graphics.Printing.PrintTicket.PrintTicketParameterInitializer",
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_XmlNamespace",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_XmlNode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_Value",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintTicketValue",
+                "namespace": "Windows.Graphics.Printing.PrintTicket",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketValue",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketValue",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_Value",
+          "setter": "put_Value"
+        },
+        {
+          "name": "XmlNamespace",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_XmlNamespace"
+        },
+        {
+          "name": "XmlNode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          },
+          "getter": "get_XmlNode"
+        }
+      ]
+    },
+    "IPrintTicketValue": {
+      "guid": "66b30a32-244d-4e22-a98b-bb3cf1f2dd91",
+      "exclusive_to": "Windows.Graphics.Printing.PrintTicket.PrintTicketValue",
+      "methods": [
+        {
+          "name": "get_Type",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketValueType",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetValueAsInteger",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "GetValueAsString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Type",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketValueType",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Type"
+        }
+      ]
+    },
+    "IWorkflowPrintTicket": {
+      "guid": "41d52285-35e8-448e-a8c5-e4b6a2cf826c",
+      "exclusive_to": "Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicket",
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_XmlNamespace",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_XmlNode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetCapabilities",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketCapabilities",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DocumentBindingFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DocumentCollateFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DocumentDuplexFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DocumentHolePunchFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DocumentInputBinFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DocumentNUpFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DocumentStapleFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_JobPasscodeFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PageBorderlessFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PageMediaSizeFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PageMediaTypeFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PageOrientationFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PageOutputColorFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PageOutputQualityFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PageResolutionFeature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetFeature",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "xmlNamespace",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "NotifyXmlChangedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ValidateAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WorkflowPrintTicketValidationResult",
+                "namespace": "Windows.Graphics.Printing.PrintTicket",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetParameterInitializer",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "xmlNamespace",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketParameterInitializer",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetParameterInitializerAsInteger",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "xmlNamespace",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "integerValue",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketParameterInitializer",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetParameterInitializerAsString",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "xmlNamespace",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "stringValue",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTicketParameterInitializer",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "MergeAndValidateTicket",
+          "params": [
+            {
+              "name": "deltaShemaTicket",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WorkflowPrintTicket",
+                "namespace": "Windows.Graphics.Printing.PrintTicket",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WorkflowPrintTicket",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DocumentBindingFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_DocumentBindingFeature"
+        },
+        {
+          "name": "DocumentCollateFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_DocumentCollateFeature"
+        },
+        {
+          "name": "DocumentDuplexFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_DocumentDuplexFeature"
+        },
+        {
+          "name": "DocumentHolePunchFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_DocumentHolePunchFeature"
+        },
+        {
+          "name": "DocumentInputBinFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_DocumentInputBinFeature"
+        },
+        {
+          "name": "DocumentNUpFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_DocumentNUpFeature"
+        },
+        {
+          "name": "DocumentStapleFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_DocumentStapleFeature"
+        },
+        {
+          "name": "JobPasscodeFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_JobPasscodeFeature"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        },
+        {
+          "name": "PageBorderlessFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_PageBorderlessFeature"
+        },
+        {
+          "name": "PageMediaSizeFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_PageMediaSizeFeature"
+        },
+        {
+          "name": "PageMediaTypeFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_PageMediaTypeFeature"
+        },
+        {
+          "name": "PageOrientationFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_PageOrientationFeature"
+        },
+        {
+          "name": "PageOutputColorFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_PageOutputColorFeature"
+        },
+        {
+          "name": "PageOutputQualityFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_PageOutputQualityFeature"
+        },
+        {
+          "name": "PageResolutionFeature",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTicketFeature",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_PageResolutionFeature"
+        },
+        {
+          "name": "XmlNamespace",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_XmlNamespace"
+        },
+        {
+          "name": "XmlNode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          },
+          "getter": "get_XmlNode"
+        }
+      ]
+    },
+    "IWorkflowPrintTicketFactory": {
+      "guid": "966d1166-d9c7-569e-b7d8-f2b341c8f976",
+      "exclusive_to": "Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicket",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "printerName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "printTicketStream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WorkflowPrintTicket",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IWorkflowPrintTicketValidationResult": {
+      "guid": "0ad1f392-da7b-4a36-bf36-6a99a62e2059",
+      "exclusive_to": "Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicketValidationResult",
+      "methods": [
+        {
+          "name": "get_Validated",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_ExtendedError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExtendedError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtendedError"
+        },
+        {
+          "name": "Validated",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Validated"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "PrintTicketCapabilities": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintTicketCapabilities",
+        "namespace": "Windows.Graphics.Printing.PrintTicket",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintTicketCapabilities",
+          "namespace": "Windows.Graphics.Printing.PrintTicket",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintTicketFeature": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintTicketFeature",
+        "namespace": "Windows.Graphics.Printing.PrintTicket",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintTicketFeature",
+          "namespace": "Windows.Graphics.Printing.PrintTicket",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintTicketOption": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintTicketOption",
+        "namespace": "Windows.Graphics.Printing.PrintTicket",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintTicketOption",
+          "namespace": "Windows.Graphics.Printing.PrintTicket",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintTicketParameterDefinition": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintTicketParameterDefinition",
+        "namespace": "Windows.Graphics.Printing.PrintTicket",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintTicketParameterDefinition",
+          "namespace": "Windows.Graphics.Printing.PrintTicket",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintTicketParameterInitializer": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintTicketParameterInitializer",
+        "namespace": "Windows.Graphics.Printing.PrintTicket",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintTicketParameterInitializer",
+          "namespace": "Windows.Graphics.Printing.PrintTicket",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintTicketValue": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintTicketValue",
+        "namespace": "Windows.Graphics.Printing.PrintTicket",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintTicketValue",
+          "namespace": "Windows.Graphics.Printing.PrintTicket",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WorkflowPrintTicket": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWorkflowPrintTicket",
+        "namespace": "Windows.Graphics.Printing.PrintTicket",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWorkflowPrintTicket",
+          "namespace": "Windows.Graphics.Printing.PrintTicket",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Graphics.Printing.PrintTicket.IWorkflowPrintTicketFactory"
+      ]
+    },
+    "WorkflowPrintTicketValidationResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWorkflowPrintTicketValidationResult",
+        "namespace": "Windows.Graphics.Printing.PrintTicket",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWorkflowPrintTicketValidationResult",
+          "namespace": "Windows.Graphics.Printing.PrintTicket",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

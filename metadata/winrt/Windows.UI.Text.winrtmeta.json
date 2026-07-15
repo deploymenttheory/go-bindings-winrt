@@ -1,0 +1,5241 @@
+{
+  "namespace": "Windows.UI.Text",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "CaretType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Normal",
+          "value": "0"
+        },
+        {
+          "name": "Null",
+          "value": "1"
+        }
+      ]
+    },
+    "FindOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Word",
+          "value": "2"
+        },
+        {
+          "name": "Case",
+          "value": "4"
+        }
+      ]
+    },
+    "FontStretch": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Undefined",
+          "value": "0"
+        },
+        {
+          "name": "UltraCondensed",
+          "value": "1"
+        },
+        {
+          "name": "ExtraCondensed",
+          "value": "2"
+        },
+        {
+          "name": "Condensed",
+          "value": "3"
+        },
+        {
+          "name": "SemiCondensed",
+          "value": "4"
+        },
+        {
+          "name": "Normal",
+          "value": "5"
+        },
+        {
+          "name": "SemiExpanded",
+          "value": "6"
+        },
+        {
+          "name": "Expanded",
+          "value": "7"
+        },
+        {
+          "name": "ExtraExpanded",
+          "value": "8"
+        },
+        {
+          "name": "UltraExpanded",
+          "value": "9"
+        }
+      ]
+    },
+    "FontStyle": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Normal",
+          "value": "0"
+        },
+        {
+          "name": "Oblique",
+          "value": "1"
+        },
+        {
+          "name": "Italic",
+          "value": "2"
+        }
+      ]
+    },
+    "FormatEffect": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Off",
+          "value": "0"
+        },
+        {
+          "name": "On",
+          "value": "1"
+        },
+        {
+          "name": "Toggle",
+          "value": "2"
+        },
+        {
+          "name": "Undefined",
+          "value": "3"
+        }
+      ]
+    },
+    "HorizontalCharacterAlignment": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Left",
+          "value": "0"
+        },
+        {
+          "name": "Right",
+          "value": "1"
+        },
+        {
+          "name": "Center",
+          "value": "2"
+        }
+      ]
+    },
+    "LetterCase": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Lower",
+          "value": "0"
+        },
+        {
+          "name": "Upper",
+          "value": "1"
+        }
+      ]
+    },
+    "LineSpacingRule": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Undefined",
+          "value": "0"
+        },
+        {
+          "name": "Single",
+          "value": "1"
+        },
+        {
+          "name": "OneAndHalf",
+          "value": "2"
+        },
+        {
+          "name": "Double",
+          "value": "3"
+        },
+        {
+          "name": "AtLeast",
+          "value": "4"
+        },
+        {
+          "name": "Exactly",
+          "value": "5"
+        },
+        {
+          "name": "Multiple",
+          "value": "6"
+        },
+        {
+          "name": "Percent",
+          "value": "7"
+        }
+      ]
+    },
+    "LinkType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Undefined",
+          "value": "0"
+        },
+        {
+          "name": "NotALink",
+          "value": "1"
+        },
+        {
+          "name": "ClientLink",
+          "value": "2"
+        },
+        {
+          "name": "FriendlyLinkName",
+          "value": "3"
+        },
+        {
+          "name": "FriendlyLinkAddress",
+          "value": "4"
+        },
+        {
+          "name": "AutoLink",
+          "value": "5"
+        },
+        {
+          "name": "AutoLinkEmail",
+          "value": "6"
+        },
+        {
+          "name": "AutoLinkPhone",
+          "value": "7"
+        },
+        {
+          "name": "AutoLinkPath",
+          "value": "8"
+        }
+      ]
+    },
+    "MarkerAlignment": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Undefined",
+          "value": "0"
+        },
+        {
+          "name": "Left",
+          "value": "1"
+        },
+        {
+          "name": "Center",
+          "value": "2"
+        },
+        {
+          "name": "Right",
+          "value": "3"
+        }
+      ]
+    },
+    "MarkerStyle": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Undefined",
+          "value": "0"
+        },
+        {
+          "name": "Parenthesis",
+          "value": "1"
+        },
+        {
+          "name": "Parentheses",
+          "value": "2"
+        },
+        {
+          "name": "Period",
+          "value": "3"
+        },
+        {
+          "name": "Plain",
+          "value": "4"
+        },
+        {
+          "name": "Minus",
+          "value": "5"
+        },
+        {
+          "name": "NoNumber",
+          "value": "6"
+        }
+      ]
+    },
+    "MarkerType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Undefined",
+          "value": "0"
+        },
+        {
+          "name": "None",
+          "value": "1"
+        },
+        {
+          "name": "Bullet",
+          "value": "2"
+        },
+        {
+          "name": "Arabic",
+          "value": "3"
+        },
+        {
+          "name": "LowercaseEnglishLetter",
+          "value": "4"
+        },
+        {
+          "name": "UppercaseEnglishLetter",
+          "value": "5"
+        },
+        {
+          "name": "LowercaseRoman",
+          "value": "6"
+        },
+        {
+          "name": "UppercaseRoman",
+          "value": "7"
+        },
+        {
+          "name": "UnicodeSequence",
+          "value": "8"
+        },
+        {
+          "name": "CircledNumber",
+          "value": "9"
+        },
+        {
+          "name": "BlackCircleWingding",
+          "value": "10"
+        },
+        {
+          "name": "WhiteCircleWingding",
+          "value": "11"
+        },
+        {
+          "name": "ArabicWide",
+          "value": "12"
+        },
+        {
+          "name": "SimplifiedChinese",
+          "value": "13"
+        },
+        {
+          "name": "TraditionalChinese",
+          "value": "14"
+        },
+        {
+          "name": "JapanSimplifiedChinese",
+          "value": "15"
+        },
+        {
+          "name": "JapanKorea",
+          "value": "16"
+        },
+        {
+          "name": "ArabicDictionary",
+          "value": "17"
+        },
+        {
+          "name": "ArabicAbjad",
+          "value": "18"
+        },
+        {
+          "name": "Hebrew",
+          "value": "19"
+        },
+        {
+          "name": "ThaiAlphabetic",
+          "value": "20"
+        },
+        {
+          "name": "ThaiNumeric",
+          "value": "21"
+        },
+        {
+          "name": "DevanagariVowel",
+          "value": "22"
+        },
+        {
+          "name": "DevanagariConsonant",
+          "value": "23"
+        },
+        {
+          "name": "DevanagariNumeric",
+          "value": "24"
+        }
+      ]
+    },
+    "ParagraphAlignment": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Undefined",
+          "value": "0"
+        },
+        {
+          "name": "Left",
+          "value": "1"
+        },
+        {
+          "name": "Center",
+          "value": "2"
+        },
+        {
+          "name": "Right",
+          "value": "3"
+        },
+        {
+          "name": "Justify",
+          "value": "4"
+        }
+      ]
+    },
+    "ParagraphStyle": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Undefined",
+          "value": "0"
+        },
+        {
+          "name": "None",
+          "value": "1"
+        },
+        {
+          "name": "Normal",
+          "value": "2"
+        },
+        {
+          "name": "Heading1",
+          "value": "3"
+        },
+        {
+          "name": "Heading2",
+          "value": "4"
+        },
+        {
+          "name": "Heading3",
+          "value": "5"
+        },
+        {
+          "name": "Heading4",
+          "value": "6"
+        },
+        {
+          "name": "Heading5",
+          "value": "7"
+        },
+        {
+          "name": "Heading6",
+          "value": "8"
+        },
+        {
+          "name": "Heading7",
+          "value": "9"
+        },
+        {
+          "name": "Heading8",
+          "value": "10"
+        },
+        {
+          "name": "Heading9",
+          "value": "11"
+        }
+      ]
+    },
+    "PointOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "IncludeInset",
+          "value": "1"
+        },
+        {
+          "name": "Start",
+          "value": "32"
+        },
+        {
+          "name": "ClientCoordinates",
+          "value": "256"
+        },
+        {
+          "name": "AllowOffClient",
+          "value": "512"
+        },
+        {
+          "name": "Transform",
+          "value": "1024"
+        },
+        {
+          "name": "NoHorizontalScroll",
+          "value": "65536"
+        },
+        {
+          "name": "NoVerticalScroll",
+          "value": "262144"
+        }
+      ]
+    },
+    "RangeGravity": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "UIBehavior",
+          "value": "0"
+        },
+        {
+          "name": "Backward",
+          "value": "1"
+        },
+        {
+          "name": "Forward",
+          "value": "2"
+        },
+        {
+          "name": "Inward",
+          "value": "3"
+        },
+        {
+          "name": "Outward",
+          "value": "4"
+        }
+      ]
+    },
+    "RichEditMathMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "NoMath",
+          "value": "0"
+        },
+        {
+          "name": "MathOnly",
+          "value": "1"
+        }
+      ]
+    },
+    "SelectionOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "StartActive",
+          "value": "1"
+        },
+        {
+          "name": "AtEndOfLine",
+          "value": "2"
+        },
+        {
+          "name": "Overtype",
+          "value": "4"
+        },
+        {
+          "name": "Active",
+          "value": "8"
+        },
+        {
+          "name": "Replace",
+          "value": "16"
+        }
+      ]
+    },
+    "SelectionType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "InsertionPoint",
+          "value": "1"
+        },
+        {
+          "name": "Normal",
+          "value": "2"
+        },
+        {
+          "name": "InlineShape",
+          "value": "7"
+        },
+        {
+          "name": "Shape",
+          "value": "8"
+        }
+      ]
+    },
+    "TabAlignment": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Left",
+          "value": "0"
+        },
+        {
+          "name": "Center",
+          "value": "1"
+        },
+        {
+          "name": "Right",
+          "value": "2"
+        },
+        {
+          "name": "Decimal",
+          "value": "3"
+        },
+        {
+          "name": "Bar",
+          "value": "4"
+        }
+      ]
+    },
+    "TabLeader": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Spaces",
+          "value": "0"
+        },
+        {
+          "name": "Dots",
+          "value": "1"
+        },
+        {
+          "name": "Dashes",
+          "value": "2"
+        },
+        {
+          "name": "Lines",
+          "value": "3"
+        },
+        {
+          "name": "ThickLines",
+          "value": "4"
+        },
+        {
+          "name": "Equals",
+          "value": "5"
+        }
+      ]
+    },
+    "TextDecorations": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Underline",
+          "value": "1"
+        },
+        {
+          "name": "Strikethrough",
+          "value": "2"
+        }
+      ]
+    },
+    "TextGetOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "AdjustCrlf",
+          "value": "1"
+        },
+        {
+          "name": "UseCrlf",
+          "value": "2"
+        },
+        {
+          "name": "UseObjectText",
+          "value": "4"
+        },
+        {
+          "name": "AllowFinalEop",
+          "value": "8"
+        },
+        {
+          "name": "NoHidden",
+          "value": "32"
+        },
+        {
+          "name": "IncludeNumbering",
+          "value": "64"
+        },
+        {
+          "name": "FormatRtf",
+          "value": "8192"
+        },
+        {
+          "name": "UseLf",
+          "value": "16777216"
+        }
+      ]
+    },
+    "TextRangeUnit": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Character",
+          "value": "0"
+        },
+        {
+          "name": "Word",
+          "value": "1"
+        },
+        {
+          "name": "Sentence",
+          "value": "2"
+        },
+        {
+          "name": "Paragraph",
+          "value": "3"
+        },
+        {
+          "name": "Line",
+          "value": "4"
+        },
+        {
+          "name": "Story",
+          "value": "5"
+        },
+        {
+          "name": "Screen",
+          "value": "6"
+        },
+        {
+          "name": "Section",
+          "value": "7"
+        },
+        {
+          "name": "Window",
+          "value": "8"
+        },
+        {
+          "name": "CharacterFormat",
+          "value": "9"
+        },
+        {
+          "name": "ParagraphFormat",
+          "value": "10"
+        },
+        {
+          "name": "Object",
+          "value": "11"
+        },
+        {
+          "name": "HardParagraph",
+          "value": "12"
+        },
+        {
+          "name": "Cluster",
+          "value": "13"
+        },
+        {
+          "name": "Bold",
+          "value": "14"
+        },
+        {
+          "name": "Italic",
+          "value": "15"
+        },
+        {
+          "name": "Underline",
+          "value": "16"
+        },
+        {
+          "name": "Strikethrough",
+          "value": "17"
+        },
+        {
+          "name": "ProtectedText",
+          "value": "18"
+        },
+        {
+          "name": "Link",
+          "value": "19"
+        },
+        {
+          "name": "SmallCaps",
+          "value": "20"
+        },
+        {
+          "name": "AllCaps",
+          "value": "21"
+        },
+        {
+          "name": "Hidden",
+          "value": "22"
+        },
+        {
+          "name": "Outline",
+          "value": "23"
+        },
+        {
+          "name": "Shadow",
+          "value": "24"
+        },
+        {
+          "name": "Imprint",
+          "value": "25"
+        },
+        {
+          "name": "Disabled",
+          "value": "26"
+        },
+        {
+          "name": "Revised",
+          "value": "27"
+        },
+        {
+          "name": "Subscript",
+          "value": "28"
+        },
+        {
+          "name": "Superscript",
+          "value": "29"
+        },
+        {
+          "name": "FontBound",
+          "value": "30"
+        },
+        {
+          "name": "LinkProtected",
+          "value": "31"
+        },
+        {
+          "name": "ContentLink",
+          "value": "32"
+        }
+      ]
+    },
+    "TextScript": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Undefined",
+          "value": "0"
+        },
+        {
+          "name": "Ansi",
+          "value": "1"
+        },
+        {
+          "name": "EastEurope",
+          "value": "2"
+        },
+        {
+          "name": "Cyrillic",
+          "value": "3"
+        },
+        {
+          "name": "Greek",
+          "value": "4"
+        },
+        {
+          "name": "Turkish",
+          "value": "5"
+        },
+        {
+          "name": "Hebrew",
+          "value": "6"
+        },
+        {
+          "name": "Arabic",
+          "value": "7"
+        },
+        {
+          "name": "Baltic",
+          "value": "8"
+        },
+        {
+          "name": "Vietnamese",
+          "value": "9"
+        },
+        {
+          "name": "Default",
+          "value": "10"
+        },
+        {
+          "name": "Symbol",
+          "value": "11"
+        },
+        {
+          "name": "Thai",
+          "value": "12"
+        },
+        {
+          "name": "ShiftJis",
+          "value": "13"
+        },
+        {
+          "name": "GB2312",
+          "value": "14"
+        },
+        {
+          "name": "Hangul",
+          "value": "15"
+        },
+        {
+          "name": "Big5",
+          "value": "16"
+        },
+        {
+          "name": "PC437",
+          "value": "17"
+        },
+        {
+          "name": "Oem",
+          "value": "18"
+        },
+        {
+          "name": "Mac",
+          "value": "19"
+        },
+        {
+          "name": "Armenian",
+          "value": "20"
+        },
+        {
+          "name": "Syriac",
+          "value": "21"
+        },
+        {
+          "name": "Thaana",
+          "value": "22"
+        },
+        {
+          "name": "Devanagari",
+          "value": "23"
+        },
+        {
+          "name": "Bengali",
+          "value": "24"
+        },
+        {
+          "name": "Gurmukhi",
+          "value": "25"
+        },
+        {
+          "name": "Gujarati",
+          "value": "26"
+        },
+        {
+          "name": "Oriya",
+          "value": "27"
+        },
+        {
+          "name": "Tamil",
+          "value": "28"
+        },
+        {
+          "name": "Telugu",
+          "value": "29"
+        },
+        {
+          "name": "Kannada",
+          "value": "30"
+        },
+        {
+          "name": "Malayalam",
+          "value": "31"
+        },
+        {
+          "name": "Sinhala",
+          "value": "32"
+        },
+        {
+          "name": "Lao",
+          "value": "33"
+        },
+        {
+          "name": "Tibetan",
+          "value": "34"
+        },
+        {
+          "name": "Myanmar",
+          "value": "35"
+        },
+        {
+          "name": "Georgian",
+          "value": "36"
+        },
+        {
+          "name": "Jamo",
+          "value": "37"
+        },
+        {
+          "name": "Ethiopic",
+          "value": "38"
+        },
+        {
+          "name": "Cherokee",
+          "value": "39"
+        },
+        {
+          "name": "Aboriginal",
+          "value": "40"
+        },
+        {
+          "name": "Ogham",
+          "value": "41"
+        },
+        {
+          "name": "Runic",
+          "value": "42"
+        },
+        {
+          "name": "Khmer",
+          "value": "43"
+        },
+        {
+          "name": "Mongolian",
+          "value": "44"
+        },
+        {
+          "name": "Braille",
+          "value": "45"
+        },
+        {
+          "name": "Yi",
+          "value": "46"
+        },
+        {
+          "name": "Limbu",
+          "value": "47"
+        },
+        {
+          "name": "TaiLe",
+          "value": "48"
+        },
+        {
+          "name": "NewTaiLue",
+          "value": "49"
+        },
+        {
+          "name": "SylotiNagri",
+          "value": "50"
+        },
+        {
+          "name": "Kharoshthi",
+          "value": "51"
+        },
+        {
+          "name": "Kayahli",
+          "value": "52"
+        },
+        {
+          "name": "UnicodeSymbol",
+          "value": "53"
+        },
+        {
+          "name": "Emoji",
+          "value": "54"
+        },
+        {
+          "name": "Glagolitic",
+          "value": "55"
+        },
+        {
+          "name": "Lisu",
+          "value": "56"
+        },
+        {
+          "name": "Vai",
+          "value": "57"
+        },
+        {
+          "name": "NKo",
+          "value": "58"
+        },
+        {
+          "name": "Osmanya",
+          "value": "59"
+        },
+        {
+          "name": "PhagsPa",
+          "value": "60"
+        },
+        {
+          "name": "Gothic",
+          "value": "61"
+        },
+        {
+          "name": "Deseret",
+          "value": "62"
+        },
+        {
+          "name": "Tifinagh",
+          "value": "63"
+        }
+      ]
+    },
+    "TextSetOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "UnicodeBidi",
+          "value": "1"
+        },
+        {
+          "name": "Unlink",
+          "value": "8"
+        },
+        {
+          "name": "Unhide",
+          "value": "16"
+        },
+        {
+          "name": "CheckTextLimit",
+          "value": "32"
+        },
+        {
+          "name": "FormatRtf",
+          "value": "8192"
+        },
+        {
+          "name": "ApplyRtfDocumentDefaults",
+          "value": "16384"
+        }
+      ]
+    },
+    "UnderlineType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Undefined",
+          "value": "0"
+        },
+        {
+          "name": "None",
+          "value": "1"
+        },
+        {
+          "name": "Single",
+          "value": "2"
+        },
+        {
+          "name": "Words",
+          "value": "3"
+        },
+        {
+          "name": "Double",
+          "value": "4"
+        },
+        {
+          "name": "Dotted",
+          "value": "5"
+        },
+        {
+          "name": "Dash",
+          "value": "6"
+        },
+        {
+          "name": "DashDot",
+          "value": "7"
+        },
+        {
+          "name": "DashDotDot",
+          "value": "8"
+        },
+        {
+          "name": "Wave",
+          "value": "9"
+        },
+        {
+          "name": "Thick",
+          "value": "10"
+        },
+        {
+          "name": "Thin",
+          "value": "11"
+        },
+        {
+          "name": "DoubleWave",
+          "value": "12"
+        },
+        {
+          "name": "HeavyWave",
+          "value": "13"
+        },
+        {
+          "name": "LongDash",
+          "value": "14"
+        },
+        {
+          "name": "ThickDash",
+          "value": "15"
+        },
+        {
+          "name": "ThickDashDot",
+          "value": "16"
+        },
+        {
+          "name": "ThickDashDotDot",
+          "value": "17"
+        },
+        {
+          "name": "ThickDotted",
+          "value": "18"
+        },
+        {
+          "name": "ThickLongDash",
+          "value": "19"
+        }
+      ]
+    },
+    "VerticalCharacterAlignment": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Top",
+          "value": "0"
+        },
+        {
+          "name": "Baseline",
+          "value": "1"
+        },
+        {
+          "name": "Bottom",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "FontWeight": {
+      "fields": [
+        {
+          "name": "Weight",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IContentLinkInfo": {
+      "guid": "1ed52525-1c5f-48cb-b335-78b50a2ee642",
+      "exclusive_to": "Windows.UI.Text.ContentLinkInfo",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_Id",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DisplayText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DisplayText",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SecondaryText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_SecondaryText",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Uri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Uri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LinkContentKind",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_LinkContentKind",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayText",
+          "setter": "put_DisplayText"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Id",
+          "setter": "put_Id"
+        },
+        {
+          "name": "LinkContentKind",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LinkContentKind",
+          "setter": "put_LinkContentKind"
+        },
+        {
+          "name": "SecondaryText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SecondaryText",
+          "setter": "put_SecondaryText"
+        },
+        {
+          "name": "Uri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Uri",
+          "setter": "put_Uri"
+        }
+      ]
+    },
+    "IFontWeights": {
+      "guid": "7880a444-01ab-4997-8517-df822a0c45f1",
+      "exclusive_to": "Windows.UI.Text.FontWeights"
+    },
+    "IFontWeightsStatics": {
+      "guid": "b3b579d5-1ba9-48eb-9dad-c095e8c23ba3",
+      "exclusive_to": "Windows.UI.Text.FontWeights",
+      "methods": [
+        {
+          "name": "get_Black",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FontWeight",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Bold",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FontWeight",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_ExtraBlack",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FontWeight",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_ExtraBold",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FontWeight",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_ExtraLight",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FontWeight",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Light",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FontWeight",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Medium",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FontWeight",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Normal",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FontWeight",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_SemiBold",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FontWeight",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_SemiLight",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FontWeight",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Thin",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FontWeight",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Black",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FontWeight",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Black"
+        },
+        {
+          "name": "Bold",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FontWeight",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Bold"
+        },
+        {
+          "name": "ExtraBlack",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FontWeight",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtraBlack"
+        },
+        {
+          "name": "ExtraBold",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FontWeight",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtraBold"
+        },
+        {
+          "name": "ExtraLight",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FontWeight",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtraLight"
+        },
+        {
+          "name": "Light",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FontWeight",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Light"
+        },
+        {
+          "name": "Medium",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FontWeight",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Medium"
+        },
+        {
+          "name": "Normal",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FontWeight",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Normal"
+        },
+        {
+          "name": "SemiBold",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FontWeight",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SemiBold"
+        },
+        {
+          "name": "SemiLight",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FontWeight",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SemiLight"
+        },
+        {
+          "name": "Thin",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FontWeight",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Thin"
+        }
+      ]
+    },
+    "IRichEditTextRange": {
+      "guid": "374e3515-ba8a-4a6e-8c59-0dde3d0cf5cd",
+      "exclusive_to": "Windows.UI.Text.RichEditTextRange",
+      "methods": [
+        {
+          "name": "get_ContentLinkInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ContentLinkInfo",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ContentLinkInfo",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ContentLinkInfo",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContentLinkInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ContentLinkInfo",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Class"
+          },
+          "getter": "get_ContentLinkInfo",
+          "setter": "put_ContentLinkInfo"
+        }
+      ]
+    },
+    "ITextCharacterFormat": {
+      "guid": "5adef3db-05fb-442d-8065-642afea02ced",
+      "methods": [
+        {
+          "name": "get_AllCaps",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_AllCaps",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FormatEffect",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BackgroundColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_BackgroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Bold",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Bold",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FormatEffect",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FontStretch",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FontStretch",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_FontStretch",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FontStretch",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FontStyle",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FontStyle",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_FontStyle",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FontStyle",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ForegroundColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_ForegroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Hidden",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Hidden",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FormatEffect",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Italic",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Italic",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FormatEffect",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Kerning",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_Kerning",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LanguageTag",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_LanguageTag",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LinkType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LinkType",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Name",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Outline",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Outline",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FormatEffect",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_Position",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ProtectedText",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_ProtectedText",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FormatEffect",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Size",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_Size",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SmallCaps",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_SmallCaps",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FormatEffect",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Spacing",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_Spacing",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Strikethrough",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Strikethrough",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FormatEffect",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Subscript",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Subscript",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FormatEffect",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Superscript",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Superscript",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FormatEffect",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TextScript",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TextScript",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_TextScript",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextScript",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Underline",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UnderlineType",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Underline",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UnderlineType",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Weight",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_Weight",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetClone",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ITextCharacterFormat",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetClone",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ITextCharacterFormat",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "IsEqual",
+          "params": [
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ITextCharacterFormat",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllCaps",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AllCaps",
+          "setter": "put_AllCaps"
+        },
+        {
+          "name": "BackgroundColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BackgroundColor",
+          "setter": "put_BackgroundColor"
+        },
+        {
+          "name": "Bold",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Bold",
+          "setter": "put_Bold"
+        },
+        {
+          "name": "FontStretch",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FontStretch",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_FontStretch",
+          "setter": "put_FontStretch"
+        },
+        {
+          "name": "FontStyle",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FontStyle",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_FontStyle",
+          "setter": "put_FontStyle"
+        },
+        {
+          "name": "ForegroundColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ForegroundColor",
+          "setter": "put_ForegroundColor"
+        },
+        {
+          "name": "Hidden",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Hidden",
+          "setter": "put_Hidden"
+        },
+        {
+          "name": "Italic",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Italic",
+          "setter": "put_Italic"
+        },
+        {
+          "name": "Kerning",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_Kerning",
+          "setter": "put_Kerning"
+        },
+        {
+          "name": "LanguageTag",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LanguageTag",
+          "setter": "put_LanguageTag"
+        },
+        {
+          "name": "LinkType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LinkType",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_LinkType"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name",
+          "setter": "put_Name"
+        },
+        {
+          "name": "Outline",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Outline",
+          "setter": "put_Outline"
+        },
+        {
+          "name": "Position",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_Position",
+          "setter": "put_Position"
+        },
+        {
+          "name": "ProtectedText",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ProtectedText",
+          "setter": "put_ProtectedText"
+        },
+        {
+          "name": "Size",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_Size",
+          "setter": "put_Size"
+        },
+        {
+          "name": "SmallCaps",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SmallCaps",
+          "setter": "put_SmallCaps"
+        },
+        {
+          "name": "Spacing",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_Spacing",
+          "setter": "put_Spacing"
+        },
+        {
+          "name": "Strikethrough",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Strikethrough",
+          "setter": "put_Strikethrough"
+        },
+        {
+          "name": "Subscript",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Subscript",
+          "setter": "put_Subscript"
+        },
+        {
+          "name": "Superscript",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Superscript",
+          "setter": "put_Superscript"
+        },
+        {
+          "name": "TextScript",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TextScript",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_TextScript",
+          "setter": "put_TextScript"
+        },
+        {
+          "name": "Underline",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UnderlineType",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Underline",
+          "setter": "put_Underline"
+        },
+        {
+          "name": "Weight",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Weight",
+          "setter": "put_Weight"
+        }
+      ]
+    },
+    "ITextConstantsStatics": {
+      "guid": "779e7c33-189d-4bfa-97c8-10db135d976e",
+      "exclusive_to": "Windows.UI.Text.TextConstants",
+      "methods": [
+        {
+          "name": "get_AutoColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_MinUnitCount",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MaxUnitCount",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_UndefinedColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_UndefinedFloatValue",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_UndefinedInt32Value",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_UndefinedFontStretch",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FontStretch",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_UndefinedFontStyle",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FontStyle",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AutoColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_AutoColor"
+        },
+        {
+          "name": "MaxUnitCount",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MaxUnitCount"
+        },
+        {
+          "name": "MinUnitCount",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MinUnitCount"
+        },
+        {
+          "name": "UndefinedColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_UndefinedColor"
+        },
+        {
+          "name": "UndefinedFloatValue",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_UndefinedFloatValue"
+        },
+        {
+          "name": "UndefinedFontStretch",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FontStretch",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_UndefinedFontStretch"
+        },
+        {
+          "name": "UndefinedFontStyle",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FontStyle",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_UndefinedFontStyle"
+        },
+        {
+          "name": "UndefinedInt32Value",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_UndefinedInt32Value"
+        }
+      ]
+    },
+    "ITextDocument": {
+      "guid": "beee4ddb-90b2-408c-a2f6-0a0ac31e33e4",
+      "methods": [
+        {
+          "name": "get_CaretType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CaretType",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_CaretType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CaretType",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DefaultTabStop",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_DefaultTabStop",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Selection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ITextSelection",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_UndoLimit",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_UndoLimit",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CanCopy",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "CanPaste",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "CanRedo",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "CanUndo",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "ApplyDisplayUpdates",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "BatchDisplayUpdates",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "BeginUndoGroup"
+        },
+        {
+          "name": "EndUndoGroup"
+        },
+        {
+          "name": "GetDefaultCharacterFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ITextCharacterFormat",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetDefaultParagraphFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ITextParagraphFormat",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetRange",
+          "params": [
+            {
+              "name": "startPosition",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "endPosition",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ITextRange",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetRangeFromPoint",
+          "params": [
+            {
+              "name": "point",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PointOptions",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ITextRange",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetText",
+          "params": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextGetOptions",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "LoadFromStream",
+          "params": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextSetOptions",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Redo"
+        },
+        {
+          "name": "SaveToStream",
+          "params": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextGetOptions",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetDefaultCharacterFormat",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ITextCharacterFormat",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetDefaultParagraphFormat",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ITextParagraphFormat",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetText",
+          "params": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextSetOptions",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Undo"
+        }
+      ],
+      "properties": [
+        {
+          "name": "CaretType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CaretType",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CaretType",
+          "setter": "put_CaretType"
+        },
+        {
+          "name": "DefaultTabStop",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_DefaultTabStop",
+          "setter": "put_DefaultTabStop"
+        },
+        {
+          "name": "Selection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ITextSelection",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Selection"
+        },
+        {
+          "name": "UndoLimit",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_UndoLimit",
+          "setter": "put_UndoLimit"
+        }
+      ]
+    },
+    "ITextDocument2": {
+      "guid": "f2311112-8c89-49c9-9118-f057cbb814ee",
+      "exclusive_to": "Windows.UI.Text.RichEditTextDocument",
+      "methods": [
+        {
+          "name": "get_AlignmentIncludesTrailingWhitespace",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AlignmentIncludesTrailingWhitespace",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IgnoreTrailingCharacterSpacing",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IgnoreTrailingCharacterSpacing",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AlignmentIncludesTrailingWhitespace",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AlignmentIncludesTrailingWhitespace",
+          "setter": "put_AlignmentIncludesTrailingWhitespace"
+        },
+        {
+          "name": "IgnoreTrailingCharacterSpacing",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IgnoreTrailingCharacterSpacing",
+          "setter": "put_IgnoreTrailingCharacterSpacing"
+        }
+      ]
+    },
+    "ITextDocument3": {
+      "guid": "75ab03a1-a6f8-441d-aa18-0a851d6e5e3c",
+      "exclusive_to": "Windows.UI.Text.RichEditTextDocument",
+      "methods": [
+        {
+          "name": "ClearUndoRedoHistory"
+        }
+      ]
+    },
+    "ITextDocument4": {
+      "guid": "619c20f2-cb3b-4521-981f-2865b1b93f04",
+      "exclusive_to": "Windows.UI.Text.RichEditTextDocument",
+      "methods": [
+        {
+          "name": "SetMath",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetMath",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "SetMathMode",
+          "params": [
+            {
+              "name": "mode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RichEditMathMode",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "ITextParagraphFormat": {
+      "guid": "2cf8cfa6-4676-498a-93f5-bbdbfc0bd883",
+      "methods": [
+        {
+          "name": "get_Alignment",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ParagraphAlignment",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Alignment",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ParagraphAlignment",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FirstLineIndent",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_KeepTogether",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_KeepTogether",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FormatEffect",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_KeepWithNext",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_KeepWithNext",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FormatEffect",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LeftIndent",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_LineSpacing",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_LineSpacingRule",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LineSpacingRule",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ListAlignment",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MarkerAlignment",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_ListAlignment",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MarkerAlignment",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ListLevelIndex",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_ListLevelIndex",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ListStart",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_ListStart",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ListStyle",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MarkerStyle",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_ListStyle",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MarkerStyle",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ListTab",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_ListTab",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ListType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MarkerType",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_ListType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MarkerType",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_NoLineNumber",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_NoLineNumber",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FormatEffect",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PageBreakBefore",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_PageBreakBefore",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FormatEffect",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RightIndent",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_RightIndent",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RightToLeft",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_RightToLeft",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FormatEffect",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Style",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ParagraphStyle",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Style",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ParagraphStyle",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SpaceAfter",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_SpaceAfter",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SpaceBefore",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_SpaceBefore",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_WidowControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_WidowControl",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FormatEffect",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TabCount",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "AddTab",
+          "params": [
+            {
+              "name": "position",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "align",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TabAlignment",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "leader",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TabLeader",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ClearAllTabs"
+        },
+        {
+          "name": "DeleteTab",
+          "params": [
+            {
+              "name": "position",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetClone",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ITextParagraphFormat",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetTab",
+          "params": [
+            {
+              "name": "index",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "position",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              },
+              "out": true
+            },
+            {
+              "name": "align",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TabAlignment",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              },
+              "out": true
+            },
+            {
+              "name": "leader",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TabLeader",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "IsEqual",
+          "params": [
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ITextParagraphFormat",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "SetClone",
+          "params": [
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ITextParagraphFormat",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetIndents",
+          "params": [
+            {
+              "name": "start",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "left",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "right",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetLineSpacing",
+          "params": [
+            {
+              "name": "rule",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LineSpacingRule",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "spacing",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Alignment",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ParagraphAlignment",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Alignment",
+          "setter": "put_Alignment"
+        },
+        {
+          "name": "FirstLineIndent",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_FirstLineIndent"
+        },
+        {
+          "name": "KeepTogether",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_KeepTogether",
+          "setter": "put_KeepTogether"
+        },
+        {
+          "name": "KeepWithNext",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_KeepWithNext",
+          "setter": "put_KeepWithNext"
+        },
+        {
+          "name": "LeftIndent",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_LeftIndent"
+        },
+        {
+          "name": "LineSpacing",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_LineSpacing"
+        },
+        {
+          "name": "LineSpacingRule",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LineSpacingRule",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_LineSpacingRule"
+        },
+        {
+          "name": "ListAlignment",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MarkerAlignment",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ListAlignment",
+          "setter": "put_ListAlignment"
+        },
+        {
+          "name": "ListLevelIndex",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_ListLevelIndex",
+          "setter": "put_ListLevelIndex"
+        },
+        {
+          "name": "ListStart",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_ListStart",
+          "setter": "put_ListStart"
+        },
+        {
+          "name": "ListStyle",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MarkerStyle",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ListStyle",
+          "setter": "put_ListStyle"
+        },
+        {
+          "name": "ListTab",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_ListTab",
+          "setter": "put_ListTab"
+        },
+        {
+          "name": "ListType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MarkerType",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ListType",
+          "setter": "put_ListType"
+        },
+        {
+          "name": "NoLineNumber",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_NoLineNumber",
+          "setter": "put_NoLineNumber"
+        },
+        {
+          "name": "PageBreakBefore",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PageBreakBefore",
+          "setter": "put_PageBreakBefore"
+        },
+        {
+          "name": "RightIndent",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_RightIndent",
+          "setter": "put_RightIndent"
+        },
+        {
+          "name": "RightToLeft",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RightToLeft",
+          "setter": "put_RightToLeft"
+        },
+        {
+          "name": "SpaceAfter",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_SpaceAfter",
+          "setter": "put_SpaceAfter"
+        },
+        {
+          "name": "SpaceBefore",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_SpaceBefore",
+          "setter": "put_SpaceBefore"
+        },
+        {
+          "name": "Style",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ParagraphStyle",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Style",
+          "setter": "put_Style"
+        },
+        {
+          "name": "TabCount",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_TabCount"
+        },
+        {
+          "name": "WidowControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FormatEffect",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_WidowControl",
+          "setter": "put_WidowControl"
+        }
+      ]
+    },
+    "ITextRange": {
+      "guid": "5b9e4e57-c072-42a0-8945-af503ee54768",
+      "methods": [
+        {
+          "name": "get_Character",
+          "return": {
+            "kind": "Native",
+            "name": "Char16"
+          }
+        },
+        {
+          "name": "put_Character",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Char16"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CharacterFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ITextCharacterFormat",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_CharacterFormat",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ITextCharacterFormat",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FormattedText",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ITextRange",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_FormattedText",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ITextRange",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_EndPosition",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_EndPosition",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Gravity",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RangeGravity",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Gravity",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RangeGravity",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Length",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Link",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Link",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ParagraphFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ITextParagraphFormat",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_ParagraphFormat",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ITextParagraphFormat",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_StartPosition",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_StartPosition",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_StoryLength",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Text",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Text",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CanPaste",
+          "params": [
+            {
+              "name": "format",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "ChangeCase",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LetterCase",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Collapse",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Copy"
+        },
+        {
+          "name": "Cut"
+        },
+        {
+          "name": "Delete",
+          "params": [
+            {
+              "name": "unit",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextRangeUnit",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "count",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "EndOf",
+          "params": [
+            {
+              "name": "unit",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextRangeUnit",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "extend",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "Expand",
+          "params": [
+            {
+              "name": "unit",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextRangeUnit",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "FindText",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "scanLength",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FindOptions",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "GetCharacterUtf32",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              },
+              "out": true
+            },
+            {
+              "name": "offset",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetClone",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ITextRange",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetIndex",
+          "params": [
+            {
+              "name": "unit",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextRangeUnit",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "GetPoint",
+          "params": [
+            {
+              "name": "horizontalAlign",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HorizontalCharacterAlignment",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "verticalAlign",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VerticalCharacterAlignment",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PointOptions",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "point",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "GetRect",
+          "params": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PointOptions",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "rect",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              },
+              "out": true
+            },
+            {
+              "name": "hit",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "GetText",
+          "params": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextGetOptions",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "GetTextViaStream",
+          "params": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextGetOptions",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "InRange",
+          "params": [
+            {
+              "name": "range",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ITextRange",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "InsertImage",
+          "params": [
+            {
+              "name": "width",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "height",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "ascent",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "verticalAlign",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VerticalCharacterAlignment",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "alternateText",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "InStory",
+          "params": [
+            {
+              "name": "range",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ITextRange",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsEqual",
+          "params": [
+            {
+              "name": "range",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ITextRange",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "Move",
+          "params": [
+            {
+              "name": "unit",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextRangeUnit",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "count",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "MoveEnd",
+          "params": [
+            {
+              "name": "unit",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextRangeUnit",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "count",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "MoveStart",
+          "params": [
+            {
+              "name": "unit",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextRangeUnit",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "count",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "Paste",
+          "params": [
+            {
+              "name": "format",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ScrollIntoView",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PointOptions",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "MatchSelection"
+        },
+        {
+          "name": "SetIndex",
+          "params": [
+            {
+              "name": "unit",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextRangeUnit",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "index",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "extend",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetPoint",
+          "params": [
+            {
+              "name": "point",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PointOptions",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "extend",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetRange",
+          "params": [
+            {
+              "name": "startPosition",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "endPosition",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetText",
+          "params": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextSetOptions",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetTextViaStream",
+          "params": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextSetOptions",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "StartOf",
+          "params": [
+            {
+              "name": "unit",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextRangeUnit",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "extend",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Character",
+          "type": {
+            "kind": "Native",
+            "name": "Char16"
+          },
+          "getter": "get_Character",
+          "setter": "put_Character"
+        },
+        {
+          "name": "CharacterFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ITextCharacterFormat",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Interface"
+          },
+          "getter": "get_CharacterFormat",
+          "setter": "put_CharacterFormat"
+        },
+        {
+          "name": "EndPosition",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_EndPosition",
+          "setter": "put_EndPosition"
+        },
+        {
+          "name": "FormattedText",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ITextRange",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Interface"
+          },
+          "getter": "get_FormattedText",
+          "setter": "put_FormattedText"
+        },
+        {
+          "name": "Gravity",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RangeGravity",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Gravity",
+          "setter": "put_Gravity"
+        },
+        {
+          "name": "Length",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Length"
+        },
+        {
+          "name": "Link",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Link",
+          "setter": "put_Link"
+        },
+        {
+          "name": "ParagraphFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ITextParagraphFormat",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Interface"
+          },
+          "getter": "get_ParagraphFormat",
+          "setter": "put_ParagraphFormat"
+        },
+        {
+          "name": "StartPosition",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_StartPosition",
+          "setter": "put_StartPosition"
+        },
+        {
+          "name": "StoryLength",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_StoryLength"
+        },
+        {
+          "name": "Text",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Text",
+          "setter": "put_Text"
+        }
+      ]
+    },
+    "ITextSelection": {
+      "guid": "a6d36724-f28f-430a-b2cf-c343671ec0e9",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ITextRange",
+          "namespace": "Windows.UI.Text",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Options",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SelectionOptions",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Options",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SelectionOptions",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Type",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SelectionType",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "EndKey",
+          "params": [
+            {
+              "name": "unit",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextRangeUnit",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "extend",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "HomeKey",
+          "params": [
+            {
+              "name": "unit",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextRangeUnit",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "extend",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "MoveDown",
+          "params": [
+            {
+              "name": "unit",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextRangeUnit",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "count",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "extend",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "MoveLeft",
+          "params": [
+            {
+              "name": "unit",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextRangeUnit",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "count",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "extend",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "MoveRight",
+          "params": [
+            {
+              "name": "unit",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextRangeUnit",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "count",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "extend",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "MoveUp",
+          "params": [
+            {
+              "name": "unit",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextRangeUnit",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "count",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "extend",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "TypeText",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Options",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SelectionOptions",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Options",
+          "setter": "put_Options"
+        },
+        {
+          "name": "Type",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SelectionType",
+            "namespace": "Windows.UI.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Type"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "ContentLinkInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IContentLinkInfo",
+        "namespace": "Windows.UI.Text",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IContentLinkInfo",
+          "namespace": "Windows.UI.Text",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "FontWeights": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFontWeights",
+        "namespace": "Windows.UI.Text",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFontWeights",
+          "namespace": "Windows.UI.Text",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Text.IFontWeightsStatics"
+      ]
+    },
+    "RichEditTextDocument": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITextDocument",
+        "namespace": "Windows.UI.Text",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITextDocument2",
+          "namespace": "Windows.UI.Text",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ITextDocument3",
+          "namespace": "Windows.UI.Text",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ITextDocument4",
+          "namespace": "Windows.UI.Text",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ITextDocument",
+          "namespace": "Windows.UI.Text",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RichEditTextRange": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITextRange",
+        "namespace": "Windows.UI.Text",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRichEditTextRange",
+          "namespace": "Windows.UI.Text",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ITextRange",
+          "namespace": "Windows.UI.Text",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "TextConstants": {
+      "static_interfaces": [
+        "Windows.UI.Text.ITextConstantsStatics"
+      ]
+    }
+  }
+}

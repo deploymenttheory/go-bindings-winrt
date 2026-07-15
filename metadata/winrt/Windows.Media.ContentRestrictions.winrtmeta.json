@@ -1,0 +1,585 @@
+{
+  "namespace": "Windows.Media.ContentRestrictions",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "ContentAccessRestrictionLevel": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Allow",
+          "value": "0"
+        },
+        {
+          "name": "Warn",
+          "value": "1"
+        },
+        {
+          "name": "Block",
+          "value": "2"
+        },
+        {
+          "name": "Hide",
+          "value": "3"
+        }
+      ]
+    },
+    "RatedContentCategory": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "General",
+          "value": "0"
+        },
+        {
+          "name": "Application",
+          "value": "1"
+        },
+        {
+          "name": "Game",
+          "value": "2"
+        },
+        {
+          "name": "Movie",
+          "value": "3"
+        },
+        {
+          "name": "Television",
+          "value": "4"
+        },
+        {
+          "name": "Music",
+          "value": "5"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IContentRestrictionsBrowsePolicy": {
+      "guid": "8c0133a4-442e-461a-8757-fad2f5bd37e4",
+      "exclusive_to": "Windows.Media.ContentRestrictions.ContentRestrictionsBrowsePolicy",
+      "methods": [
+        {
+          "name": "get_GeographicRegion",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MaxBrowsableAgeRating",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_PreferredAgeRating",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "GeographicRegion",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_GeographicRegion"
+        },
+        {
+          "name": "MaxBrowsableAgeRating",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_MaxBrowsableAgeRating"
+        },
+        {
+          "name": "PreferredAgeRating",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_PreferredAgeRating"
+        }
+      ]
+    },
+    "IRatedContentDescription": {
+      "guid": "694866df-66b2-4dc3-96b1-f090eedee255",
+      "exclusive_to": "Windows.Media.ContentRestrictions.RatedContentDescription",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Id",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Title",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Title",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Image",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_Image",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStreamReference",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Category",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RatedContentCategory",
+            "namespace": "Windows.Media.ContentRestrictions",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Category",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RatedContentCategory",
+                "namespace": "Windows.Media.ContentRestrictions",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Ratings",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Ratings",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVector`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Category",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RatedContentCategory",
+            "namespace": "Windows.Media.ContentRestrictions",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Category",
+          "setter": "put_Category"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id",
+          "setter": "put_Id"
+        },
+        {
+          "name": "Image",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Image",
+          "setter": "put_Image"
+        },
+        {
+          "name": "Ratings",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Ratings",
+          "setter": "put_Ratings"
+        },
+        {
+          "name": "Title",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Title",
+          "setter": "put_Title"
+        }
+      ]
+    },
+    "IRatedContentDescriptionFactory": {
+      "guid": "2e38df62-9b90-4fa6-89c1-4b8d2ffb3573",
+      "exclusive_to": "Windows.Media.ContentRestrictions.RatedContentDescription",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "title",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "category",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RatedContentCategory",
+                "namespace": "Windows.Media.ContentRestrictions",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RatedContentDescription",
+            "namespace": "Windows.Media.ContentRestrictions",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IRatedContentRestrictions": {
+      "guid": "3f7f23cb-ba07-4401-a49d-8b9222205723",
+      "exclusive_to": "Windows.Media.ContentRestrictions.RatedContentRestrictions",
+      "methods": [
+        {
+          "name": "GetBrowsePolicyAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ContentRestrictionsBrowsePolicy",
+                "namespace": "Windows.Media.ContentRestrictions",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetRestrictionLevelAsync",
+          "params": [
+            {
+              "name": "RatedContentDescription",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RatedContentDescription",
+                "namespace": "Windows.Media.ContentRestrictions",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ContentAccessRestrictionLevel",
+                "namespace": "Windows.Media.ContentRestrictions",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestContentAccessAsync",
+          "params": [
+            {
+              "name": "RatedContentDescription",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RatedContentDescription",
+                "namespace": "Windows.Media.ContentRestrictions",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_RestrictionsChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_RestrictionsChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "RestrictionsChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_RestrictionsChanged",
+          "remove_method": "remove_RestrictionsChanged"
+        }
+      ]
+    },
+    "IRatedContentRestrictionsFactory": {
+      "guid": "fb4b2996-c3bd-4910-9619-97cfd0694d56",
+      "exclusive_to": "Windows.Media.ContentRestrictions.RatedContentRestrictions",
+      "methods": [
+        {
+          "name": "CreateWithMaxAgeRating",
+          "params": [
+            {
+              "name": "maxAgeRating",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RatedContentRestrictions",
+            "namespace": "Windows.Media.ContentRestrictions",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "ContentRestrictionsBrowsePolicy": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IContentRestrictionsBrowsePolicy",
+        "namespace": "Windows.Media.ContentRestrictions",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IContentRestrictionsBrowsePolicy",
+          "namespace": "Windows.Media.ContentRestrictions",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RatedContentDescription": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRatedContentDescription",
+        "namespace": "Windows.Media.ContentRestrictions",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRatedContentDescription",
+          "namespace": "Windows.Media.ContentRestrictions",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Media.ContentRestrictions.IRatedContentDescriptionFactory"
+      ]
+    },
+    "RatedContentRestrictions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRatedContentRestrictions",
+        "namespace": "Windows.Media.ContentRestrictions",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRatedContentRestrictions",
+          "namespace": "Windows.Media.ContentRestrictions",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Media.ContentRestrictions.IRatedContentRestrictionsFactory"
+      ]
+    }
+  }
+}

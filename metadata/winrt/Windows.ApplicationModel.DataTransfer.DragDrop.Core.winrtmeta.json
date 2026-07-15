@@ -1,0 +1,835 @@
+{
+  "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "CoreDragUIContentMode": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "Auto",
+          "value": "0"
+        },
+        {
+          "name": "Deferred",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ICoreDragDropManager": {
+      "guid": "7d56d344-8464-4faf-aa49-37ea6e2d7bd1",
+      "exclusive_to": "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragDropManager",
+      "methods": [
+        {
+          "name": "add_TargetRequested",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreDragDropManager",
+                    "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreDropOperationTargetRequestedEventArgs",
+                    "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_TargetRequested",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AreConcurrentOperationsEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AreConcurrentOperationsEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AreConcurrentOperationsEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AreConcurrentOperationsEnabled",
+          "setter": "put_AreConcurrentOperationsEnabled"
+        }
+      ],
+      "events": [
+        {
+          "name": "TargetRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreDragDropManager",
+                "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CoreDropOperationTargetRequestedEventArgs",
+                "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_TargetRequested",
+          "remove_method": "remove_TargetRequested"
+        }
+      ]
+    },
+    "ICoreDragDropManagerStatics": {
+      "guid": "9542fdca-da12-4c1c-8d06-041db29733c3",
+      "exclusive_to": "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragDropManager",
+      "methods": [
+        {
+          "name": "GetForCurrentView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreDragDropManager",
+            "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ICoreDragInfo": {
+      "guid": "48353a8b-cb50-464e-9575-cd4e3a7ab028",
+      "exclusive_to": "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragInfo",
+      "methods": [
+        {
+          "name": "get_Data",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DataPackageView",
+            "namespace": "Windows.ApplicationModel.DataTransfer",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Modifiers",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DragDropModifiers",
+            "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Data",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DataPackageView",
+            "namespace": "Windows.ApplicationModel.DataTransfer",
+            "target_kind": "Class"
+          },
+          "getter": "get_Data"
+        },
+        {
+          "name": "Modifiers",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DragDropModifiers",
+            "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Modifiers"
+        },
+        {
+          "name": "Position",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Position"
+        }
+      ]
+    },
+    "ICoreDragInfo2": {
+      "guid": "c54691e5-e6fb-4d74-b4b1-8a3c17f25e9e",
+      "exclusive_to": "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragInfo",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreDragInfo",
+          "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_AllowedOperations",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DataPackageOperation",
+            "namespace": "Windows.ApplicationModel.DataTransfer",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllowedOperations",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DataPackageOperation",
+            "namespace": "Windows.ApplicationModel.DataTransfer",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AllowedOperations"
+        }
+      ]
+    },
+    "ICoreDragOperation": {
+      "guid": "cc06de4f-6db0-4e62-ab1b-a74a02dc6d85",
+      "exclusive_to": "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragOperation",
+      "methods": [
+        {
+          "name": "get_Data",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DataPackage",
+            "namespace": "Windows.ApplicationModel.DataTransfer",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetPointerId",
+          "params": [
+            {
+              "name": "pointerId",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetDragUIContentFromSoftwareBitmap",
+          "overload": "SetDragUIContentFromSoftwareBitmap",
+          "params": [
+            {
+              "name": "softwareBitmap",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SoftwareBitmap",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetDragUIContentFromSoftwareBitmap",
+          "overload": "SetDragUIContentFromSoftwareBitmapWithAnchorPoint",
+          "params": [
+            {
+              "name": "softwareBitmap",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SoftwareBitmap",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "anchorPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DragUIContentMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreDragUIContentMode",
+            "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_DragUIContentMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreDragUIContentMode",
+                "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "StartAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DataPackageOperation",
+                "namespace": "Windows.ApplicationModel.DataTransfer",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Data",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DataPackage",
+            "namespace": "Windows.ApplicationModel.DataTransfer",
+            "target_kind": "Class"
+          },
+          "getter": "get_Data"
+        },
+        {
+          "name": "DragUIContentMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreDragUIContentMode",
+            "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DragUIContentMode",
+          "setter": "put_DragUIContentMode"
+        }
+      ]
+    },
+    "ICoreDragOperation2": {
+      "guid": "824b1e2c-d99a-4fc3-8507-6c182f33b46a",
+      "exclusive_to": "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragOperation",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreDragOperation",
+          "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_AllowedOperations",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DataPackageOperation",
+            "namespace": "Windows.ApplicationModel.DataTransfer",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_AllowedOperations",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DataPackageOperation",
+                "namespace": "Windows.ApplicationModel.DataTransfer",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllowedOperations",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DataPackageOperation",
+            "namespace": "Windows.ApplicationModel.DataTransfer",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AllowedOperations",
+          "setter": "put_AllowedOperations"
+        }
+      ]
+    },
+    "ICoreDragUIOverride": {
+      "guid": "89a85064-3389-4f4f-8897-7e8a3ffb3c93",
+      "exclusive_to": "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDragUIOverride",
+      "methods": [
+        {
+          "name": "SetContentFromSoftwareBitmap",
+          "overload": "SetContentFromSoftwareBitmap",
+          "params": [
+            {
+              "name": "softwareBitmap",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SoftwareBitmap",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetContentFromSoftwareBitmap",
+          "overload": "SetContentFromSoftwareBitmapWithAnchorPoint",
+          "params": [
+            {
+              "name": "softwareBitmap",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SoftwareBitmap",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "anchorPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsContentVisible",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsContentVisible",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Caption",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Caption",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsCaptionVisible",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsCaptionVisible",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsGlyphVisible",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsGlyphVisible",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Clear"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Caption",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Caption",
+          "setter": "put_Caption"
+        },
+        {
+          "name": "IsCaptionVisible",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsCaptionVisible",
+          "setter": "put_IsCaptionVisible"
+        },
+        {
+          "name": "IsContentVisible",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsContentVisible",
+          "setter": "put_IsContentVisible"
+        },
+        {
+          "name": "IsGlyphVisible",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsGlyphVisible",
+          "setter": "put_IsGlyphVisible"
+        }
+      ]
+    },
+    "ICoreDropOperationTarget": {
+      "guid": "d9126196-4c5b-417d-bb37-76381def8db4",
+      "methods": [
+        {
+          "name": "EnterAsync",
+          "params": [
+            {
+              "name": "dragInfo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreDragInfo",
+                "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "dragUIOverride",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreDragUIOverride",
+                "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DataPackageOperation",
+                "namespace": "Windows.ApplicationModel.DataTransfer",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "OverAsync",
+          "params": [
+            {
+              "name": "dragInfo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreDragInfo",
+                "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "dragUIOverride",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreDragUIOverride",
+                "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DataPackageOperation",
+                "namespace": "Windows.ApplicationModel.DataTransfer",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "LeaveAsync",
+          "params": [
+            {
+              "name": "dragInfo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreDragInfo",
+                "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "DropAsync",
+          "params": [
+            {
+              "name": "dragInfo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreDragInfo",
+                "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DataPackageOperation",
+                "namespace": "Windows.ApplicationModel.DataTransfer",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ICoreDropOperationTargetRequestedEventArgs": {
+      "guid": "2aca929a-5e28-4ea6-829e-29134e665d6d",
+      "exclusive_to": "Windows.ApplicationModel.DataTransfer.DragDrop.Core.CoreDropOperationTargetRequestedEventArgs",
+      "methods": [
+        {
+          "name": "SetTarget",
+          "params": [
+            {
+              "name": "target",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ICoreDropOperationTarget",
+                "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "classes": {
+    "CoreDragDropManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreDragDropManager",
+        "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreDragDropManager",
+          "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDragDropManagerStatics"
+      ]
+    },
+    "CoreDragInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreDragInfo",
+        "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreDragInfo",
+          "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreDragInfo2",
+          "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreDragOperation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreDragOperation",
+        "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreDragOperation",
+          "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreDragOperation2",
+          "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "CoreDragUIOverride": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreDragUIOverride",
+        "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreDragUIOverride",
+          "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreDropOperationTargetRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreDropOperationTargetRequestedEventArgs",
+        "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreDropOperationTargetRequestedEventArgs",
+          "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

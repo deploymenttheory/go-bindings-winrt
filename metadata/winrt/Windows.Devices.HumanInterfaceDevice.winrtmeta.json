@@ -1,0 +1,2048 @@
+{
+  "namespace": "Windows.Devices.HumanInterfaceDevice",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "HidCollectionType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Physical",
+          "value": "0"
+        },
+        {
+          "name": "Application",
+          "value": "1"
+        },
+        {
+          "name": "Logical",
+          "value": "2"
+        },
+        {
+          "name": "Report",
+          "value": "3"
+        },
+        {
+          "name": "NamedArray",
+          "value": "4"
+        },
+        {
+          "name": "UsageSwitch",
+          "value": "5"
+        },
+        {
+          "name": "UsageModifier",
+          "value": "6"
+        },
+        {
+          "name": "Other",
+          "value": "7"
+        }
+      ]
+    },
+    "HidReportType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Input",
+          "value": "0"
+        },
+        {
+          "name": "Output",
+          "value": "1"
+        },
+        {
+          "name": "Feature",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IHidBooleanControl": {
+      "guid": "524df48a-3695-408c-bba2-e2eb5abfbc20",
+      "exclusive_to": "Windows.Devices.HumanInterfaceDevice.HidBooleanControl",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_UsagePage",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_UsageId",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_IsActive",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsActive",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ControlDescription",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HidBooleanControlDescription",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ControlDescription",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HidBooleanControlDescription",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Class"
+          },
+          "getter": "get_ControlDescription"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "IsActive",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsActive",
+          "setter": "put_IsActive"
+        },
+        {
+          "name": "UsageId",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_UsageId"
+        },
+        {
+          "name": "UsagePage",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_UsagePage"
+        }
+      ]
+    },
+    "IHidBooleanControlDescription": {
+      "guid": "6196e543-29d8-4a2a-8683-849e207bbe31",
+      "exclusive_to": "Windows.Devices.HumanInterfaceDevice.HidBooleanControlDescription",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_ReportId",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_ReportType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HidReportType",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_UsagePage",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_UsageId",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_ParentCollections",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HidCollection",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "ParentCollections",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HidCollection",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_ParentCollections"
+        },
+        {
+          "name": "ReportId",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_ReportId"
+        },
+        {
+          "name": "ReportType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HidReportType",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ReportType"
+        },
+        {
+          "name": "UsageId",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_UsageId"
+        },
+        {
+          "name": "UsagePage",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_UsagePage"
+        }
+      ]
+    },
+    "IHidBooleanControlDescription2": {
+      "guid": "c8eed2ea-8a77-4c36-aa00-5ff0449d3e73",
+      "exclusive_to": "Windows.Devices.HumanInterfaceDevice.HidBooleanControlDescription",
+      "methods": [
+        {
+          "name": "get_IsAbsolute",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsAbsolute",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAbsolute"
+        }
+      ]
+    },
+    "IHidCollection": {
+      "guid": "7189f5a3-32f1-46e3-befd-44d2663b7e6a",
+      "exclusive_to": "Windows.Devices.HumanInterfaceDevice.HidCollection",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Type",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HidCollectionType",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_UsagePage",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_UsageId",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "Type",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HidCollectionType",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Type"
+        },
+        {
+          "name": "UsageId",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_UsageId"
+        },
+        {
+          "name": "UsagePage",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_UsagePage"
+        }
+      ]
+    },
+    "IHidDevice": {
+      "guid": "5f8a14e7-2200-432e-95da-d09b87d574a8",
+      "exclusive_to": "Windows.Devices.HumanInterfaceDevice.HidDevice",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_VendorId",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_ProductId",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Version",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_UsagePage",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_UsageId",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "GetInputReportAsync",
+          "overload": "GetInputReportAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HidInputReport",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetInputReportAsync",
+          "overload": "GetInputReportByIdAsync",
+          "params": [
+            {
+              "name": "reportId",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HidInputReport",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetFeatureReportAsync",
+          "overload": "GetFeatureReportAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HidFeatureReport",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetFeatureReportAsync",
+          "overload": "GetFeatureReportByIdAsync",
+          "params": [
+            {
+              "name": "reportId",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HidFeatureReport",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateOutputReport",
+          "overload": "CreateOutputReport",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HidOutputReport",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateOutputReport",
+          "overload": "CreateOutputReportById",
+          "params": [
+            {
+              "name": "reportId",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HidOutputReport",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFeatureReport",
+          "overload": "CreateFeatureReport",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HidFeatureReport",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFeatureReport",
+          "overload": "CreateFeatureReportById",
+          "params": [
+            {
+              "name": "reportId",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HidFeatureReport",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SendOutputReportAsync",
+          "params": [
+            {
+              "name": "outputReport",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HidOutputReport",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SendFeatureReportAsync",
+          "params": [
+            {
+              "name": "featureReport",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HidFeatureReport",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetBooleanControlDescriptions",
+          "params": [
+            {
+              "name": "reportType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HidReportType",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "usagePage",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "usageId",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HidBooleanControlDescription",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetNumericControlDescriptions",
+          "params": [
+            {
+              "name": "reportType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HidReportType",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "usagePage",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "usageId",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HidNumericControlDescription",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_InputReportReceived",
+          "params": [
+            {
+              "name": "reportHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "HidDevice",
+                    "namespace": "Windows.Devices.HumanInterfaceDevice",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "HidInputReportReceivedEventArgs",
+                    "namespace": "Windows.Devices.HumanInterfaceDevice",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_InputReportReceived",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ProductId",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_ProductId"
+        },
+        {
+          "name": "UsageId",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_UsageId"
+        },
+        {
+          "name": "UsagePage",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_UsagePage"
+        },
+        {
+          "name": "VendorId",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_VendorId"
+        },
+        {
+          "name": "Version",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Version"
+        }
+      ],
+      "events": [
+        {
+          "name": "InputReportReceived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HidDevice",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "HidInputReportReceivedEventArgs",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_InputReportReceived",
+          "remove_method": "remove_InputReportReceived"
+        }
+      ]
+    },
+    "IHidDeviceStatics": {
+      "guid": "9e5981e4-9856-418c-9f73-77de0cd85754",
+      "exclusive_to": "Windows.Devices.HumanInterfaceDevice.HidDevice",
+      "methods": [
+        {
+          "name": "GetDeviceSelector",
+          "overload": "GetDeviceSelector",
+          "params": [
+            {
+              "name": "usagePage",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "usageId",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDeviceSelector",
+          "overload": "GetDeviceSelectorVidPid",
+          "params": [
+            {
+              "name": "usagePage",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "usageId",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "vendorId",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "productId",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "accessMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FileAccessMode",
+                "namespace": "Windows.Storage",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HidDevice",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IHidFeatureReport": {
+      "guid": "841d9b79-5ae5-46e3-82ef-1fec5c8942f4",
+      "exclusive_to": "Windows.Devices.HumanInterfaceDevice.HidFeatureReport",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Data",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_Data",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetBooleanControl",
+          "params": [
+            {
+              "name": "usagePage",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "usageId",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HidBooleanControl",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetBooleanControlByDescription",
+          "params": [
+            {
+              "name": "controlDescription",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HidBooleanControlDescription",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HidBooleanControl",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetNumericControl",
+          "params": [
+            {
+              "name": "usagePage",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "usageId",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HidNumericControl",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetNumericControlByDescription",
+          "params": [
+            {
+              "name": "controlDescription",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HidNumericControlDescription",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HidNumericControl",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Data",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Data",
+          "setter": "put_Data"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Id"
+        }
+      ]
+    },
+    "IHidInputReport": {
+      "guid": "c35d0e50-f7e7-4e8d-b23e-cabbe56b90e9",
+      "exclusive_to": "Windows.Devices.HumanInterfaceDevice.HidInputReport",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Data",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_ActivatedBooleanControls",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HidBooleanControl",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_TransitionedBooleanControls",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HidBooleanControl",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetBooleanControl",
+          "params": [
+            {
+              "name": "usagePage",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "usageId",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HidBooleanControl",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetBooleanControlByDescription",
+          "params": [
+            {
+              "name": "controlDescription",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HidBooleanControlDescription",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HidBooleanControl",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetNumericControl",
+          "params": [
+            {
+              "name": "usagePage",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "usageId",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HidNumericControl",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetNumericControlByDescription",
+          "params": [
+            {
+              "name": "controlDescription",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HidNumericControlDescription",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HidNumericControl",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ActivatedBooleanControls",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HidBooleanControl",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_ActivatedBooleanControls"
+        },
+        {
+          "name": "Data",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Data"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "TransitionedBooleanControls",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HidBooleanControl",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_TransitionedBooleanControls"
+        }
+      ]
+    },
+    "IHidInputReportReceivedEventArgs": {
+      "guid": "7059c5cb-59b2-4dc2-985c-0adc6136fa2d",
+      "exclusive_to": "Windows.Devices.HumanInterfaceDevice.HidInputReportReceivedEventArgs",
+      "methods": [
+        {
+          "name": "get_Report",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HidInputReport",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Report",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HidInputReport",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Class"
+          },
+          "getter": "get_Report"
+        }
+      ]
+    },
+    "IHidNumericControl": {
+      "guid": "e38a12a5-35a7-4b75-89c8-fb1f28b10823",
+      "exclusive_to": "Windows.Devices.HumanInterfaceDevice.HidNumericControl",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_IsGrouped",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_UsagePage",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_UsageId",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        },
+        {
+          "name": "put_Value",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I8"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ScaledValue",
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        },
+        {
+          "name": "put_ScaledValue",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I8"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ControlDescription",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HidNumericControlDescription",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ControlDescription",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HidNumericControlDescription",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Class"
+          },
+          "getter": "get_ControlDescription"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "IsGrouped",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsGrouped"
+        },
+        {
+          "name": "ScaledValue",
+          "type": {
+            "kind": "Native",
+            "name": "I8"
+          },
+          "getter": "get_ScaledValue",
+          "setter": "put_ScaledValue"
+        },
+        {
+          "name": "UsageId",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_UsageId"
+        },
+        {
+          "name": "UsagePage",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_UsagePage"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "I8"
+          },
+          "getter": "get_Value",
+          "setter": "put_Value"
+        }
+      ]
+    },
+    "IHidNumericControlDescription": {
+      "guid": "638d5e86-1d97-4c75-927f-5ff58ba05e32",
+      "exclusive_to": "Windows.Devices.HumanInterfaceDevice.HidNumericControlDescription",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_ReportId",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_ReportType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HidReportType",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ReportSize",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_ReportCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_UsagePage",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_UsageId",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_LogicalMinimum",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_LogicalMaximum",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_PhysicalMinimum",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_PhysicalMaximum",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_UnitExponent",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Unit",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_IsAbsolute",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_HasNull",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_ParentCollections",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HidCollection",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HasNull",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasNull"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "IsAbsolute",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAbsolute"
+        },
+        {
+          "name": "LogicalMaximum",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_LogicalMaximum"
+        },
+        {
+          "name": "LogicalMinimum",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_LogicalMinimum"
+        },
+        {
+          "name": "ParentCollections",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HidCollection",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_ParentCollections"
+        },
+        {
+          "name": "PhysicalMaximum",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_PhysicalMaximum"
+        },
+        {
+          "name": "PhysicalMinimum",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_PhysicalMinimum"
+        },
+        {
+          "name": "ReportCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ReportCount"
+        },
+        {
+          "name": "ReportId",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_ReportId"
+        },
+        {
+          "name": "ReportSize",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ReportSize"
+        },
+        {
+          "name": "ReportType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HidReportType",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ReportType"
+        },
+        {
+          "name": "Unit",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Unit"
+        },
+        {
+          "name": "UnitExponent",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_UnitExponent"
+        },
+        {
+          "name": "UsageId",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_UsageId"
+        },
+        {
+          "name": "UsagePage",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_UsagePage"
+        }
+      ]
+    },
+    "IHidOutputReport": {
+      "guid": "62cb2544-c896-4463-93c1-df9db053c450",
+      "exclusive_to": "Windows.Devices.HumanInterfaceDevice.HidOutputReport",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Data",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_Data",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetBooleanControl",
+          "params": [
+            {
+              "name": "usagePage",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "usageId",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HidBooleanControl",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetBooleanControlByDescription",
+          "params": [
+            {
+              "name": "controlDescription",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HidBooleanControlDescription",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HidBooleanControl",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetNumericControl",
+          "params": [
+            {
+              "name": "usagePage",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "usageId",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HidNumericControl",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetNumericControlByDescription",
+          "params": [
+            {
+              "name": "controlDescription",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HidNumericControlDescription",
+                "namespace": "Windows.Devices.HumanInterfaceDevice",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HidNumericControl",
+            "namespace": "Windows.Devices.HumanInterfaceDevice",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Data",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Data",
+          "setter": "put_Data"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Id"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "HidBooleanControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHidBooleanControl",
+        "namespace": "Windows.Devices.HumanInterfaceDevice",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHidBooleanControl",
+          "namespace": "Windows.Devices.HumanInterfaceDevice",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HidBooleanControlDescription": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHidBooleanControlDescription",
+        "namespace": "Windows.Devices.HumanInterfaceDevice",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHidBooleanControlDescription",
+          "namespace": "Windows.Devices.HumanInterfaceDevice",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHidBooleanControlDescription2",
+          "namespace": "Windows.Devices.HumanInterfaceDevice",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HidCollection": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHidCollection",
+        "namespace": "Windows.Devices.HumanInterfaceDevice",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHidCollection",
+          "namespace": "Windows.Devices.HumanInterfaceDevice",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HidDevice": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHidDevice",
+        "namespace": "Windows.Devices.HumanInterfaceDevice",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHidDevice",
+          "namespace": "Windows.Devices.HumanInterfaceDevice",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.HumanInterfaceDevice.IHidDeviceStatics"
+      ]
+    },
+    "HidFeatureReport": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHidFeatureReport",
+        "namespace": "Windows.Devices.HumanInterfaceDevice",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHidFeatureReport",
+          "namespace": "Windows.Devices.HumanInterfaceDevice",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HidInputReport": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHidInputReport",
+        "namespace": "Windows.Devices.HumanInterfaceDevice",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHidInputReport",
+          "namespace": "Windows.Devices.HumanInterfaceDevice",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HidInputReportReceivedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHidInputReportReceivedEventArgs",
+        "namespace": "Windows.Devices.HumanInterfaceDevice",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHidInputReportReceivedEventArgs",
+          "namespace": "Windows.Devices.HumanInterfaceDevice",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HidNumericControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHidNumericControl",
+        "namespace": "Windows.Devices.HumanInterfaceDevice",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHidNumericControl",
+          "namespace": "Windows.Devices.HumanInterfaceDevice",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HidNumericControlDescription": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHidNumericControlDescription",
+        "namespace": "Windows.Devices.HumanInterfaceDevice",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHidNumericControlDescription",
+          "namespace": "Windows.Devices.HumanInterfaceDevice",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HidOutputReport": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHidOutputReport",
+        "namespace": "Windows.Devices.HumanInterfaceDevice",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHidOutputReport",
+          "namespace": "Windows.Devices.HumanInterfaceDevice",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

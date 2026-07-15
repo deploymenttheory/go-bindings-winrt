@@ -1,0 +1,2245 @@
+{
+  "namespace": "Windows.UI.Xaml.Automation.Provider",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IAnnotationProvider": {
+      "guid": "95ba1417-4437-451b-9461-050a49b59d06",
+      "methods": [
+        {
+          "name": "get_AnnotationTypeId",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_AnnotationTypeName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Author",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DateTime",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Target",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRawElementProviderSimple",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AnnotationTypeId",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_AnnotationTypeId"
+        },
+        {
+          "name": "AnnotationTypeName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AnnotationTypeName"
+        },
+        {
+          "name": "Author",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Author"
+        },
+        {
+          "name": "DateTime",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DateTime"
+        },
+        {
+          "name": "Target",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRawElementProviderSimple",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Target"
+        }
+      ]
+    },
+    "ICustomNavigationProvider": {
+      "guid": "2bd8a6d0-2fa3-4717-b28c-4917ce54928d",
+      "methods": [
+        {
+          "name": "NavigateCustom",
+          "params": [
+            {
+              "name": "direction",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AutomationNavigationDirection",
+                "namespace": "Windows.UI.Xaml.Automation.Peers",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        }
+      ]
+    },
+    "IDockProvider": {
+      "guid": "48c243f8-78b1-44a0-ac5f-750757bcde3c",
+      "methods": [
+        {
+          "name": "get_DockPosition",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DockPosition",
+            "namespace": "Windows.UI.Xaml.Automation",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "SetDockPosition",
+          "params": [
+            {
+              "name": "dockPosition",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DockPosition",
+                "namespace": "Windows.UI.Xaml.Automation",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DockPosition",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DockPosition",
+            "namespace": "Windows.UI.Xaml.Automation",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DockPosition"
+        }
+      ]
+    },
+    "IDragProvider": {
+      "guid": "2e7786a9-7ffc-4f57-b965-1ef1f373f546",
+      "methods": [
+        {
+          "name": "get_IsGrabbed",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_DropEffect",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DropEffects",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "HString"
+            }
+          }
+        },
+        {
+          "name": "GetGrabbedItems",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "ApiRef",
+              "name": "IRawElementProviderSimple",
+              "namespace": "Windows.UI.Xaml.Automation.Provider",
+              "target_kind": "Class"
+            }
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DropEffect",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DropEffect"
+        },
+        {
+          "name": "DropEffects",
+          "type": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "HString"
+            }
+          },
+          "getter": "get_DropEffects"
+        },
+        {
+          "name": "IsGrabbed",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsGrabbed"
+        }
+      ]
+    },
+    "IDropTargetProvider": {
+      "guid": "7a245bdd-b458-4fe0-98c8-aac89df56d61",
+      "methods": [
+        {
+          "name": "get_DropEffect",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DropEffects",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "HString"
+            }
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DropEffect",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DropEffect"
+        },
+        {
+          "name": "DropEffects",
+          "type": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "HString"
+            }
+          },
+          "getter": "get_DropEffects"
+        }
+      ]
+    },
+    "IExpandCollapseProvider": {
+      "guid": "49ac8399-d626-4543-94b9-a6d9a9593af6",
+      "methods": [
+        {
+          "name": "get_ExpandCollapseState",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ExpandCollapseState",
+            "namespace": "Windows.UI.Xaml.Automation",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Collapse"
+        },
+        {
+          "name": "Expand"
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExpandCollapseState",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ExpandCollapseState",
+            "namespace": "Windows.UI.Xaml.Automation",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ExpandCollapseState"
+        }
+      ]
+    },
+    "IGridItemProvider": {
+      "guid": "fff3683c-7407-45bb-a936-df3ed6d3837d",
+      "methods": [
+        {
+          "name": "get_Column",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_ColumnSpan",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_ContainingGrid",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRawElementProviderSimple",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Row",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_RowSpan",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Column",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Column"
+        },
+        {
+          "name": "ColumnSpan",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_ColumnSpan"
+        },
+        {
+          "name": "ContainingGrid",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRawElementProviderSimple",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_ContainingGrid"
+        },
+        {
+          "name": "Row",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Row"
+        },
+        {
+          "name": "RowSpan",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_RowSpan"
+        }
+      ]
+    },
+    "IGridProvider": {
+      "guid": "8b62b7a0-932c-4490-9a13-02fdb39a8f5b",
+      "methods": [
+        {
+          "name": "get_ColumnCount",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_RowCount",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "GetItem",
+          "params": [
+            {
+              "name": "row",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "column",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRawElementProviderSimple",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ColumnCount",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_ColumnCount"
+        },
+        {
+          "name": "RowCount",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_RowCount"
+        }
+      ]
+    },
+    "IIRawElementProviderSimple": {
+      "guid": "ec752224-9b77-4720-bb21-4ac89fdb1afd",
+      "exclusive_to": "Windows.UI.Xaml.Automation.Provider.IRawElementProviderSimple"
+    },
+    "IInvokeProvider": {
+      "guid": "f7d1a187-b13c-4540-b09e-6778e2dc9ba5",
+      "methods": [
+        {
+          "name": "Invoke"
+        }
+      ]
+    },
+    "IItemContainerProvider": {
+      "guid": "ef5cd845-e1d4-40f4-bad5-c7fad44a703e",
+      "methods": [
+        {
+          "name": "FindItemByProperty",
+          "params": [
+            {
+              "name": "startAfter",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRawElementProviderSimple",
+                "namespace": "Windows.UI.Xaml.Automation.Provider",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "automationProperty",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AutomationProperty",
+                "namespace": "Windows.UI.Xaml.Automation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRawElementProviderSimple",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMultipleViewProvider": {
+      "guid": "d014e196-0e50-4843-a5d2-c22897c8845a",
+      "methods": [
+        {
+          "name": "get_CurrentView",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "GetSupportedViews",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "I4"
+            }
+          }
+        },
+        {
+          "name": "GetViewName",
+          "params": [
+            {
+              "name": "viewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "SetCurrentView",
+          "params": [
+            {
+              "name": "viewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CurrentView",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_CurrentView"
+        }
+      ]
+    },
+    "IObjectModelProvider": {
+      "guid": "c3ca36b9-0793-4ed0-bbf4-9ff4e0f98f80",
+      "methods": [
+        {
+          "name": "GetUnderlyingObjectModel",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        }
+      ]
+    },
+    "IRangeValueProvider": {
+      "guid": "838a34a8-7d5f-4079-af03-c3d015e93413",
+      "methods": [
+        {
+          "name": "get_IsReadOnly",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_LargeChange",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_Maximum",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_Minimum",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_SmallChange",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "SetValue",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsReadOnly",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsReadOnly"
+        },
+        {
+          "name": "LargeChange",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_LargeChange"
+        },
+        {
+          "name": "Maximum",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Maximum"
+        },
+        {
+          "name": "Minimum",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Minimum"
+        },
+        {
+          "name": "SmallChange",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_SmallChange"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "IScrollItemProvider": {
+      "guid": "9a3ec090-5d2c-4e42-9ee6-9d58db100b55",
+      "methods": [
+        {
+          "name": "ScrollIntoView"
+        }
+      ]
+    },
+    "IScrollProvider": {
+      "guid": "374bf581-7716-4bbc-82eb-d997006ea999",
+      "methods": [
+        {
+          "name": "get_HorizontallyScrollable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_HorizontalScrollPercent",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_HorizontalViewSize",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_VerticallyScrollable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_VerticalScrollPercent",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_VerticalViewSize",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "Scroll",
+          "params": [
+            {
+              "name": "horizontalAmount",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ScrollAmount",
+                "namespace": "Windows.UI.Xaml.Automation",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "verticalAmount",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ScrollAmount",
+                "namespace": "Windows.UI.Xaml.Automation",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetScrollPercent",
+          "params": [
+            {
+              "name": "horizontalPercent",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "verticalPercent",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "HorizontalScrollPercent",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_HorizontalScrollPercent"
+        },
+        {
+          "name": "HorizontalViewSize",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_HorizontalViewSize"
+        },
+        {
+          "name": "HorizontallyScrollable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HorizontallyScrollable"
+        },
+        {
+          "name": "VerticalScrollPercent",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_VerticalScrollPercent"
+        },
+        {
+          "name": "VerticalViewSize",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_VerticalViewSize"
+        },
+        {
+          "name": "VerticallyScrollable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_VerticallyScrollable"
+        }
+      ]
+    },
+    "ISelectionItemProvider": {
+      "guid": "6a4977c1-830d-42d2-bf62-042ebddecc19",
+      "methods": [
+        {
+          "name": "get_IsSelected",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SelectionContainer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRawElementProviderSimple",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "AddToSelection"
+        },
+        {
+          "name": "RemoveFromSelection"
+        },
+        {
+          "name": "Select"
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsSelected",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSelected"
+        },
+        {
+          "name": "SelectionContainer",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRawElementProviderSimple",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_SelectionContainer"
+        }
+      ]
+    },
+    "ISelectionProvider": {
+      "guid": "1f018fca-b944-4395-8de1-88f674af51d3",
+      "methods": [
+        {
+          "name": "get_CanSelectMultiple",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsSelectionRequired",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetSelection",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "ApiRef",
+              "name": "IRawElementProviderSimple",
+              "namespace": "Windows.UI.Xaml.Automation.Provider",
+              "target_kind": "Class"
+            }
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CanSelectMultiple",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanSelectMultiple"
+        },
+        {
+          "name": "IsSelectionRequired",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSelectionRequired"
+        }
+      ]
+    },
+    "ISpreadsheetItemProvider": {
+      "guid": "ebde8f92-6015-4826-b719-47521a81c67e",
+      "methods": [
+        {
+          "name": "get_Formula",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetAnnotationObjects",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "ApiRef",
+              "name": "IRawElementProviderSimple",
+              "namespace": "Windows.UI.Xaml.Automation.Provider",
+              "target_kind": "Class"
+            }
+          }
+        },
+        {
+          "name": "GetAnnotationTypes",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "ApiRef",
+              "name": "AnnotationType",
+              "namespace": "Windows.UI.Xaml.Automation",
+              "target_kind": "Enum"
+            }
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Formula",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Formula"
+        }
+      ]
+    },
+    "ISpreadsheetProvider": {
+      "guid": "15359093-bd99-4cfd-9f07-3b14b315e23d",
+      "methods": [
+        {
+          "name": "GetItemByName",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRawElementProviderSimple",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IStylesProvider": {
+      "guid": "1a5b7a17-7c01-4bec-9cd4-2dfa7dc246cd",
+      "methods": [
+        {
+          "name": "get_ExtendedProperties",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_FillColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_FillPatternColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_FillPatternStyle",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Shape",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_StyleId",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_StyleName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExtendedProperties",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ExtendedProperties"
+        },
+        {
+          "name": "FillColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_FillColor"
+        },
+        {
+          "name": "FillPatternColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_FillPatternColor"
+        },
+        {
+          "name": "FillPatternStyle",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_FillPatternStyle"
+        },
+        {
+          "name": "Shape",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Shape"
+        },
+        {
+          "name": "StyleId",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_StyleId"
+        },
+        {
+          "name": "StyleName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_StyleName"
+        }
+      ]
+    },
+    "ISynchronizedInputProvider": {
+      "guid": "3d60cecb-da54-4aa3-b915-e3244427d4ac",
+      "methods": [
+        {
+          "name": "Cancel"
+        },
+        {
+          "name": "StartListening",
+          "params": [
+            {
+              "name": "inputType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SynchronizedInputType",
+                "namespace": "Windows.UI.Xaml.Automation",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "ITableItemProvider": {
+      "guid": "3b2c49cd-1de2-4ee2-a3e1-fb553559d15d",
+      "methods": [
+        {
+          "name": "GetColumnHeaderItems",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "ApiRef",
+              "name": "IRawElementProviderSimple",
+              "namespace": "Windows.UI.Xaml.Automation.Provider",
+              "target_kind": "Class"
+            }
+          }
+        },
+        {
+          "name": "GetRowHeaderItems",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "ApiRef",
+              "name": "IRawElementProviderSimple",
+              "namespace": "Windows.UI.Xaml.Automation.Provider",
+              "target_kind": "Class"
+            }
+          }
+        }
+      ]
+    },
+    "ITableProvider": {
+      "guid": "7a8ed399-6824-4595-bab3-464bc9a04417",
+      "methods": [
+        {
+          "name": "get_RowOrColumnMajor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RowOrColumnMajor",
+            "namespace": "Windows.UI.Xaml.Automation",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetColumnHeaders",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "ApiRef",
+              "name": "IRawElementProviderSimple",
+              "namespace": "Windows.UI.Xaml.Automation.Provider",
+              "target_kind": "Class"
+            }
+          }
+        },
+        {
+          "name": "GetRowHeaders",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "ApiRef",
+              "name": "IRawElementProviderSimple",
+              "namespace": "Windows.UI.Xaml.Automation.Provider",
+              "target_kind": "Class"
+            }
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RowOrColumnMajor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RowOrColumnMajor",
+            "namespace": "Windows.UI.Xaml.Automation",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RowOrColumnMajor"
+        }
+      ]
+    },
+    "ITextChildProvider": {
+      "guid": "1133c336-a89b-4130-9be6-55e33334f557",
+      "methods": [
+        {
+          "name": "get_TextContainer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRawElementProviderSimple",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_TextRange",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ITextRangeProvider",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "TextContainer",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRawElementProviderSimple",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_TextContainer"
+        },
+        {
+          "name": "TextRange",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ITextRangeProvider",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Interface"
+          },
+          "getter": "get_TextRange"
+        }
+      ]
+    },
+    "ITextEditProvider": {
+      "guid": "ea3605b4-3a05-400e-b5f9-4e91b40f6176",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ITextProvider",
+          "namespace": "Windows.UI.Xaml.Automation.Provider",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "GetActiveComposition",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ITextRangeProvider",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetConversionTarget",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ITextRangeProvider",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "ITextProvider": {
+      "guid": "db5bbc9f-4807-4f2a-8678-1b13f3c60e22",
+      "methods": [
+        {
+          "name": "get_DocumentRange",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ITextRangeProvider",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_SupportedTextSelection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SupportedTextSelection",
+            "namespace": "Windows.UI.Xaml.Automation",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetSelection",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "ApiRef",
+              "name": "ITextRangeProvider",
+              "namespace": "Windows.UI.Xaml.Automation.Provider",
+              "target_kind": "Interface"
+            }
+          }
+        },
+        {
+          "name": "GetVisibleRanges",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "ApiRef",
+              "name": "ITextRangeProvider",
+              "namespace": "Windows.UI.Xaml.Automation.Provider",
+              "target_kind": "Interface"
+            }
+          }
+        },
+        {
+          "name": "RangeFromChild",
+          "params": [
+            {
+              "name": "childElement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRawElementProviderSimple",
+                "namespace": "Windows.UI.Xaml.Automation.Provider",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ITextRangeProvider",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "RangeFromPoint",
+          "params": [
+            {
+              "name": "screenLocation",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ITextRangeProvider",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DocumentRange",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ITextRangeProvider",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Interface"
+          },
+          "getter": "get_DocumentRange"
+        },
+        {
+          "name": "SupportedTextSelection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SupportedTextSelection",
+            "namespace": "Windows.UI.Xaml.Automation",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SupportedTextSelection"
+        }
+      ]
+    },
+    "ITextProvider2": {
+      "guid": "df1d48bc-0487-4e7f-9d5e-f09e77e41246",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ITextProvider",
+          "namespace": "Windows.UI.Xaml.Automation.Provider",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "RangeFromAnnotation",
+          "params": [
+            {
+              "name": "annotationElement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRawElementProviderSimple",
+                "namespace": "Windows.UI.Xaml.Automation.Provider",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ITextRangeProvider",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetCaretRange",
+          "params": [
+            {
+              "name": "isActive",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ITextRangeProvider",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "ITextRangeProvider": {
+      "guid": "0274688d-06e9-4f66-9446-28a5be98fbd0",
+      "methods": [
+        {
+          "name": "Clone",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ITextRangeProvider",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "Compare",
+          "params": [
+            {
+              "name": "textRangeProvider",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ITextRangeProvider",
+                "namespace": "Windows.UI.Xaml.Automation.Provider",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "CompareEndpoints",
+          "params": [
+            {
+              "name": "endpoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextPatternRangeEndpoint",
+                "namespace": "Windows.UI.Xaml.Automation.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "textRangeProvider",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ITextRangeProvider",
+                "namespace": "Windows.UI.Xaml.Automation.Provider",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "targetEndpoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextPatternRangeEndpoint",
+                "namespace": "Windows.UI.Xaml.Automation.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "ExpandToEnclosingUnit",
+          "params": [
+            {
+              "name": "unit",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextUnit",
+                "namespace": "Windows.UI.Xaml.Automation.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "FindAttribute",
+          "params": [
+            {
+              "name": "attributeId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "backward",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ITextRangeProvider",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "FindText",
+          "params": [
+            {
+              "name": "text",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "backward",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "ignoreCase",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ITextRangeProvider",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetAttributeValue",
+          "params": [
+            {
+              "name": "attributeId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "GetBoundingRectangles",
+          "params": [
+            {
+              "name": "returnValue",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "F64"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "GetEnclosingElement",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRawElementProviderSimple",
+            "namespace": "Windows.UI.Xaml.Automation.Provider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetText",
+          "params": [
+            {
+              "name": "maxLength",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "Move",
+          "params": [
+            {
+              "name": "unit",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextUnit",
+                "namespace": "Windows.UI.Xaml.Automation.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "count",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "MoveEndpointByUnit",
+          "params": [
+            {
+              "name": "endpoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextPatternRangeEndpoint",
+                "namespace": "Windows.UI.Xaml.Automation.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "unit",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextUnit",
+                "namespace": "Windows.UI.Xaml.Automation.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "count",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "MoveEndpointByRange",
+          "params": [
+            {
+              "name": "endpoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextPatternRangeEndpoint",
+                "namespace": "Windows.UI.Xaml.Automation.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "textRangeProvider",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ITextRangeProvider",
+                "namespace": "Windows.UI.Xaml.Automation.Provider",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "targetEndpoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextPatternRangeEndpoint",
+                "namespace": "Windows.UI.Xaml.Automation.Text",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Select"
+        },
+        {
+          "name": "AddToSelection"
+        },
+        {
+          "name": "RemoveFromSelection"
+        },
+        {
+          "name": "ScrollIntoView",
+          "params": [
+            {
+              "name": "alignToTop",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetChildren",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "ApiRef",
+              "name": "IRawElementProviderSimple",
+              "namespace": "Windows.UI.Xaml.Automation.Provider",
+              "target_kind": "Class"
+            }
+          }
+        }
+      ]
+    },
+    "ITextRangeProvider2": {
+      "guid": "d3be3dfb-9f54-4642-a7a5-5c18d5ee2a3f",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ITextRangeProvider",
+          "namespace": "Windows.UI.Xaml.Automation.Provider",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "ShowContextMenu"
+        }
+      ]
+    },
+    "IToggleProvider": {
+      "guid": "93b88290-656f-44f7-aeaf-78b8f944d062",
+      "methods": [
+        {
+          "name": "get_ToggleState",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ToggleState",
+            "namespace": "Windows.UI.Xaml.Automation",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Toggle"
+        }
+      ],
+      "properties": [
+        {
+          "name": "ToggleState",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ToggleState",
+            "namespace": "Windows.UI.Xaml.Automation",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ToggleState"
+        }
+      ]
+    },
+    "ITransformProvider": {
+      "guid": "79670fdd-f6a9-4a65-af17-861db799a2da",
+      "methods": [
+        {
+          "name": "get_CanMove",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_CanResize",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_CanRotate",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "Move",
+          "params": [
+            {
+              "name": "x",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "y",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Resize",
+          "params": [
+            {
+              "name": "width",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "height",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Rotate",
+          "params": [
+            {
+              "name": "degrees",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CanMove",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanMove"
+        },
+        {
+          "name": "CanResize",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanResize"
+        },
+        {
+          "name": "CanRotate",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanRotate"
+        }
+      ]
+    },
+    "ITransformProvider2": {
+      "guid": "a8b11756-a39f-4e97-8c7d-c1ea8dd633c5",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ITransformProvider",
+          "namespace": "Windows.UI.Xaml.Automation.Provider",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_CanZoom",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_ZoomLevel",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_MaxZoom",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_MinZoom",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "Zoom",
+          "params": [
+            {
+              "name": "zoom",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ZoomByUnit",
+          "params": [
+            {
+              "name": "zoomUnit",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ZoomUnit",
+                "namespace": "Windows.UI.Xaml.Automation",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CanZoom",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanZoom"
+        },
+        {
+          "name": "MaxZoom",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_MaxZoom"
+        },
+        {
+          "name": "MinZoom",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_MinZoom"
+        },
+        {
+          "name": "ZoomLevel",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_ZoomLevel"
+        }
+      ]
+    },
+    "IValueProvider": {
+      "guid": "2086b7a7-ac0e-47d1-ab9b-2a64292afdf8",
+      "methods": [
+        {
+          "name": "get_IsReadOnly",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "SetValue",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsReadOnly",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsReadOnly"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "IVirtualizedItemProvider": {
+      "guid": "17d4a04b-d658-48e0-a574-5a516c58dfa7",
+      "methods": [
+        {
+          "name": "Realize"
+        }
+      ]
+    },
+    "IWindowProvider": {
+      "guid": "1baa8b3d-38cf-415a-85d3-20e43a0ec1b1",
+      "methods": [
+        {
+          "name": "get_IsModal",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsTopmost",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Maximizable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Minimizable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_InteractionState",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WindowInteractionState",
+            "namespace": "Windows.UI.Xaml.Automation",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_VisualState",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WindowVisualState",
+            "namespace": "Windows.UI.Xaml.Automation",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Close"
+        },
+        {
+          "name": "SetVisualState",
+          "params": [
+            {
+              "name": "state",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WindowVisualState",
+                "namespace": "Windows.UI.Xaml.Automation",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "WaitForInputIdle",
+          "params": [
+            {
+              "name": "milliseconds",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InteractionState",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WindowInteractionState",
+            "namespace": "Windows.UI.Xaml.Automation",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InteractionState"
+        },
+        {
+          "name": "IsModal",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsModal"
+        },
+        {
+          "name": "IsTopmost",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsTopmost"
+        },
+        {
+          "name": "Maximizable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Maximizable"
+        },
+        {
+          "name": "Minimizable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Minimizable"
+        },
+        {
+          "name": "VisualState",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WindowVisualState",
+            "namespace": "Windows.UI.Xaml.Automation",
+            "target_kind": "Enum"
+          },
+          "getter": "get_VisualState"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "IRawElementProviderSimple": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IIRawElementProviderSimple",
+        "namespace": "Windows.UI.Xaml.Automation.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IIRawElementProviderSimple",
+          "namespace": "Windows.UI.Xaml.Automation.Provider",
+          "target_kind": "Interface"
+        }
+      ],
+      "composable": true
+    }
+  }
+}

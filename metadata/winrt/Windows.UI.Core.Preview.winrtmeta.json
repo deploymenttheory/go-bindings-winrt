@@ -1,0 +1,220 @@
+{
+  "namespace": "Windows.UI.Core.Preview",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "ICoreAppWindowPreview": {
+      "guid": "a4f6e665-365e-5fde-87a5-9543c3a15aa8",
+      "exclusive_to": "Windows.UI.Core.Preview.CoreAppWindowPreview"
+    },
+    "ICoreAppWindowPreviewStatics": {
+      "guid": "33ac21be-423b-5db6-8a8e-4dc87353b75b",
+      "exclusive_to": "Windows.UI.Core.Preview.CoreAppWindowPreview",
+      "methods": [
+        {
+          "name": "GetIdFromWindow",
+          "params": [
+            {
+              "name": "window",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppWindow",
+                "namespace": "Windows.UI.WindowManagement",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ]
+    },
+    "ISystemNavigationCloseRequestedPreviewEventArgs": {
+      "guid": "83d00de1-cbe5-4f31-8414-361da046518f",
+      "exclusive_to": "Windows.UI.Core.Preview.SystemNavigationCloseRequestedPreviewEventArgs",
+      "methods": [
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        }
+      ]
+    },
+    "ISystemNavigationManagerPreview": {
+      "guid": "ec5f0488-6425-4777-a536-cb5634427f0d",
+      "exclusive_to": "Windows.UI.Core.Preview.SystemNavigationManagerPreview",
+      "methods": [
+        {
+          "name": "add_CloseRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SystemNavigationCloseRequestedPreviewEventArgs",
+                    "namespace": "Windows.UI.Core.Preview",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CloseRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "CloseRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SystemNavigationCloseRequestedPreviewEventArgs",
+                "namespace": "Windows.UI.Core.Preview",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_CloseRequested",
+          "remove_method": "remove_CloseRequested"
+        }
+      ]
+    },
+    "ISystemNavigationManagerPreviewStatics": {
+      "guid": "0e971360-df74-4bce-84cb-bd1181ac0a71",
+      "exclusive_to": "Windows.UI.Core.Preview.SystemNavigationManagerPreview",
+      "methods": [
+        {
+          "name": "GetForCurrentView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SystemNavigationManagerPreview",
+            "namespace": "Windows.UI.Core.Preview",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "CoreAppWindowPreview": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreAppWindowPreview",
+        "namespace": "Windows.UI.Core.Preview",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreAppWindowPreview",
+          "namespace": "Windows.UI.Core.Preview",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Core.Preview.ICoreAppWindowPreviewStatics"
+      ]
+    },
+    "SystemNavigationCloseRequestedPreviewEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISystemNavigationCloseRequestedPreviewEventArgs",
+        "namespace": "Windows.UI.Core.Preview",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISystemNavigationCloseRequestedPreviewEventArgs",
+          "namespace": "Windows.UI.Core.Preview",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SystemNavigationManagerPreview": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISystemNavigationManagerPreview",
+        "namespace": "Windows.UI.Core.Preview",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISystemNavigationManagerPreview",
+          "namespace": "Windows.UI.Core.Preview",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Core.Preview.ISystemNavigationManagerPreviewStatics"
+      ]
+    }
+  }
+}

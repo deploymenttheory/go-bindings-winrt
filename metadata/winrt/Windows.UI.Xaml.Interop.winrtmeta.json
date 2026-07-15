@@ -1,0 +1,705 @@
+{
+  "namespace": "Windows.UI.Xaml.Interop",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "NotifyCollectionChangedAction": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Add",
+          "value": "0"
+        },
+        {
+          "name": "Remove",
+          "value": "1"
+        },
+        {
+          "name": "Replace",
+          "value": "2"
+        },
+        {
+          "name": "Move",
+          "value": "3"
+        },
+        {
+          "name": "Reset",
+          "value": "4"
+        }
+      ]
+    },
+    "TypeKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Primitive",
+          "value": "0"
+        },
+        {
+          "name": "Metadata",
+          "value": "1"
+        },
+        {
+          "name": "Custom",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "TypeName": {
+      "fields": [
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TypeKind",
+            "namespace": "Windows.UI.Xaml.Interop",
+            "target_kind": "Enum"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IBindableIterable": {
+      "guid": "036d2c08-df29-41af-8aa2-d774be62ba6f",
+      "methods": [
+        {
+          "name": "First",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBindableIterator",
+            "namespace": "Windows.UI.Xaml.Interop",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IBindableIterator": {
+      "guid": "6a1d6c07-076d-49f2-8314-f52c9c9a8331",
+      "methods": [
+        {
+          "name": "get_Current",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "get_HasCurrent",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "MoveNext",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Current",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_Current"
+        },
+        {
+          "name": "HasCurrent",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasCurrent"
+        }
+      ]
+    },
+    "IBindableObservableVector": {
+      "guid": "fe1eb536-7e7f-4f90-ac9a-474984aae512",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBindableVector",
+          "namespace": "Windows.UI.Xaml.Interop",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBindableIterable",
+          "namespace": "Windows.UI.Xaml.Interop",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "add_VectorChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BindableVectorChangedEventHandler",
+                "namespace": "Windows.UI.Xaml.Interop",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_VectorChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "VectorChanged",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BindableVectorChangedEventHandler",
+            "namespace": "Windows.UI.Xaml.Interop",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_VectorChanged",
+          "remove_method": "remove_VectorChanged"
+        }
+      ]
+    },
+    "IBindableVector": {
+      "guid": "393de7de-6fd0-4c0d-bb71-47244a113e93",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBindableIterable",
+          "namespace": "Windows.UI.Xaml.Interop",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "GetAt",
+          "params": [
+            {
+              "name": "index",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "get_Size",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "GetView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBindableVectorView",
+            "namespace": "Windows.UI.Xaml.Interop",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "IndexOf",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "index",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "SetAt",
+          "params": [
+            {
+              "name": "index",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        },
+        {
+          "name": "InsertAt",
+          "params": [
+            {
+              "name": "index",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RemoveAt",
+          "params": [
+            {
+              "name": "index",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Append",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RemoveAtEnd"
+        },
+        {
+          "name": "Clear"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Size",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Size"
+        }
+      ]
+    },
+    "IBindableVectorView": {
+      "guid": "346dd6e7-976e-4bc3-815d-ece243bc0f33",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBindableIterable",
+          "namespace": "Windows.UI.Xaml.Interop",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "GetAt",
+          "params": [
+            {
+              "name": "index",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "get_Size",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "IndexOf",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "index",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Size",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Size"
+        }
+      ]
+    },
+    "INotifyCollectionChanged": {
+      "guid": "28b167d5-1a31-465b-9b25-d5c3ae686c40",
+      "methods": [
+        {
+          "name": "add_CollectionChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NotifyCollectionChangedEventHandler",
+                "namespace": "Windows.UI.Xaml.Interop",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CollectionChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "CollectionChanged",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NotifyCollectionChangedEventHandler",
+            "namespace": "Windows.UI.Xaml.Interop",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_CollectionChanged",
+          "remove_method": "remove_CollectionChanged"
+        }
+      ]
+    },
+    "INotifyCollectionChangedEventArgs": {
+      "guid": "4cf68d33-e3f2-4964-b85e-945b4f7e2f21",
+      "exclusive_to": "Windows.UI.Xaml.Interop.NotifyCollectionChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_Action",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NotifyCollectionChangedAction",
+            "namespace": "Windows.UI.Xaml.Interop",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_NewItems",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBindableVector",
+            "namespace": "Windows.UI.Xaml.Interop",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_OldItems",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBindableVector",
+            "namespace": "Windows.UI.Xaml.Interop",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_NewStartingIndex",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_OldStartingIndex",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Action",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NotifyCollectionChangedAction",
+            "namespace": "Windows.UI.Xaml.Interop",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Action"
+        },
+        {
+          "name": "NewItems",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBindableVector",
+            "namespace": "Windows.UI.Xaml.Interop",
+            "target_kind": "Interface"
+          },
+          "getter": "get_NewItems"
+        },
+        {
+          "name": "NewStartingIndex",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_NewStartingIndex"
+        },
+        {
+          "name": "OldItems",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBindableVector",
+            "namespace": "Windows.UI.Xaml.Interop",
+            "target_kind": "Interface"
+          },
+          "getter": "get_OldItems"
+        },
+        {
+          "name": "OldStartingIndex",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_OldStartingIndex"
+        }
+      ]
+    },
+    "INotifyCollectionChangedEventArgsFactory": {
+      "guid": "b30c3e3a-df8d-44a5-9a38-7ac0d08ce63d",
+      "exclusive_to": "Windows.UI.Xaml.Interop.NotifyCollectionChangedEventArgs",
+      "methods": [
+        {
+          "name": "CreateInstanceWithAllParameters",
+          "params": [
+            {
+              "name": "action",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NotifyCollectionChangedAction",
+                "namespace": "Windows.UI.Xaml.Interop",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "newItems",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBindableVector",
+                "namespace": "Windows.UI.Xaml.Interop",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "oldItems",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBindableVector",
+                "namespace": "Windows.UI.Xaml.Interop",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "newIndex",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "oldIndex",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "baseInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "innerInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "NotifyCollectionChangedEventArgs",
+            "namespace": "Windows.UI.Xaml.Interop",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "NotifyCollectionChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INotifyCollectionChangedEventArgs",
+        "namespace": "Windows.UI.Xaml.Interop",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INotifyCollectionChangedEventArgs",
+          "namespace": "Windows.UI.Xaml.Interop",
+          "target_kind": "Interface"
+        }
+      ],
+      "composable_factories": [
+        "Windows.UI.Xaml.Interop.INotifyCollectionChangedEventArgsFactory"
+      ]
+    }
+  },
+  "delegates": {
+    "BindableVectorChangedEventHandler": {
+      "guid": "624cd4e1-d007-43b1-9c03-af4d3e6258c4",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "vector",
+            "type": {
+              "kind": "ApiRef",
+              "name": "IBindableObservableVector",
+              "namespace": "Windows.UI.Xaml.Interop",
+              "target_kind": "Interface"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          }
+        ]
+      }
+    },
+    "NotifyCollectionChangedEventHandler": {
+      "guid": "ca10b37c-f382-4591-8557-5e24965279b0",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "NotifyCollectionChangedEventArgs",
+              "namespace": "Windows.UI.Xaml.Interop",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

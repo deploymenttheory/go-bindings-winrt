@@ -1,0 +1,425 @@
+{
+  "namespace": "Windows.Devices.Printers.Extensions",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "Print3DWorkflowDetail": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "ModelExceedsPrintBed",
+          "value": "1"
+        },
+        {
+          "name": "UploadFailed",
+          "value": "2"
+        },
+        {
+          "name": "InvalidMaterialSelection",
+          "value": "3"
+        },
+        {
+          "name": "InvalidModel",
+          "value": "4"
+        },
+        {
+          "name": "ModelNotManifold",
+          "value": "5"
+        },
+        {
+          "name": "InvalidPrintTicket",
+          "value": "6"
+        }
+      ]
+    },
+    "Print3DWorkflowStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Abandoned",
+          "value": "0"
+        },
+        {
+          "name": "Canceled",
+          "value": "1"
+        },
+        {
+          "name": "Failed",
+          "value": "2"
+        },
+        {
+          "name": "Slicing",
+          "value": "3"
+        },
+        {
+          "name": "Submitted",
+          "value": "4"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IPrint3DWorkflow": {
+      "guid": "c56f74bd-3669-4a66-ab42-c8151930cd34",
+      "exclusive_to": "Windows.Devices.Printers.Extensions.Print3DWorkflow",
+      "methods": [
+        {
+          "name": "get_DeviceID",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetPrintModelPackage",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "get_IsPrintReady",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsPrintReady",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PrintRequested",
+          "params": [
+            {
+              "name": "eventHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Print3DWorkflow",
+                    "namespace": "Windows.Devices.Printers.Extensions",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "Print3DWorkflowPrintRequestedEventArgs",
+                    "namespace": "Windows.Devices.Printers.Extensions",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PrintRequested",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceID",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceID"
+        },
+        {
+          "name": "IsPrintReady",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPrintReady",
+          "setter": "put_IsPrintReady"
+        }
+      ],
+      "events": [
+        {
+          "name": "PrintRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Print3DWorkflow",
+                "namespace": "Windows.Devices.Printers.Extensions",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "Print3DWorkflowPrintRequestedEventArgs",
+                "namespace": "Windows.Devices.Printers.Extensions",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PrintRequested",
+          "remove_method": "remove_PrintRequested"
+        }
+      ]
+    },
+    "IPrint3DWorkflow2": {
+      "guid": "a2a6c54f-8ac1-4918-9741-e34f3004239e",
+      "exclusive_to": "Windows.Devices.Printers.Extensions.Print3DWorkflow",
+      "methods": [
+        {
+          "name": "add_PrinterChanged",
+          "params": [
+            {
+              "name": "eventHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Print3DWorkflow",
+                    "namespace": "Windows.Devices.Printers.Extensions",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "Print3DWorkflowPrinterChangedEventArgs",
+                    "namespace": "Windows.Devices.Printers.Extensions",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PrinterChanged",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "PrinterChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Print3DWorkflow",
+                "namespace": "Windows.Devices.Printers.Extensions",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "Print3DWorkflowPrinterChangedEventArgs",
+                "namespace": "Windows.Devices.Printers.Extensions",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PrinterChanged",
+          "remove_method": "remove_PrinterChanged"
+        }
+      ]
+    },
+    "IPrint3DWorkflowPrintRequestedEventArgs": {
+      "guid": "19f8c858-5ac8-4b55-8a5f-e61567dafb4d",
+      "exclusive_to": "Windows.Devices.Printers.Extensions.Print3DWorkflowPrintRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Print3DWorkflowStatus",
+            "namespace": "Windows.Devices.Printers.Extensions",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "SetExtendedStatus",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Print3DWorkflowDetail",
+                "namespace": "Windows.Devices.Printers.Extensions",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetSource",
+          "params": [
+            {
+              "name": "source",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetSourceChanged",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Print3DWorkflowStatus",
+            "namespace": "Windows.Devices.Printers.Extensions",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IPrint3DWorkflowPrinterChangedEventArgs": {
+      "guid": "45226402-95fc-4847-93b3-134dbf5c60f7",
+      "exclusive_to": "Windows.Devices.Printers.Extensions.Print3DWorkflowPrinterChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_NewDeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "NewDeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NewDeviceId"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "Print3DWorkflow": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrint3DWorkflow",
+        "namespace": "Windows.Devices.Printers.Extensions",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrint3DWorkflow",
+          "namespace": "Windows.Devices.Printers.Extensions",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrint3DWorkflow2",
+          "namespace": "Windows.Devices.Printers.Extensions",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "Print3DWorkflowPrintRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrint3DWorkflowPrintRequestedEventArgs",
+        "namespace": "Windows.Devices.Printers.Extensions",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrint3DWorkflowPrintRequestedEventArgs",
+          "namespace": "Windows.Devices.Printers.Extensions",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "Print3DWorkflowPrinterChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrint3DWorkflowPrinterChangedEventArgs",
+        "namespace": "Windows.Devices.Printers.Extensions",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrint3DWorkflowPrinterChangedEventArgs",
+          "namespace": "Windows.Devices.Printers.Extensions",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

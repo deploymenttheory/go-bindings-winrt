@@ -1,0 +1,1704 @@
+{
+  "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IAppointmentCalendarCancelMeetingRequest": {
+      "guid": "49460f8d-6434-40d7-ad46-6297419314d1",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequest",
+      "methods": [
+        {
+          "name": "get_AppointmentCalendarLocalId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AppointmentLocalId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AppointmentOriginalStartTime",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Subject",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Comment",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NotifyInvitees",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppointmentCalendarLocalId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppointmentCalendarLocalId"
+        },
+        {
+          "name": "AppointmentLocalId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppointmentLocalId"
+        },
+        {
+          "name": "AppointmentOriginalStartTime",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_AppointmentOriginalStartTime"
+        },
+        {
+          "name": "Comment",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Comment"
+        },
+        {
+          "name": "NotifyInvitees",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_NotifyInvitees"
+        },
+        {
+          "name": "Subject",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Subject"
+        }
+      ]
+    },
+    "IAppointmentCalendarCancelMeetingRequestEventArgs": {
+      "guid": "1a79be16-7f30-4e35-beef-9d2c7b6dcae1",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCancelMeetingRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentCalendarCancelMeetingRequest",
+            "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentCalendarCancelMeetingRequest",
+            "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IAppointmentCalendarCreateOrUpdateAppointmentRequest": {
+      "guid": "2e62f2b2-ca96-48ac-9124-406b19fefa70",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequest",
+      "methods": [
+        {
+          "name": "get_AppointmentCalendarLocalId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Appointment",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Appointment",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_NotifyInvitees",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_ChangedProperties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "params": [
+            {
+              "name": "createdOrUpdatedAppointment",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Appointment",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Appointment",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Class"
+          },
+          "getter": "get_Appointment"
+        },
+        {
+          "name": "AppointmentCalendarLocalId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppointmentCalendarLocalId"
+        },
+        {
+          "name": "ChangedProperties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_ChangedProperties"
+        },
+        {
+          "name": "NotifyInvitees",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_NotifyInvitees"
+        }
+      ]
+    },
+    "IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs": {
+      "guid": "cf8ded28-002e-4bf7-8e9d-5e20d49aa3ba",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentCalendarCreateOrUpdateAppointmentRequest",
+            "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentCalendarCreateOrUpdateAppointmentRequest",
+            "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IAppointmentCalendarForwardMeetingRequest": {
+      "guid": "82e5ee56-26b6-4253-8a8f-6cf5f2ff7884",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequest",
+      "methods": [
+        {
+          "name": "get_AppointmentCalendarLocalId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AppointmentLocalId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AppointmentOriginalStartTime",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Invitees",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentInvitee",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Subject",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ForwardHeader",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Comment",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppointmentCalendarLocalId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppointmentCalendarLocalId"
+        },
+        {
+          "name": "AppointmentLocalId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppointmentLocalId"
+        },
+        {
+          "name": "AppointmentOriginalStartTime",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_AppointmentOriginalStartTime"
+        },
+        {
+          "name": "Comment",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Comment"
+        },
+        {
+          "name": "ForwardHeader",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ForwardHeader"
+        },
+        {
+          "name": "Invitees",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentInvitee",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Invitees"
+        },
+        {
+          "name": "Subject",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Subject"
+        }
+      ]
+    },
+    "IAppointmentCalendarForwardMeetingRequestEventArgs": {
+      "guid": "3109151a-23a2-42fd-9c82-c9a60d59f8a8",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarForwardMeetingRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentCalendarForwardMeetingRequest",
+            "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentCalendarForwardMeetingRequest",
+            "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IAppointmentCalendarProposeNewTimeForMeetingRequest": {
+      "guid": "ce1c63f5-edf6-43c3-82b7-be6b368c6900",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequest",
+      "methods": [
+        {
+          "name": "get_AppointmentCalendarLocalId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AppointmentLocalId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AppointmentOriginalStartTime",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_NewStartTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_NewDuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Subject",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Comment",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppointmentCalendarLocalId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppointmentCalendarLocalId"
+        },
+        {
+          "name": "AppointmentLocalId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppointmentLocalId"
+        },
+        {
+          "name": "AppointmentOriginalStartTime",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_AppointmentOriginalStartTime"
+        },
+        {
+          "name": "Comment",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Comment"
+        },
+        {
+          "name": "NewDuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_NewDuration"
+        },
+        {
+          "name": "NewStartTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_NewStartTime"
+        },
+        {
+          "name": "Subject",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Subject"
+        }
+      ]
+    },
+    "IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs": {
+      "guid": "d2d777d8-fed1-4280-a3ba-2e1f47609aa2",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentCalendarProposeNewTimeForMeetingRequest",
+            "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentCalendarProposeNewTimeForMeetingRequest",
+            "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IAppointmentCalendarSyncManagerSyncRequest": {
+      "guid": "12ab382b-7163-4a56-9a4e-7223a84adf46",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequest",
+      "methods": [
+        {
+          "name": "get_AppointmentCalendarLocalId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppointmentCalendarLocalId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppointmentCalendarLocalId"
+        }
+      ]
+    },
+    "IAppointmentCalendarSyncManagerSyncRequestEventArgs": {
+      "guid": "ca17c6f7-0284-4edd-87ba-4d8f69dcf5c0",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarSyncManagerSyncRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentCalendarSyncManagerSyncRequest",
+            "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentCalendarSyncManagerSyncRequest",
+            "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IAppointmentCalendarUpdateMeetingResponseRequest": {
+      "guid": "a36d608c-c29d-4b94-b086-7e9ff7bd84a0",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequest",
+      "methods": [
+        {
+          "name": "get_AppointmentCalendarLocalId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AppointmentLocalId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AppointmentOriginalStartTime",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Response",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentParticipantResponse",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Subject",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Comment",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SendUpdate",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppointmentCalendarLocalId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppointmentCalendarLocalId"
+        },
+        {
+          "name": "AppointmentLocalId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppointmentLocalId"
+        },
+        {
+          "name": "AppointmentOriginalStartTime",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_AppointmentOriginalStartTime"
+        },
+        {
+          "name": "Comment",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Comment"
+        },
+        {
+          "name": "Response",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentParticipantResponse",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Response"
+        },
+        {
+          "name": "SendUpdate",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SendUpdate"
+        },
+        {
+          "name": "Subject",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Subject"
+        }
+      ]
+    },
+    "IAppointmentCalendarUpdateMeetingResponseRequestEventArgs": {
+      "guid": "88759883-97bf-479d-aed5-0be8ce567d1e",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.DataProvider.AppointmentCalendarUpdateMeetingResponseRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentCalendarUpdateMeetingResponseRequest",
+            "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentCalendarUpdateMeetingResponseRequest",
+            "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IAppointmentDataProviderConnection": {
+      "guid": "f3dd9d83-3254-465f-abdb-928046552cf4",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderConnection",
+      "methods": [
+        {
+          "name": "add_SyncRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppointmentDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppointmentCalendarSyncManagerSyncRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SyncRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_CreateOrUpdateAppointmentRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppointmentDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CreateOrUpdateAppointmentRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_CancelMeetingRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppointmentDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppointmentCalendarCancelMeetingRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CancelMeetingRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ForwardMeetingRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppointmentDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppointmentCalendarForwardMeetingRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ForwardMeetingRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ProposeNewTimeForMeetingRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppointmentDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ProposeNewTimeForMeetingRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_UpdateMeetingResponseRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppointmentDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppointmentCalendarUpdateMeetingResponseRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_UpdateMeetingResponseRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Start"
+        }
+      ],
+      "events": [
+        {
+          "name": "CancelMeetingRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentCalendarCancelMeetingRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_CancelMeetingRequested",
+          "remove_method": "remove_CancelMeetingRequested"
+        },
+        {
+          "name": "CreateOrUpdateAppointmentRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_CreateOrUpdateAppointmentRequested",
+          "remove_method": "remove_CreateOrUpdateAppointmentRequested"
+        },
+        {
+          "name": "ForwardMeetingRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentCalendarForwardMeetingRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ForwardMeetingRequested",
+          "remove_method": "remove_ForwardMeetingRequested"
+        },
+        {
+          "name": "ProposeNewTimeForMeetingRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ProposeNewTimeForMeetingRequested",
+          "remove_method": "remove_ProposeNewTimeForMeetingRequested"
+        },
+        {
+          "name": "SyncRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentCalendarSyncManagerSyncRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SyncRequested",
+          "remove_method": "remove_SyncRequested"
+        },
+        {
+          "name": "UpdateMeetingResponseRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentCalendarUpdateMeetingResponseRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_UpdateMeetingResponseRequested",
+          "remove_method": "remove_UpdateMeetingResponseRequested"
+        }
+      ]
+    },
+    "IAppointmentDataProviderTriggerDetails": {
+      "guid": "b3283c01-7e12-4e5e-b1ef-74fb68ac6f2a",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.DataProvider.AppointmentDataProviderTriggerDetails",
+      "methods": [
+        {
+          "name": "get_Connection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentDataProviderConnection",
+            "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Connection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentDataProviderConnection",
+            "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Connection"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AppointmentCalendarCancelMeetingRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentCalendarCancelMeetingRequest",
+        "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentCalendarCancelMeetingRequest",
+          "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentCalendarCancelMeetingRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentCalendarCancelMeetingRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentCalendarCancelMeetingRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentCalendarCreateOrUpdateAppointmentRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentCalendarCreateOrUpdateAppointmentRequest",
+        "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentCalendarCreateOrUpdateAppointmentRequest",
+          "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentCalendarForwardMeetingRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentCalendarForwardMeetingRequest",
+        "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentCalendarForwardMeetingRequest",
+          "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentCalendarForwardMeetingRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentCalendarForwardMeetingRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentCalendarForwardMeetingRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentCalendarProposeNewTimeForMeetingRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentCalendarProposeNewTimeForMeetingRequest",
+        "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentCalendarProposeNewTimeForMeetingRequest",
+          "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentCalendarProposeNewTimeForMeetingRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentCalendarSyncManagerSyncRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentCalendarSyncManagerSyncRequest",
+        "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentCalendarSyncManagerSyncRequest",
+          "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentCalendarSyncManagerSyncRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentCalendarSyncManagerSyncRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentCalendarSyncManagerSyncRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentCalendarUpdateMeetingResponseRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentCalendarUpdateMeetingResponseRequest",
+        "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentCalendarUpdateMeetingResponseRequest",
+          "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentCalendarUpdateMeetingResponseRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentCalendarUpdateMeetingResponseRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentCalendarUpdateMeetingResponseRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentDataProviderConnection": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentDataProviderConnection",
+        "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentDataProviderConnection",
+          "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentDataProviderTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentDataProviderTriggerDetails",
+        "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentDataProviderTriggerDetails",
+          "namespace": "Windows.ApplicationModel.Appointments.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

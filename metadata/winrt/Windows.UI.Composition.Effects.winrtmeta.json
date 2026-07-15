@@ -1,0 +1,255 @@
+{
+  "namespace": "Windows.UI.Composition.Effects",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "SceneLightingEffectReflectanceModel": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "BlinnPhong",
+          "value": "0"
+        },
+        {
+          "name": "PhysicallyBasedBlinnPhong",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ISceneLightingEffect": {
+      "guid": "91bb5e52-95d1-4f8b-9a5a-6408b24b8c6a",
+      "exclusive_to": "Windows.UI.Composition.Effects.SceneLightingEffect",
+      "methods": [
+        {
+          "name": "get_AmbientAmount",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_AmbientAmount",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DiffuseAmount",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_DiffuseAmount",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_NormalMapSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IGraphicsEffectSource",
+            "namespace": "Windows.Graphics.Effects",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_NormalMapSource",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IGraphicsEffectSource",
+                "namespace": "Windows.Graphics.Effects",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SpecularAmount",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_SpecularAmount",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SpecularShine",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_SpecularShine",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AmbientAmount",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_AmbientAmount",
+          "setter": "put_AmbientAmount"
+        },
+        {
+          "name": "DiffuseAmount",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_DiffuseAmount",
+          "setter": "put_DiffuseAmount"
+        },
+        {
+          "name": "NormalMapSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IGraphicsEffectSource",
+            "namespace": "Windows.Graphics.Effects",
+            "target_kind": "Interface"
+          },
+          "getter": "get_NormalMapSource",
+          "setter": "put_NormalMapSource"
+        },
+        {
+          "name": "SpecularAmount",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_SpecularAmount",
+          "setter": "put_SpecularAmount"
+        },
+        {
+          "name": "SpecularShine",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_SpecularShine",
+          "setter": "put_SpecularShine"
+        }
+      ]
+    },
+    "ISceneLightingEffect2": {
+      "guid": "9e270e81-72f0-4c5c-95f8-8a6e0024f409",
+      "exclusive_to": "Windows.UI.Composition.Effects.SceneLightingEffect",
+      "methods": [
+        {
+          "name": "get_ReflectanceModel",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneLightingEffectReflectanceModel",
+            "namespace": "Windows.UI.Composition.Effects",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_ReflectanceModel",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SceneLightingEffectReflectanceModel",
+                "namespace": "Windows.UI.Composition.Effects",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ReflectanceModel",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SceneLightingEffectReflectanceModel",
+            "namespace": "Windows.UI.Composition.Effects",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ReflectanceModel",
+          "setter": "put_ReflectanceModel"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "SceneLightingEffect": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISceneLightingEffect",
+        "namespace": "Windows.UI.Composition.Effects",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISceneLightingEffect",
+          "namespace": "Windows.UI.Composition.Effects",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISceneLightingEffect2",
+          "namespace": "Windows.UI.Composition.Effects",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGraphicsEffect",
+          "namespace": "Windows.Graphics.Effects",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGraphicsEffectSource",
+          "namespace": "Windows.Graphics.Effects",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  }
+}

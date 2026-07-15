@@ -1,0 +1,6458 @@
+{
+  "namespace": "Windows.UI.Xaml.Input",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "FocusInputDeviceKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Mouse",
+          "value": "1"
+        },
+        {
+          "name": "Touch",
+          "value": "2"
+        },
+        {
+          "name": "Pen",
+          "value": "3"
+        },
+        {
+          "name": "Keyboard",
+          "value": "4"
+        },
+        {
+          "name": "GameController",
+          "value": "5"
+        }
+      ]
+    },
+    "FocusNavigationDirection": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Next",
+          "value": "0"
+        },
+        {
+          "name": "Previous",
+          "value": "1"
+        },
+        {
+          "name": "Up",
+          "value": "2"
+        },
+        {
+          "name": "Down",
+          "value": "3"
+        },
+        {
+          "name": "Left",
+          "value": "4"
+        },
+        {
+          "name": "Right",
+          "value": "5"
+        },
+        {
+          "name": "None",
+          "value": "6"
+        }
+      ]
+    },
+    "InputScopeNameValue": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "Url",
+          "value": "1"
+        },
+        {
+          "name": "EmailSmtpAddress",
+          "value": "5"
+        },
+        {
+          "name": "PersonalFullName",
+          "value": "7"
+        },
+        {
+          "name": "CurrencyAmountAndSymbol",
+          "value": "20"
+        },
+        {
+          "name": "CurrencyAmount",
+          "value": "21"
+        },
+        {
+          "name": "DateMonthNumber",
+          "value": "23"
+        },
+        {
+          "name": "DateDayNumber",
+          "value": "24"
+        },
+        {
+          "name": "DateYear",
+          "value": "25"
+        },
+        {
+          "name": "Digits",
+          "value": "28"
+        },
+        {
+          "name": "Number",
+          "value": "29"
+        },
+        {
+          "name": "Password",
+          "value": "31"
+        },
+        {
+          "name": "TelephoneNumber",
+          "value": "32"
+        },
+        {
+          "name": "TelephoneCountryCode",
+          "value": "33"
+        },
+        {
+          "name": "TelephoneAreaCode",
+          "value": "34"
+        },
+        {
+          "name": "TelephoneLocalNumber",
+          "value": "35"
+        },
+        {
+          "name": "TimeHour",
+          "value": "37"
+        },
+        {
+          "name": "TimeMinutesOrSeconds",
+          "value": "38"
+        },
+        {
+          "name": "NumberFullWidth",
+          "value": "39"
+        },
+        {
+          "name": "AlphanumericHalfWidth",
+          "value": "40"
+        },
+        {
+          "name": "AlphanumericFullWidth",
+          "value": "41"
+        },
+        {
+          "name": "Hiragana",
+          "value": "44"
+        },
+        {
+          "name": "KatakanaHalfWidth",
+          "value": "45"
+        },
+        {
+          "name": "KatakanaFullWidth",
+          "value": "46"
+        },
+        {
+          "name": "Hanja",
+          "value": "47"
+        },
+        {
+          "name": "HangulHalfWidth",
+          "value": "48"
+        },
+        {
+          "name": "HangulFullWidth",
+          "value": "49"
+        },
+        {
+          "name": "Search",
+          "value": "50"
+        },
+        {
+          "name": "Formula",
+          "value": "51"
+        },
+        {
+          "name": "SearchIncremental",
+          "value": "52"
+        },
+        {
+          "name": "ChineseHalfWidth",
+          "value": "53"
+        },
+        {
+          "name": "ChineseFullWidth",
+          "value": "54"
+        },
+        {
+          "name": "NativeScript",
+          "value": "55"
+        },
+        {
+          "name": "Text",
+          "value": "57"
+        },
+        {
+          "name": "Chat",
+          "value": "58"
+        },
+        {
+          "name": "NameOrPhoneNumber",
+          "value": "59"
+        },
+        {
+          "name": "EmailNameOrAddress",
+          "value": "60"
+        },
+        {
+          "name": "Private",
+          "value": "61"
+        },
+        {
+          "name": "Maps",
+          "value": "62"
+        },
+        {
+          "name": "NumericPassword",
+          "value": "63"
+        },
+        {
+          "name": "NumericPin",
+          "value": "64"
+        },
+        {
+          "name": "AlphanumericPin",
+          "value": "65"
+        },
+        {
+          "name": "FormulaNumber",
+          "value": "67"
+        },
+        {
+          "name": "ChatWithoutEmoji",
+          "value": "68"
+        }
+      ]
+    },
+    "KeyTipPlacementMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Auto",
+          "value": "0"
+        },
+        {
+          "name": "Bottom",
+          "value": "1"
+        },
+        {
+          "name": "Top",
+          "value": "2"
+        },
+        {
+          "name": "Left",
+          "value": "3"
+        },
+        {
+          "name": "Right",
+          "value": "4"
+        },
+        {
+          "name": "Center",
+          "value": "5"
+        },
+        {
+          "name": "Hidden",
+          "value": "6"
+        }
+      ]
+    },
+    "KeyboardAcceleratorPlacementMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Auto",
+          "value": "0"
+        },
+        {
+          "name": "Hidden",
+          "value": "1"
+        }
+      ]
+    },
+    "KeyboardNavigationMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Local",
+          "value": "0"
+        },
+        {
+          "name": "Cycle",
+          "value": "1"
+        },
+        {
+          "name": "Once",
+          "value": "2"
+        }
+      ]
+    },
+    "ManipulationModes": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "TranslateX",
+          "value": "1"
+        },
+        {
+          "name": "TranslateY",
+          "value": "2"
+        },
+        {
+          "name": "TranslateRailsX",
+          "value": "4"
+        },
+        {
+          "name": "TranslateRailsY",
+          "value": "8"
+        },
+        {
+          "name": "Rotate",
+          "value": "16"
+        },
+        {
+          "name": "Scale",
+          "value": "32"
+        },
+        {
+          "name": "TranslateInertia",
+          "value": "64"
+        },
+        {
+          "name": "RotateInertia",
+          "value": "128"
+        },
+        {
+          "name": "ScaleInertia",
+          "value": "256"
+        },
+        {
+          "name": "All",
+          "value": "65535"
+        },
+        {
+          "name": "System",
+          "value": "65536"
+        }
+      ]
+    },
+    "StandardUICommandKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Cut",
+          "value": "1"
+        },
+        {
+          "name": "Copy",
+          "value": "2"
+        },
+        {
+          "name": "Paste",
+          "value": "3"
+        },
+        {
+          "name": "SelectAll",
+          "value": "4"
+        },
+        {
+          "name": "Delete",
+          "value": "5"
+        },
+        {
+          "name": "Share",
+          "value": "6"
+        },
+        {
+          "name": "Save",
+          "value": "7"
+        },
+        {
+          "name": "Open",
+          "value": "8"
+        },
+        {
+          "name": "Close",
+          "value": "9"
+        },
+        {
+          "name": "Pause",
+          "value": "10"
+        },
+        {
+          "name": "Play",
+          "value": "11"
+        },
+        {
+          "name": "Stop",
+          "value": "12"
+        },
+        {
+          "name": "Forward",
+          "value": "13"
+        },
+        {
+          "name": "Backward",
+          "value": "14"
+        },
+        {
+          "name": "Undo",
+          "value": "15"
+        },
+        {
+          "name": "Redo",
+          "value": "16"
+        }
+      ]
+    },
+    "XYFocusKeyboardNavigationMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Auto",
+          "value": "0"
+        },
+        {
+          "name": "Enabled",
+          "value": "1"
+        },
+        {
+          "name": "Disabled",
+          "value": "2"
+        }
+      ]
+    },
+    "XYFocusNavigationStrategy": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Auto",
+          "value": "0"
+        },
+        {
+          "name": "Projection",
+          "value": "1"
+        },
+        {
+          "name": "NavigationDirectionDistance",
+          "value": "2"
+        },
+        {
+          "name": "RectilinearDistance",
+          "value": "3"
+        }
+      ]
+    },
+    "XYFocusNavigationStrategyOverride": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Auto",
+          "value": "1"
+        },
+        {
+          "name": "Projection",
+          "value": "2"
+        },
+        {
+          "name": "NavigationDirectionDistance",
+          "value": "3"
+        },
+        {
+          "name": "RectilinearDistance",
+          "value": "4"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IAccessKeyDisplayDismissedEventArgs": {
+      "guid": "8a610dc6-d72d-4ca8-9f66-556f35b513da",
+      "exclusive_to": "Windows.UI.Xaml.Input.AccessKeyDisplayDismissedEventArgs"
+    },
+    "IAccessKeyDisplayRequestedEventArgs": {
+      "guid": "0c079e55-13fe-4d03-a61d-e12f06567286",
+      "exclusive_to": "Windows.UI.Xaml.Input.AccessKeyDisplayRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_PressedKeys",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PressedKeys",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PressedKeys"
+        }
+      ]
+    },
+    "IAccessKeyInvokedEventArgs": {
+      "guid": "cfe9cd97-c718-4091-b7dd-adf1c072b1e1",
+      "exclusive_to": "Windows.UI.Xaml.Input.AccessKeyInvokedEventArgs",
+      "methods": [
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        }
+      ]
+    },
+    "IAccessKeyManager": {
+      "guid": "ecc973b0-2ee9-4b1c-98d7-6e0e816d334b",
+      "exclusive_to": "Windows.UI.Xaml.Input.AccessKeyManager"
+    },
+    "IAccessKeyManagerStatics": {
+      "guid": "4ca0efe6-d9c8-4ebc-b4c7-30d1838a81f1",
+      "exclusive_to": "Windows.UI.Xaml.Input.AccessKeyManager",
+      "methods": [
+        {
+          "name": "get_IsDisplayModeEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "add_IsDisplayModeEnabledChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_IsDisplayModeEnabledChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ExitDisplayMode"
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsDisplayModeEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsDisplayModeEnabled"
+        }
+      ],
+      "events": [
+        {
+          "name": "IsDisplayModeEnabledChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_IsDisplayModeEnabledChanged",
+          "remove_method": "remove_IsDisplayModeEnabledChanged"
+        }
+      ]
+    },
+    "IAccessKeyManagerStatics2": {
+      "guid": "962bb594-2ab3-47c5-954b-7092f355f797",
+      "exclusive_to": "Windows.UI.Xaml.Input.AccessKeyManager",
+      "methods": [
+        {
+          "name": "get_AreKeyTipsEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AreKeyTipsEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AreKeyTipsEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AreKeyTipsEnabled",
+          "setter": "put_AreKeyTipsEnabled"
+        }
+      ]
+    },
+    "ICanExecuteRequestedEventArgs": {
+      "guid": "c8e75256-1950-505d-993b-75907ef96830",
+      "exclusive_to": "Windows.UI.Xaml.Input.CanExecuteRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_Parameter",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "get_CanExecute",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_CanExecute",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CanExecute",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanExecute",
+          "setter": "put_CanExecute"
+        },
+        {
+          "name": "Parameter",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_Parameter"
+        }
+      ]
+    },
+    "ICharacterReceivedRoutedEventArgs": {
+      "guid": "7849fd82-48e4-444d-9419-93ab8892c107",
+      "exclusive_to": "Windows.UI.Xaml.Input.CharacterReceivedRoutedEventArgs",
+      "methods": [
+        {
+          "name": "get_Character",
+          "return": {
+            "kind": "Native",
+            "name": "Char16"
+          }
+        },
+        {
+          "name": "get_KeyStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CorePhysicalKeyStatus",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Character",
+          "type": {
+            "kind": "Native",
+            "name": "Char16"
+          },
+          "getter": "get_Character"
+        },
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        },
+        {
+          "name": "KeyStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CorePhysicalKeyStatus",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Struct"
+          },
+          "getter": "get_KeyStatus"
+        }
+      ]
+    },
+    "ICommand": {
+      "guid": "e5af3542-ca67-4081-995b-709dd13792df",
+      "methods": [
+        {
+          "name": "add_CanExecuteChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CanExecuteChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CanExecute",
+          "params": [
+            {
+              "name": "parameter",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "Execute",
+          "params": [
+            {
+              "name": "parameter",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "CanExecuteChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_CanExecuteChanged",
+          "remove_method": "remove_CanExecuteChanged"
+        }
+      ]
+    },
+    "IContextRequestedEventArgs": {
+      "guid": "42618e0a-1cb6-46fb-8374-0aec68aa5e51",
+      "exclusive_to": "Windows.UI.Xaml.Input.ContextRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TryGetPosition",
+          "params": [
+            {
+              "name": "relativeTo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElement",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "point",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        }
+      ]
+    },
+    "IDoubleTappedRoutedEventArgs": {
+      "guid": "af404424-26df-44f4-8714-9359249b62d3",
+      "exclusive_to": "Windows.UI.Xaml.Input.DoubleTappedRoutedEventArgs",
+      "methods": [
+        {
+          "name": "get_PointerDeviceType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PointerDeviceType",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetPosition",
+          "params": [
+            {
+              "name": "relativeTo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElement",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        },
+        {
+          "name": "PointerDeviceType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PointerDeviceType",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PointerDeviceType"
+        }
+      ]
+    },
+    "IExecuteRequestedEventArgs": {
+      "guid": "e07fa734-a0b6-5755-9e87-24f54cca9372",
+      "exclusive_to": "Windows.UI.Xaml.Input.ExecuteRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_Parameter",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Parameter",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_Parameter"
+        }
+      ]
+    },
+    "IFindNextElementOptions": {
+      "guid": "d88ae22b-46c2-41fc-897e-b5961977b89d",
+      "exclusive_to": "Windows.UI.Xaml.Input.FindNextElementOptions",
+      "methods": [
+        {
+          "name": "get_SearchRoot",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyObject",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_SearchRoot",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyObject",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ExclusionRect",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_ExclusionRect",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_HintRect",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_HintRect",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_XYFocusNavigationStrategyOverride",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XYFocusNavigationStrategyOverride",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_XYFocusNavigationStrategyOverride",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XYFocusNavigationStrategyOverride",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExclusionRect",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExclusionRect",
+          "setter": "put_ExclusionRect"
+        },
+        {
+          "name": "HintRect",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_HintRect",
+          "setter": "put_HintRect"
+        },
+        {
+          "name": "SearchRoot",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyObject",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_SearchRoot",
+          "setter": "put_SearchRoot"
+        },
+        {
+          "name": "XYFocusNavigationStrategyOverride",
+          "type": {
+            "kind": "ApiRef",
+            "name": "XYFocusNavigationStrategyOverride",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Enum"
+          },
+          "getter": "get_XYFocusNavigationStrategyOverride",
+          "setter": "put_XYFocusNavigationStrategyOverride"
+        }
+      ]
+    },
+    "IFocusManager": {
+      "guid": "c843f50b-3b83-4da1-9d6f-557c1169f341",
+      "exclusive_to": "Windows.UI.Xaml.Input.FocusManager"
+    },
+    "IFocusManagerGotFocusEventArgs": {
+      "guid": "97aa5d83-535b-507a-868e-62b706f06b61",
+      "exclusive_to": "Windows.UI.Xaml.Input.FocusManagerGotFocusEventArgs",
+      "methods": [
+        {
+          "name": "get_NewFocusedElement",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyObject",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CorrelationId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CorrelationId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_CorrelationId"
+        },
+        {
+          "name": "NewFocusedElement",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyObject",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_NewFocusedElement"
+        }
+      ]
+    },
+    "IFocusManagerLostFocusEventArgs": {
+      "guid": "3e157e7a-9578-5cd3-aaa8-051b3d391978",
+      "exclusive_to": "Windows.UI.Xaml.Input.FocusManagerLostFocusEventArgs",
+      "methods": [
+        {
+          "name": "get_OldFocusedElement",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyObject",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CorrelationId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CorrelationId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_CorrelationId"
+        },
+        {
+          "name": "OldFocusedElement",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyObject",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_OldFocusedElement"
+        }
+      ]
+    },
+    "IFocusManagerStatics": {
+      "guid": "1eccd326-8182-4482-826a-0918e9ed9af7",
+      "exclusive_to": "Windows.UI.Xaml.Input.FocusManager",
+      "methods": [
+        {
+          "name": "GetFocusedElement",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        }
+      ]
+    },
+    "IFocusManagerStatics2": {
+      "guid": "a920d761-dd87-4f31-beda-ef417fe7c04a",
+      "exclusive_to": "Windows.UI.Xaml.Input.FocusManager",
+      "methods": [
+        {
+          "name": "TryMoveFocus",
+          "overload": "TryMoveFocus",
+          "params": [
+            {
+              "name": "focusNavigationDirection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FocusNavigationDirection",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IFocusManagerStatics3": {
+      "guid": "60805ebf-b149-417d-83f1-baeb560e2a47",
+      "exclusive_to": "Windows.UI.Xaml.Input.FocusManager",
+      "methods": [
+        {
+          "name": "FindNextFocusableElement",
+          "overload": "FindNextFocusableElement",
+          "params": [
+            {
+              "name": "focusNavigationDirection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FocusNavigationDirection",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UIElement",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "FindNextFocusableElement",
+          "overload": "FindNextFocusableElementWithHint",
+          "params": [
+            {
+              "name": "focusNavigationDirection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FocusNavigationDirection",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "hintRect",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UIElement",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IFocusManagerStatics4": {
+      "guid": "29276e9c-1c6c-414a-ba1c-96efd5962bcd",
+      "exclusive_to": "Windows.UI.Xaml.Input.FocusManager",
+      "methods": [
+        {
+          "name": "TryMoveFocus",
+          "overload": "TryMoveFocusWithOptions",
+          "params": [
+            {
+              "name": "focusNavigationDirection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FocusNavigationDirection",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "focusNavigationOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FindNextElementOptions",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "FindNextElement",
+          "overload": "FindNextElement",
+          "params": [
+            {
+              "name": "focusNavigationDirection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FocusNavigationDirection",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyObject",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "FindFirstFocusableElement",
+          "params": [
+            {
+              "name": "searchScope",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyObject",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyObject",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "FindLastFocusableElement",
+          "params": [
+            {
+              "name": "searchScope",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyObject",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyObject",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "FindNextElement",
+          "overload": "FindNextElementWithOptions",
+          "params": [
+            {
+              "name": "focusNavigationDirection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FocusNavigationDirection",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "focusNavigationOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FindNextElementOptions",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyObject",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IFocusManagerStatics5": {
+      "guid": "280edc61-207a-4d7b-b98f-ce165e1b2015",
+      "exclusive_to": "Windows.UI.Xaml.Input.FocusManager",
+      "methods": [
+        {
+          "name": "TryFocusAsync",
+          "params": [
+            {
+              "name": "element",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyObject",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FocusState",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "FocusMovementResult",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryMoveFocusAsync",
+          "overload": "TryMoveFocusAsync",
+          "params": [
+            {
+              "name": "focusNavigationDirection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FocusNavigationDirection",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "FocusMovementResult",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryMoveFocusAsync",
+          "overload": "TryMoveFocusWithOptionsAsync",
+          "params": [
+            {
+              "name": "focusNavigationDirection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FocusNavigationDirection",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "focusNavigationOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FindNextElementOptions",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "FocusMovementResult",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IFocusManagerStatics6": {
+      "guid": "3546a1b6-20bf-5007-929d-e6d32e16afe4",
+      "exclusive_to": "Windows.UI.Xaml.Input.FocusManager",
+      "methods": [
+        {
+          "name": "add_GotFocus",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "FocusManagerGotFocusEventArgs",
+                    "namespace": "Windows.UI.Xaml.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_GotFocus",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_LostFocus",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "FocusManagerLostFocusEventArgs",
+                    "namespace": "Windows.UI.Xaml.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_LostFocus",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_GettingFocus",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "GettingFocusEventArgs",
+                    "namespace": "Windows.UI.Xaml.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_GettingFocus",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_LosingFocus",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "LosingFocusEventArgs",
+                    "namespace": "Windows.UI.Xaml.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_LosingFocus",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "GettingFocus",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "GettingFocusEventArgs",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_GettingFocus",
+          "remove_method": "remove_GettingFocus"
+        },
+        {
+          "name": "GotFocus",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "FocusManagerGotFocusEventArgs",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_GotFocus",
+          "remove_method": "remove_GotFocus"
+        },
+        {
+          "name": "LosingFocus",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "LosingFocusEventArgs",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_LosingFocus",
+          "remove_method": "remove_LosingFocus"
+        },
+        {
+          "name": "LostFocus",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "FocusManagerLostFocusEventArgs",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_LostFocus",
+          "remove_method": "remove_LostFocus"
+        }
+      ]
+    },
+    "IFocusManagerStatics7": {
+      "guid": "95d6fa97-f0fc-5c32-b29d-07c04ec966b0",
+      "exclusive_to": "Windows.UI.Xaml.Input.FocusManager",
+      "methods": [
+        {
+          "name": "GetFocusedElement",
+          "overload": "GetFocusedElement",
+          "params": [
+            {
+              "name": "xamlRoot",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XamlRoot",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        }
+      ]
+    },
+    "IFocusMovementResult": {
+      "guid": "06dfead3-c2ae-44bb-bfab-9c73de8407a4",
+      "exclusive_to": "Windows.UI.Xaml.Input.FocusMovementResult",
+      "methods": [
+        {
+          "name": "get_Succeeded",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Succeeded",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Succeeded"
+        }
+      ]
+    },
+    "IGettingFocusEventArgs": {
+      "guid": "fa05b9ce-c67c-4be8-8fd4-c44d67877e0d",
+      "exclusive_to": "Windows.UI.Xaml.Input.GettingFocusEventArgs",
+      "methods": [
+        {
+          "name": "get_OldFocusedElement",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyObject",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_NewFocusedElement",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyObject",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_NewFocusedElement",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyObject",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FocusState",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FocusState",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Direction",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FocusNavigationDirection",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_InputDevice",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FocusInputDeviceKind",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Cancel",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Cancel",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Cancel",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Cancel",
+          "setter": "put_Cancel"
+        },
+        {
+          "name": "Direction",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FocusNavigationDirection",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Direction"
+        },
+        {
+          "name": "FocusState",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FocusState",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Enum"
+          },
+          "getter": "get_FocusState"
+        },
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        },
+        {
+          "name": "InputDevice",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FocusInputDeviceKind",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InputDevice"
+        },
+        {
+          "name": "NewFocusedElement",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyObject",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_NewFocusedElement",
+          "setter": "put_NewFocusedElement"
+        },
+        {
+          "name": "OldFocusedElement",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyObject",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_OldFocusedElement"
+        }
+      ]
+    },
+    "IGettingFocusEventArgs2": {
+      "guid": "88754d7b-b4b9-4959-8bce-89bf212ed4eb",
+      "exclusive_to": "Windows.UI.Xaml.Input.GettingFocusEventArgs",
+      "methods": [
+        {
+          "name": "TryCancel",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TrySetNewFocusedElement",
+          "params": [
+            {
+              "name": "element",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyObject",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IGettingFocusEventArgs3": {
+      "guid": "4e024891-db3f-5e78-b75a-62bfc3510735",
+      "exclusive_to": "Windows.UI.Xaml.Input.GettingFocusEventArgs",
+      "methods": [
+        {
+          "name": "get_CorrelationId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CorrelationId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_CorrelationId"
+        }
+      ]
+    },
+    "IHoldingRoutedEventArgs": {
+      "guid": "c246ff23-d80d-44de-8db9-0d815e269ac0",
+      "exclusive_to": "Windows.UI.Xaml.Input.HoldingRoutedEventArgs",
+      "methods": [
+        {
+          "name": "get_PointerDeviceType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PointerDeviceType",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_HoldingState",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HoldingState",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetPosition",
+          "params": [
+            {
+              "name": "relativeTo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElement",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        },
+        {
+          "name": "HoldingState",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HoldingState",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Enum"
+          },
+          "getter": "get_HoldingState"
+        },
+        {
+          "name": "PointerDeviceType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PointerDeviceType",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PointerDeviceType"
+        }
+      ]
+    },
+    "IInertiaExpansionBehavior": {
+      "guid": "751d87e5-8d42-44c5-965e-3cd30cc9d6f7",
+      "exclusive_to": "Windows.UI.Xaml.Input.InertiaExpansionBehavior",
+      "methods": [
+        {
+          "name": "get_DesiredDeceleration",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_DesiredDeceleration",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DesiredExpansion",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_DesiredExpansion",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DesiredDeceleration",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_DesiredDeceleration",
+          "setter": "put_DesiredDeceleration"
+        },
+        {
+          "name": "DesiredExpansion",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_DesiredExpansion",
+          "setter": "put_DesiredExpansion"
+        }
+      ]
+    },
+    "IInertiaRotationBehavior": {
+      "guid": "424cfb2e-bbfd-4625-ae78-20c65bf1efaf",
+      "exclusive_to": "Windows.UI.Xaml.Input.InertiaRotationBehavior",
+      "methods": [
+        {
+          "name": "get_DesiredDeceleration",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_DesiredDeceleration",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DesiredRotation",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_DesiredRotation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DesiredDeceleration",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_DesiredDeceleration",
+          "setter": "put_DesiredDeceleration"
+        },
+        {
+          "name": "DesiredRotation",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_DesiredRotation",
+          "setter": "put_DesiredRotation"
+        }
+      ]
+    },
+    "IInertiaTranslationBehavior": {
+      "guid": "45d3a512-3b32-4882-a4c2-ecfa2d4b6df0",
+      "exclusive_to": "Windows.UI.Xaml.Input.InertiaTranslationBehavior",
+      "methods": [
+        {
+          "name": "get_DesiredDeceleration",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_DesiredDeceleration",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DesiredDisplacement",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_DesiredDisplacement",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DesiredDeceleration",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_DesiredDeceleration",
+          "setter": "put_DesiredDeceleration"
+        },
+        {
+          "name": "DesiredDisplacement",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_DesiredDisplacement",
+          "setter": "put_DesiredDisplacement"
+        }
+      ]
+    },
+    "IInputScope": {
+      "guid": "5c0f85f3-f9d8-4220-b666-045d074d9bfa",
+      "exclusive_to": "Windows.UI.Xaml.Input.InputScope",
+      "methods": [
+        {
+          "name": "get_Names",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InputScopeName",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Names",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InputScopeName",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Names"
+        }
+      ]
+    },
+    "IInputScopeName": {
+      "guid": "fd3e6997-08fb-4cba-a021-792d7589fd5a",
+      "exclusive_to": "Windows.UI.Xaml.Input.InputScopeName",
+      "methods": [
+        {
+          "name": "get_NameValue",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InputScopeNameValue",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_NameValue",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InputScopeNameValue",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "NameValue",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InputScopeNameValue",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Enum"
+          },
+          "getter": "get_NameValue",
+          "setter": "put_NameValue"
+        }
+      ]
+    },
+    "IInputScopeNameFactory": {
+      "guid": "4a40bb52-4bd7-4e54-8617-1cda8a1eda7f",
+      "exclusive_to": "Windows.UI.Xaml.Input.InputScopeName",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "nameValue",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InputScopeNameValue",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "InputScopeName",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IKeyRoutedEventArgs": {
+      "guid": "d4cd3dfe-4079-42e9-a39a-3095d3f049c6",
+      "exclusive_to": "Windows.UI.Xaml.Input.KeyRoutedEventArgs",
+      "methods": [
+        {
+          "name": "get_Key",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VirtualKey",
+            "namespace": "Windows.System",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_KeyStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CorePhysicalKeyStatus",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        },
+        {
+          "name": "Key",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VirtualKey",
+            "namespace": "Windows.System",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Key"
+        },
+        {
+          "name": "KeyStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CorePhysicalKeyStatus",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Struct"
+          },
+          "getter": "get_KeyStatus"
+        }
+      ]
+    },
+    "IKeyRoutedEventArgs2": {
+      "guid": "1b02d57a-9634-4f14-91b2-133e42fdb3cd",
+      "exclusive_to": "Windows.UI.Xaml.Input.KeyRoutedEventArgs",
+      "methods": [
+        {
+          "name": "get_OriginalKey",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VirtualKey",
+            "namespace": "Windows.System",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "OriginalKey",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VirtualKey",
+            "namespace": "Windows.System",
+            "target_kind": "Enum"
+          },
+          "getter": "get_OriginalKey"
+        }
+      ]
+    },
+    "IKeyRoutedEventArgs3": {
+      "guid": "2779f5b4-ca41-411b-a8ef-f4fc78e78057",
+      "exclusive_to": "Windows.UI.Xaml.Input.KeyRoutedEventArgs",
+      "methods": [
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        }
+      ]
+    },
+    "IKeyboardAccelerator": {
+      "guid": "92e6181e-19ae-465a-9b3c-a71ee9ea7420",
+      "exclusive_to": "Windows.UI.Xaml.Input.KeyboardAccelerator",
+      "methods": [
+        {
+          "name": "get_Key",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VirtualKey",
+            "namespace": "Windows.System",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Key",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VirtualKey",
+                "namespace": "Windows.System",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Modifiers",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VirtualKeyModifiers",
+            "namespace": "Windows.System",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Modifiers",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VirtualKeyModifiers",
+                "namespace": "Windows.System",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ScopeOwner",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyObject",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ScopeOwner",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyObject",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Invoked",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "KeyboardAccelerator",
+                    "namespace": "Windows.UI.Xaml.Input",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "KeyboardAcceleratorInvokedEventArgs",
+                    "namespace": "Windows.UI.Xaml.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Invoked",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsEnabled",
+          "setter": "put_IsEnabled"
+        },
+        {
+          "name": "Key",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VirtualKey",
+            "namespace": "Windows.System",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Key",
+          "setter": "put_Key"
+        },
+        {
+          "name": "Modifiers",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VirtualKeyModifiers",
+            "namespace": "Windows.System",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Modifiers",
+          "setter": "put_Modifiers"
+        },
+        {
+          "name": "ScopeOwner",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyObject",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_ScopeOwner",
+          "setter": "put_ScopeOwner"
+        }
+      ],
+      "events": [
+        {
+          "name": "Invoked",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "KeyboardAccelerator",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "KeyboardAcceleratorInvokedEventArgs",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Invoked",
+          "remove_method": "remove_Invoked"
+        }
+      ]
+    },
+    "IKeyboardAcceleratorFactory": {
+      "guid": "44d88a99-4bfd-4a47-a893-515f388623f6",
+      "exclusive_to": "Windows.UI.Xaml.Input.KeyboardAccelerator",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "baseInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "innerInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "KeyboardAccelerator",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IKeyboardAcceleratorInvokedEventArgs": {
+      "guid": "c00b03f2-04e7-4415-b17d-d76b9490de2b",
+      "exclusive_to": "Windows.UI.Xaml.Input.KeyboardAcceleratorInvokedEventArgs",
+      "methods": [
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Element",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyObject",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Element",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyObject",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_Element"
+        },
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        }
+      ]
+    },
+    "IKeyboardAcceleratorInvokedEventArgs2": {
+      "guid": "befca4b8-5907-48ee-8e21-9c969078fa11",
+      "exclusive_to": "Windows.UI.Xaml.Input.KeyboardAcceleratorInvokedEventArgs",
+      "methods": [
+        {
+          "name": "get_KeyboardAccelerator",
+          "return": {
+            "kind": "ApiRef",
+            "name": "KeyboardAccelerator",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "KeyboardAccelerator",
+          "type": {
+            "kind": "ApiRef",
+            "name": "KeyboardAccelerator",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Class"
+          },
+          "getter": "get_KeyboardAccelerator"
+        }
+      ]
+    },
+    "IKeyboardAcceleratorStatics": {
+      "guid": "3bd43d51-9bb3-456d-bf15-804adfb86261",
+      "exclusive_to": "Windows.UI.Xaml.Input.KeyboardAccelerator",
+      "methods": [
+        {
+          "name": "get_KeyProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ModifiersProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IsEnabledProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ScopeOwnerProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsEnabledProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_IsEnabledProperty"
+        },
+        {
+          "name": "KeyProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_KeyProperty"
+        },
+        {
+          "name": "ModifiersProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_ModifiersProperty"
+        },
+        {
+          "name": "ScopeOwnerProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_ScopeOwnerProperty"
+        }
+      ]
+    },
+    "ILosingFocusEventArgs": {
+      "guid": "f9f683c7-d789-472b-aa93-6d4105e6dabe",
+      "exclusive_to": "Windows.UI.Xaml.Input.LosingFocusEventArgs",
+      "methods": [
+        {
+          "name": "get_OldFocusedElement",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyObject",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_NewFocusedElement",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyObject",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_NewFocusedElement",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyObject",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FocusState",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FocusState",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Direction",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FocusNavigationDirection",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_InputDevice",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FocusInputDeviceKind",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Cancel",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Cancel",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Cancel",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Cancel",
+          "setter": "put_Cancel"
+        },
+        {
+          "name": "Direction",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FocusNavigationDirection",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Direction"
+        },
+        {
+          "name": "FocusState",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FocusState",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Enum"
+          },
+          "getter": "get_FocusState"
+        },
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        },
+        {
+          "name": "InputDevice",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FocusInputDeviceKind",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InputDevice"
+        },
+        {
+          "name": "NewFocusedElement",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyObject",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_NewFocusedElement",
+          "setter": "put_NewFocusedElement"
+        },
+        {
+          "name": "OldFocusedElement",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyObject",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_OldFocusedElement"
+        }
+      ]
+    },
+    "ILosingFocusEventArgs2": {
+      "guid": "0493fad9-c27f-469f-8e62-52b3a4f7cd54",
+      "exclusive_to": "Windows.UI.Xaml.Input.LosingFocusEventArgs",
+      "methods": [
+        {
+          "name": "TryCancel",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TrySetNewFocusedElement",
+          "params": [
+            {
+              "name": "element",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyObject",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "ILosingFocusEventArgs3": {
+      "guid": "c98900bd-0b79-566e-ad1f-436fa513ae22",
+      "exclusive_to": "Windows.UI.Xaml.Input.LosingFocusEventArgs",
+      "methods": [
+        {
+          "name": "get_CorrelationId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CorrelationId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_CorrelationId"
+        }
+      ]
+    },
+    "IManipulationCompletedRoutedEventArgs": {
+      "guid": "b5ad9b23-2f41-498e-8319-015ee8a75346",
+      "exclusive_to": "Windows.UI.Xaml.Input.ManipulationCompletedRoutedEventArgs",
+      "methods": [
+        {
+          "name": "get_Container",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UIElement",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_IsInertial",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Cumulative",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ManipulationDelta",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Velocities",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ManipulationVelocities",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PointerDeviceType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PointerDeviceType",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Container",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UIElement",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_Container"
+        },
+        {
+          "name": "Cumulative",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ManipulationDelta",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Cumulative"
+        },
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        },
+        {
+          "name": "IsInertial",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsInertial"
+        },
+        {
+          "name": "PointerDeviceType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PointerDeviceType",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PointerDeviceType"
+        },
+        {
+          "name": "Position",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Position"
+        },
+        {
+          "name": "Velocities",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ManipulationVelocities",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Velocities"
+        }
+      ]
+    },
+    "IManipulationDeltaRoutedEventArgs": {
+      "guid": "400d5794-4c6f-491d-82d6-3517109399c6",
+      "exclusive_to": "Windows.UI.Xaml.Input.ManipulationDeltaRoutedEventArgs",
+      "methods": [
+        {
+          "name": "get_Container",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UIElement",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_IsInertial",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Delta",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ManipulationDelta",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Cumulative",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ManipulationDelta",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Velocities",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ManipulationVelocities",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PointerDeviceType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PointerDeviceType",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Complete"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Container",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UIElement",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_Container"
+        },
+        {
+          "name": "Cumulative",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ManipulationDelta",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Cumulative"
+        },
+        {
+          "name": "Delta",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ManipulationDelta",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Delta"
+        },
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        },
+        {
+          "name": "IsInertial",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsInertial"
+        },
+        {
+          "name": "PointerDeviceType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PointerDeviceType",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PointerDeviceType"
+        },
+        {
+          "name": "Position",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Position"
+        },
+        {
+          "name": "Velocities",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ManipulationVelocities",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Velocities"
+        }
+      ]
+    },
+    "IManipulationInertiaStartingRoutedEventArgs": {
+      "guid": "246a91a9-ca43-4c0b-acef-81e8b8147520",
+      "exclusive_to": "Windows.UI.Xaml.Input.ManipulationInertiaStartingRoutedEventArgs",
+      "methods": [
+        {
+          "name": "get_Container",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UIElement",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ExpansionBehavior",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InertiaExpansionBehavior",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ExpansionBehavior",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InertiaExpansionBehavior",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RotationBehavior",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InertiaRotationBehavior",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_RotationBehavior",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InertiaRotationBehavior",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TranslationBehavior",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InertiaTranslationBehavior",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_TranslationBehavior",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InertiaTranslationBehavior",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PointerDeviceType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PointerDeviceType",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Delta",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ManipulationDelta",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Cumulative",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ManipulationDelta",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Velocities",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ManipulationVelocities",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Container",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UIElement",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_Container"
+        },
+        {
+          "name": "Cumulative",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ManipulationDelta",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Cumulative"
+        },
+        {
+          "name": "Delta",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ManipulationDelta",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Delta"
+        },
+        {
+          "name": "ExpansionBehavior",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InertiaExpansionBehavior",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Class"
+          },
+          "getter": "get_ExpansionBehavior",
+          "setter": "put_ExpansionBehavior"
+        },
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        },
+        {
+          "name": "PointerDeviceType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PointerDeviceType",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PointerDeviceType"
+        },
+        {
+          "name": "RotationBehavior",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InertiaRotationBehavior",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Class"
+          },
+          "getter": "get_RotationBehavior",
+          "setter": "put_RotationBehavior"
+        },
+        {
+          "name": "TranslationBehavior",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InertiaTranslationBehavior",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Class"
+          },
+          "getter": "get_TranslationBehavior",
+          "setter": "put_TranslationBehavior"
+        },
+        {
+          "name": "Velocities",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ManipulationVelocities",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Velocities"
+        }
+      ]
+    },
+    "IManipulationPivot": {
+      "guid": "2e3838a5-e6c2-4998-82ac-18748b141666",
+      "exclusive_to": "Windows.UI.Xaml.Input.ManipulationPivot",
+      "methods": [
+        {
+          "name": "get_Center",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Center",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Radius",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_Radius",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Center",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Center",
+          "setter": "put_Center"
+        },
+        {
+          "name": "Radius",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Radius",
+          "setter": "put_Radius"
+        }
+      ]
+    },
+    "IManipulationPivotFactory": {
+      "guid": "6d05b039-3702-4396-ad9b-a825efa63a3b",
+      "exclusive_to": "Windows.UI.Xaml.Input.ManipulationPivot",
+      "methods": [
+        {
+          "name": "CreateInstanceWithCenterAndRadius",
+          "params": [
+            {
+              "name": "center",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "radius",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ManipulationPivot",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IManipulationStartedRoutedEventArgs": {
+      "guid": "5db1aa05-9f80-48b6-ae6c-4f119de8ff13",
+      "exclusive_to": "Windows.UI.Xaml.Input.ManipulationStartedRoutedEventArgs",
+      "methods": [
+        {
+          "name": "get_Container",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UIElement",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PointerDeviceType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PointerDeviceType",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Cumulative",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ManipulationDelta",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "Complete"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Container",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UIElement",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_Container"
+        },
+        {
+          "name": "Cumulative",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ManipulationDelta",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Cumulative"
+        },
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        },
+        {
+          "name": "PointerDeviceType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PointerDeviceType",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PointerDeviceType"
+        },
+        {
+          "name": "Position",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Position"
+        }
+      ]
+    },
+    "IManipulationStartedRoutedEventArgsFactory": {
+      "guid": "84c1daa7-7272-4463-b6c3-a40b9ba151fc",
+      "exclusive_to": "Windows.UI.Xaml.Input.ManipulationStartedRoutedEventArgs",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "baseInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "innerInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ManipulationStartedRoutedEventArgs",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IManipulationStartingRoutedEventArgs": {
+      "guid": "18d636b7-53a4-4c15-a498-f3a9ca212a42",
+      "exclusive_to": "Windows.UI.Xaml.Input.ManipulationStartingRoutedEventArgs",
+      "methods": [
+        {
+          "name": "get_Mode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ManipulationModes",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Mode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ManipulationModes",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Container",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UIElement",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Container",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElement",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Pivot",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ManipulationPivot",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Pivot",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ManipulationPivot",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Container",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UIElement",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_Container",
+          "setter": "put_Container"
+        },
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        },
+        {
+          "name": "Mode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ManipulationModes",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Mode",
+          "setter": "put_Mode"
+        },
+        {
+          "name": "Pivot",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ManipulationPivot",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Class"
+          },
+          "getter": "get_Pivot",
+          "setter": "put_Pivot"
+        }
+      ]
+    },
+    "INoFocusCandidateFoundEventArgs": {
+      "guid": "ec3601a7-1007-48f9-b6b3-ed0bea53937d",
+      "exclusive_to": "Windows.UI.Xaml.Input.NoFocusCandidateFoundEventArgs",
+      "methods": [
+        {
+          "name": "get_Direction",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FocusNavigationDirection",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_InputDevice",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FocusInputDeviceKind",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Direction",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FocusNavigationDirection",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Direction"
+        },
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        },
+        {
+          "name": "InputDevice",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FocusInputDeviceKind",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InputDevice"
+        }
+      ]
+    },
+    "IPointer": {
+      "guid": "5ee8f39f-747d-4171-90e6-cd37a9dffb11",
+      "exclusive_to": "Windows.UI.Xaml.Input.Pointer",
+      "methods": [
+        {
+          "name": "get_PointerId",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_PointerDeviceType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PointerDeviceType",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_IsInContact",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsInRange",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsInContact",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsInContact"
+        },
+        {
+          "name": "IsInRange",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsInRange"
+        },
+        {
+          "name": "PointerDeviceType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PointerDeviceType",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PointerDeviceType"
+        },
+        {
+          "name": "PointerId",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_PointerId"
+        }
+      ]
+    },
+    "IPointerRoutedEventArgs": {
+      "guid": "da628f0a-9752-49e2-bde2-49eccab9194d",
+      "exclusive_to": "Windows.UI.Xaml.Input.PointerRoutedEventArgs",
+      "methods": [
+        {
+          "name": "get_Pointer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Pointer",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_KeyModifiers",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VirtualKeyModifiers",
+            "namespace": "Windows.System",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetCurrentPoint",
+          "params": [
+            {
+              "name": "relativeTo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElement",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PointerPoint",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetIntermediatePoints",
+          "params": [
+            {
+              "name": "relativeTo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElement",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PointerPoint",
+                "namespace": "Windows.UI.Input",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        },
+        {
+          "name": "KeyModifiers",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VirtualKeyModifiers",
+            "namespace": "Windows.System",
+            "target_kind": "Enum"
+          },
+          "getter": "get_KeyModifiers"
+        },
+        {
+          "name": "Pointer",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Pointer",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Class"
+          },
+          "getter": "get_Pointer"
+        }
+      ]
+    },
+    "IPointerRoutedEventArgs2": {
+      "guid": "0821f294-1de6-4711-ba7c-8d4b8b0911d0",
+      "exclusive_to": "Windows.UI.Xaml.Input.PointerRoutedEventArgs",
+      "methods": [
+        {
+          "name": "get_IsGenerated",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsGenerated",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsGenerated"
+        }
+      ]
+    },
+    "IProcessKeyboardAcceleratorEventArgs": {
+      "guid": "fb79c216-972b-440c-9b83-2b4198dcf09d",
+      "exclusive_to": "Windows.UI.Xaml.Input.ProcessKeyboardAcceleratorEventArgs",
+      "methods": [
+        {
+          "name": "get_Key",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VirtualKey",
+            "namespace": "Windows.System",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Modifiers",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VirtualKeyModifiers",
+            "namespace": "Windows.System",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        },
+        {
+          "name": "Key",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VirtualKey",
+            "namespace": "Windows.System",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Key"
+        },
+        {
+          "name": "Modifiers",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VirtualKeyModifiers",
+            "namespace": "Windows.System",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Modifiers"
+        }
+      ]
+    },
+    "IRightTappedRoutedEventArgs": {
+      "guid": "6834869d-7bd5-4033-b237-172f79abe393",
+      "exclusive_to": "Windows.UI.Xaml.Input.RightTappedRoutedEventArgs",
+      "methods": [
+        {
+          "name": "get_PointerDeviceType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PointerDeviceType",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetPosition",
+          "params": [
+            {
+              "name": "relativeTo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElement",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        },
+        {
+          "name": "PointerDeviceType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PointerDeviceType",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PointerDeviceType"
+        }
+      ]
+    },
+    "IStandardUICommand": {
+      "guid": "d2bf7f43-0504-52d0-8aa6-0cb0f756eb27",
+      "exclusive_to": "Windows.UI.Xaml.Input.StandardUICommand",
+      "methods": [
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StandardUICommandKind",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StandardUICommandKind",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        }
+      ]
+    },
+    "IStandardUICommand2": {
+      "guid": "e3666069-f9e4-51eb-885b-7a620a0782ea",
+      "exclusive_to": "Windows.UI.Xaml.Input.StandardUICommand",
+      "methods": [
+        {
+          "name": "put_Kind",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StandardUICommandKind",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StandardUICommandKind",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Enum"
+          },
+          "setter": "put_Kind"
+        }
+      ]
+    },
+    "IStandardUICommandFactory": {
+      "guid": "8f1a7590-dce1-56e4-ab63-f5ce3ce4ebf6",
+      "exclusive_to": "Windows.UI.Xaml.Input.StandardUICommand",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "baseInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "innerInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "StandardUICommand",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateInstanceWithKind",
+          "params": [
+            {
+              "name": "kind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StandardUICommandKind",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "baseInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "innerInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "StandardUICommand",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IStandardUICommandStatics": {
+      "guid": "7ea87ed9-2978-5533-9b2e-6759ce88569f",
+      "exclusive_to": "Windows.UI.Xaml.Input.StandardUICommand",
+      "methods": [
+        {
+          "name": "get_KindProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "KindProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_KindProperty"
+        }
+      ]
+    },
+    "ITappedRoutedEventArgs": {
+      "guid": "a099e6be-e624-459a-bb1d-e05c73e2cc66",
+      "exclusive_to": "Windows.UI.Xaml.Input.TappedRoutedEventArgs",
+      "methods": [
+        {
+          "name": "get_PointerDeviceType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PointerDeviceType",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetPosition",
+          "params": [
+            {
+              "name": "relativeTo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElement",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        },
+        {
+          "name": "PointerDeviceType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PointerDeviceType",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PointerDeviceType"
+        }
+      ]
+    },
+    "IXamlUICommand": {
+      "guid": "8494f8d4-ead1-5f01-ad2e-a8cad4f9dc0e",
+      "exclusive_to": "Windows.UI.Xaml.Input.XamlUICommand",
+      "methods": [
+        {
+          "name": "get_Label",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Label",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IconSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IconSource",
+            "namespace": "Windows.UI.Xaml.Controls",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_IconSource",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IconSource",
+                "namespace": "Windows.UI.Xaml.Controls",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_KeyboardAccelerators",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "KeyboardAccelerator",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_AccessKey",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_AccessKey",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Description",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Description",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Command",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ICommand",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_Command",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ICommand",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ExecuteRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "XamlUICommand",
+                    "namespace": "Windows.UI.Xaml.Input",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "ExecuteRequestedEventArgs",
+                    "namespace": "Windows.UI.Xaml.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ExecuteRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_CanExecuteRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "XamlUICommand",
+                    "namespace": "Windows.UI.Xaml.Input",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CanExecuteRequestedEventArgs",
+                    "namespace": "Windows.UI.Xaml.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CanExecuteRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "NotifyCanExecuteChanged"
+        }
+      ],
+      "properties": [
+        {
+          "name": "AccessKey",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AccessKey",
+          "setter": "put_AccessKey"
+        },
+        {
+          "name": "Command",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ICommand",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Command",
+          "setter": "put_Command"
+        },
+        {
+          "name": "Description",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Description",
+          "setter": "put_Description"
+        },
+        {
+          "name": "IconSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IconSource",
+            "namespace": "Windows.UI.Xaml.Controls",
+            "target_kind": "Class"
+          },
+          "getter": "get_IconSource",
+          "setter": "put_IconSource"
+        },
+        {
+          "name": "KeyboardAccelerators",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "KeyboardAccelerator",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_KeyboardAccelerators"
+        },
+        {
+          "name": "Label",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Label",
+          "setter": "put_Label"
+        }
+      ],
+      "events": [
+        {
+          "name": "CanExecuteRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "XamlUICommand",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CanExecuteRequestedEventArgs",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_CanExecuteRequested",
+          "remove_method": "remove_CanExecuteRequested"
+        },
+        {
+          "name": "ExecuteRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "XamlUICommand",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "ExecuteRequestedEventArgs",
+                "namespace": "Windows.UI.Xaml.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ExecuteRequested",
+          "remove_method": "remove_ExecuteRequested"
+        }
+      ]
+    },
+    "IXamlUICommandFactory": {
+      "guid": "1eec08c3-e061-5e10-9f2a-2baa840885c2",
+      "exclusive_to": "Windows.UI.Xaml.Input.XamlUICommand",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "baseInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "innerInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XamlUICommand",
+            "namespace": "Windows.UI.Xaml.Input",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IXamlUICommandStatics": {
+      "guid": "66bc457c-1a0c-58ed-876e-71533f966db6",
+      "exclusive_to": "Windows.UI.Xaml.Input.XamlUICommand",
+      "methods": [
+        {
+          "name": "get_LabelProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IconSourceProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_KeyboardAcceleratorsProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_AccessKeyProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DescriptionProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CommandProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AccessKeyProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_AccessKeyProperty"
+        },
+        {
+          "name": "CommandProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_CommandProperty"
+        },
+        {
+          "name": "DescriptionProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_DescriptionProperty"
+        },
+        {
+          "name": "IconSourceProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_IconSourceProperty"
+        },
+        {
+          "name": "KeyboardAcceleratorsProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_KeyboardAcceleratorsProperty"
+        },
+        {
+          "name": "LabelProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_LabelProperty"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AccessKeyDisplayDismissedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAccessKeyDisplayDismissedEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAccessKeyDisplayDismissedEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "AccessKeyDisplayRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAccessKeyDisplayRequestedEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAccessKeyDisplayRequestedEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "AccessKeyInvokedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAccessKeyInvokedEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAccessKeyInvokedEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "AccessKeyManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAccessKeyManager",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAccessKeyManager",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Xaml.Input.IAccessKeyManagerStatics",
+        "Windows.UI.Xaml.Input.IAccessKeyManagerStatics2"
+      ]
+    },
+    "CanExecuteRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICanExecuteRequestedEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICanExecuteRequestedEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CharacterReceivedRoutedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICharacterReceivedRoutedEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICharacterReceivedRoutedEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "composable": true
+    },
+    "ContextRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IContextRequestedEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IContextRequestedEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "composable": true
+    },
+    "DoubleTappedRoutedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDoubleTappedRoutedEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDoubleTappedRoutedEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "composable": true
+    },
+    "ExecuteRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IExecuteRequestedEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IExecuteRequestedEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FindNextElementOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFindNextElementOptions",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFindNextElementOptions",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "FocusManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFocusManager",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFocusManager",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Xaml.Input.IFocusManagerStatics2",
+        "Windows.UI.Xaml.Input.IFocusManagerStatics3",
+        "Windows.UI.Xaml.Input.IFocusManagerStatics5",
+        "Windows.UI.Xaml.Input.IFocusManagerStatics4",
+        "Windows.UI.Xaml.Input.IFocusManagerStatics7",
+        "Windows.UI.Xaml.Input.IFocusManagerStatics6",
+        "Windows.UI.Xaml.Input.IFocusManagerStatics"
+      ]
+    },
+    "FocusManagerGotFocusEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFocusManagerGotFocusEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFocusManagerGotFocusEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FocusManagerLostFocusEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFocusManagerLostFocusEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFocusManagerLostFocusEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FocusMovementResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFocusMovementResult",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFocusMovementResult",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "GettingFocusEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGettingFocusEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGettingFocusEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGettingFocusEventArgs2",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGettingFocusEventArgs3",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "composable": true
+    },
+    "HoldingRoutedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHoldingRoutedEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHoldingRoutedEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "composable": true
+    },
+    "InertiaExpansionBehavior": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInertiaExpansionBehavior",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInertiaExpansionBehavior",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InertiaRotationBehavior": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInertiaRotationBehavior",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInertiaRotationBehavior",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InertiaTranslationBehavior": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInertiaTranslationBehavior",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInertiaTranslationBehavior",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InputScope": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInputScope",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInputScope",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "composable": true
+    },
+    "InputScopeName": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInputScopeName",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInputScopeName",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.UI.Xaml.Input.IInputScopeNameFactory"
+      ],
+      "composable": true
+    },
+    "KeyRoutedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IKeyRoutedEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IKeyRoutedEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IKeyRoutedEventArgs2",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IKeyRoutedEventArgs3",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "composable": true
+    },
+    "KeyboardAccelerator": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IKeyboardAccelerator",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IKeyboardAccelerator",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Xaml.Input.IKeyboardAcceleratorStatics"
+      ],
+      "composable_factories": [
+        "Windows.UI.Xaml.Input.IKeyboardAcceleratorFactory"
+      ],
+      "composable": true
+    },
+    "KeyboardAcceleratorInvokedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IKeyboardAcceleratorInvokedEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IKeyboardAcceleratorInvokedEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IKeyboardAcceleratorInvokedEventArgs2",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "LosingFocusEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILosingFocusEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILosingFocusEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ILosingFocusEventArgs2",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ILosingFocusEventArgs3",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "composable": true
+    },
+    "ManipulationCompletedRoutedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IManipulationCompletedRoutedEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IManipulationCompletedRoutedEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "composable": true
+    },
+    "ManipulationDeltaRoutedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IManipulationDeltaRoutedEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IManipulationDeltaRoutedEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "composable": true
+    },
+    "ManipulationInertiaStartingRoutedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IManipulationInertiaStartingRoutedEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IManipulationInertiaStartingRoutedEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "composable": true
+    },
+    "ManipulationPivot": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IManipulationPivot",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IManipulationPivot",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.UI.Xaml.Input.IManipulationPivotFactory"
+      ]
+    },
+    "ManipulationStartedRoutedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IManipulationStartedRoutedEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IManipulationStartedRoutedEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "composable_factories": [
+        "Windows.UI.Xaml.Input.IManipulationStartedRoutedEventArgsFactory"
+      ],
+      "composable": true
+    },
+    "ManipulationStartingRoutedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IManipulationStartingRoutedEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IManipulationStartingRoutedEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "composable": true
+    },
+    "NoFocusCandidateFoundEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INoFocusCandidateFoundEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INoFocusCandidateFoundEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "composable": true
+    },
+    "Pointer": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPointer",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPointer",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PointerRoutedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPointerRoutedEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPointerRoutedEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPointerRoutedEventArgs2",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "composable": true
+    },
+    "ProcessKeyboardAcceleratorEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IProcessKeyboardAcceleratorEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IProcessKeyboardAcceleratorEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RightTappedRoutedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRightTappedRoutedEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRightTappedRoutedEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "composable": true
+    },
+    "StandardUICommand": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStandardUICommand",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStandardUICommand",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStandardUICommand2",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Xaml.Input.IStandardUICommandStatics"
+      ],
+      "composable_factories": [
+        "Windows.UI.Xaml.Input.IStandardUICommandFactory"
+      ],
+      "composable": true
+    },
+    "TappedRoutedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITappedRoutedEventArgs",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITappedRoutedEventArgs",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "composable": true
+    },
+    "XamlUICommand": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IXamlUICommand",
+        "namespace": "Windows.UI.Xaml.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IXamlUICommand",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICommand",
+          "namespace": "Windows.UI.Xaml.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Xaml.Input.IXamlUICommandStatics"
+      ],
+      "composable_factories": [
+        "Windows.UI.Xaml.Input.IXamlUICommandFactory"
+      ],
+      "composable": true
+    }
+  },
+  "delegates": {
+    "DoubleTappedEventHandler": {
+      "guid": "3124d025-04a7-4d45-825e-8204a624dbf4",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "DoubleTappedRoutedEventArgs",
+              "namespace": "Windows.UI.Xaml.Input",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "HoldingEventHandler": {
+      "guid": "ecae8ccd-8e5e-4fbe-9846-30a6370afcdf",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "HoldingRoutedEventArgs",
+              "namespace": "Windows.UI.Xaml.Input",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "KeyEventHandler": {
+      "guid": "7c63d2e5-7a0e-4e12-b96a-7715aa6ff1c8",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "KeyRoutedEventArgs",
+              "namespace": "Windows.UI.Xaml.Input",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "ManipulationCompletedEventHandler": {
+      "guid": "38ef4b0f-14f8-42df-9a1e-a4bcc4af77f4",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "ManipulationCompletedRoutedEventArgs",
+              "namespace": "Windows.UI.Xaml.Input",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "ManipulationDeltaEventHandler": {
+      "guid": "aa1160cb-dfb9-4c56-abdc-711b63c8eb94",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "ManipulationDeltaRoutedEventArgs",
+              "namespace": "Windows.UI.Xaml.Input",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "ManipulationInertiaStartingEventHandler": {
+      "guid": "d39d6322-7c9c-481b-827b-c8b2d9bb6fc7",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "ManipulationInertiaStartingRoutedEventArgs",
+              "namespace": "Windows.UI.Xaml.Input",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "ManipulationStartedEventHandler": {
+      "guid": "f88345f8-e0a3-4be2-b90c-dc20e6d8beb0",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "ManipulationStartedRoutedEventArgs",
+              "namespace": "Windows.UI.Xaml.Input",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "ManipulationStartingEventHandler": {
+      "guid": "10d0b04e-bfe4-42cb-823c-3fecd8770ef8",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "ManipulationStartingRoutedEventArgs",
+              "namespace": "Windows.UI.Xaml.Input",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "PointerEventHandler": {
+      "guid": "e4385929-c004-4bcf-8970-359486e39f88",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "PointerRoutedEventArgs",
+              "namespace": "Windows.UI.Xaml.Input",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "RightTappedEventHandler": {
+      "guid": "2532a062-f447-4950-9c46-f1e34a2c2238",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "RightTappedRoutedEventArgs",
+              "namespace": "Windows.UI.Xaml.Input",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "TappedEventHandler": {
+      "guid": "68d940cc-9ff0-49ce-b141-3f07ec477b97",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "TappedRoutedEventArgs",
+              "namespace": "Windows.UI.Xaml.Input",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

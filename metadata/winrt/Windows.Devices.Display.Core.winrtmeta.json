@@ -1,0 +1,5052 @@
+{
+  "namespace": "Windows.Devices.Display.Core",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "DisplayBitsPerChannel": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Bpc6",
+          "value": "1"
+        },
+        {
+          "name": "Bpc8",
+          "value": "2"
+        },
+        {
+          "name": "Bpc10",
+          "value": "4"
+        },
+        {
+          "name": "Bpc12",
+          "value": "8"
+        },
+        {
+          "name": "Bpc14",
+          "value": "16"
+        },
+        {
+          "name": "Bpc16",
+          "value": "32"
+        }
+      ]
+    },
+    "DisplayDeviceCapability": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "FlipOverride",
+          "value": "0"
+        }
+      ]
+    },
+    "DisplayManagerOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "EnforceSourceOwnership",
+          "value": "1"
+        },
+        {
+          "name": "VirtualRefreshRateAware",
+          "value": "2"
+        }
+      ]
+    },
+    "DisplayManagerResult": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "UnknownFailure",
+          "value": "1"
+        },
+        {
+          "name": "TargetAccessDenied",
+          "value": "2"
+        },
+        {
+          "name": "TargetStale",
+          "value": "3"
+        },
+        {
+          "name": "RemoteSessionNotSupported",
+          "value": "4"
+        }
+      ]
+    },
+    "DisplayModeQueryOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "OnlyPreferredResolution",
+          "value": "1"
+        }
+      ]
+    },
+    "DisplayPathScaling": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Identity",
+          "value": "0"
+        },
+        {
+          "name": "Centered",
+          "value": "1"
+        },
+        {
+          "name": "Stretched",
+          "value": "2"
+        },
+        {
+          "name": "AspectRatioStretched",
+          "value": "3"
+        },
+        {
+          "name": "Custom",
+          "value": "4"
+        },
+        {
+          "name": "DriverPreferred",
+          "value": "5"
+        }
+      ]
+    },
+    "DisplayPathStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "Succeeded",
+          "value": "1"
+        },
+        {
+          "name": "Pending",
+          "value": "2"
+        },
+        {
+          "name": "Failed",
+          "value": "3"
+        },
+        {
+          "name": "FailedAsync",
+          "value": "4"
+        },
+        {
+          "name": "InvalidatedAsync",
+          "value": "5"
+        }
+      ]
+    },
+    "DisplayPresentStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "SourceStatusPreventedPresent",
+          "value": "1"
+        },
+        {
+          "name": "ScanoutInvalid",
+          "value": "2"
+        },
+        {
+          "name": "SourceInvalid",
+          "value": "3"
+        },
+        {
+          "name": "DeviceInvalid",
+          "value": "4"
+        },
+        {
+          "name": "UnknownFailure",
+          "value": "5"
+        }
+      ]
+    },
+    "DisplayRotation": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Clockwise90Degrees",
+          "value": "1"
+        },
+        {
+          "name": "Clockwise180Degrees",
+          "value": "2"
+        },
+        {
+          "name": "Clockwise270Degrees",
+          "value": "3"
+        }
+      ]
+    },
+    "DisplayScanoutOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "AllowTearing",
+          "value": "2"
+        }
+      ]
+    },
+    "DisplaySourceStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Active",
+          "value": "0"
+        },
+        {
+          "name": "PoweredOff",
+          "value": "1"
+        },
+        {
+          "name": "Invalid",
+          "value": "2"
+        },
+        {
+          "name": "OwnedByAnotherDevice",
+          "value": "3"
+        },
+        {
+          "name": "Unowned",
+          "value": "4"
+        }
+      ]
+    },
+    "DisplayStateApplyOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "FailIfStateChanged",
+          "value": "1"
+        },
+        {
+          "name": "ForceReapply",
+          "value": "2"
+        },
+        {
+          "name": "ForceModeEnumeration",
+          "value": "4"
+        }
+      ]
+    },
+    "DisplayStateFunctionalizeOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "FailIfStateChanged",
+          "value": "1"
+        },
+        {
+          "name": "ValidateTopologyOnly",
+          "value": "2"
+        }
+      ]
+    },
+    "DisplayStateOperationStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "PartialFailure",
+          "value": "1"
+        },
+        {
+          "name": "UnknownFailure",
+          "value": "2"
+        },
+        {
+          "name": "TargetOwnershipLost",
+          "value": "3"
+        },
+        {
+          "name": "SystemStateChanged",
+          "value": "4"
+        },
+        {
+          "name": "TooManyPathsForAdapter",
+          "value": "5"
+        },
+        {
+          "name": "ModesNotSupported",
+          "value": "6"
+        },
+        {
+          "name": "RemoteSessionNotSupported",
+          "value": "7"
+        }
+      ]
+    },
+    "DisplayTargetPersistence": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "BootPersisted",
+          "value": "1"
+        },
+        {
+          "name": "TemporaryPersisted",
+          "value": "2"
+        },
+        {
+          "name": "PathPersisted",
+          "value": "3"
+        }
+      ]
+    },
+    "DisplayTaskSignalKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "OnPresentFlipAway",
+          "value": "0"
+        },
+        {
+          "name": "OnPresentFlipTo",
+          "value": "1"
+        }
+      ]
+    },
+    "DisplayWireFormatColorSpace": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "BT709",
+          "value": "0"
+        },
+        {
+          "name": "BT2020",
+          "value": "1"
+        },
+        {
+          "name": "ProfileDefinedWideColorGamut",
+          "value": "2"
+        }
+      ]
+    },
+    "DisplayWireFormatEotf": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Sdr",
+          "value": "0"
+        },
+        {
+          "name": "HdrSmpte2084",
+          "value": "1"
+        }
+      ]
+    },
+    "DisplayWireFormatHdrMetadata": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Hdr10",
+          "value": "1"
+        },
+        {
+          "name": "Hdr10Plus",
+          "value": "2"
+        },
+        {
+          "name": "DolbyVisionLowLatency",
+          "value": "3"
+        }
+      ]
+    },
+    "DisplayWireFormatPixelEncoding": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Rgb444",
+          "value": "0"
+        },
+        {
+          "name": "Ycc444",
+          "value": "1"
+        },
+        {
+          "name": "Ycc422",
+          "value": "2"
+        },
+        {
+          "name": "Ycc420",
+          "value": "3"
+        },
+        {
+          "name": "Intensity",
+          "value": "4"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "DisplayPresentationRate": {
+      "fields": [
+        {
+          "name": "VerticalSyncRate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rational",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "VerticalSyncsPerPresentation",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IDisplayAdapter": {
+      "guid": "a56f5287-f000-5f2e-b5ac-3783a2b69af5",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayAdapter",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayAdapterId",
+            "namespace": "Windows.Graphics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_DeviceInterfacePath",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SourceCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_PciVendorId",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_PciDeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_PciSubSystemId",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_PciRevision",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceInterfacePath",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceInterfacePath"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayAdapterId",
+            "namespace": "Windows.Graphics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "PciDeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_PciDeviceId"
+        },
+        {
+          "name": "PciRevision",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_PciRevision"
+        },
+        {
+          "name": "PciSubSystemId",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_PciSubSystemId"
+        },
+        {
+          "name": "PciVendorId",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_PciVendorId"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "SourceCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SourceCount"
+        }
+      ]
+    },
+    "IDisplayAdapter2": {
+      "guid": "9ab49b18-b3c7-5546-8374-a9127111edd8",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayAdapter",
+      "methods": [
+        {
+          "name": "get_IsIndirectDisplayDevice",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_PreferredRenderAdapter",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayAdapter",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsIndirectDisplayDevice",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsIndirectDisplayDevice"
+        },
+        {
+          "name": "PreferredRenderAdapter",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayAdapter",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_PreferredRenderAdapter"
+        }
+      ]
+    },
+    "IDisplayAdapterStatics": {
+      "guid": "1dac3cda-481f-5469-8470-82c4ba680a28",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayAdapter",
+      "methods": [
+        {
+          "name": "FromId",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayAdapterId",
+                "namespace": "Windows.Graphics",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayAdapter",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDisplayDevice": {
+      "guid": "a4c9b62c-335f-5731-8cb4-c1ccd4731070",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayDevice",
+      "methods": [
+        {
+          "name": "CreateScanoutSource",
+          "params": [
+            {
+              "name": "target",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayTarget",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplaySource",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreatePrimary",
+          "params": [
+            {
+              "name": "target",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayTarget",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "desc",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayPrimaryDescription",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplaySurface",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateTaskPool",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayTaskPool",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreatePeriodicFence",
+          "params": [
+            {
+              "name": "target",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayTarget",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "offsetFromVBlank",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayFence",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "WaitForVBlank",
+          "params": [
+            {
+              "name": "source",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplaySource",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CreateSimpleScanout",
+          "params": [
+            {
+              "name": "pSource",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplaySource",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "pSurface",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplaySurface",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "SubResourceIndex",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "SyncInterval",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayScanout",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "IsCapabilitySupported",
+          "params": [
+            {
+              "name": "capability",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayDeviceCapability",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IDisplayDevice2": {
+      "guid": "3fefe50c-0940-54bd-a02f-f9c7a536ad60",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayDevice",
+      "methods": [
+        {
+          "name": "CreateSimpleScanoutWithDirtyRectsAndOptions",
+          "params": [
+            {
+              "name": "source",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplaySource",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "surface",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplaySurface",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "subresourceIndex",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "syncInterval",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "dirtyRects",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RectInt32",
+                    "namespace": "Windows.Graphics",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayScanoutOptions",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayScanout",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDisplayDeviceRenderAdapter": {
+      "guid": "41c86ce5-b18f-573f-9d59-70463115e4cc",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayDevice",
+      "methods": [
+        {
+          "name": "get_RenderAdapterId",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayAdapterId",
+            "namespace": "Windows.Graphics",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RenderAdapterId",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayAdapterId",
+            "namespace": "Windows.Graphics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_RenderAdapterId"
+        }
+      ]
+    },
+    "IDisplayFence": {
+      "guid": "04dcf9ef-3406-5700-8fec-77eba4c5a74b",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayFence"
+    },
+    "IDisplayManager": {
+      "guid": "4ed9245b-15ec-56e2-9072-7fe5084a31a7",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayManager",
+      "methods": [
+        {
+          "name": "GetCurrentTargets",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayTarget",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetCurrentAdapters",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayAdapter",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryAcquireTarget",
+          "params": [
+            {
+              "name": "target",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayTarget",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayManagerResult",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "ReleaseTarget",
+          "params": [
+            {
+              "name": "target",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayTarget",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TryReadCurrentStateForAllTargets",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayManagerResultWithState",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryAcquireTargetsAndReadCurrentState",
+          "params": [
+            {
+              "name": "targets",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplayTarget",
+                    "namespace": "Windows.Devices.Display.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayManagerResultWithState",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryAcquireTargetsAndCreateEmptyState",
+          "params": [
+            {
+              "name": "targets",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplayTarget",
+                    "namespace": "Windows.Devices.Display.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayManagerResultWithState",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryAcquireTargetsAndCreateSubstate",
+          "params": [
+            {
+              "name": "existingState",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayState",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "targets",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplayTarget",
+                    "namespace": "Windows.Devices.Display.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayManagerResultWithState",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateDisplayDevice",
+          "params": [
+            {
+              "name": "adapter",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayAdapter",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayDevice",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_Enabled",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplayManager",
+                    "namespace": "Windows.Devices.Display.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplayManagerEnabledEventArgs",
+                    "namespace": "Windows.Devices.Display.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Enabled",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Disabled",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplayManager",
+                    "namespace": "Windows.Devices.Display.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplayManagerDisabledEventArgs",
+                    "namespace": "Windows.Devices.Display.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Disabled",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Changed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplayManager",
+                    "namespace": "Windows.Devices.Display.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplayManagerChangedEventArgs",
+                    "namespace": "Windows.Devices.Display.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Changed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PathsFailedOrInvalidated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplayManager",
+                    "namespace": "Windows.Devices.Display.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplayManagerPathsFailedOrInvalidatedEventArgs",
+                    "namespace": "Windows.Devices.Display.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PathsFailedOrInvalidated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Start"
+        },
+        {
+          "name": "Stop"
+        }
+      ],
+      "events": [
+        {
+          "name": "Changed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayManager",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DisplayManagerChangedEventArgs",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Changed",
+          "remove_method": "remove_Changed"
+        },
+        {
+          "name": "Disabled",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayManager",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DisplayManagerDisabledEventArgs",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Disabled",
+          "remove_method": "remove_Disabled"
+        },
+        {
+          "name": "Enabled",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayManager",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DisplayManagerEnabledEventArgs",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Enabled",
+          "remove_method": "remove_Enabled"
+        },
+        {
+          "name": "PathsFailedOrInvalidated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayManager",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DisplayManagerPathsFailedOrInvalidatedEventArgs",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PathsFailedOrInvalidated",
+          "remove_method": "remove_PathsFailedOrInvalidated"
+        }
+      ]
+    },
+    "IDisplayManager2": {
+      "guid": "e001ec1e-7eb1-597f-9a30-14d3fe3714cd",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayManager",
+      "methods": [
+        {
+          "name": "TryReadCurrentStateForModeQuery",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayManagerResultWithState",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDisplayManager3": {
+      "guid": "6f14cb89-7f49-587d-93ce-77487cbcb530",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayManager",
+      "methods": [
+        {
+          "name": "CreateDisplayDeviceForIndirectAdapter",
+          "params": [
+            {
+              "name": "indirectAdapter",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayAdapter",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "renderAdapter",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayAdapter",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayDevice",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDisplayManagerChangedEventArgs": {
+      "guid": "6abfa285-6cca-5731-bcdc-42e5d2f5c50f",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayManagerChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        }
+      ]
+    },
+    "IDisplayManagerDisabledEventArgs": {
+      "guid": "8726dde4-6793-5973-a11f-5ffbc93fdb90",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayManagerDisabledEventArgs",
+      "methods": [
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        }
+      ]
+    },
+    "IDisplayManagerEnabledEventArgs": {
+      "guid": "f0cf3f6f-42fa-59a2-b297-26e1713de848",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayManagerEnabledEventArgs",
+      "methods": [
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        }
+      ]
+    },
+    "IDisplayManagerPathsFailedOrInvalidatedEventArgs": {
+      "guid": "03a65659-1dec-5c15-b2a2-8fe9129869fe",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayManagerPathsFailedOrInvalidatedEventArgs",
+      "methods": [
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        }
+      ]
+    },
+    "IDisplayManagerResultWithState": {
+      "guid": "8e656aa6-6614-54be-bfef-4994547f7be1",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayManagerResultWithState",
+      "methods": [
+        {
+          "name": "get_ErrorCode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayManagerResult",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ExtendedErrorCode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_State",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayState",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ErrorCode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayManagerResult",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ErrorCode"
+        },
+        {
+          "name": "ExtendedErrorCode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtendedErrorCode"
+        },
+        {
+          "name": "State",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayState",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_State"
+        }
+      ]
+    },
+    "IDisplayManagerStatics": {
+      "guid": "2b6b9446-b999-5535-9d69-53f092c780a1",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayManager",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayManagerOptions",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayManager",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDisplayModeInfo": {
+      "guid": "48d513a0-f79b-5a74-a05e-da821f470868",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayModeInfo",
+      "methods": [
+        {
+          "name": "get_SourceResolution",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SizeInt32",
+            "namespace": "Windows.Graphics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_IsStereo",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SourcePixelFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DirectXPixelFormat",
+            "namespace": "Windows.Graphics.DirectX",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_TargetResolution",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SizeInt32",
+            "namespace": "Windows.Graphics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_PresentationRate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayPresentationRate",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_IsInterlaced",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetWireFormatSupportedBitsPerChannel",
+          "params": [
+            {
+              "name": "encoding",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayWireFormatPixelEncoding",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayBitsPerChannel",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "IsWireFormatSupported",
+          "params": [
+            {
+              "name": "wireFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayWireFormat",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsInterlaced",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsInterlaced"
+        },
+        {
+          "name": "IsStereo",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsStereo"
+        },
+        {
+          "name": "PresentationRate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayPresentationRate",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Struct"
+          },
+          "getter": "get_PresentationRate"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "SourcePixelFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DirectXPixelFormat",
+            "namespace": "Windows.Graphics.DirectX",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SourcePixelFormat"
+        },
+        {
+          "name": "SourceResolution",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SizeInt32",
+            "namespace": "Windows.Graphics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SourceResolution"
+        },
+        {
+          "name": "TargetResolution",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SizeInt32",
+            "namespace": "Windows.Graphics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_TargetResolution"
+        }
+      ]
+    },
+    "IDisplayModeInfo2": {
+      "guid": "c86fa386-0ddb-5473-bfb0-4b7807b5f909",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayModeInfo",
+      "methods": [
+        {
+          "name": "get_PhysicalPresentationRate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayPresentationRate",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PhysicalPresentationRate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayPresentationRate",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Struct"
+          },
+          "getter": "get_PhysicalPresentationRate"
+        }
+      ]
+    },
+    "IDisplayMuxDevice": {
+      "guid": "d81c4925-83dd-52c9-ab4e-e0833fc75068",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayMuxDevice",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IsActive",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetAvailableMuxTargets",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayTarget",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_CurrentTarget",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayTarget",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PreferredTarget",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayTarget",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IsAutomaticTargetSwitchingEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "SetPreferredTarget",
+          "params": [
+            {
+              "name": "target",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayTarget",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SetAutomaticTargetSwitching",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "add_Changed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplayMuxDevice",
+                    "namespace": "Windows.Devices.Display.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Changed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CurrentTarget",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayTarget",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_CurrentTarget"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "IsActive",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsActive"
+        },
+        {
+          "name": "IsAutomaticTargetSwitchingEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAutomaticTargetSwitchingEnabled"
+        },
+        {
+          "name": "PreferredTarget",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayTarget",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_PreferredTarget"
+        }
+      ],
+      "events": [
+        {
+          "name": "Changed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayMuxDevice",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_Changed",
+          "remove_method": "remove_Changed"
+        }
+      ]
+    },
+    "IDisplayMuxDeviceStatics": {
+      "guid": "7b37a64a-0465-53da-baee-70028480ced0",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayMuxDevice",
+      "methods": [
+        {
+          "name": "GetDeviceSelector",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "deviceInterfaceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayMuxDevice",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IDisplayPath": {
+      "guid": "b3dfd64a-7460-5cde-811b-d5ae9f3d9f84",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayPath",
+      "methods": [
+        {
+          "name": "get_View",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayView",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Target",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayTarget",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayPathStatus",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_SourceResolution",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SizeInt32",
+                "namespace": "Windows.Graphics",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_SourceResolution",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SizeInt32",
+                    "namespace": "Windows.Graphics",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SourcePixelFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DirectXPixelFormat",
+            "namespace": "Windows.Graphics.DirectX",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_SourcePixelFormat",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DirectXPixelFormat",
+                "namespace": "Windows.Graphics.DirectX",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsStereo",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsStereo",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TargetResolution",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SizeInt32",
+                "namespace": "Windows.Graphics",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_TargetResolution",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SizeInt32",
+                    "namespace": "Windows.Graphics",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PresentationRate",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayPresentationRate",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_PresentationRate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplayPresentationRate",
+                    "namespace": "Windows.Devices.Display.Core",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsInterlaced",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_IsInterlaced",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Bool"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_WireFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayWireFormat",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_WireFormat",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayWireFormat",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Rotation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayRotation",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Rotation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayRotation",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Scaling",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayPathScaling",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Scaling",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayPathScaling",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "FindModes",
+          "params": [
+            {
+              "name": "flags",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayModeQueryOptions",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayModeInfo",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ApplyPropertiesFromMode",
+          "params": [
+            {
+              "name": "modeResult",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayModeInfo",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsInterlaced",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          },
+          "getter": "get_IsInterlaced",
+          "setter": "put_IsInterlaced"
+        },
+        {
+          "name": "IsStereo",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsStereo",
+          "setter": "put_IsStereo"
+        },
+        {
+          "name": "PresentationRate",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayPresentationRate",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_PresentationRate",
+          "setter": "put_PresentationRate"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "Rotation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayRotation",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Rotation",
+          "setter": "put_Rotation"
+        },
+        {
+          "name": "Scaling",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayPathScaling",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Scaling",
+          "setter": "put_Scaling"
+        },
+        {
+          "name": "SourcePixelFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DirectXPixelFormat",
+            "namespace": "Windows.Graphics.DirectX",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SourcePixelFormat",
+          "setter": "put_SourcePixelFormat"
+        },
+        {
+          "name": "SourceResolution",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SizeInt32",
+                "namespace": "Windows.Graphics",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_SourceResolution",
+          "setter": "put_SourceResolution"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayPathStatus",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        },
+        {
+          "name": "Target",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayTarget",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_Target"
+        },
+        {
+          "name": "TargetResolution",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SizeInt32",
+                "namespace": "Windows.Graphics",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_TargetResolution",
+          "setter": "put_TargetResolution"
+        },
+        {
+          "name": "View",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayView",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_View"
+        },
+        {
+          "name": "WireFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayWireFormat",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_WireFormat",
+          "setter": "put_WireFormat"
+        }
+      ]
+    },
+    "IDisplayPath2": {
+      "guid": "f32459c5-e994-570b-9ec8-ef42c35a8547",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayPath",
+      "methods": [
+        {
+          "name": "get_PhysicalPresentationRate",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayPresentationRate",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_PhysicalPresentationRate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplayPresentationRate",
+                    "namespace": "Windows.Devices.Display.Core",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "PhysicalPresentationRate",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayPresentationRate",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_PhysicalPresentationRate",
+          "setter": "put_PhysicalPresentationRate"
+        }
+      ]
+    },
+    "IDisplayPrimaryDescription": {
+      "guid": "872591d2-d533-50ff-a85e-06696194b77c",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayPrimaryDescription",
+      "methods": [
+        {
+          "name": "get_Width",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Height",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Format",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DirectXPixelFormat",
+            "namespace": "Windows.Graphics.DirectX",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ColorSpace",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DirectXColorSpace",
+            "namespace": "Windows.Graphics.DirectX",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_IsStereo",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_MultisampleDescription",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Direct3DMultisampleDescription",
+            "namespace": "Windows.Graphics.DirectX.Direct3D11",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ColorSpace",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DirectXColorSpace",
+            "namespace": "Windows.Graphics.DirectX",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ColorSpace"
+        },
+        {
+          "name": "Format",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DirectXPixelFormat",
+            "namespace": "Windows.Graphics.DirectX",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Format"
+        },
+        {
+          "name": "Height",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Height"
+        },
+        {
+          "name": "IsStereo",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsStereo"
+        },
+        {
+          "name": "MultisampleDescription",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Direct3DMultisampleDescription",
+            "namespace": "Windows.Graphics.DirectX.Direct3D11",
+            "target_kind": "Struct"
+          },
+          "getter": "get_MultisampleDescription"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "Width",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Width"
+        }
+      ]
+    },
+    "IDisplayPrimaryDescriptionFactory": {
+      "guid": "1a6aff7b-3637-5c46-b479-76d576216e65",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayPrimaryDescription",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "width",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "height",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "pixelFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DirectXPixelFormat",
+                "namespace": "Windows.Graphics.DirectX",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "colorSpace",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DirectXColorSpace",
+                "namespace": "Windows.Graphics.DirectX",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "isStereo",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "multisampleDescription",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Direct3DMultisampleDescription",
+                "namespace": "Windows.Graphics.DirectX.Direct3D11",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayPrimaryDescription",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDisplayPrimaryDescriptionStatics": {
+      "guid": "e60e4cfb-36c9-56dd-8fa1-6ff8c4e0ff07",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayPrimaryDescription",
+      "methods": [
+        {
+          "name": "CreateWithProperties",
+          "params": [
+            {
+              "name": "extraProperties",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "GenericInst",
+                    "name": "IKeyValuePair`2",
+                    "namespace": "Windows.Foundation.Collections",
+                    "target_kind": "Interface",
+                    "args": [
+                      {
+                        "kind": "Native",
+                        "name": "Guid"
+                      },
+                      {
+                        "kind": "Native",
+                        "name": "Object"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "name": "width",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "height",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "pixelFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DirectXPixelFormat",
+                "namespace": "Windows.Graphics.DirectX",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "colorSpace",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DirectXColorSpace",
+                "namespace": "Windows.Graphics.DirectX",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "isStereo",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "multisampleDescription",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Direct3DMultisampleDescription",
+                "namespace": "Windows.Graphics.DirectX.Direct3D11",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayPrimaryDescription",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDisplayScanout": {
+      "guid": "e3051828-1ba5-50e7-8a39-bb1fd2f4f8b9",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayScanout"
+    },
+    "IDisplaySource": {
+      "guid": "ecd15fc1-eadc-51bc-971d-3bc628db2dd4",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplaySource",
+      "methods": [
+        {
+          "name": "get_AdapterId",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayAdapterId",
+            "namespace": "Windows.Graphics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_SourceId",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "GetMetadata",
+          "params": [
+            {
+              "name": "Key",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AdapterId",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayAdapterId",
+            "namespace": "Windows.Graphics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_AdapterId"
+        },
+        {
+          "name": "SourceId",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SourceId"
+        }
+      ]
+    },
+    "IDisplaySource2": {
+      "guid": "71e18952-b321-5af4-bfe8-03fbea31e40d",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplaySource",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplaySourceStatus",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_StatusChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplaySource",
+                    "namespace": "Windows.Devices.Display.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_StatusChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplaySourceStatus",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ],
+      "events": [
+        {
+          "name": "StatusChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplaySource",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_StatusChanged",
+          "remove_method": "remove_StatusChanged"
+        }
+      ]
+    },
+    "IDisplayState": {
+      "guid": "08129321-11b5-5cb2-99f8-e90b479a8a1d",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayState",
+      "methods": [
+        {
+          "name": "get_IsReadOnly",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsStale",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Targets",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayTarget",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Views",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayView",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ConnectTarget",
+          "overload": "ConnectTarget",
+          "is_default_overload": true,
+          "params": [
+            {
+              "name": "target",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayTarget",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayPath",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ConnectTarget",
+          "overload": "ConnectTargetToView",
+          "params": [
+            {
+              "name": "target",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayTarget",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "view",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayView",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayPath",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CanConnectTargetToView",
+          "params": [
+            {
+              "name": "target",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayTarget",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "view",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayView",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetViewForTarget",
+          "params": [
+            {
+              "name": "target",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayTarget",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayView",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetPathForTarget",
+          "params": [
+            {
+              "name": "target",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayTarget",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayPath",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "DisconnectTarget",
+          "params": [
+            {
+              "name": "target",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayTarget",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TryFunctionalize",
+          "params": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayStateFunctionalizeOptions",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayStateOperationResult",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryApply",
+          "params": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayStateApplyOptions",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayStateOperationResult",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "Clone",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayState",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsReadOnly",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsReadOnly"
+        },
+        {
+          "name": "IsStale",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsStale"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "Targets",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayTarget",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Targets"
+        },
+        {
+          "name": "Views",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayView",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Views"
+        }
+      ]
+    },
+    "IDisplayStateOperationResult": {
+      "guid": "fcadbfdf-dc27-5638-b7f2-ebdfa4f7ea93",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayStateOperationResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayStateOperationStatus",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ExtendedErrorCode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExtendedErrorCode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtendedErrorCode"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayStateOperationStatus",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IDisplaySurface": {
+      "guid": "594f6cc6-139a-56d6-a4b1-15fe2cb76adb",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplaySurface"
+    },
+    "IDisplayTarget": {
+      "guid": "aec57c6f-47b4-546b-987c-e73fa791fe3a",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayTarget",
+      "methods": [
+        {
+          "name": "get_Adapter",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayAdapter",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DeviceInterfacePath",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AdapterRelativeId",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_IsConnected",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsVirtualModeEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsVirtualTopologyEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_UsageKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayMonitorUsageKind",
+            "namespace": "Windows.Devices.Display",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_MonitorPersistence",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayTargetPersistence",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_StableMonitorId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "TryGetMonitor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayMonitor",
+            "namespace": "Windows.Devices.Display",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_IsStale",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsSame",
+          "params": [
+            {
+              "name": "otherTarget",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayTarget",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsEqual",
+          "params": [
+            {
+              "name": "otherTarget",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayTarget",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Adapter",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayAdapter",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_Adapter"
+        },
+        {
+          "name": "AdapterRelativeId",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_AdapterRelativeId"
+        },
+        {
+          "name": "DeviceInterfacePath",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceInterfacePath"
+        },
+        {
+          "name": "IsConnected",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsConnected"
+        },
+        {
+          "name": "IsStale",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsStale"
+        },
+        {
+          "name": "IsVirtualModeEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsVirtualModeEnabled"
+        },
+        {
+          "name": "IsVirtualTopologyEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsVirtualTopologyEnabled"
+        },
+        {
+          "name": "MonitorPersistence",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayTargetPersistence",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MonitorPersistence"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "StableMonitorId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_StableMonitorId"
+        },
+        {
+          "name": "UsageKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayMonitorUsageKind",
+            "namespace": "Windows.Devices.Display",
+            "target_kind": "Enum"
+          },
+          "getter": "get_UsageKind"
+        }
+      ]
+    },
+    "IDisplayTask": {
+      "guid": "5e087448-135b-5bb0-bf63-637f84227c7a",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayTask",
+      "methods": [
+        {
+          "name": "SetScanout",
+          "params": [
+            {
+              "name": "scanout",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayScanout",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetWait",
+          "params": [
+            {
+              "name": "readyFence",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayFence",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "readyFenceValue",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IDisplayTask2": {
+      "guid": "0957ea19-bd55-55de-9267-c97b61e71c37",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayTask",
+      "methods": [
+        {
+          "name": "SetSignal",
+          "params": [
+            {
+              "name": "signalKind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayTaskSignalKind",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "fence",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayFence",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IDisplayTaskPool": {
+      "guid": "c676253d-237d-5548-aafa-3e517fefef1c",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayTaskPool",
+      "methods": [
+        {
+          "name": "CreateTask",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayTask",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ExecuteTask",
+          "params": [
+            {
+              "name": "task",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayTask",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IDisplayTaskPool2": {
+      "guid": "46b879b6-5d17-5955-a872-eb38003db586",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayTaskPool",
+      "methods": [
+        {
+          "name": "TryExecuteTask",
+          "params": [
+            {
+              "name": "task",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayTask",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayTaskResult",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDisplayTaskResult": {
+      "guid": "6fbc7d67-f9b1-55e0-9d88-d3a5197a3f59",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayTaskResult",
+      "methods": [
+        {
+          "name": "get_PresentStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayPresentStatus",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_PresentId",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_SourceStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplaySourceStatus",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PresentId",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_PresentId"
+        },
+        {
+          "name": "PresentStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayPresentStatus",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PresentStatus"
+        },
+        {
+          "name": "SourceStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplaySourceStatus",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SourceStatus"
+        }
+      ]
+    },
+    "IDisplayView": {
+      "guid": "b0c98ca1-b759-5b59-b1ad-f0786aa9e53d",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayView",
+      "methods": [
+        {
+          "name": "get_Paths",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayPath",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ContentResolution",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SizeInt32",
+                "namespace": "Windows.Graphics",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_ContentResolution",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SizeInt32",
+                    "namespace": "Windows.Graphics",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetPrimaryPath",
+          "params": [
+            {
+              "name": "path",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayPath",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContentResolution",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SizeInt32",
+                "namespace": "Windows.Graphics",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ContentResolution",
+          "setter": "put_ContentResolution"
+        },
+        {
+          "name": "Paths",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayPath",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Paths"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        }
+      ]
+    },
+    "IDisplayWireFormat": {
+      "guid": "1acc967d-872c-5a38-bbb9-1d4872b76255",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayWireFormat",
+      "methods": [
+        {
+          "name": "get_PixelEncoding",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayWireFormatPixelEncoding",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_BitsPerChannel",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_ColorSpace",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayWireFormatColorSpace",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Eotf",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayWireFormatEotf",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_HdrMetadata",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayWireFormatHdrMetadata",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BitsPerChannel",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_BitsPerChannel"
+        },
+        {
+          "name": "ColorSpace",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayWireFormatColorSpace",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ColorSpace"
+        },
+        {
+          "name": "Eotf",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayWireFormatEotf",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Eotf"
+        },
+        {
+          "name": "HdrMetadata",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayWireFormatHdrMetadata",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_HdrMetadata"
+        },
+        {
+          "name": "PixelEncoding",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayWireFormatPixelEncoding",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PixelEncoding"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        }
+      ]
+    },
+    "IDisplayWireFormatFactory": {
+      "guid": "b2efc8d5-09d6-55e6-ad22-9014b3d25229",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayWireFormat",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "pixelEncoding",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayWireFormatPixelEncoding",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "bitsPerChannel",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "colorSpace",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayWireFormatColorSpace",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "eotf",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayWireFormatEotf",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "hdrMetadata",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayWireFormatHdrMetadata",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayWireFormat",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDisplayWireFormatStatics": {
+      "guid": "c575a22d-c3e6-5f7a-bdfb-87c6ab8661d5",
+      "exclusive_to": "Windows.Devices.Display.Core.DisplayWireFormat",
+      "methods": [
+        {
+          "name": "CreateWithProperties",
+          "params": [
+            {
+              "name": "extraProperties",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "GenericInst",
+                    "name": "IKeyValuePair`2",
+                    "namespace": "Windows.Foundation.Collections",
+                    "target_kind": "Interface",
+                    "args": [
+                      {
+                        "kind": "Native",
+                        "name": "Guid"
+                      },
+                      {
+                        "kind": "Native",
+                        "name": "Object"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "name": "pixelEncoding",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayWireFormatPixelEncoding",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "bitsPerChannel",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "colorSpace",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayWireFormatColorSpace",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "eotf",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayWireFormatEotf",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "hdrMetadata",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayWireFormatHdrMetadata",
+                "namespace": "Windows.Devices.Display.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayWireFormat",
+            "namespace": "Windows.Devices.Display.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "DisplayAdapter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayAdapter",
+        "namespace": "Windows.Devices.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayAdapter",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayAdapter2",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Display.Core.IDisplayAdapterStatics"
+      ]
+    },
+    "DisplayDevice": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayDevice",
+        "namespace": "Windows.Devices.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayDevice",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayDevice2",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayDeviceRenderAdapter",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DisplayFence": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayFence",
+        "namespace": "Windows.Devices.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayFence",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DisplayManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayManager",
+        "namespace": "Windows.Devices.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayManager",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayManager2",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayManager3",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Display.Core.IDisplayManagerStatics"
+      ]
+    },
+    "DisplayManagerChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayManagerChangedEventArgs",
+        "namespace": "Windows.Devices.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayManagerChangedEventArgs",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DisplayManagerDisabledEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayManagerDisabledEventArgs",
+        "namespace": "Windows.Devices.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayManagerDisabledEventArgs",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DisplayManagerEnabledEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayManagerEnabledEventArgs",
+        "namespace": "Windows.Devices.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayManagerEnabledEventArgs",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DisplayManagerPathsFailedOrInvalidatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayManagerPathsFailedOrInvalidatedEventArgs",
+        "namespace": "Windows.Devices.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayManagerPathsFailedOrInvalidatedEventArgs",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DisplayManagerResultWithState": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayManagerResultWithState",
+        "namespace": "Windows.Devices.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayManagerResultWithState",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DisplayModeInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayModeInfo",
+        "namespace": "Windows.Devices.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayModeInfo",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayModeInfo2",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DisplayMuxDevice": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayMuxDevice",
+        "namespace": "Windows.Devices.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayMuxDevice",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Display.Core.IDisplayMuxDeviceStatics"
+      ]
+    },
+    "DisplayPath": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayPath",
+        "namespace": "Windows.Devices.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayPath",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayPath2",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DisplayPrimaryDescription": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayPrimaryDescription",
+        "namespace": "Windows.Devices.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayPrimaryDescription",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Display.Core.IDisplayPrimaryDescriptionFactory"
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Display.Core.IDisplayPrimaryDescriptionStatics"
+      ]
+    },
+    "DisplayScanout": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayScanout",
+        "namespace": "Windows.Devices.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayScanout",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DisplaySource": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplaySource",
+        "namespace": "Windows.Devices.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplaySource",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDisplaySource2",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DisplayState": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayState",
+        "namespace": "Windows.Devices.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayState",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DisplayStateOperationResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayStateOperationResult",
+        "namespace": "Windows.Devices.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayStateOperationResult",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DisplaySurface": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplaySurface",
+        "namespace": "Windows.Devices.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplaySurface",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DisplayTarget": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayTarget",
+        "namespace": "Windows.Devices.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayTarget",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DisplayTask": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayTask",
+        "namespace": "Windows.Devices.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayTask",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayTask2",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DisplayTaskPool": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayTaskPool",
+        "namespace": "Windows.Devices.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayTaskPool",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayTaskPool2",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DisplayTaskResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayTaskResult",
+        "namespace": "Windows.Devices.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayTaskResult",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DisplayView": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayView",
+        "namespace": "Windows.Devices.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayView",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DisplayWireFormat": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayWireFormat",
+        "namespace": "Windows.Devices.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayWireFormat",
+          "namespace": "Windows.Devices.Display.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Display.Core.IDisplayWireFormatFactory"
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Display.Core.IDisplayWireFormatStatics"
+      ]
+    }
+  }
+}

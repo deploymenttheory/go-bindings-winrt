@@ -1,0 +1,5808 @@
+{
+  "namespace": "Windows.Globalization",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "DayOfWeek": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Sunday",
+          "value": "0"
+        },
+        {
+          "name": "Monday",
+          "value": "1"
+        },
+        {
+          "name": "Tuesday",
+          "value": "2"
+        },
+        {
+          "name": "Wednesday",
+          "value": "3"
+        },
+        {
+          "name": "Thursday",
+          "value": "4"
+        },
+        {
+          "name": "Friday",
+          "value": "5"
+        },
+        {
+          "name": "Saturday",
+          "value": "6"
+        }
+      ]
+    },
+    "LanguageLayoutDirection": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Ltr",
+          "value": "0"
+        },
+        {
+          "name": "Rtl",
+          "value": "1"
+        },
+        {
+          "name": "TtbLtr",
+          "value": "2"
+        },
+        {
+          "name": "TtbRtl",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IApplicationLanguagesStatics": {
+      "guid": "75b40847-0a4c-4a92-9565-fd63c95f7aed",
+      "exclusive_to": "Windows.Globalization.ApplicationLanguages",
+      "methods": [
+        {
+          "name": "get_PrimaryLanguageOverride",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_PrimaryLanguageOverride",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Languages",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ManifestLanguages",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Languages",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Languages"
+        },
+        {
+          "name": "ManifestLanguages",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_ManifestLanguages"
+        },
+        {
+          "name": "PrimaryLanguageOverride",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PrimaryLanguageOverride",
+          "setter": "put_PrimaryLanguageOverride"
+        }
+      ]
+    },
+    "IApplicationLanguagesStatics2": {
+      "guid": "1df0de4f-072b-4d7b-8f06-cb2db40f2bb5",
+      "exclusive_to": "Windows.Globalization.ApplicationLanguages",
+      "methods": [
+        {
+          "name": "GetLanguagesForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ICalendar": {
+      "guid": "ca30221d-86d9-40fb-a26b-d44eb7cf08ea",
+      "exclusive_to": "Windows.Globalization.Calendar",
+      "methods": [
+        {
+          "name": "Clone",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Calendar",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetToMin"
+        },
+        {
+          "name": "SetToMax"
+        },
+        {
+          "name": "get_Languages",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_NumeralSystem",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_NumeralSystem",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetCalendarSystem",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ChangeCalendarSystem",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetClock",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ChangeClock",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetDateTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "SetDateTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetToNow"
+        },
+        {
+          "name": "get_FirstEra",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_LastEra",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_NumberOfEras",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Era",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_Era",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddEras",
+          "params": [
+            {
+              "name": "eras",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "EraAsString",
+          "overload": "EraAsFullString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "EraAsString",
+          "overload": "EraAsString",
+          "params": [
+            {
+              "name": "idealLength",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_FirstYearInThisEra",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_LastYearInThisEra",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_NumberOfYearsInThisEra",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Year",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_Year",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddYears",
+          "params": [
+            {
+              "name": "years",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "YearAsString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "YearAsTruncatedString",
+          "params": [
+            {
+              "name": "remainingDigits",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "YearAsPaddedString",
+          "params": [
+            {
+              "name": "minDigits",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_FirstMonthInThisYear",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_LastMonthInThisYear",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_NumberOfMonthsInThisYear",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Month",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_Month",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddMonths",
+          "params": [
+            {
+              "name": "months",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "MonthAsString",
+          "overload": "MonthAsFullString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "MonthAsString",
+          "overload": "MonthAsString",
+          "params": [
+            {
+              "name": "idealLength",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "MonthAsSoloString",
+          "overload": "MonthAsFullSoloString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "MonthAsSoloString",
+          "overload": "MonthAsSoloString",
+          "params": [
+            {
+              "name": "idealLength",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "MonthAsNumericString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "MonthAsPaddedNumericString",
+          "params": [
+            {
+              "name": "minDigits",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "AddWeeks",
+          "params": [
+            {
+              "name": "weeks",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FirstDayInThisMonth",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_LastDayInThisMonth",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_NumberOfDaysInThisMonth",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Day",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_Day",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddDays",
+          "params": [
+            {
+              "name": "days",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "DayAsString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "DayAsPaddedString",
+          "params": [
+            {
+              "name": "minDigits",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DayOfWeek",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DayOfWeek",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "DayOfWeekAsString",
+          "overload": "DayOfWeekAsFullString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "DayOfWeekAsString",
+          "overload": "DayOfWeekAsString",
+          "params": [
+            {
+              "name": "idealLength",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "DayOfWeekAsSoloString",
+          "overload": "DayOfWeekAsFullSoloString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "DayOfWeekAsSoloString",
+          "overload": "DayOfWeekAsSoloString",
+          "params": [
+            {
+              "name": "idealLength",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_FirstPeriodInThisDay",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_LastPeriodInThisDay",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_NumberOfPeriodsInThisDay",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Period",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_Period",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddPeriods",
+          "params": [
+            {
+              "name": "periods",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "PeriodAsString",
+          "overload": "PeriodAsFullString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "PeriodAsString",
+          "overload": "PeriodAsString",
+          "params": [
+            {
+              "name": "idealLength",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_FirstHourInThisPeriod",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_LastHourInThisPeriod",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_NumberOfHoursInThisPeriod",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Hour",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_Hour",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddHours",
+          "params": [
+            {
+              "name": "hours",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "HourAsString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "HourAsPaddedString",
+          "params": [
+            {
+              "name": "minDigits",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Minute",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_Minute",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddMinutes",
+          "params": [
+            {
+              "name": "minutes",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "MinuteAsString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "MinuteAsPaddedString",
+          "params": [
+            {
+              "name": "minDigits",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Second",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_Second",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddSeconds",
+          "params": [
+            {
+              "name": "seconds",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SecondAsString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "SecondAsPaddedString",
+          "params": [
+            {
+              "name": "minDigits",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Nanosecond",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_Nanosecond",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddNanoseconds",
+          "params": [
+            {
+              "name": "nanoseconds",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "NanosecondAsString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "NanosecondAsPaddedString",
+          "params": [
+            {
+              "name": "minDigits",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "Compare",
+          "params": [
+            {
+              "name": "other",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Calendar",
+                "namespace": "Windows.Globalization",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "CompareDateTime",
+          "params": [
+            {
+              "name": "other",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "CopyTo",
+          "params": [
+            {
+              "name": "other",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Calendar",
+                "namespace": "Windows.Globalization",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FirstMinuteInThisHour",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_LastMinuteInThisHour",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_NumberOfMinutesInThisHour",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_FirstSecondInThisMinute",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_LastSecondInThisMinute",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_NumberOfSecondsInThisMinute",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_ResolvedLanguage",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IsDaylightSavingTime",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Day",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Day",
+          "setter": "put_Day"
+        },
+        {
+          "name": "DayOfWeek",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DayOfWeek",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DayOfWeek"
+        },
+        {
+          "name": "Era",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Era",
+          "setter": "put_Era"
+        },
+        {
+          "name": "FirstDayInThisMonth",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_FirstDayInThisMonth"
+        },
+        {
+          "name": "FirstEra",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_FirstEra"
+        },
+        {
+          "name": "FirstHourInThisPeriod",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_FirstHourInThisPeriod"
+        },
+        {
+          "name": "FirstMinuteInThisHour",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_FirstMinuteInThisHour"
+        },
+        {
+          "name": "FirstMonthInThisYear",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_FirstMonthInThisYear"
+        },
+        {
+          "name": "FirstPeriodInThisDay",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_FirstPeriodInThisDay"
+        },
+        {
+          "name": "FirstSecondInThisMinute",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_FirstSecondInThisMinute"
+        },
+        {
+          "name": "FirstYearInThisEra",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_FirstYearInThisEra"
+        },
+        {
+          "name": "Hour",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Hour",
+          "setter": "put_Hour"
+        },
+        {
+          "name": "IsDaylightSavingTime",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsDaylightSavingTime"
+        },
+        {
+          "name": "Languages",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Languages"
+        },
+        {
+          "name": "LastDayInThisMonth",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_LastDayInThisMonth"
+        },
+        {
+          "name": "LastEra",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_LastEra"
+        },
+        {
+          "name": "LastHourInThisPeriod",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_LastHourInThisPeriod"
+        },
+        {
+          "name": "LastMinuteInThisHour",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_LastMinuteInThisHour"
+        },
+        {
+          "name": "LastMonthInThisYear",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_LastMonthInThisYear"
+        },
+        {
+          "name": "LastPeriodInThisDay",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_LastPeriodInThisDay"
+        },
+        {
+          "name": "LastSecondInThisMinute",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_LastSecondInThisMinute"
+        },
+        {
+          "name": "LastYearInThisEra",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_LastYearInThisEra"
+        },
+        {
+          "name": "Minute",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Minute",
+          "setter": "put_Minute"
+        },
+        {
+          "name": "Month",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Month",
+          "setter": "put_Month"
+        },
+        {
+          "name": "Nanosecond",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Nanosecond",
+          "setter": "put_Nanosecond"
+        },
+        {
+          "name": "NumberOfDaysInThisMonth",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_NumberOfDaysInThisMonth"
+        },
+        {
+          "name": "NumberOfEras",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_NumberOfEras"
+        },
+        {
+          "name": "NumberOfHoursInThisPeriod",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_NumberOfHoursInThisPeriod"
+        },
+        {
+          "name": "NumberOfMinutesInThisHour",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_NumberOfMinutesInThisHour"
+        },
+        {
+          "name": "NumberOfMonthsInThisYear",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_NumberOfMonthsInThisYear"
+        },
+        {
+          "name": "NumberOfPeriodsInThisDay",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_NumberOfPeriodsInThisDay"
+        },
+        {
+          "name": "NumberOfSecondsInThisMinute",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_NumberOfSecondsInThisMinute"
+        },
+        {
+          "name": "NumberOfYearsInThisEra",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_NumberOfYearsInThisEra"
+        },
+        {
+          "name": "NumeralSystem",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NumeralSystem",
+          "setter": "put_NumeralSystem"
+        },
+        {
+          "name": "Period",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Period",
+          "setter": "put_Period"
+        },
+        {
+          "name": "ResolvedLanguage",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ResolvedLanguage"
+        },
+        {
+          "name": "Second",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Second",
+          "setter": "put_Second"
+        },
+        {
+          "name": "Year",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Year",
+          "setter": "put_Year"
+        }
+      ]
+    },
+    "ICalendarFactory": {
+      "guid": "83f58412-e56b-4c75-a66e-0f63d57758a6",
+      "exclusive_to": "Windows.Globalization.Calendar",
+      "methods": [
+        {
+          "name": "CreateCalendarDefaultCalendarAndClock",
+          "params": [
+            {
+              "name": "languages",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Calendar",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateCalendar",
+          "params": [
+            {
+              "name": "languages",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "calendar",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "clock",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Calendar",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ICalendarFactory2": {
+      "guid": "b44b378c-ca7e-4590-9e72-ea2bec1a5115",
+      "exclusive_to": "Windows.Globalization.Calendar",
+      "methods": [
+        {
+          "name": "CreateCalendarWithTimeZone",
+          "params": [
+            {
+              "name": "languages",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "calendar",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "clock",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "timeZoneId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Calendar",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ICalendarIdentifiersStatics": {
+      "guid": "80653f68-2cb2-4c1f-b590-f0f52bf4fd1a",
+      "exclusive_to": "Windows.Globalization.CalendarIdentifiers",
+      "methods": [
+        {
+          "name": "get_Gregorian",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Hebrew",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Hijri",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Japanese",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Julian",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Korean",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Taiwan",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Thai",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_UmAlQura",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Gregorian",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Gregorian"
+        },
+        {
+          "name": "Hebrew",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Hebrew"
+        },
+        {
+          "name": "Hijri",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Hijri"
+        },
+        {
+          "name": "Japanese",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Japanese"
+        },
+        {
+          "name": "Julian",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Julian"
+        },
+        {
+          "name": "Korean",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Korean"
+        },
+        {
+          "name": "Taiwan",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Taiwan"
+        },
+        {
+          "name": "Thai",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Thai"
+        },
+        {
+          "name": "UmAlQura",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_UmAlQura"
+        }
+      ]
+    },
+    "ICalendarIdentifiersStatics2": {
+      "guid": "7df4d488-5fd0-42a7-95b5-7d98d823075f",
+      "exclusive_to": "Windows.Globalization.CalendarIdentifiers",
+      "methods": [
+        {
+          "name": "get_Persian",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Persian",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Persian"
+        }
+      ]
+    },
+    "ICalendarIdentifiersStatics3": {
+      "guid": "2c225423-1fad-40c0-9334-a8eb90db04f5",
+      "exclusive_to": "Windows.Globalization.CalendarIdentifiers",
+      "methods": [
+        {
+          "name": "get_ChineseLunar",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_JapaneseLunar",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_KoreanLunar",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TaiwanLunar",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_VietnameseLunar",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ChineseLunar",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ChineseLunar"
+        },
+        {
+          "name": "JapaneseLunar",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_JapaneseLunar"
+        },
+        {
+          "name": "KoreanLunar",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_KoreanLunar"
+        },
+        {
+          "name": "TaiwanLunar",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TaiwanLunar"
+        },
+        {
+          "name": "VietnameseLunar",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_VietnameseLunar"
+        }
+      ]
+    },
+    "IClockIdentifiersStatics": {
+      "guid": "523805bb-12ec-4f83-bc31-b1b4376b0808",
+      "exclusive_to": "Windows.Globalization.ClockIdentifiers",
+      "methods": [
+        {
+          "name": "get_TwelveHour",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TwentyFourHour",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "TwelveHour",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TwelveHour"
+        },
+        {
+          "name": "TwentyFourHour",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TwentyFourHour"
+        }
+      ]
+    },
+    "ICurrencyAmount": {
+      "guid": "74b49942-eb75-443a-95b3-7d723f56f93c",
+      "exclusive_to": "Windows.Globalization.CurrencyAmount",
+      "methods": [
+        {
+          "name": "get_Amount",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Currency",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Amount",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Amount"
+        },
+        {
+          "name": "Currency",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Currency"
+        }
+      ]
+    },
+    "ICurrencyAmountFactory": {
+      "guid": "48d7168f-ef3b-4aee-a6a1-4b036fe03ff0",
+      "exclusive_to": "Windows.Globalization.CurrencyAmount",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "amount",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "currency",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CurrencyAmount",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ICurrencyIdentifiersStatics": {
+      "guid": "9f1d091b-d586-4913-9b6a-a9bd2dc12874",
+      "exclusive_to": "Windows.Globalization.CurrencyIdentifiers",
+      "methods": [
+        {
+          "name": "get_AED",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AFN",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ALL",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AMD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ANG",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AOA",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ARS",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AUD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AWG",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AZN",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BAM",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BBD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BDT",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BGN",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BHD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BIF",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BMD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BND",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BOB",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BRL",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BSD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BTN",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BWP",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BYR",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BZD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CAD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CDF",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CHF",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CLP",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CNY",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_COP",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CRC",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CUP",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CVE",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CZK",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DJF",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DKK",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DOP",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DZD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_EGP",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ERN",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ETB",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_EUR",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_FJD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_FKP",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_GBP",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_GEL",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_GHS",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_GIP",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_GMD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_GNF",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_GTQ",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_GYD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_HKD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_HNL",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_HRK",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_HTG",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_HUF",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IDR",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ILS",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_INR",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IQD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IRR",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ISK",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_JMD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_JOD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_JPY",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_KES",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_KGS",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_KHR",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_KMF",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_KPW",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_KRW",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_KWD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_KYD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_KZT",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_LAK",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_LBP",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_LKR",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_LRD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_LSL",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_LTL",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_LVL",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_LYD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MAD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MDL",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MGA",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MKD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MMK",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MNT",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MOP",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MRO",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MUR",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MVR",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MWK",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MXN",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MYR",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MZN",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NAD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NGN",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NIO",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NOK",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NPR",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NZD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_OMR",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_PAB",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_PEN",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_PGK",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_PHP",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_PKR",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_PLN",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_PYG",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_QAR",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RON",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RSD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RUB",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RWF",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SAR",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SBD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SCR",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SDG",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SEK",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SGD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SHP",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SLL",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SOS",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SRD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_STD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SYP",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SZL",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_THB",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TJS",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TMT",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TND",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TOP",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TRY",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TTD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TWD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TZS",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_UAH",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_UGX",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_USD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_UYU",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_UZS",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_VEF",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_VND",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_VUV",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_WST",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_XAF",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_XCD",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_XOF",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_XPF",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_XXX",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_YER",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ZAR",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ZMW",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ZWL",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AED",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AED"
+        },
+        {
+          "name": "AFN",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AFN"
+        },
+        {
+          "name": "ALL",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ALL"
+        },
+        {
+          "name": "AMD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AMD"
+        },
+        {
+          "name": "ANG",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ANG"
+        },
+        {
+          "name": "AOA",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AOA"
+        },
+        {
+          "name": "ARS",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ARS"
+        },
+        {
+          "name": "AUD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AUD"
+        },
+        {
+          "name": "AWG",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AWG"
+        },
+        {
+          "name": "AZN",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AZN"
+        },
+        {
+          "name": "BAM",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BAM"
+        },
+        {
+          "name": "BBD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BBD"
+        },
+        {
+          "name": "BDT",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BDT"
+        },
+        {
+          "name": "BGN",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BGN"
+        },
+        {
+          "name": "BHD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BHD"
+        },
+        {
+          "name": "BIF",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BIF"
+        },
+        {
+          "name": "BMD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BMD"
+        },
+        {
+          "name": "BND",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BND"
+        },
+        {
+          "name": "BOB",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BOB"
+        },
+        {
+          "name": "BRL",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BRL"
+        },
+        {
+          "name": "BSD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BSD"
+        },
+        {
+          "name": "BTN",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BTN"
+        },
+        {
+          "name": "BWP",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BWP"
+        },
+        {
+          "name": "BYR",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BYR"
+        },
+        {
+          "name": "BZD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BZD"
+        },
+        {
+          "name": "CAD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CAD"
+        },
+        {
+          "name": "CDF",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CDF"
+        },
+        {
+          "name": "CHF",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CHF"
+        },
+        {
+          "name": "CLP",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CLP"
+        },
+        {
+          "name": "CNY",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CNY"
+        },
+        {
+          "name": "COP",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_COP"
+        },
+        {
+          "name": "CRC",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CRC"
+        },
+        {
+          "name": "CUP",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CUP"
+        },
+        {
+          "name": "CVE",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CVE"
+        },
+        {
+          "name": "CZK",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CZK"
+        },
+        {
+          "name": "DJF",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DJF"
+        },
+        {
+          "name": "DKK",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DKK"
+        },
+        {
+          "name": "DOP",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DOP"
+        },
+        {
+          "name": "DZD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DZD"
+        },
+        {
+          "name": "EGP",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EGP"
+        },
+        {
+          "name": "ERN",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ERN"
+        },
+        {
+          "name": "ETB",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ETB"
+        },
+        {
+          "name": "EUR",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EUR"
+        },
+        {
+          "name": "FJD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_FJD"
+        },
+        {
+          "name": "FKP",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_FKP"
+        },
+        {
+          "name": "GBP",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_GBP"
+        },
+        {
+          "name": "GEL",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_GEL"
+        },
+        {
+          "name": "GHS",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_GHS"
+        },
+        {
+          "name": "GIP",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_GIP"
+        },
+        {
+          "name": "GMD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_GMD"
+        },
+        {
+          "name": "GNF",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_GNF"
+        },
+        {
+          "name": "GTQ",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_GTQ"
+        },
+        {
+          "name": "GYD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_GYD"
+        },
+        {
+          "name": "HKD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HKD"
+        },
+        {
+          "name": "HNL",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HNL"
+        },
+        {
+          "name": "HRK",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HRK"
+        },
+        {
+          "name": "HTG",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HTG"
+        },
+        {
+          "name": "HUF",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HUF"
+        },
+        {
+          "name": "IDR",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_IDR"
+        },
+        {
+          "name": "ILS",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ILS"
+        },
+        {
+          "name": "INR",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_INR"
+        },
+        {
+          "name": "IQD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_IQD"
+        },
+        {
+          "name": "IRR",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_IRR"
+        },
+        {
+          "name": "ISK",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ISK"
+        },
+        {
+          "name": "JMD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_JMD"
+        },
+        {
+          "name": "JOD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_JOD"
+        },
+        {
+          "name": "JPY",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_JPY"
+        },
+        {
+          "name": "KES",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_KES"
+        },
+        {
+          "name": "KGS",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_KGS"
+        },
+        {
+          "name": "KHR",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_KHR"
+        },
+        {
+          "name": "KMF",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_KMF"
+        },
+        {
+          "name": "KPW",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_KPW"
+        },
+        {
+          "name": "KRW",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_KRW"
+        },
+        {
+          "name": "KWD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_KWD"
+        },
+        {
+          "name": "KYD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_KYD"
+        },
+        {
+          "name": "KZT",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_KZT"
+        },
+        {
+          "name": "LAK",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LAK"
+        },
+        {
+          "name": "LBP",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LBP"
+        },
+        {
+          "name": "LKR",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LKR"
+        },
+        {
+          "name": "LRD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LRD"
+        },
+        {
+          "name": "LSL",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LSL"
+        },
+        {
+          "name": "LTL",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LTL"
+        },
+        {
+          "name": "LVL",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LVL"
+        },
+        {
+          "name": "LYD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LYD"
+        },
+        {
+          "name": "MAD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MAD"
+        },
+        {
+          "name": "MDL",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MDL"
+        },
+        {
+          "name": "MGA",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MGA"
+        },
+        {
+          "name": "MKD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MKD"
+        },
+        {
+          "name": "MMK",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MMK"
+        },
+        {
+          "name": "MNT",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MNT"
+        },
+        {
+          "name": "MOP",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MOP"
+        },
+        {
+          "name": "MRO",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MRO"
+        },
+        {
+          "name": "MUR",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MUR"
+        },
+        {
+          "name": "MVR",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MVR"
+        },
+        {
+          "name": "MWK",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MWK"
+        },
+        {
+          "name": "MXN",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MXN"
+        },
+        {
+          "name": "MYR",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MYR"
+        },
+        {
+          "name": "MZN",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MZN"
+        },
+        {
+          "name": "NAD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NAD"
+        },
+        {
+          "name": "NGN",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NGN"
+        },
+        {
+          "name": "NIO",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NIO"
+        },
+        {
+          "name": "NOK",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NOK"
+        },
+        {
+          "name": "NPR",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NPR"
+        },
+        {
+          "name": "NZD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NZD"
+        },
+        {
+          "name": "OMR",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_OMR"
+        },
+        {
+          "name": "PAB",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PAB"
+        },
+        {
+          "name": "PEN",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PEN"
+        },
+        {
+          "name": "PGK",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PGK"
+        },
+        {
+          "name": "PHP",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PHP"
+        },
+        {
+          "name": "PKR",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PKR"
+        },
+        {
+          "name": "PLN",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PLN"
+        },
+        {
+          "name": "PYG",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PYG"
+        },
+        {
+          "name": "QAR",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_QAR"
+        },
+        {
+          "name": "RON",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RON"
+        },
+        {
+          "name": "RSD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RSD"
+        },
+        {
+          "name": "RUB",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RUB"
+        },
+        {
+          "name": "RWF",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RWF"
+        },
+        {
+          "name": "SAR",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SAR"
+        },
+        {
+          "name": "SBD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SBD"
+        },
+        {
+          "name": "SCR",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SCR"
+        },
+        {
+          "name": "SDG",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SDG"
+        },
+        {
+          "name": "SEK",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SEK"
+        },
+        {
+          "name": "SGD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SGD"
+        },
+        {
+          "name": "SHP",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SHP"
+        },
+        {
+          "name": "SLL",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SLL"
+        },
+        {
+          "name": "SOS",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SOS"
+        },
+        {
+          "name": "SRD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SRD"
+        },
+        {
+          "name": "STD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_STD"
+        },
+        {
+          "name": "SYP",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SYP"
+        },
+        {
+          "name": "SZL",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SZL"
+        },
+        {
+          "name": "THB",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_THB"
+        },
+        {
+          "name": "TJS",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TJS"
+        },
+        {
+          "name": "TMT",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TMT"
+        },
+        {
+          "name": "TND",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TND"
+        },
+        {
+          "name": "TOP",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TOP"
+        },
+        {
+          "name": "TRY",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TRY"
+        },
+        {
+          "name": "TTD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TTD"
+        },
+        {
+          "name": "TWD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TWD"
+        },
+        {
+          "name": "TZS",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TZS"
+        },
+        {
+          "name": "UAH",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_UAH"
+        },
+        {
+          "name": "UGX",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_UGX"
+        },
+        {
+          "name": "USD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_USD"
+        },
+        {
+          "name": "UYU",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_UYU"
+        },
+        {
+          "name": "UZS",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_UZS"
+        },
+        {
+          "name": "VEF",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_VEF"
+        },
+        {
+          "name": "VND",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_VND"
+        },
+        {
+          "name": "VUV",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_VUV"
+        },
+        {
+          "name": "WST",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_WST"
+        },
+        {
+          "name": "XAF",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_XAF"
+        },
+        {
+          "name": "XCD",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_XCD"
+        },
+        {
+          "name": "XOF",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_XOF"
+        },
+        {
+          "name": "XPF",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_XPF"
+        },
+        {
+          "name": "XXX",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_XXX"
+        },
+        {
+          "name": "YER",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_YER"
+        },
+        {
+          "name": "ZAR",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ZAR"
+        },
+        {
+          "name": "ZMW",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ZMW"
+        },
+        {
+          "name": "ZWL",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ZWL"
+        }
+      ]
+    },
+    "ICurrencyIdentifiersStatics2": {
+      "guid": "1814797f-c3b2-4c33-9591-980011950d37",
+      "exclusive_to": "Windows.Globalization.CurrencyIdentifiers",
+      "methods": [
+        {
+          "name": "get_BYN",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BYN",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BYN"
+        }
+      ]
+    },
+    "ICurrencyIdentifiersStatics3": {
+      "guid": "4fb23bfa-ed25-4f4d-857f-237f1748c21c",
+      "exclusive_to": "Windows.Globalization.CurrencyIdentifiers",
+      "methods": [
+        {
+          "name": "get_MRU",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SSP",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_STN",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_VES",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "MRU",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MRU"
+        },
+        {
+          "name": "SSP",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SSP"
+        },
+        {
+          "name": "STN",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_STN"
+        },
+        {
+          "name": "VES",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_VES"
+        }
+      ]
+    },
+    "IGeographicRegion": {
+      "guid": "01e9a621-4a64-4ed9-954f-9edeb07bd903",
+      "exclusive_to": "Windows.Globalization.GeographicRegion",
+      "methods": [
+        {
+          "name": "get_Code",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CodeTwoLetter",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CodeThreeLetter",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CodeThreeDigit",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NativeName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CurrenciesInUse",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Code",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Code"
+        },
+        {
+          "name": "CodeThreeDigit",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CodeThreeDigit"
+        },
+        {
+          "name": "CodeThreeLetter",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CodeThreeLetter"
+        },
+        {
+          "name": "CodeTwoLetter",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CodeTwoLetter"
+        },
+        {
+          "name": "CurrenciesInUse",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_CurrenciesInUse"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "NativeName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NativeName"
+        }
+      ]
+    },
+    "IGeographicRegionFactory": {
+      "guid": "53425270-77b4-426b-859f-81e19d512546",
+      "exclusive_to": "Windows.Globalization.GeographicRegion",
+      "methods": [
+        {
+          "name": "CreateGeographicRegion",
+          "params": [
+            {
+              "name": "geographicRegionCode",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "GeographicRegion",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IGeographicRegionStatics": {
+      "guid": "29e28974-7ad9-4ef4-8799-b3b44fadec08",
+      "exclusive_to": "Windows.Globalization.GeographicRegion",
+      "methods": [
+        {
+          "name": "IsSupported",
+          "params": [
+            {
+              "name": "geographicRegionCode",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "ILanguage": {
+      "guid": "ea79a752-f7c2-4265-b1bd-c4dec4e4f080",
+      "exclusive_to": "Windows.Globalization.Language",
+      "methods": [
+        {
+          "name": "get_LanguageTag",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NativeName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Script",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "LanguageTag",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LanguageTag"
+        },
+        {
+          "name": "NativeName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NativeName"
+        },
+        {
+          "name": "Script",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Script"
+        }
+      ]
+    },
+    "ILanguage2": {
+      "guid": "6a47e5b5-d94d-4886-a404-a5a5b9d5b494",
+      "exclusive_to": "Windows.Globalization.Language",
+      "methods": [
+        {
+          "name": "get_LayoutDirection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LanguageLayoutDirection",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "LayoutDirection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LanguageLayoutDirection",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Enum"
+          },
+          "getter": "get_LayoutDirection"
+        }
+      ]
+    },
+    "ILanguage3": {
+      "guid": "c6af3d10-641a-5ba4-bb43-5e12aed75954",
+      "exclusive_to": "Windows.Globalization.Language",
+      "methods": [
+        {
+          "name": "get_AbbreviatedName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AbbreviatedName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AbbreviatedName"
+        }
+      ]
+    },
+    "ILanguageExtensionSubtags": {
+      "guid": "7d7daf45-368d-4364-852b-dec927037b85",
+      "exclusive_to": "Windows.Globalization.Language",
+      "methods": [
+        {
+          "name": "GetExtensionSubtags",
+          "params": [
+            {
+              "name": "singleton",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ILanguageFactory": {
+      "guid": "9b0252ac-0c27-44f8-b792-9793fb66c63e",
+      "exclusive_to": "Windows.Globalization.Language",
+      "methods": [
+        {
+          "name": "CreateLanguage",
+          "params": [
+            {
+              "name": "languageTag",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Language",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ILanguageStatics": {
+      "guid": "b23cd557-0865-46d4-89b8-d59be8990f0d",
+      "exclusive_to": "Windows.Globalization.Language",
+      "methods": [
+        {
+          "name": "IsWellFormed",
+          "params": [
+            {
+              "name": "languageTag",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_CurrentInputMethodLanguageTag",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CurrentInputMethodLanguageTag",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CurrentInputMethodLanguageTag"
+        }
+      ]
+    },
+    "ILanguageStatics2": {
+      "guid": "30199f6e-914b-4b2a-9d6e-e3b0e27dbe4f",
+      "exclusive_to": "Windows.Globalization.Language",
+      "methods": [
+        {
+          "name": "TrySetInputMethodLanguageTag",
+          "params": [
+            {
+              "name": "languageTag",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "ILanguageStatics3": {
+      "guid": "d15ecb5a-71de-5752-9542-fac5b4f27261",
+      "exclusive_to": "Windows.Globalization.Language",
+      "methods": [
+        {
+          "name": "GetMuiCompatibleLanguageListFromLanguageTags",
+          "params": [
+            {
+              "name": "languageTags",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "INumeralSystemIdentifiersStatics": {
+      "guid": "a5c662c3-68c9-4d3d-b765-972029e21dec",
+      "exclusive_to": "Windows.Globalization.NumeralSystemIdentifiers",
+      "methods": [
+        {
+          "name": "get_Arab",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ArabExt",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Bali",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Beng",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Cham",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Deva",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_FullWide",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Gujr",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Guru",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_HaniDec",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Java",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Kali",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Khmr",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Knda",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Lana",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_LanaTham",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Laoo",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Latn",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Lepc",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Limb",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Mlym",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Mong",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Mtei",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Mymr",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MymrShan",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Nkoo",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Olck",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Orya",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Saur",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Sund",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Talu",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TamlDec",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Telu",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Thai",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Tibt",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Vaii",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Arab",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Arab"
+        },
+        {
+          "name": "ArabExt",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ArabExt"
+        },
+        {
+          "name": "Bali",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Bali"
+        },
+        {
+          "name": "Beng",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Beng"
+        },
+        {
+          "name": "Cham",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Cham"
+        },
+        {
+          "name": "Deva",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Deva"
+        },
+        {
+          "name": "FullWide",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_FullWide"
+        },
+        {
+          "name": "Gujr",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Gujr"
+        },
+        {
+          "name": "Guru",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Guru"
+        },
+        {
+          "name": "HaniDec",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HaniDec"
+        },
+        {
+          "name": "Java",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Java"
+        },
+        {
+          "name": "Kali",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Kali"
+        },
+        {
+          "name": "Khmr",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Khmr"
+        },
+        {
+          "name": "Knda",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Knda"
+        },
+        {
+          "name": "Lana",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Lana"
+        },
+        {
+          "name": "LanaTham",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LanaTham"
+        },
+        {
+          "name": "Laoo",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Laoo"
+        },
+        {
+          "name": "Latn",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Latn"
+        },
+        {
+          "name": "Lepc",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Lepc"
+        },
+        {
+          "name": "Limb",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Limb"
+        },
+        {
+          "name": "Mlym",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Mlym"
+        },
+        {
+          "name": "Mong",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Mong"
+        },
+        {
+          "name": "Mtei",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Mtei"
+        },
+        {
+          "name": "Mymr",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Mymr"
+        },
+        {
+          "name": "MymrShan",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MymrShan"
+        },
+        {
+          "name": "Nkoo",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Nkoo"
+        },
+        {
+          "name": "Olck",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Olck"
+        },
+        {
+          "name": "Orya",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Orya"
+        },
+        {
+          "name": "Saur",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Saur"
+        },
+        {
+          "name": "Sund",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Sund"
+        },
+        {
+          "name": "Talu",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Talu"
+        },
+        {
+          "name": "TamlDec",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TamlDec"
+        },
+        {
+          "name": "Telu",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Telu"
+        },
+        {
+          "name": "Thai",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Thai"
+        },
+        {
+          "name": "Tibt",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Tibt"
+        },
+        {
+          "name": "Vaii",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Vaii"
+        }
+      ]
+    },
+    "INumeralSystemIdentifiersStatics2": {
+      "guid": "7f003228-9ddb-4a34-9104-0260c091a7c7",
+      "exclusive_to": "Windows.Globalization.NumeralSystemIdentifiers",
+      "methods": [
+        {
+          "name": "get_Brah",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Osma",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MathBold",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MathDbl",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MathSans",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MathSanb",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MathMono",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ZmthBold",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ZmthDbl",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ZmthSans",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ZmthSanb",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ZmthMono",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Brah",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Brah"
+        },
+        {
+          "name": "MathBold",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MathBold"
+        },
+        {
+          "name": "MathDbl",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MathDbl"
+        },
+        {
+          "name": "MathMono",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MathMono"
+        },
+        {
+          "name": "MathSanb",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MathSanb"
+        },
+        {
+          "name": "MathSans",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MathSans"
+        },
+        {
+          "name": "Osma",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Osma"
+        },
+        {
+          "name": "ZmthBold",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ZmthBold"
+        },
+        {
+          "name": "ZmthDbl",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ZmthDbl"
+        },
+        {
+          "name": "ZmthMono",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ZmthMono"
+        },
+        {
+          "name": "ZmthSanb",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ZmthSanb"
+        },
+        {
+          "name": "ZmthSans",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ZmthSans"
+        }
+      ]
+    },
+    "ITimeZoneOnCalendar": {
+      "guid": "bb3c25e5-46cf-4317-a3f5-02621ad54478",
+      "exclusive_to": "Windows.Globalization.Calendar",
+      "methods": [
+        {
+          "name": "GetTimeZone",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ChangeTimeZone",
+          "params": [
+            {
+              "name": "timeZoneId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TimeZoneAsString",
+          "overload": "TimeZoneAsFullString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "TimeZoneAsString",
+          "overload": "TimeZoneAsString",
+          "params": [
+            {
+              "name": "idealLength",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "ApplicationLanguages": {
+      "static_interfaces": [
+        "Windows.Globalization.IApplicationLanguagesStatics2",
+        "Windows.Globalization.IApplicationLanguagesStatics"
+      ]
+    },
+    "Calendar": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICalendar",
+        "namespace": "Windows.Globalization",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICalendar",
+          "namespace": "Windows.Globalization",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ITimeZoneOnCalendar",
+          "namespace": "Windows.Globalization",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Globalization.ICalendarFactory",
+        "Windows.Globalization.ICalendarFactory2"
+      ]
+    },
+    "CalendarIdentifiers": {
+      "static_interfaces": [
+        "Windows.Globalization.ICalendarIdentifiersStatics2",
+        "Windows.Globalization.ICalendarIdentifiersStatics3",
+        "Windows.Globalization.ICalendarIdentifiersStatics"
+      ]
+    },
+    "ClockIdentifiers": {
+      "static_interfaces": [
+        "Windows.Globalization.IClockIdentifiersStatics"
+      ]
+    },
+    "CurrencyAmount": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICurrencyAmount",
+        "namespace": "Windows.Globalization",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICurrencyAmount",
+          "namespace": "Windows.Globalization",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Globalization.ICurrencyAmountFactory"
+      ]
+    },
+    "CurrencyIdentifiers": {
+      "static_interfaces": [
+        "Windows.Globalization.ICurrencyIdentifiersStatics",
+        "Windows.Globalization.ICurrencyIdentifiersStatics3",
+        "Windows.Globalization.ICurrencyIdentifiersStatics2"
+      ]
+    },
+    "GeographicRegion": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGeographicRegion",
+        "namespace": "Windows.Globalization",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeographicRegion",
+          "namespace": "Windows.Globalization",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Globalization.IGeographicRegionFactory"
+      ],
+      "static_interfaces": [
+        "Windows.Globalization.IGeographicRegionStatics"
+      ]
+    },
+    "Language": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILanguage",
+        "namespace": "Windows.Globalization",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILanguage",
+          "namespace": "Windows.Globalization",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ILanguageExtensionSubtags",
+          "namespace": "Windows.Globalization",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ILanguage2",
+          "namespace": "Windows.Globalization",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ILanguage3",
+          "namespace": "Windows.Globalization",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Globalization.ILanguageFactory"
+      ],
+      "static_interfaces": [
+        "Windows.Globalization.ILanguageStatics3",
+        "Windows.Globalization.ILanguageStatics2",
+        "Windows.Globalization.ILanguageStatics"
+      ]
+    },
+    "NumeralSystemIdentifiers": {
+      "static_interfaces": [
+        "Windows.Globalization.INumeralSystemIdentifiersStatics2",
+        "Windows.Globalization.INumeralSystemIdentifiersStatics"
+      ]
+    }
+  }
+}

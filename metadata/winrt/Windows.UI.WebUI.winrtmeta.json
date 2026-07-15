@@ -1,0 +1,2951 @@
+{
+  "namespace": "Windows.UI.WebUI",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "PrintContent": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "AllPages",
+          "value": "0"
+        },
+        {
+          "name": "CurrentPage",
+          "value": "1"
+        },
+        {
+          "name": "CustomPageRange",
+          "value": "2"
+        },
+        {
+          "name": "CurrentSelection",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IActivatedDeferral": {
+      "guid": "c3bd1978-a431-49d8-a76a-395a4e03dcf3",
+      "exclusive_to": "Windows.UI.WebUI.ActivatedDeferral",
+      "methods": [
+        {
+          "name": "Complete"
+        }
+      ]
+    },
+    "IActivatedEventArgsDeferral": {
+      "guid": "ca6d5f74-63c2-44a6-b97b-d9a03c20bc9b",
+      "methods": [
+        {
+          "name": "get_ActivatedOperation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ActivatedOperation",
+            "namespace": "Windows.UI.WebUI",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ActivatedOperation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ActivatedOperation",
+            "namespace": "Windows.UI.WebUI",
+            "target_kind": "Class"
+          },
+          "getter": "get_ActivatedOperation"
+        }
+      ]
+    },
+    "IActivatedOperation": {
+      "guid": "b6a0b4bc-c6ca-42fd-9818-71904e45fed7",
+      "exclusive_to": "Windows.UI.WebUI.ActivatedOperation",
+      "methods": [
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ActivatedDeferral",
+            "namespace": "Windows.UI.WebUI",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IHtmlPrintDocumentSource": {
+      "guid": "cea6469a-0e05-467a-abc9-36ec1d4cdcb6",
+      "exclusive_to": "Windows.UI.WebUI.HtmlPrintDocumentSource",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintDocumentSource",
+          "namespace": "Windows.Graphics.Printing",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Content",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintContent",
+            "namespace": "Windows.UI.WebUI",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Content",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintContent",
+                "namespace": "Windows.UI.WebUI",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LeftMargin",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_LeftMargin",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TopMargin",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_TopMargin",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RightMargin",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_RightMargin",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BottomMargin",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_BottomMargin",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_EnableHeaderFooter",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_EnableHeaderFooter",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ShrinkToFit",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_ShrinkToFit",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PercentScale",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_PercentScale",
+          "params": [
+            {
+              "name": "scalePercent",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PageRange",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "TrySetPageRange",
+          "params": [
+            {
+              "name": "strPageRange",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BottomMargin",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_BottomMargin",
+          "setter": "put_BottomMargin"
+        },
+        {
+          "name": "Content",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintContent",
+            "namespace": "Windows.UI.WebUI",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Content",
+          "setter": "put_Content"
+        },
+        {
+          "name": "EnableHeaderFooter",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_EnableHeaderFooter",
+          "setter": "put_EnableHeaderFooter"
+        },
+        {
+          "name": "LeftMargin",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_LeftMargin",
+          "setter": "put_LeftMargin"
+        },
+        {
+          "name": "PageRange",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PageRange"
+        },
+        {
+          "name": "PercentScale",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_PercentScale",
+          "setter": "put_PercentScale"
+        },
+        {
+          "name": "RightMargin",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_RightMargin",
+          "setter": "put_RightMargin"
+        },
+        {
+          "name": "ShrinkToFit",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ShrinkToFit",
+          "setter": "put_ShrinkToFit"
+        },
+        {
+          "name": "TopMargin",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_TopMargin",
+          "setter": "put_TopMargin"
+        }
+      ]
+    },
+    "INewWebUIViewCreatedEventArgs": {
+      "guid": "e8e1b216-be2b-4c9e-85e7-083143ec4be7",
+      "exclusive_to": "Windows.UI.WebUI.NewWebUIViewCreatedEventArgs",
+      "methods": [
+        {
+          "name": "get_WebUIView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebUIView",
+            "namespace": "Windows.UI.WebUI",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ActivatedEventArgs",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IActivatedEventArgs",
+            "namespace": "Windows.ApplicationModel.Activation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_HasPendingNavigate",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ActivatedEventArgs",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IActivatedEventArgs",
+            "namespace": "Windows.ApplicationModel.Activation",
+            "target_kind": "Interface"
+          },
+          "getter": "get_ActivatedEventArgs"
+        },
+        {
+          "name": "HasPendingNavigate",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasPendingNavigate"
+        },
+        {
+          "name": "WebUIView",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebUIView",
+            "namespace": "Windows.UI.WebUI",
+            "target_kind": "Class"
+          },
+          "getter": "get_WebUIView"
+        }
+      ]
+    },
+    "IWebUIActivationStatics": {
+      "guid": "351b86bd-43b3-482b-85db-35d87b517ad9",
+      "exclusive_to": "Windows.UI.WebUI.WebUIApplication",
+      "methods": [
+        {
+          "name": "add_Activated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ActivatedEventHandler",
+                "namespace": "Windows.UI.WebUI",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Activated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Suspending",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SuspendingEventHandler",
+                "namespace": "Windows.UI.WebUI",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Suspending",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Resuming",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ResumingEventHandler",
+                "namespace": "Windows.UI.WebUI",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Resuming",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Navigated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NavigatedEventHandler",
+                "namespace": "Windows.UI.WebUI",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Navigated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "Activated",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ActivatedEventHandler",
+            "namespace": "Windows.UI.WebUI",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_Activated",
+          "remove_method": "remove_Activated"
+        },
+        {
+          "name": "Navigated",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NavigatedEventHandler",
+            "namespace": "Windows.UI.WebUI",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_Navigated",
+          "remove_method": "remove_Navigated"
+        },
+        {
+          "name": "Resuming",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ResumingEventHandler",
+            "namespace": "Windows.UI.WebUI",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_Resuming",
+          "remove_method": "remove_Resuming"
+        },
+        {
+          "name": "Suspending",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SuspendingEventHandler",
+            "namespace": "Windows.UI.WebUI",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_Suspending",
+          "remove_method": "remove_Suspending"
+        }
+      ]
+    },
+    "IWebUIActivationStatics2": {
+      "guid": "c8e88696-4d78-4aa4-8f06-2a9eadc6c40a",
+      "exclusive_to": "Windows.UI.WebUI.WebUIApplication",
+      "methods": [
+        {
+          "name": "add_LeavingBackground",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LeavingBackgroundEventHandler",
+                "namespace": "Windows.UI.WebUI",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_LeavingBackground",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_EnteredBackground",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EnteredBackgroundEventHandler",
+                "namespace": "Windows.UI.WebUI",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_EnteredBackground",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "EnablePrelaunch",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "EnteredBackground",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EnteredBackgroundEventHandler",
+            "namespace": "Windows.UI.WebUI",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_EnteredBackground",
+          "remove_method": "remove_EnteredBackground"
+        },
+        {
+          "name": "LeavingBackground",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LeavingBackgroundEventHandler",
+            "namespace": "Windows.UI.WebUI",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_LeavingBackground",
+          "remove_method": "remove_LeavingBackground"
+        }
+      ]
+    },
+    "IWebUIActivationStatics3": {
+      "guid": "91abb686-1af5-4445-b49f-9459f40fc8de",
+      "exclusive_to": "Windows.UI.WebUI.WebUIApplication",
+      "methods": [
+        {
+          "name": "RequestRestartAsync",
+          "params": [
+            {
+              "name": "launchArguments",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppRestartFailureReason",
+                "namespace": "Windows.ApplicationModel.Core",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestRestartForUserAsync",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "launchArguments",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppRestartFailureReason",
+                "namespace": "Windows.ApplicationModel.Core",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IWebUIActivationStatics4": {
+      "guid": "5e391429-183f-478d-8a25-67f80d03935b",
+      "exclusive_to": "Windows.UI.WebUI.WebUIApplication",
+      "methods": [
+        {
+          "name": "add_NewWebUIViewCreated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "NewWebUIViewCreatedEventArgs",
+                    "namespace": "Windows.UI.WebUI",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_NewWebUIViewCreated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_BackgroundActivated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BackgroundActivatedEventHandler",
+                "namespace": "Windows.UI.WebUI",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_BackgroundActivated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "BackgroundActivated",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BackgroundActivatedEventHandler",
+            "namespace": "Windows.UI.WebUI",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_BackgroundActivated",
+          "remove_method": "remove_BackgroundActivated"
+        },
+        {
+          "name": "NewWebUIViewCreated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "NewWebUIViewCreatedEventArgs",
+                "namespace": "Windows.UI.WebUI",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_NewWebUIViewCreated",
+          "remove_method": "remove_NewWebUIViewCreated"
+        }
+      ]
+    },
+    "IWebUIBackgroundTaskInstance": {
+      "guid": "23f12c25-e2f7-4741-bc9c-394595de24dc",
+      "methods": [
+        {
+          "name": "get_Succeeded",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Succeeded",
+          "params": [
+            {
+              "name": "succeeded",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Succeeded",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Succeeded",
+          "setter": "put_Succeeded"
+        }
+      ]
+    },
+    "IWebUIBackgroundTaskInstanceStatics": {
+      "guid": "9c7a5291-19ae-4ca3-b94b-fe4ec744a740",
+      "exclusive_to": "Windows.UI.WebUI.WebUIBackgroundTaskInstance",
+      "methods": [
+        {
+          "name": "get_Current",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IWebUIBackgroundTaskInstance",
+            "namespace": "Windows.UI.WebUI",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Current",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IWebUIBackgroundTaskInstance",
+            "namespace": "Windows.UI.WebUI",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Current"
+        }
+      ]
+    },
+    "IWebUINavigatedDeferral": {
+      "guid": "d804204d-831f-46e2-b432-3afce211f962",
+      "exclusive_to": "Windows.UI.WebUI.WebUINavigatedDeferral",
+      "methods": [
+        {
+          "name": "Complete"
+        }
+      ]
+    },
+    "IWebUINavigatedEventArgs": {
+      "guid": "a75841b8-2499-4030-a69d-15d2d9cfe524",
+      "methods": [
+        {
+          "name": "get_NavigatedOperation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebUINavigatedOperation",
+            "namespace": "Windows.UI.WebUI",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "NavigatedOperation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebUINavigatedOperation",
+            "namespace": "Windows.UI.WebUI",
+            "target_kind": "Class"
+          },
+          "getter": "get_NavigatedOperation"
+        }
+      ]
+    },
+    "IWebUINavigatedOperation": {
+      "guid": "7a965f08-8182-4a89-ab67-8492e8750d4b",
+      "exclusive_to": "Windows.UI.WebUI.WebUINavigatedOperation",
+      "methods": [
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebUINavigatedDeferral",
+            "namespace": "Windows.UI.WebUI",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IWebUIView": {
+      "guid": "6783f64f-52da-4fd7-be69-8ef6284b423c",
+      "exclusive_to": "Windows.UI.WebUI.WebUIView",
+      "methods": [
+        {
+          "name": "get_ApplicationViewId",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "add_Closed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebUIView",
+                    "namespace": "Windows.UI.WebUI",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Closed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Activated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebUIView",
+                    "namespace": "Windows.UI.WebUI",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "IActivatedEventArgs",
+                    "namespace": "Windows.ApplicationModel.Activation",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Activated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IgnoreApplicationContentUriRulesNavigationRestrictions",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IgnoreApplicationContentUriRulesNavigationRestrictions",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ApplicationViewId",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_ApplicationViewId"
+        },
+        {
+          "name": "IgnoreApplicationContentUriRulesNavigationRestrictions",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IgnoreApplicationContentUriRulesNavigationRestrictions",
+          "setter": "put_IgnoreApplicationContentUriRulesNavigationRestrictions"
+        }
+      ],
+      "events": [
+        {
+          "name": "Activated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebUIView",
+                "namespace": "Windows.UI.WebUI",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "IActivatedEventArgs",
+                "namespace": "Windows.ApplicationModel.Activation",
+                "target_kind": "Interface"
+              }
+            ]
+          },
+          "add_method": "add_Activated",
+          "remove_method": "remove_Activated"
+        },
+        {
+          "name": "Closed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebUIView",
+                "namespace": "Windows.UI.WebUI",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_Closed",
+          "remove_method": "remove_Closed"
+        }
+      ]
+    },
+    "IWebUIViewStatics": {
+      "guid": "b591e668-8e59-44f9-8803-1b24c9149d30",
+      "exclusive_to": "Windows.UI.WebUI.WebUIView",
+      "methods": [
+        {
+          "name": "CreateAsync",
+          "overload": "CreateAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebUIView",
+                "namespace": "Windows.UI.WebUI",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateAsync",
+          "overload": "CreateWithUriAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebUIView",
+                "namespace": "Windows.UI.WebUI",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "ActivatedDeferral": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IActivatedDeferral",
+        "namespace": "Windows.UI.WebUI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ActivatedOperation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IActivatedOperation",
+        "namespace": "Windows.UI.WebUI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedOperation",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BackgroundActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EnteredBackgroundEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEnteredBackgroundEventArgs",
+        "namespace": "Windows.ApplicationModel",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEnteredBackgroundEventArgs",
+          "namespace": "Windows.ApplicationModel",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HtmlPrintDocumentSource": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHtmlPrintDocumentSource",
+        "namespace": "Windows.UI.WebUI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHtmlPrintDocumentSource",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintDocumentSource",
+          "namespace": "Windows.Graphics.Printing",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "LeavingBackgroundEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILeavingBackgroundEventArgs",
+        "namespace": "Windows.ApplicationModel",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILeavingBackgroundEventArgs",
+          "namespace": "Windows.ApplicationModel",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "NewWebUIViewCreatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INewWebUIViewCreatedEventArgs",
+        "namespace": "Windows.UI.WebUI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INewWebUIViewCreatedEventArgs",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SuspendingDeferral": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISuspendingDeferral",
+        "namespace": "Windows.ApplicationModel",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISuspendingDeferral",
+          "namespace": "Windows.ApplicationModel",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SuspendingEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISuspendingEventArgs",
+        "namespace": "Windows.ApplicationModel",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISuspendingEventArgs",
+          "namespace": "Windows.ApplicationModel",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SuspendingOperation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISuspendingOperation",
+        "namespace": "Windows.ApplicationModel",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISuspendingOperation",
+          "namespace": "Windows.ApplicationModel",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIApplication": {
+      "static_interfaces": [
+        "Windows.UI.WebUI.IWebUIActivationStatics3",
+        "Windows.UI.WebUI.IWebUIActivationStatics4",
+        "Windows.UI.WebUI.IWebUIActivationStatics2",
+        "Windows.UI.WebUI.IWebUIActivationStatics"
+      ]
+    },
+    "WebUIAppointmentsProviderAddAppointmentActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentsProviderAddAppointmentActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderAddAppointmentActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentsProviderRemoveAppointmentActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderRemoveAppointmentActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentsProviderReplaceAppointmentActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderReplaceAppointmentActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentsProviderShowTimeFrameActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderShowTimeFrameActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIBackgroundTaskInstance": {
+      "static_interfaces": [
+        "Windows.UI.WebUI.IWebUIBackgroundTaskInstanceStatics"
+      ]
+    },
+    "WebUIBackgroundTaskInstanceRuntimeClass": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebUIBackgroundTaskInstance",
+        "namespace": "Windows.UI.WebUI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebUIBackgroundTaskInstance",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTaskInstance",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIBarcodeScannerPreviewActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBarcodeScannerPreviewActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerPreviewActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUICachedFileUpdaterActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICachedFileUpdaterActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICachedFileUpdaterActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUICommandLineActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICommandLineActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICommandLineActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIContactPanelActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IContactPanelActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IContactPanelActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIDeviceActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeviceActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationViewActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIDevicePairingActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDevicePairingActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDevicePairingActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIDialReceiverActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDialReceiverActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDialReceiverActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ILaunchActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationViewActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIFileActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFileActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFileActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationViewActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IFileActivatedEventArgsWithNeighboringFiles",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIFileOpenPickerActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFileOpenPickerActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFileOpenPickerActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IFileOpenPickerActivatedEventArgs2",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIFileOpenPickerContinuationEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFileOpenPickerContinuationEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFileOpenPickerContinuationEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IContinuationActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIFileSavePickerActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFileSavePickerActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFileSavePickerActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IFileSavePickerActivatedEventArgs2",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIFileSavePickerContinuationEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFileSavePickerContinuationEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFileSavePickerContinuationEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IContinuationActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIFolderPickerContinuationEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFolderPickerContinuationEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFolderPickerContinuationEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IContinuationActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUILaunchActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILaunchActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILaunchActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrelaunchActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationViewActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ILaunchActivatedEventArgs2",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUILockScreenActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILockScreenActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILockScreenActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationViewActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUILockScreenComponentActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUINavigatedDeferral": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebUINavigatedDeferral",
+        "namespace": "Windows.UI.WebUI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebUINavigatedDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUINavigatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebUINavigatedEventArgs",
+        "namespace": "Windows.UI.WebUI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebUINavigatedEventArgs",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUINavigatedOperation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebUINavigatedOperation",
+        "namespace": "Windows.UI.WebUI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebUINavigatedOperation",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIPhoneCallActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhoneCallActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhoneCallActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIPrintWorkflowForegroundTaskActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIProtocolActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IProtocolActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IProtocolActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationViewActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIProtocolForResultsActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IProtocolForResultsActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IProtocolForResultsActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IProtocolActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationViewActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIRestrictedLaunchActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRestrictedLaunchActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRestrictedLaunchActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIShareTargetActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IShareTargetActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IShareTargetActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIStartupTaskActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStartupTaskActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStartupTaskActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIToastNotificationActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IToastNotificationActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IToastNotificationActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIUserDataAccountProviderActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataAccountProviderActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAccountProviderActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIView": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebUIView",
+        "namespace": "Windows.UI.WebUI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebUIView",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControl",
+          "namespace": "Windows.Web.UI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControl2",
+          "namespace": "Windows.Web.UI",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.WebUI.IWebUIViewStatics"
+      ]
+    },
+    "WebUIVoiceCommandActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVoiceCommandActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVoiceCommandActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIWebAccountProviderActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebAccountProviderActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebAccountProviderActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebUIWebAuthenticationBrokerContinuationEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebAuthenticationBrokerContinuationEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebAuthenticationBrokerContinuationEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IContinuationActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsDeferral",
+          "namespace": "Windows.UI.WebUI",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  },
+  "delegates": {
+    "ActivatedEventHandler": {
+      "guid": "50f1e730-c5d1-4b6b-9adb-8a11756be29c",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "eventArgs",
+            "type": {
+              "kind": "ApiRef",
+              "name": "IActivatedEventArgs",
+              "namespace": "Windows.ApplicationModel.Activation",
+              "target_kind": "Interface"
+            }
+          }
+        ]
+      }
+    },
+    "BackgroundActivatedEventHandler": {
+      "guid": "edb19fbb-0761-47cc-9a77-24d7072965ca",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "eventArgs",
+            "type": {
+              "kind": "ApiRef",
+              "name": "IBackgroundActivatedEventArgs",
+              "namespace": "Windows.ApplicationModel.Activation",
+              "target_kind": "Interface"
+            }
+          }
+        ]
+      }
+    },
+    "EnteredBackgroundEventHandler": {
+      "guid": "2b09a173-b68e-4def-88c1-8de84e5aab2f",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "IEnteredBackgroundEventArgs",
+              "namespace": "Windows.ApplicationModel",
+              "target_kind": "Interface"
+            }
+          }
+        ]
+      }
+    },
+    "LeavingBackgroundEventHandler": {
+      "guid": "00b4ccd9-7a9c-4b6b-9ac4-13474f268bc4",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "ILeavingBackgroundEventArgs",
+              "namespace": "Windows.ApplicationModel",
+              "target_kind": "Interface"
+            }
+          }
+        ]
+      }
+    },
+    "NavigatedEventHandler": {
+      "guid": "7af46fe6-40ca-4e49-a7d6-dbdb330cd1a3",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "IWebUINavigatedEventArgs",
+              "namespace": "Windows.UI.WebUI",
+              "target_kind": "Interface"
+            }
+          }
+        ]
+      }
+    },
+    "ResumingEventHandler": {
+      "guid": "26599ba9-a22d-4806-a728-acadc1d075fa",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          }
+        ]
+      }
+    },
+    "SuspendingEventHandler": {
+      "guid": "509c429c-78e2-4883-abc8-8960dcde1b5c",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "ISuspendingEventArgs",
+              "namespace": "Windows.ApplicationModel",
+              "target_kind": "Interface"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

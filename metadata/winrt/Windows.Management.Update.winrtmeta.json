@@ -1,0 +1,153 @@
+{
+  "namespace": "Windows.Management.Update",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IPreviewBuildsManager": {
+      "guid": "fa07dd61-7e4f-59f7-7c9f-def9051c5f62",
+      "exclusive_to": "Windows.Management.Update.PreviewBuildsManager",
+      "methods": [
+        {
+          "name": "get_ArePreviewBuildsAllowed",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_ArePreviewBuildsAllowed",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetCurrentState",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PreviewBuildsState",
+            "namespace": "Windows.Management.Update",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SyncAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ArePreviewBuildsAllowed",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ArePreviewBuildsAllowed",
+          "setter": "put_ArePreviewBuildsAllowed"
+        }
+      ]
+    },
+    "IPreviewBuildsManagerStatics": {
+      "guid": "3e422887-b112-5a70-7da1-97d78d32aa29",
+      "exclusive_to": "Windows.Management.Update.PreviewBuildsManager",
+      "methods": [
+        {
+          "name": "GetDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PreviewBuildsManager",
+            "namespace": "Windows.Management.Update",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "IsSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IPreviewBuildsState": {
+      "guid": "a2f2903e-b223-5f63-7546-3e8eac070a2e",
+      "exclusive_to": "Windows.Management.Update.PreviewBuildsState",
+      "methods": [
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          },
+          "getter": "get_Properties"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "PreviewBuildsManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPreviewBuildsManager",
+        "namespace": "Windows.Management.Update",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPreviewBuildsManager",
+          "namespace": "Windows.Management.Update",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Management.Update.IPreviewBuildsManagerStatics"
+      ]
+    },
+    "PreviewBuildsState": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPreviewBuildsState",
+        "namespace": "Windows.Management.Update",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPreviewBuildsState",
+          "namespace": "Windows.Management.Update",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

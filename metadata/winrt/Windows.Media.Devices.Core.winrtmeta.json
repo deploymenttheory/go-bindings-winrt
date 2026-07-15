@@ -1,0 +1,2075 @@
+{
+  "namespace": "Windows.Media.Devices.Core",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "FrameFlashMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Disable",
+          "value": "0"
+        },
+        {
+          "name": "Enable",
+          "value": "1"
+        },
+        {
+          "name": "Global",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ICameraIntrinsics": {
+      "guid": "0aa6ed32-6589-49da-afde-594270ca0aac",
+      "exclusive_to": "Windows.Media.Devices.Core.CameraIntrinsics",
+      "methods": [
+        {
+          "name": "get_FocalLength",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector2",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_PrincipalPoint",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector2",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_RadialDistortion",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_TangentialDistortion",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector2",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_ImageWidth",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_ImageHeight",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "ProjectOntoFrame",
+          "params": [
+            {
+              "name": "coordinate",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "UnprojectAtUnitDepth",
+          "params": [
+            {
+              "name": "pixelCoordinate",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector2",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "ProjectManyOntoFrame",
+          "params": [
+            {
+              "name": "coordinates",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Vector3",
+                  "namespace": "Windows.Foundation.Numerics",
+                  "target_kind": "Struct"
+                }
+              }
+            },
+            {
+              "name": "results",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Point",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "UnprojectPixelsAtUnitDepth",
+          "params": [
+            {
+              "name": "pixelCoordinates",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Point",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            },
+            {
+              "name": "results",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Vector2",
+                  "namespace": "Windows.Foundation.Numerics",
+                  "target_kind": "Struct"
+                }
+              },
+              "out": true
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "FocalLength",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector2",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_FocalLength"
+        },
+        {
+          "name": "ImageHeight",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ImageHeight"
+        },
+        {
+          "name": "ImageWidth",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ImageWidth"
+        },
+        {
+          "name": "PrincipalPoint",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector2",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_PrincipalPoint"
+        },
+        {
+          "name": "RadialDistortion",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_RadialDistortion"
+        },
+        {
+          "name": "TangentialDistortion",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector2",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_TangentialDistortion"
+        }
+      ]
+    },
+    "ICameraIntrinsics2": {
+      "guid": "0cdaa447-0798-4b4d-839f-c5ec414db27a",
+      "exclusive_to": "Windows.Media.Devices.Core.CameraIntrinsics",
+      "methods": [
+        {
+          "name": "get_UndistortedProjectionTransform",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Matrix4x4",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "DistortPoint",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "DistortPoints",
+          "params": [
+            {
+              "name": "inputs",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Point",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            },
+            {
+              "name": "results",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Point",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "UndistortPoint",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "UndistortPoints",
+          "params": [
+            {
+              "name": "inputs",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Point",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            },
+            {
+              "name": "results",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Point",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              },
+              "out": true
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "UndistortedProjectionTransform",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Matrix4x4",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_UndistortedProjectionTransform"
+        }
+      ]
+    },
+    "ICameraIntrinsicsFactory": {
+      "guid": "c0ddc486-2132-4a34-a659-9bfe2a055712",
+      "exclusive_to": "Windows.Media.Devices.Core.CameraIntrinsics",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "focalLength",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector2",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "principalPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector2",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "radialDistortion",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "tangentialDistortion",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector2",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "imageWidth",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "imageHeight",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CameraIntrinsics",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDepthCorrelatedCoordinateMapper": {
+      "guid": "f95d89fb-8af0-4cb0-926d-696866e5046a",
+      "exclusive_to": "Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "UnprojectPoint",
+          "params": [
+            {
+              "name": "sourcePoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "targetCoordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "UnprojectPoints",
+          "params": [
+            {
+              "name": "sourcePoints",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Point",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            },
+            {
+              "name": "targetCoordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "results",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Vector3",
+                  "namespace": "Windows.Foundation.Numerics",
+                  "target_kind": "Struct"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "MapPoint",
+          "params": [
+            {
+              "name": "sourcePoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "targetCoordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "targetCameraIntrinsics",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CameraIntrinsics",
+                "namespace": "Windows.Media.Devices.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "MapPoints",
+          "params": [
+            {
+              "name": "sourcePoints",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Point",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            },
+            {
+              "name": "targetCoordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "targetCameraIntrinsics",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CameraIntrinsics",
+                "namespace": "Windows.Media.Devices.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "results",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Point",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              },
+              "out": true
+            }
+          ]
+        }
+      ]
+    },
+    "IFrameControlCapabilities": {
+      "guid": "a8ffae60-4e9e-4377-a789-e24c4ae7e544",
+      "exclusive_to": "Windows.Media.Devices.Core.FrameControlCapabilities",
+      "methods": [
+        {
+          "name": "get_Exposure",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FrameExposureCapabilities",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ExposureCompensation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FrameExposureCompensationCapabilities",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IsoSpeed",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FrameIsoSpeedCapabilities",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Focus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FrameFocusCapabilities",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PhotoConfirmationSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Exposure",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FrameExposureCapabilities",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_Exposure"
+        },
+        {
+          "name": "ExposureCompensation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FrameExposureCompensationCapabilities",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_ExposureCompensation"
+        },
+        {
+          "name": "Focus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FrameFocusCapabilities",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_Focus"
+        },
+        {
+          "name": "IsoSpeed",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FrameIsoSpeedCapabilities",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_IsoSpeed"
+        },
+        {
+          "name": "PhotoConfirmationSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_PhotoConfirmationSupported"
+        }
+      ]
+    },
+    "IFrameControlCapabilities2": {
+      "guid": "ce9b0464-4730-440f-bd3e-efe8a8f230a8",
+      "exclusive_to": "Windows.Media.Devices.Core.FrameControlCapabilities",
+      "methods": [
+        {
+          "name": "get_Flash",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FrameFlashCapabilities",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Flash",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FrameFlashCapabilities",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_Flash"
+        }
+      ]
+    },
+    "IFrameController": {
+      "guid": "c16459d9-baef-4052-9177-48aff2af7522",
+      "exclusive_to": "Windows.Media.Devices.Core.FrameController",
+      "methods": [
+        {
+          "name": "get_ExposureControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FrameExposureControl",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ExposureCompensationControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FrameExposureCompensationControl",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IsoSpeedControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FrameIsoSpeedControl",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_FocusControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FrameFocusControl",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PhotoConfirmationEnabled",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_PhotoConfirmationEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Bool"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExposureCompensationControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FrameExposureCompensationControl",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_ExposureCompensationControl"
+        },
+        {
+          "name": "ExposureControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FrameExposureControl",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_ExposureControl"
+        },
+        {
+          "name": "FocusControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FrameFocusControl",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_FocusControl"
+        },
+        {
+          "name": "IsoSpeedControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FrameIsoSpeedControl",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_IsoSpeedControl"
+        },
+        {
+          "name": "PhotoConfirmationEnabled",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          },
+          "getter": "get_PhotoConfirmationEnabled",
+          "setter": "put_PhotoConfirmationEnabled"
+        }
+      ]
+    },
+    "IFrameController2": {
+      "guid": "00d3bc75-d87c-485b-8a09-5c358568b427",
+      "exclusive_to": "Windows.Media.Devices.Core.FrameController",
+      "methods": [
+        {
+          "name": "get_FlashControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FrameFlashControl",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FlashControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FrameFlashControl",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_FlashControl"
+        }
+      ]
+    },
+    "IFrameExposureCapabilities": {
+      "guid": "bdbe9ce3-3985-4e72-97c2-0590d61307a1",
+      "exclusive_to": "Windows.Media.Devices.Core.FrameExposureCapabilities",
+      "methods": [
+        {
+          "name": "get_Supported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Min",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Max",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Step",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Max",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Max"
+        },
+        {
+          "name": "Min",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Min"
+        },
+        {
+          "name": "Step",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Step"
+        },
+        {
+          "name": "Supported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Supported"
+        }
+      ]
+    },
+    "IFrameExposureCompensationCapabilities": {
+      "guid": "b988a823-8065-41ee-b04f-722265954500",
+      "exclusive_to": "Windows.Media.Devices.Core.FrameExposureCompensationCapabilities",
+      "methods": [
+        {
+          "name": "get_Supported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Min",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_Max",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_Step",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Max",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_Max"
+        },
+        {
+          "name": "Min",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_Min"
+        },
+        {
+          "name": "Step",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_Step"
+        },
+        {
+          "name": "Supported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Supported"
+        }
+      ]
+    },
+    "IFrameExposureCompensationControl": {
+      "guid": "e95896c9-f7f9-48ca-8591-a26531cb1578",
+      "exclusive_to": "Windows.Media.Devices.Core.FrameExposureCompensationControl",
+      "methods": [
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F32"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Value",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "F32"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Value",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F32"
+              }
+            ]
+          },
+          "getter": "get_Value",
+          "setter": "put_Value"
+        }
+      ]
+    },
+    "IFrameExposureControl": {
+      "guid": "b1605a61-ffaf-4752-b621-f5b6f117f432",
+      "exclusive_to": "Windows.Media.Devices.Core.FrameExposureControl",
+      "methods": [
+        {
+          "name": "get_Auto",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Auto",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Value",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "TimeSpan",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Auto",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Auto",
+          "setter": "put_Auto"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_Value",
+          "setter": "put_Value"
+        }
+      ]
+    },
+    "IFrameFlashCapabilities": {
+      "guid": "bb9341a2-5ebe-4f62-8223-0e2b05bfbbd0",
+      "exclusive_to": "Windows.Media.Devices.Core.FrameFlashCapabilities",
+      "methods": [
+        {
+          "name": "get_Supported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_RedEyeReductionSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_PowerSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PowerSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_PowerSupported"
+        },
+        {
+          "name": "RedEyeReductionSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_RedEyeReductionSupported"
+        },
+        {
+          "name": "Supported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Supported"
+        }
+      ]
+    },
+    "IFrameFlashControl": {
+      "guid": "75d5f6c7-bd45-4fab-9375-45ac04b332c2",
+      "exclusive_to": "Windows.Media.Devices.Core.FrameFlashControl",
+      "methods": [
+        {
+          "name": "get_Mode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FrameFlashMode",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Mode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FrameFlashMode",
+                "namespace": "Windows.Media.Devices.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Auto",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Auto",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RedEyeReduction",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_RedEyeReduction",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PowerPercent",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_PowerPercent",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Auto",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Auto",
+          "setter": "put_Auto"
+        },
+        {
+          "name": "Mode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FrameFlashMode",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Mode",
+          "setter": "put_Mode"
+        },
+        {
+          "name": "PowerPercent",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_PowerPercent",
+          "setter": "put_PowerPercent"
+        },
+        {
+          "name": "RedEyeReduction",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_RedEyeReduction",
+          "setter": "put_RedEyeReduction"
+        }
+      ]
+    },
+    "IFrameFocusCapabilities": {
+      "guid": "7b25cd58-01c0-4065-9c40-c1a721425c1a",
+      "exclusive_to": "Windows.Media.Devices.Core.FrameFocusCapabilities",
+      "methods": [
+        {
+          "name": "get_Supported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Min",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Max",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Step",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Max",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Max"
+        },
+        {
+          "name": "Min",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Min"
+        },
+        {
+          "name": "Step",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Step"
+        },
+        {
+          "name": "Supported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Supported"
+        }
+      ]
+    },
+    "IFrameFocusControl": {
+      "guid": "272df1d0-d912-4214-a67b-e38a8d48d8c6",
+      "exclusive_to": "Windows.Media.Devices.Core.FrameFocusControl",
+      "methods": [
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Value",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "U4"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Value",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_Value",
+          "setter": "put_Value"
+        }
+      ]
+    },
+    "IFrameIsoSpeedCapabilities": {
+      "guid": "16bdff61-6df6-4ac9-b92a-9f6ecd1ad2fa",
+      "exclusive_to": "Windows.Media.Devices.Core.FrameIsoSpeedCapabilities",
+      "methods": [
+        {
+          "name": "get_Supported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Min",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Max",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Step",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Max",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Max"
+        },
+        {
+          "name": "Min",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Min"
+        },
+        {
+          "name": "Step",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Step"
+        },
+        {
+          "name": "Supported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Supported"
+        }
+      ]
+    },
+    "IFrameIsoSpeedControl": {
+      "guid": "1a03efed-786a-4c75-a557-7ab9a85f588c",
+      "exclusive_to": "Windows.Media.Devices.Core.FrameIsoSpeedControl",
+      "methods": [
+        {
+          "name": "get_Auto",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Auto",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Value",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "U4"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Auto",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Auto",
+          "setter": "put_Auto"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_Value",
+          "setter": "put_Value"
+        }
+      ]
+    },
+    "IVariablePhotoSequenceController": {
+      "guid": "7fbff880-ed8c-43fd-a7c3-b35809e4229a",
+      "exclusive_to": "Windows.Media.Devices.Core.VariablePhotoSequenceController",
+      "methods": [
+        {
+          "name": "get_Supported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_MaxPhotosPerSecond",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_PhotosPerSecondLimit",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_PhotosPerSecondLimit",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetHighestConcurrentFrameRate",
+          "params": [
+            {
+              "name": "captureProperties",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IMediaEncodingProperties",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaRatio",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetCurrentFrameRate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaRatio",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_FrameCapabilities",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FrameControlCapabilities",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DesiredFrameControllers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "FrameController",
+                "namespace": "Windows.Media.Devices.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DesiredFrameControllers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "FrameController",
+                "namespace": "Windows.Media.Devices.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_DesiredFrameControllers"
+        },
+        {
+          "name": "FrameCapabilities",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FrameControlCapabilities",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_FrameCapabilities"
+        },
+        {
+          "name": "MaxPhotosPerSecond",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_MaxPhotosPerSecond"
+        },
+        {
+          "name": "PhotosPerSecondLimit",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_PhotosPerSecondLimit",
+          "setter": "put_PhotosPerSecondLimit"
+        },
+        {
+          "name": "Supported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Supported"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "CameraIntrinsics": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICameraIntrinsics",
+        "namespace": "Windows.Media.Devices.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICameraIntrinsics",
+          "namespace": "Windows.Media.Devices.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICameraIntrinsics2",
+          "namespace": "Windows.Media.Devices.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Media.Devices.Core.ICameraIntrinsicsFactory"
+      ]
+    },
+    "DepthCorrelatedCoordinateMapper": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDepthCorrelatedCoordinateMapper",
+        "namespace": "Windows.Media.Devices.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDepthCorrelatedCoordinateMapper",
+          "namespace": "Windows.Media.Devices.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FrameControlCapabilities": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFrameControlCapabilities",
+        "namespace": "Windows.Media.Devices.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFrameControlCapabilities",
+          "namespace": "Windows.Media.Devices.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IFrameControlCapabilities2",
+          "namespace": "Windows.Media.Devices.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FrameController": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFrameController",
+        "namespace": "Windows.Media.Devices.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFrameController",
+          "namespace": "Windows.Media.Devices.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IFrameController2",
+          "namespace": "Windows.Media.Devices.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "FrameExposureCapabilities": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFrameExposureCapabilities",
+        "namespace": "Windows.Media.Devices.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFrameExposureCapabilities",
+          "namespace": "Windows.Media.Devices.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FrameExposureCompensationCapabilities": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFrameExposureCompensationCapabilities",
+        "namespace": "Windows.Media.Devices.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFrameExposureCompensationCapabilities",
+          "namespace": "Windows.Media.Devices.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FrameExposureCompensationControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFrameExposureCompensationControl",
+        "namespace": "Windows.Media.Devices.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFrameExposureCompensationControl",
+          "namespace": "Windows.Media.Devices.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FrameExposureControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFrameExposureControl",
+        "namespace": "Windows.Media.Devices.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFrameExposureControl",
+          "namespace": "Windows.Media.Devices.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FrameFlashCapabilities": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFrameFlashCapabilities",
+        "namespace": "Windows.Media.Devices.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFrameFlashCapabilities",
+          "namespace": "Windows.Media.Devices.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FrameFlashControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFrameFlashControl",
+        "namespace": "Windows.Media.Devices.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFrameFlashControl",
+          "namespace": "Windows.Media.Devices.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FrameFocusCapabilities": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFrameFocusCapabilities",
+        "namespace": "Windows.Media.Devices.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFrameFocusCapabilities",
+          "namespace": "Windows.Media.Devices.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FrameFocusControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFrameFocusControl",
+        "namespace": "Windows.Media.Devices.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFrameFocusControl",
+          "namespace": "Windows.Media.Devices.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FrameIsoSpeedCapabilities": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFrameIsoSpeedCapabilities",
+        "namespace": "Windows.Media.Devices.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFrameIsoSpeedCapabilities",
+          "namespace": "Windows.Media.Devices.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FrameIsoSpeedControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFrameIsoSpeedControl",
+        "namespace": "Windows.Media.Devices.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFrameIsoSpeedControl",
+          "namespace": "Windows.Media.Devices.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VariablePhotoSequenceController": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVariablePhotoSequenceController",
+        "namespace": "Windows.Media.Devices.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVariablePhotoSequenceController",
+          "namespace": "Windows.Media.Devices.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

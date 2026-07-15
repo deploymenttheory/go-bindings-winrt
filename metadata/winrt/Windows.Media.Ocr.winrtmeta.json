@@ -1,0 +1,425 @@
+{
+  "namespace": "Windows.Media.Ocr",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IOcrEngine": {
+      "guid": "5a14bc41-5b76-3140-b680-8825562683ac",
+      "exclusive_to": "Windows.Media.Ocr.OcrEngine",
+      "methods": [
+        {
+          "name": "RecognizeAsync",
+          "params": [
+            {
+              "name": "bitmap",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SoftwareBitmap",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "OcrResult",
+                "namespace": "Windows.Media.Ocr",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_RecognizerLanguage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Language",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RecognizerLanguage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Language",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Class"
+          },
+          "getter": "get_RecognizerLanguage"
+        }
+      ]
+    },
+    "IOcrEngineStatics": {
+      "guid": "5bffa85a-3384-3540-9940-699120d428a8",
+      "exclusive_to": "Windows.Media.Ocr.OcrEngine",
+      "methods": [
+        {
+          "name": "get_MaxImageDimension",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_AvailableRecognizerLanguages",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Language",
+                "namespace": "Windows.Globalization",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "IsLanguageSupported",
+          "params": [
+            {
+              "name": "language",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Language",
+                "namespace": "Windows.Globalization",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TryCreateFromLanguage",
+          "params": [
+            {
+              "name": "language",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Language",
+                "namespace": "Windows.Globalization",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "OcrEngine",
+            "namespace": "Windows.Media.Ocr",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryCreateFromUserProfileLanguages",
+          "return": {
+            "kind": "ApiRef",
+            "name": "OcrEngine",
+            "namespace": "Windows.Media.Ocr",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AvailableRecognizerLanguages",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Language",
+                "namespace": "Windows.Globalization",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_AvailableRecognizerLanguages"
+        },
+        {
+          "name": "MaxImageDimension",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxImageDimension"
+        }
+      ]
+    },
+    "IOcrLine": {
+      "guid": "0043a16f-e31f-3a24-899c-d444bd088124",
+      "exclusive_to": "Windows.Media.Ocr.OcrLine",
+      "methods": [
+        {
+          "name": "get_Words",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "OcrWord",
+                "namespace": "Windows.Media.Ocr",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Text",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Text",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Text"
+        },
+        {
+          "name": "Words",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "OcrWord",
+                "namespace": "Windows.Media.Ocr",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Words"
+        }
+      ]
+    },
+    "IOcrResult": {
+      "guid": "9bd235b2-175b-3d6a-92e2-388c206e2f63",
+      "exclusive_to": "Windows.Media.Ocr.OcrResult",
+      "methods": [
+        {
+          "name": "get_Lines",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "OcrLine",
+                "namespace": "Windows.Media.Ocr",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_TextAngle",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Text",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Lines",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "OcrLine",
+                "namespace": "Windows.Media.Ocr",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Lines"
+        },
+        {
+          "name": "Text",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Text"
+        },
+        {
+          "name": "TextAngle",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          },
+          "getter": "get_TextAngle"
+        }
+      ]
+    },
+    "IOcrWord": {
+      "guid": "3c2a477a-5cd9-3525-ba2a-23d1e0a68a1d",
+      "exclusive_to": "Windows.Media.Ocr.OcrWord",
+      "methods": [
+        {
+          "name": "get_BoundingRect",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Text",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BoundingRect",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BoundingRect"
+        },
+        {
+          "name": "Text",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Text"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "OcrEngine": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IOcrEngine",
+        "namespace": "Windows.Media.Ocr",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IOcrEngine",
+          "namespace": "Windows.Media.Ocr",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Media.Ocr.IOcrEngineStatics"
+      ]
+    },
+    "OcrLine": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IOcrLine",
+        "namespace": "Windows.Media.Ocr",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IOcrLine",
+          "namespace": "Windows.Media.Ocr",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "OcrResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IOcrResult",
+        "namespace": "Windows.Media.Ocr",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IOcrResult",
+          "namespace": "Windows.Media.Ocr",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "OcrWord": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IOcrWord",
+        "namespace": "Windows.Media.Ocr",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IOcrWord",
+          "namespace": "Windows.Media.Ocr",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

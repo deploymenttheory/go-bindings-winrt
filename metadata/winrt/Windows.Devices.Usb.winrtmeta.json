@@ -1,0 +1,3321 @@
+{
+  "namespace": "Windows.Devices.Usb",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "UsbControlRecipient": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Device",
+          "value": "0"
+        },
+        {
+          "name": "SpecifiedInterface",
+          "value": "1"
+        },
+        {
+          "name": "Endpoint",
+          "value": "2"
+        },
+        {
+          "name": "Other",
+          "value": "3"
+        },
+        {
+          "name": "DefaultInterface",
+          "value": "4"
+        }
+      ]
+    },
+    "UsbControlTransferType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Standard",
+          "value": "0"
+        },
+        {
+          "name": "Class",
+          "value": "1"
+        },
+        {
+          "name": "Vendor",
+          "value": "2"
+        }
+      ]
+    },
+    "UsbEndpointType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Control",
+          "value": "0"
+        },
+        {
+          "name": "Isochronous",
+          "value": "1"
+        },
+        {
+          "name": "Bulk",
+          "value": "2"
+        },
+        {
+          "name": "Interrupt",
+          "value": "3"
+        }
+      ]
+    },
+    "UsbReadOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "AutoClearStall",
+          "value": "1"
+        },
+        {
+          "name": "OverrideAutomaticBufferManagement",
+          "value": "2"
+        },
+        {
+          "name": "IgnoreShortPacket",
+          "value": "4"
+        },
+        {
+          "name": "AllowPartialReads",
+          "value": "8"
+        }
+      ]
+    },
+    "UsbTransferDirection": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Out",
+          "value": "0"
+        },
+        {
+          "name": "In",
+          "value": "1"
+        }
+      ]
+    },
+    "UsbWriteOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "AutoClearStall",
+          "value": "1"
+        },
+        {
+          "name": "ShortPacketTerminate",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IUsbBulkInEndpointDescriptor": {
+      "guid": "3c6e4846-06cf-42a9-9dc2-971c1b14b6e3",
+      "exclusive_to": "Windows.Devices.Usb.UsbBulkInEndpointDescriptor",
+      "methods": [
+        {
+          "name": "get_MaxPacketSize",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_EndpointNumber",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_Pipe",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbBulkInPipe",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EndpointNumber",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_EndpointNumber"
+        },
+        {
+          "name": "MaxPacketSize",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxPacketSize"
+        },
+        {
+          "name": "Pipe",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbBulkInPipe",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_Pipe"
+        }
+      ]
+    },
+    "IUsbBulkInPipe": {
+      "guid": "f01d2d3b-4548-4d50-b326-d82cdabe1220",
+      "exclusive_to": "Windows.Devices.Usb.UsbBulkInPipe",
+      "methods": [
+        {
+          "name": "get_MaxTransferSizeBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_EndpointDescriptor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbBulkInEndpointDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ClearStallAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_ReadOptions",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UsbReadOptions",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ReadOptions",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbReadOptions",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "FlushBuffer"
+        },
+        {
+          "name": "get_InputStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IInputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EndpointDescriptor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbBulkInEndpointDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_EndpointDescriptor"
+        },
+        {
+          "name": "InputStream",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IInputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_InputStream"
+        },
+        {
+          "name": "MaxTransferSizeBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxTransferSizeBytes"
+        },
+        {
+          "name": "ReadOptions",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbReadOptions",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ReadOptions",
+          "setter": "put_ReadOptions"
+        }
+      ]
+    },
+    "IUsbBulkOutEndpointDescriptor": {
+      "guid": "2820847a-ffee-4f60-9be1-956cac3ecb65",
+      "exclusive_to": "Windows.Devices.Usb.UsbBulkOutEndpointDescriptor",
+      "methods": [
+        {
+          "name": "get_MaxPacketSize",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_EndpointNumber",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_Pipe",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbBulkOutPipe",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EndpointNumber",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_EndpointNumber"
+        },
+        {
+          "name": "MaxPacketSize",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxPacketSize"
+        },
+        {
+          "name": "Pipe",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbBulkOutPipe",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_Pipe"
+        }
+      ]
+    },
+    "IUsbBulkOutPipe": {
+      "guid": "a8e9ee6e-0115-45aa-8b21-37b225bccee7",
+      "exclusive_to": "Windows.Devices.Usb.UsbBulkOutPipe",
+      "methods": [
+        {
+          "name": "get_EndpointDescriptor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbBulkOutEndpointDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ClearStallAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_WriteOptions",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UsbWriteOptions",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_WriteOptions",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbWriteOptions",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_OutputStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IOutputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EndpointDescriptor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbBulkOutEndpointDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_EndpointDescriptor"
+        },
+        {
+          "name": "OutputStream",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IOutputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_OutputStream"
+        },
+        {
+          "name": "WriteOptions",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbWriteOptions",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Enum"
+          },
+          "getter": "get_WriteOptions",
+          "setter": "put_WriteOptions"
+        }
+      ]
+    },
+    "IUsbConfiguration": {
+      "guid": "68177429-36a9-46d7-b873-fc689251ec30",
+      "exclusive_to": "Windows.Devices.Usb.UsbConfiguration",
+      "methods": [
+        {
+          "name": "get_UsbInterfaces",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbInterface",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ConfigurationDescriptor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbConfigurationDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Descriptors",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbDescriptor",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ConfigurationDescriptor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbConfigurationDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_ConfigurationDescriptor"
+        },
+        {
+          "name": "Descriptors",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbDescriptor",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Descriptors"
+        },
+        {
+          "name": "UsbInterfaces",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbInterface",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_UsbInterfaces"
+        }
+      ]
+    },
+    "IUsbConfigurationDescriptor": {
+      "guid": "f2176d92-b442-407a-8207-7d646c0385f3",
+      "exclusive_to": "Windows.Devices.Usb.UsbConfigurationDescriptor",
+      "methods": [
+        {
+          "name": "get_ConfigurationValue",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_MaxPowerMilliamps",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_SelfPowered",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_RemoteWakeup",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ConfigurationValue",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_ConfigurationValue"
+        },
+        {
+          "name": "MaxPowerMilliamps",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxPowerMilliamps"
+        },
+        {
+          "name": "RemoteWakeup",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_RemoteWakeup"
+        },
+        {
+          "name": "SelfPowered",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SelfPowered"
+        }
+      ]
+    },
+    "IUsbConfigurationDescriptorStatics": {
+      "guid": "424ced93-e740-40a1-92bd-da120ea04914",
+      "exclusive_to": "Windows.Devices.Usb.UsbConfigurationDescriptor",
+      "methods": [
+        {
+          "name": "TryParse",
+          "params": [
+            {
+              "name": "descriptor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UsbDescriptor",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "parsed",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UsbConfigurationDescriptor",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "Parse",
+          "params": [
+            {
+              "name": "descriptor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UsbDescriptor",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbConfigurationDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IUsbControlRequestType": {
+      "guid": "8e9465a6-d73d-46de-94be-aae7f07c0f5c",
+      "exclusive_to": "Windows.Devices.Usb.UsbControlRequestType",
+      "methods": [
+        {
+          "name": "get_Direction",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbTransferDirection",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Direction",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UsbTransferDirection",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ControlTransferType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbControlTransferType",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_ControlTransferType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UsbControlTransferType",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Recipient",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbControlRecipient",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Recipient",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UsbControlRecipient",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AsByte",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "put_AsByte",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AsByte",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_AsByte",
+          "setter": "put_AsByte"
+        },
+        {
+          "name": "ControlTransferType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbControlTransferType",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ControlTransferType",
+          "setter": "put_ControlTransferType"
+        },
+        {
+          "name": "Direction",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbTransferDirection",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Direction",
+          "setter": "put_Direction"
+        },
+        {
+          "name": "Recipient",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbControlRecipient",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Recipient",
+          "setter": "put_Recipient"
+        }
+      ]
+    },
+    "IUsbDescriptor": {
+      "guid": "0a89f216-5f9d-4874-8904-da9ad3f5528f",
+      "exclusive_to": "Windows.Devices.Usb.UsbDescriptor",
+      "methods": [
+        {
+          "name": "get_Length",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_DescriptorType",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "ReadDescriptorBuffer",
+          "params": [
+            {
+              "name": "buffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DescriptorType",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_DescriptorType"
+        },
+        {
+          "name": "Length",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_Length"
+        }
+      ]
+    },
+    "IUsbDevice": {
+      "guid": "5249b992-c456-44d5-ad5e-24f5a089f63b",
+      "exclusive_to": "Windows.Devices.Usb.UsbDevice",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "SendControlOutTransferAsync",
+          "overload": "SendControlOutTransferAsync",
+          "params": [
+            {
+              "name": "setupPacket",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UsbSetupPacket",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "buffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SendControlOutTransferAsync",
+          "overload": "SendControlOutTransferAsyncNoBuffer",
+          "params": [
+            {
+              "name": "setupPacket",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UsbSetupPacket",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SendControlInTransferAsync",
+          "overload": "SendControlInTransferAsync",
+          "params": [
+            {
+              "name": "setupPacket",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UsbSetupPacket",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "buffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SendControlInTransferAsync",
+          "overload": "SendControlInTransferAsyncNoBuffer",
+          "params": [
+            {
+              "name": "setupPacket",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UsbSetupPacket",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_DefaultInterface",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbInterface",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DeviceDescriptor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbDeviceDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Configuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbConfiguration",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Configuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbConfiguration",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_Configuration"
+        },
+        {
+          "name": "DefaultInterface",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbInterface",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_DefaultInterface"
+        },
+        {
+          "name": "DeviceDescriptor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbDeviceDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_DeviceDescriptor"
+        }
+      ]
+    },
+    "IUsbDeviceClass": {
+      "guid": "051942f9-845e-47eb-b12a-38f2f617afe7",
+      "exclusive_to": "Windows.Devices.Usb.UsbDeviceClass",
+      "methods": [
+        {
+          "name": "get_ClassCode",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "put_ClassCode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SubclassCode",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U1"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_SubclassCode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "U1"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ProtocolCode",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U1"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_ProtocolCode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "U1"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ClassCode",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_ClassCode",
+          "setter": "put_ClassCode"
+        },
+        {
+          "name": "ProtocolCode",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U1"
+              }
+            ]
+          },
+          "getter": "get_ProtocolCode",
+          "setter": "put_ProtocolCode"
+        },
+        {
+          "name": "SubclassCode",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U1"
+              }
+            ]
+          },
+          "getter": "get_SubclassCode",
+          "setter": "put_SubclassCode"
+        }
+      ]
+    },
+    "IUsbDeviceClasses": {
+      "guid": "686f955d-9b92-4b30-9781-c22c55ac35cb",
+      "exclusive_to": "Windows.Devices.Usb.UsbDeviceClasses"
+    },
+    "IUsbDeviceClassesStatics": {
+      "guid": "b20b0527-c580-4599-a165-981b4fd03230",
+      "exclusive_to": "Windows.Devices.Usb.UsbDeviceClasses",
+      "methods": [
+        {
+          "name": "get_CdcControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbDeviceClass",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Physical",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbDeviceClass",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PersonalHealthcare",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbDeviceClass",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ActiveSync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbDeviceClass",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PalmSync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbDeviceClass",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DeviceFirmwareUpdate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbDeviceClass",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Irda",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbDeviceClass",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Measurement",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbDeviceClass",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_VendorSpecific",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbDeviceClass",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ActiveSync",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbDeviceClass",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_ActiveSync"
+        },
+        {
+          "name": "CdcControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbDeviceClass",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_CdcControl"
+        },
+        {
+          "name": "DeviceFirmwareUpdate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbDeviceClass",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_DeviceFirmwareUpdate"
+        },
+        {
+          "name": "Irda",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbDeviceClass",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_Irda"
+        },
+        {
+          "name": "Measurement",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbDeviceClass",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_Measurement"
+        },
+        {
+          "name": "PalmSync",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbDeviceClass",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_PalmSync"
+        },
+        {
+          "name": "PersonalHealthcare",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbDeviceClass",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_PersonalHealthcare"
+        },
+        {
+          "name": "Physical",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbDeviceClass",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_Physical"
+        },
+        {
+          "name": "VendorSpecific",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbDeviceClass",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_VendorSpecific"
+        }
+      ]
+    },
+    "IUsbDeviceDescriptor": {
+      "guid": "1f48d1f6-ba97-4322-b92c-b5b189216588",
+      "exclusive_to": "Windows.Devices.Usb.UsbDeviceDescriptor",
+      "methods": [
+        {
+          "name": "get_BcdUsb",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_MaxPacketSize0",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_VendorId",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_ProductId",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_BcdDeviceRevision",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_NumberOfConfigurations",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BcdDeviceRevision",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_BcdDeviceRevision"
+        },
+        {
+          "name": "BcdUsb",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_BcdUsb"
+        },
+        {
+          "name": "MaxPacketSize0",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_MaxPacketSize0"
+        },
+        {
+          "name": "NumberOfConfigurations",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_NumberOfConfigurations"
+        },
+        {
+          "name": "ProductId",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ProductId"
+        },
+        {
+          "name": "VendorId",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_VendorId"
+        }
+      ]
+    },
+    "IUsbDeviceStatics": {
+      "guid": "066b85a2-09b7-4446-8502-6fe6dcaa7309",
+      "exclusive_to": "Windows.Devices.Usb.UsbDevice",
+      "methods": [
+        {
+          "name": "GetDeviceSelector",
+          "overload": "GetDeviceSelector",
+          "params": [
+            {
+              "name": "vendorId",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "productId",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "winUsbInterfaceClass",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDeviceSelector",
+          "overload": "GetDeviceSelectorGuidOnly",
+          "params": [
+            {
+              "name": "winUsbInterfaceClass",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDeviceSelector",
+          "overload": "GetDeviceSelectorVidPidOnly",
+          "params": [
+            {
+              "name": "vendorId",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "productId",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDeviceClassSelector",
+          "params": [
+            {
+              "name": "usbClass",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UsbDeviceClass",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbDevice",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IUsbEndpointDescriptor": {
+      "guid": "6b4862d9-8df7-4b40-ac83-578f139f0575",
+      "exclusive_to": "Windows.Devices.Usb.UsbEndpointDescriptor",
+      "methods": [
+        {
+          "name": "get_EndpointNumber",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_Direction",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbTransferDirection",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_EndpointType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbEndpointType",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_AsBulkInEndpointDescriptor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbBulkInEndpointDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_AsInterruptInEndpointDescriptor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbInterruptInEndpointDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_AsBulkOutEndpointDescriptor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbBulkOutEndpointDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_AsInterruptOutEndpointDescriptor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbInterruptOutEndpointDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AsBulkInEndpointDescriptor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbBulkInEndpointDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_AsBulkInEndpointDescriptor"
+        },
+        {
+          "name": "AsBulkOutEndpointDescriptor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbBulkOutEndpointDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_AsBulkOutEndpointDescriptor"
+        },
+        {
+          "name": "AsInterruptInEndpointDescriptor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbInterruptInEndpointDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_AsInterruptInEndpointDescriptor"
+        },
+        {
+          "name": "AsInterruptOutEndpointDescriptor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbInterruptOutEndpointDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_AsInterruptOutEndpointDescriptor"
+        },
+        {
+          "name": "Direction",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbTransferDirection",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Direction"
+        },
+        {
+          "name": "EndpointNumber",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_EndpointNumber"
+        },
+        {
+          "name": "EndpointType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbEndpointType",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Enum"
+          },
+          "getter": "get_EndpointType"
+        }
+      ]
+    },
+    "IUsbEndpointDescriptorStatics": {
+      "guid": "c890b201-9a6a-495e-a82c-295b9e708106",
+      "exclusive_to": "Windows.Devices.Usb.UsbEndpointDescriptor",
+      "methods": [
+        {
+          "name": "TryParse",
+          "params": [
+            {
+              "name": "descriptor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UsbDescriptor",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "parsed",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UsbEndpointDescriptor",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "Parse",
+          "params": [
+            {
+              "name": "descriptor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UsbDescriptor",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbEndpointDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IUsbInterface": {
+      "guid": "a0322b95-7f47-48ab-a727-678c25be2112",
+      "exclusive_to": "Windows.Devices.Usb.UsbInterface",
+      "methods": [
+        {
+          "name": "get_BulkInPipes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbBulkInPipe",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_InterruptInPipes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbInterruptInPipe",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_BulkOutPipes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbBulkOutPipe",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_InterruptOutPipes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbInterruptOutPipe",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_InterfaceSettings",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbInterfaceSetting",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_InterfaceNumber",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_Descriptors",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbDescriptor",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BulkInPipes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbBulkInPipe",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_BulkInPipes"
+        },
+        {
+          "name": "BulkOutPipes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbBulkOutPipe",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_BulkOutPipes"
+        },
+        {
+          "name": "Descriptors",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbDescriptor",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Descriptors"
+        },
+        {
+          "name": "InterfaceNumber",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_InterfaceNumber"
+        },
+        {
+          "name": "InterfaceSettings",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbInterfaceSetting",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_InterfaceSettings"
+        },
+        {
+          "name": "InterruptInPipes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbInterruptInPipe",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_InterruptInPipes"
+        },
+        {
+          "name": "InterruptOutPipes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbInterruptOutPipe",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_InterruptOutPipes"
+        }
+      ]
+    },
+    "IUsbInterfaceDescriptor": {
+      "guid": "199670c7-b7ee-4f90-8cd5-94a2e257598a",
+      "exclusive_to": "Windows.Devices.Usb.UsbInterfaceDescriptor",
+      "methods": [
+        {
+          "name": "get_ClassCode",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_SubclassCode",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_ProtocolCode",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_AlternateSettingNumber",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_InterfaceNumber",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AlternateSettingNumber",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_AlternateSettingNumber"
+        },
+        {
+          "name": "ClassCode",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_ClassCode"
+        },
+        {
+          "name": "InterfaceNumber",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_InterfaceNumber"
+        },
+        {
+          "name": "ProtocolCode",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_ProtocolCode"
+        },
+        {
+          "name": "SubclassCode",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_SubclassCode"
+        }
+      ]
+    },
+    "IUsbInterfaceDescriptorStatics": {
+      "guid": "e34a9ff5-77d6-48b6-b0be-16c6422316fe",
+      "exclusive_to": "Windows.Devices.Usb.UsbInterfaceDescriptor",
+      "methods": [
+        {
+          "name": "TryParse",
+          "params": [
+            {
+              "name": "descriptor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UsbDescriptor",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "parsed",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UsbInterfaceDescriptor",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "Parse",
+          "params": [
+            {
+              "name": "descriptor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UsbDescriptor",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbInterfaceDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IUsbInterfaceSetting": {
+      "guid": "1827bba7-8da7-4af7-8f4c-7f3032e781f5",
+      "exclusive_to": "Windows.Devices.Usb.UsbInterfaceSetting",
+      "methods": [
+        {
+          "name": "get_BulkInEndpoints",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbBulkInEndpointDescriptor",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_InterruptInEndpoints",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbInterruptInEndpointDescriptor",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_BulkOutEndpoints",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbBulkOutEndpointDescriptor",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_InterruptOutEndpoints",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbInterruptOutEndpointDescriptor",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Selected",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "SelectSettingAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_InterfaceDescriptor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbInterfaceDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Descriptors",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbDescriptor",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BulkInEndpoints",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbBulkInEndpointDescriptor",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_BulkInEndpoints"
+        },
+        {
+          "name": "BulkOutEndpoints",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbBulkOutEndpointDescriptor",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_BulkOutEndpoints"
+        },
+        {
+          "name": "Descriptors",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbDescriptor",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Descriptors"
+        },
+        {
+          "name": "InterfaceDescriptor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbInterfaceDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_InterfaceDescriptor"
+        },
+        {
+          "name": "InterruptInEndpoints",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbInterruptInEndpointDescriptor",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_InterruptInEndpoints"
+        },
+        {
+          "name": "InterruptOutEndpoints",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbInterruptOutEndpointDescriptor",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_InterruptOutEndpoints"
+        },
+        {
+          "name": "Selected",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Selected"
+        }
+      ]
+    },
+    "IUsbInterruptInEndpointDescriptor": {
+      "guid": "c0528967-c911-4c3a-86b2-419c2da89039",
+      "exclusive_to": "Windows.Devices.Usb.UsbInterruptInEndpointDescriptor",
+      "methods": [
+        {
+          "name": "get_MaxPacketSize",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_EndpointNumber",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_Interval",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Pipe",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbInterruptInPipe",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EndpointNumber",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_EndpointNumber"
+        },
+        {
+          "name": "Interval",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Interval"
+        },
+        {
+          "name": "MaxPacketSize",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxPacketSize"
+        },
+        {
+          "name": "Pipe",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbInterruptInPipe",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_Pipe"
+        }
+      ]
+    },
+    "IUsbInterruptInEventArgs": {
+      "guid": "b7b04092-1418-4936-8209-299cf5605583",
+      "exclusive_to": "Windows.Devices.Usb.UsbInterruptInEventArgs",
+      "methods": [
+        {
+          "name": "get_InterruptData",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InterruptData",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_InterruptData"
+        }
+      ]
+    },
+    "IUsbInterruptInPipe": {
+      "guid": "fa007116-84d7-48c7-8a3f-4c0b235f2ea6",
+      "exclusive_to": "Windows.Devices.Usb.UsbInterruptInPipe",
+      "methods": [
+        {
+          "name": "get_EndpointDescriptor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbInterruptInEndpointDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ClearStallAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "add_DataReceived",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UsbInterruptInPipe",
+                    "namespace": "Windows.Devices.Usb",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "UsbInterruptInEventArgs",
+                    "namespace": "Windows.Devices.Usb",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DataReceived",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "EndpointDescriptor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbInterruptInEndpointDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_EndpointDescriptor"
+        }
+      ],
+      "events": [
+        {
+          "name": "DataReceived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UsbInterruptInPipe",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "UsbInterruptInEventArgs",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_DataReceived",
+          "remove_method": "remove_DataReceived"
+        }
+      ]
+    },
+    "IUsbInterruptOutEndpointDescriptor": {
+      "guid": "cc9fed81-10ca-4533-952d-9e278341e80f",
+      "exclusive_to": "Windows.Devices.Usb.UsbInterruptOutEndpointDescriptor",
+      "methods": [
+        {
+          "name": "get_MaxPacketSize",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_EndpointNumber",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_Interval",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Pipe",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbInterruptOutPipe",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EndpointNumber",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_EndpointNumber"
+        },
+        {
+          "name": "Interval",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Interval"
+        },
+        {
+          "name": "MaxPacketSize",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxPacketSize"
+        },
+        {
+          "name": "Pipe",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbInterruptOutPipe",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_Pipe"
+        }
+      ]
+    },
+    "IUsbInterruptOutPipe": {
+      "guid": "e984c8a9-aaf9-49d0-b96c-f661ab4a7f95",
+      "exclusive_to": "Windows.Devices.Usb.UsbInterruptOutPipe",
+      "methods": [
+        {
+          "name": "get_EndpointDescriptor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbInterruptOutEndpointDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ClearStallAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_WriteOptions",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UsbWriteOptions",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_WriteOptions",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbWriteOptions",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_OutputStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IOutputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EndpointDescriptor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbInterruptOutEndpointDescriptor",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_EndpointDescriptor"
+        },
+        {
+          "name": "OutputStream",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IOutputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_OutputStream"
+        },
+        {
+          "name": "WriteOptions",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbWriteOptions",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Enum"
+          },
+          "getter": "get_WriteOptions",
+          "setter": "put_WriteOptions"
+        }
+      ]
+    },
+    "IUsbSetupPacket": {
+      "guid": "104ba132-c78f-4c51-b654-e49d02f2cb03",
+      "exclusive_to": "Windows.Devices.Usb.UsbSetupPacket",
+      "methods": [
+        {
+          "name": "get_RequestType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbControlRequestType",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_RequestType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UsbControlRequestType",
+                "namespace": "Windows.Devices.Usb",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "put_Request",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_Value",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Index",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_Index",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Length",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_Length",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Index",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Index",
+          "setter": "put_Index"
+        },
+        {
+          "name": "Length",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Length",
+          "setter": "put_Length"
+        },
+        {
+          "name": "Request",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_Request",
+          "setter": "put_Request"
+        },
+        {
+          "name": "RequestType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UsbControlRequestType",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          },
+          "getter": "get_RequestType",
+          "setter": "put_RequestType"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Value",
+          "setter": "put_Value"
+        }
+      ]
+    },
+    "IUsbSetupPacketFactory": {
+      "guid": "c9257d50-1b2e-4a41-a2a7-338f0cef3c14",
+      "exclusive_to": "Windows.Devices.Usb.UsbSetupPacket",
+      "methods": [
+        {
+          "name": "CreateWithEightByteBuffer",
+          "params": [
+            {
+              "name": "eightByteBuffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UsbSetupPacket",
+            "namespace": "Windows.Devices.Usb",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "UsbBulkInEndpointDescriptor": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUsbBulkInEndpointDescriptor",
+        "namespace": "Windows.Devices.Usb",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUsbBulkInEndpointDescriptor",
+          "namespace": "Windows.Devices.Usb",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UsbBulkInPipe": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUsbBulkInPipe",
+        "namespace": "Windows.Devices.Usb",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUsbBulkInPipe",
+          "namespace": "Windows.Devices.Usb",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UsbBulkOutEndpointDescriptor": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUsbBulkOutEndpointDescriptor",
+        "namespace": "Windows.Devices.Usb",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUsbBulkOutEndpointDescriptor",
+          "namespace": "Windows.Devices.Usb",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UsbBulkOutPipe": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUsbBulkOutPipe",
+        "namespace": "Windows.Devices.Usb",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUsbBulkOutPipe",
+          "namespace": "Windows.Devices.Usb",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UsbConfiguration": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUsbConfiguration",
+        "namespace": "Windows.Devices.Usb",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUsbConfiguration",
+          "namespace": "Windows.Devices.Usb",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UsbConfigurationDescriptor": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUsbConfigurationDescriptor",
+        "namespace": "Windows.Devices.Usb",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUsbConfigurationDescriptor",
+          "namespace": "Windows.Devices.Usb",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Usb.IUsbConfigurationDescriptorStatics"
+      ]
+    },
+    "UsbControlRequestType": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUsbControlRequestType",
+        "namespace": "Windows.Devices.Usb",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUsbControlRequestType",
+          "namespace": "Windows.Devices.Usb",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "UsbDescriptor": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUsbDescriptor",
+        "namespace": "Windows.Devices.Usb",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUsbDescriptor",
+          "namespace": "Windows.Devices.Usb",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UsbDevice": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUsbDevice",
+        "namespace": "Windows.Devices.Usb",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUsbDevice",
+          "namespace": "Windows.Devices.Usb",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Usb.IUsbDeviceStatics"
+      ]
+    },
+    "UsbDeviceClass": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUsbDeviceClass",
+        "namespace": "Windows.Devices.Usb",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUsbDeviceClass",
+          "namespace": "Windows.Devices.Usb",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "UsbDeviceClasses": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUsbDeviceClasses",
+        "namespace": "Windows.Devices.Usb",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUsbDeviceClasses",
+          "namespace": "Windows.Devices.Usb",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Usb.IUsbDeviceClassesStatics"
+      ]
+    },
+    "UsbDeviceDescriptor": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUsbDeviceDescriptor",
+        "namespace": "Windows.Devices.Usb",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUsbDeviceDescriptor",
+          "namespace": "Windows.Devices.Usb",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UsbEndpointDescriptor": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUsbEndpointDescriptor",
+        "namespace": "Windows.Devices.Usb",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUsbEndpointDescriptor",
+          "namespace": "Windows.Devices.Usb",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Usb.IUsbEndpointDescriptorStatics"
+      ]
+    },
+    "UsbInterface": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUsbInterface",
+        "namespace": "Windows.Devices.Usb",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUsbInterface",
+          "namespace": "Windows.Devices.Usb",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UsbInterfaceDescriptor": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUsbInterfaceDescriptor",
+        "namespace": "Windows.Devices.Usb",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUsbInterfaceDescriptor",
+          "namespace": "Windows.Devices.Usb",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Usb.IUsbInterfaceDescriptorStatics"
+      ]
+    },
+    "UsbInterfaceSetting": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUsbInterfaceSetting",
+        "namespace": "Windows.Devices.Usb",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUsbInterfaceSetting",
+          "namespace": "Windows.Devices.Usb",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UsbInterruptInEndpointDescriptor": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUsbInterruptInEndpointDescriptor",
+        "namespace": "Windows.Devices.Usb",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUsbInterruptInEndpointDescriptor",
+          "namespace": "Windows.Devices.Usb",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UsbInterruptInEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUsbInterruptInEventArgs",
+        "namespace": "Windows.Devices.Usb",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUsbInterruptInEventArgs",
+          "namespace": "Windows.Devices.Usb",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UsbInterruptInPipe": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUsbInterruptInPipe",
+        "namespace": "Windows.Devices.Usb",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUsbInterruptInPipe",
+          "namespace": "Windows.Devices.Usb",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UsbInterruptOutEndpointDescriptor": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUsbInterruptOutEndpointDescriptor",
+        "namespace": "Windows.Devices.Usb",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUsbInterruptOutEndpointDescriptor",
+          "namespace": "Windows.Devices.Usb",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UsbInterruptOutPipe": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUsbInterruptOutPipe",
+        "namespace": "Windows.Devices.Usb",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUsbInterruptOutPipe",
+          "namespace": "Windows.Devices.Usb",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UsbSetupPacket": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUsbSetupPacket",
+        "namespace": "Windows.Devices.Usb",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUsbSetupPacket",
+          "namespace": "Windows.Devices.Usb",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Devices.Usb.IUsbSetupPacketFactory"
+      ]
+    }
+  }
+}

@@ -1,0 +1,419 @@
+{
+  "namespace": "Windows.Security.Authorization.AppCapabilityAccess",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "AppCapabilityAccessStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "DeniedBySystem",
+          "value": "0"
+        },
+        {
+          "name": "NotDeclaredByApp",
+          "value": "1"
+        },
+        {
+          "name": "DeniedByUser",
+          "value": "2"
+        },
+        {
+          "name": "UserPromptRequired",
+          "value": "3"
+        },
+        {
+          "name": "Allowed",
+          "value": "4"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IAppCapability": {
+      "guid": "4c49d915-8a2a-4295-9437-2df7c396aff4",
+      "exclusive_to": "Windows.Security.Authorization.AppCapabilityAccess.AppCapability",
+      "methods": [
+        {
+          "name": "get_CapabilityName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "RequestAccessAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppCapabilityAccessStatus",
+                "namespace": "Windows.Security.Authorization.AppCapabilityAccess",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CheckAccess",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppCapabilityAccessStatus",
+            "namespace": "Windows.Security.Authorization.AppCapabilityAccess",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_AccessChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppCapability",
+                    "namespace": "Windows.Security.Authorization.AppCapabilityAccess",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppCapabilityAccessChangedEventArgs",
+                    "namespace": "Windows.Security.Authorization.AppCapabilityAccess",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_AccessChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CapabilityName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CapabilityName"
+        },
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ],
+      "events": [
+        {
+          "name": "AccessChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppCapability",
+                "namespace": "Windows.Security.Authorization.AppCapabilityAccess",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AppCapabilityAccessChangedEventArgs",
+                "namespace": "Windows.Security.Authorization.AppCapabilityAccess",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_AccessChanged",
+          "remove_method": "remove_AccessChanged"
+        }
+      ]
+    },
+    "IAppCapability2": {
+      "guid": "11c7ccb6-c74f-50a3-b960-88008767d939",
+      "exclusive_to": "Windows.Security.Authorization.AppCapabilityAccess.AppCapability",
+      "methods": [
+        {
+          "name": "get_DisplayMessage",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DisplayMessage",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayMessage",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayMessage",
+          "setter": "put_DisplayMessage"
+        }
+      ]
+    },
+    "IAppCapabilityAccessChangedEventArgs": {
+      "guid": "0a578d15-bdd7-457e-8cca-6f53bd2e5944",
+      "exclusive_to": "Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessChangedEventArgs"
+    },
+    "IAppCapabilityStatics": {
+      "guid": "7c353e2a-46ee-44e5-af3d-6ad3fc49bd22",
+      "exclusive_to": "Windows.Security.Authorization.AppCapabilityAccess.AppCapability",
+      "methods": [
+        {
+          "name": "RequestAccessForCapabilitiesAsync",
+          "params": [
+            {
+              "name": "capabilityNames",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IMapView`2",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppCapabilityAccessStatus",
+                    "namespace": "Windows.Security.Authorization.AppCapabilityAccess",
+                    "target_kind": "Enum"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestAccessForCapabilitiesForUserAsync",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "capabilityNames",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IMapView`2",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppCapabilityAccessStatus",
+                    "namespace": "Windows.Security.Authorization.AppCapabilityAccess",
+                    "target_kind": "Enum"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "capabilityName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppCapability",
+            "namespace": "Windows.Security.Authorization.AppCapabilityAccess",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithProcessIdForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "capabilityName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "pid",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppCapability",
+            "namespace": "Windows.Security.Authorization.AppCapabilityAccess",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AppCapability": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppCapability",
+        "namespace": "Windows.Security.Authorization.AppCapabilityAccess",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppCapability",
+          "namespace": "Windows.Security.Authorization.AppCapabilityAccess",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppCapability2",
+          "namespace": "Windows.Security.Authorization.AppCapabilityAccess",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Security.Authorization.AppCapabilityAccess.IAppCapabilityStatics"
+      ]
+    },
+    "AppCapabilityAccessChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppCapabilityAccessChangedEventArgs",
+        "namespace": "Windows.Security.Authorization.AppCapabilityAccess",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppCapabilityAccessChangedEventArgs",
+          "namespace": "Windows.Security.Authorization.AppCapabilityAccess",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

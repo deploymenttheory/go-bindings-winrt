@@ -1,0 +1,3239 @@
+{
+  "namespace": "Windows.Networking.BackgroundTransfer",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "BackgroundTransferBehavior": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Parallel",
+          "value": "0"
+        },
+        {
+          "name": "Serialized",
+          "value": "1"
+        }
+      ]
+    },
+    "BackgroundTransferCostPolicy": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "UnrestrictedOnly",
+          "value": "1"
+        },
+        {
+          "name": "Always",
+          "value": "2"
+        }
+      ]
+    },
+    "BackgroundTransferPriority": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "High",
+          "value": "1"
+        },
+        {
+          "name": "Low",
+          "value": "2"
+        }
+      ]
+    },
+    "BackgroundTransferStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Idle",
+          "value": "0"
+        },
+        {
+          "name": "Running",
+          "value": "1"
+        },
+        {
+          "name": "PausedByApplication",
+          "value": "2"
+        },
+        {
+          "name": "PausedCostedNetwork",
+          "value": "3"
+        },
+        {
+          "name": "PausedNoNetwork",
+          "value": "4"
+        },
+        {
+          "name": "Completed",
+          "value": "5"
+        },
+        {
+          "name": "Canceled",
+          "value": "6"
+        },
+        {
+          "name": "Error",
+          "value": "7"
+        },
+        {
+          "name": "PausedRecoverableWebErrorStatus",
+          "value": "8"
+        },
+        {
+          "name": "PausedSystemPolicy",
+          "value": "32"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "BackgroundDownloadProgress": {
+      "fields": [
+        {
+          "name": "BytesReceived",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "TotalBytesToReceive",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferStatus",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "HasResponseChanged",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "HasRestarted",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "BackgroundTransferFileRange": {
+      "fields": [
+        {
+          "name": "Offset",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "Length",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        }
+      ]
+    },
+    "BackgroundUploadProgress": {
+      "fields": [
+        {
+          "name": "BytesReceived",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "BytesSent",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "TotalBytesToReceive",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "TotalBytesToSend",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferStatus",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "HasResponseChanged",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "HasRestarted",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IBackgroundDownloader": {
+      "guid": "c1c79333-6649-4b1d-a826-a4b3dd234d0b",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.BackgroundDownloader",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTransferBase",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "CreateDownload",
+          "overload": "CreateDownload",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "resultFile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DownloadOperation",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateDownload",
+          "overload": "CreateDownloadFromFile",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "resultFile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "requestBodyFile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DownloadOperation",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateDownloadAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "resultFile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "requestBodyStream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DownloadOperation",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IBackgroundDownloader2": {
+      "guid": "a94a5847-348d-4a35-890e-8a1ef3798479",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.BackgroundDownloader",
+      "methods": [
+        {
+          "name": "get_TransferGroup",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferGroup",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_TransferGroup",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BackgroundTransferGroup",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SuccessToastNotification",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ToastNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_SuccessToastNotification",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ToastNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FailureToastNotification",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ToastNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_FailureToastNotification",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ToastNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SuccessTileNotification",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TileNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_SuccessTileNotification",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TileNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FailureTileNotification",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TileNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_FailureTileNotification",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TileNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "FailureTileNotification",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TileNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          },
+          "getter": "get_FailureTileNotification",
+          "setter": "put_FailureTileNotification"
+        },
+        {
+          "name": "FailureToastNotification",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ToastNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          },
+          "getter": "get_FailureToastNotification",
+          "setter": "put_FailureToastNotification"
+        },
+        {
+          "name": "SuccessTileNotification",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TileNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          },
+          "getter": "get_SuccessTileNotification",
+          "setter": "put_SuccessTileNotification"
+        },
+        {
+          "name": "SuccessToastNotification",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ToastNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          },
+          "getter": "get_SuccessToastNotification",
+          "setter": "put_SuccessToastNotification"
+        },
+        {
+          "name": "TransferGroup",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferGroup",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Class"
+          },
+          "getter": "get_TransferGroup",
+          "setter": "put_TransferGroup"
+        }
+      ]
+    },
+    "IBackgroundDownloader3": {
+      "guid": "d11a8c48-86e8-48e2-b615-6976aabf861d",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.BackgroundDownloader",
+      "methods": [
+        {
+          "name": "get_CompletionGroup",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferCompletionGroup",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CompletionGroup",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferCompletionGroup",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Class"
+          },
+          "getter": "get_CompletionGroup"
+        }
+      ]
+    },
+    "IBackgroundDownloaderFactory": {
+      "guid": "26836c24-d89e-46f4-a29a-4f4d4f144155",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.BackgroundDownloader",
+      "methods": [
+        {
+          "name": "CreateWithCompletionGroup",
+          "params": [
+            {
+              "name": "completionGroup",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BackgroundTransferCompletionGroup",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundDownloader",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IBackgroundDownloaderStaticMethods": {
+      "guid": "52a65a35-c64e-426c-9919-540d0d21a650",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.BackgroundDownloader",
+      "methods": [
+        {
+          "name": "GetCurrentDownloadsAsync",
+          "overload": "GetCurrentDownloadsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DownloadOperation",
+                    "namespace": "Windows.Networking.BackgroundTransfer",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetCurrentDownloadsAsync",
+          "overload": "GetCurrentDownloadsForGroupAsync",
+          "params": [
+            {
+              "name": "group",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DownloadOperation",
+                    "namespace": "Windows.Networking.BackgroundTransfer",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IBackgroundDownloaderStaticMethods2": {
+      "guid": "2faa1327-1ad4-4ca5-b2cd-08dbf0746afe",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.BackgroundDownloader",
+      "methods": [
+        {
+          "name": "GetCurrentDownloadsForTransferGroupAsync",
+          "params": [
+            {
+              "name": "group",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BackgroundTransferGroup",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DownloadOperation",
+                    "namespace": "Windows.Networking.BackgroundTransfer",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IBackgroundDownloaderUserConsent": {
+      "guid": "5d14e906-9266-4808-bd71-5925f2a3130a",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.BackgroundDownloader",
+      "methods": [
+        {
+          "name": "RequestUnconstrainedDownloadsAsync",
+          "params": [
+            {
+              "name": "operations",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DownloadOperation",
+                    "namespace": "Windows.Networking.BackgroundTransfer",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UnconstrainedTransferRequestResult",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IBackgroundTransferBase": {
+      "guid": "2a9da250-c769-458c-afe8-feb8d4d3b2ef",
+      "methods": [
+        {
+          "name": "SetRequestHeader",
+          "params": [
+            {
+              "name": "headerName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "headerValue",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ServerCredential",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ServerCredential",
+          "params": [
+            {
+              "name": "credential",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PasswordCredential",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ProxyCredential",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ProxyCredential",
+          "params": [
+            {
+              "name": "credential",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PasswordCredential",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Method",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Method",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Group",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Group",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CostPolicy",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferCostPolicy",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_CostPolicy",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BackgroundTransferCostPolicy",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CostPolicy",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferCostPolicy",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CostPolicy",
+          "setter": "put_CostPolicy"
+        },
+        {
+          "name": "Group",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Group",
+          "setter": "put_Group"
+        },
+        {
+          "name": "Method",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Method",
+          "setter": "put_Method"
+        },
+        {
+          "name": "ProxyCredential",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          },
+          "getter": "get_ProxyCredential",
+          "setter": "put_ProxyCredential"
+        },
+        {
+          "name": "ServerCredential",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          },
+          "getter": "get_ServerCredential",
+          "setter": "put_ServerCredential"
+        }
+      ]
+    },
+    "IBackgroundTransferCompletionGroup": {
+      "guid": "2d930225-986b-574d-7950-0add47f5d706",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroup",
+      "methods": [
+        {
+          "name": "get_Trigger",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBackgroundTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_IsEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "Enable"
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsEnabled"
+        },
+        {
+          "name": "Trigger",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBackgroundTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Trigger"
+        }
+      ]
+    },
+    "IBackgroundTransferCompletionGroupTriggerDetails": {
+      "guid": "7b6be286-6e47-5136-7fcb-fa4389f46f5b",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroupTriggerDetails",
+      "methods": [
+        {
+          "name": "get_Downloads",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DownloadOperation",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Uploads",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UploadOperation",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Downloads",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DownloadOperation",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Downloads"
+        },
+        {
+          "name": "Uploads",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UploadOperation",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Uploads"
+        }
+      ]
+    },
+    "IBackgroundTransferContentPart": {
+      "guid": "e8e15657-d7d1-4ed8-838e-674ac217ace6",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.BackgroundTransferContentPart",
+      "methods": [
+        {
+          "name": "SetHeader",
+          "params": [
+            {
+              "name": "headerName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "headerValue",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetText",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetFile",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IBackgroundTransferContentPartFactory": {
+      "guid": "90ef98a9-7a01-4a0b-9f80-a0b0bb370f8d",
+      "methods": [
+        {
+          "name": "CreateWithName",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferContentPart",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithNameAndFileName",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "fileName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferContentPart",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IBackgroundTransferErrorStaticMethods": {
+      "guid": "aad33b04-1192-4bf4-8b68-39c5add244e2",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.BackgroundTransferError",
+      "methods": [
+        {
+          "name": "GetStatus",
+          "params": [
+            {
+              "name": "hresult",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebErrorStatus",
+            "namespace": "Windows.Web",
+            "target_kind": "Enum"
+          }
+        }
+      ]
+    },
+    "IBackgroundTransferGroup": {
+      "guid": "d8c3e3e4-6459-4540-85eb-aaa1c8903677",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.BackgroundTransferGroup",
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TransferBehavior",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferBehavior",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_TransferBehavior",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BackgroundTransferBehavior",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        },
+        {
+          "name": "TransferBehavior",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferBehavior",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Enum"
+          },
+          "getter": "get_TransferBehavior",
+          "setter": "put_TransferBehavior"
+        }
+      ]
+    },
+    "IBackgroundTransferGroupStatics": {
+      "guid": "02ec50b2-7d18-495b-aa22-32a97d45d3e2",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.BackgroundTransferGroup",
+      "methods": [
+        {
+          "name": "CreateGroup",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferGroup",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IBackgroundTransferOperation": {
+      "guid": "ded06846-90ca-44fb-8fb1-124154c0d539",
+      "methods": [
+        {
+          "name": "get_Guid",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_RequestedUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Method",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Group",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CostPolicy",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferCostPolicy",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_CostPolicy",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BackgroundTransferCostPolicy",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetResultStreamAt",
+          "params": [
+            {
+              "name": "position",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IInputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetResponseInformation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ResponseInformation",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CostPolicy",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferCostPolicy",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CostPolicy",
+          "setter": "put_CostPolicy"
+        },
+        {
+          "name": "Group",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Group"
+        },
+        {
+          "name": "Guid",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_Guid"
+        },
+        {
+          "name": "Method",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Method"
+        },
+        {
+          "name": "RequestedUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_RequestedUri"
+        }
+      ]
+    },
+    "IBackgroundTransferOperationPriority": {
+      "guid": "04854327-5254-4b3a-915e-0aa49275c0f9",
+      "methods": [
+        {
+          "name": "get_Priority",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferPriority",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Priority",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BackgroundTransferPriority",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Priority",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferPriority",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Priority",
+          "setter": "put_Priority"
+        }
+      ]
+    },
+    "IBackgroundTransferRangesDownloadedEventArgs": {
+      "guid": "3ebc7453-bf48-4a88-9248-b0c165184f5c",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.BackgroundTransferRangesDownloadedEventArgs",
+      "methods": [
+        {
+          "name": "get_WasDownloadRestarted",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_AddedRanges",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BackgroundTransferFileRange",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AddedRanges",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BackgroundTransferFileRange",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_AddedRanges"
+        },
+        {
+          "name": "WasDownloadRestarted",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_WasDownloadRestarted"
+        }
+      ]
+    },
+    "IBackgroundUploader": {
+      "guid": "c595c9ae-cead-465b-8801-c55ac90a01ce",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.BackgroundUploader",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTransferBase",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "CreateUpload",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "sourceFile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UploadOperation",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateUploadFromStreamAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "sourceStream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UploadOperation",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateUploadAsync",
+          "overload": "CreateUploadWithFormDataAndAutoBoundaryAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "parts",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BackgroundTransferContentPart",
+                    "namespace": "Windows.Networking.BackgroundTransfer",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UploadOperation",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateUploadAsync",
+          "overload": "CreateUploadWithSubTypeAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "parts",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BackgroundTransferContentPart",
+                    "namespace": "Windows.Networking.BackgroundTransfer",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "subType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UploadOperation",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateUploadAsync",
+          "overload": "CreateUploadWithSubTypeAndBoundaryAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "parts",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BackgroundTransferContentPart",
+                    "namespace": "Windows.Networking.BackgroundTransfer",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "subType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "boundary",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UploadOperation",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IBackgroundUploader2": {
+      "guid": "8e0612ce-0c34-4463-807f-198a1b8bd4ad",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.BackgroundUploader",
+      "methods": [
+        {
+          "name": "get_TransferGroup",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferGroup",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_TransferGroup",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BackgroundTransferGroup",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SuccessToastNotification",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ToastNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_SuccessToastNotification",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ToastNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FailureToastNotification",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ToastNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_FailureToastNotification",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ToastNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SuccessTileNotification",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TileNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_SuccessTileNotification",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TileNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FailureTileNotification",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TileNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_FailureTileNotification",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TileNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "FailureTileNotification",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TileNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          },
+          "getter": "get_FailureTileNotification",
+          "setter": "put_FailureTileNotification"
+        },
+        {
+          "name": "FailureToastNotification",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ToastNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          },
+          "getter": "get_FailureToastNotification",
+          "setter": "put_FailureToastNotification"
+        },
+        {
+          "name": "SuccessTileNotification",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TileNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          },
+          "getter": "get_SuccessTileNotification",
+          "setter": "put_SuccessTileNotification"
+        },
+        {
+          "name": "SuccessToastNotification",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ToastNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          },
+          "getter": "get_SuccessToastNotification",
+          "setter": "put_SuccessToastNotification"
+        },
+        {
+          "name": "TransferGroup",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferGroup",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Class"
+          },
+          "getter": "get_TransferGroup",
+          "setter": "put_TransferGroup"
+        }
+      ]
+    },
+    "IBackgroundUploader3": {
+      "guid": "b95e9439-5bf0-4b3a-8c47-2c6199a854b9",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.BackgroundUploader",
+      "methods": [
+        {
+          "name": "get_CompletionGroup",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferCompletionGroup",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CompletionGroup",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferCompletionGroup",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Class"
+          },
+          "getter": "get_CompletionGroup"
+        }
+      ]
+    },
+    "IBackgroundUploaderFactory": {
+      "guid": "736203c7-10e7-48a0-ac3c-1ac71095ec57",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.BackgroundUploader",
+      "methods": [
+        {
+          "name": "CreateWithCompletionGroup",
+          "params": [
+            {
+              "name": "completionGroup",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BackgroundTransferCompletionGroup",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundUploader",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IBackgroundUploaderStaticMethods": {
+      "guid": "f2875cfb-9b05-4741-9121-740a83e247df",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.BackgroundUploader",
+      "methods": [
+        {
+          "name": "GetCurrentUploadsAsync",
+          "overload": "GetCurrentUploadsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UploadOperation",
+                    "namespace": "Windows.Networking.BackgroundTransfer",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetCurrentUploadsAsync",
+          "overload": "GetCurrentUploadsForGroupAsync",
+          "params": [
+            {
+              "name": "group",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UploadOperation",
+                    "namespace": "Windows.Networking.BackgroundTransfer",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IBackgroundUploaderStaticMethods2": {
+      "guid": "e919ac62-ea08-42f0-a2ac-07e467549080",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.BackgroundUploader",
+      "methods": [
+        {
+          "name": "GetCurrentUploadsForTransferGroupAsync",
+          "params": [
+            {
+              "name": "group",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BackgroundTransferGroup",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UploadOperation",
+                    "namespace": "Windows.Networking.BackgroundTransfer",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IBackgroundUploaderUserConsent": {
+      "guid": "3bb384cb-0760-461d-907f-5138f84d44c1",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.BackgroundUploader",
+      "methods": [
+        {
+          "name": "RequestUnconstrainedUploadsAsync",
+          "params": [
+            {
+              "name": "operations",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UploadOperation",
+                    "namespace": "Windows.Networking.BackgroundTransfer",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UnconstrainedTransferRequestResult",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IContentPrefetcher": {
+      "guid": "a8d6f754-7dc1-4cd9-8810-2a6aa9417e11",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.ContentPrefetcher",
+      "methods": [
+        {
+          "name": "get_ContentUris",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_IndirectContentUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IndirectContentUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContentUris",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_ContentUris"
+        },
+        {
+          "name": "IndirectContentUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_IndirectContentUri",
+          "setter": "put_IndirectContentUri"
+        }
+      ]
+    },
+    "IContentPrefetcherTime": {
+      "guid": "e361fd08-132a-4fde-a7cc-fcb0e66523af",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.ContentPrefetcher",
+      "methods": [
+        {
+          "name": "get_LastSuccessfulPrefetchTime",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "LastSuccessfulPrefetchTime",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_LastSuccessfulPrefetchTime"
+        }
+      ]
+    },
+    "IDownloadOperation": {
+      "guid": "bd87ebb0-5714-4e09-ba68-bef73903b0d7",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.DownloadOperation",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTransferOperation",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_ResultFile",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IStorageFile",
+            "namespace": "Windows.Storage",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Progress",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundDownloadProgress",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "StartAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DownloadOperation",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DownloadOperation",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "AttachAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DownloadOperation",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DownloadOperation",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Pause"
+        },
+        {
+          "name": "Resume"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Progress",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BackgroundDownloadProgress",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Progress"
+        },
+        {
+          "name": "ResultFile",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IStorageFile",
+            "namespace": "Windows.Storage",
+            "target_kind": "Interface"
+          },
+          "getter": "get_ResultFile"
+        }
+      ]
+    },
+    "IDownloadOperation2": {
+      "guid": "a3cced40-8f9c-4353-9cd4-290dee387c38",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.DownloadOperation",
+      "methods": [
+        {
+          "name": "get_TransferGroup",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferGroup",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "TransferGroup",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferGroup",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Class"
+          },
+          "getter": "get_TransferGroup"
+        }
+      ]
+    },
+    "IDownloadOperation3": {
+      "guid": "5027351c-7d5e-4adc-b8d3-df5c6031b9cc",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.DownloadOperation",
+      "methods": [
+        {
+          "name": "get_IsRandomAccessRequired",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsRandomAccessRequired",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetResultRandomAccessStreamReference",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetDownloadedRanges",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BackgroundTransferFileRange",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_RangesDownloaded",
+          "params": [
+            {
+              "name": "eventHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DownloadOperation",
+                    "namespace": "Windows.Networking.BackgroundTransfer",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "BackgroundTransferRangesDownloadedEventArgs",
+                    "namespace": "Windows.Networking.BackgroundTransfer",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_RangesDownloaded",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "put_RequestedUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RecoverableWebErrorStatuses",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebErrorStatus",
+                "namespace": "Windows.Web",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_CurrentWebErrorStatus",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebErrorStatus",
+                "namespace": "Windows.Web",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CurrentWebErrorStatus",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebErrorStatus",
+                "namespace": "Windows.Web",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_CurrentWebErrorStatus"
+        },
+        {
+          "name": "IsRandomAccessRequired",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsRandomAccessRequired",
+          "setter": "put_IsRandomAccessRequired"
+        },
+        {
+          "name": "RecoverableWebErrorStatuses",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebErrorStatus",
+                "namespace": "Windows.Web",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_RecoverableWebErrorStatuses"
+        },
+        {
+          "name": "RequestedUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "setter": "put_RequestedUri"
+        }
+      ],
+      "events": [
+        {
+          "name": "RangesDownloaded",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DownloadOperation",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "BackgroundTransferRangesDownloadedEventArgs",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_RangesDownloaded",
+          "remove_method": "remove_RangesDownloaded"
+        }
+      ]
+    },
+    "IDownloadOperation4": {
+      "guid": "0cdaaef4-8cef-404a-966d-f058400bed80",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.DownloadOperation",
+      "methods": [
+        {
+          "name": "MakeCurrentInTransferGroup"
+        }
+      ]
+    },
+    "IDownloadOperation5": {
+      "guid": "a699a86f-5590-463a-b8d6-1e491a2760a5",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.DownloadOperation",
+      "methods": [
+        {
+          "name": "SetRequestHeader",
+          "params": [
+            {
+              "name": "headerName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "headerValue",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RemoveRequestHeader",
+          "params": [
+            {
+              "name": "headerName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IResponseInformation": {
+      "guid": "f8bb9a12-f713-4792-8b68-d9d297f91d2e",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.ResponseInformation",
+      "methods": [
+        {
+          "name": "get_IsResumable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_ActualUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_StatusCode",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Headers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ActualUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_ActualUri"
+        },
+        {
+          "name": "Headers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Headers"
+        },
+        {
+          "name": "IsResumable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsResumable"
+        },
+        {
+          "name": "StatusCode",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_StatusCode"
+        }
+      ]
+    },
+    "IUnconstrainedTransferRequestResult": {
+      "guid": "4c24b81f-d944-4112-a98e-6a69522b7ebb",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.UnconstrainedTransferRequestResult",
+      "methods": [
+        {
+          "name": "get_IsUnconstrained",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsUnconstrained",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsUnconstrained"
+        }
+      ]
+    },
+    "IUploadOperation": {
+      "guid": "3e5624e0-7389-434c-8b35-427fd36bbdae",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.UploadOperation",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTransferOperation",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_SourceFile",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IStorageFile",
+            "namespace": "Windows.Storage",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Progress",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundUploadProgress",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "StartAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UploadOperation",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "UploadOperation",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "AttachAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UploadOperation",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "UploadOperation",
+                "namespace": "Windows.Networking.BackgroundTransfer",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Progress",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BackgroundUploadProgress",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Progress"
+        },
+        {
+          "name": "SourceFile",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IStorageFile",
+            "namespace": "Windows.Storage",
+            "target_kind": "Interface"
+          },
+          "getter": "get_SourceFile"
+        }
+      ]
+    },
+    "IUploadOperation2": {
+      "guid": "556189f2-2774-4df6-9fa5-209f2bfb12f7",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.UploadOperation",
+      "methods": [
+        {
+          "name": "get_TransferGroup",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferGroup",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "TransferGroup",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BackgroundTransferGroup",
+            "namespace": "Windows.Networking.BackgroundTransfer",
+            "target_kind": "Class"
+          },
+          "getter": "get_TransferGroup"
+        }
+      ]
+    },
+    "IUploadOperation3": {
+      "guid": "42c92ca3-de39-4546-bc62-3774b4294de3",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.UploadOperation",
+      "methods": [
+        {
+          "name": "MakeCurrentInTransferGroup"
+        }
+      ]
+    },
+    "IUploadOperation4": {
+      "guid": "50edef31-fac5-41ee-b030-dc77caee9faa",
+      "exclusive_to": "Windows.Networking.BackgroundTransfer.UploadOperation",
+      "methods": [
+        {
+          "name": "SetRequestHeader",
+          "params": [
+            {
+              "name": "headerName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "headerValue",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RemoveRequestHeader",
+          "params": [
+            {
+              "name": "headerName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "classes": {
+    "BackgroundDownloader": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundDownloader",
+        "namespace": "Windows.Networking.BackgroundTransfer",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundDownloader",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTransferBase",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundDownloader2",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundDownloader3",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Networking.BackgroundTransfer.IBackgroundDownloaderFactory"
+      ],
+      "static_interfaces": [
+        "Windows.Networking.BackgroundTransfer.IBackgroundDownloaderUserConsent",
+        "Windows.Networking.BackgroundTransfer.IBackgroundDownloaderStaticMethods2",
+        "Windows.Networking.BackgroundTransfer.IBackgroundDownloaderStaticMethods"
+      ]
+    },
+    "BackgroundTransferCompletionGroup": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTransferCompletionGroup",
+        "namespace": "Windows.Networking.BackgroundTransfer",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTransferCompletionGroup",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "BackgroundTransferCompletionGroupTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTransferCompletionGroupTriggerDetails",
+        "namespace": "Windows.Networking.BackgroundTransfer",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTransferCompletionGroupTriggerDetails",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BackgroundTransferContentPart": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTransferContentPart",
+        "namespace": "Windows.Networking.BackgroundTransfer",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTransferContentPart",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Networking.BackgroundTransfer.IBackgroundTransferContentPartFactory"
+      ]
+    },
+    "BackgroundTransferError": {
+      "static_interfaces": [
+        "Windows.Networking.BackgroundTransfer.IBackgroundTransferErrorStaticMethods"
+      ]
+    },
+    "BackgroundTransferGroup": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTransferGroup",
+        "namespace": "Windows.Networking.BackgroundTransfer",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTransferGroup",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Networking.BackgroundTransfer.IBackgroundTransferGroupStatics"
+      ]
+    },
+    "BackgroundTransferRangesDownloadedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTransferRangesDownloadedEventArgs",
+        "namespace": "Windows.Networking.BackgroundTransfer",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTransferRangesDownloadedEventArgs",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BackgroundUploader": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundUploader",
+        "namespace": "Windows.Networking.BackgroundTransfer",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundUploader",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTransferBase",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundUploader2",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundUploader3",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Networking.BackgroundTransfer.IBackgroundUploaderFactory"
+      ],
+      "static_interfaces": [
+        "Windows.Networking.BackgroundTransfer.IBackgroundUploaderStaticMethods",
+        "Windows.Networking.BackgroundTransfer.IBackgroundUploaderStaticMethods2",
+        "Windows.Networking.BackgroundTransfer.IBackgroundUploaderUserConsent"
+      ]
+    },
+    "ContentPrefetcher": {
+      "static_interfaces": [
+        "Windows.Networking.BackgroundTransfer.IContentPrefetcher",
+        "Windows.Networking.BackgroundTransfer.IContentPrefetcherTime"
+      ]
+    },
+    "DownloadOperation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDownloadOperation",
+        "namespace": "Windows.Networking.BackgroundTransfer",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDownloadOperation",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTransferOperation",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTransferOperationPriority",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDownloadOperation2",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDownloadOperation3",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDownloadOperation4",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDownloadOperation5",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ResponseInformation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IResponseInformation",
+        "namespace": "Windows.Networking.BackgroundTransfer",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IResponseInformation",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UnconstrainedTransferRequestResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUnconstrainedTransferRequestResult",
+        "namespace": "Windows.Networking.BackgroundTransfer",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUnconstrainedTransferRequestResult",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UploadOperation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUploadOperation",
+        "namespace": "Windows.Networking.BackgroundTransfer",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUploadOperation",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTransferOperation",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTransferOperationPriority",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IUploadOperation2",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IUploadOperation3",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IUploadOperation4",
+          "namespace": "Windows.Networking.BackgroundTransfer",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

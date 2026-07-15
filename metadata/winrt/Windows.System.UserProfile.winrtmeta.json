@@ -1,0 +1,1006 @@
+{
+  "namespace": "Windows.System.UserProfile",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IAdvertisingManagerForUser": {
+      "guid": "928bf3d0-cf7c-4ab0-a7dc-6dc5bcd44252",
+      "exclusive_to": "Windows.System.UserProfile.AdvertisingManagerForUser",
+      "methods": [
+        {
+          "name": "get_AdvertisingId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AdvertisingId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AdvertisingId"
+        },
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ]
+    },
+    "IAdvertisingManagerStatics": {
+      "guid": "add3468c-a273-48cb-b346-3544522d5581",
+      "exclusive_to": "Windows.System.UserProfile.AdvertisingManager",
+      "methods": [
+        {
+          "name": "get_AdvertisingId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AdvertisingId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AdvertisingId"
+        }
+      ]
+    },
+    "IAdvertisingManagerStatics2": {
+      "guid": "dd0947af-1a6d-46b0-95bc-f3f9d6beb9fb",
+      "exclusive_to": "Windows.System.UserProfile.AdvertisingManager",
+      "methods": [
+        {
+          "name": "GetForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AdvertisingManagerForUser",
+            "namespace": "Windows.System.UserProfile",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IAssignedAccessSettings": {
+      "guid": "1bc57f1c-e971-5757-b8e0-512f8b8c46d2",
+      "exclusive_to": "Windows.System.UserProfile.AssignedAccessSettings",
+      "methods": [
+        {
+          "name": "get_IsEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsSingleAppKioskMode",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsEnabled"
+        },
+        {
+          "name": "IsSingleAppKioskMode",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSingleAppKioskMode"
+        },
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ]
+    },
+    "IAssignedAccessSettingsStatics": {
+      "guid": "34a81d0d-8a29-5ef3-a7be-618e6ac3bd01",
+      "exclusive_to": "Windows.System.UserProfile.AssignedAccessSettings",
+      "methods": [
+        {
+          "name": "GetDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AssignedAccessSettings",
+            "namespace": "Windows.System.UserProfile",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AssignedAccessSettings",
+            "namespace": "Windows.System.UserProfile",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDiagnosticsSettings": {
+      "guid": "e5e9eccd-2711-44e0-973c-491d78048d24",
+      "exclusive_to": "Windows.System.UserProfile.DiagnosticsSettings",
+      "methods": [
+        {
+          "name": "get_CanUseDiagnosticsToTailorExperiences",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CanUseDiagnosticsToTailorExperiences",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanUseDiagnosticsToTailorExperiences"
+        },
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ]
+    },
+    "IDiagnosticsSettingsStatics": {
+      "guid": "72d2e80f-5390-4793-990b-3ccc7d6ac9c8",
+      "exclusive_to": "Windows.System.UserProfile.DiagnosticsSettings",
+      "methods": [
+        {
+          "name": "GetDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DiagnosticsSettings",
+            "namespace": "Windows.System.UserProfile",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DiagnosticsSettings",
+            "namespace": "Windows.System.UserProfile",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IFirstSignInSettings": {
+      "guid": "3e945153-3a5e-452e-a601-f5baad2a4870",
+      "exclusive_to": "Windows.System.UserProfile.FirstSignInSettings",
+      "requires": [
+        {
+          "kind": "GenericInst",
+          "name": "IMapView`2",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "Native",
+              "name": "HString"
+            },
+            {
+              "kind": "Native",
+              "name": "Object"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "GenericInst",
+              "name": "IKeyValuePair`2",
+              "namespace": "Windows.Foundation.Collections",
+              "target_kind": "Interface",
+              "args": [
+                {
+                  "kind": "Native",
+                  "name": "HString"
+                },
+                {
+                  "kind": "Native",
+                  "name": "Object"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "IFirstSignInSettingsStatics": {
+      "guid": "1ce18f0f-1c41-4ea0-b7a2-6f0c1c7e8438",
+      "exclusive_to": "Windows.System.UserProfile.FirstSignInSettings",
+      "methods": [
+        {
+          "name": "GetDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FirstSignInSettings",
+            "namespace": "Windows.System.UserProfile",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IGlobalizationPreferencesForUser": {
+      "guid": "150f0795-4f6e-40ba-a010-e27d81bda7f5",
+      "exclusive_to": "Windows.System.UserProfile.GlobalizationPreferencesForUser",
+      "methods": [
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Calendars",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Clocks",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Currencies",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Languages",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_HomeGeographicRegion",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_WeekStartsOn",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DayOfWeek",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Calendars",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Calendars"
+        },
+        {
+          "name": "Clocks",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Clocks"
+        },
+        {
+          "name": "Currencies",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Currencies"
+        },
+        {
+          "name": "HomeGeographicRegion",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HomeGeographicRegion"
+        },
+        {
+          "name": "Languages",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Languages"
+        },
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        },
+        {
+          "name": "WeekStartsOn",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DayOfWeek",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Enum"
+          },
+          "getter": "get_WeekStartsOn"
+        }
+      ]
+    },
+    "IGlobalizationPreferencesStatics": {
+      "guid": "01bf4326-ed37-4e96-b0e9-c1340d1ea158",
+      "exclusive_to": "Windows.System.UserProfile.GlobalizationPreferences",
+      "methods": [
+        {
+          "name": "get_Calendars",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Clocks",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Currencies",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Languages",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_HomeGeographicRegion",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_WeekStartsOn",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DayOfWeek",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Calendars",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Calendars"
+        },
+        {
+          "name": "Clocks",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Clocks"
+        },
+        {
+          "name": "Currencies",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Currencies"
+        },
+        {
+          "name": "HomeGeographicRegion",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HomeGeographicRegion"
+        },
+        {
+          "name": "Languages",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Languages"
+        },
+        {
+          "name": "WeekStartsOn",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DayOfWeek",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Enum"
+          },
+          "getter": "get_WeekStartsOn"
+        }
+      ]
+    },
+    "IGlobalizationPreferencesStatics2": {
+      "guid": "fcce85f1-4300-4cd0-9cac-1a8e7b7e18f4",
+      "exclusive_to": "Windows.System.UserProfile.GlobalizationPreferences",
+      "methods": [
+        {
+          "name": "TrySetHomeGeographicRegion",
+          "params": [
+            {
+              "name": "region",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TrySetLanguages",
+          "params": [
+            {
+              "name": "languageTags",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IGlobalizationPreferencesStatics3": {
+      "guid": "1e059733-35f5-40d8-b9e8-aef3ef856fce",
+      "exclusive_to": "Windows.System.UserProfile.GlobalizationPreferences",
+      "methods": [
+        {
+          "name": "GetForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "GlobalizationPreferencesForUser",
+            "namespace": "Windows.System.UserProfile",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IUserProfilePersonalizationSettings": {
+      "guid": "8ceddab4-7998-46d5-8dd3-184f1c5f9ab9",
+      "exclusive_to": "Windows.System.UserProfile.UserProfilePersonalizationSettings",
+      "methods": [
+        {
+          "name": "TrySetLockScreenImageAsync",
+          "params": [
+            {
+              "name": "imageFile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TrySetWallpaperImageAsync",
+          "params": [
+            {
+              "name": "imageFile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IUserProfilePersonalizationSettingsStatics": {
+      "guid": "91acb841-5037-454b-9883-bb772d08dd16",
+      "exclusive_to": "Windows.System.UserProfile.UserProfilePersonalizationSettings",
+      "methods": [
+        {
+          "name": "get_Current",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserProfilePersonalizationSettings",
+            "namespace": "Windows.System.UserProfile",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "IsSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Current",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserProfilePersonalizationSettings",
+            "namespace": "Windows.System.UserProfile",
+            "target_kind": "Class"
+          },
+          "getter": "get_Current"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AdvertisingManager": {
+      "static_interfaces": [
+        "Windows.System.UserProfile.IAdvertisingManagerStatics",
+        "Windows.System.UserProfile.IAdvertisingManagerStatics2"
+      ]
+    },
+    "AdvertisingManagerForUser": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAdvertisingManagerForUser",
+        "namespace": "Windows.System.UserProfile",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAdvertisingManagerForUser",
+          "namespace": "Windows.System.UserProfile",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AssignedAccessSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAssignedAccessSettings",
+        "namespace": "Windows.System.UserProfile",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAssignedAccessSettings",
+          "namespace": "Windows.System.UserProfile",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.System.UserProfile.IAssignedAccessSettingsStatics"
+      ]
+    },
+    "DiagnosticsSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDiagnosticsSettings",
+        "namespace": "Windows.System.UserProfile",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDiagnosticsSettings",
+          "namespace": "Windows.System.UserProfile",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.System.UserProfile.IDiagnosticsSettingsStatics"
+      ]
+    },
+    "FirstSignInSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFirstSignInSettings",
+        "namespace": "Windows.System.UserProfile",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFirstSignInSettings",
+          "namespace": "Windows.System.UserProfile",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IMapView`2",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "Native",
+              "name": "HString"
+            },
+            {
+              "kind": "Native",
+              "name": "Object"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "GenericInst",
+              "name": "IKeyValuePair`2",
+              "namespace": "Windows.Foundation.Collections",
+              "target_kind": "Interface",
+              "args": [
+                {
+                  "kind": "Native",
+                  "name": "HString"
+                },
+                {
+                  "kind": "Native",
+                  "name": "Object"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "static_interfaces": [
+        "Windows.System.UserProfile.IFirstSignInSettingsStatics"
+      ]
+    },
+    "GlobalizationPreferences": {
+      "static_interfaces": [
+        "Windows.System.UserProfile.IGlobalizationPreferencesStatics3",
+        "Windows.System.UserProfile.IGlobalizationPreferencesStatics",
+        "Windows.System.UserProfile.IGlobalizationPreferencesStatics2"
+      ]
+    },
+    "GlobalizationPreferencesForUser": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGlobalizationPreferencesForUser",
+        "namespace": "Windows.System.UserProfile",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGlobalizationPreferencesForUser",
+          "namespace": "Windows.System.UserProfile",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserProfilePersonalizationSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserProfilePersonalizationSettings",
+        "namespace": "Windows.System.UserProfile",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserProfilePersonalizationSettings",
+          "namespace": "Windows.System.UserProfile",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.System.UserProfile.IUserProfilePersonalizationSettingsStatics"
+      ]
+    }
+  }
+}

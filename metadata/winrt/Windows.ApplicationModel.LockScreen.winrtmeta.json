@@ -1,0 +1,721 @@
+{
+  "namespace": "Windows.ApplicationModel.LockScreen",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "ILockApplicationHost": {
+      "guid": "38ee31ad-d94f-4e7c-81fa-4f4436506281",
+      "exclusive_to": "Windows.ApplicationModel.LockScreen.LockApplicationHost",
+      "methods": [
+        {
+          "name": "RequestUnlock"
+        },
+        {
+          "name": "add_Unlocking",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "LockApplicationHost",
+                    "namespace": "Windows.ApplicationModel.LockScreen",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "LockScreenUnlockingEventArgs",
+                    "namespace": "Windows.ApplicationModel.LockScreen",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Unlocking",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "Unlocking",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "LockApplicationHost",
+                "namespace": "Windows.ApplicationModel.LockScreen",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "LockScreenUnlockingEventArgs",
+                "namespace": "Windows.ApplicationModel.LockScreen",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Unlocking",
+          "remove_method": "remove_Unlocking"
+        }
+      ]
+    },
+    "ILockApplicationHostStatics": {
+      "guid": "f48fab8e-23d7-4e63-96a1-666ff52d3b2c",
+      "exclusive_to": "Windows.ApplicationModel.LockScreen.LockApplicationHost",
+      "methods": [
+        {
+          "name": "GetForCurrentView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LockApplicationHost",
+            "namespace": "Windows.ApplicationModel.LockScreen",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ILockScreenBadge": {
+      "guid": "e95105d9-2bff-4db0-9b4f-3824778b9c9a",
+      "exclusive_to": "Windows.ApplicationModel.LockScreen.LockScreenBadge",
+      "methods": [
+        {
+          "name": "get_Logo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Glyph",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Number",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_AutomationName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "LaunchApp"
+        }
+      ],
+      "properties": [
+        {
+          "name": "AutomationName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AutomationName"
+        },
+        {
+          "name": "Glyph",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Glyph"
+        },
+        {
+          "name": "Logo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Logo"
+        },
+        {
+          "name": "Number",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_Number"
+        }
+      ]
+    },
+    "ILockScreenInfo": {
+      "guid": "f59aa65c-9711-4dc9-a630-95b6cb8cdad0",
+      "exclusive_to": "Windows.ApplicationModel.LockScreen.LockScreenInfo",
+      "methods": [
+        {
+          "name": "add_LockScreenImageChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "LockScreenInfo",
+                    "namespace": "Windows.ApplicationModel.LockScreen",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_LockScreenImageChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LockScreenImage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "add_BadgesChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "LockScreenInfo",
+                    "namespace": "Windows.ApplicationModel.LockScreen",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_BadgesChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Badges",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "LockScreenBadge",
+                "namespace": "Windows.ApplicationModel.LockScreen",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_DetailTextChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "LockScreenInfo",
+                    "namespace": "Windows.ApplicationModel.LockScreen",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DetailTextChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DetailText",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_AlarmIconChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "LockScreenInfo",
+                    "namespace": "Windows.ApplicationModel.LockScreen",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_AlarmIconChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AlarmIcon",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AlarmIcon",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_AlarmIcon"
+        },
+        {
+          "name": "Badges",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "LockScreenBadge",
+                "namespace": "Windows.ApplicationModel.LockScreen",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Badges"
+        },
+        {
+          "name": "DetailText",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_DetailText"
+        },
+        {
+          "name": "LockScreenImage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_LockScreenImage"
+        }
+      ],
+      "events": [
+        {
+          "name": "AlarmIconChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "LockScreenInfo",
+                "namespace": "Windows.ApplicationModel.LockScreen",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_AlarmIconChanged",
+          "remove_method": "remove_AlarmIconChanged"
+        },
+        {
+          "name": "BadgesChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "LockScreenInfo",
+                "namespace": "Windows.ApplicationModel.LockScreen",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_BadgesChanged",
+          "remove_method": "remove_BadgesChanged"
+        },
+        {
+          "name": "DetailTextChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "LockScreenInfo",
+                "namespace": "Windows.ApplicationModel.LockScreen",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_DetailTextChanged",
+          "remove_method": "remove_DetailTextChanged"
+        },
+        {
+          "name": "LockScreenImageChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "LockScreenInfo",
+                "namespace": "Windows.ApplicationModel.LockScreen",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_LockScreenImageChanged",
+          "remove_method": "remove_LockScreenImageChanged"
+        }
+      ]
+    },
+    "ILockScreenUnlockingDeferral": {
+      "guid": "7e7d1ad6-5203-43e7-9bd6-7c3947d1e3fe",
+      "exclusive_to": "Windows.ApplicationModel.LockScreen.LockScreenUnlockingDeferral",
+      "methods": [
+        {
+          "name": "Complete"
+        }
+      ]
+    },
+    "ILockScreenUnlockingEventArgs": {
+      "guid": "44e6c007-75fb-4abb-9f8b-824748900c71",
+      "exclusive_to": "Windows.ApplicationModel.LockScreen.LockScreenUnlockingEventArgs",
+      "methods": [
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LockScreenUnlockingDeferral",
+            "namespace": "Windows.ApplicationModel.LockScreen",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Deadline",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Deadline",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Deadline"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "LockApplicationHost": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILockApplicationHost",
+        "namespace": "Windows.ApplicationModel.LockScreen",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILockApplicationHost",
+          "namespace": "Windows.ApplicationModel.LockScreen",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.ApplicationModel.LockScreen.ILockApplicationHostStatics"
+      ]
+    },
+    "LockScreenBadge": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILockScreenBadge",
+        "namespace": "Windows.ApplicationModel.LockScreen",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILockScreenBadge",
+          "namespace": "Windows.ApplicationModel.LockScreen",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "LockScreenInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILockScreenInfo",
+        "namespace": "Windows.ApplicationModel.LockScreen",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILockScreenInfo",
+          "namespace": "Windows.ApplicationModel.LockScreen",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "LockScreenUnlockingDeferral": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILockScreenUnlockingDeferral",
+        "namespace": "Windows.ApplicationModel.LockScreen",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILockScreenUnlockingDeferral",
+          "namespace": "Windows.ApplicationModel.LockScreen",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "LockScreenUnlockingEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILockScreenUnlockingEventArgs",
+        "namespace": "Windows.ApplicationModel.LockScreen",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILockScreenUnlockingEventArgs",
+          "namespace": "Windows.ApplicationModel.LockScreen",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

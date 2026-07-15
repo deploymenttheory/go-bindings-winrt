@@ -1,0 +1,136 @@
+{
+  "namespace": "Windows.Devices.Background",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IDeviceServicingDetails": {
+      "guid": "4aabee29-2344-4ac4-8527-4a8ef6905645",
+      "exclusive_to": "Windows.Devices.Background.DeviceServicingDetails",
+      "methods": [
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Arguments",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ExpectedDuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Arguments",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Arguments"
+        },
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        },
+        {
+          "name": "ExpectedDuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExpectedDuration"
+        }
+      ]
+    },
+    "IDeviceUseDetails": {
+      "guid": "7d565141-557e-4154-b994-e4f7a11fb323",
+      "exclusive_to": "Windows.Devices.Background.DeviceUseDetails",
+      "methods": [
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Arguments",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Arguments",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Arguments"
+        },
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "DeviceServicingDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeviceServicingDetails",
+        "namespace": "Windows.Devices.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceServicingDetails",
+          "namespace": "Windows.Devices.Background",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DeviceUseDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeviceUseDetails",
+        "namespace": "Windows.Devices.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceUseDetails",
+          "namespace": "Windows.Devices.Background",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,3213 @@
+{
+  "namespace": "Windows.Foundation",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "AsyncStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Canceled",
+          "value": "2"
+        },
+        {
+          "name": "Completed",
+          "value": "1"
+        },
+        {
+          "name": "Error",
+          "value": "3"
+        },
+        {
+          "name": "Started",
+          "value": "0"
+        }
+      ]
+    },
+    "PropertyType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Empty",
+          "value": "0"
+        },
+        {
+          "name": "UInt8",
+          "value": "1"
+        },
+        {
+          "name": "Int16",
+          "value": "2"
+        },
+        {
+          "name": "UInt16",
+          "value": "3"
+        },
+        {
+          "name": "Int32",
+          "value": "4"
+        },
+        {
+          "name": "UInt32",
+          "value": "5"
+        },
+        {
+          "name": "Int64",
+          "value": "6"
+        },
+        {
+          "name": "UInt64",
+          "value": "7"
+        },
+        {
+          "name": "Single",
+          "value": "8"
+        },
+        {
+          "name": "Double",
+          "value": "9"
+        },
+        {
+          "name": "Char16",
+          "value": "10"
+        },
+        {
+          "name": "Boolean",
+          "value": "11"
+        },
+        {
+          "name": "String",
+          "value": "12"
+        },
+        {
+          "name": "Inspectable",
+          "value": "13"
+        },
+        {
+          "name": "DateTime",
+          "value": "14"
+        },
+        {
+          "name": "TimeSpan",
+          "value": "15"
+        },
+        {
+          "name": "Guid",
+          "value": "16"
+        },
+        {
+          "name": "Point",
+          "value": "17"
+        },
+        {
+          "name": "Size",
+          "value": "18"
+        },
+        {
+          "name": "Rect",
+          "value": "19"
+        },
+        {
+          "name": "OtherType",
+          "value": "20"
+        },
+        {
+          "name": "UInt8Array",
+          "value": "1025"
+        },
+        {
+          "name": "Int16Array",
+          "value": "1026"
+        },
+        {
+          "name": "UInt16Array",
+          "value": "1027"
+        },
+        {
+          "name": "Int32Array",
+          "value": "1028"
+        },
+        {
+          "name": "UInt32Array",
+          "value": "1029"
+        },
+        {
+          "name": "Int64Array",
+          "value": "1030"
+        },
+        {
+          "name": "UInt64Array",
+          "value": "1031"
+        },
+        {
+          "name": "SingleArray",
+          "value": "1032"
+        },
+        {
+          "name": "DoubleArray",
+          "value": "1033"
+        },
+        {
+          "name": "Char16Array",
+          "value": "1034"
+        },
+        {
+          "name": "BooleanArray",
+          "value": "1035"
+        },
+        {
+          "name": "StringArray",
+          "value": "1036"
+        },
+        {
+          "name": "InspectableArray",
+          "value": "1037"
+        },
+        {
+          "name": "DateTimeArray",
+          "value": "1038"
+        },
+        {
+          "name": "TimeSpanArray",
+          "value": "1039"
+        },
+        {
+          "name": "GuidArray",
+          "value": "1040"
+        },
+        {
+          "name": "PointArray",
+          "value": "1041"
+        },
+        {
+          "name": "SizeArray",
+          "value": "1042"
+        },
+        {
+          "name": "RectArray",
+          "value": "1043"
+        },
+        {
+          "name": "OtherTypeArray",
+          "value": "1044"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "DateTime": {
+      "fields": [
+        {
+          "name": "UniversalTime",
+          "type": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        }
+      ]
+    },
+    "EventRegistrationToken": {
+      "fields": [
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        }
+      ]
+    },
+    "FoundationContract": {},
+    "HResult": {
+      "fields": [
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ]
+    },
+    "Point": {
+      "fields": [
+        {
+          "name": "X",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "Y",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        }
+      ]
+    },
+    "Rect": {
+      "fields": [
+        {
+          "name": "X",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "Y",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "Width",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "Height",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        }
+      ]
+    },
+    "Size": {
+      "fields": [
+        {
+          "name": "Width",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "Height",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        }
+      ]
+    },
+    "TimeSpan": {
+      "fields": [
+        {
+          "name": "Duration",
+          "type": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        }
+      ]
+    },
+    "UniversalApiContract": {}
+  },
+  "interfaces": {
+    "IAsyncAction": {
+      "guid": "5a648006-843a-4da9-865b-9d26e5dfad7b",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IAsyncInfo",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "put_Completed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AsyncActionCompletedHandler",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Completed",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AsyncActionCompletedHandler",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate"
+          }
+        },
+        {
+          "name": "GetResults"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Completed",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AsyncActionCompletedHandler",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate"
+          },
+          "getter": "get_Completed",
+          "setter": "put_Completed"
+        }
+      ]
+    },
+    "IAsyncActionWithProgress`1": {
+      "guid": "1f6db258-e803-48a1-9546-eb7353398884",
+      "arity": 1,
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IAsyncInfo",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "put_Progress",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "AsyncActionProgressHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "GenericParamRef"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Progress",
+          "return": {
+            "kind": "GenericInst",
+            "name": "AsyncActionProgressHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "GenericParamRef"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Completed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "AsyncActionWithProgressCompletedHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "GenericParamRef"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Completed",
+          "return": {
+            "kind": "GenericInst",
+            "name": "AsyncActionWithProgressCompletedHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "GenericParamRef"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetResults"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Progress",
+          "type": {
+            "kind": "GenericInst",
+            "name": "AsyncActionProgressHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "GenericParamRef"
+              }
+            ]
+          },
+          "getter": "get_Progress",
+          "setter": "put_Progress"
+        },
+        {
+          "name": "Completed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "AsyncActionWithProgressCompletedHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "GenericParamRef"
+              }
+            ]
+          },
+          "getter": "get_Completed",
+          "setter": "put_Completed"
+        }
+      ]
+    },
+    "IAsyncInfo": {
+      "guid": "00000036-0000-0000-c000-000000000046",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AsyncStatus",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ErrorCode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "Cancel"
+        },
+        {
+          "name": "Close"
+        }
+      ],
+      "properties": [
+        {
+          "name": "ErrorCode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ErrorCode"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AsyncStatus",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IAsyncOperationWithProgress`2": {
+      "guid": "b5d036d7-e297-498f-ba60-0289e76e23dd",
+      "arity": 2,
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IAsyncInfo",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "put_Progress",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "AsyncOperationProgressHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "GenericParamRef"
+                  },
+                  {
+                    "kind": "GenericParamRef",
+                    "index": 1
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Progress",
+          "return": {
+            "kind": "GenericInst",
+            "name": "AsyncOperationProgressHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "GenericParamRef"
+              },
+              {
+                "kind": "GenericParamRef",
+                "index": 1
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Completed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "AsyncOperationWithProgressCompletedHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "GenericParamRef"
+                  },
+                  {
+                    "kind": "GenericParamRef",
+                    "index": 1
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Completed",
+          "return": {
+            "kind": "GenericInst",
+            "name": "AsyncOperationWithProgressCompletedHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "GenericParamRef"
+              },
+              {
+                "kind": "GenericParamRef",
+                "index": 1
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetResults",
+          "return": {
+            "kind": "GenericParamRef"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Progress",
+          "type": {
+            "kind": "GenericInst",
+            "name": "AsyncOperationProgressHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "GenericParamRef"
+              },
+              {
+                "kind": "GenericParamRef",
+                "index": 1
+              }
+            ]
+          },
+          "getter": "get_Progress",
+          "setter": "put_Progress"
+        },
+        {
+          "name": "Completed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "AsyncOperationWithProgressCompletedHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "GenericParamRef"
+              },
+              {
+                "kind": "GenericParamRef",
+                "index": 1
+              }
+            ]
+          },
+          "getter": "get_Completed",
+          "setter": "put_Completed"
+        }
+      ]
+    },
+    "IAsyncOperation`1": {
+      "guid": "9fc2b0bb-e446-44e2-aa61-9cab8f636af2",
+      "arity": 1,
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IAsyncInfo",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "put_Completed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "AsyncOperationCompletedHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "GenericParamRef"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Completed",
+          "return": {
+            "kind": "GenericInst",
+            "name": "AsyncOperationCompletedHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "GenericParamRef"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetResults",
+          "return": {
+            "kind": "GenericParamRef"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Completed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "AsyncOperationCompletedHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "GenericParamRef"
+              }
+            ]
+          },
+          "getter": "get_Completed",
+          "setter": "put_Completed"
+        }
+      ]
+    },
+    "IClosable": {
+      "guid": "30d5a829-7fa4-4026-83bb-d75bae4ea99e",
+      "methods": [
+        {
+          "name": "Close"
+        }
+      ]
+    },
+    "IDeferral": {
+      "guid": "d6269732-3b7f-46a7-b40b-4fdca2a2c693",
+      "exclusive_to": "Windows.Foundation.Deferral",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "Complete"
+        }
+      ]
+    },
+    "IDeferralFactory": {
+      "guid": "65a1ecc5-3fb5-4832-8ca9-f061b281d13a",
+      "exclusive_to": "Windows.Foundation.Deferral",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeferralCompletedHandler",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IGetActivationFactory": {
+      "guid": "4edb8ee2-96dd-49a7-94f7-4607ddab8e3c",
+      "methods": [
+        {
+          "name": "GetActivationFactory",
+          "params": [
+            {
+              "name": "activatableClassId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        }
+      ]
+    },
+    "IGuidHelperStatics": {
+      "guid": "59c7966b-ae52-5283-ad7f-a1b9e9678add",
+      "exclusive_to": "Windows.Foundation.GuidHelper",
+      "methods": [
+        {
+          "name": "CreateNewGuid",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_Empty",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "Equals",
+          "params": [
+            {
+              "name": "target",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Empty",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_Empty"
+        }
+      ]
+    },
+    "IMemoryBuffer": {
+      "guid": "fbc4dd2a-245b-11e4-af98-689423260cf8",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "CreateReference",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IMemoryBufferReference",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IMemoryBufferFactory": {
+      "guid": "fbc4dd2b-245b-11e4-af98-689423260cf8",
+      "exclusive_to": "Windows.Foundation.MemoryBuffer",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "capacity",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MemoryBuffer",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMemoryBufferReference": {
+      "guid": "fbc4dd29-245b-11e4-af98-689423260cf8",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Capacity",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "add_Closed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IMemoryBufferReference",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Closed",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Capacity",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Capacity"
+        }
+      ],
+      "events": [
+        {
+          "name": "Closed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IMemoryBufferReference",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_Closed",
+          "remove_method": "remove_Closed"
+        }
+      ]
+    },
+    "IPropertyValue": {
+      "guid": "4bd682dd-7554-40e9-9a9b-82654ede7e62",
+      "methods": [
+        {
+          "name": "get_Type",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PropertyType",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_IsNumericScalar",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetUInt8",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "GetInt16",
+          "return": {
+            "kind": "Native",
+            "name": "I2"
+          }
+        },
+        {
+          "name": "GetUInt16",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "GetInt32",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "GetUInt32",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "GetInt64",
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        },
+        {
+          "name": "GetUInt64",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "GetSingle",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "GetDouble",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "GetChar16",
+          "return": {
+            "kind": "Native",
+            "name": "Char16"
+          }
+        },
+        {
+          "name": "GetBoolean",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetGuid",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "GetDateTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "GetTimeSpan",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "GetPoint",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "GetSize",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "GetRect",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "GetUInt8Array",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "GetInt16Array",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "I2"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "GetUInt16Array",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U2"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "GetInt32Array",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "I4"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "GetUInt32Array",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U4"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "GetInt64Array",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "I8"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "GetUInt64Array",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U8"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "GetSingleArray",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "F32"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "GetDoubleArray",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "F64"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "GetChar16Array",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "Char16"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "GetBooleanArray",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "Bool"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "GetStringArray",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "HString"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "GetInspectableArray",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "Object"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "GetGuidArray",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "Guid"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "GetDateTimeArray",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "DateTime",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "GetTimeSpanArray",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "TimeSpan",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "GetPointArray",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Point",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "GetSizeArray",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Size",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "GetRectArray",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Rect",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              },
+              "out": true
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsNumericScalar",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsNumericScalar"
+        },
+        {
+          "name": "Type",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PropertyType",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Type"
+        }
+      ]
+    },
+    "IPropertyValueStatics": {
+      "guid": "629bdbc8-d932-4ff4-96b9-8d96c5c1e858",
+      "exclusive_to": "Windows.Foundation.PropertyValue",
+      "methods": [
+        {
+          "name": "CreateEmpty",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateUInt8",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateInt16",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateUInt16",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateInt32",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateUInt32",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateInt64",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I8"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateUInt64",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateSingle",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateDouble",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateChar16",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Char16"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateBoolean",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateString",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateInspectable",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateGuid",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateDateTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateTimeSpan",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreatePoint",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateSize",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Size",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateRect",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateUInt8Array",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateInt16Array",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "I2"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateUInt16Array",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U2"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateInt32Array",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "I4"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateUInt32Array",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U4"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateInt64Array",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "I8"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateUInt64Array",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U8"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateSingleArray",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "F32"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateDoubleArray",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "F64"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateChar16Array",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "Char16"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateBooleanArray",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "Bool"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateStringArray",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "HString"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateInspectableArray",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "Object"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateGuidArray",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "Guid"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateDateTimeArray",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "DateTime",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateTimeSpanArray",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "TimeSpan",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreatePointArray",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Point",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateSizeArray",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Size",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateRectArray",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Rect",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        }
+      ]
+    },
+    "IReferenceArray`1": {
+      "guid": "61c17707-2d65-11e0-9ae8-d48564015472",
+      "arity": 1,
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IPropertyValue",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "GenericParamRef"
+            }
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Array",
+            "elem": {
+              "kind": "GenericParamRef"
+            }
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "IReference`1": {
+      "guid": "61c17706-2d65-11e0-9ae8-d48564015472",
+      "arity": 1,
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IPropertyValue",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "GenericParamRef"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Value",
+          "type": {
+            "kind": "GenericParamRef"
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "IStringable": {
+      "guid": "96369f54-8eb6-48f0-abce-c1b211e627c3",
+      "methods": [
+        {
+          "name": "ToString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "IUriEscapeStatics": {
+      "guid": "c1d432ba-c824-4452-a7fd-512bc3bbe9a1",
+      "exclusive_to": "Windows.Foundation.Uri",
+      "methods": [
+        {
+          "name": "UnescapeComponent",
+          "params": [
+            {
+              "name": "toUnescape",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "EscapeComponent",
+          "params": [
+            {
+              "name": "toEscape",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "IUriRuntimeClass": {
+      "guid": "9e365e57-48b2-4160-956f-c7385120bbfc",
+      "exclusive_to": "Windows.Foundation.Uri",
+      "methods": [
+        {
+          "name": "get_AbsoluteUri",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayUri",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Domain",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Extension",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Fragment",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Host",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Password",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Path",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Query",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_QueryParsed",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WwwFormUrlDecoder",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_RawUri",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SchemeName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_UserName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Port",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Suspicious",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "Equals",
+          "params": [
+            {
+              "name": "pUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "CombineUri",
+          "params": [
+            {
+              "name": "relativeUri",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AbsoluteUri",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AbsoluteUri"
+        },
+        {
+          "name": "DisplayUri",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayUri"
+        },
+        {
+          "name": "Domain",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Domain"
+        },
+        {
+          "name": "Extension",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Extension"
+        },
+        {
+          "name": "Fragment",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Fragment"
+        },
+        {
+          "name": "Host",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Host"
+        },
+        {
+          "name": "Password",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Password"
+        },
+        {
+          "name": "Path",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Path"
+        },
+        {
+          "name": "Port",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Port"
+        },
+        {
+          "name": "Query",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Query"
+        },
+        {
+          "name": "QueryParsed",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WwwFormUrlDecoder",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_QueryParsed"
+        },
+        {
+          "name": "RawUri",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RawUri"
+        },
+        {
+          "name": "SchemeName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SchemeName"
+        },
+        {
+          "name": "Suspicious",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Suspicious"
+        },
+        {
+          "name": "UserName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_UserName"
+        }
+      ]
+    },
+    "IUriRuntimeClassFactory": {
+      "guid": "44a9796f-723e-4fdf-a218-033e75b0c084",
+      "exclusive_to": "Windows.Foundation.Uri",
+      "methods": [
+        {
+          "name": "CreateUri",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithRelativeUri",
+          "params": [
+            {
+              "name": "baseUri",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "relativeUri",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IUriRuntimeClassWithAbsoluteCanonicalUri": {
+      "guid": "758d9661-221c-480f-a339-50656673f46f",
+      "exclusive_to": "Windows.Foundation.Uri",
+      "methods": [
+        {
+          "name": "get_AbsoluteCanonicalUri",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayIri",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AbsoluteCanonicalUri",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AbsoluteCanonicalUri"
+        },
+        {
+          "name": "DisplayIri",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayIri"
+        }
+      ]
+    },
+    "IWwwFormUrlDecoderEntry": {
+      "guid": "125e7431-f678-4e8e-b670-20a9b06c512d",
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "IWwwFormUrlDecoderRuntimeClass": {
+      "guid": "d45a0451-f225-4542-9296-0e1df5d254df",
+      "exclusive_to": "Windows.Foundation.WwwFormUrlDecoder",
+      "requires": [
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "IWwwFormUrlDecoderEntry",
+              "namespace": "Windows.Foundation",
+              "target_kind": "Interface"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IVectorView`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "IWwwFormUrlDecoderEntry",
+              "namespace": "Windows.Foundation",
+              "target_kind": "Interface"
+            }
+          ]
+        }
+      ],
+      "methods": [
+        {
+          "name": "GetFirstValueByName",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "IWwwFormUrlDecoderRuntimeClassFactory": {
+      "guid": "5b8c6b3d-24ae-41b5-a1bf-f0c3d544845b",
+      "exclusive_to": "Windows.Foundation.WwwFormUrlDecoder",
+      "methods": [
+        {
+          "name": "CreateWwwFormUrlDecoder",
+          "params": [
+            {
+              "name": "query",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WwwFormUrlDecoder",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "Deferral": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeferral",
+        "namespace": "Windows.Foundation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeferral",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Foundation.IDeferralFactory"
+      ]
+    },
+    "GuidHelper": {
+      "static_interfaces": [
+        "Windows.Foundation.IGuidHelperStatics"
+      ]
+    },
+    "MemoryBuffer": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMemoryBuffer",
+        "namespace": "Windows.Foundation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMemoryBuffer",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Foundation.IMemoryBufferFactory"
+      ]
+    },
+    "PropertyValue": {
+      "static_interfaces": [
+        "Windows.Foundation.IPropertyValueStatics"
+      ]
+    },
+    "Uri": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUriRuntimeClass",
+        "namespace": "Windows.Foundation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUriRuntimeClass",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IUriRuntimeClassWithAbsoluteCanonicalUri",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Foundation.IUriRuntimeClassFactory"
+      ],
+      "static_interfaces": [
+        "Windows.Foundation.IUriEscapeStatics"
+      ]
+    },
+    "WwwFormUrlDecoder": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWwwFormUrlDecoderRuntimeClass",
+        "namespace": "Windows.Foundation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWwwFormUrlDecoderRuntimeClass",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IVectorView`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "IWwwFormUrlDecoderEntry",
+              "namespace": "Windows.Foundation",
+              "target_kind": "Interface"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "IWwwFormUrlDecoderEntry",
+              "namespace": "Windows.Foundation",
+              "target_kind": "Interface"
+            }
+          ]
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Foundation.IWwwFormUrlDecoderRuntimeClassFactory"
+      ]
+    },
+    "WwwFormUrlDecoderEntry": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWwwFormUrlDecoderEntry",
+        "namespace": "Windows.Foundation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWwwFormUrlDecoderEntry",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  },
+  "delegates": {
+    "AsyncActionCompletedHandler": {
+      "guid": "a4ed5c81-76c9-40bd-8be6-b1d90fb20ae7",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "asyncInfo",
+            "type": {
+              "kind": "ApiRef",
+              "name": "IAsyncAction",
+              "namespace": "Windows.Foundation",
+              "target_kind": "Interface"
+            }
+          },
+          {
+            "name": "asyncStatus",
+            "type": {
+              "kind": "ApiRef",
+              "name": "AsyncStatus",
+              "namespace": "Windows.Foundation",
+              "target_kind": "Enum"
+            }
+          }
+        ]
+      }
+    },
+    "AsyncActionProgressHandler`1": {
+      "guid": "6d844858-0cff-4590-ae89-95a5a5c8b4b8",
+      "arity": 1,
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "asyncInfo",
+            "type": {
+              "kind": "GenericInst",
+              "name": "IAsyncActionWithProgress`1",
+              "namespace": "Windows.Foundation",
+              "target_kind": "Interface",
+              "args": [
+                {
+                  "kind": "GenericParamRef"
+                }
+              ]
+            }
+          },
+          {
+            "name": "progressInfo",
+            "type": {
+              "kind": "GenericParamRef"
+            }
+          }
+        ]
+      }
+    },
+    "AsyncActionWithProgressCompletedHandler`1": {
+      "guid": "9c029f91-cc84-44fd-ac26-0a6c4e555281",
+      "arity": 1,
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "asyncInfo",
+            "type": {
+              "kind": "GenericInst",
+              "name": "IAsyncActionWithProgress`1",
+              "namespace": "Windows.Foundation",
+              "target_kind": "Interface",
+              "args": [
+                {
+                  "kind": "GenericParamRef"
+                }
+              ]
+            }
+          },
+          {
+            "name": "asyncStatus",
+            "type": {
+              "kind": "ApiRef",
+              "name": "AsyncStatus",
+              "namespace": "Windows.Foundation",
+              "target_kind": "Enum"
+            }
+          }
+        ]
+      }
+    },
+    "AsyncOperationCompletedHandler`1": {
+      "guid": "fcdcf02c-e5d8-4478-915a-4d90b74b83a5",
+      "arity": 1,
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "asyncInfo",
+            "type": {
+              "kind": "GenericInst",
+              "name": "IAsyncOperation`1",
+              "namespace": "Windows.Foundation",
+              "target_kind": "Interface",
+              "args": [
+                {
+                  "kind": "GenericParamRef"
+                }
+              ]
+            }
+          },
+          {
+            "name": "asyncStatus",
+            "type": {
+              "kind": "ApiRef",
+              "name": "AsyncStatus",
+              "namespace": "Windows.Foundation",
+              "target_kind": "Enum"
+            }
+          }
+        ]
+      }
+    },
+    "AsyncOperationProgressHandler`2": {
+      "guid": "55690902-0aab-421a-8778-f8ce5026d758",
+      "arity": 2,
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "asyncInfo",
+            "type": {
+              "kind": "GenericInst",
+              "name": "IAsyncOperationWithProgress`2",
+              "namespace": "Windows.Foundation",
+              "target_kind": "Interface",
+              "args": [
+                {
+                  "kind": "GenericParamRef"
+                },
+                {
+                  "kind": "GenericParamRef",
+                  "index": 1
+                }
+              ]
+            }
+          },
+          {
+            "name": "progressInfo",
+            "type": {
+              "kind": "GenericParamRef",
+              "index": 1
+            }
+          }
+        ]
+      }
+    },
+    "AsyncOperationWithProgressCompletedHandler`2": {
+      "guid": "e85df41d-6aa7-46e3-a8e2-f009d840c627",
+      "arity": 2,
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "asyncInfo",
+            "type": {
+              "kind": "GenericInst",
+              "name": "IAsyncOperationWithProgress`2",
+              "namespace": "Windows.Foundation",
+              "target_kind": "Interface",
+              "args": [
+                {
+                  "kind": "GenericParamRef"
+                },
+                {
+                  "kind": "GenericParamRef",
+                  "index": 1
+                }
+              ]
+            }
+          },
+          {
+            "name": "asyncStatus",
+            "type": {
+              "kind": "ApiRef",
+              "name": "AsyncStatus",
+              "namespace": "Windows.Foundation",
+              "target_kind": "Enum"
+            }
+          }
+        ]
+      }
+    },
+    "DeferralCompletedHandler": {
+      "guid": "ed32a372-f3c8-4faa-9cfb-470148da3888",
+      "invoke": {
+        "name": "Invoke"
+      }
+    },
+    "EventHandler`1": {
+      "guid": "9de1c535-6ae1-11e0-84e1-18a905bcc53f",
+      "arity": 1,
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "args",
+            "type": {
+              "kind": "GenericParamRef"
+            }
+          }
+        ]
+      }
+    },
+    "TypedEventHandler`2": {
+      "guid": "9de1c534-6ae1-11e0-84e1-18a905bcc53f",
+      "arity": 2,
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "GenericParamRef"
+            }
+          },
+          {
+            "name": "args",
+            "type": {
+              "kind": "GenericParamRef",
+              "index": 1
+            }
+          }
+        ]
+      }
+    }
+  }
+}

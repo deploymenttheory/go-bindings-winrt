@@ -1,0 +1,2719 @@
+{
+  "namespace": "Windows.Media.Capture.Frames",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "MediaFrameReaderAcquisitionMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Realtime",
+          "value": "0"
+        },
+        {
+          "name": "Buffered",
+          "value": "1"
+        }
+      ]
+    },
+    "MediaFrameReaderStartStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "UnknownFailure",
+          "value": "1"
+        },
+        {
+          "name": "DeviceNotAvailable",
+          "value": "2"
+        },
+        {
+          "name": "OutputFormatNotSupported",
+          "value": "3"
+        },
+        {
+          "name": "ExclusiveControlNotAvailable",
+          "value": "4"
+        }
+      ]
+    },
+    "MediaFrameSourceGetPropertyStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "UnknownFailure",
+          "value": "1"
+        },
+        {
+          "name": "NotSupported",
+          "value": "2"
+        },
+        {
+          "name": "DeviceNotAvailable",
+          "value": "3"
+        },
+        {
+          "name": "MaxPropertyValueSizeTooSmall",
+          "value": "4"
+        },
+        {
+          "name": "MaxPropertyValueSizeRequired",
+          "value": "5"
+        }
+      ]
+    },
+    "MediaFrameSourceKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Custom",
+          "value": "0"
+        },
+        {
+          "name": "Color",
+          "value": "1"
+        },
+        {
+          "name": "Infrared",
+          "value": "2"
+        },
+        {
+          "name": "Depth",
+          "value": "3"
+        },
+        {
+          "name": "Audio",
+          "value": "4"
+        },
+        {
+          "name": "Image",
+          "value": "5"
+        },
+        {
+          "name": "Metadata",
+          "value": "6"
+        }
+      ]
+    },
+    "MediaFrameSourceSetPropertyStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "UnknownFailure",
+          "value": "1"
+        },
+        {
+          "name": "NotSupported",
+          "value": "2"
+        },
+        {
+          "name": "InvalidValue",
+          "value": "3"
+        },
+        {
+          "name": "DeviceNotAvailable",
+          "value": "4"
+        },
+        {
+          "name": "NotInControl",
+          "value": "5"
+        }
+      ]
+    },
+    "MultiSourceMediaFrameReaderStartStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "NotSupported",
+          "value": "1"
+        },
+        {
+          "name": "InsufficientResources",
+          "value": "2"
+        },
+        {
+          "name": "DeviceNotAvailable",
+          "value": "3"
+        },
+        {
+          "name": "UnknownFailure",
+          "value": "4"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IAudioMediaFrame": {
+      "guid": "a3a9feff-8021-441b-9a46-e7f0137b7981",
+      "exclusive_to": "Windows.Media.Capture.Frames.AudioMediaFrame",
+      "methods": [
+        {
+          "name": "get_FrameReference",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaFrameReference",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_AudioEncodingProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetAudioFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioFrame",
+            "namespace": "Windows.Media",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AudioEncodingProperties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AudioEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          },
+          "getter": "get_AudioEncodingProperties"
+        },
+        {
+          "name": "FrameReference",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaFrameReference",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          },
+          "getter": "get_FrameReference"
+        }
+      ]
+    },
+    "IBufferMediaFrame": {
+      "guid": "b5b153c7-9b84-4062-b79c-a365b2596854",
+      "exclusive_to": "Windows.Media.Capture.Frames.BufferMediaFrame",
+      "methods": [
+        {
+          "name": "get_FrameReference",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaFrameReference",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Buffer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Buffer",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Buffer"
+        },
+        {
+          "name": "FrameReference",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaFrameReference",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          },
+          "getter": "get_FrameReference"
+        }
+      ]
+    },
+    "IDepthMediaFrame": {
+      "guid": "47135e4f-8549-45c0-925b-80d35efdb10a",
+      "exclusive_to": "Windows.Media.Capture.Frames.DepthMediaFrame",
+      "methods": [
+        {
+          "name": "get_FrameReference",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaFrameReference",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_VideoMediaFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoMediaFrame",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DepthFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DepthMediaFrameFormat",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryCreateCoordinateMapper",
+          "params": [
+            {
+              "name": "cameraIntrinsics",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CameraIntrinsics",
+                "namespace": "Windows.Media.Devices.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DepthCorrelatedCoordinateMapper",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DepthFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DepthMediaFrameFormat",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          },
+          "getter": "get_DepthFormat"
+        },
+        {
+          "name": "FrameReference",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaFrameReference",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          },
+          "getter": "get_FrameReference"
+        },
+        {
+          "name": "VideoMediaFrame",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoMediaFrame",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          },
+          "getter": "get_VideoMediaFrame"
+        }
+      ]
+    },
+    "IDepthMediaFrame2": {
+      "guid": "6cca473d-c4a4-4176-b0cd-33eae3b35aa3",
+      "exclusive_to": "Windows.Media.Capture.Frames.DepthMediaFrame",
+      "methods": [
+        {
+          "name": "get_MaxReliableDepth",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_MinReliableDepth",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "MaxReliableDepth",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxReliableDepth"
+        },
+        {
+          "name": "MinReliableDepth",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MinReliableDepth"
+        }
+      ]
+    },
+    "IDepthMediaFrameFormat": {
+      "guid": "c312cf40-d729-453e-8780-2e04f140d28e",
+      "exclusive_to": "Windows.Media.Capture.Frames.DepthMediaFrameFormat",
+      "methods": [
+        {
+          "name": "get_VideoFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoMediaFrameFormat",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DepthScaleInMeters",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DepthScaleInMeters",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_DepthScaleInMeters"
+        },
+        {
+          "name": "VideoFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoMediaFrameFormat",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          },
+          "getter": "get_VideoFormat"
+        }
+      ]
+    },
+    "IInfraredMediaFrame": {
+      "guid": "3fd13503-004b-4f0e-91ac-465299b41658",
+      "exclusive_to": "Windows.Media.Capture.Frames.InfraredMediaFrame",
+      "methods": [
+        {
+          "name": "get_FrameReference",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaFrameReference",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_VideoMediaFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoMediaFrame",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IsIlluminated",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FrameReference",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaFrameReference",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          },
+          "getter": "get_FrameReference"
+        },
+        {
+          "name": "IsIlluminated",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsIlluminated"
+        },
+        {
+          "name": "VideoMediaFrame",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoMediaFrame",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          },
+          "getter": "get_VideoMediaFrame"
+        }
+      ]
+    },
+    "IMediaFrameArrivedEventArgs": {
+      "guid": "0b430add-a490-4435-ada1-9affd55239f7",
+      "exclusive_to": "Windows.Media.Capture.Frames.MediaFrameArrivedEventArgs"
+    },
+    "IMediaFrameFormat": {
+      "guid": "71902b4e-b279-4a97-a9db-bd5a2fb78f39",
+      "exclusive_to": "Windows.Media.Capture.Frames.MediaFrameFormat",
+      "methods": [
+        {
+          "name": "get_MajorType",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Subtype",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_FrameRate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaRatio",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_VideoFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoMediaFrameFormat",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FrameRate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaRatio",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          },
+          "getter": "get_FrameRate"
+        },
+        {
+          "name": "MajorType",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MajorType"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "Subtype",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Subtype"
+        },
+        {
+          "name": "VideoFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoMediaFrameFormat",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          },
+          "getter": "get_VideoFormat"
+        }
+      ]
+    },
+    "IMediaFrameFormat2": {
+      "guid": "63856340-5e87-4c10-86d1-6df097a6c6a8",
+      "exclusive_to": "Windows.Media.Capture.Frames.MediaFrameFormat",
+      "methods": [
+        {
+          "name": "get_AudioEncodingProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AudioEncodingProperties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AudioEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          },
+          "getter": "get_AudioEncodingProperties"
+        }
+      ]
+    },
+    "IMediaFrameReader": {
+      "guid": "e4c94395-2028-48ed-90b0-d1c1b162e24c",
+      "exclusive_to": "Windows.Media.Capture.Frames.MediaFrameReader",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "add_FrameArrived",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "MediaFrameReader",
+                    "namespace": "Windows.Media.Capture.Frames",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "MediaFrameArrivedEventArgs",
+                    "namespace": "Windows.Media.Capture.Frames",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_FrameArrived",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TryAcquireLatestFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaFrameReference",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "StartAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaFrameReaderStartStatus",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "StopAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "events": [
+        {
+          "name": "FrameArrived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaFrameReader",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "MediaFrameArrivedEventArgs",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_FrameArrived",
+          "remove_method": "remove_FrameArrived"
+        }
+      ]
+    },
+    "IMediaFrameReader2": {
+      "guid": "871127b3-8531-4050-87cc-a13733cf3e9b",
+      "exclusive_to": "Windows.Media.Capture.Frames.MediaFrameReader",
+      "methods": [
+        {
+          "name": "put_AcquisitionMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaFrameReaderAcquisitionMode",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AcquisitionMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaFrameReaderAcquisitionMode",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AcquisitionMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaFrameReaderAcquisitionMode",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AcquisitionMode",
+          "setter": "put_AcquisitionMode"
+        }
+      ]
+    },
+    "IMediaFrameReference": {
+      "guid": "f6b88641-f0dc-4044-8dc9-961cedd05bad",
+      "exclusive_to": "Windows.Media.Capture.Frames.MediaFrameReference",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_SourceKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaFrameSourceKind",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Format",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaFrameFormat",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_SystemRelativeTime",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Duration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_BufferMediaFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BufferMediaFrame",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_VideoMediaFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoMediaFrame",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CoordinateSystem",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialCoordinateSystem",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BufferMediaFrame",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BufferMediaFrame",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          },
+          "getter": "get_BufferMediaFrame"
+        },
+        {
+          "name": "CoordinateSystem",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialCoordinateSystem",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_CoordinateSystem"
+        },
+        {
+          "name": "Duration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Duration"
+        },
+        {
+          "name": "Format",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaFrameFormat",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          },
+          "getter": "get_Format"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "SourceKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaFrameSourceKind",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SourceKind"
+        },
+        {
+          "name": "SystemRelativeTime",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_SystemRelativeTime"
+        },
+        {
+          "name": "VideoMediaFrame",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoMediaFrame",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          },
+          "getter": "get_VideoMediaFrame"
+        }
+      ]
+    },
+    "IMediaFrameReference2": {
+      "guid": "ddbc3ecc-d5b2-49ef-836a-947d989b80c1",
+      "exclusive_to": "Windows.Media.Capture.Frames.MediaFrameReference",
+      "methods": [
+        {
+          "name": "get_AudioMediaFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioMediaFrame",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AudioMediaFrame",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AudioMediaFrame",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          },
+          "getter": "get_AudioMediaFrame"
+        }
+      ]
+    },
+    "IMediaFrameSource": {
+      "guid": "d6782953-90db-46a8-8add-2aa884a8d253",
+      "exclusive_to": "Windows.Media.Capture.Frames.MediaFrameSource",
+      "methods": [
+        {
+          "name": "get_Info",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaFrameSourceInfo",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Controller",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaFrameSourceController",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_SupportedFormats",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaFrameFormat",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_CurrentFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaFrameFormat",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetFormatAsync",
+          "params": [
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaFrameFormat",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "add_FormatChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "MediaFrameSource",
+                    "namespace": "Windows.Media.Capture.Frames",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_FormatChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TryGetCameraIntrinsics",
+          "params": [
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaFrameFormat",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CameraIntrinsics",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Controller",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaFrameSourceController",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          },
+          "getter": "get_Controller"
+        },
+        {
+          "name": "CurrentFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaFrameFormat",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          },
+          "getter": "get_CurrentFormat"
+        },
+        {
+          "name": "Info",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaFrameSourceInfo",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          },
+          "getter": "get_Info"
+        },
+        {
+          "name": "SupportedFormats",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaFrameFormat",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_SupportedFormats"
+        }
+      ],
+      "events": [
+        {
+          "name": "FormatChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaFrameSource",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_FormatChanged",
+          "remove_method": "remove_FormatChanged"
+        }
+      ]
+    },
+    "IMediaFrameSourceController": {
+      "guid": "6d076635-316d-4b8f-b7b6-eeb04a8c6525",
+      "exclusive_to": "Windows.Media.Capture.Frames.MediaFrameSourceController",
+      "methods": [
+        {
+          "name": "GetPropertyAsync",
+          "params": [
+            {
+              "name": "propertyId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaFrameSourceGetPropertyResult",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SetPropertyAsync",
+          "params": [
+            {
+              "name": "propertyId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "propertyValue",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaFrameSourceSetPropertyStatus",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_VideoDeviceController",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoDeviceController",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "VideoDeviceController",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoDeviceController",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_VideoDeviceController"
+        }
+      ]
+    },
+    "IMediaFrameSourceController2": {
+      "guid": "efc49fd4-fcf2-4a03-b4e4-ac9628739bee",
+      "exclusive_to": "Windows.Media.Capture.Frames.MediaFrameSourceController",
+      "methods": [
+        {
+          "name": "GetPropertyByExtendedIdAsync",
+          "params": [
+            {
+              "name": "extendedPropertyId",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            },
+            {
+              "name": "maxPropertyValueSize",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "U4"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaFrameSourceGetPropertyResult",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SetPropertyByExtendedIdAsync",
+          "params": [
+            {
+              "name": "extendedPropertyId",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            },
+            {
+              "name": "propertyValue",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaFrameSourceSetPropertyStatus",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IMediaFrameSourceController3": {
+      "guid": "1f0cf815-2464-4651-b1e8-4a82dbdb54de",
+      "exclusive_to": "Windows.Media.Capture.Frames.MediaFrameSourceController",
+      "methods": [
+        {
+          "name": "get_AudioDeviceController",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioDeviceController",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AudioDeviceController",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AudioDeviceController",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_AudioDeviceController"
+        }
+      ]
+    },
+    "IMediaFrameSourceGetPropertyResult": {
+      "guid": "088616c2-3a64-4bd5-bd2b-e7c898d2f37a",
+      "exclusive_to": "Windows.Media.Capture.Frames.MediaFrameSourceGetPropertyResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaFrameSourceGetPropertyStatus",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaFrameSourceGetPropertyStatus",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "IMediaFrameSourceGroup": {
+      "guid": "7f605b87-4832-4b5f-ae3d-412faab37d34",
+      "exclusive_to": "Windows.Media.Capture.Frames.MediaFrameSourceGroup",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SourceInfos",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaFrameSourceInfo",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "SourceInfos",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaFrameSourceInfo",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_SourceInfos"
+        }
+      ]
+    },
+    "IMediaFrameSourceGroupStatics": {
+      "guid": "1c48bfc5-436f-4508-94cf-d5d8b7326445",
+      "exclusive_to": "Windows.Media.Capture.Frames.MediaFrameSourceGroup",
+      "methods": [
+        {
+          "name": "FindAllAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "MediaFrameSourceGroup",
+                    "namespace": "Windows.Media.Capture.Frames",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaFrameSourceGroup",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDeviceSelector",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "IMediaFrameSourceInfo": {
+      "guid": "87bdc9cd-4601-408f-91cf-038318cd0af3",
+      "exclusive_to": "Windows.Media.Capture.Frames.MediaFrameSourceInfo",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MediaStreamType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaStreamType",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_SourceKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaFrameSourceKind",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_SourceGroup",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaFrameSourceGroup",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DeviceInformation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_CoordinateSystem",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialCoordinateSystem",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CoordinateSystem",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialCoordinateSystem",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_CoordinateSystem"
+        },
+        {
+          "name": "DeviceInformation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          },
+          "getter": "get_DeviceInformation"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "MediaStreamType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaStreamType",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MediaStreamType"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "SourceGroup",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaFrameSourceGroup",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          },
+          "getter": "get_SourceGroup"
+        },
+        {
+          "name": "SourceKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaFrameSourceKind",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SourceKind"
+        }
+      ]
+    },
+    "IMediaFrameSourceInfo2": {
+      "guid": "195a7855-6457-42c6-a769-19b65bd32e6e",
+      "exclusive_to": "Windows.Media.Capture.Frames.MediaFrameSourceInfo",
+      "methods": [
+        {
+          "name": "get_ProfileId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_VideoProfileMediaDescription",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaCaptureVideoProfileMediaDescription",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ProfileId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ProfileId"
+        },
+        {
+          "name": "VideoProfileMediaDescription",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaCaptureVideoProfileMediaDescription",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_VideoProfileMediaDescription"
+        }
+      ]
+    },
+    "IMediaFrameSourceInfo3": {
+      "guid": "ca824ab6-66ea-5885-a2b6-26c0eeec3c7b",
+      "exclusive_to": "Windows.Media.Capture.Frames.MediaFrameSourceInfo",
+      "methods": [
+        {
+          "name": "GetRelativePanel",
+          "params": [
+            {
+              "name": "displayRegion",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayRegion",
+                "namespace": "Windows.UI.WindowManagement",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Panel",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          }
+        }
+      ]
+    },
+    "IMediaFrameSourceInfo4": {
+      "guid": "4817d721-85eb-470c-8f37-43ca5498e41d",
+      "exclusive_to": "Windows.Media.Capture.Frames.MediaFrameSourceInfo",
+      "methods": [
+        {
+          "name": "get_IsShareable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsShareable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsShareable"
+        }
+      ]
+    },
+    "IMultiSourceMediaFrameArrivedEventArgs": {
+      "guid": "63115e01-cf51-48fd-aab0-6d693eb48127",
+      "exclusive_to": "Windows.Media.Capture.Frames.MultiSourceMediaFrameArrivedEventArgs"
+    },
+    "IMultiSourceMediaFrameReader": {
+      "guid": "8d144402-f763-488d-98f2-b437bcf075e7",
+      "exclusive_to": "Windows.Media.Capture.Frames.MultiSourceMediaFrameReader",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "add_FrameArrived",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "MultiSourceMediaFrameReader",
+                    "namespace": "Windows.Media.Capture.Frames",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "MultiSourceMediaFrameArrivedEventArgs",
+                    "namespace": "Windows.Media.Capture.Frames",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_FrameArrived",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TryAcquireLatestFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MultiSourceMediaFrameReference",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "StartAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MultiSourceMediaFrameReaderStartStatus",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "StopAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "events": [
+        {
+          "name": "FrameArrived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MultiSourceMediaFrameReader",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "MultiSourceMediaFrameArrivedEventArgs",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_FrameArrived",
+          "remove_method": "remove_FrameArrived"
+        }
+      ]
+    },
+    "IMultiSourceMediaFrameReader2": {
+      "guid": "ef5c8abd-fc5c-4c6b-9d81-3cb9cc637c26",
+      "exclusive_to": "Windows.Media.Capture.Frames.MultiSourceMediaFrameReader",
+      "methods": [
+        {
+          "name": "put_AcquisitionMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaFrameReaderAcquisitionMode",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AcquisitionMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaFrameReaderAcquisitionMode",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AcquisitionMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaFrameReaderAcquisitionMode",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AcquisitionMode",
+          "setter": "put_AcquisitionMode"
+        }
+      ]
+    },
+    "IMultiSourceMediaFrameReference": {
+      "guid": "21964b1a-7fe2-44d6-92e5-298e6d2810e9",
+      "exclusive_to": "Windows.Media.Capture.Frames.MultiSourceMediaFrameReference",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "TryGetFrameReferenceBySourceId",
+          "params": [
+            {
+              "name": "sourceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaFrameReference",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IVideoMediaFrame": {
+      "guid": "00dd4ccb-32bd-4fe1-a013-7cc13cf5dbcf",
+      "exclusive_to": "Windows.Media.Capture.Frames.VideoMediaFrame",
+      "methods": [
+        {
+          "name": "get_FrameReference",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaFrameReference",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_VideoFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoMediaFrameFormat",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_SoftwareBitmap",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SoftwareBitmap",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Direct3DSurface",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IDirect3DSurface",
+            "namespace": "Windows.Graphics.DirectX.Direct3D11",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_CameraIntrinsics",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CameraIntrinsics",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_InfraredMediaFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InfraredMediaFrame",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DepthMediaFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DepthMediaFrame",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetVideoFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoFrame",
+            "namespace": "Windows.Media",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CameraIntrinsics",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CameraIntrinsics",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_CameraIntrinsics"
+        },
+        {
+          "name": "DepthMediaFrame",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DepthMediaFrame",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          },
+          "getter": "get_DepthMediaFrame"
+        },
+        {
+          "name": "Direct3DSurface",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IDirect3DSurface",
+            "namespace": "Windows.Graphics.DirectX.Direct3D11",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Direct3DSurface"
+        },
+        {
+          "name": "FrameReference",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaFrameReference",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          },
+          "getter": "get_FrameReference"
+        },
+        {
+          "name": "InfraredMediaFrame",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InfraredMediaFrame",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          },
+          "getter": "get_InfraredMediaFrame"
+        },
+        {
+          "name": "SoftwareBitmap",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SoftwareBitmap",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          },
+          "getter": "get_SoftwareBitmap"
+        },
+        {
+          "name": "VideoFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoMediaFrameFormat",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          },
+          "getter": "get_VideoFormat"
+        }
+      ]
+    },
+    "IVideoMediaFrameFormat": {
+      "guid": "46027fc0-d71b-45c7-8f14-6d9a0ae604e4",
+      "exclusive_to": "Windows.Media.Capture.Frames.VideoMediaFrameFormat",
+      "methods": [
+        {
+          "name": "get_MediaFrameFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaFrameFormat",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DepthFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DepthMediaFrameFormat",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Width",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Height",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DepthFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DepthMediaFrameFormat",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          },
+          "getter": "get_DepthFormat"
+        },
+        {
+          "name": "Height",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Height"
+        },
+        {
+          "name": "MediaFrameFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaFrameFormat",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          },
+          "getter": "get_MediaFrameFormat"
+        },
+        {
+          "name": "Width",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Width"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AudioMediaFrame": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAudioMediaFrame",
+        "namespace": "Windows.Media.Capture.Frames",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAudioMediaFrame",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BufferMediaFrame": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBufferMediaFrame",
+        "namespace": "Windows.Media.Capture.Frames",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBufferMediaFrame",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DepthMediaFrame": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDepthMediaFrame",
+        "namespace": "Windows.Media.Capture.Frames",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDepthMediaFrame",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDepthMediaFrame2",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DepthMediaFrameFormat": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDepthMediaFrameFormat",
+        "namespace": "Windows.Media.Capture.Frames",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDepthMediaFrameFormat",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InfraredMediaFrame": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInfraredMediaFrame",
+        "namespace": "Windows.Media.Capture.Frames",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInfraredMediaFrame",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MediaFrameArrivedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaFrameArrivedEventArgs",
+        "namespace": "Windows.Media.Capture.Frames",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaFrameArrivedEventArgs",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MediaFrameFormat": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaFrameFormat",
+        "namespace": "Windows.Media.Capture.Frames",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaFrameFormat",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaFrameFormat2",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MediaFrameReader": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaFrameReader",
+        "namespace": "Windows.Media.Capture.Frames",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaFrameReader",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaFrameReader2",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MediaFrameReference": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaFrameReference",
+        "namespace": "Windows.Media.Capture.Frames",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaFrameReference",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaFrameReference2",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MediaFrameSource": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaFrameSource",
+        "namespace": "Windows.Media.Capture.Frames",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaFrameSource",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MediaFrameSourceController": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaFrameSourceController",
+        "namespace": "Windows.Media.Capture.Frames",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaFrameSourceController",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaFrameSourceController2",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaFrameSourceController3",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MediaFrameSourceGetPropertyResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaFrameSourceGetPropertyResult",
+        "namespace": "Windows.Media.Capture.Frames",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaFrameSourceGetPropertyResult",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MediaFrameSourceGroup": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaFrameSourceGroup",
+        "namespace": "Windows.Media.Capture.Frames",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaFrameSourceGroup",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Media.Capture.Frames.IMediaFrameSourceGroupStatics"
+      ]
+    },
+    "MediaFrameSourceInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaFrameSourceInfo",
+        "namespace": "Windows.Media.Capture.Frames",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaFrameSourceInfo",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaFrameSourceInfo2",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaFrameSourceInfo3",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaFrameSourceInfo4",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MultiSourceMediaFrameArrivedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMultiSourceMediaFrameArrivedEventArgs",
+        "namespace": "Windows.Media.Capture.Frames",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMultiSourceMediaFrameArrivedEventArgs",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MultiSourceMediaFrameReader": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMultiSourceMediaFrameReader",
+        "namespace": "Windows.Media.Capture.Frames",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMultiSourceMediaFrameReader",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMultiSourceMediaFrameReader2",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MultiSourceMediaFrameReference": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMultiSourceMediaFrameReference",
+        "namespace": "Windows.Media.Capture.Frames",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMultiSourceMediaFrameReference",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VideoMediaFrame": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVideoMediaFrame",
+        "namespace": "Windows.Media.Capture.Frames",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVideoMediaFrame",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VideoMediaFrameFormat": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVideoMediaFrameFormat",
+        "namespace": "Windows.Media.Capture.Frames",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVideoMediaFrameFormat",
+          "namespace": "Windows.Media.Capture.Frames",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

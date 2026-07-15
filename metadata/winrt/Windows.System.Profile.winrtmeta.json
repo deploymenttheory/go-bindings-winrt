@@ -1,0 +1,917 @@
+{
+  "namespace": "Windows.System.Profile",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "PlatformDataCollectionLevel": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Security",
+          "value": "0"
+        },
+        {
+          "name": "Basic",
+          "value": "1"
+        },
+        {
+          "name": "Enhanced",
+          "value": "2"
+        },
+        {
+          "name": "Full",
+          "value": "3"
+        }
+      ]
+    },
+    "SystemIdentificationSource": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Tpm",
+          "value": "1"
+        },
+        {
+          "name": "Uefi",
+          "value": "2"
+        },
+        {
+          "name": "Registry",
+          "value": "3"
+        }
+      ]
+    },
+    "SystemOutOfBoxExperienceState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "NotStarted",
+          "value": "0"
+        },
+        {
+          "name": "InProgress",
+          "value": "1"
+        },
+        {
+          "name": "Completed",
+          "value": "2"
+        }
+      ]
+    },
+    "UnsupportedAppRequirementReasons": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "DeniedBySystem",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IAnalyticsInfoStatics": {
+      "guid": "1d5ee066-188d-5ba9-4387-acaeb0e7e305",
+      "exclusive_to": "Windows.System.Profile.AnalyticsInfo",
+      "methods": [
+        {
+          "name": "get_VersionInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AnalyticsVersionInfo",
+            "namespace": "Windows.System.Profile",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DeviceForm",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceForm",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceForm"
+        },
+        {
+          "name": "VersionInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AnalyticsVersionInfo",
+            "namespace": "Windows.System.Profile",
+            "target_kind": "Class"
+          },
+          "getter": "get_VersionInfo"
+        }
+      ]
+    },
+    "IAnalyticsInfoStatics2": {
+      "guid": "101704ea-a7f9-46d2-ab94-016865afdb25",
+      "exclusive_to": "Windows.System.Profile.AnalyticsInfo",
+      "methods": [
+        {
+          "name": "GetSystemPropertiesAsync",
+          "params": [
+            {
+              "name": "attributeNames",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IMapView`2",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IAnalyticsVersionInfo": {
+      "guid": "926130b8-9955-4c74-bdc1-7cd0decf9b03",
+      "exclusive_to": "Windows.System.Profile.AnalyticsVersionInfo",
+      "methods": [
+        {
+          "name": "get_DeviceFamily",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DeviceFamilyVersion",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceFamily",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceFamily"
+        },
+        {
+          "name": "DeviceFamilyVersion",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceFamilyVersion"
+        }
+      ]
+    },
+    "IAnalyticsVersionInfo2": {
+      "guid": "76e915b1-ff36-407c-9f57-160d3e540747",
+      "exclusive_to": "Windows.System.Profile.AnalyticsVersionInfo",
+      "methods": [
+        {
+          "name": "get_ProductName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ProductName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ProductName"
+        }
+      ]
+    },
+    "IAppApplicabilityStatics": {
+      "guid": "1664a082-0f38-5c99-83e4-48995970861c",
+      "exclusive_to": "Windows.System.Profile.AppApplicability",
+      "methods": [
+        {
+          "name": "GetUnsupportedAppRequirements",
+          "params": [
+            {
+              "name": "capabilities",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UnsupportedAppRequirement",
+                "namespace": "Windows.System.Profile",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IEducationSettingsStatics": {
+      "guid": "fc53f0ef-4d3e-4e13-9b23-505f4d091e92",
+      "exclusive_to": "Windows.System.Profile.EducationSettings",
+      "methods": [
+        {
+          "name": "get_IsEducationEnvironment",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsEducationEnvironment",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsEducationEnvironment"
+        }
+      ]
+    },
+    "IPlatformDiagnosticsAndUsageDataSettingsStatics": {
+      "guid": "b6e24c1b-7b1c-4b32-8c62-a66597ce723a",
+      "exclusive_to": "Windows.System.Profile.PlatformDiagnosticsAndUsageDataSettings",
+      "methods": [
+        {
+          "name": "get_CollectionLevel",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlatformDataCollectionLevel",
+            "namespace": "Windows.System.Profile",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_CollectionLevelChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CollectionLevelChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CanCollectDiagnostics",
+          "params": [
+            {
+              "name": "level",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PlatformDataCollectionLevel",
+                "namespace": "Windows.System.Profile",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CollectionLevel",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PlatformDataCollectionLevel",
+            "namespace": "Windows.System.Profile",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CollectionLevel"
+        }
+      ],
+      "events": [
+        {
+          "name": "CollectionLevelChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_CollectionLevelChanged",
+          "remove_method": "remove_CollectionLevelChanged"
+        }
+      ]
+    },
+    "ISmartAppControlPolicyStatics": {
+      "guid": "5ff8c75b-073e-5015-8d98-5ff224180a0b",
+      "exclusive_to": "Windows.System.Profile.SmartAppControlPolicy",
+      "methods": [
+        {
+          "name": "get_IsEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "add_Changed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Changed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsEnabled"
+        }
+      ],
+      "events": [
+        {
+          "name": "Changed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_Changed",
+          "remove_method": "remove_Changed"
+        }
+      ]
+    },
+    "ISystemIdentificationInfo": {
+      "guid": "0c659e7d-c3c2-4d33-a2df-21bc41916eb3",
+      "exclusive_to": "Windows.System.Profile.SystemIdentificationInfo",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Source",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SystemIdentificationSource",
+            "namespace": "Windows.System.Profile",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "Source",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SystemIdentificationSource",
+            "namespace": "Windows.System.Profile",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Source"
+        }
+      ]
+    },
+    "ISystemIdentificationStatics": {
+      "guid": "5581f42a-d3df-4d93-a37d-c41a616c6d01",
+      "exclusive_to": "Windows.System.Profile.SystemIdentification",
+      "methods": [
+        {
+          "name": "GetSystemIdForPublisher",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SystemIdentificationInfo",
+            "namespace": "Windows.System.Profile",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetSystemIdForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SystemIdentificationInfo",
+            "namespace": "Windows.System.Profile",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISystemSetupInfoStatics": {
+      "guid": "b8366a4b-fb6a-4571-be0a-9a0f67954123",
+      "exclusive_to": "Windows.System.Profile.SystemSetupInfo",
+      "methods": [
+        {
+          "name": "get_OutOfBoxExperienceState",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SystemOutOfBoxExperienceState",
+            "namespace": "Windows.System.Profile",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_OutOfBoxExperienceStateChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_OutOfBoxExperienceStateChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "OutOfBoxExperienceState",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SystemOutOfBoxExperienceState",
+            "namespace": "Windows.System.Profile",
+            "target_kind": "Enum"
+          },
+          "getter": "get_OutOfBoxExperienceState"
+        }
+      ],
+      "events": [
+        {
+          "name": "OutOfBoxExperienceStateChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_OutOfBoxExperienceStateChanged",
+          "remove_method": "remove_OutOfBoxExperienceStateChanged"
+        }
+      ]
+    },
+    "IUnsupportedAppRequirement": {
+      "guid": "6182445c-894b-5cbc-8976-a98e0a9b998d",
+      "exclusive_to": "Windows.System.Profile.UnsupportedAppRequirement",
+      "methods": [
+        {
+          "name": "get_Requirement",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Reasons",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UnsupportedAppRequirementReasons",
+            "namespace": "Windows.System.Profile",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Reasons",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UnsupportedAppRequirementReasons",
+            "namespace": "Windows.System.Profile",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Reasons"
+        },
+        {
+          "name": "Requirement",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Requirement"
+        }
+      ]
+    },
+    "IWindowsIntegrityPolicyStatics": {
+      "guid": "7d1d81db-8d63-4789-9ea5-ddcf65a94f3c",
+      "exclusive_to": "Windows.System.Profile.WindowsIntegrityPolicy",
+      "methods": [
+        {
+          "name": "get_IsEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsEnabledForTrial",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_CanDisable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsDisableSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "add_PolicyChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PolicyChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CanDisable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanDisable"
+        },
+        {
+          "name": "IsDisableSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsDisableSupported"
+        },
+        {
+          "name": "IsEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsEnabled"
+        },
+        {
+          "name": "IsEnabledForTrial",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsEnabledForTrial"
+        }
+      ],
+      "events": [
+        {
+          "name": "PolicyChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_PolicyChanged",
+          "remove_method": "remove_PolicyChanged"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AnalyticsInfo": {
+      "static_interfaces": [
+        "Windows.System.Profile.IAnalyticsInfoStatics2",
+        "Windows.System.Profile.IAnalyticsInfoStatics"
+      ]
+    },
+    "AnalyticsVersionInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAnalyticsVersionInfo",
+        "namespace": "Windows.System.Profile",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAnalyticsVersionInfo",
+          "namespace": "Windows.System.Profile",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAnalyticsVersionInfo2",
+          "namespace": "Windows.System.Profile",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppApplicability": {
+      "static_interfaces": [
+        "Windows.System.Profile.IAppApplicabilityStatics"
+      ]
+    },
+    "EducationSettings": {
+      "static_interfaces": [
+        "Windows.System.Profile.IEducationSettingsStatics"
+      ]
+    },
+    "PlatformDiagnosticsAndUsageDataSettings": {
+      "static_interfaces": [
+        "Windows.System.Profile.IPlatformDiagnosticsAndUsageDataSettingsStatics"
+      ]
+    },
+    "SmartAppControlPolicy": {
+      "static_interfaces": [
+        "Windows.System.Profile.ISmartAppControlPolicyStatics"
+      ]
+    },
+    "SystemIdentification": {
+      "static_interfaces": [
+        "Windows.System.Profile.ISystemIdentificationStatics"
+      ]
+    },
+    "SystemIdentificationInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISystemIdentificationInfo",
+        "namespace": "Windows.System.Profile",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISystemIdentificationInfo",
+          "namespace": "Windows.System.Profile",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SystemSetupInfo": {
+      "static_interfaces": [
+        "Windows.System.Profile.ISystemSetupInfoStatics"
+      ]
+    },
+    "UnsupportedAppRequirement": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUnsupportedAppRequirement",
+        "namespace": "Windows.System.Profile",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUnsupportedAppRequirement",
+          "namespace": "Windows.System.Profile",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WindowsIntegrityPolicy": {
+      "static_interfaces": [
+        "Windows.System.Profile.IWindowsIntegrityPolicyStatics"
+      ]
+    }
+  }
+}

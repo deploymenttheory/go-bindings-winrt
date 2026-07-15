@@ -1,0 +1,2200 @@
+{
+  "namespace": "Windows.Graphics.Printing.PrintSupport",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "IppCommunicationErrorKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Other",
+          "value": "0"
+        },
+        {
+          "name": "Timeout",
+          "value": "1"
+        },
+        {
+          "name": "ConnectionError",
+          "value": "2"
+        },
+        {
+          "name": "AccessDenied",
+          "value": "3"
+        }
+      ]
+    },
+    "IppPrinterCommunicationKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Network",
+          "value": "0"
+        },
+        {
+          "name": "Usb",
+          "value": "1"
+        },
+        {
+          "name": "PrinterConnection",
+          "value": "2"
+        },
+        {
+          "name": "UniversalPrint",
+          "value": "3"
+        },
+        {
+          "name": "VirtualPrinter",
+          "value": "4"
+        }
+      ]
+    },
+    "PrintSupportAppContracts": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "JobBackgroundSession",
+          "value": "1"
+        },
+        {
+          "name": "SettingsUI",
+          "value": "2"
+        },
+        {
+          "name": "Extension",
+          "value": "4"
+        },
+        {
+          "name": "JobUI",
+          "value": "8"
+        },
+        {
+          "name": "VirtualPrinterBackgroundSession",
+          "value": "16"
+        },
+        {
+          "name": "EnterpriseManagementUI",
+          "value": "32"
+        }
+      ]
+    },
+    "SettingsLaunchKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "JobPrintTicket",
+          "value": "0"
+        },
+        {
+          "name": "UserDefaultPrintTicket",
+          "value": "1"
+        }
+      ]
+    },
+    "WorkflowPrintTicketValidationStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Resolved",
+          "value": "0"
+        },
+        {
+          "name": "Conflicting",
+          "value": "1"
+        },
+        {
+          "name": "Invalid",
+          "value": "2"
+        }
+      ]
+    },
+    "XpsImageQuality": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "JpegHighCompression",
+          "value": "0"
+        },
+        {
+          "name": "JpegMediumCompression",
+          "value": "1"
+        },
+        {
+          "name": "JpegLowCompression",
+          "value": "2"
+        },
+        {
+          "name": "Png",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IPrintSupportAppInfo": {
+      "guid": "913cd9e0-cb44-5ae4-b984-f6e80e872320",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportAppInfo",
+      "methods": [
+        {
+          "name": "get_AppInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppInfo",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_SupportedContracts",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintSupportAppContracts",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppInfo",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          },
+          "getter": "get_AppInfo"
+        },
+        {
+          "name": "SupportedContracts",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintSupportAppContracts",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SupportedContracts"
+        }
+      ]
+    },
+    "IPrintSupportAppInfoStatics": {
+      "guid": "3246a41d-2757-544d-aafa-b38461896270",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportAppInfo",
+      "methods": [
+        {
+          "name": "GetPrintJobShowsUI",
+          "params": [
+            {
+              "name": "printerName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "printTicket",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WorkflowPrintTicket",
+                "namespace": "Windows.Graphics.Printing.PrintTicket",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FromPrinterName",
+          "params": [
+            {
+              "name": "printerName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintSupportAppInfo",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPrintSupportCommunicationErrorDetectedEventArgs": {
+      "guid": "9c90151e-ad1b-5081-a491-4a2d94244f2d",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportCommunicationErrorDetectedEventArgs",
+      "methods": [
+        {
+          "name": "get_ErrorKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppCommunicationErrorKind",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ExtendedError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_CommunicationConfiguration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintSupportIppCommunicationConfiguration",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CommunicationConfiguration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintSupportIppCommunicationConfiguration",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Class"
+          },
+          "getter": "get_CommunicationConfiguration"
+        },
+        {
+          "name": "ErrorKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IppCommunicationErrorKind",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ErrorKind"
+        },
+        {
+          "name": "ExtendedError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtendedError"
+        }
+      ]
+    },
+    "IPrintSupportEnterpriseManagementUIEventArgs": {
+      "guid": "6b1c2850-4bf7-5894-89fa-e89d9ea4eb2e",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportEnterpriseManagementUIEventArgs",
+      "methods": [
+        {
+          "name": "get_Printer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppPrintDevice",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Printer",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IppPrintDevice",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          },
+          "getter": "get_Printer"
+        }
+      ]
+    },
+    "IPrintSupportExtensionSession": {
+      "guid": "eea45f1a-f4c6-54b3-a0b8-a559839aa4c3",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionSession",
+      "methods": [
+        {
+          "name": "get_Printer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppPrintDevice",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_PrintTicketValidationRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintSupportExtensionSession",
+                    "namespace": "Windows.Graphics.Printing.PrintSupport",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintSupportPrintTicketValidationRequestedEventArgs",
+                    "namespace": "Windows.Graphics.Printing.PrintSupport",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PrintTicketValidationRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PrintDeviceCapabilitiesChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintSupportExtensionSession",
+                    "namespace": "Windows.Graphics.Printing.PrintSupport",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintSupportPrintDeviceCapabilitiesChangedEventArgs",
+                    "namespace": "Windows.Graphics.Printing.PrintSupport",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PrintDeviceCapabilitiesChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Start"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Printer",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IppPrintDevice",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          },
+          "getter": "get_Printer"
+        }
+      ],
+      "events": [
+        {
+          "name": "PrintDeviceCapabilitiesChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintSupportExtensionSession",
+                "namespace": "Windows.Graphics.Printing.PrintSupport",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PrintSupportPrintDeviceCapabilitiesChangedEventArgs",
+                "namespace": "Windows.Graphics.Printing.PrintSupport",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PrintDeviceCapabilitiesChanged",
+          "remove_method": "remove_PrintDeviceCapabilitiesChanged"
+        },
+        {
+          "name": "PrintTicketValidationRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintSupportExtensionSession",
+                "namespace": "Windows.Graphics.Printing.PrintSupport",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PrintSupportPrintTicketValidationRequestedEventArgs",
+                "namespace": "Windows.Graphics.Printing.PrintSupport",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PrintTicketValidationRequested",
+          "remove_method": "remove_PrintTicketValidationRequested"
+        }
+      ]
+    },
+    "IPrintSupportExtensionSession2": {
+      "guid": "10fa8c11-6de8-5765-8fcf-e716e0f27ed1",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionSession",
+      "methods": [
+        {
+          "name": "add_PrinterSelected",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintSupportExtensionSession",
+                    "namespace": "Windows.Graphics.Printing.PrintSupport",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintSupportPrinterSelectedEventArgs",
+                    "namespace": "Windows.Graphics.Printing.PrintSupport",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PrinterSelected",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "PrinterSelected",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintSupportExtensionSession",
+                "namespace": "Windows.Graphics.Printing.PrintSupport",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PrintSupportPrinterSelectedEventArgs",
+                "namespace": "Windows.Graphics.Printing.PrintSupport",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PrinterSelected",
+          "remove_method": "remove_PrinterSelected"
+        }
+      ]
+    },
+    "IPrintSupportExtensionSession3": {
+      "guid": "0d1b755d-1273-5e14-81d3-b6bb582b9ed8",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionSession",
+      "methods": [
+        {
+          "name": "add_CommunicationErrorDetected",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintSupportExtensionSession",
+                    "namespace": "Windows.Graphics.Printing.PrintSupport",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintSupportCommunicationErrorDetectedEventArgs",
+                    "namespace": "Windows.Graphics.Printing.PrintSupport",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CommunicationErrorDetected",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "CommunicationErrorDetected",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintSupportExtensionSession",
+                "namespace": "Windows.Graphics.Printing.PrintSupport",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PrintSupportCommunicationErrorDetectedEventArgs",
+                "namespace": "Windows.Graphics.Printing.PrintSupport",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_CommunicationErrorDetected",
+          "remove_method": "remove_CommunicationErrorDetected"
+        }
+      ]
+    },
+    "IPrintSupportExtensionTriggerDetails": {
+      "guid": "ae083711-9b09-55d1-a0ae-2a14c5f83d6a",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionTriggerDetails",
+      "methods": [
+        {
+          "name": "get_Session",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintSupportExtensionSession",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Session",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintSupportExtensionSession",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Class"
+          },
+          "getter": "get_Session"
+        }
+      ]
+    },
+    "IPrintSupportIppCommunicationConfiguration": {
+      "guid": "dbc36e0b-2d90-53b9-90d2-93faf30dafdd",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportIppCommunicationConfiguration",
+      "methods": [
+        {
+          "name": "get_CommunicationKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppPrinterCommunicationKind",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_CanModifyTimeouts",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IppAttributeTimeouts",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintSupportIppCommunicationTimeouts",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IppJobTimeouts",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintSupportIppCommunicationTimeouts",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CanModifyTimeouts",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanModifyTimeouts"
+        },
+        {
+          "name": "CommunicationKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IppPrinterCommunicationKind",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CommunicationKind"
+        },
+        {
+          "name": "IppAttributeTimeouts",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintSupportIppCommunicationTimeouts",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Class"
+          },
+          "getter": "get_IppAttributeTimeouts"
+        },
+        {
+          "name": "IppJobTimeouts",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintSupportIppCommunicationTimeouts",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Class"
+          },
+          "getter": "get_IppJobTimeouts"
+        }
+      ]
+    },
+    "IPrintSupportIppCommunicationTimeouts": {
+      "guid": "a3b2de71-564c-5806-a1a9-c6043ca5d373",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportIppCommunicationTimeouts",
+      "methods": [
+        {
+          "name": "get_ConnectTimeout",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_ConnectTimeout",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SendTimeout",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_SendTimeout",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ReceiveTimeout",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_ReceiveTimeout",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ConnectTimeout",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ConnectTimeout",
+          "setter": "put_ConnectTimeout"
+        },
+        {
+          "name": "ReceiveTimeout",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ReceiveTimeout",
+          "setter": "put_ReceiveTimeout"
+        },
+        {
+          "name": "SendTimeout",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SendTimeout",
+          "setter": "put_SendTimeout"
+        }
+      ]
+    },
+    "IPrintSupportMxdcImageQualityConfiguration": {
+      "guid": "0e0d0b86-d202-58a3-a1ed-2ef9dbc0f291",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportMxdcImageQualityConfiguration",
+      "methods": [
+        {
+          "name": "get_NormalOutputQuality",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XpsImageQuality",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_NormalOutputQuality",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XpsImageQuality",
+                "namespace": "Windows.Graphics.Printing.PrintSupport",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DraftOutputQuality",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XpsImageQuality",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_DraftOutputQuality",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XpsImageQuality",
+                "namespace": "Windows.Graphics.Printing.PrintSupport",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_HighOutputQuality",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XpsImageQuality",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_HighOutputQuality",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XpsImageQuality",
+                "namespace": "Windows.Graphics.Printing.PrintSupport",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PhotographicOutputQuality",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XpsImageQuality",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_PhotographicOutputQuality",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XpsImageQuality",
+                "namespace": "Windows.Graphics.Printing.PrintSupport",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TextOutputQuality",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XpsImageQuality",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_TextOutputQuality",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XpsImageQuality",
+                "namespace": "Windows.Graphics.Printing.PrintSupport",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AutomaticOutputQuality",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XpsImageQuality",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_AutomaticOutputQuality",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XpsImageQuality",
+                "namespace": "Windows.Graphics.Printing.PrintSupport",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FaxOutputQuality",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XpsImageQuality",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_FaxOutputQuality",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XpsImageQuality",
+                "namespace": "Windows.Graphics.Printing.PrintSupport",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AutomaticOutputQuality",
+          "type": {
+            "kind": "ApiRef",
+            "name": "XpsImageQuality",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AutomaticOutputQuality",
+          "setter": "put_AutomaticOutputQuality"
+        },
+        {
+          "name": "DraftOutputQuality",
+          "type": {
+            "kind": "ApiRef",
+            "name": "XpsImageQuality",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DraftOutputQuality",
+          "setter": "put_DraftOutputQuality"
+        },
+        {
+          "name": "FaxOutputQuality",
+          "type": {
+            "kind": "ApiRef",
+            "name": "XpsImageQuality",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Enum"
+          },
+          "getter": "get_FaxOutputQuality",
+          "setter": "put_FaxOutputQuality"
+        },
+        {
+          "name": "HighOutputQuality",
+          "type": {
+            "kind": "ApiRef",
+            "name": "XpsImageQuality",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Enum"
+          },
+          "getter": "get_HighOutputQuality",
+          "setter": "put_HighOutputQuality"
+        },
+        {
+          "name": "NormalOutputQuality",
+          "type": {
+            "kind": "ApiRef",
+            "name": "XpsImageQuality",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Enum"
+          },
+          "getter": "get_NormalOutputQuality",
+          "setter": "put_NormalOutputQuality"
+        },
+        {
+          "name": "PhotographicOutputQuality",
+          "type": {
+            "kind": "ApiRef",
+            "name": "XpsImageQuality",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PhotographicOutputQuality",
+          "setter": "put_PhotographicOutputQuality"
+        },
+        {
+          "name": "TextOutputQuality",
+          "type": {
+            "kind": "ApiRef",
+            "name": "XpsImageQuality",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Enum"
+          },
+          "getter": "get_TextOutputQuality",
+          "setter": "put_TextOutputQuality"
+        }
+      ]
+    },
+    "IPrintSupportPrintDeviceCapabilitiesChangedEventArgs": {
+      "guid": "15969bf0-9028-5722-8a37-7d7c34b41dd6",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesChangedEventArgs",
+      "methods": [
+        {
+          "name": "GetCurrentPrintDeviceCapabilities",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlDocument",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "UpdatePrintDeviceCapabilities",
+          "params": [
+            {
+              "name": "updatedPdc",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XmlDocument",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2": {
+      "guid": "469df9e7-fd07-5eeb-a07d-9fcc67f089ba",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesChangedEventArgs",
+      "methods": [
+        {
+          "name": "SetSupportedPdlPassthroughContentTypes",
+          "params": [
+            {
+              "name": "supportedPdlContentTypes",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ResourceLanguage",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetCurrentPrintDeviceResources",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlDocument",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "UpdatePrintDeviceResources",
+          "params": [
+            {
+              "name": "updatedPdr",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XmlDocument",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetPrintDeviceCapabilitiesUpdatePolicy",
+          "params": [
+            {
+              "name": "updatePolicy",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintSupportPrintDeviceCapabilitiesUpdatePolicy",
+                "namespace": "Windows.Graphics.Printing.PrintSupport",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ResourceLanguage",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ResourceLanguage"
+        }
+      ]
+    },
+    "IPrintSupportPrintDeviceCapabilitiesChangedEventArgs3": {
+      "guid": "d4e9b3fc-8094-5cb6-a343-ce7a97187b45",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_CommunicationConfiguration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintSupportIppCommunicationConfiguration",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CommunicationConfiguration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintSupportIppCommunicationConfiguration",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Class"
+          },
+          "getter": "get_CommunicationConfiguration"
+        }
+      ]
+    },
+    "IPrintSupportPrintDeviceCapabilitiesChangedEventArgs4": {
+      "guid": "31734ad5-9bfb-5bfb-bdef-8476258e3390",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_MxdcImageQualityConfiguration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintSupportMxdcImageQualityConfiguration",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "MxdcImageQualityConfiguration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintSupportMxdcImageQualityConfiguration",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Class"
+          },
+          "getter": "get_MxdcImageQualityConfiguration"
+        }
+      ]
+    },
+    "IPrintSupportPrintDeviceCapabilitiesChangedEventArgs5": {
+      "guid": "bc72f631-8177-5ef0-94c1-929080525b5a",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesChangedEventArgs",
+      "methods": [
+        {
+          "name": "SetPdlPassthroughWithJobAttributesSupported",
+          "params": [
+            {
+              "name": "supported",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IPrintSupportPrintDeviceCapabilitiesUpdatePolicy": {
+      "guid": "5f5fc025-8c35-5529-8038-8cdc3634bbcd",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesUpdatePolicy"
+    },
+    "IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics": {
+      "guid": "3d9e1a70-7c39-551f-aa1f-f8ca35b3119e",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesUpdatePolicy",
+      "methods": [
+        {
+          "name": "CreatePeriodicRefresh",
+          "params": [
+            {
+              "name": "updatePeriod",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintSupportPrintDeviceCapabilitiesUpdatePolicy",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreatePrintJobRefresh",
+          "params": [
+            {
+              "name": "numberOfJobs",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintSupportPrintDeviceCapabilitiesUpdatePolicy",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPrintSupportPrintTicketElement": {
+      "guid": "4b2a4489-730d-5be7-80e6-8332941abf13",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintTicketElement",
+      "methods": [
+        {
+          "name": "get_LocalName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_LocalName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_NamespaceUri",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_NamespaceUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "LocalName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LocalName",
+          "setter": "put_LocalName"
+        },
+        {
+          "name": "NamespaceUri",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NamespaceUri",
+          "setter": "put_NamespaceUri"
+        }
+      ]
+    },
+    "IPrintSupportPrintTicketValidationRequestedEventArgs": {
+      "guid": "338e4e69-db55-55c7-8338-ef64680a8f90",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintTicketValidationRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_PrintTicket",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WorkflowPrintTicket",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetPrintTicketValidationStatus",
+          "params": [
+            {
+              "name": "status",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WorkflowPrintTicketValidationStatus",
+                "namespace": "Windows.Graphics.Printing.PrintSupport",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PrintTicket",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WorkflowPrintTicket",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_PrintTicket"
+        }
+      ]
+    },
+    "IPrintSupportPrintTicketValidationRequestedEventArgs2": {
+      "guid": "39749075-d02d-5fd1-9c4b-46bb8db7316b",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintTicketValidationRequestedEventArgs",
+      "methods": [
+        {
+          "name": "SetPrintJobShowsUI",
+          "params": [
+            {
+              "name": "showsUI",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IPrintSupportPrinterSelectedEventArgs": {
+      "guid": "7b1cb7d9-a8a4-5c09-adb2-66165f817977",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportPrinterSelectedEventArgs",
+      "methods": [
+        {
+          "name": "get_SourceAppInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppInfo",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PrintTicket",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WorkflowPrintTicket",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_PrintTicket",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WorkflowPrintTicket",
+                "namespace": "Windows.Graphics.Printing.PrintTicket",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetAdditionalFeatures",
+          "params": [
+            {
+              "name": "features",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintSupportPrintTicketElement",
+                    "namespace": "Windows.Graphics.Printing.PrintSupport",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetAdditionalParameters",
+          "params": [
+            {
+              "name": "parameters",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintSupportPrintTicketElement",
+                    "namespace": "Windows.Graphics.Printing.PrintSupport",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AllowedAdditionalFeaturesAndParametersCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "SetAdaptiveCard",
+          "params": [
+            {
+              "name": "adaptiveCard",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IAdaptiveCard",
+                "namespace": "Windows.UI.Shell",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllowedAdditionalFeaturesAndParametersCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_AllowedAdditionalFeaturesAndParametersCount"
+        },
+        {
+          "name": "PrintTicket",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WorkflowPrintTicket",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_PrintTicket",
+          "setter": "put_PrintTicket"
+        },
+        {
+          "name": "SourceAppInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppInfo",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          },
+          "getter": "get_SourceAppInfo"
+        }
+      ]
+    },
+    "IPrintSupportSessionInfo": {
+      "guid": "852149af-777d-53e9-9ee9-45d3f4b5be9c",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportSessionInfo",
+      "methods": [
+        {
+          "name": "get_SourceAppInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppInfo",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Printer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppPrintDevice",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Printer",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IppPrintDevice",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          },
+          "getter": "get_Printer"
+        },
+        {
+          "name": "SourceAppInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppInfo",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          },
+          "getter": "get_SourceAppInfo"
+        }
+      ]
+    },
+    "IPrintSupportSettingsActivatedEventArgs": {
+      "guid": "1e1b565e-a013-55ea-9b8c-eea39d9fb6c1",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsActivatedEventArgs",
+      "methods": [
+        {
+          "name": "get_Session",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintSupportSettingsUISession",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Session",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintSupportSettingsUISession",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Class"
+          },
+          "getter": "get_Session"
+        }
+      ]
+    },
+    "IPrintSupportSettingsActivatedEventArgs2": {
+      "guid": "abe45f6e-dc9d-5403-8107-c864d9276367",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsActivatedEventArgs",
+      "methods": [
+        {
+          "name": "get_OwnerWindowId",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WindowId",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "OwnerWindowId",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WindowId",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_OwnerWindowId"
+        }
+      ]
+    },
+    "IPrintSupportSettingsUISession": {
+      "guid": "c6da2251-83c3-55e4-a0f8-5de8b062adbf",
+      "exclusive_to": "Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsUISession",
+      "methods": [
+        {
+          "name": "get_SessionPrintTicket",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WorkflowPrintTicket",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DocumentTitle",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_LaunchKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SettingsLaunchKind",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "UpdatePrintTicket",
+          "params": [
+            {
+              "name": "printTicket",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WorkflowPrintTicket",
+                "namespace": "Windows.Graphics.Printing.PrintTicket",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SessionInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintSupportSessionInfo",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DocumentTitle",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DocumentTitle"
+        },
+        {
+          "name": "LaunchKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SettingsLaunchKind",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Enum"
+          },
+          "getter": "get_LaunchKind"
+        },
+        {
+          "name": "SessionInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintSupportSessionInfo",
+            "namespace": "Windows.Graphics.Printing.PrintSupport",
+            "target_kind": "Class"
+          },
+          "getter": "get_SessionInfo"
+        },
+        {
+          "name": "SessionPrintTicket",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WorkflowPrintTicket",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_SessionPrintTicket"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "PrintSupportAppInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintSupportAppInfo",
+        "namespace": "Windows.Graphics.Printing.PrintSupport",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintSupportAppInfo",
+          "namespace": "Windows.Graphics.Printing.PrintSupport",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Graphics.Printing.PrintSupport.IPrintSupportAppInfoStatics"
+      ]
+    },
+    "PrintSupportCommunicationErrorDetectedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintSupportCommunicationErrorDetectedEventArgs",
+        "namespace": "Windows.Graphics.Printing.PrintSupport",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintSupportCommunicationErrorDetectedEventArgs",
+          "namespace": "Windows.Graphics.Printing.PrintSupport",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintSupportEnterpriseManagementUIEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintSupportEnterpriseManagementUIEventArgs",
+        "namespace": "Windows.Graphics.Printing.PrintSupport",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintSupportEnterpriseManagementUIEventArgs",
+          "namespace": "Windows.Graphics.Printing.PrintSupport",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintSupportExtensionSession": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintSupportExtensionSession",
+        "namespace": "Windows.Graphics.Printing.PrintSupport",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintSupportExtensionSession",
+          "namespace": "Windows.Graphics.Printing.PrintSupport",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintSupportExtensionSession2",
+          "namespace": "Windows.Graphics.Printing.PrintSupport",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintSupportExtensionSession3",
+          "namespace": "Windows.Graphics.Printing.PrintSupport",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintSupportExtensionTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintSupportExtensionTriggerDetails",
+        "namespace": "Windows.Graphics.Printing.PrintSupport",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintSupportExtensionTriggerDetails",
+          "namespace": "Windows.Graphics.Printing.PrintSupport",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintSupportIppCommunicationConfiguration": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintSupportIppCommunicationConfiguration",
+        "namespace": "Windows.Graphics.Printing.PrintSupport",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintSupportIppCommunicationConfiguration",
+          "namespace": "Windows.Graphics.Printing.PrintSupport",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintSupportIppCommunicationTimeouts": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintSupportIppCommunicationTimeouts",
+        "namespace": "Windows.Graphics.Printing.PrintSupport",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintSupportIppCommunicationTimeouts",
+          "namespace": "Windows.Graphics.Printing.PrintSupport",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintSupportMxdcImageQualityConfiguration": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintSupportMxdcImageQualityConfiguration",
+        "namespace": "Windows.Graphics.Printing.PrintSupport",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintSupportMxdcImageQualityConfiguration",
+          "namespace": "Windows.Graphics.Printing.PrintSupport",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintSupportPrintDeviceCapabilitiesChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintSupportPrintDeviceCapabilitiesChangedEventArgs",
+        "namespace": "Windows.Graphics.Printing.PrintSupport",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintSupportPrintDeviceCapabilitiesChangedEventArgs",
+          "namespace": "Windows.Graphics.Printing.PrintSupport",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2",
+          "namespace": "Windows.Graphics.Printing.PrintSupport",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintSupportPrintDeviceCapabilitiesChangedEventArgs3",
+          "namespace": "Windows.Graphics.Printing.PrintSupport",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintSupportPrintDeviceCapabilitiesChangedEventArgs4",
+          "namespace": "Windows.Graphics.Printing.PrintSupport",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintSupportPrintDeviceCapabilitiesChangedEventArgs5",
+          "namespace": "Windows.Graphics.Printing.PrintSupport",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintSupportPrintDeviceCapabilitiesUpdatePolicy": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintSupportPrintDeviceCapabilitiesUpdatePolicy",
+        "namespace": "Windows.Graphics.Printing.PrintSupport",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintSupportPrintDeviceCapabilitiesUpdatePolicy",
+          "namespace": "Windows.Graphics.Printing.PrintSupport",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Graphics.Printing.PrintSupport.IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics"
+      ]
+    },
+    "PrintSupportPrintTicketElement": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintSupportPrintTicketElement",
+        "namespace": "Windows.Graphics.Printing.PrintSupport",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintSupportPrintTicketElement",
+          "namespace": "Windows.Graphics.Printing.PrintSupport",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "PrintSupportPrintTicketValidationRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintSupportPrintTicketValidationRequestedEventArgs",
+        "namespace": "Windows.Graphics.Printing.PrintSupport",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintSupportPrintTicketValidationRequestedEventArgs",
+          "namespace": "Windows.Graphics.Printing.PrintSupport",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintSupportPrintTicketValidationRequestedEventArgs2",
+          "namespace": "Windows.Graphics.Printing.PrintSupport",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintSupportPrinterSelectedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintSupportPrinterSelectedEventArgs",
+        "namespace": "Windows.Graphics.Printing.PrintSupport",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintSupportPrinterSelectedEventArgs",
+          "namespace": "Windows.Graphics.Printing.PrintSupport",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintSupportSessionInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintSupportSessionInfo",
+        "namespace": "Windows.Graphics.Printing.PrintSupport",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintSupportSessionInfo",
+          "namespace": "Windows.Graphics.Printing.PrintSupport",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintSupportSettingsActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintSupportSettingsActivatedEventArgs",
+        "namespace": "Windows.Graphics.Printing.PrintSupport",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintSupportSettingsActivatedEventArgs",
+          "namespace": "Windows.Graphics.Printing.PrintSupport",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintSupportSettingsActivatedEventArgs2",
+          "namespace": "Windows.Graphics.Printing.PrintSupport",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintSupportSettingsUISession": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintSupportSettingsUISession",
+        "namespace": "Windows.Graphics.Printing.PrintSupport",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintSupportSettingsUISession",
+          "namespace": "Windows.Graphics.Printing.PrintSupport",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

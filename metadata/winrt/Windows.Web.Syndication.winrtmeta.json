@@ -1,0 +1,3275 @@
+{
+  "namespace": "Windows.Web.Syndication",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "SyndicationErrorStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "MissingRequiredElement",
+          "value": "1"
+        },
+        {
+          "name": "MissingRequiredAttribute",
+          "value": "2"
+        },
+        {
+          "name": "InvalidXml",
+          "value": "3"
+        },
+        {
+          "name": "UnexpectedContent",
+          "value": "4"
+        },
+        {
+          "name": "UnsupportedFormat",
+          "value": "5"
+        }
+      ]
+    },
+    "SyndicationFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Atom10",
+          "value": "0"
+        },
+        {
+          "name": "Rss20",
+          "value": "1"
+        },
+        {
+          "name": "Rss10",
+          "value": "2"
+        },
+        {
+          "name": "Rss092",
+          "value": "3"
+        },
+        {
+          "name": "Rss091",
+          "value": "4"
+        },
+        {
+          "name": "Atom03",
+          "value": "5"
+        }
+      ]
+    },
+    "SyndicationTextType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Text",
+          "value": "0"
+        },
+        {
+          "name": "Html",
+          "value": "1"
+        },
+        {
+          "name": "Xhtml",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "RetrievalProgress": {
+      "fields": [
+        {
+          "name": "BytesRetrieved",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "TotalBytesToRetrieve",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ]
+    },
+    "TransferProgress": {
+      "fields": [
+        {
+          "name": "BytesSent",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "TotalBytesToSend",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "BytesRetrieved",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "TotalBytesToRetrieve",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ISyndicationAttribute": {
+      "guid": "71e8f969-526e-4001-9a91-e84f83161ab1",
+      "exclusive_to": "Windows.Web.Syndication.SyndicationAttribute",
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Name",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Namespace",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Namespace",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Value",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name",
+          "setter": "put_Name"
+        },
+        {
+          "name": "Namespace",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Namespace",
+          "setter": "put_Namespace"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Value",
+          "setter": "put_Value"
+        }
+      ]
+    },
+    "ISyndicationAttributeFactory": {
+      "guid": "624f1599-ed3e-420f-be86-640414886e4b",
+      "exclusive_to": "Windows.Web.Syndication.SyndicationAttribute",
+      "methods": [
+        {
+          "name": "CreateSyndicationAttribute",
+          "params": [
+            {
+              "name": "attributeName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "attributeNamespace",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "attributeValue",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SyndicationAttribute",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISyndicationCategory": {
+      "guid": "8715626f-0cba-4a7f-89ff-ecb5281423b6",
+      "exclusive_to": "Windows.Web.Syndication.SyndicationCategory",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationNode",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Label",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Label",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Scheme",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Scheme",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Term",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Term",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Label",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Label",
+          "setter": "put_Label"
+        },
+        {
+          "name": "Scheme",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Scheme",
+          "setter": "put_Scheme"
+        },
+        {
+          "name": "Term",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Term",
+          "setter": "put_Term"
+        }
+      ]
+    },
+    "ISyndicationCategoryFactory": {
+      "guid": "ab42802f-49e0-4525-8ab2-ab45c02528ff",
+      "exclusive_to": "Windows.Web.Syndication.SyndicationCategory",
+      "methods": [
+        {
+          "name": "CreateSyndicationCategory",
+          "params": [
+            {
+              "name": "term",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SyndicationCategory",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateSyndicationCategoryEx",
+          "params": [
+            {
+              "name": "term",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "scheme",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "label",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SyndicationCategory",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISyndicationClient": {
+      "guid": "9e18a9b7-7249-4b45-b229-7df895a5a1f5",
+      "methods": [
+        {
+          "name": "get_ServerCredential",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ServerCredential",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PasswordCredential",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ProxyCredential",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ProxyCredential",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PasswordCredential",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MaxResponseBufferSize",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_MaxResponseBufferSize",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Timeout",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_Timeout",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BypassCacheOnRetrieve",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_BypassCacheOnRetrieve",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetRequestHeader",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RetrieveFeedAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationFeed",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "RetrievalProgress",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BypassCacheOnRetrieve",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_BypassCacheOnRetrieve",
+          "setter": "put_BypassCacheOnRetrieve"
+        },
+        {
+          "name": "MaxResponseBufferSize",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxResponseBufferSize",
+          "setter": "put_MaxResponseBufferSize"
+        },
+        {
+          "name": "ProxyCredential",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          },
+          "getter": "get_ProxyCredential",
+          "setter": "put_ProxyCredential"
+        },
+        {
+          "name": "ServerCredential",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          },
+          "getter": "get_ServerCredential",
+          "setter": "put_ServerCredential"
+        },
+        {
+          "name": "Timeout",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Timeout",
+          "setter": "put_Timeout"
+        }
+      ]
+    },
+    "ISyndicationClientFactory": {
+      "guid": "2ec4b32c-a79b-4114-b29a-05dffbafb9a4",
+      "exclusive_to": "Windows.Web.Syndication.SyndicationClient",
+      "methods": [
+        {
+          "name": "CreateSyndicationClient",
+          "params": [
+            {
+              "name": "serverCredential",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PasswordCredential",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SyndicationClient",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISyndicationContent": {
+      "guid": "4641fefe-0e55-40d0-b8d0-6a2ccba9fc7c",
+      "exclusive_to": "Windows.Web.Syndication.SyndicationContent",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationText",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationNode",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_SourceUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_SourceUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "SourceUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_SourceUri",
+          "setter": "put_SourceUri"
+        }
+      ]
+    },
+    "ISyndicationContentFactory": {
+      "guid": "3d2fbb93-9520-4173-9388-7e2df324a8a0",
+      "exclusive_to": "Windows.Web.Syndication.SyndicationContent",
+      "methods": [
+        {
+          "name": "CreateSyndicationContent",
+          "params": [
+            {
+              "name": "text",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SyndicationTextType",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SyndicationContent",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateSyndicationContentWithSourceUri",
+          "params": [
+            {
+              "name": "sourceUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SyndicationContent",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISyndicationErrorStatics": {
+      "guid": "1fbb2361-45c7-4833-8aa0-be5f3b58a7f4",
+      "exclusive_to": "Windows.Web.Syndication.SyndicationError",
+      "methods": [
+        {
+          "name": "GetStatus",
+          "params": [
+            {
+              "name": "hresult",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SyndicationErrorStatus",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Enum"
+          }
+        }
+      ]
+    },
+    "ISyndicationFeed": {
+      "guid": "7ffe3cd2-5b66-4d62-8403-1bc10d910d6b",
+      "exclusive_to": "Windows.Web.Syndication.SyndicationFeed",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationNode",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Authors",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationPerson",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Categories",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationCategory",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Contributors",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationPerson",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Generator",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SyndicationGenerator",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Generator",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SyndicationGenerator",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IconUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_IconUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Id",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Items",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationItem",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_LastUpdatedTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_LastUpdatedTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Links",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationLink",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ImageUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ImageUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Rights",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ISyndicationText",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_Rights",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ISyndicationText",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Subtitle",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ISyndicationText",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_Subtitle",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ISyndicationText",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Title",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ISyndicationText",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_Title",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ISyndicationText",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FirstUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_LastUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_NextUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PreviousUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_SourceFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SyndicationFormat",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Load",
+          "params": [
+            {
+              "name": "feed",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "LoadFromXml",
+          "params": [
+            {
+              "name": "feedDocument",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XmlDocument",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Authors",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationPerson",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Authors"
+        },
+        {
+          "name": "Categories",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationCategory",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Categories"
+        },
+        {
+          "name": "Contributors",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationPerson",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Contributors"
+        },
+        {
+          "name": "FirstUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_FirstUri"
+        },
+        {
+          "name": "Generator",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SyndicationGenerator",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Class"
+          },
+          "getter": "get_Generator",
+          "setter": "put_Generator"
+        },
+        {
+          "name": "IconUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_IconUri",
+          "setter": "put_IconUri"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id",
+          "setter": "put_Id"
+        },
+        {
+          "name": "ImageUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_ImageUri",
+          "setter": "put_ImageUri"
+        },
+        {
+          "name": "Items",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationItem",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Items"
+        },
+        {
+          "name": "LastUpdatedTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_LastUpdatedTime",
+          "setter": "put_LastUpdatedTime"
+        },
+        {
+          "name": "LastUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_LastUri"
+        },
+        {
+          "name": "Links",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationLink",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Links"
+        },
+        {
+          "name": "NextUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_NextUri"
+        },
+        {
+          "name": "PreviousUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_PreviousUri"
+        },
+        {
+          "name": "Rights",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ISyndicationText",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Rights",
+          "setter": "put_Rights"
+        },
+        {
+          "name": "SourceFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SyndicationFormat",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SourceFormat"
+        },
+        {
+          "name": "Subtitle",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ISyndicationText",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Subtitle",
+          "setter": "put_Subtitle"
+        },
+        {
+          "name": "Title",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ISyndicationText",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Title",
+          "setter": "put_Title"
+        }
+      ]
+    },
+    "ISyndicationFeedFactory": {
+      "guid": "23472232-8be9-48b7-8934-6205131d9357",
+      "exclusive_to": "Windows.Web.Syndication.SyndicationFeed",
+      "methods": [
+        {
+          "name": "CreateSyndicationFeed",
+          "params": [
+            {
+              "name": "title",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "subtitle",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SyndicationFeed",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISyndicationGenerator": {
+      "guid": "9768b379-fb2b-4f6d-b41c-088a5868825c",
+      "exclusive_to": "Windows.Web.Syndication.SyndicationGenerator",
+      "methods": [
+        {
+          "name": "get_Text",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Text",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Uri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Uri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Version",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Version",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Text",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Text",
+          "setter": "put_Text"
+        },
+        {
+          "name": "Uri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Uri",
+          "setter": "put_Uri"
+        },
+        {
+          "name": "Version",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Version",
+          "setter": "put_Version"
+        }
+      ]
+    },
+    "ISyndicationGeneratorFactory": {
+      "guid": "a34083e3-1e26-4dbc-ba9d-1ab84beff97b",
+      "exclusive_to": "Windows.Web.Syndication.SyndicationGenerator",
+      "methods": [
+        {
+          "name": "CreateSyndicationGenerator",
+          "params": [
+            {
+              "name": "text",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SyndicationGenerator",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISyndicationItem": {
+      "guid": "548db883-c384-45c1-8ae8-a378c4ec486c",
+      "exclusive_to": "Windows.Web.Syndication.SyndicationItem",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationNode",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Authors",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationPerson",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Categories",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationCategory",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Contributors",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationPerson",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Content",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SyndicationContent",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Content",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SyndicationContent",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Id",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LastUpdatedTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_LastUpdatedTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Links",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationLink",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_PublishedDate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_PublishedDate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Rights",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ISyndicationText",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_Rights",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ISyndicationText",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Source",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SyndicationFeed",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Source",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SyndicationFeed",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Summary",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ISyndicationText",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_Summary",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ISyndicationText",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Title",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ISyndicationText",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_Title",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ISyndicationText",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CommentsUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_CommentsUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_EditUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_EditMediaUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ETag",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ItemUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "Load",
+          "params": [
+            {
+              "name": "item",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "LoadFromXml",
+          "params": [
+            {
+              "name": "itemDocument",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XmlDocument",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Authors",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationPerson",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Authors"
+        },
+        {
+          "name": "Categories",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationCategory",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Categories"
+        },
+        {
+          "name": "CommentsUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_CommentsUri",
+          "setter": "put_CommentsUri"
+        },
+        {
+          "name": "Content",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SyndicationContent",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Class"
+          },
+          "getter": "get_Content",
+          "setter": "put_Content"
+        },
+        {
+          "name": "Contributors",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationPerson",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Contributors"
+        },
+        {
+          "name": "ETag",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ETag"
+        },
+        {
+          "name": "EditMediaUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_EditMediaUri"
+        },
+        {
+          "name": "EditUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_EditUri"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id",
+          "setter": "put_Id"
+        },
+        {
+          "name": "ItemUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_ItemUri"
+        },
+        {
+          "name": "LastUpdatedTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_LastUpdatedTime",
+          "setter": "put_LastUpdatedTime"
+        },
+        {
+          "name": "Links",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationLink",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Links"
+        },
+        {
+          "name": "PublishedDate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_PublishedDate",
+          "setter": "put_PublishedDate"
+        },
+        {
+          "name": "Rights",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ISyndicationText",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Rights",
+          "setter": "put_Rights"
+        },
+        {
+          "name": "Source",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SyndicationFeed",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Class"
+          },
+          "getter": "get_Source",
+          "setter": "put_Source"
+        },
+        {
+          "name": "Summary",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ISyndicationText",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Summary",
+          "setter": "put_Summary"
+        },
+        {
+          "name": "Title",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ISyndicationText",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Title",
+          "setter": "put_Title"
+        }
+      ]
+    },
+    "ISyndicationItemFactory": {
+      "guid": "251d434f-7db8-487a-85e4-10d191e66ebb",
+      "exclusive_to": "Windows.Web.Syndication.SyndicationItem",
+      "methods": [
+        {
+          "name": "CreateSyndicationItem",
+          "params": [
+            {
+              "name": "title",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "content",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SyndicationContent",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SyndicationItem",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISyndicationLink": {
+      "guid": "27553abd-a10e-41b5-86bd-9759086eb0c5",
+      "exclusive_to": "Windows.Web.Syndication.SyndicationLink",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationNode",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Length",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_Length",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MediaType",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_MediaType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Relationship",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Relationship",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Title",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Title",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Uri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Uri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ResourceLanguage",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_ResourceLanguage",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Length",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Length",
+          "setter": "put_Length"
+        },
+        {
+          "name": "MediaType",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MediaType",
+          "setter": "put_MediaType"
+        },
+        {
+          "name": "Relationship",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Relationship",
+          "setter": "put_Relationship"
+        },
+        {
+          "name": "ResourceLanguage",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ResourceLanguage",
+          "setter": "put_ResourceLanguage"
+        },
+        {
+          "name": "Title",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Title",
+          "setter": "put_Title"
+        },
+        {
+          "name": "Uri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Uri",
+          "setter": "put_Uri"
+        }
+      ]
+    },
+    "ISyndicationLinkFactory": {
+      "guid": "5ed863d4-5535-48ac-98d4-c190995080b3",
+      "exclusive_to": "Windows.Web.Syndication.SyndicationLink",
+      "methods": [
+        {
+          "name": "CreateSyndicationLink",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SyndicationLink",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateSyndicationLinkEx",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "relationship",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "title",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "mediaType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "length",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SyndicationLink",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISyndicationNode": {
+      "guid": "753cef78-51f8-45c0-a9f5-f1719dec3fb2",
+      "methods": [
+        {
+          "name": "get_NodeName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_NodeName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_NodeNamespace",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_NodeNamespace",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_NodeValue",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_NodeValue",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Language",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Language",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BaseUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_BaseUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AttributeExtensions",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationAttribute",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ElementExtensions",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ISyndicationNode",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetXmlDocument",
+          "params": [
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SyndicationFormat",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlDocument",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AttributeExtensions",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationAttribute",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_AttributeExtensions"
+        },
+        {
+          "name": "BaseUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_BaseUri",
+          "setter": "put_BaseUri"
+        },
+        {
+          "name": "ElementExtensions",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ISyndicationNode",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Interface"
+              }
+            ]
+          },
+          "getter": "get_ElementExtensions"
+        },
+        {
+          "name": "Language",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Language",
+          "setter": "put_Language"
+        },
+        {
+          "name": "NodeName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NodeName",
+          "setter": "put_NodeName"
+        },
+        {
+          "name": "NodeNamespace",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NodeNamespace",
+          "setter": "put_NodeNamespace"
+        },
+        {
+          "name": "NodeValue",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NodeValue",
+          "setter": "put_NodeValue"
+        }
+      ]
+    },
+    "ISyndicationNodeFactory": {
+      "guid": "12902188-4acb-49a8-b777-a5eb92e18a79",
+      "exclusive_to": "Windows.Web.Syndication.SyndicationNode",
+      "methods": [
+        {
+          "name": "CreateSyndicationNode",
+          "params": [
+            {
+              "name": "nodeName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "nodeNamespace",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "nodeValue",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SyndicationNode",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISyndicationPerson": {
+      "guid": "fa1ee5da-a7c6-4517-a096-0143faf29327",
+      "exclusive_to": "Windows.Web.Syndication.SyndicationPerson",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationNode",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Email",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Email",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Name",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Uri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Uri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Email",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Email",
+          "setter": "put_Email"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name",
+          "setter": "put_Name"
+        },
+        {
+          "name": "Uri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Uri",
+          "setter": "put_Uri"
+        }
+      ]
+    },
+    "ISyndicationPersonFactory": {
+      "guid": "dcf4886d-229d-4b58-a49b-f3d2f0f5c99f",
+      "exclusive_to": "Windows.Web.Syndication.SyndicationPerson",
+      "methods": [
+        {
+          "name": "CreateSyndicationPerson",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SyndicationPerson",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateSyndicationPersonEx",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "email",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SyndicationPerson",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISyndicationText": {
+      "guid": "b9cc5e80-313a-4091-a2a6-243e0ee923f9",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationNode",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Text",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Text",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Type",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Type",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Xml",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlDocument",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Xml",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XmlDocument",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Text",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Text",
+          "setter": "put_Text"
+        },
+        {
+          "name": "Type",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Type",
+          "setter": "put_Type"
+        },
+        {
+          "name": "Xml",
+          "type": {
+            "kind": "ApiRef",
+            "name": "XmlDocument",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          },
+          "getter": "get_Xml",
+          "setter": "put_Xml"
+        }
+      ]
+    },
+    "ISyndicationTextFactory": {
+      "guid": "ee7342f7-11c6-4b25-ab62-e596bd162946",
+      "exclusive_to": "Windows.Web.Syndication.SyndicationText",
+      "methods": [
+        {
+          "name": "CreateSyndicationText",
+          "params": [
+            {
+              "name": "text",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SyndicationText",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateSyndicationTextEx",
+          "params": [
+            {
+              "name": "text",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SyndicationTextType",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SyndicationText",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "SyndicationAttribute": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISyndicationAttribute",
+        "namespace": "Windows.Web.Syndication",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationAttribute",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Web.Syndication.ISyndicationAttributeFactory"
+      ]
+    },
+    "SyndicationCategory": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISyndicationCategory",
+        "namespace": "Windows.Web.Syndication",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationCategory",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationNode",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Web.Syndication.ISyndicationCategoryFactory"
+      ]
+    },
+    "SyndicationClient": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISyndicationClient",
+        "namespace": "Windows.Web.Syndication",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationClient",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Web.Syndication.ISyndicationClientFactory"
+      ]
+    },
+    "SyndicationContent": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISyndicationContent",
+        "namespace": "Windows.Web.Syndication",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationText",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationNode",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationContent",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Web.Syndication.ISyndicationContentFactory"
+      ]
+    },
+    "SyndicationError": {
+      "static_interfaces": [
+        "Windows.Web.Syndication.ISyndicationErrorStatics"
+      ]
+    },
+    "SyndicationFeed": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISyndicationFeed",
+        "namespace": "Windows.Web.Syndication",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationFeed",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationNode",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Web.Syndication.ISyndicationFeedFactory"
+      ]
+    },
+    "SyndicationGenerator": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISyndicationGenerator",
+        "namespace": "Windows.Web.Syndication",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationGenerator",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationNode",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Web.Syndication.ISyndicationGeneratorFactory"
+      ]
+    },
+    "SyndicationItem": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISyndicationItem",
+        "namespace": "Windows.Web.Syndication",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationItem",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationNode",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Web.Syndication.ISyndicationItemFactory"
+      ]
+    },
+    "SyndicationLink": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISyndicationLink",
+        "namespace": "Windows.Web.Syndication",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationLink",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationNode",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Web.Syndication.ISyndicationLinkFactory"
+      ]
+    },
+    "SyndicationNode": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISyndicationNode",
+        "namespace": "Windows.Web.Syndication",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationNode",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Web.Syndication.ISyndicationNodeFactory"
+      ]
+    },
+    "SyndicationPerson": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISyndicationPerson",
+        "namespace": "Windows.Web.Syndication",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationPerson",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationNode",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Web.Syndication.ISyndicationPersonFactory"
+      ]
+    },
+    "SyndicationText": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISyndicationText",
+        "namespace": "Windows.Web.Syndication",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationText",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationNode",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Web.Syndication.ISyndicationTextFactory"
+      ]
+    }
+  }
+}

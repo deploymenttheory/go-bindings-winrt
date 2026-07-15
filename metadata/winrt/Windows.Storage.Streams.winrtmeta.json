@@ -1,0 +1,2321 @@
+{
+  "namespace": "Windows.Storage.Streams",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "ByteOrder": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "LittleEndian",
+          "value": "0"
+        },
+        {
+          "name": "BigEndian",
+          "value": "1"
+        }
+      ]
+    },
+    "FileOpenDisposition": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "OpenExisting",
+          "value": "0"
+        },
+        {
+          "name": "OpenAlways",
+          "value": "1"
+        },
+        {
+          "name": "CreateNew",
+          "value": "2"
+        },
+        {
+          "name": "CreateAlways",
+          "value": "3"
+        },
+        {
+          "name": "TruncateExisting",
+          "value": "4"
+        }
+      ]
+    },
+    "InputStreamOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Partial",
+          "value": "1"
+        },
+        {
+          "name": "ReadAhead",
+          "value": "2"
+        }
+      ]
+    },
+    "UnicodeEncoding": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Utf8",
+          "value": "0"
+        },
+        {
+          "name": "Utf16LE",
+          "value": "1"
+        },
+        {
+          "name": "Utf16BE",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IBuffer": {
+      "guid": "905a0fe0-bc53-11df-8c49-001e4fc686da",
+      "methods": [
+        {
+          "name": "get_Capacity",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Length",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_Length",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Capacity",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Capacity"
+        },
+        {
+          "name": "Length",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Length",
+          "setter": "put_Length"
+        }
+      ]
+    },
+    "IBufferFactory": {
+      "guid": "71af914d-c10f-484b-bc50-14bc623b3a27",
+      "exclusive_to": "Windows.Storage.Streams.Buffer",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "capacity",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Buffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IBufferStatics": {
+      "guid": "e901e65b-d716-475a-a90a-af7229b1e741",
+      "exclusive_to": "Windows.Storage.Streams.Buffer",
+      "methods": [
+        {
+          "name": "CreateCopyFromMemoryBuffer",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IMemoryBuffer",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Buffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateMemoryBufferOverIBuffer",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MemoryBuffer",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IContentTypeProvider": {
+      "guid": "97d098a5-3b99-4de9-88a5-e11d2f50c795",
+      "methods": [
+        {
+          "name": "get_ContentType",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContentType",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ContentType"
+        }
+      ]
+    },
+    "IDataReader": {
+      "guid": "e2b50029-b4c1-4314-a4b8-fb813a2f275e",
+      "methods": [
+        {
+          "name": "get_UnconsumedBufferLength",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_UnicodeEncoding",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UnicodeEncoding",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_UnicodeEncoding",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UnicodeEncoding",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ByteOrder",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ByteOrder",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_ByteOrder",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ByteOrder",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_InputStreamOptions",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InputStreamOptions",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_InputStreamOptions",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InputStreamOptions",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ReadByte",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "ReadBytes",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "ReadBuffer",
+          "params": [
+            {
+              "name": "length",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReadBoolean",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "ReadGuid",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "ReadInt16",
+          "return": {
+            "kind": "Native",
+            "name": "I2"
+          }
+        },
+        {
+          "name": "ReadInt32",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "ReadInt64",
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        },
+        {
+          "name": "ReadUInt16",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "ReadUInt32",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "ReadUInt64",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "ReadSingle",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "ReadDouble",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "ReadString",
+          "params": [
+            {
+              "name": "codeUnitCount",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ReadDateTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "ReadTimeSpan",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "LoadAsync",
+          "params": [
+            {
+              "name": "count",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DataReaderLoadOperation",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "DetachBuffer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "DetachStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IInputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ByteOrder",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ByteOrder",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ByteOrder",
+          "setter": "put_ByteOrder"
+        },
+        {
+          "name": "InputStreamOptions",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InputStreamOptions",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InputStreamOptions",
+          "setter": "put_InputStreamOptions"
+        },
+        {
+          "name": "UnconsumedBufferLength",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_UnconsumedBufferLength"
+        },
+        {
+          "name": "UnicodeEncoding",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UnicodeEncoding",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Enum"
+          },
+          "getter": "get_UnicodeEncoding",
+          "setter": "put_UnicodeEncoding"
+        }
+      ]
+    },
+    "IDataReaderFactory": {
+      "guid": "d7527847-57da-4e15-914c-06806699a098",
+      "exclusive_to": "Windows.Storage.Streams.DataReader",
+      "methods": [
+        {
+          "name": "CreateDataReader",
+          "params": [
+            {
+              "name": "inputStream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DataReader",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDataReaderStatics": {
+      "guid": "11fcbfc8-f93a-471b-b121-f379e349313c",
+      "exclusive_to": "Windows.Storage.Streams.DataReader",
+      "methods": [
+        {
+          "name": "FromBuffer",
+          "params": [
+            {
+              "name": "buffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DataReader",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDataWriter": {
+      "guid": "64b89265-d341-4922-b38a-dd4af8808c4e",
+      "methods": [
+        {
+          "name": "get_UnstoredBufferLength",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_UnicodeEncoding",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UnicodeEncoding",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_UnicodeEncoding",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UnicodeEncoding",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ByteOrder",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ByteOrder",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_ByteOrder",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ByteOrder",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "WriteByte",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            }
+          ]
+        },
+        {
+          "name": "WriteBytes",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "WriteBuffer",
+          "overload": "WriteBuffer",
+          "params": [
+            {
+              "name": "buffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "WriteBuffer",
+          "overload": "WriteBufferRange",
+          "params": [
+            {
+              "name": "buffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "start",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "count",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "WriteBoolean",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "WriteGuid",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ]
+        },
+        {
+          "name": "WriteInt16",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I2"
+              }
+            }
+          ]
+        },
+        {
+          "name": "WriteInt32",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "WriteInt64",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I8"
+              }
+            }
+          ]
+        },
+        {
+          "name": "WriteUInt16",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ]
+        },
+        {
+          "name": "WriteUInt32",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "WriteUInt64",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ]
+        },
+        {
+          "name": "WriteSingle",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "WriteDouble",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "WriteDateTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "WriteTimeSpan",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "WriteString",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "MeasureString",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "StoreAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DataWriterStoreOperation",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "FlushAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "DetachBuffer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "DetachStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IOutputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ByteOrder",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ByteOrder",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ByteOrder",
+          "setter": "put_ByteOrder"
+        },
+        {
+          "name": "UnicodeEncoding",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UnicodeEncoding",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Enum"
+          },
+          "getter": "get_UnicodeEncoding",
+          "setter": "put_UnicodeEncoding"
+        },
+        {
+          "name": "UnstoredBufferLength",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_UnstoredBufferLength"
+        }
+      ]
+    },
+    "IDataWriterFactory": {
+      "guid": "338c67c2-8b84-4c2b-9c50-7b8767847a1f",
+      "exclusive_to": "Windows.Storage.Streams.DataWriter",
+      "methods": [
+        {
+          "name": "CreateDataWriter",
+          "params": [
+            {
+              "name": "outputStream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IOutputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DataWriter",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IFileRandomAccessStreamStatics": {
+      "guid": "73550107-3b57-4b5d-8345-554d2fc621f0",
+      "exclusive_to": "Windows.Storage.Streams.FileRandomAccessStream",
+      "methods": [
+        {
+          "name": "OpenAsync",
+          "overload": "OpenAsync",
+          "params": [
+            {
+              "name": "filePath",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "accessMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FileAccessMode",
+                "namespace": "Windows.Storage",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "OpenAsync",
+          "overload": "OpenWithOptionsAsync",
+          "params": [
+            {
+              "name": "filePath",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "accessMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FileAccessMode",
+                "namespace": "Windows.Storage",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "sharingOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StorageOpenOptions",
+                "namespace": "Windows.Storage",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "openDisposition",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FileOpenDisposition",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "OpenTransactedWriteAsync",
+          "overload": "OpenTransactedWriteAsync",
+          "params": [
+            {
+              "name": "filePath",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StorageStreamTransaction",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "OpenTransactedWriteAsync",
+          "overload": "OpenTransactedWriteWithOptionsAsync",
+          "params": [
+            {
+              "name": "filePath",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "openOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StorageOpenOptions",
+                "namespace": "Windows.Storage",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "openDisposition",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FileOpenDisposition",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StorageStreamTransaction",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "OpenForUserAsync",
+          "overload": "OpenForUserAsync",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "filePath",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "accessMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FileAccessMode",
+                "namespace": "Windows.Storage",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "OpenForUserAsync",
+          "overload": "OpenForUserWithOptionsAsync",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "filePath",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "accessMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FileAccessMode",
+                "namespace": "Windows.Storage",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "sharingOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StorageOpenOptions",
+                "namespace": "Windows.Storage",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "openDisposition",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FileOpenDisposition",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "OpenTransactedWriteForUserAsync",
+          "overload": "OpenTransactedWriteForUserAsync",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "filePath",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StorageStreamTransaction",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "OpenTransactedWriteForUserAsync",
+          "overload": "OpenTransactedWriteForUserWithOptionsAsync",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "filePath",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "openOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StorageOpenOptions",
+                "namespace": "Windows.Storage",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "openDisposition",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FileOpenDisposition",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StorageStreamTransaction",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IInputStream": {
+      "guid": "905a0fe2-bc53-11df-8c49-001e4fc686da",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "ReadAsync",
+          "params": [
+            {
+              "name": "buffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "count",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InputStreamOptions",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IInputStreamReference": {
+      "guid": "43929d18-5ec9-4b5a-919c-4205b0c804b6",
+      "methods": [
+        {
+          "name": "OpenSequentialReadAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IOutputStream": {
+      "guid": "905a0fe6-bc53-11df-8c49-001e4fc686da",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "WriteAsync",
+          "params": [
+            {
+              "name": "buffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              },
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FlushAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPropertySetSerializer": {
+      "guid": "6e8ebf1c-ef3d-4376-b20e-5be638aeac77",
+      "methods": [
+        {
+          "name": "Serialize",
+          "params": [
+            {
+              "name": "propertySet",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPropertySet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "Deserialize",
+          "params": [
+            {
+              "name": "propertySet",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPropertySet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "buffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IRandomAccessStream": {
+      "guid": "905a0fe1-bc53-11df-8c49-001e4fc686da",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IOutputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Size",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "put_Size",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetInputStreamAt",
+          "params": [
+            {
+              "name": "position",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IInputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetOutputStreamAt",
+          "params": [
+            {
+              "name": "position",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IOutputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "Seek",
+          "params": [
+            {
+              "name": "position",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CloneStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_CanRead",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_CanWrite",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CanRead",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanRead"
+        },
+        {
+          "name": "CanWrite",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanWrite"
+        },
+        {
+          "name": "Position",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_Position"
+        },
+        {
+          "name": "Size",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_Size",
+          "setter": "put_Size"
+        }
+      ]
+    },
+    "IRandomAccessStreamReference": {
+      "guid": "33ee3134-1dd6-4e3a-8067-d1c162e8642b",
+      "methods": [
+        {
+          "name": "OpenReadAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStreamWithContentType",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IRandomAccessStreamReferenceStatics": {
+      "guid": "857309dc-3fbf-4e7d-986f-ef3b1a07a964",
+      "exclusive_to": "Windows.Storage.Streams.RandomAccessStreamReference",
+      "methods": [
+        {
+          "name": "CreateFromFile",
+          "params": [
+            {
+              "name": "file",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFromUri",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFromStream",
+          "params": [
+            {
+              "name": "stream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IRandomAccessStreamStatics": {
+      "guid": "524cedcf-6e29-4ce5-9573-6b753db66c3a",
+      "exclusive_to": "Windows.Storage.Streams.RandomAccessStream",
+      "methods": [
+        {
+          "name": "CopyAsync",
+          "overload": "CopyAsync",
+          "params": [
+            {
+              "name": "source",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "destination",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IOutputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              },
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CopyAsync",
+          "overload": "CopySizeAsync",
+          "params": [
+            {
+              "name": "source",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "destination",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IOutputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "bytesToCopy",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              },
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CopyAndCloseAsync",
+          "params": [
+            {
+              "name": "source",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "destination",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IOutputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              },
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IRandomAccessStreamWithContentType": {
+      "guid": "cc254827-4b3d-438f-9232-10c76bc7e038",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IRandomAccessStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IOutputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IContentTypeProvider",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "Buffer": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBuffer",
+        "namespace": "Windows.Storage.Streams",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBuffer",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Storage.Streams.IBufferFactory"
+      ],
+      "static_interfaces": [
+        "Windows.Storage.Streams.IBufferStatics"
+      ]
+    },
+    "DataReader": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDataReader",
+        "namespace": "Windows.Storage.Streams",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDataReader",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Storage.Streams.IDataReaderFactory"
+      ],
+      "static_interfaces": [
+        "Windows.Storage.Streams.IDataReaderStatics"
+      ]
+    },
+    "DataReaderLoadOperation": {
+      "default_interface": {
+        "kind": "GenericInst",
+        "name": "IAsyncOperation`1",
+        "namespace": "Windows.Foundation",
+        "target_kind": "Interface",
+        "args": [
+          {
+            "kind": "Native",
+            "name": "U4"
+          }
+        ]
+      },
+      "interfaces": [
+        {
+          "kind": "GenericInst",
+          "name": "IAsyncOperation`1",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "Native",
+              "name": "U4"
+            }
+          ]
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAsyncInfo",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DataWriter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDataWriter",
+        "namespace": "Windows.Storage.Streams",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDataWriter",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Storage.Streams.IDataWriterFactory"
+      ]
+    },
+    "DataWriterStoreOperation": {
+      "default_interface": {
+        "kind": "GenericInst",
+        "name": "IAsyncOperation`1",
+        "namespace": "Windows.Foundation",
+        "target_kind": "Interface",
+        "args": [
+          {
+            "kind": "Native",
+            "name": "U4"
+          }
+        ]
+      },
+      "interfaces": [
+        {
+          "kind": "GenericInst",
+          "name": "IAsyncOperation`1",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "Native",
+              "name": "U4"
+            }
+          ]
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAsyncInfo",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FileInputStream": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInputStream",
+        "namespace": "Windows.Storage.Streams",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FileOutputStream": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IOutputStream",
+        "namespace": "Windows.Storage.Streams",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IOutputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FileRandomAccessStream": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRandomAccessStream",
+        "namespace": "Windows.Storage.Streams",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRandomAccessStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IOutputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Storage.Streams.IFileRandomAccessStreamStatics"
+      ]
+    },
+    "InMemoryRandomAccessStream": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRandomAccessStream",
+        "namespace": "Windows.Storage.Streams",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRandomAccessStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IOutputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "InputStreamOverStream": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInputStream",
+        "namespace": "Windows.Storage.Streams",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "OutputStreamOverStream": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IOutputStream",
+        "namespace": "Windows.Storage.Streams",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IOutputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RandomAccessStream": {
+      "static_interfaces": [
+        "Windows.Storage.Streams.IRandomAccessStreamStatics"
+      ]
+    },
+    "RandomAccessStreamOverStream": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRandomAccessStream",
+        "namespace": "Windows.Storage.Streams",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRandomAccessStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IOutputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RandomAccessStreamReference": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRandomAccessStreamReference",
+        "namespace": "Windows.Storage.Streams",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRandomAccessStreamReference",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Storage.Streams.IRandomAccessStreamReferenceStatics"
+      ]
+    }
+  }
+}

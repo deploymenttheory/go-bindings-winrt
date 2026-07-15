@@ -1,0 +1,3923 @@
+{
+  "namespace": "Windows.Web.Http",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "HttpCompletionOption": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "ResponseContentRead",
+          "value": "0"
+        },
+        {
+          "name": "ResponseHeadersRead",
+          "value": "1"
+        }
+      ]
+    },
+    "HttpProgressStage": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "DetectingProxy",
+          "value": "10"
+        },
+        {
+          "name": "ResolvingName",
+          "value": "20"
+        },
+        {
+          "name": "ConnectingToServer",
+          "value": "30"
+        },
+        {
+          "name": "NegotiatingSsl",
+          "value": "40"
+        },
+        {
+          "name": "SendingHeaders",
+          "value": "50"
+        },
+        {
+          "name": "SendingContent",
+          "value": "60"
+        },
+        {
+          "name": "WaitingForResponse",
+          "value": "70"
+        },
+        {
+          "name": "ReceivingHeaders",
+          "value": "80"
+        },
+        {
+          "name": "ReceivingContent",
+          "value": "90"
+        }
+      ]
+    },
+    "HttpResponseMessageSource": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Cache",
+          "value": "1"
+        },
+        {
+          "name": "Network",
+          "value": "2"
+        }
+      ]
+    },
+    "HttpStatusCode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Continue",
+          "value": "100"
+        },
+        {
+          "name": "SwitchingProtocols",
+          "value": "101"
+        },
+        {
+          "name": "Processing",
+          "value": "102"
+        },
+        {
+          "name": "Ok",
+          "value": "200"
+        },
+        {
+          "name": "Created",
+          "value": "201"
+        },
+        {
+          "name": "Accepted",
+          "value": "202"
+        },
+        {
+          "name": "NonAuthoritativeInformation",
+          "value": "203"
+        },
+        {
+          "name": "NoContent",
+          "value": "204"
+        },
+        {
+          "name": "ResetContent",
+          "value": "205"
+        },
+        {
+          "name": "PartialContent",
+          "value": "206"
+        },
+        {
+          "name": "MultiStatus",
+          "value": "207"
+        },
+        {
+          "name": "AlreadyReported",
+          "value": "208"
+        },
+        {
+          "name": "IMUsed",
+          "value": "226"
+        },
+        {
+          "name": "MultipleChoices",
+          "value": "300"
+        },
+        {
+          "name": "MovedPermanently",
+          "value": "301"
+        },
+        {
+          "name": "Found",
+          "value": "302"
+        },
+        {
+          "name": "SeeOther",
+          "value": "303"
+        },
+        {
+          "name": "NotModified",
+          "value": "304"
+        },
+        {
+          "name": "UseProxy",
+          "value": "305"
+        },
+        {
+          "name": "TemporaryRedirect",
+          "value": "307"
+        },
+        {
+          "name": "PermanentRedirect",
+          "value": "308"
+        },
+        {
+          "name": "BadRequest",
+          "value": "400"
+        },
+        {
+          "name": "Unauthorized",
+          "value": "401"
+        },
+        {
+          "name": "PaymentRequired",
+          "value": "402"
+        },
+        {
+          "name": "Forbidden",
+          "value": "403"
+        },
+        {
+          "name": "NotFound",
+          "value": "404"
+        },
+        {
+          "name": "MethodNotAllowed",
+          "value": "405"
+        },
+        {
+          "name": "NotAcceptable",
+          "value": "406"
+        },
+        {
+          "name": "ProxyAuthenticationRequired",
+          "value": "407"
+        },
+        {
+          "name": "RequestTimeout",
+          "value": "408"
+        },
+        {
+          "name": "Conflict",
+          "value": "409"
+        },
+        {
+          "name": "Gone",
+          "value": "410"
+        },
+        {
+          "name": "LengthRequired",
+          "value": "411"
+        },
+        {
+          "name": "PreconditionFailed",
+          "value": "412"
+        },
+        {
+          "name": "RequestEntityTooLarge",
+          "value": "413"
+        },
+        {
+          "name": "RequestUriTooLong",
+          "value": "414"
+        },
+        {
+          "name": "UnsupportedMediaType",
+          "value": "415"
+        },
+        {
+          "name": "RequestedRangeNotSatisfiable",
+          "value": "416"
+        },
+        {
+          "name": "ExpectationFailed",
+          "value": "417"
+        },
+        {
+          "name": "UnprocessableEntity",
+          "value": "422"
+        },
+        {
+          "name": "Locked",
+          "value": "423"
+        },
+        {
+          "name": "FailedDependency",
+          "value": "424"
+        },
+        {
+          "name": "UpgradeRequired",
+          "value": "426"
+        },
+        {
+          "name": "PreconditionRequired",
+          "value": "428"
+        },
+        {
+          "name": "TooManyRequests",
+          "value": "429"
+        },
+        {
+          "name": "RequestHeaderFieldsTooLarge",
+          "value": "431"
+        },
+        {
+          "name": "InternalServerError",
+          "value": "500"
+        },
+        {
+          "name": "NotImplemented",
+          "value": "501"
+        },
+        {
+          "name": "BadGateway",
+          "value": "502"
+        },
+        {
+          "name": "ServiceUnavailable",
+          "value": "503"
+        },
+        {
+          "name": "GatewayTimeout",
+          "value": "504"
+        },
+        {
+          "name": "HttpVersionNotSupported",
+          "value": "505"
+        },
+        {
+          "name": "VariantAlsoNegotiates",
+          "value": "506"
+        },
+        {
+          "name": "InsufficientStorage",
+          "value": "507"
+        },
+        {
+          "name": "LoopDetected",
+          "value": "508"
+        },
+        {
+          "name": "NotExtended",
+          "value": "510"
+        },
+        {
+          "name": "NetworkAuthenticationRequired",
+          "value": "511"
+        }
+      ]
+    },
+    "HttpVersion": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Http10",
+          "value": "1"
+        },
+        {
+          "name": "Http11",
+          "value": "2"
+        },
+        {
+          "name": "Http20",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "HttpProgress": {
+      "fields": [
+        {
+          "name": "Stage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpProgressStage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "BytesSent",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "TotalBytesToSend",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "BytesReceived",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "TotalBytesToReceive",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Retries",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IHttpBufferContentFactory": {
+      "guid": "bc20c193-c41f-4ff7-9123-6435736eadc2",
+      "exclusive_to": "Windows.Web.Http.HttpBufferContent",
+      "methods": [
+        {
+          "name": "CreateFromBuffer",
+          "params": [
+            {
+              "name": "content",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpBufferContent",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFromBufferWithOffset",
+          "params": [
+            {
+              "name": "content",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "offset",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "count",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpBufferContent",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IHttpClient": {
+      "guid": "7fda1151-3574-4880-a8ba-e6b1e0061f3d",
+      "exclusive_to": "Windows.Web.Http.HttpClient",
+      "methods": [
+        {
+          "name": "DeleteAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HttpResponseMessage",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "HttpProgress",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetAsync",
+          "overload": "GetAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HttpResponseMessage",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "HttpProgress",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetAsync",
+          "overload": "GetWithOptionAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "completionOption",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpCompletionOption",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HttpResponseMessage",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "HttpProgress",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetBufferAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "HttpProgress",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetInputStreamAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "HttpProgress",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetStringAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "HttpProgress",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "PostAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "content",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IHttpContent",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HttpResponseMessage",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "HttpProgress",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "PutAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "content",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IHttpContent",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HttpResponseMessage",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "HttpProgress",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SendRequestAsync",
+          "overload": "SendRequestAsync",
+          "params": [
+            {
+              "name": "request",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpRequestMessage",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HttpResponseMessage",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "HttpProgress",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SendRequestAsync",
+          "overload": "SendRequestWithOptionAsync",
+          "params": [
+            {
+              "name": "request",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpRequestMessage",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "completionOption",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpCompletionOption",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HttpResponseMessage",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "HttpProgress",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_DefaultRequestHeaders",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpRequestHeaderCollection",
+            "namespace": "Windows.Web.Http.Headers",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DefaultRequestHeaders",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpRequestHeaderCollection",
+            "namespace": "Windows.Web.Http.Headers",
+            "target_kind": "Class"
+          },
+          "getter": "get_DefaultRequestHeaders"
+        }
+      ]
+    },
+    "IHttpClient2": {
+      "guid": "cdd83348-e8b7-4cec-b1b0-dc455fe72c92",
+      "exclusive_to": "Windows.Web.Http.HttpClient",
+      "methods": [
+        {
+          "name": "TryDeleteAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HttpRequestResult",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "HttpProgress",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryGetAsync",
+          "overload": "TryGetAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HttpRequestResult",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "HttpProgress",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryGetAsync",
+          "overload": "TryGetAsync2",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "completionOption",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpCompletionOption",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HttpRequestResult",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "HttpProgress",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryGetBufferAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HttpGetBufferResult",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "HttpProgress",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryGetInputStreamAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HttpGetInputStreamResult",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "HttpProgress",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryGetStringAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HttpGetStringResult",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "HttpProgress",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryPostAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "content",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IHttpContent",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HttpRequestResult",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "HttpProgress",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryPutAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "content",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IHttpContent",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HttpRequestResult",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "HttpProgress",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TrySendRequestAsync",
+          "overload": "TrySendRequestAsync",
+          "params": [
+            {
+              "name": "request",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpRequestMessage",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HttpRequestResult",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "HttpProgress",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TrySendRequestAsync",
+          "overload": "TrySendRequestAsync2",
+          "params": [
+            {
+              "name": "request",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpRequestMessage",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "completionOption",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpCompletionOption",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HttpRequestResult",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "HttpProgress",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IHttpClient3": {
+      "guid": "1172fd01-9899-4194-963f-8f9d72a7ec15",
+      "exclusive_to": "Windows.Web.Http.HttpClient",
+      "methods": [
+        {
+          "name": "get_DefaultPrivacyAnnotation",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DefaultPrivacyAnnotation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DefaultPrivacyAnnotation",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DefaultPrivacyAnnotation",
+          "setter": "put_DefaultPrivacyAnnotation"
+        }
+      ]
+    },
+    "IHttpClientFactory": {
+      "guid": "c30c4eca-e3fa-4f99-afb4-63cc65009462",
+      "exclusive_to": "Windows.Web.Http.HttpClient",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "filter",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IHttpFilter",
+                "namespace": "Windows.Web.Http.Filters",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpClient",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IHttpContent": {
+      "guid": "6b14a441-fba7-4bd2-af0a-839de7c295da",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Headers",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpContentHeaderCollection",
+            "namespace": "Windows.Web.Http.Headers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "BufferAllAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              },
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ReadAsBufferAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ReadAsInputStreamAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ReadAsStringAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryComputeLength",
+          "params": [
+            {
+              "name": "length",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "WriteToStreamAsync",
+          "params": [
+            {
+              "name": "outputStream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IOutputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              },
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Headers",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpContentHeaderCollection",
+            "namespace": "Windows.Web.Http.Headers",
+            "target_kind": "Class"
+          },
+          "getter": "get_Headers"
+        }
+      ]
+    },
+    "IHttpCookie": {
+      "guid": "1f5488e2-cc2d-4779-86a7-88f10687d249",
+      "exclusive_to": "Windows.Web.Http.HttpCookie",
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Domain",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Path",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Expires",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Expires",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_HttpOnly",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_HttpOnly",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Secure",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Secure",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Value",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Domain",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Domain"
+        },
+        {
+          "name": "Expires",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_Expires",
+          "setter": "put_Expires"
+        },
+        {
+          "name": "HttpOnly",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HttpOnly",
+          "setter": "put_HttpOnly"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        },
+        {
+          "name": "Path",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Path"
+        },
+        {
+          "name": "Secure",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Secure",
+          "setter": "put_Secure"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Value",
+          "setter": "put_Value"
+        }
+      ]
+    },
+    "IHttpCookieFactory": {
+      "guid": "6a0585a9-931c-4cd1-a96d-c21701785c5f",
+      "exclusive_to": "Windows.Web.Http.HttpCookie",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "domain",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "path",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpCookie",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IHttpCookieManager": {
+      "guid": "7a431780-cd4f-4e57-a84a-5b0a53d6bb96",
+      "exclusive_to": "Windows.Web.Http.HttpCookieManager",
+      "methods": [
+        {
+          "name": "SetCookie",
+          "overload": "SetCookie",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpCookie",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "SetCookie",
+          "overload": "SetCookieWithThirdParty",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpCookie",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "thirdParty",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "DeleteCookie",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpCookie",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetCookies",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpCookieCollection",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IHttpFormUrlEncodedContentFactory": {
+      "guid": "43f0138c-2f73-4302-b5f3-eae9238a5e01",
+      "exclusive_to": "Windows.Web.Http.HttpFormUrlEncodedContent",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "content",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "GenericInst",
+                    "name": "IKeyValuePair`2",
+                    "namespace": "Windows.Foundation.Collections",
+                    "target_kind": "Interface",
+                    "args": [
+                      {
+                        "kind": "Native",
+                        "name": "HString"
+                      },
+                      {
+                        "kind": "Native",
+                        "name": "HString"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpFormUrlEncodedContent",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IHttpGetBufferResult": {
+      "guid": "53d08e7c-e209-404e-9a49-742d8236fd3a",
+      "exclusive_to": "Windows.Web.Http.HttpGetBufferResult",
+      "methods": [
+        {
+          "name": "get_ExtendedError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_RequestMessage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpRequestMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ResponseMessage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpResponseMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Succeeded",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExtendedError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtendedError"
+        },
+        {
+          "name": "RequestMessage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpRequestMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_RequestMessage"
+        },
+        {
+          "name": "ResponseMessage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpResponseMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_ResponseMessage"
+        },
+        {
+          "name": "Succeeded",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Succeeded"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "IHttpGetInputStreamResult": {
+      "guid": "d5d63463-13aa-4ee0-be95-a0c39fe91203",
+      "exclusive_to": "Windows.Web.Http.HttpGetInputStreamResult",
+      "methods": [
+        {
+          "name": "get_ExtendedError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_RequestMessage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpRequestMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ResponseMessage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpResponseMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Succeeded",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IInputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExtendedError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtendedError"
+        },
+        {
+          "name": "RequestMessage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpRequestMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_RequestMessage"
+        },
+        {
+          "name": "ResponseMessage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpResponseMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_ResponseMessage"
+        },
+        {
+          "name": "Succeeded",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Succeeded"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IInputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "IHttpGetStringResult": {
+      "guid": "9bac466d-8509-4775-b16d-8953f47a7f5f",
+      "exclusive_to": "Windows.Web.Http.HttpGetStringResult",
+      "methods": [
+        {
+          "name": "get_ExtendedError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_RequestMessage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpRequestMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ResponseMessage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpResponseMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Succeeded",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExtendedError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtendedError"
+        },
+        {
+          "name": "RequestMessage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpRequestMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_RequestMessage"
+        },
+        {
+          "name": "ResponseMessage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpResponseMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_ResponseMessage"
+        },
+        {
+          "name": "Succeeded",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Succeeded"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "IHttpMethod": {
+      "guid": "728d4022-700d-4fe0-afa5-40299c58dbfd",
+      "exclusive_to": "Windows.Web.Http.HttpMethod",
+      "methods": [
+        {
+          "name": "get_Method",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Method",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Method"
+        }
+      ]
+    },
+    "IHttpMethodFactory": {
+      "guid": "3c51d10d-36d7-40f8-a86d-e759caf2f83f",
+      "exclusive_to": "Windows.Web.Http.HttpMethod",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "method",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpMethod",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IHttpMethodStatics": {
+      "guid": "64d171f0-d99a-4153-8dc6-d68cc4cce317",
+      "exclusive_to": "Windows.Web.Http.HttpMethod",
+      "methods": [
+        {
+          "name": "get_Delete",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpMethod",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Get",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpMethod",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Head",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpMethod",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Options",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpMethod",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Patch",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpMethod",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Post",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpMethod",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Put",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpMethod",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Delete",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpMethod",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_Delete"
+        },
+        {
+          "name": "Get",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpMethod",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_Get"
+        },
+        {
+          "name": "Head",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpMethod",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_Head"
+        },
+        {
+          "name": "Options",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpMethod",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_Options"
+        },
+        {
+          "name": "Patch",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpMethod",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_Patch"
+        },
+        {
+          "name": "Post",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpMethod",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_Post"
+        },
+        {
+          "name": "Put",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpMethod",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_Put"
+        }
+      ]
+    },
+    "IHttpMultipartContent": {
+      "guid": "df916aff-9926-4ac9-aaf1-e0d04ef09bb9",
+      "exclusive_to": "Windows.Web.Http.HttpMultipartContent",
+      "methods": [
+        {
+          "name": "Add",
+          "params": [
+            {
+              "name": "content",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IHttpContent",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IHttpMultipartContentFactory": {
+      "guid": "7eb42e62-0222-4f20-b372-47d5db5d33b4",
+      "exclusive_to": "Windows.Web.Http.HttpMultipartContent",
+      "methods": [
+        {
+          "name": "CreateWithSubtype",
+          "params": [
+            {
+              "name": "subtype",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpMultipartContent",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithSubtypeAndBoundary",
+          "params": [
+            {
+              "name": "subtype",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "boundary",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpMultipartContent",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IHttpMultipartFormDataContent": {
+      "guid": "64d337e2-e967-4624-b6d1-cf74604a4a42",
+      "exclusive_to": "Windows.Web.Http.HttpMultipartFormDataContent",
+      "methods": [
+        {
+          "name": "Add",
+          "overload": "Add",
+          "params": [
+            {
+              "name": "content",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IHttpContent",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Add",
+          "overload": "AddWithName",
+          "params": [
+            {
+              "name": "content",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IHttpContent",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Add",
+          "overload": "AddWithNameAndFileName",
+          "params": [
+            {
+              "name": "content",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IHttpContent",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "fileName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IHttpMultipartFormDataContentFactory": {
+      "guid": "a04d7311-5017-4622-93a8-49b24a4fcbfc",
+      "exclusive_to": "Windows.Web.Http.HttpMultipartFormDataContent",
+      "methods": [
+        {
+          "name": "CreateWithBoundary",
+          "params": [
+            {
+              "name": "boundary",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpMultipartFormDataContent",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IHttpRequestMessage": {
+      "guid": "f5762b3c-74d4-4811-b5dc-9f8b4e2f9abf",
+      "exclusive_to": "Windows.Web.Http.HttpRequestMessage",
+      "methods": [
+        {
+          "name": "get_Content",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IHttpContent",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_Content",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IHttpContent",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Headers",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpRequestHeaderCollection",
+            "namespace": "Windows.Web.Http.Headers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Method",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpMethod",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Method",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpMethod",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_RequestUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_RequestUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TransportInformation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpTransportInformation",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Content",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IHttpContent",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Content",
+          "setter": "put_Content"
+        },
+        {
+          "name": "Headers",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpRequestHeaderCollection",
+            "namespace": "Windows.Web.Http.Headers",
+            "target_kind": "Class"
+          },
+          "getter": "get_Headers"
+        },
+        {
+          "name": "Method",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpMethod",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_Method",
+          "setter": "put_Method"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "RequestUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_RequestUri",
+          "setter": "put_RequestUri"
+        },
+        {
+          "name": "TransportInformation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpTransportInformation",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_TransportInformation"
+        }
+      ]
+    },
+    "IHttpRequestMessage2": {
+      "guid": "c3c60489-62c2-4a3f-9554-226e7c60bd96",
+      "exclusive_to": "Windows.Web.Http.HttpRequestMessage",
+      "methods": [
+        {
+          "name": "get_PrivacyAnnotation",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_PrivacyAnnotation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "PrivacyAnnotation",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PrivacyAnnotation",
+          "setter": "put_PrivacyAnnotation"
+        }
+      ]
+    },
+    "IHttpRequestMessageFactory": {
+      "guid": "5bac994e-3886-412e-aec3-52ec7f25616f",
+      "exclusive_to": "Windows.Web.Http.HttpRequestMessage",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "method",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpMethod",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpRequestMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IHttpRequestResult": {
+      "guid": "6acf4da8-b5eb-4a35-a902-4217fbe820c5",
+      "exclusive_to": "Windows.Web.Http.HttpRequestResult",
+      "methods": [
+        {
+          "name": "get_ExtendedError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_RequestMessage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpRequestMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ResponseMessage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpResponseMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Succeeded",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExtendedError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtendedError"
+        },
+        {
+          "name": "RequestMessage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpRequestMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_RequestMessage"
+        },
+        {
+          "name": "ResponseMessage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpResponseMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_ResponseMessage"
+        },
+        {
+          "name": "Succeeded",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Succeeded"
+        }
+      ]
+    },
+    "IHttpResponseMessage": {
+      "guid": "fee200fb-8664-44e0-95d9-42696199bffc",
+      "exclusive_to": "Windows.Web.Http.HttpResponseMessage",
+      "methods": [
+        {
+          "name": "get_Content",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IHttpContent",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_Content",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IHttpContent",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Headers",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpResponseHeaderCollection",
+            "namespace": "Windows.Web.Http.Headers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IsSuccessStatusCode",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_ReasonPhrase",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_ReasonPhrase",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RequestMessage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpRequestMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_RequestMessage",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpRequestMessage",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Source",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpResponseMessageSource",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Source",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpResponseMessageSource",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_StatusCode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpStatusCode",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_StatusCode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpStatusCode",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Version",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpVersion",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Version",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpVersion",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "EnsureSuccessStatusCode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpResponseMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Content",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IHttpContent",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Content",
+          "setter": "put_Content"
+        },
+        {
+          "name": "Headers",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpResponseHeaderCollection",
+            "namespace": "Windows.Web.Http.Headers",
+            "target_kind": "Class"
+          },
+          "getter": "get_Headers"
+        },
+        {
+          "name": "IsSuccessStatusCode",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSuccessStatusCode"
+        },
+        {
+          "name": "ReasonPhrase",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ReasonPhrase",
+          "setter": "put_ReasonPhrase"
+        },
+        {
+          "name": "RequestMessage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpRequestMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_RequestMessage",
+          "setter": "put_RequestMessage"
+        },
+        {
+          "name": "Source",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpResponseMessageSource",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Source",
+          "setter": "put_Source"
+        },
+        {
+          "name": "StatusCode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpStatusCode",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Enum"
+          },
+          "getter": "get_StatusCode",
+          "setter": "put_StatusCode"
+        },
+        {
+          "name": "Version",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpVersion",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Version",
+          "setter": "put_Version"
+        }
+      ]
+    },
+    "IHttpResponseMessageFactory": {
+      "guid": "52a8af99-f095-43da-b60f-7cfc2bc7ea2f",
+      "exclusive_to": "Windows.Web.Http.HttpResponseMessage",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "statusCode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpStatusCode",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpResponseMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IHttpStreamContentFactory": {
+      "guid": "f3e64d9d-f725-407e-942f-0eda189809f4",
+      "exclusive_to": "Windows.Web.Http.HttpStreamContent",
+      "methods": [
+        {
+          "name": "CreateFromInputStream",
+          "params": [
+            {
+              "name": "content",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpStreamContent",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IHttpStringContentFactory": {
+      "guid": "46649d5b-2e93-48eb-8e61-19677878e57f",
+      "exclusive_to": "Windows.Web.Http.HttpStringContent",
+      "methods": [
+        {
+          "name": "CreateFromString",
+          "params": [
+            {
+              "name": "content",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpStringContent",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFromStringWithEncoding",
+          "params": [
+            {
+              "name": "content",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "encoding",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UnicodeEncoding",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpStringContent",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFromStringWithEncodingAndMediaType",
+          "params": [
+            {
+              "name": "content",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "encoding",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UnicodeEncoding",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "mediaType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpStringContent",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IHttpTransportInformation": {
+      "guid": "70127198-c6a7-4ed0-833a-83fd8b8f178d",
+      "exclusive_to": "Windows.Web.Http.HttpTransportInformation",
+      "methods": [
+        {
+          "name": "get_ServerCertificate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ServerCertificateErrorSeverity",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SocketSslErrorSeverity",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ServerCertificateErrors",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChainValidationResult",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ServerIntermediateCertificates",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ServerCertificate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          },
+          "getter": "get_ServerCertificate"
+        },
+        {
+          "name": "ServerCertificateErrorSeverity",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SocketSslErrorSeverity",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ServerCertificateErrorSeverity"
+        },
+        {
+          "name": "ServerCertificateErrors",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChainValidationResult",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_ServerCertificateErrors"
+        },
+        {
+          "name": "ServerIntermediateCertificates",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_ServerIntermediateCertificates"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "HttpBufferContent": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHttpContent",
+        "namespace": "Windows.Web.Http",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHttpContent",
+          "namespace": "Windows.Web.Http",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Web.Http.IHttpBufferContentFactory"
+      ]
+    },
+    "HttpClient": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHttpClient",
+        "namespace": "Windows.Web.Http",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHttpClient",
+          "namespace": "Windows.Web.Http",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHttpClient2",
+          "namespace": "Windows.Web.Http",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHttpClient3",
+          "namespace": "Windows.Web.Http",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Web.Http.IHttpClientFactory"
+      ]
+    },
+    "HttpCookie": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHttpCookie",
+        "namespace": "Windows.Web.Http",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHttpCookie",
+          "namespace": "Windows.Web.Http",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Web.Http.IHttpCookieFactory"
+      ]
+    },
+    "HttpCookieCollection": {
+      "default_interface": {
+        "kind": "GenericInst",
+        "name": "IVectorView`1",
+        "namespace": "Windows.Foundation.Collections",
+        "target_kind": "Interface",
+        "args": [
+          {
+            "kind": "ApiRef",
+            "name": "HttpCookie",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        ]
+      },
+      "interfaces": [
+        {
+          "kind": "GenericInst",
+          "name": "IVectorView`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "HttpCookie",
+              "namespace": "Windows.Web.Http",
+              "target_kind": "Class"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "HttpCookie",
+              "namespace": "Windows.Web.Http",
+              "target_kind": "Class"
+            }
+          ]
+        }
+      ]
+    },
+    "HttpCookieManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHttpCookieManager",
+        "namespace": "Windows.Web.Http",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHttpCookieManager",
+          "namespace": "Windows.Web.Http",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HttpFormUrlEncodedContent": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHttpContent",
+        "namespace": "Windows.Web.Http",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHttpContent",
+          "namespace": "Windows.Web.Http",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Web.Http.IHttpFormUrlEncodedContentFactory"
+      ]
+    },
+    "HttpGetBufferResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHttpGetBufferResult",
+        "namespace": "Windows.Web.Http",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHttpGetBufferResult",
+          "namespace": "Windows.Web.Http",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HttpGetInputStreamResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHttpGetInputStreamResult",
+        "namespace": "Windows.Web.Http",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHttpGetInputStreamResult",
+          "namespace": "Windows.Web.Http",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HttpGetStringResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHttpGetStringResult",
+        "namespace": "Windows.Web.Http",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHttpGetStringResult",
+          "namespace": "Windows.Web.Http",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HttpMethod": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHttpMethod",
+        "namespace": "Windows.Web.Http",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHttpMethod",
+          "namespace": "Windows.Web.Http",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Web.Http.IHttpMethodFactory"
+      ],
+      "static_interfaces": [
+        "Windows.Web.Http.IHttpMethodStatics"
+      ]
+    },
+    "HttpMultipartContent": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHttpContent",
+        "namespace": "Windows.Web.Http",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHttpMultipartContent",
+          "namespace": "Windows.Web.Http",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHttpContent",
+          "namespace": "Windows.Web.Http",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "IHttpContent",
+              "namespace": "Windows.Web.Http",
+              "target_kind": "Interface"
+            }
+          ]
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Web.Http.IHttpMultipartContentFactory"
+      ]
+    },
+    "HttpMultipartFormDataContent": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHttpContent",
+        "namespace": "Windows.Web.Http",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHttpMultipartFormDataContent",
+          "namespace": "Windows.Web.Http",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHttpContent",
+          "namespace": "Windows.Web.Http",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "IHttpContent",
+              "namespace": "Windows.Web.Http",
+              "target_kind": "Interface"
+            }
+          ]
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Web.Http.IHttpMultipartFormDataContentFactory"
+      ]
+    },
+    "HttpRequestMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHttpRequestMessage",
+        "namespace": "Windows.Web.Http",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHttpRequestMessage",
+          "namespace": "Windows.Web.Http",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHttpRequestMessage2",
+          "namespace": "Windows.Web.Http",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Web.Http.IHttpRequestMessageFactory"
+      ]
+    },
+    "HttpRequestResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHttpRequestResult",
+        "namespace": "Windows.Web.Http",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHttpRequestResult",
+          "namespace": "Windows.Web.Http",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HttpResponseMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHttpResponseMessage",
+        "namespace": "Windows.Web.Http",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHttpResponseMessage",
+          "namespace": "Windows.Web.Http",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Web.Http.IHttpResponseMessageFactory"
+      ]
+    },
+    "HttpStreamContent": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHttpContent",
+        "namespace": "Windows.Web.Http",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHttpContent",
+          "namespace": "Windows.Web.Http",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Web.Http.IHttpStreamContentFactory"
+      ]
+    },
+    "HttpStringContent": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHttpContent",
+        "namespace": "Windows.Web.Http",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHttpContent",
+          "namespace": "Windows.Web.Http",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Web.Http.IHttpStringContentFactory"
+      ]
+    },
+    "HttpTransportInformation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHttpTransportInformation",
+        "namespace": "Windows.Web.Http",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHttpTransportInformation",
+          "namespace": "Windows.Web.Http",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

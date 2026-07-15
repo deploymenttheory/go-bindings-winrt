@@ -1,0 +1,831 @@
+{
+  "namespace": "Windows.Devices.Geolocation.Geofencing",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "GeofenceMonitorStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Ready",
+          "value": "0"
+        },
+        {
+          "name": "Initializing",
+          "value": "1"
+        },
+        {
+          "name": "NoData",
+          "value": "2"
+        },
+        {
+          "name": "Disabled",
+          "value": "3"
+        },
+        {
+          "name": "NotInitialized",
+          "value": "4"
+        },
+        {
+          "name": "NotAvailable",
+          "value": "5"
+        }
+      ]
+    },
+    "GeofenceRemovalReason": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Used",
+          "value": "0"
+        },
+        {
+          "name": "Expired",
+          "value": "1"
+        }
+      ]
+    },
+    "GeofenceState": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Entered",
+          "value": "1"
+        },
+        {
+          "name": "Exited",
+          "value": "2"
+        },
+        {
+          "name": "Removed",
+          "value": "4"
+        }
+      ]
+    },
+    "MonitoredGeofenceStates": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Entered",
+          "value": "1"
+        },
+        {
+          "name": "Exited",
+          "value": "2"
+        },
+        {
+          "name": "Removed",
+          "value": "4"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IGeofence": {
+      "guid": "9c090823-edb8-47e0-8245-5bf61d321f2d",
+      "exclusive_to": "Windows.Devices.Geolocation.Geofencing.Geofence",
+      "methods": [
+        {
+          "name": "get_StartTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Duration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_DwellTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MonitoredStates",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MonitoredGeofenceStates",
+            "namespace": "Windows.Devices.Geolocation.Geofencing",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Geoshape",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IGeoshape",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_SingleUse",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Duration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Duration"
+        },
+        {
+          "name": "DwellTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_DwellTime"
+        },
+        {
+          "name": "Geoshape",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IGeoshape",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Geoshape"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "MonitoredStates",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MonitoredGeofenceStates",
+            "namespace": "Windows.Devices.Geolocation.Geofencing",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MonitoredStates"
+        },
+        {
+          "name": "SingleUse",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SingleUse"
+        },
+        {
+          "name": "StartTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_StartTime"
+        }
+      ]
+    },
+    "IGeofenceFactory": {
+      "guid": "841f624b-325f-4b90-bca7-2b8022a93796",
+      "exclusive_to": "Windows.Devices.Geolocation.Geofencing.Geofence",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "geoshape",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IGeoshape",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geofence",
+            "namespace": "Windows.Devices.Geolocation.Geofencing",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithMonitorStates",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "geoshape",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IGeoshape",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "monitoredStates",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MonitoredGeofenceStates",
+                "namespace": "Windows.Devices.Geolocation.Geofencing",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "singleUse",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geofence",
+            "namespace": "Windows.Devices.Geolocation.Geofencing",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithMonitorStatesAndDwellTime",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "geoshape",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IGeoshape",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "monitoredStates",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MonitoredGeofenceStates",
+                "namespace": "Windows.Devices.Geolocation.Geofencing",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "singleUse",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "dwellTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geofence",
+            "namespace": "Windows.Devices.Geolocation.Geofencing",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithMonitorStatesDwellTimeStartTimeAndDuration",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "geoshape",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IGeoshape",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "monitoredStates",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MonitoredGeofenceStates",
+                "namespace": "Windows.Devices.Geolocation.Geofencing",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "singleUse",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "dwellTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "startTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "duration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geofence",
+            "namespace": "Windows.Devices.Geolocation.Geofencing",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IGeofenceMonitor": {
+      "guid": "4c0f5f78-1c1f-4621-bbbd-833b92247226",
+      "exclusive_to": "Windows.Devices.Geolocation.Geofencing.GeofenceMonitor",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GeofenceMonitorStatus",
+            "namespace": "Windows.Devices.Geolocation.Geofencing",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Geofences",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Geofence",
+                "namespace": "Windows.Devices.Geolocation.Geofencing",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_LastKnownGeoposition",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geoposition",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_GeofenceStateChanged",
+          "params": [
+            {
+              "name": "eventHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "GeofenceMonitor",
+                    "namespace": "Windows.Devices.Geolocation.Geofencing",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_GeofenceStateChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ReadReports",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "GeofenceStateChangeReport",
+                "namespace": "Windows.Devices.Geolocation.Geofencing",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_StatusChanged",
+          "params": [
+            {
+              "name": "eventHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "GeofenceMonitor",
+                    "namespace": "Windows.Devices.Geolocation.Geofencing",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_StatusChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Geofences",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Geofence",
+                "namespace": "Windows.Devices.Geolocation.Geofencing",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Geofences"
+        },
+        {
+          "name": "LastKnownGeoposition",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Geoposition",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          },
+          "getter": "get_LastKnownGeoposition"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "GeofenceMonitorStatus",
+            "namespace": "Windows.Devices.Geolocation.Geofencing",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ],
+      "events": [
+        {
+          "name": "GeofenceStateChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "GeofenceMonitor",
+                "namespace": "Windows.Devices.Geolocation.Geofencing",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_GeofenceStateChanged",
+          "remove_method": "remove_GeofenceStateChanged"
+        },
+        {
+          "name": "StatusChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "GeofenceMonitor",
+                "namespace": "Windows.Devices.Geolocation.Geofencing",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_StatusChanged",
+          "remove_method": "remove_StatusChanged"
+        }
+      ]
+    },
+    "IGeofenceMonitorStatics": {
+      "guid": "2dd32fcf-7e75-4899-ace3-2bd0a65cce06",
+      "exclusive_to": "Windows.Devices.Geolocation.Geofencing.GeofenceMonitor",
+      "methods": [
+        {
+          "name": "get_Current",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GeofenceMonitor",
+            "namespace": "Windows.Devices.Geolocation.Geofencing",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Current",
+          "type": {
+            "kind": "ApiRef",
+            "name": "GeofenceMonitor",
+            "namespace": "Windows.Devices.Geolocation.Geofencing",
+            "target_kind": "Class"
+          },
+          "getter": "get_Current"
+        }
+      ]
+    },
+    "IGeofenceStateChangeReport": {
+      "guid": "9a243c18-2464-4c89-be05-b3ffff5babc5",
+      "exclusive_to": "Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport",
+      "methods": [
+        {
+          "name": "get_NewState",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GeofenceState",
+            "namespace": "Windows.Devices.Geolocation.Geofencing",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Geofence",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geofence",
+            "namespace": "Windows.Devices.Geolocation.Geofencing",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Geoposition",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geoposition",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_RemovalReason",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GeofenceRemovalReason",
+            "namespace": "Windows.Devices.Geolocation.Geofencing",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Geofence",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Geofence",
+            "namespace": "Windows.Devices.Geolocation.Geofencing",
+            "target_kind": "Class"
+          },
+          "getter": "get_Geofence"
+        },
+        {
+          "name": "Geoposition",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Geoposition",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Geoposition"
+        },
+        {
+          "name": "NewState",
+          "type": {
+            "kind": "ApiRef",
+            "name": "GeofenceState",
+            "namespace": "Windows.Devices.Geolocation.Geofencing",
+            "target_kind": "Enum"
+          },
+          "getter": "get_NewState"
+        },
+        {
+          "name": "RemovalReason",
+          "type": {
+            "kind": "ApiRef",
+            "name": "GeofenceRemovalReason",
+            "namespace": "Windows.Devices.Geolocation.Geofencing",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RemovalReason"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "Geofence": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGeofence",
+        "namespace": "Windows.Devices.Geolocation.Geofencing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeofence",
+          "namespace": "Windows.Devices.Geolocation.Geofencing",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Geolocation.Geofencing.IGeofenceFactory"
+      ]
+    },
+    "GeofenceMonitor": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGeofenceMonitor",
+        "namespace": "Windows.Devices.Geolocation.Geofencing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeofenceMonitor",
+          "namespace": "Windows.Devices.Geolocation.Geofencing",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Geolocation.Geofencing.IGeofenceMonitorStatics"
+      ]
+    },
+    "GeofenceStateChangeReport": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGeofenceStateChangeReport",
+        "namespace": "Windows.Devices.Geolocation.Geofencing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeofenceStateChangeReport",
+          "namespace": "Windows.Devices.Geolocation.Geofencing",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

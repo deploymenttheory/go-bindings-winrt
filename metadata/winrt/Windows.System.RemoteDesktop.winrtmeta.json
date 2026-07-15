@@ -1,0 +1,37 @@
+{
+  "namespace": "Windows.System.RemoteDesktop",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IInteractiveSessionStatics": {
+      "guid": "60884631-dd3a-4576-9c8d-e8027618bdce",
+      "exclusive_to": "Windows.System.RemoteDesktop.InteractiveSession",
+      "methods": [
+        {
+          "name": "get_IsRemote",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsRemote",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsRemote"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "InteractiveSession": {
+      "static_interfaces": [
+        "Windows.System.RemoteDesktop.IInteractiveSessionStatics"
+      ]
+    }
+  }
+}

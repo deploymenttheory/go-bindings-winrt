@@ -1,0 +1,2325 @@
+{
+  "namespace": "Windows.Security.Authentication.Web.Core",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "FindAllWebAccountsStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "NotAllowedByProvider",
+          "value": "1"
+        },
+        {
+          "name": "NotSupportedByProvider",
+          "value": "2"
+        },
+        {
+          "name": "ProviderError",
+          "value": "3"
+        }
+      ]
+    },
+    "WebAuthenticationAddAccountStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "Error",
+          "value": "1"
+        },
+        {
+          "name": "NotSupportedByProvider",
+          "value": "2"
+        },
+        {
+          "name": "ServiceConnectionError",
+          "value": "3"
+        },
+        {
+          "name": "ProviderError",
+          "value": "4"
+        }
+      ]
+    },
+    "WebTokenRequestPromptType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "ForceAuthentication",
+          "value": "1"
+        }
+      ]
+    },
+    "WebTokenRequestStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "UserCancel",
+          "value": "1"
+        },
+        {
+          "name": "AccountSwitch",
+          "value": "2"
+        },
+        {
+          "name": "UserInteractionRequired",
+          "value": "3"
+        },
+        {
+          "name": "AccountProviderNotAvailable",
+          "value": "4"
+        },
+        {
+          "name": "ProviderError",
+          "value": "5"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IFindAllAccountsResult": {
+      "guid": "a5812b5d-b72e-420c-86ab-aac0d7b7261f",
+      "exclusive_to": "Windows.Security.Authentication.Web.Core.FindAllAccountsResult",
+      "methods": [
+        {
+          "name": "get_Accounts",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebAccount",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FindAllWebAccountsStatus",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ProviderError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebProviderError",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Accounts",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebAccount",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Accounts"
+        },
+        {
+          "name": "ProviderError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebProviderError",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_ProviderError"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FindAllWebAccountsStatus",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IWebAccountEventArgs": {
+      "guid": "6fb7037d-424e-44ec-977c-ef2415462a5a",
+      "exclusive_to": "Windows.Security.Authentication.Web.Core.WebAccountEventArgs",
+      "methods": [
+        {
+          "name": "get_Account",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebAccount",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Account",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebAccount",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          },
+          "getter": "get_Account"
+        }
+      ]
+    },
+    "IWebAccountMonitor": {
+      "guid": "7445f5fd-aa9d-4619-8d5d-c138a4ede3e5",
+      "exclusive_to": "Windows.Security.Authentication.Web.Core.WebAccountMonitor",
+      "methods": [
+        {
+          "name": "add_Updated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebAccountMonitor",
+                    "namespace": "Windows.Security.Authentication.Web.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebAccountEventArgs",
+                    "namespace": "Windows.Security.Authentication.Web.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Updated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Removed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebAccountMonitor",
+                    "namespace": "Windows.Security.Authentication.Web.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebAccountEventArgs",
+                    "namespace": "Windows.Security.Authentication.Web.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Removed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_DefaultSignInAccountChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebAccountMonitor",
+                    "namespace": "Windows.Security.Authentication.Web.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DefaultSignInAccountChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "DefaultSignInAccountChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebAccountMonitor",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_DefaultSignInAccountChanged",
+          "remove_method": "remove_DefaultSignInAccountChanged"
+        },
+        {
+          "name": "Removed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebAccountMonitor",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebAccountEventArgs",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Removed",
+          "remove_method": "remove_Removed"
+        },
+        {
+          "name": "Updated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebAccountMonitor",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebAccountEventArgs",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Updated",
+          "remove_method": "remove_Updated"
+        }
+      ]
+    },
+    "IWebAccountMonitor2": {
+      "guid": "a7adc1f8-24b8-4f01-9ae5-24545e71233a",
+      "exclusive_to": "Windows.Security.Authentication.Web.Core.WebAccountMonitor",
+      "methods": [
+        {
+          "name": "add_AccountPictureUpdated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebAccountMonitor",
+                    "namespace": "Windows.Security.Authentication.Web.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebAccountEventArgs",
+                    "namespace": "Windows.Security.Authentication.Web.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_AccountPictureUpdated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "AccountPictureUpdated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebAccountMonitor",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebAccountEventArgs",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_AccountPictureUpdated",
+          "remove_method": "remove_AccountPictureUpdated"
+        }
+      ]
+    },
+    "IWebAuthenticationAddAccountResponse": {
+      "guid": "7fb013e8-0bd8-542b-b486-8323163a4b85",
+      "exclusive_to": "Windows.Security.Authentication.Web.Core.WebAuthenticationAddAccountResponse",
+      "methods": [
+        {
+          "name": "get_WebAccount",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebAccount",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "WebAccount",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebAccount",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          },
+          "getter": "get_WebAccount"
+        }
+      ]
+    },
+    "IWebAuthenticationAddAccountResponseFactory": {
+      "guid": "325f903e-77be-5365-81d9-0321cdd82195",
+      "exclusive_to": "Windows.Security.Authentication.Web.Core.WebAuthenticationAddAccountResponse",
+      "methods": [
+        {
+          "name": "CreateWithAccount",
+          "params": [
+            {
+              "name": "webAccount",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAccount",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebAuthenticationAddAccountResponse",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IWebAuthenticationAddAccountResult": {
+      "guid": "88fad03c-901d-5ffa-9259-701d3ca08ef2",
+      "exclusive_to": "Windows.Security.Authentication.Web.Core.WebAuthenticationAddAccountResult",
+      "methods": [
+        {
+          "name": "get_ResponseData",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebAuthenticationAddAccountResponse",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ResponseStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebAuthenticationAddAccountStatus",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ResponseError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebProviderError",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ResponseData",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebAuthenticationAddAccountResponse",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_ResponseData"
+        },
+        {
+          "name": "ResponseError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebProviderError",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_ResponseError"
+        },
+        {
+          "name": "ResponseStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebAuthenticationAddAccountStatus",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ResponseStatus"
+        }
+      ]
+    },
+    "IWebAuthenticationCoreManagerStatics": {
+      "guid": "6aca7c92-a581-4479-9c10-752eff44fd34",
+      "exclusive_to": "Windows.Security.Authentication.Web.Core.WebAuthenticationCoreManager",
+      "methods": [
+        {
+          "name": "GetTokenSilentlyAsync",
+          "overload": "GetTokenSilentlyAsync",
+          "params": [
+            {
+              "name": "request",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebTokenRequest",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebTokenRequestResult",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetTokenSilentlyAsync",
+          "overload": "GetTokenSilentlyWithWebAccountAsync",
+          "params": [
+            {
+              "name": "request",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebTokenRequest",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "webAccount",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAccount",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebTokenRequestResult",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestTokenAsync",
+          "overload": "RequestTokenAsync",
+          "params": [
+            {
+              "name": "request",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebTokenRequest",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebTokenRequestResult",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestTokenAsync",
+          "overload": "RequestTokenWithWebAccountAsync",
+          "params": [
+            {
+              "name": "request",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebTokenRequest",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "webAccount",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAccount",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebTokenRequestResult",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAccountAsync",
+          "params": [
+            {
+              "name": "provider",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAccountProvider",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "webAccountId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebAccount",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAccountProviderAsync",
+          "overload": "FindAccountProviderAsync",
+          "params": [
+            {
+              "name": "webAccountProviderId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebAccountProvider",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAccountProviderAsync",
+          "overload": "FindAccountProviderWithAuthorityAsync",
+          "params": [
+            {
+              "name": "webAccountProviderId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "authority",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebAccountProvider",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IWebAuthenticationCoreManagerStatics2": {
+      "guid": "f584184a-8b57-4820-b6a4-70a5b6fcf44a",
+      "exclusive_to": "Windows.Security.Authentication.Web.Core.WebAuthenticationCoreManager",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebAuthenticationCoreManagerStatics",
+          "namespace": "Windows.Security.Authentication.Web.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "FindAccountProviderAsync",
+          "overload": "FindAccountProviderWithAuthorityForUserAsync",
+          "params": [
+            {
+              "name": "webAccountProviderId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "authority",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebAccountProvider",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IWebAuthenticationCoreManagerStatics3": {
+      "guid": "2404eeb2-8924-4d93-ab3a-99688b419d56",
+      "exclusive_to": "Windows.Security.Authentication.Web.Core.WebAuthenticationCoreManager",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebAuthenticationCoreManagerStatics",
+          "namespace": "Windows.Security.Authentication.Web.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "CreateWebAccountMonitor",
+          "params": [
+            {
+              "name": "webAccounts",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebAccount",
+                    "namespace": "Windows.Security.Credentials",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebAccountMonitor",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IWebAuthenticationCoreManagerStatics4": {
+      "guid": "54e633fe-96e0-41e8-9832-1298897c2aaf",
+      "exclusive_to": "Windows.Security.Authentication.Web.Core.WebAuthenticationCoreManager",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebAuthenticationCoreManagerStatics",
+          "namespace": "Windows.Security.Authentication.Web.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "FindAllAccountsAsync",
+          "overload": "FindAllAccountsAsync",
+          "params": [
+            {
+              "name": "provider",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAccountProvider",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "FindAllAccountsResult",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAllAccountsAsync",
+          "overload": "FindAllAccountsWithClientIdAsync",
+          "params": [
+            {
+              "name": "provider",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAccountProvider",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "clientId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "FindAllAccountsResult",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindSystemAccountProviderAsync",
+          "overload": "FindSystemAccountProviderAsync",
+          "params": [
+            {
+              "name": "webAccountProviderId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebAccountProvider",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindSystemAccountProviderAsync",
+          "overload": "FindSystemAccountProviderWithAuthorityAsync",
+          "params": [
+            {
+              "name": "webAccountProviderId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "authority",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebAccountProvider",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindSystemAccountProviderAsync",
+          "overload": "FindSystemAccountProviderWithAuthorityForUserAsync",
+          "params": [
+            {
+              "name": "webAccountProviderId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "authority",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebAccountProvider",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IWebAuthenticationCoreManagerStatics5": {
+      "guid": "d07c1ded-270f-4554-9966-27b7df05b965",
+      "exclusive_to": "Windows.Security.Authentication.Web.Core.WebAuthenticationCoreManager",
+      "methods": [
+        {
+          "name": "AddAccountWithTransferTokenAsync",
+          "params": [
+            {
+              "name": "request",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAuthenticationTransferTokenRequest",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebAuthenticationAddAccountResult",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IWebAuthenticationTransferTokenRequest": {
+      "guid": "7acfa5b6-529d-5e76-9846-f3fd999304d0",
+      "exclusive_to": "Windows.Security.Authentication.Web.Core.WebAuthenticationTransferTokenRequest",
+      "methods": [
+        {
+          "name": "get_WebAccountProvider",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebAccountProvider",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_TransferToken",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_TransferToken",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_CorrelationId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_CorrelationId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CorrelationId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CorrelationId",
+          "setter": "put_CorrelationId"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "TransferToken",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TransferToken",
+          "setter": "put_TransferToken"
+        },
+        {
+          "name": "WebAccountProvider",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebAccountProvider",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          },
+          "getter": "get_WebAccountProvider"
+        }
+      ]
+    },
+    "IWebAuthenticationTransferTokenRequestFactory": {
+      "guid": "5f16b627-04c4-5f0b-8683-8bab58965656",
+      "exclusive_to": "Windows.Security.Authentication.Web.Core.WebAuthenticationTransferTokenRequest",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "provider",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAccountProvider",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "transferToken",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebAuthenticationTransferTokenRequest",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithCorrelationId",
+          "params": [
+            {
+              "name": "provider",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAccountProvider",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "transferToken",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "correlationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebAuthenticationTransferTokenRequest",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IWebProviderError": {
+      "guid": "db191bb1-50c5-4809-8dca-09c99410245c",
+      "exclusive_to": "Windows.Security.Authentication.Web.Core.WebProviderError",
+      "methods": [
+        {
+          "name": "get_ErrorCode",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_ErrorMessage",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ErrorCode",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ErrorCode"
+        },
+        {
+          "name": "ErrorMessage",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ErrorMessage"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        }
+      ]
+    },
+    "IWebProviderErrorFactory": {
+      "guid": "e3c40a2d-89ef-4e37-847f-a8b9d5a32910",
+      "exclusive_to": "Windows.Security.Authentication.Web.Core.WebProviderError",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "errorCode",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "errorMessage",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebProviderError",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IWebTokenRequest": {
+      "guid": "b77b4d68-adcb-4673-b364-0cf7b35caf97",
+      "exclusive_to": "Windows.Security.Authentication.Web.Core.WebTokenRequest",
+      "methods": [
+        {
+          "name": "get_WebAccountProvider",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebAccountProvider",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Scope",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ClientId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_PromptType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebTokenRequestPromptType",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ClientId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ClientId"
+        },
+        {
+          "name": "PromptType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebTokenRequestPromptType",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PromptType"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "Scope",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Scope"
+        },
+        {
+          "name": "WebAccountProvider",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebAccountProvider",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          },
+          "getter": "get_WebAccountProvider"
+        }
+      ]
+    },
+    "IWebTokenRequest2": {
+      "guid": "d700c079-30c8-4397-9654-961c3be8b855",
+      "exclusive_to": "Windows.Security.Authentication.Web.Core.WebTokenRequest",
+      "methods": [
+        {
+          "name": "get_AppProperties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppProperties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_AppProperties"
+        }
+      ]
+    },
+    "IWebTokenRequest3": {
+      "guid": "5a755b51-3bb1-41a5-a63d-90bc32c7db9a",
+      "exclusive_to": "Windows.Security.Authentication.Web.Core.WebTokenRequest",
+      "methods": [
+        {
+          "name": "get_CorrelationId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_CorrelationId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CorrelationId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CorrelationId",
+          "setter": "put_CorrelationId"
+        }
+      ]
+    },
+    "IWebTokenRequestFactory": {
+      "guid": "6cf2141c-0ff0-4c67-b84f-99ddbe4a72c9",
+      "exclusive_to": "Windows.Security.Authentication.Web.Core.WebTokenRequest",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "provider",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAccountProvider",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "scope",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "clientId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebTokenRequest",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithPromptType",
+          "params": [
+            {
+              "name": "provider",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAccountProvider",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "scope",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "clientId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "promptType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebTokenRequestPromptType",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebTokenRequest",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithProvider",
+          "params": [
+            {
+              "name": "provider",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAccountProvider",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebTokenRequest",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithScope",
+          "params": [
+            {
+              "name": "provider",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAccountProvider",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "scope",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebTokenRequest",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IWebTokenRequestResult": {
+      "guid": "c12a8305-d1f8-4483-8d54-38fe292784ff",
+      "exclusive_to": "Windows.Security.Authentication.Web.Core.WebTokenRequestResult",
+      "methods": [
+        {
+          "name": "get_ResponseData",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebTokenResponse",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ResponseStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebTokenRequestStatus",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ResponseError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebProviderError",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "InvalidateCacheAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ResponseData",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebTokenResponse",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_ResponseData"
+        },
+        {
+          "name": "ResponseError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebProviderError",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_ResponseError"
+        },
+        {
+          "name": "ResponseStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebTokenRequestStatus",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ResponseStatus"
+        }
+      ]
+    },
+    "IWebTokenResponse": {
+      "guid": "67a7c5ca-83f6-44c6-a3b1-0eb69e41fa8a",
+      "exclusive_to": "Windows.Security.Authentication.Web.Core.WebTokenResponse",
+      "methods": [
+        {
+          "name": "get_Token",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ProviderError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebProviderError",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_WebAccount",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebAccount",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "ProviderError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebProviderError",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_ProviderError"
+        },
+        {
+          "name": "Token",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Token"
+        },
+        {
+          "name": "WebAccount",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebAccount",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          },
+          "getter": "get_WebAccount"
+        }
+      ]
+    },
+    "IWebTokenResponseFactory": {
+      "guid": "ab6bf7f8-5450-4ef6-97f7-052b0431c0f0",
+      "exclusive_to": "Windows.Security.Authentication.Web.Core.WebTokenResponse",
+      "methods": [
+        {
+          "name": "CreateWithToken",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebTokenResponse",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithTokenAndAccount",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "webAccount",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAccount",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebTokenResponse",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithTokenAccountAndError",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "webAccount",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAccount",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "error",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebProviderError",
+                "namespace": "Windows.Security.Authentication.Web.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebTokenResponse",
+            "namespace": "Windows.Security.Authentication.Web.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "FindAllAccountsResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFindAllAccountsResult",
+        "namespace": "Windows.Security.Authentication.Web.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFindAllAccountsResult",
+          "namespace": "Windows.Security.Authentication.Web.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebAccountEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebAccountEventArgs",
+        "namespace": "Windows.Security.Authentication.Web.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebAccountEventArgs",
+          "namespace": "Windows.Security.Authentication.Web.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebAccountMonitor": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebAccountMonitor",
+        "namespace": "Windows.Security.Authentication.Web.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebAccountMonitor",
+          "namespace": "Windows.Security.Authentication.Web.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IWebAccountMonitor2",
+          "namespace": "Windows.Security.Authentication.Web.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebAuthenticationAddAccountResponse": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebAuthenticationAddAccountResponse",
+        "namespace": "Windows.Security.Authentication.Web.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebAuthenticationAddAccountResponse",
+          "namespace": "Windows.Security.Authentication.Web.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Security.Authentication.Web.Core.IWebAuthenticationAddAccountResponseFactory"
+      ]
+    },
+    "WebAuthenticationAddAccountResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebAuthenticationAddAccountResult",
+        "namespace": "Windows.Security.Authentication.Web.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebAuthenticationAddAccountResult",
+          "namespace": "Windows.Security.Authentication.Web.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebAuthenticationCoreManager": {
+      "static_interfaces": [
+        "Windows.Security.Authentication.Web.Core.IWebAuthenticationCoreManagerStatics2",
+        "Windows.Security.Authentication.Web.Core.IWebAuthenticationCoreManagerStatics5",
+        "Windows.Security.Authentication.Web.Core.IWebAuthenticationCoreManagerStatics4",
+        "Windows.Security.Authentication.Web.Core.IWebAuthenticationCoreManagerStatics",
+        "Windows.Security.Authentication.Web.Core.IWebAuthenticationCoreManagerStatics3"
+      ]
+    },
+    "WebAuthenticationTransferTokenRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebAuthenticationTransferTokenRequest",
+        "namespace": "Windows.Security.Authentication.Web.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebAuthenticationTransferTokenRequest",
+          "namespace": "Windows.Security.Authentication.Web.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Security.Authentication.Web.Core.IWebAuthenticationTransferTokenRequestFactory"
+      ]
+    },
+    "WebProviderError": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebProviderError",
+        "namespace": "Windows.Security.Authentication.Web.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebProviderError",
+          "namespace": "Windows.Security.Authentication.Web.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Security.Authentication.Web.Core.IWebProviderErrorFactory"
+      ]
+    },
+    "WebTokenRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebTokenRequest",
+        "namespace": "Windows.Security.Authentication.Web.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebTokenRequest",
+          "namespace": "Windows.Security.Authentication.Web.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IWebTokenRequest2",
+          "namespace": "Windows.Security.Authentication.Web.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IWebTokenRequest3",
+          "namespace": "Windows.Security.Authentication.Web.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Security.Authentication.Web.Core.IWebTokenRequestFactory"
+      ]
+    },
+    "WebTokenRequestResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebTokenRequestResult",
+        "namespace": "Windows.Security.Authentication.Web.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebTokenRequestResult",
+          "namespace": "Windows.Security.Authentication.Web.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebTokenResponse": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebTokenResponse",
+        "namespace": "Windows.Security.Authentication.Web.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebTokenResponse",
+          "namespace": "Windows.Security.Authentication.Web.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Security.Authentication.Web.Core.IWebTokenResponseFactory"
+      ]
+    }
+  }
+}

@@ -1,0 +1,702 @@
+{
+  "namespace": "Windows.Storage.Provider",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "CachedFileOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "RequireUpdateOnAccess",
+          "value": "1"
+        },
+        {
+          "name": "UseCachedFileWhenOffline",
+          "value": "2"
+        },
+        {
+          "name": "DenyAccessWhenOffline",
+          "value": "4"
+        }
+      ]
+    },
+    "CachedFileTarget": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Local",
+          "value": "0"
+        },
+        {
+          "name": "Remote",
+          "value": "1"
+        }
+      ]
+    },
+    "FileUpdateStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Incomplete",
+          "value": "0"
+        },
+        {
+          "name": "Complete",
+          "value": "1"
+        },
+        {
+          "name": "UserInputNeeded",
+          "value": "2"
+        },
+        {
+          "name": "CurrentlyUnavailable",
+          "value": "3"
+        },
+        {
+          "name": "Failed",
+          "value": "4"
+        },
+        {
+          "name": "CompleteAndRenamed",
+          "value": "5"
+        }
+      ]
+    },
+    "ReadActivationMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "NotNeeded",
+          "value": "0"
+        },
+        {
+          "name": "BeforeAccess",
+          "value": "1"
+        }
+      ]
+    },
+    "UIStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unavailable",
+          "value": "0"
+        },
+        {
+          "name": "Hidden",
+          "value": "1"
+        },
+        {
+          "name": "Visible",
+          "value": "2"
+        },
+        {
+          "name": "Complete",
+          "value": "3"
+        }
+      ]
+    },
+    "WriteActivationMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "ReadOnly",
+          "value": "0"
+        },
+        {
+          "name": "NotNeeded",
+          "value": "1"
+        },
+        {
+          "name": "AfterWrite",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ICachedFileUpdaterStatics": {
+      "guid": "9fc90920-7bcf-4888-a81e-102d7034d7ce",
+      "exclusive_to": "Windows.Storage.Provider.CachedFileUpdater",
+      "methods": [
+        {
+          "name": "SetUpdateInformation",
+          "params": [
+            {
+              "name": "file",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "contentId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "readMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ReadActivationMode",
+                "namespace": "Windows.Storage.Provider",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "writeMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WriteActivationMode",
+                "namespace": "Windows.Storage.Provider",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CachedFileOptions",
+                "namespace": "Windows.Storage.Provider",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "ICachedFileUpdaterUI": {
+      "guid": "9e6f41e6-baf2-4a97-b600-9333f5df80fd",
+      "exclusive_to": "Windows.Storage.Provider.CachedFileUpdaterUI",
+      "methods": [
+        {
+          "name": "get_Title",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Title",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_UpdateTarget",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CachedFileTarget",
+            "namespace": "Windows.Storage.Provider",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_FileUpdateRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CachedFileUpdaterUI",
+                    "namespace": "Windows.Storage.Provider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "FileUpdateRequestedEventArgs",
+                    "namespace": "Windows.Storage.Provider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_FileUpdateRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_UIRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CachedFileUpdaterUI",
+                    "namespace": "Windows.Storage.Provider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_UIRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_UIStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UIStatus",
+            "namespace": "Windows.Storage.Provider",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Title",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Title",
+          "setter": "put_Title"
+        },
+        {
+          "name": "UIStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UIStatus",
+            "namespace": "Windows.Storage.Provider",
+            "target_kind": "Enum"
+          },
+          "getter": "get_UIStatus"
+        },
+        {
+          "name": "UpdateTarget",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CachedFileTarget",
+            "namespace": "Windows.Storage.Provider",
+            "target_kind": "Enum"
+          },
+          "getter": "get_UpdateTarget"
+        }
+      ],
+      "events": [
+        {
+          "name": "FileUpdateRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CachedFileUpdaterUI",
+                "namespace": "Windows.Storage.Provider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "FileUpdateRequestedEventArgs",
+                "namespace": "Windows.Storage.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_FileUpdateRequested",
+          "remove_method": "remove_FileUpdateRequested"
+        },
+        {
+          "name": "UIRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CachedFileUpdaterUI",
+                "namespace": "Windows.Storage.Provider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_UIRequested",
+          "remove_method": "remove_UIRequested"
+        }
+      ]
+    },
+    "ICachedFileUpdaterUI2": {
+      "guid": "8856a21c-8699-4340-9f49-f7cad7fe8991",
+      "exclusive_to": "Windows.Storage.Provider.CachedFileUpdaterUI",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ICachedFileUpdaterUI",
+          "namespace": "Windows.Storage.Provider",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_UpdateRequest",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FileUpdateRequest",
+            "namespace": "Windows.Storage.Provider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FileUpdateRequestDeferral",
+            "namespace": "Windows.Storage.Provider",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "UpdateRequest",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FileUpdateRequest",
+            "namespace": "Windows.Storage.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_UpdateRequest"
+        }
+      ]
+    },
+    "IFileUpdateRequest": {
+      "guid": "40c82536-c1fe-4d93-a792-1e736bc70837",
+      "exclusive_to": "Windows.Storage.Provider.FileUpdateRequest",
+      "methods": [
+        {
+          "name": "get_ContentId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_File",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageFile",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FileUpdateStatus",
+            "namespace": "Windows.Storage.Provider",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Status",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FileUpdateStatus",
+                "namespace": "Windows.Storage.Provider",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FileUpdateRequestDeferral",
+            "namespace": "Windows.Storage.Provider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "UpdateLocalFile",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContentId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ContentId"
+        },
+        {
+          "name": "File",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StorageFile",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          },
+          "getter": "get_File"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FileUpdateStatus",
+            "namespace": "Windows.Storage.Provider",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status",
+          "setter": "put_Status"
+        }
+      ]
+    },
+    "IFileUpdateRequest2": {
+      "guid": "82484648-bdbe-447b-a2ee-7afe6a032a94",
+      "exclusive_to": "Windows.Storage.Provider.FileUpdateRequest",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IFileUpdateRequest",
+          "namespace": "Windows.Storage.Provider",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_UserInputNeededMessage",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_UserInputNeededMessage",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "UserInputNeededMessage",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_UserInputNeededMessage",
+          "setter": "put_UserInputNeededMessage"
+        }
+      ]
+    },
+    "IFileUpdateRequestDeferral": {
+      "guid": "ffcedb2b-8ade-44a5-bb00-164c4e72f13a",
+      "exclusive_to": "Windows.Storage.Provider.FileUpdateRequestDeferral",
+      "methods": [
+        {
+          "name": "Complete"
+        }
+      ]
+    },
+    "IFileUpdateRequestedEventArgs": {
+      "guid": "7b0a9342-3905-438d-aaef-78ae265f8dd2",
+      "exclusive_to": "Windows.Storage.Provider.FileUpdateRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FileUpdateRequest",
+            "namespace": "Windows.Storage.Provider",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FileUpdateRequest",
+            "namespace": "Windows.Storage.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "CachedFileUpdater": {
+      "static_interfaces": [
+        "Windows.Storage.Provider.ICachedFileUpdaterStatics"
+      ]
+    },
+    "CachedFileUpdaterUI": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICachedFileUpdaterUI",
+        "namespace": "Windows.Storage.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICachedFileUpdaterUI",
+          "namespace": "Windows.Storage.Provider",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICachedFileUpdaterUI2",
+          "namespace": "Windows.Storage.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FileUpdateRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFileUpdateRequest",
+        "namespace": "Windows.Storage.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFileUpdateRequest",
+          "namespace": "Windows.Storage.Provider",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IFileUpdateRequest2",
+          "namespace": "Windows.Storage.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FileUpdateRequestDeferral": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFileUpdateRequestDeferral",
+        "namespace": "Windows.Storage.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFileUpdateRequestDeferral",
+          "namespace": "Windows.Storage.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FileUpdateRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFileUpdateRequestedEventArgs",
+        "namespace": "Windows.Storage.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFileUpdateRequestedEventArgs",
+          "namespace": "Windows.Storage.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

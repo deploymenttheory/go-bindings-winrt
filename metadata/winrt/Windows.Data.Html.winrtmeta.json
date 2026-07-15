@@ -1,0 +1,36 @@
+{
+  "namespace": "Windows.Data.Html",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IHtmlUtilities": {
+      "guid": "fec00add-2399-4fac-b5a7-05e9acd7181d",
+      "exclusive_to": "Windows.Data.Html.HtmlUtilities",
+      "methods": [
+        {
+          "name": "ConvertToText",
+          "params": [
+            {
+              "name": "html",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "HtmlUtilities": {
+      "static_interfaces": [
+        "Windows.Data.Html.IHtmlUtilities"
+      ]
+    }
+  }
+}

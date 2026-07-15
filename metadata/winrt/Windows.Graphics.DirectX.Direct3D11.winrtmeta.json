@@ -1,0 +1,182 @@
+{
+  "namespace": "Windows.Graphics.DirectX.Direct3D11",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "Direct3DBindings": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "VertexBuffer",
+          "value": "1"
+        },
+        {
+          "name": "IndexBuffer",
+          "value": "2"
+        },
+        {
+          "name": "ConstantBuffer",
+          "value": "4"
+        },
+        {
+          "name": "ShaderResource",
+          "value": "8"
+        },
+        {
+          "name": "StreamOutput",
+          "value": "16"
+        },
+        {
+          "name": "RenderTarget",
+          "value": "32"
+        },
+        {
+          "name": "DepthStencil",
+          "value": "64"
+        },
+        {
+          "name": "UnorderedAccess",
+          "value": "128"
+        },
+        {
+          "name": "Decoder",
+          "value": "512"
+        },
+        {
+          "name": "VideoEncoder",
+          "value": "1024"
+        }
+      ]
+    },
+    "Direct3DUsage": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "Immutable",
+          "value": "1"
+        },
+        {
+          "name": "Dynamic",
+          "value": "2"
+        },
+        {
+          "name": "Staging",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "Direct3DMultisampleDescription": {
+      "fields": [
+        {
+          "name": "Count",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "Quality",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ]
+    },
+    "Direct3DSurfaceDescription": {
+      "fields": [
+        {
+          "name": "Width",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "Height",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "Format",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DirectXPixelFormat",
+            "namespace": "Windows.Graphics.DirectX",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "MultisampleDescription",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Direct3DMultisampleDescription",
+            "namespace": "Windows.Graphics.DirectX.Direct3D11",
+            "target_kind": "Struct"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IDirect3DDevice": {
+      "guid": "a37624ab-8d5f-4650-9d3e-9eae3d9bc670",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "Trim"
+        }
+      ]
+    },
+    "IDirect3DSurface": {
+      "guid": "0bf4a146-13c1-4694-bee3-7abf15eaf586",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Description",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Direct3DSurfaceDescription",
+            "namespace": "Windows.Graphics.DirectX.Direct3D11",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Description",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Direct3DSurfaceDescription",
+            "namespace": "Windows.Graphics.DirectX.Direct3D11",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Description"
+        }
+      ]
+    }
+  }
+}

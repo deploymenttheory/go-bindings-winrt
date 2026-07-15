@@ -1,0 +1,56 @@
+{
+  "namespace": "Windows.Management.Core",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IApplicationDataManager": {
+      "guid": "74d10432-2e99-4000-9a3a-64307e858129",
+      "exclusive_to": "Windows.Management.Core.ApplicationDataManager"
+    },
+    "IApplicationDataManagerStatics": {
+      "guid": "1e1862e3-698e-49a1-9752-dee94925b9b3",
+      "exclusive_to": "Windows.Management.Core.ApplicationDataManager",
+      "methods": [
+        {
+          "name": "CreateForPackageFamily",
+          "params": [
+            {
+              "name": "packageFamilyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ApplicationData",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "ApplicationDataManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IApplicationDataManager",
+        "namespace": "Windows.Management.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationDataManager",
+          "namespace": "Windows.Management.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Management.Core.IApplicationDataManagerStatics"
+      ]
+    }
+  }
+}

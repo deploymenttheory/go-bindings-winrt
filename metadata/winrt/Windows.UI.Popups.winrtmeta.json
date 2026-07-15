@@ -1,0 +1,717 @@
+{
+  "namespace": "Windows.UI.Popups",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "MessageDialogOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "AcceptUserInputAfterDelay",
+          "value": "1"
+        }
+      ]
+    },
+    "Placement": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "Above",
+          "value": "1"
+        },
+        {
+          "name": "Below",
+          "value": "2"
+        },
+        {
+          "name": "Left",
+          "value": "3"
+        },
+        {
+          "name": "Right",
+          "value": "4"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IMessageDialog": {
+      "guid": "33f59b01-5325-43ab-9ab3-bdae440e4121",
+      "exclusive_to": "Windows.UI.Popups.MessageDialog",
+      "methods": [
+        {
+          "name": "get_Title",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Title",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Commands",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IUICommand",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_DefaultCommandIndex",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_DefaultCommandIndex",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CancelCommandIndex",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_CancelCommandIndex",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Content",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Content",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ShowAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IUICommand",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Options",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MessageDialogOptions",
+            "namespace": "Windows.UI.Popups",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Options",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MessageDialogOptions",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CancelCommandIndex",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_CancelCommandIndex",
+          "setter": "put_CancelCommandIndex"
+        },
+        {
+          "name": "Commands",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IUICommand",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Interface"
+              }
+            ]
+          },
+          "getter": "get_Commands"
+        },
+        {
+          "name": "Content",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Content",
+          "setter": "put_Content"
+        },
+        {
+          "name": "DefaultCommandIndex",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_DefaultCommandIndex",
+          "setter": "put_DefaultCommandIndex"
+        },
+        {
+          "name": "Options",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MessageDialogOptions",
+            "namespace": "Windows.UI.Popups",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Options",
+          "setter": "put_Options"
+        },
+        {
+          "name": "Title",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Title",
+          "setter": "put_Title"
+        }
+      ]
+    },
+    "IMessageDialogFactory": {
+      "guid": "2d161777-a66f-4ea5-bb87-793ffa4941f2",
+      "exclusive_to": "Windows.UI.Popups.MessageDialog",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "content",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MessageDialog",
+            "namespace": "Windows.UI.Popups",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithTitle",
+          "params": [
+            {
+              "name": "content",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "title",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MessageDialog",
+            "namespace": "Windows.UI.Popups",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPopupMenu": {
+      "guid": "4e9bc6dc-880d-47fc-a0a1-72b639e62559",
+      "exclusive_to": "Windows.UI.Popups.PopupMenu",
+      "methods": [
+        {
+          "name": "get_Commands",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IUICommand",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowAsync",
+          "params": [
+            {
+              "name": "invocationPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IUICommand",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowForSelectionAsync",
+          "overload": "ShowAsyncWithRect",
+          "params": [
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IUICommand",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowForSelectionAsync",
+          "overload": "ShowAsyncWithRectAndPlacement",
+          "params": [
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "preferredPlacement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Placement",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IUICommand",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Commands",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IUICommand",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Interface"
+              }
+            ]
+          },
+          "getter": "get_Commands"
+        }
+      ]
+    },
+    "IUICommand": {
+      "guid": "4ff93a75-4145-47ff-ac7f-dff1c1fa5b0f",
+      "methods": [
+        {
+          "name": "get_Label",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Label",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Invoked",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UICommandInvokedHandler",
+            "namespace": "Windows.UI.Popups",
+            "target_kind": "Delegate"
+          }
+        },
+        {
+          "name": "put_Invoked",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UICommandInvokedHandler",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Delegate"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "put_Id",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_Id",
+          "setter": "put_Id"
+        },
+        {
+          "name": "Invoked",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UICommandInvokedHandler",
+            "namespace": "Windows.UI.Popups",
+            "target_kind": "Delegate"
+          },
+          "getter": "get_Invoked",
+          "setter": "put_Invoked"
+        },
+        {
+          "name": "Label",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Label",
+          "setter": "put_Label"
+        }
+      ]
+    },
+    "IUICommandFactory": {
+      "guid": "a21a8189-26b0-4676-ae94-54041bc125e8",
+      "exclusive_to": "Windows.UI.Popups.UICommand",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "label",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UICommand",
+            "namespace": "Windows.UI.Popups",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithHandler",
+          "params": [
+            {
+              "name": "label",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "action",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UICommandInvokedHandler",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UICommand",
+            "namespace": "Windows.UI.Popups",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithHandlerAndId",
+          "params": [
+            {
+              "name": "label",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "action",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UICommandInvokedHandler",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Delegate"
+              }
+            },
+            {
+              "name": "commandId",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UICommand",
+            "namespace": "Windows.UI.Popups",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "MessageDialog": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMessageDialog",
+        "namespace": "Windows.UI.Popups",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMessageDialog",
+          "namespace": "Windows.UI.Popups",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.UI.Popups.IMessageDialogFactory"
+      ]
+    },
+    "PopupMenu": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPopupMenu",
+        "namespace": "Windows.UI.Popups",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPopupMenu",
+          "namespace": "Windows.UI.Popups",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "UICommand": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUICommand",
+        "namespace": "Windows.UI.Popups",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUICommand",
+          "namespace": "Windows.UI.Popups",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.UI.Popups.IUICommandFactory"
+      ]
+    },
+    "UICommandSeparator": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUICommand",
+        "namespace": "Windows.UI.Popups",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUICommand",
+          "namespace": "Windows.UI.Popups",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  },
+  "delegates": {
+    "UICommandInvokedHandler": {
+      "guid": "daf77a4f-c27a-4298-9ac6-2922c45e7da6",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "command",
+            "type": {
+              "kind": "ApiRef",
+              "name": "IUICommand",
+              "namespace": "Windows.UI.Popups",
+              "target_kind": "Interface"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

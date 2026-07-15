@@ -1,0 +1,2112 @@
+{
+  "namespace": "Windows.Storage.FileProperties",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "PhotoOrientation": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unspecified",
+          "value": "0"
+        },
+        {
+          "name": "Normal",
+          "value": "1"
+        },
+        {
+          "name": "FlipHorizontal",
+          "value": "2"
+        },
+        {
+          "name": "Rotate180",
+          "value": "3"
+        },
+        {
+          "name": "FlipVertical",
+          "value": "4"
+        },
+        {
+          "name": "Transpose",
+          "value": "5"
+        },
+        {
+          "name": "Rotate270",
+          "value": "6"
+        },
+        {
+          "name": "Transverse",
+          "value": "7"
+        },
+        {
+          "name": "Rotate90",
+          "value": "8"
+        }
+      ]
+    },
+    "PropertyPrefetchOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "MusicProperties",
+          "value": "1"
+        },
+        {
+          "name": "VideoProperties",
+          "value": "2"
+        },
+        {
+          "name": "ImageProperties",
+          "value": "4"
+        },
+        {
+          "name": "DocumentProperties",
+          "value": "8"
+        },
+        {
+          "name": "BasicProperties",
+          "value": "16"
+        }
+      ]
+    },
+    "ThumbnailMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "PicturesView",
+          "value": "0"
+        },
+        {
+          "name": "VideosView",
+          "value": "1"
+        },
+        {
+          "name": "MusicView",
+          "value": "2"
+        },
+        {
+          "name": "DocumentsView",
+          "value": "3"
+        },
+        {
+          "name": "ListView",
+          "value": "4"
+        },
+        {
+          "name": "SingleItem",
+          "value": "5"
+        }
+      ]
+    },
+    "ThumbnailOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "ReturnOnlyIfCached",
+          "value": "1"
+        },
+        {
+          "name": "ResizeThumbnail",
+          "value": "2"
+        },
+        {
+          "name": "UseCurrentScale",
+          "value": "4"
+        }
+      ]
+    },
+    "ThumbnailType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Image",
+          "value": "0"
+        },
+        {
+          "name": "Icon",
+          "value": "1"
+        }
+      ]
+    },
+    "VideoOrientation": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Normal",
+          "value": "0"
+        },
+        {
+          "name": "Rotate90",
+          "value": "90"
+        },
+        {
+          "name": "Rotate180",
+          "value": "180"
+        },
+        {
+          "name": "Rotate270",
+          "value": "270"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IBasicProperties": {
+      "guid": "d05d55db-785e-4a66-be02-9beec58aea81",
+      "exclusive_to": "Windows.Storage.FileProperties.BasicProperties",
+      "methods": [
+        {
+          "name": "get_Size",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_DateModified",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_ItemDate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DateModified",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_DateModified"
+        },
+        {
+          "name": "ItemDate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ItemDate"
+        },
+        {
+          "name": "Size",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_Size"
+        }
+      ]
+    },
+    "IDocumentProperties": {
+      "guid": "7eab19bc-1821-4923-b4a9-0aea404d0070",
+      "exclusive_to": "Windows.Storage.FileProperties.DocumentProperties",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IStorageItemExtraProperties",
+          "namespace": "Windows.Storage.FileProperties",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Author",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Title",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Title",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Keywords",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Comment",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Comment",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Author",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Author"
+        },
+        {
+          "name": "Comment",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Comment",
+          "setter": "put_Comment"
+        },
+        {
+          "name": "Keywords",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Keywords"
+        },
+        {
+          "name": "Title",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Title",
+          "setter": "put_Title"
+        }
+      ]
+    },
+    "IGeotagHelperStatics": {
+      "guid": "41493244-2524-4655-86a6-ed16f5fc716b",
+      "exclusive_to": "Windows.Storage.FileProperties.GeotagHelper",
+      "methods": [
+        {
+          "name": "GetGeotagAsync",
+          "params": [
+            {
+              "name": "file",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Geopoint",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SetGeotagFromGeolocatorAsync",
+          "params": [
+            {
+              "name": "file",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "geolocator",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Geolocator",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SetGeotagAsync",
+          "params": [
+            {
+              "name": "file",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "geopoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Geopoint",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IImageProperties": {
+      "guid": "523c9424-fcff-4275-afee-ecdb9ab47973",
+      "exclusive_to": "Windows.Storage.FileProperties.ImageProperties",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IStorageItemExtraProperties",
+          "namespace": "Windows.Storage.FileProperties",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Rating",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_Rating",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Keywords",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_DateTaken",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_DateTaken",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Width",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Height",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Title",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Title",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Latitude",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Longitude",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_CameraManufacturer",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_CameraManufacturer",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CameraModel",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_CameraModel",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Orientation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhotoOrientation",
+            "namespace": "Windows.Storage.FileProperties",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_PeopleNames",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CameraManufacturer",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CameraManufacturer",
+          "setter": "put_CameraManufacturer"
+        },
+        {
+          "name": "CameraModel",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CameraModel",
+          "setter": "put_CameraModel"
+        },
+        {
+          "name": "DateTaken",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_DateTaken",
+          "setter": "put_DateTaken"
+        },
+        {
+          "name": "Height",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Height"
+        },
+        {
+          "name": "Keywords",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Keywords"
+        },
+        {
+          "name": "Latitude",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          },
+          "getter": "get_Latitude"
+        },
+        {
+          "name": "Longitude",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          },
+          "getter": "get_Longitude"
+        },
+        {
+          "name": "Orientation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhotoOrientation",
+            "namespace": "Windows.Storage.FileProperties",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Orientation"
+        },
+        {
+          "name": "PeopleNames",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_PeopleNames"
+        },
+        {
+          "name": "Rating",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Rating",
+          "setter": "put_Rating"
+        },
+        {
+          "name": "Title",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Title",
+          "setter": "put_Title"
+        },
+        {
+          "name": "Width",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Width"
+        }
+      ]
+    },
+    "IMusicProperties": {
+      "guid": "bc8aab62-66ec-419a-bc5d-ca65a4cb46da",
+      "exclusive_to": "Windows.Storage.FileProperties.MusicProperties",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IStorageItemExtraProperties",
+          "namespace": "Windows.Storage.FileProperties",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Album",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Album",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Artist",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Artist",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Genre",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_TrackNumber",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_TrackNumber",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Title",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Title",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Rating",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_Rating",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Duration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Bitrate",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_AlbumArtist",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_AlbumArtist",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Composers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Conductors",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Subtitle",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Subtitle",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Producers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Publisher",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Publisher",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Writers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Year",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_Year",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Album",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Album",
+          "setter": "put_Album"
+        },
+        {
+          "name": "AlbumArtist",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AlbumArtist",
+          "setter": "put_AlbumArtist"
+        },
+        {
+          "name": "Artist",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Artist",
+          "setter": "put_Artist"
+        },
+        {
+          "name": "Bitrate",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Bitrate"
+        },
+        {
+          "name": "Composers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Composers"
+        },
+        {
+          "name": "Conductors",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Conductors"
+        },
+        {
+          "name": "Duration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Duration"
+        },
+        {
+          "name": "Genre",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Genre"
+        },
+        {
+          "name": "Producers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Producers"
+        },
+        {
+          "name": "Publisher",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Publisher",
+          "setter": "put_Publisher"
+        },
+        {
+          "name": "Rating",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Rating",
+          "setter": "put_Rating"
+        },
+        {
+          "name": "Subtitle",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Subtitle",
+          "setter": "put_Subtitle"
+        },
+        {
+          "name": "Title",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Title",
+          "setter": "put_Title"
+        },
+        {
+          "name": "TrackNumber",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_TrackNumber",
+          "setter": "put_TrackNumber"
+        },
+        {
+          "name": "Writers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Writers"
+        },
+        {
+          "name": "Year",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Year",
+          "setter": "put_Year"
+        }
+      ]
+    },
+    "IStorageItemContentProperties": {
+      "guid": "05294bad-bc38-48bf-85d7-770e0e2ae0ba",
+      "exclusive_to": "Windows.Storage.FileProperties.StorageItemContentProperties",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IStorageItemExtraProperties",
+          "namespace": "Windows.Storage.FileProperties",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "GetMusicPropertiesAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MusicProperties",
+                "namespace": "Windows.Storage.FileProperties",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetVideoPropertiesAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VideoProperties",
+                "namespace": "Windows.Storage.FileProperties",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetImagePropertiesAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ImageProperties",
+                "namespace": "Windows.Storage.FileProperties",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDocumentPropertiesAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DocumentProperties",
+                "namespace": "Windows.Storage.FileProperties",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IStorageItemExtraProperties": {
+      "guid": "c54361b2-54cd-432b-bdbc-4b19c4b470d7",
+      "methods": [
+        {
+          "name": "RetrievePropertiesAsync",
+          "params": [
+            {
+              "name": "propertiesToRetrieve",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IMap`2",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "SavePropertiesAsync",
+          "overload": "SavePropertiesAsync",
+          "params": [
+            {
+              "name": "propertiesToSave",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "GenericInst",
+                    "name": "IKeyValuePair`2",
+                    "namespace": "Windows.Foundation.Collections",
+                    "target_kind": "Interface",
+                    "args": [
+                      {
+                        "kind": "Native",
+                        "name": "HString"
+                      },
+                      {
+                        "kind": "Native",
+                        "name": "Object"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SavePropertiesAsync",
+          "overload": "SavePropertiesAsyncOverloadDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IThumbnailProperties": {
+      "guid": "693dd42f-dbe7-49b5-b3b3-2893ac5d3423",
+      "exclusive_to": "Windows.Storage.FileProperties.StorageItemThumbnail",
+      "methods": [
+        {
+          "name": "get_OriginalWidth",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_OriginalHeight",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_ReturnedSmallerCachedSize",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Type",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ThumbnailType",
+            "namespace": "Windows.Storage.FileProperties",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "OriginalHeight",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_OriginalHeight"
+        },
+        {
+          "name": "OriginalWidth",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_OriginalWidth"
+        },
+        {
+          "name": "ReturnedSmallerCachedSize",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ReturnedSmallerCachedSize"
+        },
+        {
+          "name": "Type",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ThumbnailType",
+            "namespace": "Windows.Storage.FileProperties",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Type"
+        }
+      ]
+    },
+    "IVideoProperties": {
+      "guid": "719ae507-68de-4db8-97de-49998c059f2f",
+      "exclusive_to": "Windows.Storage.FileProperties.VideoProperties",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IStorageItemExtraProperties",
+          "namespace": "Windows.Storage.FileProperties",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Rating",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_Rating",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Keywords",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Width",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Height",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Duration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Latitude",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Longitude",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Title",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Title",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Subtitle",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Subtitle",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Producers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Publisher",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Publisher",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Writers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Year",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_Year",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Bitrate",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Directors",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Orientation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoOrientation",
+            "namespace": "Windows.Storage.FileProperties",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Bitrate",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Bitrate"
+        },
+        {
+          "name": "Directors",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Directors"
+        },
+        {
+          "name": "Duration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Duration"
+        },
+        {
+          "name": "Height",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Height"
+        },
+        {
+          "name": "Keywords",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Keywords"
+        },
+        {
+          "name": "Latitude",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          },
+          "getter": "get_Latitude"
+        },
+        {
+          "name": "Longitude",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          },
+          "getter": "get_Longitude"
+        },
+        {
+          "name": "Orientation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoOrientation",
+            "namespace": "Windows.Storage.FileProperties",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Orientation"
+        },
+        {
+          "name": "Producers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Producers"
+        },
+        {
+          "name": "Publisher",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Publisher",
+          "setter": "put_Publisher"
+        },
+        {
+          "name": "Rating",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Rating",
+          "setter": "put_Rating"
+        },
+        {
+          "name": "Subtitle",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Subtitle",
+          "setter": "put_Subtitle"
+        },
+        {
+          "name": "Title",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Title",
+          "setter": "put_Title"
+        },
+        {
+          "name": "Width",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Width"
+        },
+        {
+          "name": "Writers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Writers"
+        },
+        {
+          "name": "Year",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Year",
+          "setter": "put_Year"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "BasicProperties": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBasicProperties",
+        "namespace": "Windows.Storage.FileProperties",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBasicProperties",
+          "namespace": "Windows.Storage.FileProperties",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStorageItemExtraProperties",
+          "namespace": "Windows.Storage.FileProperties",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DocumentProperties": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDocumentProperties",
+        "namespace": "Windows.Storage.FileProperties",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDocumentProperties",
+          "namespace": "Windows.Storage.FileProperties",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStorageItemExtraProperties",
+          "namespace": "Windows.Storage.FileProperties",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "GeotagHelper": {
+      "static_interfaces": [
+        "Windows.Storage.FileProperties.IGeotagHelperStatics"
+      ]
+    },
+    "ImageProperties": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IImageProperties",
+        "namespace": "Windows.Storage.FileProperties",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IImageProperties",
+          "namespace": "Windows.Storage.FileProperties",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStorageItemExtraProperties",
+          "namespace": "Windows.Storage.FileProperties",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MusicProperties": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMusicProperties",
+        "namespace": "Windows.Storage.FileProperties",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMusicProperties",
+          "namespace": "Windows.Storage.FileProperties",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStorageItemExtraProperties",
+          "namespace": "Windows.Storage.FileProperties",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "StorageItemContentProperties": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStorageItemContentProperties",
+        "namespace": "Windows.Storage.FileProperties",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStorageItemContentProperties",
+          "namespace": "Windows.Storage.FileProperties",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStorageItemExtraProperties",
+          "namespace": "Windows.Storage.FileProperties",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "StorageItemThumbnail": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRandomAccessStreamWithContentType",
+        "namespace": "Windows.Storage.Streams",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRandomAccessStreamWithContentType",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IContentTypeProvider",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRandomAccessStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IOutputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IThumbnailProperties",
+          "namespace": "Windows.Storage.FileProperties",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VideoProperties": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVideoProperties",
+        "namespace": "Windows.Storage.FileProperties",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVideoProperties",
+          "namespace": "Windows.Storage.FileProperties",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStorageItemExtraProperties",
+          "namespace": "Windows.Storage.FileProperties",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

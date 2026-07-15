@@ -1,0 +1,1715 @@
+{
+  "namespace": "Windows.Devices.WiFi",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "WiFiAccessStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unspecified",
+          "value": "0"
+        },
+        {
+          "name": "Allowed",
+          "value": "1"
+        },
+        {
+          "name": "DeniedByUser",
+          "value": "2"
+        },
+        {
+          "name": "DeniedBySystem",
+          "value": "3"
+        }
+      ]
+    },
+    "WiFiConnectionMethod": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "WpsPin",
+          "value": "1"
+        },
+        {
+          "name": "WpsPushButton",
+          "value": "2"
+        }
+      ]
+    },
+    "WiFiConnectionStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "UnspecifiedFailure",
+          "value": "0"
+        },
+        {
+          "name": "Success",
+          "value": "1"
+        },
+        {
+          "name": "AccessRevoked",
+          "value": "2"
+        },
+        {
+          "name": "InvalidCredential",
+          "value": "3"
+        },
+        {
+          "name": "NetworkNotAvailable",
+          "value": "4"
+        },
+        {
+          "name": "Timeout",
+          "value": "5"
+        },
+        {
+          "name": "UnsupportedAuthenticationProtocol",
+          "value": "6"
+        }
+      ]
+    },
+    "WiFiNetworkKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Any",
+          "value": "0"
+        },
+        {
+          "name": "Infrastructure",
+          "value": "1"
+        },
+        {
+          "name": "Adhoc",
+          "value": "2"
+        }
+      ]
+    },
+    "WiFiOnDemandHotspotAvailability": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Available",
+          "value": "0"
+        },
+        {
+          "name": "Unavailable",
+          "value": "1"
+        }
+      ]
+    },
+    "WiFiOnDemandHotspotCellularBars": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "ZeroBars",
+          "value": "0"
+        },
+        {
+          "name": "OneBar",
+          "value": "1"
+        },
+        {
+          "name": "TwoBars",
+          "value": "2"
+        },
+        {
+          "name": "ThreeBars",
+          "value": "3"
+        },
+        {
+          "name": "FourBars",
+          "value": "4"
+        },
+        {
+          "name": "FiveBars",
+          "value": "5"
+        }
+      ]
+    },
+    "WiFiOnDemandHotspotConnectStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "UnspecifiedFailure",
+          "value": "0"
+        },
+        {
+          "name": "Success",
+          "value": "1"
+        },
+        {
+          "name": "AppTimedOut",
+          "value": "2"
+        },
+        {
+          "name": "InvalidCredential",
+          "value": "3"
+        },
+        {
+          "name": "NetworkNotAvailable",
+          "value": "4"
+        },
+        {
+          "name": "UnsupportedAuthenticationProtocol",
+          "value": "5"
+        },
+        {
+          "name": "BluetoothConnectFailed",
+          "value": "6"
+        },
+        {
+          "name": "BluetoothTransmissionError",
+          "value": "7"
+        },
+        {
+          "name": "OperationCanceledByUser",
+          "value": "8"
+        },
+        {
+          "name": "EntitlementCheckFailed",
+          "value": "9"
+        },
+        {
+          "name": "NoCellularSignal",
+          "value": "10"
+        },
+        {
+          "name": "CellularDataTurnedOff",
+          "value": "11"
+        },
+        {
+          "name": "WlanConnectFailed",
+          "value": "12"
+        },
+        {
+          "name": "WlanNotVisible",
+          "value": "13"
+        },
+        {
+          "name": "AccessPointCannotConnect",
+          "value": "14"
+        },
+        {
+          "name": "CellularConnectTimedOut",
+          "value": "15"
+        },
+        {
+          "name": "RoamingNotAllowed",
+          "value": "16"
+        },
+        {
+          "name": "PairingRequired",
+          "value": "17"
+        },
+        {
+          "name": "DataLimitReached",
+          "value": "18"
+        }
+      ]
+    },
+    "WiFiPhyKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "Fhss",
+          "value": "1"
+        },
+        {
+          "name": "Dsss",
+          "value": "2"
+        },
+        {
+          "name": "IRBaseband",
+          "value": "3"
+        },
+        {
+          "name": "Ofdm",
+          "value": "4"
+        },
+        {
+          "name": "Hrdsss",
+          "value": "5"
+        },
+        {
+          "name": "Erp",
+          "value": "6"
+        },
+        {
+          "name": "HT",
+          "value": "7"
+        },
+        {
+          "name": "Vht",
+          "value": "8"
+        },
+        {
+          "name": "Dmg",
+          "value": "9"
+        },
+        {
+          "name": "HE",
+          "value": "10"
+        },
+        {
+          "name": "Eht",
+          "value": "11"
+        }
+      ]
+    },
+    "WiFiReconnectionKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Automatic",
+          "value": "0"
+        },
+        {
+          "name": "Manual",
+          "value": "1"
+        }
+      ]
+    },
+    "WiFiWpsConfigurationStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "UnspecifiedFailure",
+          "value": "0"
+        },
+        {
+          "name": "Success",
+          "value": "1"
+        },
+        {
+          "name": "Timeout",
+          "value": "2"
+        }
+      ]
+    },
+    "WiFiWpsKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "Pin",
+          "value": "1"
+        },
+        {
+          "name": "PushButton",
+          "value": "2"
+        },
+        {
+          "name": "Nfc",
+          "value": "3"
+        },
+        {
+          "name": "Ethernet",
+          "value": "4"
+        },
+        {
+          "name": "Usb",
+          "value": "5"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IWiFiAdapter": {
+      "guid": "a6c4e423-3d75-43a4-b9de-11e26b72d9b0",
+      "exclusive_to": "Windows.Devices.WiFi.WiFiAdapter",
+      "methods": [
+        {
+          "name": "get_NetworkAdapter",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NetworkAdapter",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ScanAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_NetworkReport",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WiFiNetworkReport",
+            "namespace": "Windows.Devices.WiFi",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_AvailableNetworksChanged",
+          "params": [
+            {
+              "name": "args",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "WiFiAdapter",
+                    "namespace": "Windows.Devices.WiFi",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_AvailableNetworksChanged",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ConnectAsync",
+          "overload": "ConnectAsync",
+          "params": [
+            {
+              "name": "availableNetwork",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WiFiAvailableNetwork",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "reconnectionKind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WiFiReconnectionKind",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiConnectionResult",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ConnectAsync",
+          "overload": "ConnectWithPasswordCredentialAsync",
+          "params": [
+            {
+              "name": "availableNetwork",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WiFiAvailableNetwork",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "reconnectionKind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WiFiReconnectionKind",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "passwordCredential",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PasswordCredential",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiConnectionResult",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ConnectAsync",
+          "overload": "ConnectWithPasswordCredentialAndSsidAsync",
+          "params": [
+            {
+              "name": "availableNetwork",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WiFiAvailableNetwork",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "reconnectionKind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WiFiReconnectionKind",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "passwordCredential",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PasswordCredential",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "ssid",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiConnectionResult",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Disconnect"
+        }
+      ],
+      "properties": [
+        {
+          "name": "NetworkAdapter",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NetworkAdapter",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          },
+          "getter": "get_NetworkAdapter"
+        },
+        {
+          "name": "NetworkReport",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WiFiNetworkReport",
+            "namespace": "Windows.Devices.WiFi",
+            "target_kind": "Class"
+          },
+          "getter": "get_NetworkReport"
+        }
+      ],
+      "events": [
+        {
+          "name": "AvailableNetworksChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiAdapter",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_AvailableNetworksChanged",
+          "remove_method": "remove_AvailableNetworksChanged"
+        }
+      ]
+    },
+    "IWiFiAdapter2": {
+      "guid": "5bc4501d-81e4-453d-9430-1fcafbadd6b6",
+      "exclusive_to": "Windows.Devices.WiFi.WiFiAdapter",
+      "methods": [
+        {
+          "name": "GetWpsConfigurationAsync",
+          "params": [
+            {
+              "name": "availableNetwork",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WiFiAvailableNetwork",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiWpsConfigurationResult",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ConnectAsync",
+          "overload": "ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync",
+          "params": [
+            {
+              "name": "availableNetwork",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WiFiAvailableNetwork",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "reconnectionKind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WiFiReconnectionKind",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "passwordCredential",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PasswordCredential",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "ssid",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "connectionMethod",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WiFiConnectionMethod",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiConnectionResult",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IWiFiAdapterStatics": {
+      "guid": "da25fddd-d24c-43e3-aabd-c4659f730f99",
+      "exclusive_to": "Windows.Devices.WiFi.WiFiAdapter",
+      "methods": [
+        {
+          "name": "FindAllAdaptersAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "WiFiAdapter",
+                    "namespace": "Windows.Devices.WiFi",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDeviceSelector",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FromIdAsync",
+          "overload": "FromIdAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiAdapter",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestAccessAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiAccessStatus",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IWiFiAvailableNetwork": {
+      "guid": "26e96246-183e-4704-9826-71b4a2f0f668",
+      "exclusive_to": "Windows.Devices.WiFi.WiFiAvailableNetwork",
+      "methods": [
+        {
+          "name": "get_Uptime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Ssid",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Bssid",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ChannelCenterFrequencyInKilohertz",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_NetworkRssiInDecibelMilliwatts",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_SignalBars",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_NetworkKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WiFiNetworkKind",
+            "namespace": "Windows.Devices.WiFi",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_PhyKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WiFiPhyKind",
+            "namespace": "Windows.Devices.WiFi",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_SecuritySettings",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NetworkSecuritySettings",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_BeaconInterval",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_IsWiFiDirect",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BeaconInterval",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BeaconInterval"
+        },
+        {
+          "name": "Bssid",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Bssid"
+        },
+        {
+          "name": "ChannelCenterFrequencyInKilohertz",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_ChannelCenterFrequencyInKilohertz"
+        },
+        {
+          "name": "IsWiFiDirect",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsWiFiDirect"
+        },
+        {
+          "name": "NetworkKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WiFiNetworkKind",
+            "namespace": "Windows.Devices.WiFi",
+            "target_kind": "Enum"
+          },
+          "getter": "get_NetworkKind"
+        },
+        {
+          "name": "NetworkRssiInDecibelMilliwatts",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_NetworkRssiInDecibelMilliwatts"
+        },
+        {
+          "name": "PhyKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WiFiPhyKind",
+            "namespace": "Windows.Devices.WiFi",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PhyKind"
+        },
+        {
+          "name": "SecuritySettings",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NetworkSecuritySettings",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          },
+          "getter": "get_SecuritySettings"
+        },
+        {
+          "name": "SignalBars",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_SignalBars"
+        },
+        {
+          "name": "Ssid",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Ssid"
+        },
+        {
+          "name": "Uptime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Uptime"
+        }
+      ]
+    },
+    "IWiFiConnectionResult": {
+      "guid": "143bdfd9-c37d-40be-a5c8-857bce85a931",
+      "exclusive_to": "Windows.Devices.WiFi.WiFiConnectionResult",
+      "methods": [
+        {
+          "name": "get_ConnectionStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WiFiConnectionStatus",
+            "namespace": "Windows.Devices.WiFi",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ConnectionStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WiFiConnectionStatus",
+            "namespace": "Windows.Devices.WiFi",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ConnectionStatus"
+        }
+      ]
+    },
+    "IWiFiNetworkReport": {
+      "guid": "9524ded2-5911-445e-8194-be4f1a704895",
+      "exclusive_to": "Windows.Devices.WiFi.WiFiNetworkReport",
+      "methods": [
+        {
+          "name": "get_Timestamp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_AvailableNetworks",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiAvailableNetwork",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AvailableNetworks",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiAvailableNetwork",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_AvailableNetworks"
+        },
+        {
+          "name": "Timestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Timestamp"
+        }
+      ]
+    },
+    "IWiFiOnDemandHotspotConnectTriggerDetails": {
+      "guid": "a268eb58-68f5-59cf-8d38-35bf44b097ef",
+      "exclusive_to": "Windows.Devices.WiFi.WiFiOnDemandHotspotConnectTriggerDetails",
+      "methods": [
+        {
+          "name": "get_RequestedNetwork",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WiFiOnDemandHotspotNetwork",
+            "namespace": "Windows.Devices.WiFi",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ReportError",
+          "params": [
+            {
+              "name": "status",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WiFiOnDemandHotspotConnectStatus",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ConnectAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiOnDemandHotspotConnectionResult",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Connect",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WiFiOnDemandHotspotConnectionResult",
+            "namespace": "Windows.Devices.WiFi",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RequestedNetwork",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WiFiOnDemandHotspotNetwork",
+            "namespace": "Windows.Devices.WiFi",
+            "target_kind": "Class"
+          },
+          "getter": "get_RequestedNetwork"
+        }
+      ]
+    },
+    "IWiFiOnDemandHotspotConnectionResult": {
+      "guid": "911794a1-6c82-5de3-8a4a-f9ff22a4957a",
+      "exclusive_to": "Windows.Devices.WiFi.WiFiOnDemandHotspotConnectionResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WiFiOnDemandHotspotConnectStatus",
+            "namespace": "Windows.Devices.WiFi",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WiFiOnDemandHotspotConnectStatus",
+            "namespace": "Windows.Devices.WiFi",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IWiFiOnDemandHotspotNetwork": {
+      "guid": "18dc7115-a04e-507c-bbaf-b78369d29fa7",
+      "exclusive_to": "Windows.Devices.WiFi.WiFiOnDemandHotspotNetwork",
+      "methods": [
+        {
+          "name": "GetProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WiFiOnDemandHotspotNetworkProperties",
+            "namespace": "Windows.Devices.WiFi",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "UpdateProperties",
+          "params": [
+            {
+              "name": "newProperties",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WiFiOnDemandHotspotNetworkProperties",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_Id"
+        }
+      ]
+    },
+    "IWiFiOnDemandHotspotNetworkProperties": {
+      "guid": "c810a1f2-c81d-5852-be50-e4bd4d81e98d",
+      "exclusive_to": "Windows.Devices.WiFi.WiFiOnDemandHotspotNetworkProperties",
+      "methods": [
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DisplayName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Availability",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WiFiOnDemandHotspotAvailability",
+            "namespace": "Windows.Devices.WiFi",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Availability",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WiFiOnDemandHotspotAvailability",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RemainingBatteryPercent",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_RemainingBatteryPercent",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "U4"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CellularBars",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiOnDemandHotspotCellularBars",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_CellularBars",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "WiFiOnDemandHotspotCellularBars",
+                    "namespace": "Windows.Devices.WiFi",
+                    "target_kind": "Enum"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsMetered",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsMetered",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Ssid",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Ssid",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Password",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Password",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PasswordCredential",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Availability",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WiFiOnDemandHotspotAvailability",
+            "namespace": "Windows.Devices.WiFi",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Availability",
+          "setter": "put_Availability"
+        },
+        {
+          "name": "CellularBars",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiOnDemandHotspotCellularBars",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_CellularBars",
+          "setter": "put_CellularBars"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName",
+          "setter": "put_DisplayName"
+        },
+        {
+          "name": "IsMetered",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsMetered",
+          "setter": "put_IsMetered"
+        },
+        {
+          "name": "Password",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          },
+          "getter": "get_Password",
+          "setter": "put_Password"
+        },
+        {
+          "name": "RemainingBatteryPercent",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_RemainingBatteryPercent",
+          "setter": "put_RemainingBatteryPercent"
+        },
+        {
+          "name": "Ssid",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Ssid",
+          "setter": "put_Ssid"
+        }
+      ]
+    },
+    "IWiFiOnDemandHotspotNetworkStatics": {
+      "guid": "00f5b8ac-80e7-5054-871c-8739f374e3c9",
+      "exclusive_to": "Windows.Devices.WiFi.WiFiOnDemandHotspotNetwork",
+      "methods": [
+        {
+          "name": "GetOrCreateById",
+          "params": [
+            {
+              "name": "networkId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WiFiOnDemandHotspotNetwork",
+            "namespace": "Windows.Devices.WiFi",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IWiFiWpsConfigurationResult": {
+      "guid": "67b49871-17ee-42d1-b14f-5a11f1226fb5",
+      "exclusive_to": "Windows.Devices.WiFi.WiFiWpsConfigurationResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WiFiWpsConfigurationStatus",
+            "namespace": "Windows.Devices.WiFi",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_SupportedWpsKinds",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiWpsKind",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WiFiWpsConfigurationStatus",
+            "namespace": "Windows.Devices.WiFi",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        },
+        {
+          "name": "SupportedWpsKinds",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiWpsKind",
+                "namespace": "Windows.Devices.WiFi",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SupportedWpsKinds"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "WiFiAdapter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWiFiAdapter",
+        "namespace": "Windows.Devices.WiFi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWiFiAdapter",
+          "namespace": "Windows.Devices.WiFi",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IWiFiAdapter2",
+          "namespace": "Windows.Devices.WiFi",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.WiFi.IWiFiAdapterStatics"
+      ]
+    },
+    "WiFiAvailableNetwork": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWiFiAvailableNetwork",
+        "namespace": "Windows.Devices.WiFi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWiFiAvailableNetwork",
+          "namespace": "Windows.Devices.WiFi",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WiFiConnectionResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWiFiConnectionResult",
+        "namespace": "Windows.Devices.WiFi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWiFiConnectionResult",
+          "namespace": "Windows.Devices.WiFi",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WiFiNetworkReport": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWiFiNetworkReport",
+        "namespace": "Windows.Devices.WiFi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWiFiNetworkReport",
+          "namespace": "Windows.Devices.WiFi",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WiFiOnDemandHotspotConnectTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWiFiOnDemandHotspotConnectTriggerDetails",
+        "namespace": "Windows.Devices.WiFi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWiFiOnDemandHotspotConnectTriggerDetails",
+          "namespace": "Windows.Devices.WiFi",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WiFiOnDemandHotspotConnectionResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWiFiOnDemandHotspotConnectionResult",
+        "namespace": "Windows.Devices.WiFi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWiFiOnDemandHotspotConnectionResult",
+          "namespace": "Windows.Devices.WiFi",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WiFiOnDemandHotspotNetwork": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWiFiOnDemandHotspotNetwork",
+        "namespace": "Windows.Devices.WiFi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWiFiOnDemandHotspotNetwork",
+          "namespace": "Windows.Devices.WiFi",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.WiFi.IWiFiOnDemandHotspotNetworkStatics"
+      ]
+    },
+    "WiFiOnDemandHotspotNetworkProperties": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWiFiOnDemandHotspotNetworkProperties",
+        "namespace": "Windows.Devices.WiFi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWiFiOnDemandHotspotNetworkProperties",
+          "namespace": "Windows.Devices.WiFi",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WiFiWpsConfigurationResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWiFiWpsConfigurationResult",
+        "namespace": "Windows.Devices.WiFi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWiFiWpsConfigurationResult",
+          "namespace": "Windows.Devices.WiFi",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

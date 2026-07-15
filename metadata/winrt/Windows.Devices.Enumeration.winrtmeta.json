@@ -1,0 +1,4362 @@
+{
+  "namespace": "Windows.Devices.Enumeration",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "DeviceAccessStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unspecified",
+          "value": "0"
+        },
+        {
+          "name": "Allowed",
+          "value": "1"
+        },
+        {
+          "name": "DeniedByUser",
+          "value": "2"
+        },
+        {
+          "name": "DeniedBySystem",
+          "value": "3"
+        }
+      ]
+    },
+    "DeviceClass": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "All",
+          "value": "0"
+        },
+        {
+          "name": "AudioCapture",
+          "value": "1"
+        },
+        {
+          "name": "AudioRender",
+          "value": "2"
+        },
+        {
+          "name": "PortableStorageDevice",
+          "value": "3"
+        },
+        {
+          "name": "VideoCapture",
+          "value": "4"
+        },
+        {
+          "name": "ImageScanner",
+          "value": "5"
+        },
+        {
+          "name": "Location",
+          "value": "6"
+        }
+      ]
+    },
+    "DeviceInformationKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "DeviceInterface",
+          "value": "1"
+        },
+        {
+          "name": "DeviceContainer",
+          "value": "2"
+        },
+        {
+          "name": "Device",
+          "value": "3"
+        },
+        {
+          "name": "DeviceInterfaceClass",
+          "value": "4"
+        },
+        {
+          "name": "AssociationEndpoint",
+          "value": "5"
+        },
+        {
+          "name": "AssociationEndpointContainer",
+          "value": "6"
+        },
+        {
+          "name": "AssociationEndpointService",
+          "value": "7"
+        },
+        {
+          "name": "DevicePanel",
+          "value": "8"
+        },
+        {
+          "name": "AssociationEndpointProtocol",
+          "value": "9"
+        }
+      ]
+    },
+    "DevicePairingAddPairingSetMemberStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "AddedToSet",
+          "value": "0"
+        },
+        {
+          "name": "CouldNotBeAddedToSet",
+          "value": "1"
+        },
+        {
+          "name": "SetDiscoveryNotAttemptedByProtocol",
+          "value": "2"
+        },
+        {
+          "name": "SetDiscoveryCompletedByProtocol",
+          "value": "3"
+        },
+        {
+          "name": "SetDiscoveryPartiallyCompletedByProtocol",
+          "value": "4"
+        },
+        {
+          "name": "Failed",
+          "value": "5"
+        }
+      ]
+    },
+    "DevicePairingKinds": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "ConfirmOnly",
+          "value": "1"
+        },
+        {
+          "name": "DisplayPin",
+          "value": "2"
+        },
+        {
+          "name": "ProvidePin",
+          "value": "4"
+        },
+        {
+          "name": "ConfirmPinMatch",
+          "value": "8"
+        },
+        {
+          "name": "ProvidePasswordCredential",
+          "value": "16"
+        },
+        {
+          "name": "ProvideAddress",
+          "value": "32"
+        }
+      ]
+    },
+    "DevicePairingProtectionLevel": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "None",
+          "value": "1"
+        },
+        {
+          "name": "Encryption",
+          "value": "2"
+        },
+        {
+          "name": "EncryptionAndAuthentication",
+          "value": "3"
+        }
+      ]
+    },
+    "DevicePairingResultStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Paired",
+          "value": "0"
+        },
+        {
+          "name": "NotReadyToPair",
+          "value": "1"
+        },
+        {
+          "name": "NotPaired",
+          "value": "2"
+        },
+        {
+          "name": "AlreadyPaired",
+          "value": "3"
+        },
+        {
+          "name": "ConnectionRejected",
+          "value": "4"
+        },
+        {
+          "name": "TooManyConnections",
+          "value": "5"
+        },
+        {
+          "name": "HardwareFailure",
+          "value": "6"
+        },
+        {
+          "name": "AuthenticationTimeout",
+          "value": "7"
+        },
+        {
+          "name": "AuthenticationNotAllowed",
+          "value": "8"
+        },
+        {
+          "name": "AuthenticationFailure",
+          "value": "9"
+        },
+        {
+          "name": "NoSupportedProfiles",
+          "value": "10"
+        },
+        {
+          "name": "ProtectionLevelCouldNotBeMet",
+          "value": "11"
+        },
+        {
+          "name": "AccessDenied",
+          "value": "12"
+        },
+        {
+          "name": "InvalidCeremonyData",
+          "value": "13"
+        },
+        {
+          "name": "PairingCanceled",
+          "value": "14"
+        },
+        {
+          "name": "OperationAlreadyInProgress",
+          "value": "15"
+        },
+        {
+          "name": "RequiredHandlerNotRegistered",
+          "value": "16"
+        },
+        {
+          "name": "RejectedByHandler",
+          "value": "17"
+        },
+        {
+          "name": "RemoteDeviceHasAssociation",
+          "value": "18"
+        },
+        {
+          "name": "Failed",
+          "value": "19"
+        }
+      ]
+    },
+    "DevicePickerDisplayStatusOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "ShowProgress",
+          "value": "1"
+        },
+        {
+          "name": "ShowDisconnectButton",
+          "value": "2"
+        },
+        {
+          "name": "ShowRetryButton",
+          "value": "4"
+        }
+      ]
+    },
+    "DeviceUnpairingResultStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unpaired",
+          "value": "0"
+        },
+        {
+          "name": "AlreadyUnpaired",
+          "value": "1"
+        },
+        {
+          "name": "OperationAlreadyInProgress",
+          "value": "2"
+        },
+        {
+          "name": "AccessDenied",
+          "value": "3"
+        },
+        {
+          "name": "Failed",
+          "value": "4"
+        }
+      ]
+    },
+    "DeviceWatcherEventKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Add",
+          "value": "0"
+        },
+        {
+          "name": "Update",
+          "value": "1"
+        },
+        {
+          "name": "Remove",
+          "value": "2"
+        }
+      ]
+    },
+    "DeviceWatcherStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Created",
+          "value": "0"
+        },
+        {
+          "name": "Started",
+          "value": "1"
+        },
+        {
+          "name": "EnumerationCompleted",
+          "value": "2"
+        },
+        {
+          "name": "Stopping",
+          "value": "3"
+        },
+        {
+          "name": "Stopped",
+          "value": "4"
+        },
+        {
+          "name": "Aborted",
+          "value": "5"
+        }
+      ]
+    },
+    "Panel": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "Front",
+          "value": "1"
+        },
+        {
+          "name": "Back",
+          "value": "2"
+        },
+        {
+          "name": "Top",
+          "value": "3"
+        },
+        {
+          "name": "Bottom",
+          "value": "4"
+        },
+        {
+          "name": "Left",
+          "value": "5"
+        },
+        {
+          "name": "Right",
+          "value": "6"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IDeviceAccessChangedEventArgs": {
+      "guid": "deda0bcc-4f9d-4f58-9dba-a9bc800408d5",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceAccessChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceAccessStatus",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceAccessStatus",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IDeviceAccessChangedEventArgs2": {
+      "guid": "82523262-934b-4b30-a178-adc39f2f2be3",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceAccessChangedEventArgs",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceAccessChangedEventArgs",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        }
+      ]
+    },
+    "IDeviceAccessChangedEventArgs3": {
+      "guid": "7580a878-7fd9-5cd7-8560-3c644b9b10db",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceAccessChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_UserPromptRequired",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "UserPromptRequired",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_UserPromptRequired"
+        }
+      ]
+    },
+    "IDeviceAccessInformation": {
+      "guid": "0baa9a73-6de5-4915-8ddd-9a0554a6f545",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceAccessInformation",
+      "methods": [
+        {
+          "name": "add_AccessChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DeviceAccessInformation",
+                    "namespace": "Windows.Devices.Enumeration",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "DeviceAccessChangedEventArgs",
+                    "namespace": "Windows.Devices.Enumeration",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_AccessChanged",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CurrentStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceAccessStatus",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CurrentStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceAccessStatus",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CurrentStatus"
+        }
+      ],
+      "events": [
+        {
+          "name": "AccessChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceAccessInformation",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeviceAccessChangedEventArgs",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_AccessChanged",
+          "remove_method": "remove_AccessChanged"
+        }
+      ]
+    },
+    "IDeviceAccessInformation2": {
+      "guid": "e2b9dff6-e88f-5d0a-9c1e-d788808df47b",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceAccessInformation",
+      "methods": [
+        {
+          "name": "get_UserPromptRequired",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "UserPromptRequired",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_UserPromptRequired"
+        }
+      ]
+    },
+    "IDeviceAccessInformationStatics": {
+      "guid": "574bd3d3-5f30-45cd-8a94-724fe5973084",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceAccessInformation",
+      "methods": [
+        {
+          "name": "CreateFromId",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceAccessInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFromDeviceClassId",
+          "params": [
+            {
+              "name": "deviceClassId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceAccessInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFromDeviceClass",
+          "params": [
+            {
+              "name": "deviceClass",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceClass",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceAccessInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDeviceConnectionChangeTriggerDetails": {
+      "guid": "b8578c0c-bbc1-484b-bffa-7b31dcc200b2",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceConnectionChangeTriggerDetails",
+      "methods": [
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        }
+      ]
+    },
+    "IDeviceDisconnectButtonClickedEventArgs": {
+      "guid": "8e44b56d-f902-4a00-b536-f37992e6a2a7",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceDisconnectButtonClickedEventArgs",
+      "methods": [
+        {
+          "name": "get_Device",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Device",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          },
+          "getter": "get_Device"
+        }
+      ]
+    },
+    "IDeviceEnumerationSettings": {
+      "guid": "f7710f66-9ff3-41c8-85eb-87f81148a30f"
+    },
+    "IDeviceInformation": {
+      "guid": "aba0fb95-4398-489d-8e44-e6130927011f",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceInformation",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IsEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsDefault",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_EnclosureLocation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EnclosureLocation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Update",
+          "params": [
+            {
+              "name": "updateInfo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceInformationUpdate",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetThumbnailAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceThumbnail",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetGlyphThumbnailAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceThumbnail",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EnclosureLocation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EnclosureLocation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          },
+          "getter": "get_EnclosureLocation"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "IsDefault",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsDefault"
+        },
+        {
+          "name": "IsEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsEnabled"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        }
+      ]
+    },
+    "IDeviceInformation2": {
+      "guid": "f156a638-7997-48d9-a10c-269d46533f48",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceInformation",
+      "methods": [
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceInformationKind",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Pairing",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceInformationPairing",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceInformationKind",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        },
+        {
+          "name": "Pairing",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceInformationPairing",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          },
+          "getter": "get_Pairing"
+        }
+      ]
+    },
+    "IDeviceInformationCustomPairing": {
+      "guid": "85138c02-4ee6-4914-8370-107a39144c0e",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceInformationCustomPairing",
+      "methods": [
+        {
+          "name": "PairAsync",
+          "overload": "PairAsync",
+          "params": [
+            {
+              "name": "pairingKindsSupported",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DevicePairingKinds",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DevicePairingResult",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "PairAsync",
+          "overload": "PairWithProtectionLevelAsync",
+          "params": [
+            {
+              "name": "pairingKindsSupported",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DevicePairingKinds",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "minProtectionLevel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DevicePairingProtectionLevel",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DevicePairingResult",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "PairAsync",
+          "overload": "PairWithProtectionLevelAndSettingsAsync",
+          "params": [
+            {
+              "name": "pairingKindsSupported",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DevicePairingKinds",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "minProtectionLevel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DevicePairingProtectionLevel",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "devicePairingSettings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IDevicePairingSettings",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DevicePairingResult",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_PairingRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DeviceInformationCustomPairing",
+                    "namespace": "Windows.Devices.Enumeration",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "DevicePairingRequestedEventArgs",
+                    "namespace": "Windows.Devices.Enumeration",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PairingRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "PairingRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceInformationCustomPairing",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DevicePairingRequestedEventArgs",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PairingRequested",
+          "remove_method": "remove_PairingRequested"
+        }
+      ]
+    },
+    "IDeviceInformationCustomPairing2": {
+      "guid": "0ebda662-e696-5fa9-8f72-80cfebcd851d",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceInformationCustomPairing",
+      "methods": [
+        {
+          "name": "AddPairingSetMember",
+          "params": [
+            {
+              "name": "device",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceInformation",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PairingSetMembersRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DeviceInformationCustomPairing",
+                    "namespace": "Windows.Devices.Enumeration",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "DevicePairingSetMembersRequestedEventArgs",
+                    "namespace": "Windows.Devices.Enumeration",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PairingSetMembersRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "PairingSetMembersRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceInformationCustomPairing",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DevicePairingSetMembersRequestedEventArgs",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PairingSetMembersRequested",
+          "remove_method": "remove_PairingSetMembersRequested"
+        }
+      ]
+    },
+    "IDeviceInformationPairing": {
+      "guid": "2c4769f5-f684-40d5-8469-e8dbaab70485",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceInformationPairing",
+      "methods": [
+        {
+          "name": "get_IsPaired",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_CanPair",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "PairAsync",
+          "overload": "PairAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DevicePairingResult",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "PairAsync",
+          "overload": "PairWithProtectionLevelAsync",
+          "params": [
+            {
+              "name": "minProtectionLevel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DevicePairingProtectionLevel",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DevicePairingResult",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CanPair",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanPair"
+        },
+        {
+          "name": "IsPaired",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPaired"
+        }
+      ]
+    },
+    "IDeviceInformationPairing2": {
+      "guid": "f68612fd-0aee-4328-85cc-1c742bb1790d",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceInformationPairing",
+      "methods": [
+        {
+          "name": "get_ProtectionLevel",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DevicePairingProtectionLevel",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Custom",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceInformationCustomPairing",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "PairAsync",
+          "overload": "PairWithProtectionLevelAndSettingsAsync",
+          "params": [
+            {
+              "name": "minProtectionLevel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DevicePairingProtectionLevel",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "devicePairingSettings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IDevicePairingSettings",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DevicePairingResult",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "UnpairAsync",
+          "overload": "UnpairAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceUnpairingResult",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Custom",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceInformationCustomPairing",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          },
+          "getter": "get_Custom"
+        },
+        {
+          "name": "ProtectionLevel",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DevicePairingProtectionLevel",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ProtectionLevel"
+        }
+      ]
+    },
+    "IDeviceInformationPairingStatics": {
+      "guid": "e915c408-36d4-49a1-bf13-514173799b6b",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceInformationPairing",
+      "methods": [
+        {
+          "name": "TryRegisterForAllInboundPairingRequests",
+          "params": [
+            {
+              "name": "pairingKindsSupported",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DevicePairingKinds",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IDeviceInformationPairingStatics2": {
+      "guid": "04de5372-b7b7-476b-a74f-c5836a704d98",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceInformationPairing",
+      "methods": [
+        {
+          "name": "TryRegisterForAllInboundPairingRequestsWithProtectionLevel",
+          "params": [
+            {
+              "name": "pairingKindsSupported",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DevicePairingKinds",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "minProtectionLevel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DevicePairingProtectionLevel",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IDeviceInformationStatics": {
+      "guid": "c17f100e-3a46-4a78-8013-769dc9b97390",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceInformation",
+      "methods": [
+        {
+          "name": "CreateFromIdAsync",
+          "overload": "CreateFromIdAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceInformation",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateFromIdAsync",
+          "overload": "CreateFromIdAsyncAdditionalProperties",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "additionalProperties",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceInformation",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAllAsync",
+          "overload": "FindAllAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceInformationCollection",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAllAsync",
+          "overload": "FindAllAsyncDeviceClass",
+          "is_default_overload": true,
+          "params": [
+            {
+              "name": "deviceClass",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceClass",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceInformationCollection",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAllAsync",
+          "overload": "FindAllAsyncAqsFilter",
+          "params": [
+            {
+              "name": "aqsFilter",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceInformationCollection",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAllAsync",
+          "overload": "FindAllAsyncAqsFilterAndAdditionalProperties",
+          "params": [
+            {
+              "name": "aqsFilter",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "additionalProperties",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceInformationCollection",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateWatcher",
+          "overload": "CreateWatcher",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceWatcher",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWatcher",
+          "overload": "CreateWatcherDeviceClass",
+          "is_default_overload": true,
+          "params": [
+            {
+              "name": "deviceClass",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceClass",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceWatcher",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWatcher",
+          "overload": "CreateWatcherAqsFilter",
+          "params": [
+            {
+              "name": "aqsFilter",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceWatcher",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWatcher",
+          "overload": "CreateWatcherAqsFilterAndAdditionalProperties",
+          "params": [
+            {
+              "name": "aqsFilter",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "additionalProperties",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceWatcher",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDeviceInformationStatics2": {
+      "guid": "493b4f34-a84f-45fd-9167-15d1cb1bd1f9",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceInformation",
+      "methods": [
+        {
+          "name": "GetAqsFilterFromDeviceClass",
+          "params": [
+            {
+              "name": "deviceClass",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceClass",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "CreateFromIdAsync",
+          "overload": "CreateFromIdAsyncWithKindAndAdditionalProperties",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "additionalProperties",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "kind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceInformationKind",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceInformation",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAllAsync",
+          "overload": "FindAllAsyncWithKindAqsFilterAndAdditionalProperties",
+          "params": [
+            {
+              "name": "aqsFilter",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "additionalProperties",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "kind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceInformationKind",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceInformationCollection",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateWatcher",
+          "overload": "CreateWatcherWithKindAqsFilterAndAdditionalProperties",
+          "params": [
+            {
+              "name": "aqsFilter",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "additionalProperties",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "kind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceInformationKind",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceWatcher",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDeviceInformationStatics3": {
+      "guid": "25f06279-9364-5a6c-8a54-5d4a6d3d922a",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceInformation",
+      "methods": [
+        {
+          "name": "CreateFromIdAsync",
+          "overload": "CreateFromIdAsyncWithAdditionalPropertiesKindAndSettings",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "additionalProperties",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "kind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceInformationKind",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "settings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IDeviceEnumerationSettings",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceInformation",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAllAsync",
+          "overload": "FindAllAsyncWithAqsFilterAdditionalPropertiesKindAndSettings",
+          "params": [
+            {
+              "name": "aqsFilter",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "additionalProperties",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "kind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceInformationKind",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "settings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IDeviceEnumerationSettings",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceInformationCollection",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateWatcher",
+          "overload": "CreateWatcherWithAqsFilterAdditionalPropertiesKindAndSettings",
+          "params": [
+            {
+              "name": "aqsFilter",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "additionalProperties",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "kind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceInformationKind",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "settings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IDeviceEnumerationSettings",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceWatcher",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDeviceInformationUpdate": {
+      "guid": "8f315305-d972-44b7-a37e-9e822c78213b",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceInformationUpdate",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        }
+      ]
+    },
+    "IDeviceInformationUpdate2": {
+      "guid": "5d9d148c-a873-485e-baa6-aa620788e3cc",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceInformationUpdate",
+      "methods": [
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceInformationKind",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceInformationKind",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        }
+      ]
+    },
+    "IDevicePairingRequestedEventArgs": {
+      "guid": "f717fc56-de6b-487f-8376-0180aca69963",
+      "exclusive_to": "Windows.Devices.Enumeration.DevicePairingRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_DeviceInformation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PairingKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DevicePairingKinds",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Pin",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "Accept",
+          "overload": "Accept"
+        },
+        {
+          "name": "Accept",
+          "overload": "AcceptWithPin",
+          "params": [
+            {
+              "name": "pin",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceInformation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          },
+          "getter": "get_DeviceInformation"
+        },
+        {
+          "name": "PairingKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DevicePairingKinds",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PairingKind"
+        },
+        {
+          "name": "Pin",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Pin"
+        }
+      ]
+    },
+    "IDevicePairingRequestedEventArgs2": {
+      "guid": "c83752d9-e4d3-4db0-a360-a105e437dbdc",
+      "exclusive_to": "Windows.Devices.Enumeration.DevicePairingRequestedEventArgs",
+      "methods": [
+        {
+          "name": "AcceptWithPasswordCredential",
+          "params": [
+            {
+              "name": "passwordCredential",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PasswordCredential",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IDevicePairingRequestedEventArgs3": {
+      "guid": "195e5a38-43dc-562f-babe-efc8b110088b",
+      "exclusive_to": "Windows.Devices.Enumeration.DevicePairingRequestedEventArgs",
+      "methods": [
+        {
+          "name": "AcceptWithAddress",
+          "params": [
+            {
+              "name": "address",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IDevicePairingResult": {
+      "guid": "072b02bf-dd95-4025-9b37-de51adba37b7",
+      "exclusive_to": "Windows.Devices.Enumeration.DevicePairingResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DevicePairingResultStatus",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ProtectionLevelUsed",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DevicePairingProtectionLevel",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ProtectionLevelUsed",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DevicePairingProtectionLevel",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ProtectionLevelUsed"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DevicePairingResultStatus",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IDevicePairingSetMembersRequestedEventArgs": {
+      "guid": "7fb42cff-ecac-5012-8d7d-a1894680a349",
+      "exclusive_to": "Windows.Devices.Enumeration.DevicePairingSetMembersRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DevicePairingAddPairingSetMemberStatus",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ParentDeviceInformation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PairingSetMembers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceInformation",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PairingSetMembers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceInformation",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_PairingSetMembers"
+        },
+        {
+          "name": "ParentDeviceInformation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          },
+          "getter": "get_ParentDeviceInformation"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DevicePairingAddPairingSetMemberStatus",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IDevicePairingSettings": {
+      "guid": "482cb27c-83bb-420e-be51-6602b222de54"
+    },
+    "IDevicePicker": {
+      "guid": "84997aa2-034a-4440-8813-7d0bd479bf5a",
+      "exclusive_to": "Windows.Devices.Enumeration.DevicePicker",
+      "methods": [
+        {
+          "name": "get_Filter",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DevicePickerFilter",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Appearance",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DevicePickerAppearance",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_RequestedProperties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_DeviceSelected",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DevicePicker",
+                    "namespace": "Windows.Devices.Enumeration",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "DeviceSelectedEventArgs",
+                    "namespace": "Windows.Devices.Enumeration",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DeviceSelected",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_DisconnectButtonClicked",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DevicePicker",
+                    "namespace": "Windows.Devices.Enumeration",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "DeviceDisconnectButtonClickedEventArgs",
+                    "namespace": "Windows.Devices.Enumeration",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DisconnectButtonClicked",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_DevicePickerDismissed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DevicePicker",
+                    "namespace": "Windows.Devices.Enumeration",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DevicePickerDismissed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Show",
+          "overload": "Show",
+          "params": [
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Show",
+          "overload": "ShowWithPlacement",
+          "params": [
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "placement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Placement",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "PickSingleDeviceAsync",
+          "overload": "PickSingleDeviceAsync",
+          "params": [
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceInformation",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "PickSingleDeviceAsync",
+          "overload": "PickSingleDeviceAsyncWithPlacement",
+          "params": [
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "placement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Placement",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceInformation",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Hide"
+        },
+        {
+          "name": "SetDisplayStatus",
+          "params": [
+            {
+              "name": "device",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceInformation",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "status",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DevicePickerDisplayStatusOptions",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Appearance",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DevicePickerAppearance",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          },
+          "getter": "get_Appearance"
+        },
+        {
+          "name": "Filter",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DevicePickerFilter",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          },
+          "getter": "get_Filter"
+        },
+        {
+          "name": "RequestedProperties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_RequestedProperties"
+        }
+      ],
+      "events": [
+        {
+          "name": "DevicePickerDismissed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DevicePicker",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_DevicePickerDismissed",
+          "remove_method": "remove_DevicePickerDismissed"
+        },
+        {
+          "name": "DeviceSelected",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DevicePicker",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeviceSelectedEventArgs",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_DeviceSelected",
+          "remove_method": "remove_DeviceSelected"
+        },
+        {
+          "name": "DisconnectButtonClicked",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DevicePicker",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeviceDisconnectButtonClickedEventArgs",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_DisconnectButtonClicked",
+          "remove_method": "remove_DisconnectButtonClicked"
+        }
+      ]
+    },
+    "IDevicePickerAppearance": {
+      "guid": "e69a12c6-e627-4ed8-9b6c-460af445e56d",
+      "exclusive_to": "Windows.Devices.Enumeration.DevicePickerAppearance",
+      "methods": [
+        {
+          "name": "get_Title",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Title",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ForegroundColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_ForegroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BackgroundColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_BackgroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AccentColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_AccentColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SelectedForegroundColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_SelectedForegroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SelectedBackgroundColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_SelectedBackgroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SelectedAccentColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_SelectedAccentColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AccentColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_AccentColor",
+          "setter": "put_AccentColor"
+        },
+        {
+          "name": "BackgroundColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BackgroundColor",
+          "setter": "put_BackgroundColor"
+        },
+        {
+          "name": "ForegroundColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ForegroundColor",
+          "setter": "put_ForegroundColor"
+        },
+        {
+          "name": "SelectedAccentColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SelectedAccentColor",
+          "setter": "put_SelectedAccentColor"
+        },
+        {
+          "name": "SelectedBackgroundColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SelectedBackgroundColor",
+          "setter": "put_SelectedBackgroundColor"
+        },
+        {
+          "name": "SelectedForegroundColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SelectedForegroundColor",
+          "setter": "put_SelectedForegroundColor"
+        },
+        {
+          "name": "Title",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Title",
+          "setter": "put_Title"
+        }
+      ]
+    },
+    "IDevicePickerFilter": {
+      "guid": "91db92a2-57cb-48f1-9b59-a59b7a1f02a2",
+      "exclusive_to": "Windows.Devices.Enumeration.DevicePickerFilter",
+      "methods": [
+        {
+          "name": "get_SupportedDeviceClasses",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceClass",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SupportedDeviceSelectors",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SupportedDeviceClasses",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceClass",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SupportedDeviceClasses"
+        },
+        {
+          "name": "SupportedDeviceSelectors",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_SupportedDeviceSelectors"
+        }
+      ]
+    },
+    "IDeviceSelectedEventArgs": {
+      "guid": "269edade-1d2f-4940-8402-4156b81d3c77",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceSelectedEventArgs",
+      "methods": [
+        {
+          "name": "get_SelectedDevice",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SelectedDevice",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          },
+          "getter": "get_SelectedDevice"
+        }
+      ]
+    },
+    "IDeviceUnpairingResult": {
+      "guid": "66f44ad3-79d9-444b-92cf-a92ef72571c7",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceUnpairingResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceUnpairingResultStatus",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceUnpairingResultStatus",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IDeviceWatcher": {
+      "guid": "c9eab97d-8f6b-4f96-a9f4-abc814e22271",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceWatcher",
+      "methods": [
+        {
+          "name": "add_Added",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DeviceWatcher",
+                    "namespace": "Windows.Devices.Enumeration",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "DeviceInformation",
+                    "namespace": "Windows.Devices.Enumeration",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Added",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Updated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DeviceWatcher",
+                    "namespace": "Windows.Devices.Enumeration",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "DeviceInformationUpdate",
+                    "namespace": "Windows.Devices.Enumeration",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Updated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Removed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DeviceWatcher",
+                    "namespace": "Windows.Devices.Enumeration",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "DeviceInformationUpdate",
+                    "namespace": "Windows.Devices.Enumeration",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Removed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_EnumerationCompleted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DeviceWatcher",
+                    "namespace": "Windows.Devices.Enumeration",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_EnumerationCompleted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Stopped",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DeviceWatcher",
+                    "namespace": "Windows.Devices.Enumeration",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Stopped",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceWatcherStatus",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Start"
+        },
+        {
+          "name": "Stop"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceWatcherStatus",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ],
+      "events": [
+        {
+          "name": "Added",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceWatcher",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeviceInformation",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Added",
+          "remove_method": "remove_Added"
+        },
+        {
+          "name": "EnumerationCompleted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceWatcher",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_EnumerationCompleted",
+          "remove_method": "remove_EnumerationCompleted"
+        },
+        {
+          "name": "Removed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceWatcher",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeviceInformationUpdate",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Removed",
+          "remove_method": "remove_Removed"
+        },
+        {
+          "name": "Stopped",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceWatcher",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_Stopped",
+          "remove_method": "remove_Stopped"
+        },
+        {
+          "name": "Updated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceWatcher",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeviceInformationUpdate",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Updated",
+          "remove_method": "remove_Updated"
+        }
+      ]
+    },
+    "IDeviceWatcher2": {
+      "guid": "ff08456e-ed14-49e9-9a69-8117c54ae971",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceWatcher",
+      "methods": [
+        {
+          "name": "GetBackgroundTrigger",
+          "params": [
+            {
+              "name": "requestedEventKinds",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DeviceWatcherEventKind",
+                    "namespace": "Windows.Devices.Enumeration",
+                    "target_kind": "Enum"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceWatcherTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDeviceWatcherEvent": {
+      "guid": "74aa9c0b-1dbd-47fd-b635-3cc556d0ff8b",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceWatcherEvent",
+      "methods": [
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceWatcherEventKind",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_DeviceInformation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DeviceInformationUpdate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceInformationUpdate",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceInformation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          },
+          "getter": "get_DeviceInformation"
+        },
+        {
+          "name": "DeviceInformationUpdate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceInformationUpdate",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          },
+          "getter": "get_DeviceInformationUpdate"
+        },
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceWatcherEventKind",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        }
+      ]
+    },
+    "IDeviceWatcherTriggerDetails": {
+      "guid": "38808119-4cb7-4e57-a56d-776d07cbfef9",
+      "exclusive_to": "Windows.Devices.Enumeration.DeviceWatcherTriggerDetails",
+      "methods": [
+        {
+          "name": "get_DeviceWatcherEvents",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceWatcherEvent",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceWatcherEvents",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceWatcherEvent",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_DeviceWatcherEvents"
+        }
+      ]
+    },
+    "IEnclosureLocation": {
+      "guid": "42340a27-5810-459c-aabb-c65e1f813ecf",
+      "exclusive_to": "Windows.Devices.Enumeration.EnclosureLocation",
+      "methods": [
+        {
+          "name": "get_InDock",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_InLid",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Panel",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Panel",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InDock",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_InDock"
+        },
+        {
+          "name": "InLid",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_InLid"
+        },
+        {
+          "name": "Panel",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Panel",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Panel"
+        }
+      ]
+    },
+    "IEnclosureLocation2": {
+      "guid": "2885995b-e07d-485d-8a9e-bdf29aef4f66",
+      "exclusive_to": "Windows.Devices.Enumeration.EnclosureLocation",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IEnclosureLocation",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_RotationAngleInDegreesClockwise",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RotationAngleInDegreesClockwise",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_RotationAngleInDegreesClockwise"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "DeviceAccessChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeviceAccessChangedEventArgs",
+        "namespace": "Windows.Devices.Enumeration",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceAccessChangedEventArgs",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceAccessChangedEventArgs2",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceAccessChangedEventArgs3",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DeviceAccessInformation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeviceAccessInformation",
+        "namespace": "Windows.Devices.Enumeration",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceAccessInformation",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceAccessInformation2",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Enumeration.IDeviceAccessInformationStatics"
+      ]
+    },
+    "DeviceConnectionChangeTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeviceConnectionChangeTriggerDetails",
+        "namespace": "Windows.Devices.Enumeration",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceConnectionChangeTriggerDetails",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DeviceDisconnectButtonClickedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeviceDisconnectButtonClickedEventArgs",
+        "namespace": "Windows.Devices.Enumeration",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceDisconnectButtonClickedEventArgs",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DeviceInformation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeviceInformation",
+        "namespace": "Windows.Devices.Enumeration",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceInformation",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceInformation2",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Enumeration.IDeviceInformationStatics3",
+        "Windows.Devices.Enumeration.IDeviceInformationStatics",
+        "Windows.Devices.Enumeration.IDeviceInformationStatics2"
+      ]
+    },
+    "DeviceInformationCollection": {
+      "default_interface": {
+        "kind": "GenericInst",
+        "name": "IVectorView`1",
+        "namespace": "Windows.Foundation.Collections",
+        "target_kind": "Interface",
+        "args": [
+          {
+            "kind": "ApiRef",
+            "name": "DeviceInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        ]
+      },
+      "interfaces": [
+        {
+          "kind": "GenericInst",
+          "name": "IVectorView`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "DeviceInformation",
+              "namespace": "Windows.Devices.Enumeration",
+              "target_kind": "Class"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "DeviceInformation",
+              "namespace": "Windows.Devices.Enumeration",
+              "target_kind": "Class"
+            }
+          ]
+        }
+      ]
+    },
+    "DeviceInformationCustomPairing": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeviceInformationCustomPairing",
+        "namespace": "Windows.Devices.Enumeration",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceInformationCustomPairing",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceInformationCustomPairing2",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DeviceInformationPairing": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeviceInformationPairing",
+        "namespace": "Windows.Devices.Enumeration",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceInformationPairing",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceInformationPairing2",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Enumeration.IDeviceInformationPairingStatics2",
+        "Windows.Devices.Enumeration.IDeviceInformationPairingStatics"
+      ]
+    },
+    "DeviceInformationUpdate": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeviceInformationUpdate",
+        "namespace": "Windows.Devices.Enumeration",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceInformationUpdate",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceInformationUpdate2",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DevicePairingRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDevicePairingRequestedEventArgs",
+        "namespace": "Windows.Devices.Enumeration",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDevicePairingRequestedEventArgs",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDevicePairingRequestedEventArgs2",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDevicePairingRequestedEventArgs3",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DevicePairingResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDevicePairingResult",
+        "namespace": "Windows.Devices.Enumeration",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDevicePairingResult",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DevicePairingSetMembersRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDevicePairingSetMembersRequestedEventArgs",
+        "namespace": "Windows.Devices.Enumeration",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDevicePairingSetMembersRequestedEventArgs",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DevicePicker": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDevicePicker",
+        "namespace": "Windows.Devices.Enumeration",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDevicePicker",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "DevicePickerAppearance": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDevicePickerAppearance",
+        "namespace": "Windows.Devices.Enumeration",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDevicePickerAppearance",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DevicePickerFilter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDevicePickerFilter",
+        "namespace": "Windows.Devices.Enumeration",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDevicePickerFilter",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DeviceSelectedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeviceSelectedEventArgs",
+        "namespace": "Windows.Devices.Enumeration",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceSelectedEventArgs",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DeviceThumbnail": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRandomAccessStreamWithContentType",
+        "namespace": "Windows.Storage.Streams",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRandomAccessStreamWithContentType",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IContentTypeProvider",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRandomAccessStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IOutputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DeviceUnpairingResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeviceUnpairingResult",
+        "namespace": "Windows.Devices.Enumeration",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceUnpairingResult",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DeviceWatcher": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeviceWatcher",
+        "namespace": "Windows.Devices.Enumeration",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceWatcher",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceWatcher2",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DeviceWatcherEvent": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeviceWatcherEvent",
+        "namespace": "Windows.Devices.Enumeration",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceWatcherEvent",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DeviceWatcherTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeviceWatcherTriggerDetails",
+        "namespace": "Windows.Devices.Enumeration",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceWatcherTriggerDetails",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EnclosureLocation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEnclosureLocation",
+        "namespace": "Windows.Devices.Enumeration",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEnclosureLocation",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IEnclosureLocation2",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

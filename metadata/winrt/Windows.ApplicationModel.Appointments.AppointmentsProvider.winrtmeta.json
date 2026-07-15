@@ -1,0 +1,442 @@
+{
+  "namespace": "Windows.ApplicationModel.Appointments.AppointmentsProvider",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IAddAppointmentOperation": {
+      "guid": "ec4a9af3-620d-4c69-add7-9794e918081f",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentsProvider.AddAppointmentOperation",
+      "methods": [
+        {
+          "name": "get_AppointmentInformation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Appointment",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_SourcePackageFamilyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ReportCompleted",
+          "params": [
+            {
+              "name": "itemId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ReportCanceled"
+        },
+        {
+          "name": "ReportError",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "DismissUI"
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppointmentInformation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Appointment",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Class"
+          },
+          "getter": "get_AppointmentInformation"
+        },
+        {
+          "name": "SourcePackageFamilyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SourcePackageFamilyName"
+        }
+      ]
+    },
+    "IAppointmentsProviderLaunchActionVerbsStatics": {
+      "guid": "36dbba28-9e2e-49c6-8ef7-3ab7a5dcc8b8",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentsProvider.AppointmentsProviderLaunchActionVerbs",
+      "methods": [
+        {
+          "name": "get_AddAppointment",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ReplaceAppointment",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RemoveAppointment",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ShowTimeFrame",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AddAppointment",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AddAppointment"
+        },
+        {
+          "name": "RemoveAppointment",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RemoveAppointment"
+        },
+        {
+          "name": "ReplaceAppointment",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ReplaceAppointment"
+        },
+        {
+          "name": "ShowTimeFrame",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ShowTimeFrame"
+        }
+      ]
+    },
+    "IAppointmentsProviderLaunchActionVerbsStatics2": {
+      "guid": "ef9049a4-af21-473c-88dc-76cd89f60ca5",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentsProvider.AppointmentsProviderLaunchActionVerbs",
+      "methods": [
+        {
+          "name": "get_ShowAppointmentDetails",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ShowAppointmentDetails",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ShowAppointmentDetails"
+        }
+      ]
+    },
+    "IRemoveAppointmentOperation": {
+      "guid": "08b66aba-fe33-46cd-a50c-a8ffb3260537",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentsProvider.RemoveAppointmentOperation",
+      "methods": [
+        {
+          "name": "get_AppointmentId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_InstanceStartDate",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SourcePackageFamilyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ReportCompleted"
+        },
+        {
+          "name": "ReportCanceled"
+        },
+        {
+          "name": "ReportError",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "DismissUI"
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppointmentId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppointmentId"
+        },
+        {
+          "name": "InstanceStartDate",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_InstanceStartDate"
+        },
+        {
+          "name": "SourcePackageFamilyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SourcePackageFamilyName"
+        }
+      ]
+    },
+    "IReplaceAppointmentOperation": {
+      "guid": "f4903d9b-9e61-4de2-a732-2687c07d1de8",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentsProvider.ReplaceAppointmentOperation",
+      "methods": [
+        {
+          "name": "get_AppointmentId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AppointmentInformation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Appointment",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_InstanceStartDate",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SourcePackageFamilyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ReportCompleted",
+          "params": [
+            {
+              "name": "itemId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ReportCanceled"
+        },
+        {
+          "name": "ReportError",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "DismissUI"
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppointmentId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppointmentId"
+        },
+        {
+          "name": "AppointmentInformation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Appointment",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Class"
+          },
+          "getter": "get_AppointmentInformation"
+        },
+        {
+          "name": "InstanceStartDate",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_InstanceStartDate"
+        },
+        {
+          "name": "SourcePackageFamilyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SourcePackageFamilyName"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AddAppointmentOperation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAddAppointmentOperation",
+        "namespace": "Windows.ApplicationModel.Appointments.AppointmentsProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAddAppointmentOperation",
+          "namespace": "Windows.ApplicationModel.Appointments.AppointmentsProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentsProviderLaunchActionVerbs": {
+      "static_interfaces": [
+        "Windows.ApplicationModel.Appointments.AppointmentsProvider.IAppointmentsProviderLaunchActionVerbsStatics2",
+        "Windows.ApplicationModel.Appointments.AppointmentsProvider.IAppointmentsProviderLaunchActionVerbsStatics"
+      ]
+    },
+    "RemoveAppointmentOperation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoveAppointmentOperation",
+        "namespace": "Windows.ApplicationModel.Appointments.AppointmentsProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoveAppointmentOperation",
+          "namespace": "Windows.ApplicationModel.Appointments.AppointmentsProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ReplaceAppointmentOperation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IReplaceAppointmentOperation",
+        "namespace": "Windows.ApplicationModel.Appointments.AppointmentsProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IReplaceAppointmentOperation",
+          "namespace": "Windows.ApplicationModel.Appointments.AppointmentsProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

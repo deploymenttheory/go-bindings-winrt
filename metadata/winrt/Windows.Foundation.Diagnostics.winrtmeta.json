@@ -1,0 +1,5856 @@
+{
+  "namespace": "Windows.Foundation.Diagnostics",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "CausalityRelation": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "AssignDelegate",
+          "value": "0"
+        },
+        {
+          "name": "Join",
+          "value": "1"
+        },
+        {
+          "name": "Choice",
+          "value": "2"
+        },
+        {
+          "name": "Cancel",
+          "value": "3"
+        },
+        {
+          "name": "Error",
+          "value": "4"
+        }
+      ]
+    },
+    "CausalitySource": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Application",
+          "value": "0"
+        },
+        {
+          "name": "Library",
+          "value": "1"
+        },
+        {
+          "name": "System",
+          "value": "2"
+        }
+      ]
+    },
+    "CausalitySynchronousWork": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "CompletionNotification",
+          "value": "0"
+        },
+        {
+          "name": "ProgressNotification",
+          "value": "1"
+        },
+        {
+          "name": "Execution",
+          "value": "2"
+        }
+      ]
+    },
+    "CausalityTraceLevel": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Required",
+          "value": "0"
+        },
+        {
+          "name": "Important",
+          "value": "1"
+        },
+        {
+          "name": "Verbose",
+          "value": "2"
+        }
+      ]
+    },
+    "ErrorOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "SuppressExceptions",
+          "value": "1"
+        },
+        {
+          "name": "ForceExceptions",
+          "value": "2"
+        },
+        {
+          "name": "UseSetErrorInfo",
+          "value": "4"
+        },
+        {
+          "name": "SuppressSetErrorInfo",
+          "value": "8"
+        }
+      ]
+    },
+    "LoggingFieldFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "Hidden",
+          "value": "1"
+        },
+        {
+          "name": "String",
+          "value": "2"
+        },
+        {
+          "name": "Boolean",
+          "value": "3"
+        },
+        {
+          "name": "Hexadecimal",
+          "value": "4"
+        },
+        {
+          "name": "ProcessId",
+          "value": "5"
+        },
+        {
+          "name": "ThreadId",
+          "value": "6"
+        },
+        {
+          "name": "Port",
+          "value": "7"
+        },
+        {
+          "name": "Ipv4Address",
+          "value": "8"
+        },
+        {
+          "name": "Ipv6Address",
+          "value": "9"
+        },
+        {
+          "name": "SocketAddress",
+          "value": "10"
+        },
+        {
+          "name": "Xml",
+          "value": "11"
+        },
+        {
+          "name": "Json",
+          "value": "12"
+        },
+        {
+          "name": "Win32Error",
+          "value": "13"
+        },
+        {
+          "name": "NTStatus",
+          "value": "14"
+        },
+        {
+          "name": "HResult",
+          "value": "15"
+        },
+        {
+          "name": "FileTime",
+          "value": "16"
+        },
+        {
+          "name": "Signed",
+          "value": "17"
+        },
+        {
+          "name": "Unsigned",
+          "value": "18"
+        }
+      ]
+    },
+    "LoggingLevel": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Verbose",
+          "value": "0"
+        },
+        {
+          "name": "Information",
+          "value": "1"
+        },
+        {
+          "name": "Warning",
+          "value": "2"
+        },
+        {
+          "name": "Error",
+          "value": "3"
+        },
+        {
+          "name": "Critical",
+          "value": "4"
+        }
+      ]
+    },
+    "LoggingOpcode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Info",
+          "value": "0"
+        },
+        {
+          "name": "Start",
+          "value": "1"
+        },
+        {
+          "name": "Stop",
+          "value": "2"
+        },
+        {
+          "name": "Reply",
+          "value": "6"
+        },
+        {
+          "name": "Resume",
+          "value": "7"
+        },
+        {
+          "name": "Suspend",
+          "value": "8"
+        },
+        {
+          "name": "Send",
+          "value": "9"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IAsyncCausalityTracerStatics": {
+      "guid": "50850b26-267e-451b-a890-ab6a370245ee",
+      "exclusive_to": "Windows.Foundation.Diagnostics.AsyncCausalityTracer",
+      "methods": [
+        {
+          "name": "TraceOperationCreation",
+          "params": [
+            {
+              "name": "traceLevel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CausalityTraceLevel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "source",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CausalitySource",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "platformId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "operationId",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            },
+            {
+              "name": "operationName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "relatedContext",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TraceOperationCompletion",
+          "params": [
+            {
+              "name": "traceLevel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CausalityTraceLevel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "source",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CausalitySource",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "platformId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "operationId",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            },
+            {
+              "name": "status",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AsyncStatus",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TraceOperationRelation",
+          "params": [
+            {
+              "name": "traceLevel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CausalityTraceLevel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "source",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CausalitySource",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "platformId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "operationId",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            },
+            {
+              "name": "relation",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CausalityRelation",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TraceSynchronousWorkStart",
+          "params": [
+            {
+              "name": "traceLevel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CausalityTraceLevel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "source",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CausalitySource",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "platformId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "operationId",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            },
+            {
+              "name": "work",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CausalitySynchronousWork",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TraceSynchronousWorkCompletion",
+          "params": [
+            {
+              "name": "traceLevel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CausalityTraceLevel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "source",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CausalitySource",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "work",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CausalitySynchronousWork",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_TracingStatusChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "TracingStatusChangedEventArgs",
+                    "namespace": "Windows.Foundation.Diagnostics",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_TracingStatusChanged",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "TracingStatusChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TracingStatusChangedEventArgs",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_TracingStatusChanged",
+          "remove_method": "remove_TracingStatusChanged"
+        }
+      ]
+    },
+    "IErrorDetails": {
+      "guid": "378cbb01-2cc9-428f-8c55-2c990d463e8f",
+      "exclusive_to": "Windows.Foundation.Diagnostics.ErrorDetails",
+      "methods": [
+        {
+          "name": "get_Description",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_LongDescription",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_HelpUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Description",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Description"
+        },
+        {
+          "name": "HelpUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_HelpUri"
+        },
+        {
+          "name": "LongDescription",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LongDescription"
+        }
+      ]
+    },
+    "IErrorDetailsStatics": {
+      "guid": "b7703750-0b1d-46c8-aa0e-4b8178e4fce9",
+      "exclusive_to": "Windows.Foundation.Diagnostics.ErrorDetails",
+      "methods": [
+        {
+          "name": "CreateFromHResultAsync",
+          "params": [
+            {
+              "name": "errorCode",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ErrorDetails",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IErrorReportingSettings": {
+      "guid": "16369792-b03e-4ba1-8bb8-d28f4ab4d2c0",
+      "methods": [
+        {
+          "name": "SetErrorOptions",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ErrorOptions",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetErrorOptions",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ErrorOptions",
+            "namespace": "Windows.Foundation.Diagnostics",
+            "target_kind": "Enum"
+          }
+        }
+      ]
+    },
+    "IFileLoggingSession": {
+      "guid": "24c74216-fed2-404c-895f-1f9699cb02f7",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "AddLoggingChannel",
+          "overload": "AddLoggingChannel",
+          "params": [
+            {
+              "name": "loggingChannel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ILoggingChannel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddLoggingChannel",
+          "overload": "AddLoggingChannelWithLevel",
+          "params": [
+            {
+              "name": "loggingChannel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ILoggingChannel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "maxLevel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingLevel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RemoveLoggingChannel",
+          "params": [
+            {
+              "name": "loggingChannel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ILoggingChannel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CloseAndSaveToFileAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_LogFileGenerated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IFileLoggingSession",
+                    "namespace": "Windows.Foundation.Diagnostics",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "LogFileGeneratedEventArgs",
+                    "namespace": "Windows.Foundation.Diagnostics",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_LogFileGenerated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        }
+      ],
+      "events": [
+        {
+          "name": "LogFileGenerated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IFileLoggingSession",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "LogFileGeneratedEventArgs",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_LogFileGenerated",
+          "remove_method": "remove_LogFileGenerated"
+        }
+      ]
+    },
+    "IFileLoggingSessionFactory": {
+      "guid": "eea08dce-8447-4daa-9133-12eb46f697d4",
+      "exclusive_to": "Windows.Foundation.Diagnostics.FileLoggingSession",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "FileLoggingSession",
+            "namespace": "Windows.Foundation.Diagnostics",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ILogFileGeneratedEventArgs": {
+      "guid": "269e976f-0d38-4c1a-b53f-b395d881df84",
+      "exclusive_to": "Windows.Foundation.Diagnostics.LogFileGeneratedEventArgs",
+      "methods": [
+        {
+          "name": "get_File",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageFile",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "File",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StorageFile",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          },
+          "getter": "get_File"
+        }
+      ]
+    },
+    "ILoggingActivity": {
+      "guid": "bc032941-b766-4cb5-9848-97ac6ba6d60c",
+      "exclusive_to": "Windows.Foundation.Diagnostics.LoggingActivity",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        }
+      ]
+    },
+    "ILoggingActivity2": {
+      "guid": "26c29808-6322-456a-af82-80c8642f178b",
+      "exclusive_to": "Windows.Foundation.Diagnostics.LoggingActivity",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ILoggingActivity",
+          "namespace": "Windows.Foundation.Diagnostics",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ILoggingTarget",
+          "namespace": "Windows.Foundation.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Channel",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LoggingChannel",
+            "namespace": "Windows.Foundation.Diagnostics",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "StopActivity",
+          "overload": "StopActivity",
+          "params": [
+            {
+              "name": "stopEventName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "StopActivity",
+          "overload": "StopActivityWithFields",
+          "params": [
+            {
+              "name": "stopEventName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "fields",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFields",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "StopActivity",
+          "overload": "StopActivityWithFieldsAndOptions",
+          "params": [
+            {
+              "name": "stopEventName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "fields",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFields",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingOptions",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Channel",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LoggingChannel",
+            "namespace": "Windows.Foundation.Diagnostics",
+            "target_kind": "Class"
+          },
+          "getter": "get_Channel"
+        }
+      ]
+    },
+    "ILoggingActivityFactory": {
+      "guid": "6b33b483-e10a-4c58-97d5-10fb451074fb",
+      "exclusive_to": "Windows.Foundation.Diagnostics.LoggingActivity",
+      "methods": [
+        {
+          "name": "CreateLoggingActivity",
+          "params": [
+            {
+              "name": "activityName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "loggingChannel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ILoggingChannel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "LoggingActivity",
+            "namespace": "Windows.Foundation.Diagnostics",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateLoggingActivityWithLevel",
+          "params": [
+            {
+              "name": "activityName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "loggingChannel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ILoggingChannel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "level",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingLevel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "LoggingActivity",
+            "namespace": "Windows.Foundation.Diagnostics",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ILoggingChannel": {
+      "guid": "e9a50343-11d7-4f01-b5ca-cf495278c0a8",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Enabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Level",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LoggingLevel",
+            "namespace": "Windows.Foundation.Diagnostics",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "LogMessage",
+          "overload": "LogMessage",
+          "params": [
+            {
+              "name": "eventString",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "LogMessage",
+          "overload": "LogMessageWithLevel",
+          "params": [
+            {
+              "name": "eventString",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "level",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingLevel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "LogValuePair",
+          "overload": "LogValuePair",
+          "params": [
+            {
+              "name": "value1",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value2",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "LogValuePair",
+          "overload": "LogValuePairWithLevel",
+          "params": [
+            {
+              "name": "value1",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value2",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "level",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingLevel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_LoggingEnabled",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ILoggingChannel",
+                    "namespace": "Windows.Foundation.Diagnostics",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_LoggingEnabled",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Enabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Enabled"
+        },
+        {
+          "name": "Level",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LoggingLevel",
+            "namespace": "Windows.Foundation.Diagnostics",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Level"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        }
+      ],
+      "events": [
+        {
+          "name": "LoggingEnabled",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ILoggingChannel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_LoggingEnabled",
+          "remove_method": "remove_LoggingEnabled"
+        }
+      ]
+    },
+    "ILoggingChannel2": {
+      "guid": "9f4c3cf3-0bac-45a5-9e33-baf3f3a246a5",
+      "exclusive_to": "Windows.Foundation.Diagnostics.LoggingChannel",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ILoggingChannel",
+          "namespace": "Windows.Foundation.Diagnostics",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ILoggingTarget",
+          "namespace": "Windows.Foundation.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_Id"
+        }
+      ]
+    },
+    "ILoggingChannelFactory": {
+      "guid": "4edc5b9c-af80-4a9b-b0dc-398f9ae5207b",
+      "exclusive_to": "Windows.Foundation.Diagnostics.LoggingChannel",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "LoggingChannel",
+            "namespace": "Windows.Foundation.Diagnostics",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ILoggingChannelFactory2": {
+      "guid": "4c6ef5dd-3b27-4dc9-99f0-299c6e4603a1",
+      "exclusive_to": "Windows.Foundation.Diagnostics.LoggingChannel",
+      "methods": [
+        {
+          "name": "CreateWithOptions",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingChannelOptions",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "LoggingChannel",
+            "namespace": "Windows.Foundation.Diagnostics",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithOptionsAndId",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingChannelOptions",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "LoggingChannel",
+            "namespace": "Windows.Foundation.Diagnostics",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ILoggingChannelOptions": {
+      "guid": "c3e847ff-0ebb-4a53-8c54-dec24926cb2c",
+      "exclusive_to": "Windows.Foundation.Diagnostics.LoggingChannelOptions",
+      "methods": [
+        {
+          "name": "get_Group",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "put_Group",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Group",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_Group",
+          "setter": "put_Group"
+        }
+      ]
+    },
+    "ILoggingChannelOptionsFactory": {
+      "guid": "a93151da-7faf-4191-8755-5e86dc65d896",
+      "exclusive_to": "Windows.Foundation.Diagnostics.LoggingChannelOptions",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "group",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "LoggingChannelOptions",
+            "namespace": "Windows.Foundation.Diagnostics",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ILoggingFields": {
+      "guid": "d7f6b7af-762d-4579-83bd-52c23bc333bc",
+      "exclusive_to": "Windows.Foundation.Diagnostics.LoggingFields",
+      "methods": [
+        {
+          "name": "Clear"
+        },
+        {
+          "name": "BeginStruct",
+          "overload": "BeginStruct",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "BeginStruct",
+          "overload": "BeginStructWithTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "EndStruct"
+        },
+        {
+          "name": "AddEmpty",
+          "overload": "AddEmpty",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddEmpty",
+          "overload": "AddEmptyWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddEmpty",
+          "overload": "AddEmptyWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddUInt8",
+          "overload": "AddUInt8",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddUInt8",
+          "overload": "AddUInt8WithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddUInt8",
+          "overload": "AddUInt8WithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddUInt8Array",
+          "overload": "AddUInt8Array",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddUInt8Array",
+          "overload": "AddUInt8ArrayWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddUInt8Array",
+          "overload": "AddUInt8ArrayWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddInt16",
+          "overload": "AddInt16",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I2"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddInt16",
+          "overload": "AddInt16WithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I2"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddInt16",
+          "overload": "AddInt16WithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I2"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddInt16Array",
+          "overload": "AddInt16Array",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "I2"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddInt16Array",
+          "overload": "AddInt16ArrayWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "I2"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddInt16Array",
+          "overload": "AddInt16ArrayWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "I2"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddUInt16",
+          "overload": "AddUInt16",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddUInt16",
+          "overload": "AddUInt16WithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddUInt16",
+          "overload": "AddUInt16WithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddUInt16Array",
+          "overload": "AddUInt16Array",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U2"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddUInt16Array",
+          "overload": "AddUInt16ArrayWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U2"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddUInt16Array",
+          "overload": "AddUInt16ArrayWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U2"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddInt32",
+          "overload": "AddInt32",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddInt32",
+          "overload": "AddInt32WithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddInt32",
+          "overload": "AddInt32WithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddInt32Array",
+          "overload": "AddInt32Array",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "I4"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddInt32Array",
+          "overload": "AddInt32ArrayWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "I4"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddInt32Array",
+          "overload": "AddInt32ArrayWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "I4"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddUInt32",
+          "overload": "AddUInt32",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddUInt32",
+          "overload": "AddUInt32WithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddUInt32",
+          "overload": "AddUInt32WithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddUInt32Array",
+          "overload": "AddUInt32Array",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U4"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddUInt32Array",
+          "overload": "AddUInt32ArrayWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U4"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddUInt32Array",
+          "overload": "AddUInt32ArrayWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U4"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddInt64",
+          "overload": "AddInt64",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I8"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddInt64",
+          "overload": "AddInt64WithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I8"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddInt64",
+          "overload": "AddInt64WithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I8"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddInt64Array",
+          "overload": "AddInt64Array",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "I8"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddInt64Array",
+          "overload": "AddInt64ArrayWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "I8"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddInt64Array",
+          "overload": "AddInt64ArrayWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "I8"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddUInt64",
+          "overload": "AddUInt64",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddUInt64",
+          "overload": "AddUInt64WithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddUInt64",
+          "overload": "AddUInt64WithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddUInt64Array",
+          "overload": "AddUInt64Array",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U8"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddUInt64Array",
+          "overload": "AddUInt64ArrayWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U8"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddUInt64Array",
+          "overload": "AddUInt64ArrayWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U8"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddSingle",
+          "overload": "AddSingle",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddSingle",
+          "overload": "AddSingleWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddSingle",
+          "overload": "AddSingleWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddSingleArray",
+          "overload": "AddSingleArray",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "F32"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddSingleArray",
+          "overload": "AddSingleArrayWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "F32"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddSingleArray",
+          "overload": "AddSingleArrayWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "F32"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddDouble",
+          "overload": "AddDouble",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddDouble",
+          "overload": "AddDoubleWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddDouble",
+          "overload": "AddDoubleWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddDoubleArray",
+          "overload": "AddDoubleArray",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "F64"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddDoubleArray",
+          "overload": "AddDoubleArrayWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "F64"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddDoubleArray",
+          "overload": "AddDoubleArrayWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "F64"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddChar16",
+          "overload": "AddChar16",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Char16"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddChar16",
+          "overload": "AddChar16WithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Char16"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddChar16",
+          "overload": "AddChar16WithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Char16"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddChar16Array",
+          "overload": "AddChar16Array",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "Char16"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddChar16Array",
+          "overload": "AddChar16ArrayWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "Char16"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddChar16Array",
+          "overload": "AddChar16ArrayWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "Char16"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddBoolean",
+          "overload": "AddBoolean",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddBoolean",
+          "overload": "AddBooleanWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddBoolean",
+          "overload": "AddBooleanWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddBooleanArray",
+          "overload": "AddBooleanArray",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "Bool"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddBooleanArray",
+          "overload": "AddBooleanArrayWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "Bool"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddBooleanArray",
+          "overload": "AddBooleanArrayWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "Bool"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddString",
+          "overload": "AddString",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddString",
+          "overload": "AddStringWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddString",
+          "overload": "AddStringWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddStringArray",
+          "overload": "AddStringArray",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "HString"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddStringArray",
+          "overload": "AddStringArrayWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "HString"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddStringArray",
+          "overload": "AddStringArrayWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "HString"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddGuid",
+          "overload": "AddGuid",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddGuid",
+          "overload": "AddGuidWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddGuid",
+          "overload": "AddGuidWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddGuidArray",
+          "overload": "AddGuidArray",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "Guid"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddGuidArray",
+          "overload": "AddGuidArrayWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "Guid"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddGuidArray",
+          "overload": "AddGuidArrayWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "Guid"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddDateTime",
+          "overload": "AddDateTime",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddDateTime",
+          "overload": "AddDateTimeWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddDateTime",
+          "overload": "AddDateTimeWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddDateTimeArray",
+          "overload": "AddDateTimeArray",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "DateTime",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddDateTimeArray",
+          "overload": "AddDateTimeArrayWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "DateTime",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddDateTimeArray",
+          "overload": "AddDateTimeArrayWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "DateTime",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddTimeSpan",
+          "overload": "AddTimeSpan",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddTimeSpan",
+          "overload": "AddTimeSpanWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddTimeSpan",
+          "overload": "AddTimeSpanWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddTimeSpanArray",
+          "overload": "AddTimeSpanArray",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "TimeSpan",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddTimeSpanArray",
+          "overload": "AddTimeSpanArrayWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "TimeSpan",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddTimeSpanArray",
+          "overload": "AddTimeSpanArrayWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "TimeSpan",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddPoint",
+          "overload": "AddPoint",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddPoint",
+          "overload": "AddPointWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddPoint",
+          "overload": "AddPointWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddPointArray",
+          "overload": "AddPointArray",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Point",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddPointArray",
+          "overload": "AddPointArrayWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Point",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddPointArray",
+          "overload": "AddPointArrayWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Point",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddSize",
+          "overload": "AddSize",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Size",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddSize",
+          "overload": "AddSizeWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Size",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddSize",
+          "overload": "AddSizeWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Size",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddSizeArray",
+          "overload": "AddSizeArray",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Size",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddSizeArray",
+          "overload": "AddSizeArrayWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Size",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddSizeArray",
+          "overload": "AddSizeArrayWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Size",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddRect",
+          "overload": "AddRect",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddRect",
+          "overload": "AddRectWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddRect",
+          "overload": "AddRectWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddRectArray",
+          "overload": "AddRectArray",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Rect",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddRectArray",
+          "overload": "AddRectArrayWithFormat",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Rect",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddRectArray",
+          "overload": "AddRectArrayWithFormatAndTags",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Rect",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFieldFormat",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "tags",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "ILoggingOptions": {
+      "guid": "90bc7850-0192-4f5d-ac26-006adaca12d8",
+      "exclusive_to": "Windows.Foundation.Diagnostics.LoggingOptions",
+      "methods": [
+        {
+          "name": "get_Keywords",
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        },
+        {
+          "name": "put_Keywords",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I8"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Tags",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_Tags",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Task",
+          "return": {
+            "kind": "Native",
+            "name": "I2"
+          }
+        },
+        {
+          "name": "put_Task",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I2"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Opcode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LoggingOpcode",
+            "namespace": "Windows.Foundation.Diagnostics",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Opcode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingOpcode",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ActivityId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "put_ActivityId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RelatedActivityId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "put_RelatedActivityId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ActivityId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_ActivityId",
+          "setter": "put_ActivityId"
+        },
+        {
+          "name": "Keywords",
+          "type": {
+            "kind": "Native",
+            "name": "I8"
+          },
+          "getter": "get_Keywords",
+          "setter": "put_Keywords"
+        },
+        {
+          "name": "Opcode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LoggingOpcode",
+            "namespace": "Windows.Foundation.Diagnostics",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Opcode",
+          "setter": "put_Opcode"
+        },
+        {
+          "name": "RelatedActivityId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_RelatedActivityId",
+          "setter": "put_RelatedActivityId"
+        },
+        {
+          "name": "Tags",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Tags",
+          "setter": "put_Tags"
+        },
+        {
+          "name": "Task",
+          "type": {
+            "kind": "Native",
+            "name": "I2"
+          },
+          "getter": "get_Task",
+          "setter": "put_Task"
+        }
+      ]
+    },
+    "ILoggingOptionsFactory": {
+      "guid": "d713c6cb-98ab-464b-9f22-a3268478368a",
+      "exclusive_to": "Windows.Foundation.Diagnostics.LoggingOptions",
+      "methods": [
+        {
+          "name": "CreateWithKeywords",
+          "params": [
+            {
+              "name": "keywords",
+              "type": {
+                "kind": "Native",
+                "name": "I8"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "LoggingOptions",
+            "namespace": "Windows.Foundation.Diagnostics",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ILoggingSession": {
+      "guid": "6221f306-9380-4ad7-baf5-41ea9310d768",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "SaveToFileAsync",
+          "params": [
+            {
+              "name": "folder",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFolder",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "fileName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "AddLoggingChannel",
+          "overload": "AddLoggingChannel",
+          "params": [
+            {
+              "name": "loggingChannel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ILoggingChannel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddLoggingChannel",
+          "overload": "AddLoggingChannelWithLevel",
+          "params": [
+            {
+              "name": "loggingChannel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ILoggingChannel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "maxLevel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingLevel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RemoveLoggingChannel",
+          "params": [
+            {
+              "name": "loggingChannel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ILoggingChannel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        }
+      ]
+    },
+    "ILoggingSessionFactory": {
+      "guid": "4e937ee5-58fd-45e0-8c2f-a132eff95c1e",
+      "exclusive_to": "Windows.Foundation.Diagnostics.LoggingSession",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "LoggingSession",
+            "namespace": "Windows.Foundation.Diagnostics",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ILoggingTarget": {
+      "guid": "65f16c35-e388-4e26-b17a-f51cd3a83916",
+      "methods": [
+        {
+          "name": "IsEnabled",
+          "overload": "IsEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsEnabled",
+          "overload": "IsEnabledWithLevel",
+          "params": [
+            {
+              "name": "level",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingLevel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsEnabled",
+          "overload": "IsEnabledWithLevelAndKeywords",
+          "params": [
+            {
+              "name": "level",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingLevel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "keywords",
+              "type": {
+                "kind": "Native",
+                "name": "I8"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "LogEvent",
+          "overload": "LogEvent",
+          "params": [
+            {
+              "name": "eventName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "LogEvent",
+          "overload": "LogEventWithFields",
+          "params": [
+            {
+              "name": "eventName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "fields",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFields",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "LogEvent",
+          "overload": "LogEventWithFieldsAndLevel",
+          "params": [
+            {
+              "name": "eventName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "fields",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFields",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "level",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingLevel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "LogEvent",
+          "overload": "LogEventWithFieldsAndOptions",
+          "params": [
+            {
+              "name": "eventName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "fields",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFields",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "level",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingLevel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingOptions",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "StartActivity",
+          "overload": "StartActivity",
+          "params": [
+            {
+              "name": "startEventName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "LoggingActivity",
+            "namespace": "Windows.Foundation.Diagnostics",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "StartActivity",
+          "overload": "StartActivityWithFields",
+          "params": [
+            {
+              "name": "startEventName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "fields",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFields",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "LoggingActivity",
+            "namespace": "Windows.Foundation.Diagnostics",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "StartActivity",
+          "overload": "StartActivityWithFieldsAndLevel",
+          "params": [
+            {
+              "name": "startEventName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "fields",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFields",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "level",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingLevel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "LoggingActivity",
+            "namespace": "Windows.Foundation.Diagnostics",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "StartActivity",
+          "overload": "StartActivityWithFieldsAndOptions",
+          "params": [
+            {
+              "name": "startEventName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "fields",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingFields",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "level",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingLevel",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LoggingOptions",
+                "namespace": "Windows.Foundation.Diagnostics",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "LoggingActivity",
+            "namespace": "Windows.Foundation.Diagnostics",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ITracingStatusChangedEventArgs": {
+      "guid": "410b7711-ff3b-477f-9c9a-d2efda302dc3",
+      "exclusive_to": "Windows.Foundation.Diagnostics.TracingStatusChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_Enabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_TraceLevel",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CausalityTraceLevel",
+            "namespace": "Windows.Foundation.Diagnostics",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Enabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Enabled"
+        },
+        {
+          "name": "TraceLevel",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CausalityTraceLevel",
+            "namespace": "Windows.Foundation.Diagnostics",
+            "target_kind": "Enum"
+          },
+          "getter": "get_TraceLevel"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AsyncCausalityTracer": {
+      "static_interfaces": [
+        "Windows.Foundation.Diagnostics.IAsyncCausalityTracerStatics"
+      ]
+    },
+    "ErrorDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IErrorDetails",
+        "namespace": "Windows.Foundation.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IErrorDetails",
+          "namespace": "Windows.Foundation.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Foundation.Diagnostics.IErrorDetailsStatics"
+      ]
+    },
+    "FileLoggingSession": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFileLoggingSession",
+        "namespace": "Windows.Foundation.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFileLoggingSession",
+          "namespace": "Windows.Foundation.Diagnostics",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Foundation.Diagnostics.IFileLoggingSessionFactory"
+      ]
+    },
+    "LogFileGeneratedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILogFileGeneratedEventArgs",
+        "namespace": "Windows.Foundation.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILogFileGeneratedEventArgs",
+          "namespace": "Windows.Foundation.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "LoggingActivity": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILoggingActivity",
+        "namespace": "Windows.Foundation.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILoggingActivity",
+          "namespace": "Windows.Foundation.Diagnostics",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ILoggingActivity2",
+          "namespace": "Windows.Foundation.Diagnostics",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ILoggingTarget",
+          "namespace": "Windows.Foundation.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Foundation.Diagnostics.ILoggingActivityFactory"
+      ]
+    },
+    "LoggingChannel": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILoggingChannel",
+        "namespace": "Windows.Foundation.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILoggingChannel",
+          "namespace": "Windows.Foundation.Diagnostics",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ILoggingChannel2",
+          "namespace": "Windows.Foundation.Diagnostics",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ILoggingTarget",
+          "namespace": "Windows.Foundation.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Foundation.Diagnostics.ILoggingChannelFactory2",
+        "Windows.Foundation.Diagnostics.ILoggingChannelFactory"
+      ]
+    },
+    "LoggingChannelOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILoggingChannelOptions",
+        "namespace": "Windows.Foundation.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILoggingChannelOptions",
+          "namespace": "Windows.Foundation.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Foundation.Diagnostics.ILoggingChannelOptionsFactory"
+      ]
+    },
+    "LoggingFields": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILoggingFields",
+        "namespace": "Windows.Foundation.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILoggingFields",
+          "namespace": "Windows.Foundation.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "LoggingOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILoggingOptions",
+        "namespace": "Windows.Foundation.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILoggingOptions",
+          "namespace": "Windows.Foundation.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Foundation.Diagnostics.ILoggingOptionsFactory"
+      ]
+    },
+    "LoggingSession": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILoggingSession",
+        "namespace": "Windows.Foundation.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILoggingSession",
+          "namespace": "Windows.Foundation.Diagnostics",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Foundation.Diagnostics.ILoggingSessionFactory"
+      ]
+    },
+    "RuntimeBrokerErrorSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IErrorReportingSettings",
+        "namespace": "Windows.Foundation.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IErrorReportingSettings",
+          "namespace": "Windows.Foundation.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "TracingStatusChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITracingStatusChangedEventArgs",
+        "namespace": "Windows.Foundation.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITracingStatusChangedEventArgs",
+          "namespace": "Windows.Foundation.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,3527 @@
+{
+  "namespace": "Windows.ApplicationModel.Email.DataProvider",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IEmailDataProviderConnection": {
+      "guid": "3b9c9dc7-37b2-4bf0-ae30-7b644a1c96e1",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailDataProviderConnection",
+      "methods": [
+        {
+          "name": "add_MailboxSyncRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailMailboxSyncManagerSyncRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_MailboxSyncRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_DownloadMessageRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailMailboxDownloadMessageRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DownloadMessageRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_DownloadAttachmentRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailMailboxDownloadAttachmentRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DownloadAttachmentRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_CreateFolderRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailMailboxCreateFolderRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CreateFolderRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_DeleteFolderRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailMailboxDeleteFolderRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DeleteFolderRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_EmptyFolderRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailMailboxEmptyFolderRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_EmptyFolderRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_MoveFolderRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailMailboxMoveFolderRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_MoveFolderRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_UpdateMeetingResponseRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailMailboxUpdateMeetingResponseRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_UpdateMeetingResponseRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ForwardMeetingRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailMailboxForwardMeetingRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ForwardMeetingRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ProposeNewTimeForMeetingRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailMailboxProposeNewTimeForMeetingRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ProposeNewTimeForMeetingRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_SetAutoReplySettingsRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailMailboxSetAutoReplySettingsRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SetAutoReplySettingsRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_GetAutoReplySettingsRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailMailboxGetAutoReplySettingsRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_GetAutoReplySettingsRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ResolveRecipientsRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailMailboxResolveRecipientsRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ResolveRecipientsRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ValidateCertificatesRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailMailboxValidateCertificatesRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ValidateCertificatesRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ServerSearchReadBatchRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailMailboxServerSearchReadBatchRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ServerSearchReadBatchRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Start"
+        }
+      ],
+      "events": [
+        {
+          "name": "CreateFolderRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "EmailDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "EmailMailboxCreateFolderRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_CreateFolderRequested",
+          "remove_method": "remove_CreateFolderRequested"
+        },
+        {
+          "name": "DeleteFolderRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "EmailDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "EmailMailboxDeleteFolderRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_DeleteFolderRequested",
+          "remove_method": "remove_DeleteFolderRequested"
+        },
+        {
+          "name": "DownloadAttachmentRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "EmailDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "EmailMailboxDownloadAttachmentRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_DownloadAttachmentRequested",
+          "remove_method": "remove_DownloadAttachmentRequested"
+        },
+        {
+          "name": "DownloadMessageRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "EmailDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "EmailMailboxDownloadMessageRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_DownloadMessageRequested",
+          "remove_method": "remove_DownloadMessageRequested"
+        },
+        {
+          "name": "EmptyFolderRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "EmailDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "EmailMailboxEmptyFolderRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_EmptyFolderRequested",
+          "remove_method": "remove_EmptyFolderRequested"
+        },
+        {
+          "name": "ForwardMeetingRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "EmailDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "EmailMailboxForwardMeetingRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ForwardMeetingRequested",
+          "remove_method": "remove_ForwardMeetingRequested"
+        },
+        {
+          "name": "GetAutoReplySettingsRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "EmailDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "EmailMailboxGetAutoReplySettingsRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_GetAutoReplySettingsRequested",
+          "remove_method": "remove_GetAutoReplySettingsRequested"
+        },
+        {
+          "name": "MailboxSyncRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "EmailDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "EmailMailboxSyncManagerSyncRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_MailboxSyncRequested",
+          "remove_method": "remove_MailboxSyncRequested"
+        },
+        {
+          "name": "MoveFolderRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "EmailDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "EmailMailboxMoveFolderRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_MoveFolderRequested",
+          "remove_method": "remove_MoveFolderRequested"
+        },
+        {
+          "name": "ProposeNewTimeForMeetingRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "EmailDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "EmailMailboxProposeNewTimeForMeetingRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ProposeNewTimeForMeetingRequested",
+          "remove_method": "remove_ProposeNewTimeForMeetingRequested"
+        },
+        {
+          "name": "ResolveRecipientsRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "EmailDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "EmailMailboxResolveRecipientsRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ResolveRecipientsRequested",
+          "remove_method": "remove_ResolveRecipientsRequested"
+        },
+        {
+          "name": "ServerSearchReadBatchRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "EmailDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "EmailMailboxServerSearchReadBatchRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ServerSearchReadBatchRequested",
+          "remove_method": "remove_ServerSearchReadBatchRequested"
+        },
+        {
+          "name": "SetAutoReplySettingsRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "EmailDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "EmailMailboxSetAutoReplySettingsRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SetAutoReplySettingsRequested",
+          "remove_method": "remove_SetAutoReplySettingsRequested"
+        },
+        {
+          "name": "UpdateMeetingResponseRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "EmailDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "EmailMailboxUpdateMeetingResponseRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_UpdateMeetingResponseRequested",
+          "remove_method": "remove_UpdateMeetingResponseRequested"
+        },
+        {
+          "name": "ValidateCertificatesRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "EmailDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "EmailMailboxValidateCertificatesRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Email.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ValidateCertificatesRequested",
+          "remove_method": "remove_ValidateCertificatesRequested"
+        }
+      ]
+    },
+    "IEmailDataProviderTriggerDetails": {
+      "guid": "8f3e4e50-341e-45f3-bba0-84a005e1319a",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailDataProviderTriggerDetails",
+      "methods": [
+        {
+          "name": "get_Connection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EmailDataProviderConnection",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Connection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EmailDataProviderConnection",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Connection"
+        }
+      ]
+    },
+    "IEmailMailboxCreateFolderRequest": {
+      "guid": "184d3775-c921-4c39-a309-e16c9f22b04b",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxCreateFolderRequest",
+      "methods": [
+        {
+          "name": "get_EmailMailboxId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ParentFolderId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "params": [
+            {
+              "name": "folder",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EmailFolder",
+                "namespace": "Windows.ApplicationModel.Email",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "params": [
+            {
+              "name": "status",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EmailMailboxCreateFolderStatus",
+                "namespace": "Windows.ApplicationModel.Email",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EmailMailboxId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailMailboxId"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        },
+        {
+          "name": "ParentFolderId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ParentFolderId"
+        }
+      ]
+    },
+    "IEmailMailboxCreateFolderRequestEventArgs": {
+      "guid": "03e4c02c-241c-4ea9-a68f-ff20bc5afc85",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxCreateFolderRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxCreateFolderRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxCreateFolderRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IEmailMailboxDeleteFolderRequest": {
+      "guid": "9469e88a-a931-4779-923d-09a3ea292e29",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxDeleteFolderRequest",
+      "methods": [
+        {
+          "name": "get_EmailMailboxId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_EmailFolderId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "params": [
+            {
+              "name": "status",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EmailMailboxDeleteFolderStatus",
+                "namespace": "Windows.ApplicationModel.Email",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EmailFolderId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailFolderId"
+        },
+        {
+          "name": "EmailMailboxId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailMailboxId"
+        }
+      ]
+    },
+    "IEmailMailboxDeleteFolderRequestEventArgs": {
+      "guid": "b4d32d06-2332-4678-8378-28b579336846",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxDeleteFolderRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxDeleteFolderRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxDeleteFolderRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IEmailMailboxDownloadAttachmentRequest": {
+      "guid": "0b1dbbb4-750c-48e1-bce4-8d589684ffbc",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadAttachmentRequest",
+      "methods": [
+        {
+          "name": "get_EmailMailboxId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_EmailMessageId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_EmailAttachmentId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EmailAttachmentId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailAttachmentId"
+        },
+        {
+          "name": "EmailMailboxId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailMailboxId"
+        },
+        {
+          "name": "EmailMessageId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailMessageId"
+        }
+      ]
+    },
+    "IEmailMailboxDownloadAttachmentRequestEventArgs": {
+      "guid": "ccddc46d-ffa8-4877-9f9d-fed7bcaf4104",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadAttachmentRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxDownloadAttachmentRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxDownloadAttachmentRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IEmailMailboxDownloadMessageRequest": {
+      "guid": "497b4187-5b4d-4b23-816c-f3842beb753e",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadMessageRequest",
+      "methods": [
+        {
+          "name": "get_EmailMailboxId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_EmailMessageId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EmailMailboxId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailMailboxId"
+        },
+        {
+          "name": "EmailMessageId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailMessageId"
+        }
+      ]
+    },
+    "IEmailMailboxDownloadMessageRequestEventArgs": {
+      "guid": "470409ad-d0a0-4a5b-bb2a-37621039c53e",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadMessageRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxDownloadMessageRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxDownloadMessageRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IEmailMailboxEmptyFolderRequest": {
+      "guid": "fe4b03ab-f86d-46d9-b4ce-bc8a6d9e9268",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxEmptyFolderRequest",
+      "methods": [
+        {
+          "name": "get_EmailMailboxId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_EmailFolderId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "params": [
+            {
+              "name": "status",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EmailMailboxEmptyFolderStatus",
+                "namespace": "Windows.ApplicationModel.Email",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EmailFolderId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailFolderId"
+        },
+        {
+          "name": "EmailMailboxId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailMailboxId"
+        }
+      ]
+    },
+    "IEmailMailboxEmptyFolderRequestEventArgs": {
+      "guid": "7183f484-985a-4ac0-b33f-ee0e2627a3c0",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxEmptyFolderRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxEmptyFolderRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxEmptyFolderRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IEmailMailboxForwardMeetingRequest": {
+      "guid": "616d6af1-70d4-4832-b869-b80542ae9be8",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxForwardMeetingRequest",
+      "methods": [
+        {
+          "name": "get_EmailMailboxId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_EmailMessageId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Recipients",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "EmailRecipient",
+                "namespace": "Windows.ApplicationModel.Email",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Subject",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ForwardHeaderType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EmailMessageBodyKind",
+            "namespace": "Windows.ApplicationModel.Email",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ForwardHeader",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Comment",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Comment",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Comment"
+        },
+        {
+          "name": "EmailMailboxId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailMailboxId"
+        },
+        {
+          "name": "EmailMessageId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailMessageId"
+        },
+        {
+          "name": "ForwardHeader",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ForwardHeader"
+        },
+        {
+          "name": "ForwardHeaderType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EmailMessageBodyKind",
+            "namespace": "Windows.ApplicationModel.Email",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ForwardHeaderType"
+        },
+        {
+          "name": "Recipients",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "EmailRecipient",
+                "namespace": "Windows.ApplicationModel.Email",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Recipients"
+        },
+        {
+          "name": "Subject",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Subject"
+        }
+      ]
+    },
+    "IEmailMailboxForwardMeetingRequestEventArgs": {
+      "guid": "2bd8f33a-2974-4759-a5a5-58f44d3c0275",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxForwardMeetingRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxForwardMeetingRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxForwardMeetingRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IEmailMailboxGetAutoReplySettingsRequest": {
+      "guid": "9b380789-1e88-4e01-84cc-1386ad9a2c2f",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxGetAutoReplySettingsRequest",
+      "methods": [
+        {
+          "name": "get_EmailMailboxId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RequestedFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxAutoReplyMessageResponseKind",
+            "namespace": "Windows.ApplicationModel.Email",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "params": [
+            {
+              "name": "autoReplySettings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EmailMailboxAutoReplySettings",
+                "namespace": "Windows.ApplicationModel.Email",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EmailMailboxId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailMailboxId"
+        },
+        {
+          "name": "RequestedFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxAutoReplyMessageResponseKind",
+            "namespace": "Windows.ApplicationModel.Email",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RequestedFormat"
+        }
+      ]
+    },
+    "IEmailMailboxGetAutoReplySettingsRequestEventArgs": {
+      "guid": "d79f55c2-fd45-4004-8a91-9bacf38b7022",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxGetAutoReplySettingsRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxGetAutoReplySettingsRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxGetAutoReplySettingsRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IEmailMailboxMoveFolderRequest": {
+      "guid": "10ba2856-4a95-4068-91cc-67cc7acf454f",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxMoveFolderRequest",
+      "methods": [
+        {
+          "name": "get_EmailMailboxId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_EmailFolderId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NewParentFolderId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NewFolderName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EmailFolderId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailFolderId"
+        },
+        {
+          "name": "EmailMailboxId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailMailboxId"
+        },
+        {
+          "name": "NewFolderName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NewFolderName"
+        },
+        {
+          "name": "NewParentFolderId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NewParentFolderId"
+        }
+      ]
+    },
+    "IEmailMailboxMoveFolderRequestEventArgs": {
+      "guid": "38623020-14ba-4c88-8698-7239e3c8aaa7",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxMoveFolderRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxMoveFolderRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxMoveFolderRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IEmailMailboxProposeNewTimeForMeetingRequest": {
+      "guid": "5aeff152-9799-4f9f-a399-ff07f3eef04e",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxProposeNewTimeForMeetingRequest",
+      "methods": [
+        {
+          "name": "get_EmailMailboxId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_EmailMessageId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NewStartTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_NewDuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Subject",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Comment",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Comment",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Comment"
+        },
+        {
+          "name": "EmailMailboxId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailMailboxId"
+        },
+        {
+          "name": "EmailMessageId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailMessageId"
+        },
+        {
+          "name": "NewDuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_NewDuration"
+        },
+        {
+          "name": "NewStartTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_NewStartTime"
+        },
+        {
+          "name": "Subject",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Subject"
+        }
+      ]
+    },
+    "IEmailMailboxProposeNewTimeForMeetingRequestEventArgs": {
+      "guid": "fb480b98-33ad-4a67-8251-0f9c249b6a20",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxProposeNewTimeForMeetingRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxProposeNewTimeForMeetingRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxProposeNewTimeForMeetingRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IEmailMailboxResolveRecipientsRequest": {
+      "guid": "efa4cf70-7b39-4c9b-811e-41eaf43a332d",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxResolveRecipientsRequest",
+      "methods": [
+        {
+          "name": "get_EmailMailboxId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Recipients",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "params": [
+            {
+              "name": "resolutionResults",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailRecipientResolutionResult",
+                    "namespace": "Windows.ApplicationModel.Email",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EmailMailboxId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailMailboxId"
+        },
+        {
+          "name": "Recipients",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Recipients"
+        }
+      ]
+    },
+    "IEmailMailboxResolveRecipientsRequestEventArgs": {
+      "guid": "260f9e02-b2cf-40f8-8c28-e3ed43b1e89a",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxResolveRecipientsRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxResolveRecipientsRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxResolveRecipientsRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IEmailMailboxServerSearchReadBatchRequest": {
+      "guid": "090eebdf-5a96-41d3-8ad8-34912f9aa60e",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxServerSearchReadBatchRequest",
+      "methods": [
+        {
+          "name": "get_SessionId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_EmailMailboxId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_EmailFolderId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Options",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EmailQueryOptions",
+            "namespace": "Windows.ApplicationModel.Email",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_SuggestedBatchSize",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "SaveMessageAsync",
+          "params": [
+            {
+              "name": "message",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EmailMessage",
+                "namespace": "Windows.ApplicationModel.Email",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "params": [
+            {
+              "name": "batchStatus",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EmailBatchStatus",
+                "namespace": "Windows.ApplicationModel.Email",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EmailFolderId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailFolderId"
+        },
+        {
+          "name": "EmailMailboxId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailMailboxId"
+        },
+        {
+          "name": "Options",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EmailQueryOptions",
+            "namespace": "Windows.ApplicationModel.Email",
+            "target_kind": "Class"
+          },
+          "getter": "get_Options"
+        },
+        {
+          "name": "SessionId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SessionId"
+        },
+        {
+          "name": "SuggestedBatchSize",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SuggestedBatchSize"
+        }
+      ]
+    },
+    "IEmailMailboxServerSearchReadBatchRequestEventArgs": {
+      "guid": "14101b4e-ed9e-45d1-ad7a-cc9b7f643ae2",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxServerSearchReadBatchRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxServerSearchReadBatchRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxServerSearchReadBatchRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IEmailMailboxSetAutoReplySettingsRequest": {
+      "guid": "75a422d0-a88e-4e54-8dc7-c243186b774e",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxSetAutoReplySettingsRequest",
+      "methods": [
+        {
+          "name": "get_EmailMailboxId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AutoReplySettings",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxAutoReplySettings",
+            "namespace": "Windows.ApplicationModel.Email",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AutoReplySettings",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxAutoReplySettings",
+            "namespace": "Windows.ApplicationModel.Email",
+            "target_kind": "Class"
+          },
+          "getter": "get_AutoReplySettings"
+        },
+        {
+          "name": "EmailMailboxId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailMailboxId"
+        }
+      ]
+    },
+    "IEmailMailboxSetAutoReplySettingsRequestEventArgs": {
+      "guid": "09da11ad-d7ca-4087-ac86-53fa67f76246",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxSetAutoReplySettingsRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxSetAutoReplySettingsRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxSetAutoReplySettingsRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IEmailMailboxSyncManagerSyncRequest": {
+      "guid": "4e10e8e4-7e67-405a-b673-dc60c91090fc",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxSyncManagerSyncRequest",
+      "methods": [
+        {
+          "name": "get_EmailMailboxId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EmailMailboxId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailMailboxId"
+        }
+      ]
+    },
+    "IEmailMailboxSyncManagerSyncRequestEventArgs": {
+      "guid": "439a031a-8fcc-4ae5-b9b5-d434e0a65aa8",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxSyncManagerSyncRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxSyncManagerSyncRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxSyncManagerSyncRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IEmailMailboxUpdateMeetingResponseRequest": {
+      "guid": "5b99ac93-b2cf-4888-ba4f-306b6b66df30",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxUpdateMeetingResponseRequest",
+      "methods": [
+        {
+          "name": "get_EmailMailboxId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_EmailMessageId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Response",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EmailMeetingResponseType",
+            "namespace": "Windows.ApplicationModel.Email",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Subject",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Comment",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SendUpdate",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Comment",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Comment"
+        },
+        {
+          "name": "EmailMailboxId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailMailboxId"
+        },
+        {
+          "name": "EmailMessageId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailMessageId"
+        },
+        {
+          "name": "Response",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EmailMeetingResponseType",
+            "namespace": "Windows.ApplicationModel.Email",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Response"
+        },
+        {
+          "name": "SendUpdate",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SendUpdate"
+        },
+        {
+          "name": "Subject",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Subject"
+        }
+      ]
+    },
+    "IEmailMailboxUpdateMeetingResponseRequestEventArgs": {
+      "guid": "6898d761-56c9-4f17-be31-66fda94ba159",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxUpdateMeetingResponseRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxUpdateMeetingResponseRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxUpdateMeetingResponseRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IEmailMailboxValidateCertificatesRequest": {
+      "guid": "a94d3931-e11a-4f97-b81a-187a70a8f41a",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxValidateCertificatesRequest",
+      "methods": [
+        {
+          "name": "get_EmailMailboxId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Certificates",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "params": [
+            {
+              "name": "validationStatuses",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EmailCertificateValidationStatus",
+                    "namespace": "Windows.ApplicationModel.Email",
+                    "target_kind": "Enum"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Certificates",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Certificates"
+        },
+        {
+          "name": "EmailMailboxId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EmailMailboxId"
+        }
+      ]
+    },
+    "IEmailMailboxValidateCertificatesRequestEventArgs": {
+      "guid": "2583bf17-02ff-49fe-a73c-03f37566c691",
+      "exclusive_to": "Windows.ApplicationModel.Email.DataProvider.EmailMailboxValidateCertificatesRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxValidateCertificatesRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EmailMailboxValidateCertificatesRequest",
+            "namespace": "Windows.ApplicationModel.Email.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "EmailDataProviderConnection": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailDataProviderConnection",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailDataProviderConnection",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailDataProviderTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailDataProviderTriggerDetails",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailDataProviderTriggerDetails",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxCreateFolderRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxCreateFolderRequest",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxCreateFolderRequest",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxCreateFolderRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxCreateFolderRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxCreateFolderRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxDeleteFolderRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxDeleteFolderRequest",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxDeleteFolderRequest",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxDeleteFolderRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxDeleteFolderRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxDeleteFolderRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxDownloadAttachmentRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxDownloadAttachmentRequest",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxDownloadAttachmentRequest",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxDownloadAttachmentRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxDownloadAttachmentRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxDownloadAttachmentRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxDownloadMessageRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxDownloadMessageRequest",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxDownloadMessageRequest",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxDownloadMessageRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxDownloadMessageRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxDownloadMessageRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxEmptyFolderRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxEmptyFolderRequest",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxEmptyFolderRequest",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxEmptyFolderRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxEmptyFolderRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxEmptyFolderRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxForwardMeetingRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxForwardMeetingRequest",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxForwardMeetingRequest",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxForwardMeetingRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxForwardMeetingRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxForwardMeetingRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxGetAutoReplySettingsRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxGetAutoReplySettingsRequest",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxGetAutoReplySettingsRequest",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxGetAutoReplySettingsRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxGetAutoReplySettingsRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxGetAutoReplySettingsRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxMoveFolderRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxMoveFolderRequest",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxMoveFolderRequest",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxMoveFolderRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxMoveFolderRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxMoveFolderRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxProposeNewTimeForMeetingRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxProposeNewTimeForMeetingRequest",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxProposeNewTimeForMeetingRequest",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxProposeNewTimeForMeetingRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxProposeNewTimeForMeetingRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxProposeNewTimeForMeetingRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxResolveRecipientsRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxResolveRecipientsRequest",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxResolveRecipientsRequest",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxResolveRecipientsRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxResolveRecipientsRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxResolveRecipientsRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxServerSearchReadBatchRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxServerSearchReadBatchRequest",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxServerSearchReadBatchRequest",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxServerSearchReadBatchRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxServerSearchReadBatchRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxServerSearchReadBatchRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxSetAutoReplySettingsRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxSetAutoReplySettingsRequest",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxSetAutoReplySettingsRequest",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxSetAutoReplySettingsRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxSetAutoReplySettingsRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxSetAutoReplySettingsRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxSyncManagerSyncRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxSyncManagerSyncRequest",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxSyncManagerSyncRequest",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxSyncManagerSyncRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxSyncManagerSyncRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxSyncManagerSyncRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxUpdateMeetingResponseRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxUpdateMeetingResponseRequest",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxUpdateMeetingResponseRequest",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxUpdateMeetingResponseRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxUpdateMeetingResponseRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxUpdateMeetingResponseRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxValidateCertificatesRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxValidateCertificatesRequest",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxValidateCertificatesRequest",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailMailboxValidateCertificatesRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailMailboxValidateCertificatesRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Email.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmailMailboxValidateCertificatesRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Email.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

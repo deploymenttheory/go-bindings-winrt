@@ -1,0 +1,109 @@
+{
+  "namespace": "Windows.Graphics",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "structs": {
+    "DisplayAdapterId": {
+      "fields": [
+        {
+          "name": "LowPart",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "HighPart",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ]
+    },
+    "DisplayId": {
+      "fields": [
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        }
+      ]
+    },
+    "PointInt32": {
+      "fields": [
+        {
+          "name": "X",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "Y",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ]
+    },
+    "RectInt32": {
+      "fields": [
+        {
+          "name": "X",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "Y",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "Width",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "Height",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ]
+    },
+    "SizeInt32": {
+      "fields": [
+        {
+          "name": "Width",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "Height",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IGeometrySource2D": {
+      "guid": "caff7902-670c-4181-a624-da977203b845"
+    }
+  }
+}

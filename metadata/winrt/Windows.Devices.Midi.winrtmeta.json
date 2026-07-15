@@ -1,0 +1,1894 @@
+{
+  "namespace": "Windows.Devices.Midi",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "MidiMessageType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "NoteOff",
+          "value": "128"
+        },
+        {
+          "name": "NoteOn",
+          "value": "144"
+        },
+        {
+          "name": "PolyphonicKeyPressure",
+          "value": "160"
+        },
+        {
+          "name": "ControlChange",
+          "value": "176"
+        },
+        {
+          "name": "ProgramChange",
+          "value": "192"
+        },
+        {
+          "name": "ChannelPressure",
+          "value": "208"
+        },
+        {
+          "name": "PitchBendChange",
+          "value": "224"
+        },
+        {
+          "name": "SystemExclusive",
+          "value": "240"
+        },
+        {
+          "name": "MidiTimeCode",
+          "value": "241"
+        },
+        {
+          "name": "SongPositionPointer",
+          "value": "242"
+        },
+        {
+          "name": "SongSelect",
+          "value": "243"
+        },
+        {
+          "name": "TuneRequest",
+          "value": "246"
+        },
+        {
+          "name": "EndSystemExclusive",
+          "value": "247"
+        },
+        {
+          "name": "TimingClock",
+          "value": "248"
+        },
+        {
+          "name": "Start",
+          "value": "250"
+        },
+        {
+          "name": "Continue",
+          "value": "251"
+        },
+        {
+          "name": "Stop",
+          "value": "252"
+        },
+        {
+          "name": "ActiveSensing",
+          "value": "254"
+        },
+        {
+          "name": "SystemReset",
+          "value": "255"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IMidiChannelPressureMessage": {
+      "guid": "be1fa860-62b4-4d52-a37e-92e54d35b909",
+      "exclusive_to": "Windows.Devices.Midi.MidiChannelPressureMessage",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Channel",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_Pressure",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Channel",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_Channel"
+        },
+        {
+          "name": "Pressure",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_Pressure"
+        }
+      ]
+    },
+    "IMidiChannelPressureMessageFactory": {
+      "guid": "6218ed2f-2284-412a-94cf-10fb04842c6c",
+      "exclusive_to": "Windows.Devices.Midi.MidiChannelPressureMessage",
+      "methods": [
+        {
+          "name": "CreateMidiChannelPressureMessage",
+          "params": [
+            {
+              "name": "channel",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            },
+            {
+              "name": "pressure",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MidiChannelPressureMessage",
+            "namespace": "Windows.Devices.Midi",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMidiControlChangeMessage": {
+      "guid": "b7e15f83-780d-405f-b781-3e1598c97f40",
+      "exclusive_to": "Windows.Devices.Midi.MidiControlChangeMessage",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Channel",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_Controller",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_ControlValue",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Channel",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_Channel"
+        },
+        {
+          "name": "ControlValue",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_ControlValue"
+        },
+        {
+          "name": "Controller",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_Controller"
+        }
+      ]
+    },
+    "IMidiControlChangeMessageFactory": {
+      "guid": "2ab14321-956c-46ad-9752-f87f55052fe3",
+      "exclusive_to": "Windows.Devices.Midi.MidiControlChangeMessage",
+      "methods": [
+        {
+          "name": "CreateMidiControlChangeMessage",
+          "params": [
+            {
+              "name": "channel",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            },
+            {
+              "name": "controller",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            },
+            {
+              "name": "controlValue",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MidiControlChangeMessage",
+            "namespace": "Windows.Devices.Midi",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMidiInPort": {
+      "guid": "d5c1d9db-971a-4eaf-a23d-ea19fe607ff9",
+      "exclusive_to": "Windows.Devices.Midi.MidiInPort",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "add_MessageReceived",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "MidiInPort",
+                    "namespace": "Windows.Devices.Midi",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "MidiMessageReceivedEventArgs",
+                    "namespace": "Windows.Devices.Midi",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_MessageReceived",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        }
+      ],
+      "events": [
+        {
+          "name": "MessageReceived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MidiInPort",
+                "namespace": "Windows.Devices.Midi",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "MidiMessageReceivedEventArgs",
+                "namespace": "Windows.Devices.Midi",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_MessageReceived",
+          "remove_method": "remove_MessageReceived"
+        }
+      ]
+    },
+    "IMidiInPortStatics": {
+      "guid": "44c439dc-67ff-4a6e-8bac-fdb6610cf296",
+      "exclusive_to": "Windows.Devices.Midi.MidiInPort",
+      "methods": [
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MidiInPort",
+                "namespace": "Windows.Devices.Midi",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDeviceSelector",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "IMidiMessage": {
+      "guid": "79767945-1094-4283-9be0-289fc0ee8334",
+      "methods": [
+        {
+          "name": "get_Timestamp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_RawData",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Type",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MidiMessageType",
+            "namespace": "Windows.Devices.Midi",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RawData",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_RawData"
+        },
+        {
+          "name": "Timestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Timestamp"
+        },
+        {
+          "name": "Type",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MidiMessageType",
+            "namespace": "Windows.Devices.Midi",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Type"
+        }
+      ]
+    },
+    "IMidiMessageReceivedEventArgs": {
+      "guid": "76566e56-f328-4b51-907d-b3a8ce96bf80",
+      "exclusive_to": "Windows.Devices.Midi.MidiMessageReceivedEventArgs",
+      "methods": [
+        {
+          "name": "get_Message",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IMidiMessage",
+            "namespace": "Windows.Devices.Midi",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Message",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IMidiMessage",
+            "namespace": "Windows.Devices.Midi",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Message"
+        }
+      ]
+    },
+    "IMidiNoteOffMessage": {
+      "guid": "16fd8af4-198e-4d8f-a654-d305a293548f",
+      "exclusive_to": "Windows.Devices.Midi.MidiNoteOffMessage",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Channel",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_Note",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_Velocity",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Channel",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_Channel"
+        },
+        {
+          "name": "Note",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_Note"
+        },
+        {
+          "name": "Velocity",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_Velocity"
+        }
+      ]
+    },
+    "IMidiNoteOffMessageFactory": {
+      "guid": "a6b240e0-a749-425f-8af4-a4d979cc15b5",
+      "exclusive_to": "Windows.Devices.Midi.MidiNoteOffMessage",
+      "methods": [
+        {
+          "name": "CreateMidiNoteOffMessage",
+          "params": [
+            {
+              "name": "channel",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            },
+            {
+              "name": "note",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            },
+            {
+              "name": "velocity",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MidiNoteOffMessage",
+            "namespace": "Windows.Devices.Midi",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMidiNoteOnMessage": {
+      "guid": "e0224af5-6181-46dd-afa2-410004c057aa",
+      "exclusive_to": "Windows.Devices.Midi.MidiNoteOnMessage",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Channel",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_Note",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_Velocity",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Channel",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_Channel"
+        },
+        {
+          "name": "Note",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_Note"
+        },
+        {
+          "name": "Velocity",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_Velocity"
+        }
+      ]
+    },
+    "IMidiNoteOnMessageFactory": {
+      "guid": "9b4280a0-59c1-420e-b517-15a10aa9606b",
+      "exclusive_to": "Windows.Devices.Midi.MidiNoteOnMessage",
+      "methods": [
+        {
+          "name": "CreateMidiNoteOnMessage",
+          "params": [
+            {
+              "name": "channel",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            },
+            {
+              "name": "note",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            },
+            {
+              "name": "velocity",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MidiNoteOnMessage",
+            "namespace": "Windows.Devices.Midi",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMidiOutPort": {
+      "guid": "931d6d9f-57a2-4a3a-adb8-4640886f6693",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "SendMessage",
+          "params": [
+            {
+              "name": "midiMessage",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IMidiMessage",
+                "namespace": "Windows.Devices.Midi",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SendBuffer",
+          "params": [
+            {
+              "name": "midiData",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        }
+      ]
+    },
+    "IMidiOutPortStatics": {
+      "guid": "065cc3e9-0f88-448b-9b64-a95826c65b8f",
+      "exclusive_to": "Windows.Devices.Midi.MidiOutPort",
+      "methods": [
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IMidiOutPort",
+                "namespace": "Windows.Devices.Midi",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDeviceSelector",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "IMidiPitchBendChangeMessage": {
+      "guid": "29df4cb1-2e9f-4faf-8c2b-9cb82a9079ca",
+      "exclusive_to": "Windows.Devices.Midi.MidiPitchBendChangeMessage",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Channel",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_Bend",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Bend",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Bend"
+        },
+        {
+          "name": "Channel",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_Channel"
+        }
+      ]
+    },
+    "IMidiPitchBendChangeMessageFactory": {
+      "guid": "f5eedf55-cfc8-4926-b30e-a3622393306c",
+      "exclusive_to": "Windows.Devices.Midi.MidiPitchBendChangeMessage",
+      "methods": [
+        {
+          "name": "CreateMidiPitchBendChangeMessage",
+          "params": [
+            {
+              "name": "channel",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            },
+            {
+              "name": "bend",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MidiPitchBendChangeMessage",
+            "namespace": "Windows.Devices.Midi",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMidiPolyphonicKeyPressureMessage": {
+      "guid": "1f7337fe-ace8-48a0-868e-7cdbf20f04d6",
+      "exclusive_to": "Windows.Devices.Midi.MidiPolyphonicKeyPressureMessage",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Channel",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_Note",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_Pressure",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Channel",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_Channel"
+        },
+        {
+          "name": "Note",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_Note"
+        },
+        {
+          "name": "Pressure",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_Pressure"
+        }
+      ]
+    },
+    "IMidiPolyphonicKeyPressureMessageFactory": {
+      "guid": "e98f483e-c4b3-4dd2-917c-e349815a1b3b",
+      "exclusive_to": "Windows.Devices.Midi.MidiPolyphonicKeyPressureMessage",
+      "methods": [
+        {
+          "name": "CreateMidiPolyphonicKeyPressureMessage",
+          "params": [
+            {
+              "name": "channel",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            },
+            {
+              "name": "note",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            },
+            {
+              "name": "pressure",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MidiPolyphonicKeyPressureMessage",
+            "namespace": "Windows.Devices.Midi",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMidiProgramChangeMessage": {
+      "guid": "9cbb3c78-7a3e-4327-aa98-20b8e4485af8",
+      "exclusive_to": "Windows.Devices.Midi.MidiProgramChangeMessage",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Channel",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_Program",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Channel",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_Channel"
+        },
+        {
+          "name": "Program",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_Program"
+        }
+      ]
+    },
+    "IMidiProgramChangeMessageFactory": {
+      "guid": "d6b04387-524b-4104-9c99-6572bfd2e261",
+      "exclusive_to": "Windows.Devices.Midi.MidiProgramChangeMessage",
+      "methods": [
+        {
+          "name": "CreateMidiProgramChangeMessage",
+          "params": [
+            {
+              "name": "channel",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            },
+            {
+              "name": "program",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MidiProgramChangeMessage",
+            "namespace": "Windows.Devices.Midi",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMidiSongPositionPointerMessage": {
+      "guid": "4ca50c56-ec5e-4ae4-a115-88dc57cc2b79",
+      "exclusive_to": "Windows.Devices.Midi.MidiSongPositionPointerMessage",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Beats",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Beats",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Beats"
+        }
+      ]
+    },
+    "IMidiSongPositionPointerMessageFactory": {
+      "guid": "9c00e996-f10b-4fea-b395-f5d6cf80f64e",
+      "exclusive_to": "Windows.Devices.Midi.MidiSongPositionPointerMessage",
+      "methods": [
+        {
+          "name": "CreateMidiSongPositionPointerMessage",
+          "params": [
+            {
+              "name": "beats",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MidiSongPositionPointerMessage",
+            "namespace": "Windows.Devices.Midi",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMidiSongSelectMessage": {
+      "guid": "49f0f27f-6d83-4741-a5bf-4629f6be974f",
+      "exclusive_to": "Windows.Devices.Midi.MidiSongSelectMessage",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Song",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Song",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_Song"
+        }
+      ]
+    },
+    "IMidiSongSelectMessageFactory": {
+      "guid": "848878e4-8748-4129-a66c-a05493f75daa",
+      "exclusive_to": "Windows.Devices.Midi.MidiSongSelectMessage",
+      "methods": [
+        {
+          "name": "CreateMidiSongSelectMessage",
+          "params": [
+            {
+              "name": "song",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MidiSongSelectMessage",
+            "namespace": "Windows.Devices.Midi",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMidiSynthesizer": {
+      "guid": "f0da155e-db90-405f-b8ae-21d2e17f2e45",
+      "exclusive_to": "Windows.Devices.Midi.MidiSynthesizer",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiOutPort",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_AudioDevice",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Volume",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_Volume",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AudioDevice",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          },
+          "getter": "get_AudioDevice"
+        },
+        {
+          "name": "Volume",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Volume",
+          "setter": "put_Volume"
+        }
+      ]
+    },
+    "IMidiSynthesizerStatics": {
+      "guid": "4224eaa8-6629-4d6b-aa8f-d4521a5a31ce",
+      "exclusive_to": "Windows.Devices.Midi.MidiSynthesizer",
+      "methods": [
+        {
+          "name": "CreateAsync",
+          "overload": "CreateAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MidiSynthesizer",
+                "namespace": "Windows.Devices.Midi",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateAsync",
+          "overload": "CreateFromAudioDeviceAsync",
+          "params": [
+            {
+              "name": "audioDevice",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceInformation",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MidiSynthesizer",
+                "namespace": "Windows.Devices.Midi",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "IsSynthesizer",
+          "params": [
+            {
+              "name": "midiDevice",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceInformation",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IMidiSystemExclusiveMessageFactory": {
+      "guid": "083de222-3b74-4320-9b42-0ca8545f8a24",
+      "exclusive_to": "Windows.Devices.Midi.MidiSystemExclusiveMessage",
+      "methods": [
+        {
+          "name": "CreateMidiSystemExclusiveMessage",
+          "params": [
+            {
+              "name": "rawData",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MidiSystemExclusiveMessage",
+            "namespace": "Windows.Devices.Midi",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMidiTimeCodeMessage": {
+      "guid": "0bf7087d-fa63-4a1c-8deb-c0e87796a6d7",
+      "exclusive_to": "Windows.Devices.Midi.MidiTimeCodeMessage",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_FrameType",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "get_Values",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FrameType",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_FrameType"
+        },
+        {
+          "name": "Values",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_Values"
+        }
+      ]
+    },
+    "IMidiTimeCodeMessageFactory": {
+      "guid": "eb3099c5-771c-40de-b961-175a7489a85e",
+      "exclusive_to": "Windows.Devices.Midi.MidiTimeCodeMessage",
+      "methods": [
+        {
+          "name": "CreateMidiTimeCodeMessage",
+          "params": [
+            {
+              "name": "frameType",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            },
+            {
+              "name": "values",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MidiTimeCodeMessage",
+            "namespace": "Windows.Devices.Midi",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "MidiActiveSensingMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMidiMessage",
+        "namespace": "Windows.Devices.Midi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "MidiChannelPressureMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMidiChannelPressureMessage",
+        "namespace": "Windows.Devices.Midi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiChannelPressureMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Midi.IMidiChannelPressureMessageFactory"
+      ]
+    },
+    "MidiContinueMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMidiMessage",
+        "namespace": "Windows.Devices.Midi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "MidiControlChangeMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMidiControlChangeMessage",
+        "namespace": "Windows.Devices.Midi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiControlChangeMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Midi.IMidiControlChangeMessageFactory"
+      ]
+    },
+    "MidiInPort": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMidiInPort",
+        "namespace": "Windows.Devices.Midi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiInPort",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Midi.IMidiInPortStatics"
+      ]
+    },
+    "MidiMessageReceivedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMidiMessageReceivedEventArgs",
+        "namespace": "Windows.Devices.Midi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessageReceivedEventArgs",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MidiNoteOffMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMidiNoteOffMessage",
+        "namespace": "Windows.Devices.Midi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiNoteOffMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Midi.IMidiNoteOffMessageFactory"
+      ]
+    },
+    "MidiNoteOnMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMidiNoteOnMessage",
+        "namespace": "Windows.Devices.Midi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiNoteOnMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Midi.IMidiNoteOnMessageFactory"
+      ]
+    },
+    "MidiOutPort": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMidiOutPort",
+        "namespace": "Windows.Devices.Midi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiOutPort",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Midi.IMidiOutPortStatics"
+      ]
+    },
+    "MidiPitchBendChangeMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMidiPitchBendChangeMessage",
+        "namespace": "Windows.Devices.Midi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiPitchBendChangeMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Midi.IMidiPitchBendChangeMessageFactory"
+      ]
+    },
+    "MidiPolyphonicKeyPressureMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMidiPolyphonicKeyPressureMessage",
+        "namespace": "Windows.Devices.Midi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiPolyphonicKeyPressureMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Midi.IMidiPolyphonicKeyPressureMessageFactory"
+      ]
+    },
+    "MidiProgramChangeMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMidiProgramChangeMessage",
+        "namespace": "Windows.Devices.Midi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiProgramChangeMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Midi.IMidiProgramChangeMessageFactory"
+      ]
+    },
+    "MidiSongPositionPointerMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMidiSongPositionPointerMessage",
+        "namespace": "Windows.Devices.Midi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiSongPositionPointerMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Midi.IMidiSongPositionPointerMessageFactory"
+      ]
+    },
+    "MidiSongSelectMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMidiSongSelectMessage",
+        "namespace": "Windows.Devices.Midi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiSongSelectMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Midi.IMidiSongSelectMessageFactory"
+      ]
+    },
+    "MidiStartMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMidiMessage",
+        "namespace": "Windows.Devices.Midi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "MidiStopMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMidiMessage",
+        "namespace": "Windows.Devices.Midi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "MidiSynthesizer": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMidiSynthesizer",
+        "namespace": "Windows.Devices.Midi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiSynthesizer",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMidiOutPort",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Midi.IMidiSynthesizerStatics"
+      ]
+    },
+    "MidiSystemExclusiveMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMidiMessage",
+        "namespace": "Windows.Devices.Midi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Midi.IMidiSystemExclusiveMessageFactory"
+      ]
+    },
+    "MidiSystemResetMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMidiMessage",
+        "namespace": "Windows.Devices.Midi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "MidiTimeCodeMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMidiTimeCodeMessage",
+        "namespace": "Windows.Devices.Midi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiTimeCodeMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Midi.IMidiTimeCodeMessageFactory"
+      ]
+    },
+    "MidiTimingClockMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMidiMessage",
+        "namespace": "Windows.Devices.Midi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "MidiTuneRequestMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMidiMessage",
+        "namespace": "Windows.Devices.Midi",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMidiMessage",
+          "namespace": "Windows.Devices.Midi",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  }
+}

@@ -1,0 +1,358 @@
+{
+  "namespace": "Windows.Devices.Power",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IBattery": {
+      "guid": "bc894fc6-0072-47c8-8b5d-614aaa7a437e",
+      "exclusive_to": "Windows.Devices.Power.Battery",
+      "methods": [
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetReport",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BatteryReport",
+            "namespace": "Windows.Devices.Power",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_ReportUpdated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Battery",
+                    "namespace": "Windows.Devices.Power",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ReportUpdated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        }
+      ],
+      "events": [
+        {
+          "name": "ReportUpdated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Battery",
+                "namespace": "Windows.Devices.Power",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ReportUpdated",
+          "remove_method": "remove_ReportUpdated"
+        }
+      ]
+    },
+    "IBatteryReport": {
+      "guid": "c9858c3a-4e13-420a-a8d0-24f18f395401",
+      "exclusive_to": "Windows.Devices.Power.BatteryReport",
+      "methods": [
+        {
+          "name": "get_ChargeRateInMilliwatts",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_DesignCapacityInMilliwattHours",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_FullChargeCapacityInMilliwattHours",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_RemainingCapacityInMilliwattHours",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BatteryStatus",
+            "namespace": "Windows.System.Power",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ChargeRateInMilliwatts",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          },
+          "getter": "get_ChargeRateInMilliwatts"
+        },
+        {
+          "name": "DesignCapacityInMilliwattHours",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          },
+          "getter": "get_DesignCapacityInMilliwattHours"
+        },
+        {
+          "name": "FullChargeCapacityInMilliwattHours",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          },
+          "getter": "get_FullChargeCapacityInMilliwattHours"
+        },
+        {
+          "name": "RemainingCapacityInMilliwattHours",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          },
+          "getter": "get_RemainingCapacityInMilliwattHours"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BatteryStatus",
+            "namespace": "Windows.System.Power",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IBatteryStatics": {
+      "guid": "79cd72b6-9e5e-4452-bea6-dfcd541e597f",
+      "exclusive_to": "Windows.Devices.Power.Battery",
+      "methods": [
+        {
+          "name": "get_AggregateBattery",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Battery",
+            "namespace": "Windows.Devices.Power",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Battery",
+                "namespace": "Windows.Devices.Power",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDeviceSelector",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AggregateBattery",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Battery",
+            "namespace": "Windows.Devices.Power",
+            "target_kind": "Class"
+          },
+          "getter": "get_AggregateBattery"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "Battery": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBattery",
+        "namespace": "Windows.Devices.Power",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBattery",
+          "namespace": "Windows.Devices.Power",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Power.IBatteryStatics"
+      ]
+    },
+    "BatteryReport": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBatteryReport",
+        "namespace": "Windows.Devices.Power",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBatteryReport",
+          "namespace": "Windows.Devices.Power",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

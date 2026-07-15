@@ -1,0 +1,951 @@
+{
+  "namespace": "Windows.Devices.Enumeration.Pnp",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "PnpObjectType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "DeviceInterface",
+          "value": "1"
+        },
+        {
+          "name": "DeviceContainer",
+          "value": "2"
+        },
+        {
+          "name": "Device",
+          "value": "3"
+        },
+        {
+          "name": "DeviceInterfaceClass",
+          "value": "4"
+        },
+        {
+          "name": "AssociationEndpoint",
+          "value": "5"
+        },
+        {
+          "name": "AssociationEndpointContainer",
+          "value": "6"
+        },
+        {
+          "name": "AssociationEndpointService",
+          "value": "7"
+        },
+        {
+          "name": "DevicePanel",
+          "value": "8"
+        },
+        {
+          "name": "AssociationEndpointProtocol",
+          "value": "9"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IPnpObject": {
+      "guid": "95c66258-733b-4a8f-93a3-db078ac870c1",
+      "exclusive_to": "Windows.Devices.Enumeration.Pnp.PnpObject",
+      "methods": [
+        {
+          "name": "get_Type",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PnpObjectType",
+            "namespace": "Windows.Devices.Enumeration.Pnp",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Update",
+          "params": [
+            {
+              "name": "updateInfo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PnpObjectUpdate",
+                "namespace": "Windows.Devices.Enumeration.Pnp",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "Type",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PnpObjectType",
+            "namespace": "Windows.Devices.Enumeration.Pnp",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Type"
+        }
+      ]
+    },
+    "IPnpObjectStatics": {
+      "guid": "b3c32a3d-d168-4660-bbf3-a733b14b6e01",
+      "exclusive_to": "Windows.Devices.Enumeration.Pnp.PnpObject",
+      "methods": [
+        {
+          "name": "CreateFromIdAsync",
+          "params": [
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PnpObjectType",
+                "namespace": "Windows.Devices.Enumeration.Pnp",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "requestedProperties",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PnpObject",
+                "namespace": "Windows.Devices.Enumeration.Pnp",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAllAsync",
+          "overload": "FindAllAsync",
+          "params": [
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PnpObjectType",
+                "namespace": "Windows.Devices.Enumeration.Pnp",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "requestedProperties",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PnpObjectCollection",
+                "namespace": "Windows.Devices.Enumeration.Pnp",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAllAsync",
+          "overload": "FindAllAsyncAqsFilter",
+          "params": [
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PnpObjectType",
+                "namespace": "Windows.Devices.Enumeration.Pnp",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "requestedProperties",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "aqsFilter",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PnpObjectCollection",
+                "namespace": "Windows.Devices.Enumeration.Pnp",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateWatcher",
+          "overload": "CreateWatcher",
+          "params": [
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PnpObjectType",
+                "namespace": "Windows.Devices.Enumeration.Pnp",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "requestedProperties",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PnpObjectWatcher",
+            "namespace": "Windows.Devices.Enumeration.Pnp",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWatcher",
+          "overload": "CreateWatcherAqsFilter",
+          "params": [
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PnpObjectType",
+                "namespace": "Windows.Devices.Enumeration.Pnp",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "requestedProperties",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "aqsFilter",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PnpObjectWatcher",
+            "namespace": "Windows.Devices.Enumeration.Pnp",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPnpObjectUpdate": {
+      "guid": "6f59e812-001e-4844-bcc6-432886856a17",
+      "exclusive_to": "Windows.Devices.Enumeration.Pnp.PnpObjectUpdate",
+      "methods": [
+        {
+          "name": "get_Type",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PnpObjectType",
+            "namespace": "Windows.Devices.Enumeration.Pnp",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "Type",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PnpObjectType",
+            "namespace": "Windows.Devices.Enumeration.Pnp",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Type"
+        }
+      ]
+    },
+    "IPnpObjectWatcher": {
+      "guid": "83c95ca8-4772-4a7a-aca8-e48c42a89c44",
+      "exclusive_to": "Windows.Devices.Enumeration.Pnp.PnpObjectWatcher",
+      "methods": [
+        {
+          "name": "add_Added",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PnpObjectWatcher",
+                    "namespace": "Windows.Devices.Enumeration.Pnp",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PnpObject",
+                    "namespace": "Windows.Devices.Enumeration.Pnp",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Added",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Updated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PnpObjectWatcher",
+                    "namespace": "Windows.Devices.Enumeration.Pnp",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PnpObjectUpdate",
+                    "namespace": "Windows.Devices.Enumeration.Pnp",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Updated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Removed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PnpObjectWatcher",
+                    "namespace": "Windows.Devices.Enumeration.Pnp",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PnpObjectUpdate",
+                    "namespace": "Windows.Devices.Enumeration.Pnp",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Removed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_EnumerationCompleted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PnpObjectWatcher",
+                    "namespace": "Windows.Devices.Enumeration.Pnp",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_EnumerationCompleted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Stopped",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PnpObjectWatcher",
+                    "namespace": "Windows.Devices.Enumeration.Pnp",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Stopped",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceWatcherStatus",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Start"
+        },
+        {
+          "name": "Stop"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceWatcherStatus",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ],
+      "events": [
+        {
+          "name": "Added",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PnpObjectWatcher",
+                "namespace": "Windows.Devices.Enumeration.Pnp",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PnpObject",
+                "namespace": "Windows.Devices.Enumeration.Pnp",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Added",
+          "remove_method": "remove_Added"
+        },
+        {
+          "name": "EnumerationCompleted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PnpObjectWatcher",
+                "namespace": "Windows.Devices.Enumeration.Pnp",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_EnumerationCompleted",
+          "remove_method": "remove_EnumerationCompleted"
+        },
+        {
+          "name": "Removed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PnpObjectWatcher",
+                "namespace": "Windows.Devices.Enumeration.Pnp",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PnpObjectUpdate",
+                "namespace": "Windows.Devices.Enumeration.Pnp",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Removed",
+          "remove_method": "remove_Removed"
+        },
+        {
+          "name": "Stopped",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PnpObjectWatcher",
+                "namespace": "Windows.Devices.Enumeration.Pnp",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_Stopped",
+          "remove_method": "remove_Stopped"
+        },
+        {
+          "name": "Updated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PnpObjectWatcher",
+                "namespace": "Windows.Devices.Enumeration.Pnp",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PnpObjectUpdate",
+                "namespace": "Windows.Devices.Enumeration.Pnp",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Updated",
+          "remove_method": "remove_Updated"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "PnpObject": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPnpObject",
+        "namespace": "Windows.Devices.Enumeration.Pnp",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPnpObject",
+          "namespace": "Windows.Devices.Enumeration.Pnp",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Enumeration.Pnp.IPnpObjectStatics"
+      ]
+    },
+    "PnpObjectCollection": {
+      "default_interface": {
+        "kind": "GenericInst",
+        "name": "IVectorView`1",
+        "namespace": "Windows.Foundation.Collections",
+        "target_kind": "Interface",
+        "args": [
+          {
+            "kind": "ApiRef",
+            "name": "PnpObject",
+            "namespace": "Windows.Devices.Enumeration.Pnp",
+            "target_kind": "Class"
+          }
+        ]
+      },
+      "interfaces": [
+        {
+          "kind": "GenericInst",
+          "name": "IVectorView`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "PnpObject",
+              "namespace": "Windows.Devices.Enumeration.Pnp",
+              "target_kind": "Class"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "PnpObject",
+              "namespace": "Windows.Devices.Enumeration.Pnp",
+              "target_kind": "Class"
+            }
+          ]
+        }
+      ]
+    },
+    "PnpObjectUpdate": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPnpObjectUpdate",
+        "namespace": "Windows.Devices.Enumeration.Pnp",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPnpObjectUpdate",
+          "namespace": "Windows.Devices.Enumeration.Pnp",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PnpObjectWatcher": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPnpObjectWatcher",
+        "namespace": "Windows.Devices.Enumeration.Pnp",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPnpObjectWatcher",
+          "namespace": "Windows.Devices.Enumeration.Pnp",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

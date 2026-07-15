@@ -1,0 +1,1606 @@
+{
+  "namespace": "Windows.UI.Input.Preview.Injection",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "InjectedInputButtonChangeKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "FirstButtonDown",
+          "value": "1"
+        },
+        {
+          "name": "FirstButtonUp",
+          "value": "2"
+        },
+        {
+          "name": "SecondButtonDown",
+          "value": "3"
+        },
+        {
+          "name": "SecondButtonUp",
+          "value": "4"
+        },
+        {
+          "name": "ThirdButtonDown",
+          "value": "5"
+        },
+        {
+          "name": "ThirdButtonUp",
+          "value": "6"
+        },
+        {
+          "name": "FourthButtonDown",
+          "value": "7"
+        },
+        {
+          "name": "FourthButtonUp",
+          "value": "8"
+        },
+        {
+          "name": "FifthButtonDown",
+          "value": "9"
+        },
+        {
+          "name": "FifthButtonUp",
+          "value": "10"
+        }
+      ]
+    },
+    "InjectedInputKeyOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "ExtendedKey",
+          "value": "1"
+        },
+        {
+          "name": "KeyUp",
+          "value": "2"
+        },
+        {
+          "name": "ScanCode",
+          "value": "8"
+        },
+        {
+          "name": "Unicode",
+          "value": "4"
+        }
+      ]
+    },
+    "InjectedInputMouseOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Move",
+          "value": "1"
+        },
+        {
+          "name": "LeftDown",
+          "value": "2"
+        },
+        {
+          "name": "LeftUp",
+          "value": "4"
+        },
+        {
+          "name": "RightDown",
+          "value": "8"
+        },
+        {
+          "name": "RightUp",
+          "value": "16"
+        },
+        {
+          "name": "MiddleDown",
+          "value": "32"
+        },
+        {
+          "name": "MiddleUp",
+          "value": "64"
+        },
+        {
+          "name": "XDown",
+          "value": "128"
+        },
+        {
+          "name": "XUp",
+          "value": "256"
+        },
+        {
+          "name": "Wheel",
+          "value": "2048"
+        },
+        {
+          "name": "HWheel",
+          "value": "4096"
+        },
+        {
+          "name": "MoveNoCoalesce",
+          "value": "8192"
+        },
+        {
+          "name": "VirtualDesk",
+          "value": "16384"
+        },
+        {
+          "name": "Absolute",
+          "value": "32768"
+        }
+      ]
+    },
+    "InjectedInputPenButtons": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Barrel",
+          "value": "1"
+        },
+        {
+          "name": "Inverted",
+          "value": "2"
+        },
+        {
+          "name": "Eraser",
+          "value": "4"
+        }
+      ]
+    },
+    "InjectedInputPenParameters": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Pressure",
+          "value": "1"
+        },
+        {
+          "name": "Rotation",
+          "value": "2"
+        },
+        {
+          "name": "TiltX",
+          "value": "4"
+        },
+        {
+          "name": "TiltY",
+          "value": "8"
+        }
+      ]
+    },
+    "InjectedInputPointerOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "New",
+          "value": "1"
+        },
+        {
+          "name": "InRange",
+          "value": "2"
+        },
+        {
+          "name": "InContact",
+          "value": "4"
+        },
+        {
+          "name": "FirstButton",
+          "value": "16"
+        },
+        {
+          "name": "SecondButton",
+          "value": "32"
+        },
+        {
+          "name": "Primary",
+          "value": "8192"
+        },
+        {
+          "name": "Confidence",
+          "value": "16384"
+        },
+        {
+          "name": "Canceled",
+          "value": "32768"
+        },
+        {
+          "name": "PointerDown",
+          "value": "65536"
+        },
+        {
+          "name": "Update",
+          "value": "131072"
+        },
+        {
+          "name": "PointerUp",
+          "value": "262144"
+        },
+        {
+          "name": "CaptureChanged",
+          "value": "2097152"
+        }
+      ]
+    },
+    "InjectedInputShortcut": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Back",
+          "value": "0"
+        },
+        {
+          "name": "Start",
+          "value": "1"
+        },
+        {
+          "name": "Search",
+          "value": "2"
+        }
+      ]
+    },
+    "InjectedInputTouchParameters": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Contact",
+          "value": "1"
+        },
+        {
+          "name": "Orientation",
+          "value": "2"
+        },
+        {
+          "name": "Pressure",
+          "value": "4"
+        }
+      ]
+    },
+    "InjectedInputVisualizationMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Default",
+          "value": "1"
+        },
+        {
+          "name": "Indirect",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "InjectedInputPoint": {
+      "fields": [
+        {
+          "name": "PositionX",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "PositionY",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ]
+    },
+    "InjectedInputPointerInfo": {
+      "fields": [
+        {
+          "name": "PointerId",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "PointerOptions",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InjectedInputPointerOptions",
+            "namespace": "Windows.UI.Input.Preview.Injection",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "PixelLocation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InjectedInputPoint",
+            "namespace": "Windows.UI.Input.Preview.Injection",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "TimeOffsetInMilliseconds",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "PerformanceCount",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        }
+      ]
+    },
+    "InjectedInputRectangle": {
+      "fields": [
+        {
+          "name": "Left",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "Top",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "Bottom",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "Right",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IInjectedInputGamepadInfo": {
+      "guid": "20ae9a3f-df11-4572-a9ab-d75b8a5e48ad",
+      "exclusive_to": "Windows.UI.Input.Preview.Injection.InjectedInputGamepadInfo",
+      "methods": [
+        {
+          "name": "get_Buttons",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GamepadButtons",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Buttons",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "GamepadButtons",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LeftThumbstickX",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_LeftThumbstickX",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LeftThumbstickY",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_LeftThumbstickY",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LeftTrigger",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_LeftTrigger",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RightThumbstickX",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_RightThumbstickX",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RightThumbstickY",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_RightThumbstickY",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RightTrigger",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_RightTrigger",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Buttons",
+          "type": {
+            "kind": "ApiRef",
+            "name": "GamepadButtons",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Buttons",
+          "setter": "put_Buttons"
+        },
+        {
+          "name": "LeftThumbstickX",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_LeftThumbstickX",
+          "setter": "put_LeftThumbstickX"
+        },
+        {
+          "name": "LeftThumbstickY",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_LeftThumbstickY",
+          "setter": "put_LeftThumbstickY"
+        },
+        {
+          "name": "LeftTrigger",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_LeftTrigger",
+          "setter": "put_LeftTrigger"
+        },
+        {
+          "name": "RightThumbstickX",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_RightThumbstickX",
+          "setter": "put_RightThumbstickX"
+        },
+        {
+          "name": "RightThumbstickY",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_RightThumbstickY",
+          "setter": "put_RightThumbstickY"
+        },
+        {
+          "name": "RightTrigger",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_RightTrigger",
+          "setter": "put_RightTrigger"
+        }
+      ]
+    },
+    "IInjectedInputGamepadInfoFactory": {
+      "guid": "59596876-6c39-4ec4-8b2a-29ef7de18aca",
+      "exclusive_to": "Windows.UI.Input.Preview.Injection.InjectedInputGamepadInfo",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "overload": "CreateInstanceFromGamepadReading",
+          "params": [
+            {
+              "name": "reading",
+              "type": {
+                "kind": "ApiRef",
+                "name": "GamepadReading",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "InjectedInputGamepadInfo",
+            "namespace": "Windows.UI.Input.Preview.Injection",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IInjectedInputKeyboardInfo": {
+      "guid": "4b46d140-2b6a-5ffa-7eae-bd077b052acd",
+      "exclusive_to": "Windows.UI.Input.Preview.Injection.InjectedInputKeyboardInfo",
+      "methods": [
+        {
+          "name": "get_KeyOptions",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InjectedInputKeyOptions",
+            "namespace": "Windows.UI.Input.Preview.Injection",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_KeyOptions",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InjectedInputKeyOptions",
+                "namespace": "Windows.UI.Input.Preview.Injection",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ScanCode",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "put_ScanCode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_VirtualKey",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "put_VirtualKey",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "KeyOptions",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InjectedInputKeyOptions",
+            "namespace": "Windows.UI.Input.Preview.Injection",
+            "target_kind": "Enum"
+          },
+          "getter": "get_KeyOptions",
+          "setter": "put_KeyOptions"
+        },
+        {
+          "name": "ScanCode",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_ScanCode",
+          "setter": "put_ScanCode"
+        },
+        {
+          "name": "VirtualKey",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_VirtualKey",
+          "setter": "put_VirtualKey"
+        }
+      ]
+    },
+    "IInjectedInputMouseInfo": {
+      "guid": "96f56e6b-e47a-5cf4-418d-8a5fb9670c7d",
+      "exclusive_to": "Windows.UI.Input.Preview.Injection.InjectedInputMouseInfo",
+      "methods": [
+        {
+          "name": "get_MouseOptions",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InjectedInputMouseOptions",
+            "namespace": "Windows.UI.Input.Preview.Injection",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_MouseOptions",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InjectedInputMouseOptions",
+                "namespace": "Windows.UI.Input.Preview.Injection",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MouseData",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_MouseData",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DeltaY",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_DeltaY",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DeltaX",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_DeltaX",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TimeOffsetInMilliseconds",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_TimeOffsetInMilliseconds",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeltaX",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_DeltaX",
+          "setter": "put_DeltaX"
+        },
+        {
+          "name": "DeltaY",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_DeltaY",
+          "setter": "put_DeltaY"
+        },
+        {
+          "name": "MouseData",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MouseData",
+          "setter": "put_MouseData"
+        },
+        {
+          "name": "MouseOptions",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InjectedInputMouseOptions",
+            "namespace": "Windows.UI.Input.Preview.Injection",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MouseOptions",
+          "setter": "put_MouseOptions"
+        },
+        {
+          "name": "TimeOffsetInMilliseconds",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_TimeOffsetInMilliseconds",
+          "setter": "put_TimeOffsetInMilliseconds"
+        }
+      ]
+    },
+    "IInjectedInputPenInfo": {
+      "guid": "6b40ad03-ca1e-5527-7e02-2828540bb1d4",
+      "exclusive_to": "Windows.UI.Input.Preview.Injection.InjectedInputPenInfo",
+      "methods": [
+        {
+          "name": "get_PointerInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InjectedInputPointerInfo",
+            "namespace": "Windows.UI.Input.Preview.Injection",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_PointerInfo",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InjectedInputPointerInfo",
+                "namespace": "Windows.UI.Input.Preview.Injection",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PenButtons",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InjectedInputPenButtons",
+            "namespace": "Windows.UI.Input.Preview.Injection",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_PenButtons",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InjectedInputPenButtons",
+                "namespace": "Windows.UI.Input.Preview.Injection",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PenParameters",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InjectedInputPenParameters",
+            "namespace": "Windows.UI.Input.Preview.Injection",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_PenParameters",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InjectedInputPenParameters",
+                "namespace": "Windows.UI.Input.Preview.Injection",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Pressure",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_Pressure",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Rotation",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_Rotation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TiltX",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_TiltX",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TiltY",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_TiltY",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "PenButtons",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InjectedInputPenButtons",
+            "namespace": "Windows.UI.Input.Preview.Injection",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PenButtons",
+          "setter": "put_PenButtons"
+        },
+        {
+          "name": "PenParameters",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InjectedInputPenParameters",
+            "namespace": "Windows.UI.Input.Preview.Injection",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PenParameters",
+          "setter": "put_PenParameters"
+        },
+        {
+          "name": "PointerInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InjectedInputPointerInfo",
+            "namespace": "Windows.UI.Input.Preview.Injection",
+            "target_kind": "Struct"
+          },
+          "getter": "get_PointerInfo",
+          "setter": "put_PointerInfo"
+        },
+        {
+          "name": "Pressure",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Pressure",
+          "setter": "put_Pressure"
+        },
+        {
+          "name": "Rotation",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Rotation",
+          "setter": "put_Rotation"
+        },
+        {
+          "name": "TiltX",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_TiltX",
+          "setter": "put_TiltX"
+        },
+        {
+          "name": "TiltY",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_TiltY",
+          "setter": "put_TiltY"
+        }
+      ]
+    },
+    "IInjectedInputTouchInfo": {
+      "guid": "224fd1df-43e8-5ef5-510a-69ca8c9b4c28",
+      "exclusive_to": "Windows.UI.Input.Preview.Injection.InjectedInputTouchInfo",
+      "methods": [
+        {
+          "name": "get_Contact",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InjectedInputRectangle",
+            "namespace": "Windows.UI.Input.Preview.Injection",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Contact",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InjectedInputRectangle",
+                "namespace": "Windows.UI.Input.Preview.Injection",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Orientation",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_Orientation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PointerInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InjectedInputPointerInfo",
+            "namespace": "Windows.UI.Input.Preview.Injection",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_PointerInfo",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InjectedInputPointerInfo",
+                "namespace": "Windows.UI.Input.Preview.Injection",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Pressure",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_Pressure",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TouchParameters",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InjectedInputTouchParameters",
+            "namespace": "Windows.UI.Input.Preview.Injection",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_TouchParameters",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InjectedInputTouchParameters",
+                "namespace": "Windows.UI.Input.Preview.Injection",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Contact",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InjectedInputRectangle",
+            "namespace": "Windows.UI.Input.Preview.Injection",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Contact",
+          "setter": "put_Contact"
+        },
+        {
+          "name": "Orientation",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Orientation",
+          "setter": "put_Orientation"
+        },
+        {
+          "name": "PointerInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InjectedInputPointerInfo",
+            "namespace": "Windows.UI.Input.Preview.Injection",
+            "target_kind": "Struct"
+          },
+          "getter": "get_PointerInfo",
+          "setter": "put_PointerInfo"
+        },
+        {
+          "name": "Pressure",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Pressure",
+          "setter": "put_Pressure"
+        },
+        {
+          "name": "TouchParameters",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InjectedInputTouchParameters",
+            "namespace": "Windows.UI.Input.Preview.Injection",
+            "target_kind": "Enum"
+          },
+          "getter": "get_TouchParameters",
+          "setter": "put_TouchParameters"
+        }
+      ]
+    },
+    "IInputInjector": {
+      "guid": "8ec26f84-0b02-4bd2-ad7a-3d4658be3e18",
+      "exclusive_to": "Windows.UI.Input.Preview.Injection.InputInjector",
+      "methods": [
+        {
+          "name": "InjectKeyboardInput",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InjectedInputKeyboardInfo",
+                    "namespace": "Windows.UI.Input.Preview.Injection",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "InjectMouseInput",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InjectedInputMouseInfo",
+                    "namespace": "Windows.UI.Input.Preview.Injection",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "InitializeTouchInjection",
+          "params": [
+            {
+              "name": "visualMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InjectedInputVisualizationMode",
+                "namespace": "Windows.UI.Input.Preview.Injection",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "InjectTouchInput",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InjectedInputTouchInfo",
+                    "namespace": "Windows.UI.Input.Preview.Injection",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "UninitializeTouchInjection"
+        },
+        {
+          "name": "InitializePenInjection",
+          "params": [
+            {
+              "name": "visualMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InjectedInputVisualizationMode",
+                "namespace": "Windows.UI.Input.Preview.Injection",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "InjectPenInput",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InjectedInputPenInfo",
+                "namespace": "Windows.UI.Input.Preview.Injection",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "UninitializePenInjection"
+        },
+        {
+          "name": "InjectShortcut",
+          "params": [
+            {
+              "name": "shortcut",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InjectedInputShortcut",
+                "namespace": "Windows.UI.Input.Preview.Injection",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IInputInjector2": {
+      "guid": "8e7a905d-1453-43a7-9bcb-06d6d7b305f7",
+      "exclusive_to": "Windows.UI.Input.Preview.Injection.InputInjector",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IInputInjector",
+          "namespace": "Windows.UI.Input.Preview.Injection",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "InitializeGamepadInjection"
+        },
+        {
+          "name": "InjectGamepadInput",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InjectedInputGamepadInfo",
+                "namespace": "Windows.UI.Input.Preview.Injection",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "UninitializeGamepadInjection"
+        }
+      ]
+    },
+    "IInputInjectorStatics": {
+      "guid": "deae6943-7402-4141-a5c6-0c01aa57b16a",
+      "exclusive_to": "Windows.UI.Input.Preview.Injection.InputInjector",
+      "methods": [
+        {
+          "name": "TryCreate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InputInjector",
+            "namespace": "Windows.UI.Input.Preview.Injection",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IInputInjectorStatics2": {
+      "guid": "a4db38fb-dd8c-414f-95ea-f87ef4c0ae6c",
+      "exclusive_to": "Windows.UI.Input.Preview.Injection.InputInjector",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IInputInjectorStatics",
+          "namespace": "Windows.UI.Input.Preview.Injection",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "TryCreateForAppBroadcastOnly",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InputInjector",
+            "namespace": "Windows.UI.Input.Preview.Injection",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "InjectedInputGamepadInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInjectedInputGamepadInfo",
+        "namespace": "Windows.UI.Input.Preview.Injection",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInjectedInputGamepadInfo",
+          "namespace": "Windows.UI.Input.Preview.Injection",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.UI.Input.Preview.Injection.IInjectedInputGamepadInfoFactory"
+      ]
+    },
+    "InjectedInputKeyboardInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInjectedInputKeyboardInfo",
+        "namespace": "Windows.UI.Input.Preview.Injection",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInjectedInputKeyboardInfo",
+          "namespace": "Windows.UI.Input.Preview.Injection",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "InjectedInputMouseInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInjectedInputMouseInfo",
+        "namespace": "Windows.UI.Input.Preview.Injection",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInjectedInputMouseInfo",
+          "namespace": "Windows.UI.Input.Preview.Injection",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "InjectedInputPenInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInjectedInputPenInfo",
+        "namespace": "Windows.UI.Input.Preview.Injection",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInjectedInputPenInfo",
+          "namespace": "Windows.UI.Input.Preview.Injection",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "InjectedInputTouchInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInjectedInputTouchInfo",
+        "namespace": "Windows.UI.Input.Preview.Injection",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInjectedInputTouchInfo",
+          "namespace": "Windows.UI.Input.Preview.Injection",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "InputInjector": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInputInjector",
+        "namespace": "Windows.UI.Input.Preview.Injection",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInputInjector",
+          "namespace": "Windows.UI.Input.Preview.Injection",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInputInjector2",
+          "namespace": "Windows.UI.Input.Preview.Injection",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Input.Preview.Injection.IInputInjectorStatics2",
+        "Windows.UI.Input.Preview.Injection.IInputInjectorStatics"
+      ]
+    }
+  }
+}

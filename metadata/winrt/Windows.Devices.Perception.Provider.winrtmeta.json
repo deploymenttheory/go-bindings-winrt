@@ -1,0 +1,1360 @@
+{
+  "namespace": "Windows.Devices.Perception.Provider",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IKnownPerceptionFrameKindStatics": {
+      "guid": "3ae651d6-9669-4106-9fae-4835c1b96104",
+      "exclusive_to": "Windows.Devices.Perception.Provider.KnownPerceptionFrameKind",
+      "methods": [
+        {
+          "name": "get_Color",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Depth",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Infrared",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Color",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Color"
+        },
+        {
+          "name": "Depth",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Depth"
+        },
+        {
+          "name": "Infrared",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Infrared"
+        }
+      ]
+    },
+    "IPerceptionControlGroup": {
+      "guid": "172c4882-2fd9-4c4e-ba34-fdf20a73dde5",
+      "exclusive_to": "Windows.Devices.Perception.Provider.PerceptionControlGroup",
+      "methods": [
+        {
+          "name": "get_FrameProviderIds",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FrameProviderIds",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_FrameProviderIds"
+        }
+      ]
+    },
+    "IPerceptionControlGroupFactory": {
+      "guid": "2f1af2e0-baf1-453b-bed4-cd9d4619154c",
+      "exclusive_to": "Windows.Devices.Perception.Provider.PerceptionControlGroup",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "ids",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionControlGroup",
+            "namespace": "Windows.Devices.Perception.Provider",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPerceptionCorrelation": {
+      "guid": "b4131a82-dff5-4047-8a19-3b4d805f7176",
+      "exclusive_to": "Windows.Devices.Perception.Provider.PerceptionCorrelation",
+      "methods": [
+        {
+          "name": "get_TargetId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Orientation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Quaternion",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Orientation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Quaternion",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Orientation"
+        },
+        {
+          "name": "Position",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Position"
+        },
+        {
+          "name": "TargetId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TargetId"
+        }
+      ]
+    },
+    "IPerceptionCorrelationFactory": {
+      "guid": "d4a6c425-2884-4a8f-8134-2835d7286cbf",
+      "exclusive_to": "Windows.Devices.Perception.Provider.PerceptionCorrelation",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "targetId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "position",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "orientation",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Quaternion",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionCorrelation",
+            "namespace": "Windows.Devices.Perception.Provider",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPerceptionCorrelationGroup": {
+      "guid": "752a0906-36a7-47bb-9b79-56cc6b746770",
+      "exclusive_to": "Windows.Devices.Perception.Provider.PerceptionCorrelationGroup",
+      "methods": [
+        {
+          "name": "get_RelativeLocations",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionCorrelation",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RelativeLocations",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PerceptionCorrelation",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_RelativeLocations"
+        }
+      ]
+    },
+    "IPerceptionCorrelationGroupFactory": {
+      "guid": "7dfe2088-63df-48ed-83b1-4ab829132995",
+      "exclusive_to": "Windows.Devices.Perception.Provider.PerceptionCorrelationGroup",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "relativeLocations",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PerceptionCorrelation",
+                    "namespace": "Windows.Devices.Perception.Provider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionCorrelationGroup",
+            "namespace": "Windows.Devices.Perception.Provider",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPerceptionFaceAuthenticationGroup": {
+      "guid": "e8019814-4a91-41b0-83a6-881a1775353e",
+      "exclusive_to": "Windows.Devices.Perception.Provider.PerceptionFaceAuthenticationGroup",
+      "methods": [
+        {
+          "name": "get_FrameProviderIds",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FrameProviderIds",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_FrameProviderIds"
+        }
+      ]
+    },
+    "IPerceptionFaceAuthenticationGroupFactory": {
+      "guid": "e68a05d4-b60c-40f4-bcb9-f24d46467320",
+      "exclusive_to": "Windows.Devices.Perception.Provider.PerceptionFaceAuthenticationGroup",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "ids",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "startHandler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionStartFaceAuthenticationHandler",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Delegate"
+              }
+            },
+            {
+              "name": "stopHandler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionStopFaceAuthenticationHandler",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionFaceAuthenticationGroup",
+            "namespace": "Windows.Devices.Perception.Provider",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPerceptionFrame": {
+      "guid": "7cfe7825-54bb-4d9d-bec5-8ef66151d2ac",
+      "exclusive_to": "Windows.Devices.Perception.Provider.PerceptionFrame",
+      "methods": [
+        {
+          "name": "get_RelativeTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_RelativeTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_FrameData",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IMemoryBuffer",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FrameData",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IMemoryBuffer",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          },
+          "getter": "get_FrameData"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "RelativeTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_RelativeTime",
+          "setter": "put_RelativeTime"
+        }
+      ]
+    },
+    "IPerceptionFrameProvider": {
+      "guid": "794f7ab9-b37d-3b33-a10d-30626419ce65",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_FrameProviderInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionFrameProviderInfo",
+            "namespace": "Windows.Devices.Perception.Provider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Available",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IPropertySet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "Start"
+        },
+        {
+          "name": "Stop"
+        },
+        {
+          "name": "SetProperty",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionPropertyChangeRequest",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Available",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Available"
+        },
+        {
+          "name": "FrameProviderInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PerceptionFrameProviderInfo",
+            "namespace": "Windows.Devices.Perception.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_FrameProviderInfo"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IPropertySet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Properties"
+        }
+      ]
+    },
+    "IPerceptionFrameProviderInfo": {
+      "guid": "cca959e8-797e-4e83-9b87-036a74142fc4",
+      "exclusive_to": "Windows.Devices.Perception.Provider.PerceptionFrameProviderInfo",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Id",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DisplayName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DeviceKind",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DeviceKind",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FrameKind",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_FrameKind",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Hidden",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Hidden",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceKind",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceKind",
+          "setter": "put_DeviceKind"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName",
+          "setter": "put_DisplayName"
+        },
+        {
+          "name": "FrameKind",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_FrameKind",
+          "setter": "put_FrameKind"
+        },
+        {
+          "name": "Hidden",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Hidden",
+          "setter": "put_Hidden"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id",
+          "setter": "put_Id"
+        }
+      ]
+    },
+    "IPerceptionFrameProviderManager": {
+      "guid": "a959ce07-ead3-33df-8ec1-b924abe019c4",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "GetFrameProvider",
+          "params": [
+            {
+              "name": "frameProviderInfo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionFrameProviderInfo",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IPerceptionFrameProvider",
+            "namespace": "Windows.Devices.Perception.Provider",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IPerceptionFrameProviderManagerServiceStatics": {
+      "guid": "ae8386e6-cad9-4359-8f96-8eae51810526",
+      "exclusive_to": "Windows.Devices.Perception.Provider.PerceptionFrameProviderManagerService",
+      "methods": [
+        {
+          "name": "RegisterFrameProviderInfo",
+          "params": [
+            {
+              "name": "manager",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPerceptionFrameProviderManager",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "frameProviderInfo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionFrameProviderInfo",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "UnregisterFrameProviderInfo",
+          "params": [
+            {
+              "name": "manager",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPerceptionFrameProviderManager",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "frameProviderInfo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionFrameProviderInfo",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RegisterFaceAuthenticationGroup",
+          "params": [
+            {
+              "name": "manager",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPerceptionFrameProviderManager",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "faceAuthenticationGroup",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionFaceAuthenticationGroup",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "UnregisterFaceAuthenticationGroup",
+          "params": [
+            {
+              "name": "manager",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPerceptionFrameProviderManager",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "faceAuthenticationGroup",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionFaceAuthenticationGroup",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RegisterControlGroup",
+          "params": [
+            {
+              "name": "manager",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPerceptionFrameProviderManager",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "controlGroup",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionControlGroup",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "UnregisterControlGroup",
+          "params": [
+            {
+              "name": "manager",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPerceptionFrameProviderManager",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "controlGroup",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionControlGroup",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RegisterCorrelationGroup",
+          "params": [
+            {
+              "name": "manager",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPerceptionFrameProviderManager",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "correlationGroup",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionCorrelationGroup",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "UnregisterCorrelationGroup",
+          "params": [
+            {
+              "name": "manager",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPerceptionFrameProviderManager",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "correlationGroup",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionCorrelationGroup",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "UpdateAvailabilityForProvider",
+          "params": [
+            {
+              "name": "provider",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPerceptionFrameProvider",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "available",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "PublishFrameForProvider",
+          "params": [
+            {
+              "name": "provider",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPerceptionFrameProvider",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "frame",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionFrame",
+                "namespace": "Windows.Devices.Perception.Provider",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IPerceptionPropertyChangeRequest": {
+      "guid": "3c5aeb51-350b-4df8-9414-59e09815510b",
+      "exclusive_to": "Windows.Devices.Perception.Provider.PerceptionPropertyChangeRequest",
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionFrameSourcePropertyChangeStatus",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Status",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionFrameSourcePropertyChangeStatus",
+                "namespace": "Windows.Devices.Perception",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PerceptionFrameSourcePropertyChangeStatus",
+            "namespace": "Windows.Devices.Perception",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status",
+          "setter": "put_Status"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "IPerceptionVideoFrameAllocator": {
+      "guid": "4c38a7da-fdd8-4ed4-a039-2a6f9b235038",
+      "exclusive_to": "Windows.Devices.Perception.Provider.PerceptionVideoFrameAllocator",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "AllocateFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionFrame",
+            "namespace": "Windows.Devices.Perception.Provider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CopyFromVideoFrame",
+          "params": [
+            {
+              "name": "frame",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VideoFrame",
+                "namespace": "Windows.Media",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionFrame",
+            "namespace": "Windows.Devices.Perception.Provider",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPerceptionVideoFrameAllocatorFactory": {
+      "guid": "1a58b0e1-e91a-481e-b876-a89e2bbc6b33",
+      "exclusive_to": "Windows.Devices.Perception.Provider.PerceptionVideoFrameAllocator",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "maxOutstandingFrameCountForWrite",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapPixelFormat",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "resolution",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Size",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "alpha",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapAlphaMode",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionVideoFrameAllocator",
+            "namespace": "Windows.Devices.Perception.Provider",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "KnownPerceptionFrameKind": {
+      "static_interfaces": [
+        "Windows.Devices.Perception.Provider.IKnownPerceptionFrameKindStatics"
+      ]
+    },
+    "PerceptionControlGroup": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionControlGroup",
+        "namespace": "Windows.Devices.Perception.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionControlGroup",
+          "namespace": "Windows.Devices.Perception.Provider",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Perception.Provider.IPerceptionControlGroupFactory"
+      ]
+    },
+    "PerceptionCorrelation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionCorrelation",
+        "namespace": "Windows.Devices.Perception.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionCorrelation",
+          "namespace": "Windows.Devices.Perception.Provider",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Perception.Provider.IPerceptionCorrelationFactory"
+      ]
+    },
+    "PerceptionCorrelationGroup": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionCorrelationGroup",
+        "namespace": "Windows.Devices.Perception.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionCorrelationGroup",
+          "namespace": "Windows.Devices.Perception.Provider",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Perception.Provider.IPerceptionCorrelationGroupFactory"
+      ]
+    },
+    "PerceptionFaceAuthenticationGroup": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionFaceAuthenticationGroup",
+        "namespace": "Windows.Devices.Perception.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionFaceAuthenticationGroup",
+          "namespace": "Windows.Devices.Perception.Provider",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Perception.Provider.IPerceptionFaceAuthenticationGroupFactory"
+      ]
+    },
+    "PerceptionFrame": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionFrame",
+        "namespace": "Windows.Devices.Perception.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionFrame",
+          "namespace": "Windows.Devices.Perception.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionFrameProviderInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionFrameProviderInfo",
+        "namespace": "Windows.Devices.Perception.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionFrameProviderInfo",
+          "namespace": "Windows.Devices.Perception.Provider",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "PerceptionFrameProviderManagerService": {
+      "static_interfaces": [
+        "Windows.Devices.Perception.Provider.IPerceptionFrameProviderManagerServiceStatics"
+      ]
+    },
+    "PerceptionPropertyChangeRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionPropertyChangeRequest",
+        "namespace": "Windows.Devices.Perception.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionPropertyChangeRequest",
+          "namespace": "Windows.Devices.Perception.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionVideoFrameAllocator": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionVideoFrameAllocator",
+        "namespace": "Windows.Devices.Perception.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionVideoFrameAllocator",
+          "namespace": "Windows.Devices.Perception.Provider",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Perception.Provider.IPerceptionVideoFrameAllocatorFactory"
+      ]
+    }
+  },
+  "delegates": {
+    "PerceptionStartFaceAuthenticationHandler": {
+      "guid": "74816d2a-2090-4670-8c48-ef39e7ff7c26",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "ApiRef",
+              "name": "PerceptionFaceAuthenticationGroup",
+              "namespace": "Windows.Devices.Perception.Provider",
+              "target_kind": "Class"
+            }
+          }
+        ],
+        "return": {
+          "kind": "Native",
+          "name": "Bool"
+        }
+      }
+    },
+    "PerceptionStopFaceAuthenticationHandler": {
+      "guid": "387ee6aa-89cd-481e-aade-dd92f70b2ad7",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "ApiRef",
+              "name": "PerceptionFaceAuthenticationGroup",
+              "namespace": "Windows.Devices.Perception.Provider",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

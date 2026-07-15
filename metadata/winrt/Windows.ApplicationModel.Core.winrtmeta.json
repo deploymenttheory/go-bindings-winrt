@@ -1,0 +1,1755 @@
+{
+  "namespace": "Windows.ApplicationModel.Core",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "AppRestartFailureReason": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "RestartPending",
+          "value": "0"
+        },
+        {
+          "name": "NotInForeground",
+          "value": "1"
+        },
+        {
+          "name": "InvalidUser",
+          "value": "2"
+        },
+        {
+          "name": "Other",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IAppListEntry": {
+      "guid": "ef00f07f-2108-490a-877a-8a9f17c25fad",
+      "exclusive_to": "Windows.ApplicationModel.Core.AppListEntry",
+      "methods": [
+        {
+          "name": "get_DisplayInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppDisplayInfo",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "LaunchAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppDisplayInfo",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          },
+          "getter": "get_DisplayInfo"
+        }
+      ]
+    },
+    "IAppListEntry2": {
+      "guid": "d0a618ad-bf35-42ac-ac06-86eeeb41d04b",
+      "exclusive_to": "Windows.ApplicationModel.Core.AppListEntry",
+      "methods": [
+        {
+          "name": "get_AppUserModelId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppUserModelId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppUserModelId"
+        }
+      ]
+    },
+    "IAppListEntry3": {
+      "guid": "6099f28d-fc32-470a-bc69-4b061a76ef2e",
+      "exclusive_to": "Windows.ApplicationModel.Core.AppListEntry",
+      "methods": [
+        {
+          "name": "LaunchForUserAsync",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IAppListEntry4": {
+      "guid": "2a131ed2-56f5-487c-8697-5166f3b33da0",
+      "exclusive_to": "Windows.ApplicationModel.Core.AppListEntry",
+      "methods": [
+        {
+          "name": "get_AppInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppInfo",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppInfo",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          },
+          "getter": "get_AppInfo"
+        }
+      ]
+    },
+    "ICoreApplication": {
+      "guid": "0aacf7a4-5e1d-49df-8034-fb6a68bc5ed1",
+      "exclusive_to": "Windows.ApplicationModel.Core.CoreApplication",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "add_Suspending",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SuspendingEventArgs",
+                    "namespace": "Windows.ApplicationModel",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Suspending",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Resuming",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Resuming",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IPropertySet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetCurrentView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreApplicationView",
+            "namespace": "Windows.ApplicationModel.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "Run",
+          "params": [
+            {
+              "name": "viewSource",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IFrameworkViewSource",
+                "namespace": "Windows.ApplicationModel.Core",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RunWithActivationFactories",
+          "params": [
+            {
+              "name": "activationFactoryCallback",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IGetActivationFactory",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IPropertySet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Properties"
+        }
+      ],
+      "events": [
+        {
+          "name": "Resuming",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_Resuming",
+          "remove_method": "remove_Resuming"
+        },
+        {
+          "name": "Suspending",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SuspendingEventArgs",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Suspending",
+          "remove_method": "remove_Suspending"
+        }
+      ]
+    },
+    "ICoreApplication2": {
+      "guid": "998681fb-1ab6-4b7f-be4a-9a0645224c04",
+      "exclusive_to": "Windows.ApplicationModel.Core.CoreApplication",
+      "methods": [
+        {
+          "name": "add_BackgroundActivated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BackgroundActivatedEventArgs",
+                    "namespace": "Windows.ApplicationModel.Activation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_BackgroundActivated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_LeavingBackground",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "LeavingBackgroundEventArgs",
+                    "namespace": "Windows.ApplicationModel",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_LeavingBackground",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_EnteredBackground",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EnteredBackgroundEventArgs",
+                    "namespace": "Windows.ApplicationModel",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_EnteredBackground",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "EnablePrelaunch",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "BackgroundActivated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BackgroundActivatedEventArgs",
+                "namespace": "Windows.ApplicationModel.Activation",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_BackgroundActivated",
+          "remove_method": "remove_BackgroundActivated"
+        },
+        {
+          "name": "EnteredBackground",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "EnteredBackgroundEventArgs",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_EnteredBackground",
+          "remove_method": "remove_EnteredBackground"
+        },
+        {
+          "name": "LeavingBackground",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "LeavingBackgroundEventArgs",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_LeavingBackground",
+          "remove_method": "remove_LeavingBackground"
+        }
+      ]
+    },
+    "ICoreApplication3": {
+      "guid": "feec0d39-598b-4507-8a67-772632580a57",
+      "exclusive_to": "Windows.ApplicationModel.Core.CoreApplication",
+      "methods": [
+        {
+          "name": "RequestRestartAsync",
+          "params": [
+            {
+              "name": "launchArguments",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppRestartFailureReason",
+                "namespace": "Windows.ApplicationModel.Core",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestRestartForUserAsync",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "launchArguments",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppRestartFailureReason",
+                "namespace": "Windows.ApplicationModel.Core",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ICoreApplicationExit": {
+      "guid": "cf86461d-261e-4b72-9acd-44ed2ace6a29",
+      "exclusive_to": "Windows.ApplicationModel.Core.CoreApplication",
+      "methods": [
+        {
+          "name": "Exit"
+        },
+        {
+          "name": "add_Exiting",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Exiting",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "Exiting",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_Exiting",
+          "remove_method": "remove_Exiting"
+        }
+      ]
+    },
+    "ICoreApplicationUnhandledError": {
+      "guid": "f0e24ab0-dd09-42e1-b0bc-e0e131f78d7e",
+      "methods": [
+        {
+          "name": "add_UnhandledErrorDetected",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UnhandledErrorDetectedEventArgs",
+                    "namespace": "Windows.ApplicationModel.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_UnhandledErrorDetected",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "UnhandledErrorDetected",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UnhandledErrorDetectedEventArgs",
+                "namespace": "Windows.ApplicationModel.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_UnhandledErrorDetected",
+          "remove_method": "remove_UnhandledErrorDetected"
+        }
+      ]
+    },
+    "ICoreApplicationUseCount": {
+      "guid": "518dc408-c077-475b-809e-0bc0c57e4b74",
+      "exclusive_to": "Windows.ApplicationModel.Core.CoreApplication",
+      "methods": [
+        {
+          "name": "IncrementApplicationUseCount"
+        },
+        {
+          "name": "DecrementApplicationUseCount"
+        }
+      ]
+    },
+    "ICoreApplicationView": {
+      "guid": "638bb2db-451d-4661-b099-414f34ffb9f1",
+      "exclusive_to": "Windows.ApplicationModel.Core.CoreApplicationView",
+      "methods": [
+        {
+          "name": "get_CoreWindow",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreWindow",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_Activated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreApplicationView",
+                    "namespace": "Windows.ApplicationModel.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "IActivatedEventArgs",
+                    "namespace": "Windows.ApplicationModel.Activation",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Activated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsMain",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsHosted",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CoreWindow",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreWindow",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_CoreWindow"
+        },
+        {
+          "name": "IsHosted",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsHosted"
+        },
+        {
+          "name": "IsMain",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsMain"
+        }
+      ],
+      "events": [
+        {
+          "name": "Activated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreApplicationView",
+                "namespace": "Windows.ApplicationModel.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "IActivatedEventArgs",
+                "namespace": "Windows.ApplicationModel.Activation",
+                "target_kind": "Interface"
+              }
+            ]
+          },
+          "add_method": "add_Activated",
+          "remove_method": "remove_Activated"
+        }
+      ]
+    },
+    "ICoreApplicationView2": {
+      "guid": "68eb7adf-917f-48eb-9aeb-7de53e086ab1",
+      "exclusive_to": "Windows.ApplicationModel.Core.CoreApplicationView",
+      "methods": [
+        {
+          "name": "get_Dispatcher",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreDispatcher",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Dispatcher",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreDispatcher",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_Dispatcher"
+        }
+      ]
+    },
+    "ICoreApplicationView3": {
+      "guid": "07ebe1b3-a4cf-4550-ab70-b07e85330bc8",
+      "exclusive_to": "Windows.ApplicationModel.Core.CoreApplicationView",
+      "methods": [
+        {
+          "name": "get_IsComponent",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_TitleBar",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreApplicationViewTitleBar",
+            "namespace": "Windows.ApplicationModel.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_HostedViewClosing",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreApplicationView",
+                    "namespace": "Windows.ApplicationModel.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "HostedViewClosingEventArgs",
+                    "namespace": "Windows.ApplicationModel.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_HostedViewClosing",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsComponent",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsComponent"
+        },
+        {
+          "name": "TitleBar",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreApplicationViewTitleBar",
+            "namespace": "Windows.ApplicationModel.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_TitleBar"
+        }
+      ],
+      "events": [
+        {
+          "name": "HostedViewClosing",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreApplicationView",
+                "namespace": "Windows.ApplicationModel.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "HostedViewClosingEventArgs",
+                "namespace": "Windows.ApplicationModel.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_HostedViewClosing",
+          "remove_method": "remove_HostedViewClosing"
+        }
+      ]
+    },
+    "ICoreApplicationView5": {
+      "guid": "2bc095a8-8ef0-446d-9e60-3a3e0428c671",
+      "exclusive_to": "Windows.ApplicationModel.Core.CoreApplicationView",
+      "methods": [
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IPropertySet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IPropertySet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Properties"
+        }
+      ]
+    },
+    "ICoreApplicationView6": {
+      "guid": "c119d49a-0679-49ba-803f-b79c5cf34cca",
+      "exclusive_to": "Windows.ApplicationModel.Core.CoreApplicationView",
+      "methods": [
+        {
+          "name": "get_DispatcherQueue",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DispatcherQueue",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DispatcherQueue",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DispatcherQueue",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_DispatcherQueue"
+        }
+      ]
+    },
+    "ICoreApplicationViewTitleBar": {
+      "guid": "006d35e3-e1f1-431b-9508-29b96926ac53",
+      "exclusive_to": "Windows.ApplicationModel.Core.CoreApplicationViewTitleBar",
+      "methods": [
+        {
+          "name": "put_ExtendViewIntoTitleBar",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ExtendViewIntoTitleBar",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SystemOverlayLeftInset",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_SystemOverlayRightInset",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_Height",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "add_LayoutMetricsChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreApplicationViewTitleBar",
+                    "namespace": "Windows.ApplicationModel.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_LayoutMetricsChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsVisible",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "add_IsVisibleChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreApplicationViewTitleBar",
+                    "namespace": "Windows.ApplicationModel.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_IsVisibleChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExtendViewIntoTitleBar",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ExtendViewIntoTitleBar",
+          "setter": "put_ExtendViewIntoTitleBar"
+        },
+        {
+          "name": "Height",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Height"
+        },
+        {
+          "name": "IsVisible",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsVisible"
+        },
+        {
+          "name": "SystemOverlayLeftInset",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_SystemOverlayLeftInset"
+        },
+        {
+          "name": "SystemOverlayRightInset",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_SystemOverlayRightInset"
+        }
+      ],
+      "events": [
+        {
+          "name": "IsVisibleChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreApplicationViewTitleBar",
+                "namespace": "Windows.ApplicationModel.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_IsVisibleChanged",
+          "remove_method": "remove_IsVisibleChanged"
+        },
+        {
+          "name": "LayoutMetricsChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreApplicationViewTitleBar",
+                "namespace": "Windows.ApplicationModel.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_LayoutMetricsChanged",
+          "remove_method": "remove_LayoutMetricsChanged"
+        }
+      ]
+    },
+    "ICoreImmersiveApplication": {
+      "guid": "1ada0e3e-e4a2-4123-b451-dc96bf800419",
+      "exclusive_to": "Windows.ApplicationModel.Core.CoreApplication",
+      "methods": [
+        {
+          "name": "get_Views",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreApplicationView",
+                "namespace": "Windows.ApplicationModel.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateNewView",
+          "overload": "CreateNewView",
+          "is_default_overload": true,
+          "params": [
+            {
+              "name": "runtimeType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "entryPoint",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreApplicationView",
+            "namespace": "Windows.ApplicationModel.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_MainView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreApplicationView",
+            "namespace": "Windows.ApplicationModel.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "MainView",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreApplicationView",
+            "namespace": "Windows.ApplicationModel.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_MainView"
+        },
+        {
+          "name": "Views",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreApplicationView",
+                "namespace": "Windows.ApplicationModel.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Views"
+        }
+      ]
+    },
+    "ICoreImmersiveApplication2": {
+      "guid": "828e1e36-e9e3-4cfc-9b66-48b78ea9bb2c",
+      "exclusive_to": "Windows.ApplicationModel.Core.CoreApplication",
+      "methods": [
+        {
+          "name": "CreateNewView",
+          "overload": "CreateNewViewFromMainView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreApplicationView",
+            "namespace": "Windows.ApplicationModel.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ICoreImmersiveApplication3": {
+      "guid": "34a05b2f-ee0d-41e5-8314-cf10c91bf0af",
+      "exclusive_to": "Windows.ApplicationModel.Core.CoreApplication",
+      "methods": [
+        {
+          "name": "CreateNewView",
+          "overload": "CreateNewViewWithViewSource",
+          "params": [
+            {
+              "name": "viewSource",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IFrameworkViewSource",
+                "namespace": "Windows.ApplicationModel.Core",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreApplicationView",
+            "namespace": "Windows.ApplicationModel.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IFrameworkView": {
+      "guid": "faab5cd0-8924-45ac-ad0f-a08fae5d0324",
+      "methods": [
+        {
+          "name": "Initialize",
+          "params": [
+            {
+              "name": "applicationView",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreApplicationView",
+                "namespace": "Windows.ApplicationModel.Core",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetWindow",
+          "params": [
+            {
+              "name": "window",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreWindow",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Load",
+          "params": [
+            {
+              "name": "entryPoint",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Run"
+        },
+        {
+          "name": "Uninitialize"
+        }
+      ]
+    },
+    "IFrameworkViewSource": {
+      "guid": "cd770614-65c4-426c-9494-34fc43554862",
+      "methods": [
+        {
+          "name": "CreateView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IFrameworkView",
+            "namespace": "Windows.ApplicationModel.Core",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IHostedViewClosingEventArgs": {
+      "guid": "d238943c-b24e-4790-acb5-3e4243c4ff87",
+      "exclusive_to": "Windows.ApplicationModel.Core.HostedViewClosingEventArgs",
+      "methods": [
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IUnhandledError": {
+      "guid": "9459b726-53b5-4686-9eaf-fa8162dc3980",
+      "exclusive_to": "Windows.ApplicationModel.Core.UnhandledError",
+      "methods": [
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "Propagate"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled"
+        }
+      ]
+    },
+    "IUnhandledErrorDetectedEventArgs": {
+      "guid": "679ab78b-b336-4822-ac40-0d750f0b7a2b",
+      "exclusive_to": "Windows.ApplicationModel.Core.UnhandledErrorDetectedEventArgs",
+      "methods": [
+        {
+          "name": "get_UnhandledError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UnhandledError",
+            "namespace": "Windows.ApplicationModel.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "UnhandledError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UnhandledError",
+            "namespace": "Windows.ApplicationModel.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_UnhandledError"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AppListEntry": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppListEntry",
+        "namespace": "Windows.ApplicationModel.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppListEntry",
+          "namespace": "Windows.ApplicationModel.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppListEntry2",
+          "namespace": "Windows.ApplicationModel.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppListEntry3",
+          "namespace": "Windows.ApplicationModel.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppListEntry4",
+          "namespace": "Windows.ApplicationModel.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreApplication": {
+      "static_interfaces": [
+        "Windows.ApplicationModel.Core.ICoreApplication",
+        "Windows.ApplicationModel.Core.ICoreApplicationUseCount",
+        "Windows.ApplicationModel.Core.ICoreImmersiveApplication3",
+        "Windows.ApplicationModel.Core.ICoreImmersiveApplication2",
+        "Windows.ApplicationModel.Core.ICoreApplicationUnhandledError",
+        "Windows.ApplicationModel.Core.ICoreApplication2",
+        "Windows.ApplicationModel.Core.ICoreImmersiveApplication",
+        "Windows.ApplicationModel.Core.ICoreApplicationExit",
+        "Windows.ApplicationModel.Core.ICoreApplication3"
+      ]
+    },
+    "CoreApplicationView": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreApplicationView",
+        "namespace": "Windows.ApplicationModel.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreApplicationView",
+          "namespace": "Windows.ApplicationModel.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreApplicationView2",
+          "namespace": "Windows.ApplicationModel.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreApplicationView3",
+          "namespace": "Windows.ApplicationModel.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreApplicationView5",
+          "namespace": "Windows.ApplicationModel.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreApplicationView6",
+          "namespace": "Windows.ApplicationModel.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreApplicationViewTitleBar": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreApplicationViewTitleBar",
+        "namespace": "Windows.ApplicationModel.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreApplicationViewTitleBar",
+          "namespace": "Windows.ApplicationModel.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HostedViewClosingEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHostedViewClosingEventArgs",
+        "namespace": "Windows.ApplicationModel.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHostedViewClosingEventArgs",
+          "namespace": "Windows.ApplicationModel.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UnhandledError": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUnhandledError",
+        "namespace": "Windows.ApplicationModel.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUnhandledError",
+          "namespace": "Windows.ApplicationModel.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UnhandledErrorDetectedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUnhandledErrorDetectedEventArgs",
+        "namespace": "Windows.ApplicationModel.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUnhandledErrorDetectedEventArgs",
+          "namespace": "Windows.ApplicationModel.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

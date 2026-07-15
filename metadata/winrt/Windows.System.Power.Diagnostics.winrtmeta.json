@@ -1,0 +1,85 @@
+{
+  "namespace": "Windows.System.Power.Diagnostics",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IBackgroundEnergyDiagnosticsStatics": {
+      "guid": "d7663702-d3a6-46e0-8f9b-50b95bb4f9c5",
+      "exclusive_to": "Windows.System.Power.Diagnostics.BackgroundEnergyDiagnostics",
+      "methods": [
+        {
+          "name": "get_DeviceSpecificConversionFactor",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "ComputeTotalEnergyUsage",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "ResetTotalEnergyUsage"
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceSpecificConversionFactor",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_DeviceSpecificConversionFactor"
+        }
+      ]
+    },
+    "IForegroundEnergyDiagnosticsStatics": {
+      "guid": "23ca0917-cd07-4609-be15-8fe894c5e41e",
+      "exclusive_to": "Windows.System.Power.Diagnostics.ForegroundEnergyDiagnostics",
+      "methods": [
+        {
+          "name": "get_DeviceSpecificConversionFactor",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "ComputeTotalEnergyUsage",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "ResetTotalEnergyUsage"
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceSpecificConversionFactor",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_DeviceSpecificConversionFactor"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "BackgroundEnergyDiagnostics": {
+      "static_interfaces": [
+        "Windows.System.Power.Diagnostics.IBackgroundEnergyDiagnosticsStatics"
+      ]
+    },
+    "ForegroundEnergyDiagnostics": {
+      "static_interfaces": [
+        "Windows.System.Power.Diagnostics.IForegroundEnergyDiagnosticsStatics"
+      ]
+    }
+  }
+}

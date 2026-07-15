@@ -1,0 +1,296 @@
+{
+  "namespace": "Windows.Perception.Spatial.Preview",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "ISpatialGraphInteropFrameOfReferencePreview": {
+      "guid": "a8271b23-735f-5729-a98e-e64ed189abc5",
+      "exclusive_to": "Windows.Perception.Spatial.Preview.SpatialGraphInteropFrameOfReferencePreview",
+      "methods": [
+        {
+          "name": "get_CoordinateSystem",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialCoordinateSystem",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_NodeId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_CoordinateSystemToNodeTransform",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Matrix4x4",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CoordinateSystem",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialCoordinateSystem",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_CoordinateSystem"
+        },
+        {
+          "name": "CoordinateSystemToNodeTransform",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Matrix4x4",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_CoordinateSystemToNodeTransform"
+        },
+        {
+          "name": "NodeId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_NodeId"
+        }
+      ]
+    },
+    "ISpatialGraphInteropPreviewStatics": {
+      "guid": "c042644c-20d8-4ed0-aef7-6805b8e53f55",
+      "exclusive_to": "Windows.Perception.Spatial.Preview.SpatialGraphInteropPreview",
+      "methods": [
+        {
+          "name": "CreateCoordinateSystemForNode",
+          "overload": "CreateCoordinateSystemForNode",
+          "params": [
+            {
+              "name": "nodeId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialCoordinateSystem",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateCoordinateSystemForNode",
+          "overload": "CreateCoordinateSystemForNodeWithPosition",
+          "params": [
+            {
+              "name": "nodeId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "relativePosition",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialCoordinateSystem",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateCoordinateSystemForNode",
+          "overload": "CreateCoordinateSystemForNodeWithPositionAndOrientation",
+          "params": [
+            {
+              "name": "nodeId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "relativePosition",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "relativeOrientation",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Quaternion",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialCoordinateSystem",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateLocatorForNode",
+          "params": [
+            {
+              "name": "nodeId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialLocator",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISpatialGraphInteropPreviewStatics2": {
+      "guid": "2490b15f-6cbd-4b1e-b765-31e462a32df2",
+      "exclusive_to": "Windows.Perception.Spatial.Preview.SpatialGraphInteropPreview",
+      "methods": [
+        {
+          "name": "TryCreateFrameOfReference",
+          "overload": "TryCreateFrameOfReference",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialGraphInteropFrameOfReferencePreview",
+            "namespace": "Windows.Perception.Spatial.Preview",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryCreateFrameOfReference",
+          "overload": "TryCreateFrameOfReferenceWithPosition",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "relativePosition",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialGraphInteropFrameOfReferencePreview",
+            "namespace": "Windows.Perception.Spatial.Preview",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryCreateFrameOfReference",
+          "overload": "TryCreateFrameOfReferenceWithPositionAndOrientation",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "relativePosition",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "relativeOrientation",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Quaternion",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialGraphInteropFrameOfReferencePreview",
+            "namespace": "Windows.Perception.Spatial.Preview",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "SpatialGraphInteropFrameOfReferencePreview": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialGraphInteropFrameOfReferencePreview",
+        "namespace": "Windows.Perception.Spatial.Preview",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialGraphInteropFrameOfReferencePreview",
+          "namespace": "Windows.Perception.Spatial.Preview",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialGraphInteropPreview": {
+      "static_interfaces": [
+        "Windows.Perception.Spatial.Preview.ISpatialGraphInteropPreviewStatics2",
+        "Windows.Perception.Spatial.Preview.ISpatialGraphInteropPreviewStatics"
+      ]
+    }
+  }
+}

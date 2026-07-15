@@ -1,0 +1,5062 @@
+{
+  "namespace": "Windows.UI.Input.Inking",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "HandwritingLineHeight": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Small",
+          "value": "0"
+        },
+        {
+          "name": "Medium",
+          "value": "1"
+        },
+        {
+          "name": "Large",
+          "value": "2"
+        }
+      ]
+    },
+    "InkDrawingAttributesKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "Pencil",
+          "value": "1"
+        }
+      ]
+    },
+    "InkHighContrastAdjustment": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "UseSystemColorsWhenNecessary",
+          "value": "0"
+        },
+        {
+          "name": "UseSystemColors",
+          "value": "1"
+        },
+        {
+          "name": "UseOriginalColors",
+          "value": "2"
+        }
+      ]
+    },
+    "InkInputProcessingMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Inking",
+          "value": "1"
+        },
+        {
+          "name": "Erasing",
+          "value": "2"
+        }
+      ]
+    },
+    "InkInputRightDragAction": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "LeaveUnprocessed",
+          "value": "0"
+        },
+        {
+          "name": "AllowProcessing",
+          "value": "1"
+        }
+      ]
+    },
+    "InkManipulationMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Inking",
+          "value": "0"
+        },
+        {
+          "name": "Erasing",
+          "value": "1"
+        },
+        {
+          "name": "Selecting",
+          "value": "2"
+        }
+      ]
+    },
+    "InkPersistenceFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "GifWithEmbeddedIsf",
+          "value": "0"
+        },
+        {
+          "name": "Isf",
+          "value": "1"
+        }
+      ]
+    },
+    "InkPresenterPredefinedConfiguration": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "SimpleSinglePointer",
+          "value": "0"
+        },
+        {
+          "name": "SimpleMultiplePointer",
+          "value": "1"
+        }
+      ]
+    },
+    "InkPresenterStencilKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Other",
+          "value": "0"
+        },
+        {
+          "name": "Ruler",
+          "value": "1"
+        },
+        {
+          "name": "Protractor",
+          "value": "2"
+        }
+      ]
+    },
+    "InkRecognitionTarget": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "All",
+          "value": "0"
+        },
+        {
+          "name": "Selected",
+          "value": "1"
+        },
+        {
+          "name": "Recent",
+          "value": "2"
+        }
+      ]
+    },
+    "PenHandedness": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Right",
+          "value": "0"
+        },
+        {
+          "name": "Left",
+          "value": "1"
+        }
+      ]
+    },
+    "PenTipShape": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Circle",
+          "value": "0"
+        },
+        {
+          "name": "Rectangle",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IInkDrawingAttributes": {
+      "guid": "97a2176c-6774-48ad-84f0-48f5a9be74f9",
+      "exclusive_to": "Windows.UI.Input.Inking.InkDrawingAttributes",
+      "methods": [
+        {
+          "name": "get_Color",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Color",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PenTip",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PenTipShape",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_PenTip",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PenTipShape",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Size",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Size",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Size",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IgnorePressure",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IgnorePressure",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FitToCurve",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_FitToCurve",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Color",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Color",
+          "setter": "put_Color"
+        },
+        {
+          "name": "FitToCurve",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_FitToCurve",
+          "setter": "put_FitToCurve"
+        },
+        {
+          "name": "IgnorePressure",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IgnorePressure",
+          "setter": "put_IgnorePressure"
+        },
+        {
+          "name": "PenTip",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PenTipShape",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PenTip",
+          "setter": "put_PenTip"
+        },
+        {
+          "name": "Size",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Size",
+          "setter": "put_Size"
+        }
+      ]
+    },
+    "IInkDrawingAttributes2": {
+      "guid": "7cab6508-8ec4-42fd-a5a5-e4b7d1d5316d",
+      "exclusive_to": "Windows.UI.Input.Inking.InkDrawingAttributes",
+      "methods": [
+        {
+          "name": "get_PenTipTransform",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Matrix3x2",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_PenTipTransform",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Matrix3x2",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DrawAsHighlighter",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_DrawAsHighlighter",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DrawAsHighlighter",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_DrawAsHighlighter",
+          "setter": "put_DrawAsHighlighter"
+        },
+        {
+          "name": "PenTipTransform",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Matrix3x2",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_PenTipTransform",
+          "setter": "put_PenTipTransform"
+        }
+      ]
+    },
+    "IInkDrawingAttributes3": {
+      "guid": "72020002-7d5b-4690-8af4-e664cbe2b74f",
+      "exclusive_to": "Windows.UI.Input.Inking.InkDrawingAttributes",
+      "methods": [
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkDrawingAttributesKind",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_PencilProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkDrawingAttributesPencilProperties",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InkDrawingAttributesKind",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        },
+        {
+          "name": "PencilProperties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InkDrawingAttributesPencilProperties",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          },
+          "getter": "get_PencilProperties"
+        }
+      ]
+    },
+    "IInkDrawingAttributes4": {
+      "guid": "ef65dc25-9f19-456d-91a3-bc3a3d91c5fb",
+      "exclusive_to": "Windows.UI.Input.Inking.InkDrawingAttributes",
+      "methods": [
+        {
+          "name": "get_IgnoreTilt",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IgnoreTilt",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IgnoreTilt",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IgnoreTilt",
+          "setter": "put_IgnoreTilt"
+        }
+      ]
+    },
+    "IInkDrawingAttributes5": {
+      "guid": "d11aa0bb-0775-4852-ae64-41143a7ae6c9",
+      "exclusive_to": "Windows.UI.Input.Inking.InkDrawingAttributes",
+      "methods": [
+        {
+          "name": "get_ModelerAttributes",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkModelerAttributes",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ModelerAttributes",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InkModelerAttributes",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          },
+          "getter": "get_ModelerAttributes"
+        }
+      ]
+    },
+    "IInkDrawingAttributesPencilProperties": {
+      "guid": "4f2534cb-2d86-41bb-b0e8-e4c2a0253c52",
+      "exclusive_to": "Windows.UI.Input.Inking.InkDrawingAttributesPencilProperties",
+      "methods": [
+        {
+          "name": "get_Opacity",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_Opacity",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Opacity",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Opacity",
+          "setter": "put_Opacity"
+        }
+      ]
+    },
+    "IInkDrawingAttributesStatics": {
+      "guid": "f731e03f-1a65-4862-96cb-6e1665e17f6d",
+      "exclusive_to": "Windows.UI.Input.Inking.InkDrawingAttributes",
+      "methods": [
+        {
+          "name": "CreateForPencil",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkDrawingAttributes",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IInkInputConfiguration": {
+      "guid": "93a68dc4-0b7b-49d7-b34f-9901e524dcf2",
+      "exclusive_to": "Windows.UI.Input.Inking.InkInputConfiguration",
+      "methods": [
+        {
+          "name": "get_IsPrimaryBarrelButtonInputEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsPrimaryBarrelButtonInputEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsEraserInputEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsEraserInputEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsEraserInputEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsEraserInputEnabled",
+          "setter": "put_IsEraserInputEnabled"
+        },
+        {
+          "name": "IsPrimaryBarrelButtonInputEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPrimaryBarrelButtonInputEnabled",
+          "setter": "put_IsPrimaryBarrelButtonInputEnabled"
+        }
+      ]
+    },
+    "IInkInputConfiguration2": {
+      "guid": "6ac2272e-81b4-5cc4-a36d-d057c387dfda",
+      "exclusive_to": "Windows.UI.Input.Inking.InkInputConfiguration",
+      "methods": [
+        {
+          "name": "get_IsPenHapticFeedbackEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsPenHapticFeedbackEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsPenHapticFeedbackEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPenHapticFeedbackEnabled",
+          "setter": "put_IsPenHapticFeedbackEnabled"
+        }
+      ]
+    },
+    "IInkInputProcessingConfiguration": {
+      "guid": "2778d85e-33ca-4b06-a6d3-ac3945116d37",
+      "exclusive_to": "Windows.UI.Input.Inking.InkInputProcessingConfiguration",
+      "methods": [
+        {
+          "name": "get_Mode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkInputProcessingMode",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Mode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkInputProcessingMode",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RightDragAction",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkInputRightDragAction",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_RightDragAction",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkInputRightDragAction",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Mode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InkInputProcessingMode",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Mode",
+          "setter": "put_Mode"
+        },
+        {
+          "name": "RightDragAction",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InkInputRightDragAction",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RightDragAction",
+          "setter": "put_RightDragAction"
+        }
+      ]
+    },
+    "IInkManager": {
+      "guid": "4744737d-671b-4163-9c95-4e8d7a035fe1",
+      "exclusive_to": "Windows.UI.Input.Inking.InkManager",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkStrokeContainer",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkRecognizerContainer",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Mode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkManipulationMode",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Mode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkManipulationMode",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ProcessPointerDown",
+          "params": [
+            {
+              "name": "pointerPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PointerPoint",
+                "namespace": "Windows.UI.Input",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ProcessPointerUpdate",
+          "params": [
+            {
+              "name": "pointerPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PointerPoint",
+                "namespace": "Windows.UI.Input",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "ProcessPointerUp",
+          "params": [
+            {
+              "name": "pointerPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PointerPoint",
+                "namespace": "Windows.UI.Input",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "SetDefaultDrawingAttributes",
+          "params": [
+            {
+              "name": "drawingAttributes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkDrawingAttributes",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RecognizeAsync",
+          "overload": "RecognizeAsync2",
+          "params": [
+            {
+              "name": "recognitionTarget",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkRecognitionTarget",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InkRecognitionResult",
+                    "namespace": "Windows.UI.Input.Inking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Mode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InkManipulationMode",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Mode",
+          "setter": "put_Mode"
+        }
+      ]
+    },
+    "IInkModelerAttributes": {
+      "guid": "bad31f27-0cd9-4bfd-b6f3-9e03ba8d7454",
+      "exclusive_to": "Windows.UI.Input.Inking.InkModelerAttributes",
+      "methods": [
+        {
+          "name": "get_PredictionTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_PredictionTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ScalingFactor",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_ScalingFactor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "PredictionTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_PredictionTime",
+          "setter": "put_PredictionTime"
+        },
+        {
+          "name": "ScalingFactor",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_ScalingFactor",
+          "setter": "put_ScalingFactor"
+        }
+      ]
+    },
+    "IInkModelerAttributes2": {
+      "guid": "86d1d09a-4ef8-5e25-b7bc-b65424f16bb3",
+      "exclusive_to": "Windows.UI.Input.Inking.InkModelerAttributes",
+      "methods": [
+        {
+          "name": "get_UseVelocityBasedPressure",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_UseVelocityBasedPressure",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "UseVelocityBasedPressure",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_UseVelocityBasedPressure",
+          "setter": "put_UseVelocityBasedPressure"
+        }
+      ]
+    },
+    "IInkPoint": {
+      "guid": "9f87272b-858c-46a5-9b41-d195970459fd",
+      "exclusive_to": "Windows.UI.Input.Inking.InkPoint",
+      "methods": [
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Pressure",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Position",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Position"
+        },
+        {
+          "name": "Pressure",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_Pressure"
+        }
+      ]
+    },
+    "IInkPoint2": {
+      "guid": "fba9c3f7-ae56-4d5c-bd2f-0ac45f5e4af9",
+      "exclusive_to": "Windows.UI.Input.Inking.InkPoint",
+      "methods": [
+        {
+          "name": "get_TiltX",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_TiltY",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_Timestamp",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "TiltX",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_TiltX"
+        },
+        {
+          "name": "TiltY",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_TiltY"
+        },
+        {
+          "name": "Timestamp",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_Timestamp"
+        }
+      ]
+    },
+    "IInkPointFactory": {
+      "guid": "29e5d51c-c98f-405d-9f3b-e53e31068d4d",
+      "methods": [
+        {
+          "name": "CreateInkPoint",
+          "params": [
+            {
+              "name": "position",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "pressure",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkPoint",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IInkPointFactory2": {
+      "guid": "e0145e85-daff-45f2-ad69-050d8256a209",
+      "exclusive_to": "Windows.UI.Input.Inking.InkPoint",
+      "methods": [
+        {
+          "name": "CreateInkPointWithTiltAndTimestamp",
+          "params": [
+            {
+              "name": "position",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "pressure",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "tiltX",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "tiltY",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            },
+            {
+              "name": "timestamp",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkPoint",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IInkPresenter": {
+      "guid": "a69b70e2-887b-458f-b173-4fe4438930a3",
+      "exclusive_to": "Windows.UI.Input.Inking.InkPresenter",
+      "methods": [
+        {
+          "name": "get_IsInputEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsInputEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_InputDeviceTypes",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreInputDeviceTypes",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_InputDeviceTypes",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreInputDeviceTypes",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_UnprocessedInput",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkUnprocessedInput",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_StrokeInput",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkStrokeInput",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_InputProcessingConfiguration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkInputProcessingConfiguration",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_StrokeContainer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkStrokeContainer",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_StrokeContainer",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkStrokeContainer",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CopyDefaultDrawingAttributes",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkDrawingAttributes",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "UpdateDefaultDrawingAttributes",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkDrawingAttributes",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ActivateCustomDrying",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkSynchronizer",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetPredefinedConfiguration",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkPresenterPredefinedConfiguration",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_StrokesCollected",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InkPresenter",
+                    "namespace": "Windows.UI.Input.Inking",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "InkStrokesCollectedEventArgs",
+                    "namespace": "Windows.UI.Input.Inking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_StrokesCollected",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_StrokesErased",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InkPresenter",
+                    "namespace": "Windows.UI.Input.Inking",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "InkStrokesErasedEventArgs",
+                    "namespace": "Windows.UI.Input.Inking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_StrokesErased",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "InputDeviceTypes",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreInputDeviceTypes",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InputDeviceTypes",
+          "setter": "put_InputDeviceTypes"
+        },
+        {
+          "name": "InputProcessingConfiguration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InkInputProcessingConfiguration",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          },
+          "getter": "get_InputProcessingConfiguration"
+        },
+        {
+          "name": "IsInputEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsInputEnabled",
+          "setter": "put_IsInputEnabled"
+        },
+        {
+          "name": "StrokeContainer",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InkStrokeContainer",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          },
+          "getter": "get_StrokeContainer",
+          "setter": "put_StrokeContainer"
+        },
+        {
+          "name": "StrokeInput",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InkStrokeInput",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          },
+          "getter": "get_StrokeInput"
+        },
+        {
+          "name": "UnprocessedInput",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InkUnprocessedInput",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          },
+          "getter": "get_UnprocessedInput"
+        }
+      ],
+      "events": [
+        {
+          "name": "StrokesCollected",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkPresenter",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "InkStrokesCollectedEventArgs",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_StrokesCollected",
+          "remove_method": "remove_StrokesCollected"
+        },
+        {
+          "name": "StrokesErased",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkPresenter",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "InkStrokesErasedEventArgs",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_StrokesErased",
+          "remove_method": "remove_StrokesErased"
+        }
+      ]
+    },
+    "IInkPresenter2": {
+      "guid": "cf53e612-9a34-11e6-9f33-a24fc0d9649c",
+      "exclusive_to": "Windows.UI.Input.Inking.InkPresenter",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkPresenter",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_HighContrastAdjustment",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkHighContrastAdjustment",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_HighContrastAdjustment",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkHighContrastAdjustment",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "HighContrastAdjustment",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InkHighContrastAdjustment",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Enum"
+          },
+          "getter": "get_HighContrastAdjustment",
+          "setter": "put_HighContrastAdjustment"
+        }
+      ]
+    },
+    "IInkPresenter3": {
+      "guid": "51e1ce89-d37d-4a90-83fc-7f5e9dfbf217",
+      "exclusive_to": "Windows.UI.Input.Inking.InkPresenter",
+      "methods": [
+        {
+          "name": "get_InputConfiguration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkInputConfiguration",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InputConfiguration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InkInputConfiguration",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          },
+          "getter": "get_InputConfiguration"
+        }
+      ]
+    },
+    "IInkPresenterProtractor": {
+      "guid": "7de3f2aa-ef6c-4e91-a73b-5b70d56fbd17",
+      "exclusive_to": "Windows.UI.Input.Inking.InkPresenterProtractor",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkPresenterStencil",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_AreTickMarksVisible",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AreTickMarksVisible",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AreRaysVisible",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AreRaysVisible",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsCenterMarkerVisible",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsCenterMarkerVisible",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsAngleReadoutVisible",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsAngleReadoutVisible",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsResizable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsResizable",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Radius",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_Radius",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AccentColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_AccentColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AccentColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_AccentColor",
+          "setter": "put_AccentColor"
+        },
+        {
+          "name": "AreRaysVisible",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AreRaysVisible",
+          "setter": "put_AreRaysVisible"
+        },
+        {
+          "name": "AreTickMarksVisible",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AreTickMarksVisible",
+          "setter": "put_AreTickMarksVisible"
+        },
+        {
+          "name": "IsAngleReadoutVisible",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAngleReadoutVisible",
+          "setter": "put_IsAngleReadoutVisible"
+        },
+        {
+          "name": "IsCenterMarkerVisible",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsCenterMarkerVisible",
+          "setter": "put_IsCenterMarkerVisible"
+        },
+        {
+          "name": "IsResizable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsResizable",
+          "setter": "put_IsResizable"
+        },
+        {
+          "name": "Radius",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Radius",
+          "setter": "put_Radius"
+        }
+      ]
+    },
+    "IInkPresenterProtractorFactory": {
+      "guid": "320103c9-68fa-47e9-8127-8370711fc46c",
+      "exclusive_to": "Windows.UI.Input.Inking.InkPresenterProtractor",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "inkPresenter",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkPresenter",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkPresenterProtractor",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IInkPresenterRuler": {
+      "guid": "6cda7d5a-dec7-4dd7-877a-2133f183d48a",
+      "exclusive_to": "Windows.UI.Input.Inking.InkPresenterRuler",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkPresenterStencil",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Length",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_Length",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Width",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_Width",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Length",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Length",
+          "setter": "put_Length"
+        },
+        {
+          "name": "Width",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Width",
+          "setter": "put_Width"
+        }
+      ]
+    },
+    "IInkPresenterRuler2": {
+      "guid": "45130dc1-bc61-44d4-a423-54712ae671c4",
+      "exclusive_to": "Windows.UI.Input.Inking.InkPresenterRuler",
+      "methods": [
+        {
+          "name": "get_AreTickMarksVisible",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AreTickMarksVisible",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsCompassVisible",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsCompassVisible",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AreTickMarksVisible",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AreTickMarksVisible",
+          "setter": "put_AreTickMarksVisible"
+        },
+        {
+          "name": "IsCompassVisible",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsCompassVisible",
+          "setter": "put_IsCompassVisible"
+        }
+      ]
+    },
+    "IInkPresenterRulerFactory": {
+      "guid": "34361beb-9001-4a4b-a690-69dbaf63e501",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "inkPresenter",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkPresenter",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkPresenterRuler",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IInkPresenterStencil": {
+      "guid": "30d12d6d-3e06-4d02-b116-277fb5d8addc",
+      "methods": [
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkPresenterStencilKind",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_IsVisible",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsVisible",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BackgroundColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_BackgroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ForegroundColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_ForegroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Transform",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Matrix3x2",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Transform",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Matrix3x2",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "BackgroundColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BackgroundColor",
+          "setter": "put_BackgroundColor"
+        },
+        {
+          "name": "ForegroundColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ForegroundColor",
+          "setter": "put_ForegroundColor"
+        },
+        {
+          "name": "IsVisible",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsVisible",
+          "setter": "put_IsVisible"
+        },
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InkPresenterStencilKind",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        },
+        {
+          "name": "Transform",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Matrix3x2",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Transform",
+          "setter": "put_Transform"
+        }
+      ]
+    },
+    "IInkRecognitionResult": {
+      "guid": "36461a94-5068-40ef-8a05-2c2fb60908a2",
+      "exclusive_to": "Windows.UI.Input.Inking.InkRecognitionResult",
+      "methods": [
+        {
+          "name": "get_BoundingRect",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "GetTextCandidates",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetStrokes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkStroke",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BoundingRect",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BoundingRect"
+        }
+      ]
+    },
+    "IInkRecognizer": {
+      "guid": "077ccea3-904d-442a-b151-aaca3631c43b",
+      "exclusive_to": "Windows.UI.Input.Inking.InkRecognizer",
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        }
+      ]
+    },
+    "IInkRecognizerContainer": {
+      "guid": "a74d9a31-8047-4698-a912-f82a5085012f",
+      "methods": [
+        {
+          "name": "SetDefaultRecognizer",
+          "params": [
+            {
+              "name": "recognizer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkRecognizer",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RecognizeAsync",
+          "params": [
+            {
+              "name": "strokeCollection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkStrokeContainer",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "recognitionTarget",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkRecognitionTarget",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InkRecognitionResult",
+                    "namespace": "Windows.UI.Input.Inking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetRecognizers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkRecognizer",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IInkStroke": {
+      "guid": "15144d60-cce3-4fcf-9d52-11518ab6afd4",
+      "exclusive_to": "Windows.UI.Input.Inking.InkStroke",
+      "methods": [
+        {
+          "name": "get_DrawingAttributes",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkDrawingAttributes",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_DrawingAttributes",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkDrawingAttributes",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BoundingRect",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Selected",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Selected",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Recognized",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetRenderingSegments",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkStrokeRenderingSegment",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Clone",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkStroke",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BoundingRect",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BoundingRect"
+        },
+        {
+          "name": "DrawingAttributes",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InkDrawingAttributes",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          },
+          "getter": "get_DrawingAttributes",
+          "setter": "put_DrawingAttributes"
+        },
+        {
+          "name": "Recognized",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Recognized"
+        },
+        {
+          "name": "Selected",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Selected",
+          "setter": "put_Selected"
+        }
+      ]
+    },
+    "IInkStroke2": {
+      "guid": "5db9e4f4-bafa-4de1-89d3-201b1ed7d89b",
+      "exclusive_to": "Windows.UI.Input.Inking.InkStroke",
+      "methods": [
+        {
+          "name": "get_PointTransform",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Matrix3x2",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_PointTransform",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Matrix3x2",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetInkPoints",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkPoint",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PointTransform",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Matrix3x2",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_PointTransform",
+          "setter": "put_PointTransform"
+        }
+      ]
+    },
+    "IInkStroke3": {
+      "guid": "4a807374-9499-411d-a1c4-68855d03d65f",
+      "exclusive_to": "Windows.UI.Input.Inking.InkStroke",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_StrokeStartedTime",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_StrokeStartedTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_StrokeDuration",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_StrokeDuration",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "TimeSpan",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "StrokeDuration",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_StrokeDuration",
+          "setter": "put_StrokeDuration"
+        },
+        {
+          "name": "StrokeStartedTime",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_StrokeStartedTime",
+          "setter": "put_StrokeStartedTime"
+        }
+      ]
+    },
+    "IInkStroke4": {
+      "guid": "cd5b62e5-b6e9-5b91-a577-1921d2348690",
+      "exclusive_to": "Windows.UI.Input.Inking.InkStroke",
+      "methods": [
+        {
+          "name": "get_PointerId",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PointerId",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_PointerId"
+        }
+      ]
+    },
+    "IInkStrokeBuilder": {
+      "guid": "82bbd1dc-1c63-41dc-9e07-4b4a70ced801",
+      "exclusive_to": "Windows.UI.Input.Inking.InkStrokeBuilder",
+      "methods": [
+        {
+          "name": "BeginStroke",
+          "params": [
+            {
+              "name": "pointerPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PointerPoint",
+                "namespace": "Windows.UI.Input",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AppendToStroke",
+          "params": [
+            {
+              "name": "pointerPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PointerPoint",
+                "namespace": "Windows.UI.Input",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PointerPoint",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "EndStroke",
+          "params": [
+            {
+              "name": "pointerPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PointerPoint",
+                "namespace": "Windows.UI.Input",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkStroke",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateStroke",
+          "params": [
+            {
+              "name": "points",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Point",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkStroke",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetDefaultDrawingAttributes",
+          "params": [
+            {
+              "name": "drawingAttributes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkDrawingAttributes",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IInkStrokeBuilder2": {
+      "guid": "bd82bc27-731f-4cbc-bbbf-6d468044f1e5",
+      "exclusive_to": "Windows.UI.Input.Inking.InkStrokeBuilder",
+      "methods": [
+        {
+          "name": "CreateStrokeFromInkPoints",
+          "params": [
+            {
+              "name": "inkPoints",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InkPoint",
+                    "namespace": "Windows.UI.Input.Inking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "transform",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Matrix3x2",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkStroke",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IInkStrokeBuilder3": {
+      "guid": "b2c71fcd-5472-46b1-a81d-c37a3d169441",
+      "exclusive_to": "Windows.UI.Input.Inking.InkStrokeBuilder",
+      "methods": [
+        {
+          "name": "CreateStrokeFromInkPoints",
+          "params": [
+            {
+              "name": "inkPoints",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InkPoint",
+                    "namespace": "Windows.UI.Input.Inking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "transform",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Matrix3x2",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "strokeStartedTime",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "strokeDuration",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "TimeSpan",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkStroke",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IInkStrokeContainer": {
+      "guid": "22accbc6-faa9-4f14-b68c-f6cee670ae16",
+      "methods": [
+        {
+          "name": "get_BoundingRect",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "AddStroke",
+          "params": [
+            {
+              "name": "stroke",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkStroke",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "DeleteSelected",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "MoveSelected",
+          "params": [
+            {
+              "name": "translation",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "SelectWithPolyLine",
+          "params": [
+            {
+              "name": "polyline",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Point",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "SelectWithLine",
+          "params": [
+            {
+              "name": "from",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "to",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "CopySelectedToClipboard"
+        },
+        {
+          "name": "PasteFromClipboard",
+          "params": [
+            {
+              "name": "position",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "CanPasteFromClipboard",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "LoadAsync",
+          "params": [
+            {
+              "name": "inputStream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncActionWithProgress`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SaveAsync",
+          "overload": "SaveAsync",
+          "params": [
+            {
+              "name": "outputStream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IOutputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              },
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "UpdateRecognitionResults",
+          "params": [
+            {
+              "name": "recognitionResults",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InkRecognitionResult",
+                    "namespace": "Windows.UI.Input.Inking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetStrokes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkStroke",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetRecognitionResults",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkRecognitionResult",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BoundingRect",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BoundingRect"
+        }
+      ]
+    },
+    "IInkStrokeContainer2": {
+      "guid": "8901d364-da36-4bcf-9e5c-d195825995b4",
+      "exclusive_to": "Windows.UI.Input.Inking.InkStrokeContainer",
+      "methods": [
+        {
+          "name": "AddStrokes",
+          "params": [
+            {
+              "name": "strokes",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InkStroke",
+                    "namespace": "Windows.UI.Input.Inking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Clear"
+        }
+      ]
+    },
+    "IInkStrokeContainer3": {
+      "guid": "3d07bea5-baea-4c82-a719-7b83da1067d2",
+      "exclusive_to": "Windows.UI.Input.Inking.InkStrokeContainer",
+      "methods": [
+        {
+          "name": "SaveAsync",
+          "overload": "SaveWithFormatAsync",
+          "params": [
+            {
+              "name": "outputStream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IOutputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "inkPersistenceFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkPersistenceFormat",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              },
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetStrokeById",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkStroke",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IInkStrokeInput": {
+      "guid": "cf2ffe7b-5e10-43c6-a080-88f26e1dc67d",
+      "exclusive_to": "Windows.UI.Input.Inking.InkStrokeInput",
+      "methods": [
+        {
+          "name": "add_StrokeStarted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InkStrokeInput",
+                    "namespace": "Windows.UI.Input.Inking",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_StrokeStarted",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_StrokeContinued",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InkStrokeInput",
+                    "namespace": "Windows.UI.Input.Inking",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_StrokeContinued",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_StrokeEnded",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InkStrokeInput",
+                    "namespace": "Windows.UI.Input.Inking",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_StrokeEnded",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_StrokeCanceled",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InkStrokeInput",
+                    "namespace": "Windows.UI.Input.Inking",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_StrokeCanceled",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_InkPresenter",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkPresenter",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InkPresenter",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InkPresenter",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          },
+          "getter": "get_InkPresenter"
+        }
+      ],
+      "events": [
+        {
+          "name": "StrokeCanceled",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkStrokeInput",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_StrokeCanceled",
+          "remove_method": "remove_StrokeCanceled"
+        },
+        {
+          "name": "StrokeContinued",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkStrokeInput",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_StrokeContinued",
+          "remove_method": "remove_StrokeContinued"
+        },
+        {
+          "name": "StrokeEnded",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkStrokeInput",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_StrokeEnded",
+          "remove_method": "remove_StrokeEnded"
+        },
+        {
+          "name": "StrokeStarted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkStrokeInput",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_StrokeStarted",
+          "remove_method": "remove_StrokeStarted"
+        }
+      ]
+    },
+    "IInkStrokeRenderingSegment": {
+      "guid": "68510f1f-88e3-477a-a2fa-569f5f1f9bd5",
+      "exclusive_to": "Windows.UI.Input.Inking.InkStrokeRenderingSegment",
+      "methods": [
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_BezierControlPoint1",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_BezierControlPoint2",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Pressure",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_TiltX",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_TiltY",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_Twist",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BezierControlPoint1",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BezierControlPoint1"
+        },
+        {
+          "name": "BezierControlPoint2",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BezierControlPoint2"
+        },
+        {
+          "name": "Position",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Position"
+        },
+        {
+          "name": "Pressure",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_Pressure"
+        },
+        {
+          "name": "TiltX",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_TiltX"
+        },
+        {
+          "name": "TiltY",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_TiltY"
+        },
+        {
+          "name": "Twist",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_Twist"
+        }
+      ]
+    },
+    "IInkStrokesCollectedEventArgs": {
+      "guid": "c4f3f229-1938-495c-b4d9-6de4b08d4811",
+      "exclusive_to": "Windows.UI.Input.Inking.InkStrokesCollectedEventArgs",
+      "methods": [
+        {
+          "name": "get_Strokes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkStroke",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Strokes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkStroke",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Strokes"
+        }
+      ]
+    },
+    "IInkStrokesErasedEventArgs": {
+      "guid": "a4216a22-1503-4ebf-8ff5-2de84584a8aa",
+      "exclusive_to": "Windows.UI.Input.Inking.InkStrokesErasedEventArgs",
+      "methods": [
+        {
+          "name": "get_Strokes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkStroke",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Strokes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkStroke",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Strokes"
+        }
+      ]
+    },
+    "IInkSynchronizer": {
+      "guid": "9b9ea160-ae9b-45f9-8407-4b493b163661",
+      "exclusive_to": "Windows.UI.Input.Inking.InkSynchronizer",
+      "methods": [
+        {
+          "name": "BeginDry",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkStroke",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "EndDry"
+        }
+      ]
+    },
+    "IInkUnprocessedInput": {
+      "guid": "db4445e0-8398-4921-ac3b-ab978c5ba256",
+      "exclusive_to": "Windows.UI.Input.Inking.InkUnprocessedInput",
+      "methods": [
+        {
+          "name": "add_PointerEntered",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InkUnprocessedInput",
+                    "namespace": "Windows.UI.Input.Inking",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerEntered",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerHovered",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InkUnprocessedInput",
+                    "namespace": "Windows.UI.Input.Inking",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerHovered",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerExited",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InkUnprocessedInput",
+                    "namespace": "Windows.UI.Input.Inking",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerExited",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerPressed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InkUnprocessedInput",
+                    "namespace": "Windows.UI.Input.Inking",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerPressed",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerMoved",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InkUnprocessedInput",
+                    "namespace": "Windows.UI.Input.Inking",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerMoved",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerReleased",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InkUnprocessedInput",
+                    "namespace": "Windows.UI.Input.Inking",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerReleased",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerLost",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InkUnprocessedInput",
+                    "namespace": "Windows.UI.Input.Inking",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerLost",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_InkPresenter",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkPresenter",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InkPresenter",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InkPresenter",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          },
+          "getter": "get_InkPresenter"
+        }
+      ],
+      "events": [
+        {
+          "name": "PointerEntered",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkUnprocessedInput",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerEntered",
+          "remove_method": "remove_PointerEntered"
+        },
+        {
+          "name": "PointerExited",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkUnprocessedInput",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerExited",
+          "remove_method": "remove_PointerExited"
+        },
+        {
+          "name": "PointerHovered",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkUnprocessedInput",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerHovered",
+          "remove_method": "remove_PointerHovered"
+        },
+        {
+          "name": "PointerLost",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkUnprocessedInput",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerLost",
+          "remove_method": "remove_PointerLost"
+        },
+        {
+          "name": "PointerMoved",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkUnprocessedInput",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerMoved",
+          "remove_method": "remove_PointerMoved"
+        },
+        {
+          "name": "PointerPressed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkUnprocessedInput",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerPressed",
+          "remove_method": "remove_PointerPressed"
+        },
+        {
+          "name": "PointerReleased",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkUnprocessedInput",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerReleased",
+          "remove_method": "remove_PointerReleased"
+        }
+      ]
+    },
+    "IPenAndInkSettings": {
+      "guid": "bc2ceb8f-0066-44a8-bb7a-b839b3deb8f5",
+      "exclusive_to": "Windows.UI.Input.Inking.PenAndInkSettings",
+      "methods": [
+        {
+          "name": "get_IsHandwritingDirectlyIntoTextFieldEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_PenHandedness",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PenHandedness",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_HandwritingLineHeight",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HandwritingLineHeight",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_FontFamilyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_UserConsentsToHandwritingTelemetryCollection",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsTouchHandwritingEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FontFamilyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_FontFamilyName"
+        },
+        {
+          "name": "HandwritingLineHeight",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HandwritingLineHeight",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Enum"
+          },
+          "getter": "get_HandwritingLineHeight"
+        },
+        {
+          "name": "IsHandwritingDirectlyIntoTextFieldEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsHandwritingDirectlyIntoTextFieldEnabled"
+        },
+        {
+          "name": "IsTouchHandwritingEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsTouchHandwritingEnabled"
+        },
+        {
+          "name": "PenHandedness",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PenHandedness",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PenHandedness"
+        },
+        {
+          "name": "UserConsentsToHandwritingTelemetryCollection",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_UserConsentsToHandwritingTelemetryCollection"
+        }
+      ]
+    },
+    "IPenAndInkSettings2": {
+      "guid": "3262da53-1f44-55e2-9929-ebf77e5481b8",
+      "exclusive_to": "Windows.UI.Input.Inking.PenAndInkSettings",
+      "methods": [
+        {
+          "name": "SetPenHandedness",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PenHandedness",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IPenAndInkSettingsStatics": {
+      "guid": "ed6dd036-5708-5c3c-96db-f2f552eab641",
+      "exclusive_to": "Windows.UI.Input.Inking.PenAndInkSettings",
+      "methods": [
+        {
+          "name": "GetDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PenAndInkSettings",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "InkDrawingAttributes": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkDrawingAttributes",
+        "namespace": "Windows.UI.Input.Inking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkDrawingAttributes",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkDrawingAttributes2",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkDrawingAttributes3",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkDrawingAttributes4",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkDrawingAttributes5",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.UI.Input.Inking.IInkDrawingAttributesStatics"
+      ]
+    },
+    "InkDrawingAttributesPencilProperties": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkDrawingAttributesPencilProperties",
+        "namespace": "Windows.UI.Input.Inking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkDrawingAttributesPencilProperties",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InkInputConfiguration": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkInputConfiguration",
+        "namespace": "Windows.UI.Input.Inking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkInputConfiguration",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkInputConfiguration2",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InkInputProcessingConfiguration": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkInputProcessingConfiguration",
+        "namespace": "Windows.UI.Input.Inking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkInputProcessingConfiguration",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InkManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkManager",
+        "namespace": "Windows.UI.Input.Inking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkManager",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkRecognizerContainer",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkStrokeContainer",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "InkModelerAttributes": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkModelerAttributes",
+        "namespace": "Windows.UI.Input.Inking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkModelerAttributes",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkModelerAttributes2",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InkPoint": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkPoint",
+        "namespace": "Windows.UI.Input.Inking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkPoint",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkPoint2",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.UI.Input.Inking.IInkPointFactory2",
+        "Windows.UI.Input.Inking.IInkPointFactory"
+      ]
+    },
+    "InkPresenter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkPresenter",
+        "namespace": "Windows.UI.Input.Inking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkPresenter",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkPresenter2",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkPresenter3",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InkPresenterProtractor": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkPresenterProtractor",
+        "namespace": "Windows.UI.Input.Inking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkPresenterProtractor",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkPresenterStencil",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.UI.Input.Inking.IInkPresenterProtractorFactory"
+      ]
+    },
+    "InkPresenterRuler": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkPresenterRuler",
+        "namespace": "Windows.UI.Input.Inking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkPresenterRuler",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkPresenterStencil",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkPresenterRuler2",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.UI.Input.Inking.IInkPresenterRulerFactory"
+      ]
+    },
+    "InkRecognitionResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkRecognitionResult",
+        "namespace": "Windows.UI.Input.Inking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkRecognitionResult",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InkRecognizer": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkRecognizer",
+        "namespace": "Windows.UI.Input.Inking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkRecognizer",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InkRecognizerContainer": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkRecognizerContainer",
+        "namespace": "Windows.UI.Input.Inking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkRecognizerContainer",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "InkStroke": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkStroke",
+        "namespace": "Windows.UI.Input.Inking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkStroke",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkStroke2",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkStroke3",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkStroke4",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InkStrokeBuilder": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkStrokeBuilder",
+        "namespace": "Windows.UI.Input.Inking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkStrokeBuilder",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkStrokeBuilder2",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkStrokeBuilder3",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "InkStrokeContainer": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkStrokeContainer",
+        "namespace": "Windows.UI.Input.Inking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkStrokeContainer",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkStrokeContainer2",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkStrokeContainer3",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "InkStrokeInput": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkStrokeInput",
+        "namespace": "Windows.UI.Input.Inking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkStrokeInput",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InkStrokeRenderingSegment": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkStrokeRenderingSegment",
+        "namespace": "Windows.UI.Input.Inking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkStrokeRenderingSegment",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InkStrokesCollectedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkStrokesCollectedEventArgs",
+        "namespace": "Windows.UI.Input.Inking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkStrokesCollectedEventArgs",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InkStrokesErasedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkStrokesErasedEventArgs",
+        "namespace": "Windows.UI.Input.Inking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkStrokesErasedEventArgs",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InkSynchronizer": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkSynchronizer",
+        "namespace": "Windows.UI.Input.Inking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkSynchronizer",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InkUnprocessedInput": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkUnprocessedInput",
+        "namespace": "Windows.UI.Input.Inking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkUnprocessedInput",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PenAndInkSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPenAndInkSettings",
+        "namespace": "Windows.UI.Input.Inking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPenAndInkSettings",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPenAndInkSettings2",
+          "namespace": "Windows.UI.Input.Inking",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Input.Inking.IPenAndInkSettingsStatics"
+      ]
+    }
+  }
+}

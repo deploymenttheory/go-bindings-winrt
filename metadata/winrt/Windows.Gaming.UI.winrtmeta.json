@@ -1,0 +1,324 @@
+{
+  "namespace": "Windows.Gaming.UI",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "GameChatMessageOrigin": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Voice",
+          "value": "0"
+        },
+        {
+          "name": "Text",
+          "value": "1"
+        }
+      ]
+    },
+    "GameChatOverlayPosition": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "BottomCenter",
+          "value": "0"
+        },
+        {
+          "name": "BottomLeft",
+          "value": "1"
+        },
+        {
+          "name": "BottomRight",
+          "value": "2"
+        },
+        {
+          "name": "MiddleRight",
+          "value": "3"
+        },
+        {
+          "name": "MiddleLeft",
+          "value": "4"
+        },
+        {
+          "name": "TopCenter",
+          "value": "5"
+        },
+        {
+          "name": "TopLeft",
+          "value": "6"
+        },
+        {
+          "name": "TopRight",
+          "value": "7"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IGameBarStatics": {
+      "guid": "1db9a292-cc78-4173-be45-b61e67283ea7",
+      "exclusive_to": "Windows.Gaming.UI.GameBar",
+      "methods": [
+        {
+          "name": "add_VisibilityChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_VisibilityChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_IsInputRedirectedChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_IsInputRedirectedChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Visible",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsInputRedirected",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsInputRedirected",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsInputRedirected"
+        },
+        {
+          "name": "Visible",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Visible"
+        }
+      ],
+      "events": [
+        {
+          "name": "IsInputRedirectedChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_IsInputRedirectedChanged",
+          "remove_method": "remove_IsInputRedirectedChanged"
+        },
+        {
+          "name": "VisibilityChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_VisibilityChanged",
+          "remove_method": "remove_VisibilityChanged"
+        }
+      ]
+    },
+    "IGameChatOverlay": {
+      "guid": "fbc64865-f6fc-4a48-ae07-03ac6ed43704",
+      "exclusive_to": "Windows.Gaming.UI.GameChatOverlay",
+      "methods": [
+        {
+          "name": "get_DesiredPosition",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GameChatOverlayPosition",
+            "namespace": "Windows.Gaming.UI",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_DesiredPosition",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "GameChatOverlayPosition",
+                "namespace": "Windows.Gaming.UI",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddMessage",
+          "params": [
+            {
+              "name": "sender",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "message",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "origin",
+              "type": {
+                "kind": "ApiRef",
+                "name": "GameChatMessageOrigin",
+                "namespace": "Windows.Gaming.UI",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DesiredPosition",
+          "type": {
+            "kind": "ApiRef",
+            "name": "GameChatOverlayPosition",
+            "namespace": "Windows.Gaming.UI",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DesiredPosition",
+          "setter": "put_DesiredPosition"
+        }
+      ]
+    },
+    "IGameChatOverlayStatics": {
+      "guid": "89acf614-7867-49f7-9687-25d9dbf444d1",
+      "exclusive_to": "Windows.Gaming.UI.GameChatOverlay",
+      "methods": [
+        {
+          "name": "GetDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GameChatOverlay",
+            "namespace": "Windows.Gaming.UI",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "GameBar": {
+      "static_interfaces": [
+        "Windows.Gaming.UI.IGameBarStatics"
+      ]
+    },
+    "GameChatOverlay": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGameChatOverlay",
+        "namespace": "Windows.Gaming.UI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGameChatOverlay",
+          "namespace": "Windows.Gaming.UI",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Gaming.UI.IGameChatOverlayStatics"
+      ]
+    }
+  }
+}

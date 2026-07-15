@@ -1,0 +1,845 @@
+{
+  "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "DnssdRegistrationStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "InvalidServiceName",
+          "value": "1"
+        },
+        {
+          "name": "ServerError",
+          "value": "2"
+        },
+        {
+          "name": "SecurityError",
+          "value": "3"
+        }
+      ]
+    },
+    "DnssdServiceWatcherStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Created",
+          "value": "0"
+        },
+        {
+          "name": "Started",
+          "value": "1"
+        },
+        {
+          "name": "EnumerationCompleted",
+          "value": "2"
+        },
+        {
+          "name": "Stopping",
+          "value": "3"
+        },
+        {
+          "name": "Stopped",
+          "value": "4"
+        },
+        {
+          "name": "Aborted",
+          "value": "5"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IDnssdRegistrationResult": {
+      "guid": "3d786ad2-e606-5350-73ea-7e97f066162f",
+      "exclusive_to": "Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DnssdRegistrationStatus",
+            "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_IPAddress",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_HasInstanceNameChanged",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HasInstanceNameChanged",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasInstanceNameChanged"
+        },
+        {
+          "name": "IPAddress",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          },
+          "getter": "get_IPAddress"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DnssdRegistrationStatus",
+            "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IDnssdServiceInstance": {
+      "guid": "e246db7e-98a5-4ca1-b9e4-c253d33c35ff",
+      "exclusive_to": "Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstance",
+      "methods": [
+        {
+          "name": "get_DnssdServiceInstanceName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DnssdServiceInstanceName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_HostName",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_HostName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Port",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "put_Port",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Priority",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "put_Priority",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Weight",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "put_Weight",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TextAttributes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RegisterStreamSocketListenerAsync",
+          "overload": "RegisterStreamSocketListenerAsync1",
+          "params": [
+            {
+              "name": "socket",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StreamSocketListener",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DnssdRegistrationResult",
+                "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RegisterStreamSocketListenerAsync",
+          "overload": "RegisterStreamSocketListenerAsync2",
+          "params": [
+            {
+              "name": "socket",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StreamSocketListener",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "adapter",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NetworkAdapter",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DnssdRegistrationResult",
+                "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RegisterDatagramSocketAsync",
+          "overload": "RegisterDatagramSocketAsync1",
+          "params": [
+            {
+              "name": "socket",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DatagramSocket",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DnssdRegistrationResult",
+                "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RegisterDatagramSocketAsync",
+          "overload": "RegisterDatagramSocketAsync2",
+          "params": [
+            {
+              "name": "socket",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DatagramSocket",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "adapter",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NetworkAdapter",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DnssdRegistrationResult",
+                "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DnssdServiceInstanceName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DnssdServiceInstanceName",
+          "setter": "put_DnssdServiceInstanceName"
+        },
+        {
+          "name": "HostName",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          },
+          "getter": "get_HostName",
+          "setter": "put_HostName"
+        },
+        {
+          "name": "Port",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Port",
+          "setter": "put_Port"
+        },
+        {
+          "name": "Priority",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Priority",
+          "setter": "put_Priority"
+        },
+        {
+          "name": "TextAttributes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_TextAttributes"
+        },
+        {
+          "name": "Weight",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Weight",
+          "setter": "put_Weight"
+        }
+      ]
+    },
+    "IDnssdServiceInstanceFactory": {
+      "guid": "6cb061a1-c478-4331-9684-4af2186c0a2b",
+      "exclusive_to": "Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstance",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "dnssdServiceInstanceName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "hostName",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "port",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DnssdServiceInstance",
+            "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDnssdServiceWatcher": {
+      "guid": "cc34d9c1-db7d-4b69-983d-c6f83f205682",
+      "exclusive_to": "Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcher",
+      "methods": [
+        {
+          "name": "add_Added",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DnssdServiceWatcher",
+                    "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "DnssdServiceInstance",
+                    "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Added",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_EnumerationCompleted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DnssdServiceWatcher",
+                    "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_EnumerationCompleted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Stopped",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DnssdServiceWatcher",
+                    "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Stopped",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DnssdServiceWatcherStatus",
+            "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Start"
+        },
+        {
+          "name": "Stop"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DnssdServiceWatcherStatus",
+            "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ],
+      "events": [
+        {
+          "name": "Added",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DnssdServiceWatcher",
+                "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DnssdServiceInstance",
+                "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Added",
+          "remove_method": "remove_Added"
+        },
+        {
+          "name": "EnumerationCompleted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DnssdServiceWatcher",
+                "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_EnumerationCompleted",
+          "remove_method": "remove_EnumerationCompleted"
+        },
+        {
+          "name": "Stopped",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DnssdServiceWatcher",
+                "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_Stopped",
+          "remove_method": "remove_Stopped"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "DnssdRegistrationResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDnssdRegistrationResult",
+        "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDnssdRegistrationResult",
+          "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "DnssdServiceInstance": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDnssdServiceInstance",
+        "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDnssdServiceInstance",
+          "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Networking.ServiceDiscovery.Dnssd.IDnssdServiceInstanceFactory"
+      ]
+    },
+    "DnssdServiceInstanceCollection": {
+      "default_interface": {
+        "kind": "GenericInst",
+        "name": "IVectorView`1",
+        "namespace": "Windows.Foundation.Collections",
+        "target_kind": "Interface",
+        "args": [
+          {
+            "kind": "ApiRef",
+            "name": "DnssdServiceInstance",
+            "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+            "target_kind": "Class"
+          }
+        ]
+      },
+      "interfaces": [
+        {
+          "kind": "GenericInst",
+          "name": "IVectorView`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "DnssdServiceInstance",
+              "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+              "target_kind": "Class"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "DnssdServiceInstance",
+              "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+              "target_kind": "Class"
+            }
+          ]
+        }
+      ]
+    },
+    "DnssdServiceWatcher": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDnssdServiceWatcher",
+        "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDnssdServiceWatcher",
+          "namespace": "Windows.Networking.ServiceDiscovery.Dnssd",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

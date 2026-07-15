@@ -1,0 +1,1327 @@
+{
+  "namespace": "Windows.System.Diagnostics",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "DiagnosticActionState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Initializing",
+          "value": "0"
+        },
+        {
+          "name": "Downloading",
+          "value": "1"
+        },
+        {
+          "name": "VerifyingTrust",
+          "value": "2"
+        },
+        {
+          "name": "Detecting",
+          "value": "3"
+        },
+        {
+          "name": "Resolving",
+          "value": "4"
+        },
+        {
+          "name": "VerifyingResolution",
+          "value": "5"
+        },
+        {
+          "name": "Executing",
+          "value": "6"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IDiagnosticActionResult": {
+      "guid": "c265a296-e73b-4097-b28f-3442f03dd831",
+      "exclusive_to": "Windows.System.Diagnostics.DiagnosticActionResult",
+      "methods": [
+        {
+          "name": "get_ExtendedError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Results",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExtendedError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtendedError"
+        },
+        {
+          "name": "Results",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          },
+          "getter": "get_Results"
+        }
+      ]
+    },
+    "IDiagnosticInvoker": {
+      "guid": "187b270a-02e3-4f86-84fc-fdd892b5940f",
+      "exclusive_to": "Windows.System.Diagnostics.DiagnosticInvoker",
+      "methods": [
+        {
+          "name": "RunDiagnosticActionAsync",
+          "params": [
+            {
+              "name": "context",
+              "type": {
+                "kind": "ApiRef",
+                "name": "JsonObject",
+                "namespace": "Windows.Data.Json",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DiagnosticActionResult",
+                "namespace": "Windows.System.Diagnostics",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DiagnosticActionState",
+                "namespace": "Windows.System.Diagnostics",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IDiagnosticInvoker2": {
+      "guid": "e3bf945c-155a-4b52-a8ec-070c44f95000",
+      "exclusive_to": "Windows.System.Diagnostics.DiagnosticInvoker",
+      "methods": [
+        {
+          "name": "RunDiagnosticActionFromStringAsync",
+          "params": [
+            {
+              "name": "context",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DiagnosticActionResult",
+                "namespace": "Windows.System.Diagnostics",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DiagnosticActionState",
+                "namespace": "Windows.System.Diagnostics",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IDiagnosticInvokerStatics": {
+      "guid": "5cfad8de-f15c-4554-a813-c113c3881b09",
+      "exclusive_to": "Windows.System.Diagnostics.DiagnosticInvoker",
+      "methods": [
+        {
+          "name": "GetDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DiagnosticInvoker",
+            "namespace": "Windows.System.Diagnostics",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DiagnosticInvoker",
+            "namespace": "Windows.System.Diagnostics",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IsSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSupported"
+        }
+      ]
+    },
+    "IProcessCpuUsage": {
+      "guid": "0bbb2472-c8bf-423a-a810-b559ae4354e2",
+      "exclusive_to": "Windows.System.Diagnostics.ProcessCpuUsage",
+      "methods": [
+        {
+          "name": "GetReport",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ProcessCpuUsageReport",
+            "namespace": "Windows.System.Diagnostics",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IProcessCpuUsageReport": {
+      "guid": "8a6d9cac-3987-4e2f-a119-6b5fa214f1b4",
+      "exclusive_to": "Windows.System.Diagnostics.ProcessCpuUsageReport",
+      "methods": [
+        {
+          "name": "get_KernelTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_UserTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "KernelTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_KernelTime"
+        },
+        {
+          "name": "UserTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_UserTime"
+        }
+      ]
+    },
+    "IProcessDiagnosticInfo": {
+      "guid": "e830b04b-300e-4ee6-a0ab-5b5f5231b434",
+      "exclusive_to": "Windows.System.Diagnostics.ProcessDiagnosticInfo",
+      "methods": [
+        {
+          "name": "get_ProcessId",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_ExecutableFileName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Parent",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ProcessDiagnosticInfo",
+            "namespace": "Windows.System.Diagnostics",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ProcessStartTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_DiskUsage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ProcessDiskUsage",
+            "namespace": "Windows.System.Diagnostics",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_MemoryUsage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ProcessMemoryUsage",
+            "namespace": "Windows.System.Diagnostics",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CpuUsage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ProcessCpuUsage",
+            "namespace": "Windows.System.Diagnostics",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CpuUsage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ProcessCpuUsage",
+            "namespace": "Windows.System.Diagnostics",
+            "target_kind": "Class"
+          },
+          "getter": "get_CpuUsage"
+        },
+        {
+          "name": "DiskUsage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ProcessDiskUsage",
+            "namespace": "Windows.System.Diagnostics",
+            "target_kind": "Class"
+          },
+          "getter": "get_DiskUsage"
+        },
+        {
+          "name": "ExecutableFileName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ExecutableFileName"
+        },
+        {
+          "name": "MemoryUsage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ProcessMemoryUsage",
+            "namespace": "Windows.System.Diagnostics",
+            "target_kind": "Class"
+          },
+          "getter": "get_MemoryUsage"
+        },
+        {
+          "name": "Parent",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ProcessDiagnosticInfo",
+            "namespace": "Windows.System.Diagnostics",
+            "target_kind": "Class"
+          },
+          "getter": "get_Parent"
+        },
+        {
+          "name": "ProcessId",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ProcessId"
+        },
+        {
+          "name": "ProcessStartTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ProcessStartTime"
+        }
+      ]
+    },
+    "IProcessDiagnosticInfo2": {
+      "guid": "9558cb1a-3d0b-49ec-ab70-4f7a112805de",
+      "exclusive_to": "Windows.System.Diagnostics.ProcessDiagnosticInfo",
+      "methods": [
+        {
+          "name": "GetAppDiagnosticInfos",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppDiagnosticInfo",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_IsPackaged",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsPackaged",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPackaged"
+        }
+      ]
+    },
+    "IProcessDiagnosticInfoStatics": {
+      "guid": "2f41b260-b49f-428c-aa0e-84744f49ca95",
+      "exclusive_to": "Windows.System.Diagnostics.ProcessDiagnosticInfo",
+      "methods": [
+        {
+          "name": "GetForProcesses",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ProcessDiagnosticInfo",
+                "namespace": "Windows.System.Diagnostics",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetForCurrentProcess",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ProcessDiagnosticInfo",
+            "namespace": "Windows.System.Diagnostics",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IProcessDiagnosticInfoStatics2": {
+      "guid": "4a869897-9899-4a44-a29b-091663be09b6",
+      "exclusive_to": "Windows.System.Diagnostics.ProcessDiagnosticInfo",
+      "methods": [
+        {
+          "name": "TryGetForProcessId",
+          "params": [
+            {
+              "name": "processId",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ProcessDiagnosticInfo",
+            "namespace": "Windows.System.Diagnostics",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IProcessDiskUsage": {
+      "guid": "5ad78bfd-7e51-4e53-bfaa-5a6ee1aabbf8",
+      "exclusive_to": "Windows.System.Diagnostics.ProcessDiskUsage",
+      "methods": [
+        {
+          "name": "GetReport",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ProcessDiskUsageReport",
+            "namespace": "Windows.System.Diagnostics",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IProcessDiskUsageReport": {
+      "guid": "401627fd-535d-4c1f-81b8-da54e1be635e",
+      "exclusive_to": "Windows.System.Diagnostics.ProcessDiskUsageReport",
+      "methods": [
+        {
+          "name": "get_ReadOperationCount",
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        },
+        {
+          "name": "get_WriteOperationCount",
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        },
+        {
+          "name": "get_OtherOperationCount",
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        },
+        {
+          "name": "get_BytesReadCount",
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        },
+        {
+          "name": "get_BytesWrittenCount",
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        },
+        {
+          "name": "get_OtherBytesCount",
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BytesReadCount",
+          "type": {
+            "kind": "Native",
+            "name": "I8"
+          },
+          "getter": "get_BytesReadCount"
+        },
+        {
+          "name": "BytesWrittenCount",
+          "type": {
+            "kind": "Native",
+            "name": "I8"
+          },
+          "getter": "get_BytesWrittenCount"
+        },
+        {
+          "name": "OtherBytesCount",
+          "type": {
+            "kind": "Native",
+            "name": "I8"
+          },
+          "getter": "get_OtherBytesCount"
+        },
+        {
+          "name": "OtherOperationCount",
+          "type": {
+            "kind": "Native",
+            "name": "I8"
+          },
+          "getter": "get_OtherOperationCount"
+        },
+        {
+          "name": "ReadOperationCount",
+          "type": {
+            "kind": "Native",
+            "name": "I8"
+          },
+          "getter": "get_ReadOperationCount"
+        },
+        {
+          "name": "WriteOperationCount",
+          "type": {
+            "kind": "Native",
+            "name": "I8"
+          },
+          "getter": "get_WriteOperationCount"
+        }
+      ]
+    },
+    "IProcessMemoryUsage": {
+      "guid": "f50b229b-827c-42b7-b07c-0e32627e6b3e",
+      "exclusive_to": "Windows.System.Diagnostics.ProcessMemoryUsage",
+      "methods": [
+        {
+          "name": "GetReport",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ProcessMemoryUsageReport",
+            "namespace": "Windows.System.Diagnostics",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IProcessMemoryUsageReport": {
+      "guid": "c2c77cba-1951-4685-8532-7e749ecf8eeb",
+      "exclusive_to": "Windows.System.Diagnostics.ProcessMemoryUsageReport",
+      "methods": [
+        {
+          "name": "get_NonPagedPoolSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_PageFaultCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_PageFileSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_PagedPoolSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_PeakNonPagedPoolSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_PeakPageFileSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_PeakPagedPoolSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_PeakVirtualMemorySizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_PeakWorkingSetSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_PrivatePageCount",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_VirtualMemorySizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_WorkingSetSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "NonPagedPoolSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_NonPagedPoolSizeInBytes"
+        },
+        {
+          "name": "PageFaultCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_PageFaultCount"
+        },
+        {
+          "name": "PageFileSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_PageFileSizeInBytes"
+        },
+        {
+          "name": "PagedPoolSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_PagedPoolSizeInBytes"
+        },
+        {
+          "name": "PeakNonPagedPoolSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_PeakNonPagedPoolSizeInBytes"
+        },
+        {
+          "name": "PeakPageFileSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_PeakPageFileSizeInBytes"
+        },
+        {
+          "name": "PeakPagedPoolSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_PeakPagedPoolSizeInBytes"
+        },
+        {
+          "name": "PeakVirtualMemorySizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_PeakVirtualMemorySizeInBytes"
+        },
+        {
+          "name": "PeakWorkingSetSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_PeakWorkingSetSizeInBytes"
+        },
+        {
+          "name": "PrivatePageCount",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_PrivatePageCount"
+        },
+        {
+          "name": "VirtualMemorySizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_VirtualMemorySizeInBytes"
+        },
+        {
+          "name": "WorkingSetSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_WorkingSetSizeInBytes"
+        }
+      ]
+    },
+    "ISystemCpuUsage": {
+      "guid": "6037b3ac-02d6-4234-8362-7fe3adc81f5f",
+      "exclusive_to": "Windows.System.Diagnostics.SystemCpuUsage",
+      "methods": [
+        {
+          "name": "GetReport",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SystemCpuUsageReport",
+            "namespace": "Windows.System.Diagnostics",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISystemCpuUsageReport": {
+      "guid": "2c26d0b2-9483-4f62-ab57-82b29d9719b8",
+      "exclusive_to": "Windows.System.Diagnostics.SystemCpuUsageReport",
+      "methods": [
+        {
+          "name": "get_KernelTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_UserTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_IdleTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IdleTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_IdleTime"
+        },
+        {
+          "name": "KernelTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_KernelTime"
+        },
+        {
+          "name": "UserTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_UserTime"
+        }
+      ]
+    },
+    "ISystemDiagnosticInfo": {
+      "guid": "a290fe05-dff3-407f-9a1b-0b2b317ca800",
+      "exclusive_to": "Windows.System.Diagnostics.SystemDiagnosticInfo",
+      "methods": [
+        {
+          "name": "get_MemoryUsage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SystemMemoryUsage",
+            "namespace": "Windows.System.Diagnostics",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CpuUsage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SystemCpuUsage",
+            "namespace": "Windows.System.Diagnostics",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CpuUsage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SystemCpuUsage",
+            "namespace": "Windows.System.Diagnostics",
+            "target_kind": "Class"
+          },
+          "getter": "get_CpuUsage"
+        },
+        {
+          "name": "MemoryUsage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SystemMemoryUsage",
+            "namespace": "Windows.System.Diagnostics",
+            "target_kind": "Class"
+          },
+          "getter": "get_MemoryUsage"
+        }
+      ]
+    },
+    "ISystemDiagnosticInfoStatics": {
+      "guid": "d404ac21-fc7d-45f0-9a3f-39203aed9f7e",
+      "exclusive_to": "Windows.System.Diagnostics.SystemDiagnosticInfo",
+      "methods": [
+        {
+          "name": "GetForCurrentSystem",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SystemDiagnosticInfo",
+            "namespace": "Windows.System.Diagnostics",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISystemDiagnosticInfoStatics2": {
+      "guid": "79ded189-6af9-4da9-a422-15f73255b3eb",
+      "exclusive_to": "Windows.System.Diagnostics.SystemDiagnosticInfo",
+      "methods": [
+        {
+          "name": "IsArchitectureSupported",
+          "params": [
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ProcessorArchitecture",
+                "namespace": "Windows.System",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_PreferredArchitecture",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ProcessorArchitecture",
+            "namespace": "Windows.System",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PreferredArchitecture",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ProcessorArchitecture",
+            "namespace": "Windows.System",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PreferredArchitecture"
+        }
+      ]
+    },
+    "ISystemMemoryUsage": {
+      "guid": "17ffc595-1702-49cf-aa27-2f0a32591404",
+      "exclusive_to": "Windows.System.Diagnostics.SystemMemoryUsage",
+      "methods": [
+        {
+          "name": "GetReport",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SystemMemoryUsageReport",
+            "namespace": "Windows.System.Diagnostics",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISystemMemoryUsageReport": {
+      "guid": "38663c87-2a9f-403a-bd19-2cf3e8169500",
+      "exclusive_to": "Windows.System.Diagnostics.SystemMemoryUsageReport",
+      "methods": [
+        {
+          "name": "get_TotalPhysicalSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_AvailableSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_CommittedSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AvailableSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_AvailableSizeInBytes"
+        },
+        {
+          "name": "CommittedSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_CommittedSizeInBytes"
+        },
+        {
+          "name": "TotalPhysicalSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_TotalPhysicalSizeInBytes"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "DiagnosticActionResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDiagnosticActionResult",
+        "namespace": "Windows.System.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDiagnosticActionResult",
+          "namespace": "Windows.System.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DiagnosticInvoker": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDiagnosticInvoker",
+        "namespace": "Windows.System.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDiagnosticInvoker",
+          "namespace": "Windows.System.Diagnostics",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDiagnosticInvoker2",
+          "namespace": "Windows.System.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.System.Diagnostics.IDiagnosticInvokerStatics"
+      ]
+    },
+    "ProcessCpuUsage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IProcessCpuUsage",
+        "namespace": "Windows.System.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IProcessCpuUsage",
+          "namespace": "Windows.System.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ProcessCpuUsageReport": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IProcessCpuUsageReport",
+        "namespace": "Windows.System.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IProcessCpuUsageReport",
+          "namespace": "Windows.System.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ProcessDiagnosticInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IProcessDiagnosticInfo",
+        "namespace": "Windows.System.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IProcessDiagnosticInfo",
+          "namespace": "Windows.System.Diagnostics",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IProcessDiagnosticInfo2",
+          "namespace": "Windows.System.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.System.Diagnostics.IProcessDiagnosticInfoStatics2",
+        "Windows.System.Diagnostics.IProcessDiagnosticInfoStatics"
+      ]
+    },
+    "ProcessDiskUsage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IProcessDiskUsage",
+        "namespace": "Windows.System.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IProcessDiskUsage",
+          "namespace": "Windows.System.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ProcessDiskUsageReport": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IProcessDiskUsageReport",
+        "namespace": "Windows.System.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IProcessDiskUsageReport",
+          "namespace": "Windows.System.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ProcessMemoryUsage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IProcessMemoryUsage",
+        "namespace": "Windows.System.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IProcessMemoryUsage",
+          "namespace": "Windows.System.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ProcessMemoryUsageReport": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IProcessMemoryUsageReport",
+        "namespace": "Windows.System.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IProcessMemoryUsageReport",
+          "namespace": "Windows.System.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SystemCpuUsage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISystemCpuUsage",
+        "namespace": "Windows.System.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISystemCpuUsage",
+          "namespace": "Windows.System.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SystemCpuUsageReport": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISystemCpuUsageReport",
+        "namespace": "Windows.System.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISystemCpuUsageReport",
+          "namespace": "Windows.System.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SystemDiagnosticInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISystemDiagnosticInfo",
+        "namespace": "Windows.System.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISystemDiagnosticInfo",
+          "namespace": "Windows.System.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.System.Diagnostics.ISystemDiagnosticInfoStatics",
+        "Windows.System.Diagnostics.ISystemDiagnosticInfoStatics2"
+      ]
+    },
+    "SystemMemoryUsage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISystemMemoryUsage",
+        "namespace": "Windows.System.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISystemMemoryUsage",
+          "namespace": "Windows.System.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SystemMemoryUsageReport": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISystemMemoryUsageReport",
+        "namespace": "Windows.System.Diagnostics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISystemMemoryUsageReport",
+          "namespace": "Windows.System.Diagnostics",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

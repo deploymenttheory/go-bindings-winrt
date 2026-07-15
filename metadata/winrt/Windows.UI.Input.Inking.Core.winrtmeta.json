@@ -1,0 +1,1442 @@
+{
+  "namespace": "Windows.UI.Input.Inking.Core",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "CoreWetStrokeDisposition": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Inking",
+          "value": "0"
+        },
+        {
+          "name": "Completed",
+          "value": "1"
+        },
+        {
+          "name": "Canceled",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ICoreIncrementalInkStroke": {
+      "guid": "fda015d3-9d66-4f7d-a57f-cc70b9cfaa76",
+      "exclusive_to": "Windows.UI.Input.Inking.Core.CoreIncrementalInkStroke",
+      "methods": [
+        {
+          "name": "AppendInkPoints",
+          "params": [
+            {
+              "name": "inkPoints",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InkPoint",
+                    "namespace": "Windows.UI.Input.Inking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "CreateInkStroke",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkStroke",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DrawingAttributes",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkDrawingAttributes",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PointTransform",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Matrix3x2",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_BoundingRect",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BoundingRect",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BoundingRect"
+        },
+        {
+          "name": "DrawingAttributes",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InkDrawingAttributes",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          },
+          "getter": "get_DrawingAttributes"
+        },
+        {
+          "name": "PointTransform",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Matrix3x2",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_PointTransform"
+        }
+      ]
+    },
+    "ICoreIncrementalInkStrokeFactory": {
+      "guid": "d7c59f46-8da8-4f70-9751-e53bb6df4596",
+      "exclusive_to": "Windows.UI.Input.Inking.Core.CoreIncrementalInkStroke",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "drawingAttributes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkDrawingAttributes",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "pointTransform",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Matrix3x2",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreIncrementalInkStroke",
+            "namespace": "Windows.UI.Input.Inking.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ICoreInkIndependentInputSource": {
+      "guid": "39b38da9-7639-4499-a5b5-191d00e35b16",
+      "exclusive_to": "Windows.UI.Input.Inking.Core.CoreInkIndependentInputSource",
+      "methods": [
+        {
+          "name": "add_PointerEntering",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreInkIndependentInputSource",
+                    "namespace": "Windows.UI.Input.Inking.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerEntering",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerHovering",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreInkIndependentInputSource",
+                    "namespace": "Windows.UI.Input.Inking.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerHovering",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerExiting",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreInkIndependentInputSource",
+                    "namespace": "Windows.UI.Input.Inking.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerExiting",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerPressing",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreInkIndependentInputSource",
+                    "namespace": "Windows.UI.Input.Inking.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerPressing",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerMoving",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreInkIndependentInputSource",
+                    "namespace": "Windows.UI.Input.Inking.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerMoving",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerReleasing",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreInkIndependentInputSource",
+                    "namespace": "Windows.UI.Input.Inking.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerReleasing",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerLost",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreInkIndependentInputSource",
+                    "namespace": "Windows.UI.Input.Inking.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerLost",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_InkPresenter",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkPresenter",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InkPresenter",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InkPresenter",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          },
+          "getter": "get_InkPresenter"
+        }
+      ],
+      "events": [
+        {
+          "name": "PointerEntering",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreInkIndependentInputSource",
+                "namespace": "Windows.UI.Input.Inking.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerEntering",
+          "remove_method": "remove_PointerEntering"
+        },
+        {
+          "name": "PointerExiting",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreInkIndependentInputSource",
+                "namespace": "Windows.UI.Input.Inking.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerExiting",
+          "remove_method": "remove_PointerExiting"
+        },
+        {
+          "name": "PointerHovering",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreInkIndependentInputSource",
+                "namespace": "Windows.UI.Input.Inking.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerHovering",
+          "remove_method": "remove_PointerHovering"
+        },
+        {
+          "name": "PointerLost",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreInkIndependentInputSource",
+                "namespace": "Windows.UI.Input.Inking.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerLost",
+          "remove_method": "remove_PointerLost"
+        },
+        {
+          "name": "PointerMoving",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreInkIndependentInputSource",
+                "namespace": "Windows.UI.Input.Inking.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerMoving",
+          "remove_method": "remove_PointerMoving"
+        },
+        {
+          "name": "PointerPressing",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreInkIndependentInputSource",
+                "namespace": "Windows.UI.Input.Inking.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerPressing",
+          "remove_method": "remove_PointerPressing"
+        },
+        {
+          "name": "PointerReleasing",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreInkIndependentInputSource",
+                "namespace": "Windows.UI.Input.Inking.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerReleasing",
+          "remove_method": "remove_PointerReleasing"
+        }
+      ]
+    },
+    "ICoreInkIndependentInputSource2": {
+      "guid": "2846b012-0b59-5bb9-a3c5-becb7cf03a33",
+      "exclusive_to": "Windows.UI.Input.Inking.Core.CoreInkIndependentInputSource",
+      "methods": [
+        {
+          "name": "get_PointerCursor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreCursor",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_PointerCursor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreCursor",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "PointerCursor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreCursor",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_PointerCursor",
+          "setter": "put_PointerCursor"
+        }
+      ]
+    },
+    "ICoreInkIndependentInputSourceStatics": {
+      "guid": "73e6011b-80c0-4dfb-9b66-10ba7f3f9c84",
+      "exclusive_to": "Windows.UI.Input.Inking.Core.CoreInkIndependentInputSource",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "inkPresenter",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkPresenter",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreInkIndependentInputSource",
+            "namespace": "Windows.UI.Input.Inking.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ICoreInkPresenterHost": {
+      "guid": "396e89e6-7d55-4617-9e58-68c70c9169b9",
+      "exclusive_to": "Windows.UI.Input.Inking.Core.CoreInkPresenterHost",
+      "methods": [
+        {
+          "name": "get_InkPresenter",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkPresenter",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_RootVisual",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ContainerVisual",
+            "namespace": "Windows.UI.Composition",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_RootVisual",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ContainerVisual",
+                "namespace": "Windows.UI.Composition",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "InkPresenter",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InkPresenter",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          },
+          "getter": "get_InkPresenter"
+        },
+        {
+          "name": "RootVisual",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ContainerVisual",
+            "namespace": "Windows.UI.Composition",
+            "target_kind": "Class"
+          },
+          "getter": "get_RootVisual",
+          "setter": "put_RootVisual"
+        }
+      ]
+    },
+    "ICoreWetStrokeUpdateEventArgs": {
+      "guid": "fb07d14c-3380-457a-a987-991357896c1b",
+      "exclusive_to": "Windows.UI.Input.Inking.Core.CoreWetStrokeUpdateEventArgs",
+      "methods": [
+        {
+          "name": "get_NewInkPoints",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkPoint",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_PointerId",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Disposition",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreWetStrokeDisposition",
+            "namespace": "Windows.UI.Input.Inking.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Disposition",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreWetStrokeDisposition",
+                "namespace": "Windows.UI.Input.Inking.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Disposition",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreWetStrokeDisposition",
+            "namespace": "Windows.UI.Input.Inking.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Disposition",
+          "setter": "put_Disposition"
+        },
+        {
+          "name": "NewInkPoints",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkPoint",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_NewInkPoints"
+        },
+        {
+          "name": "PointerId",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_PointerId"
+        }
+      ]
+    },
+    "ICoreWetStrokeUpdateSource": {
+      "guid": "1f718e22-ee52-4e00-8209-4c3e5b21a3cc",
+      "exclusive_to": "Windows.UI.Input.Inking.Core.CoreWetStrokeUpdateSource",
+      "methods": [
+        {
+          "name": "add_WetStrokeStarting",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWetStrokeUpdateSource",
+                    "namespace": "Windows.UI.Input.Inking.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWetStrokeUpdateEventArgs",
+                    "namespace": "Windows.UI.Input.Inking.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_WetStrokeStarting",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_WetStrokeContinuing",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWetStrokeUpdateSource",
+                    "namespace": "Windows.UI.Input.Inking.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWetStrokeUpdateEventArgs",
+                    "namespace": "Windows.UI.Input.Inking.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_WetStrokeContinuing",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_WetStrokeStopping",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWetStrokeUpdateSource",
+                    "namespace": "Windows.UI.Input.Inking.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWetStrokeUpdateEventArgs",
+                    "namespace": "Windows.UI.Input.Inking.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_WetStrokeStopping",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_WetStrokeCompleted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWetStrokeUpdateSource",
+                    "namespace": "Windows.UI.Input.Inking.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWetStrokeUpdateEventArgs",
+                    "namespace": "Windows.UI.Input.Inking.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_WetStrokeCompleted",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_WetStrokeCanceled",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWetStrokeUpdateSource",
+                    "namespace": "Windows.UI.Input.Inking.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWetStrokeUpdateEventArgs",
+                    "namespace": "Windows.UI.Input.Inking.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_WetStrokeCanceled",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_InkPresenter",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkPresenter",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InkPresenter",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InkPresenter",
+            "namespace": "Windows.UI.Input.Inking",
+            "target_kind": "Class"
+          },
+          "getter": "get_InkPresenter"
+        }
+      ],
+      "events": [
+        {
+          "name": "WetStrokeCanceled",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWetStrokeUpdateSource",
+                "namespace": "Windows.UI.Input.Inking.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CoreWetStrokeUpdateEventArgs",
+                "namespace": "Windows.UI.Input.Inking.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_WetStrokeCanceled",
+          "remove_method": "remove_WetStrokeCanceled"
+        },
+        {
+          "name": "WetStrokeCompleted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWetStrokeUpdateSource",
+                "namespace": "Windows.UI.Input.Inking.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CoreWetStrokeUpdateEventArgs",
+                "namespace": "Windows.UI.Input.Inking.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_WetStrokeCompleted",
+          "remove_method": "remove_WetStrokeCompleted"
+        },
+        {
+          "name": "WetStrokeContinuing",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWetStrokeUpdateSource",
+                "namespace": "Windows.UI.Input.Inking.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CoreWetStrokeUpdateEventArgs",
+                "namespace": "Windows.UI.Input.Inking.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_WetStrokeContinuing",
+          "remove_method": "remove_WetStrokeContinuing"
+        },
+        {
+          "name": "WetStrokeStarting",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWetStrokeUpdateSource",
+                "namespace": "Windows.UI.Input.Inking.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CoreWetStrokeUpdateEventArgs",
+                "namespace": "Windows.UI.Input.Inking.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_WetStrokeStarting",
+          "remove_method": "remove_WetStrokeStarting"
+        },
+        {
+          "name": "WetStrokeStopping",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWetStrokeUpdateSource",
+                "namespace": "Windows.UI.Input.Inking.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CoreWetStrokeUpdateEventArgs",
+                "namespace": "Windows.UI.Input.Inking.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_WetStrokeStopping",
+          "remove_method": "remove_WetStrokeStopping"
+        }
+      ]
+    },
+    "ICoreWetStrokeUpdateSourceStatics": {
+      "guid": "3dad9cba-1d3d-46ae-ab9d-8647486c6f90",
+      "exclusive_to": "Windows.UI.Input.Inking.Core.CoreWetStrokeUpdateSource",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "inkPresenter",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkPresenter",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreWetStrokeUpdateSource",
+            "namespace": "Windows.UI.Input.Inking.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "CoreIncrementalInkStroke": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreIncrementalInkStroke",
+        "namespace": "Windows.UI.Input.Inking.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreIncrementalInkStroke",
+          "namespace": "Windows.UI.Input.Inking.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.UI.Input.Inking.Core.ICoreIncrementalInkStrokeFactory"
+      ]
+    },
+    "CoreInkIndependentInputSource": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreInkIndependentInputSource",
+        "namespace": "Windows.UI.Input.Inking.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreInkIndependentInputSource",
+          "namespace": "Windows.UI.Input.Inking.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreInkIndependentInputSource2",
+          "namespace": "Windows.UI.Input.Inking.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Input.Inking.Core.ICoreInkIndependentInputSourceStatics"
+      ]
+    },
+    "CoreInkPresenterHost": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreInkPresenterHost",
+        "namespace": "Windows.UI.Input.Inking.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreInkPresenterHost",
+          "namespace": "Windows.UI.Input.Inking.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "CoreWetStrokeUpdateEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreWetStrokeUpdateEventArgs",
+        "namespace": "Windows.UI.Input.Inking.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWetStrokeUpdateEventArgs",
+          "namespace": "Windows.UI.Input.Inking.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreWetStrokeUpdateSource": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreWetStrokeUpdateSource",
+        "namespace": "Windows.UI.Input.Inking.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWetStrokeUpdateSource",
+          "namespace": "Windows.UI.Input.Inking.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Input.Inking.Core.ICoreWetStrokeUpdateSourceStatics"
+      ]
+    }
+  }
+}

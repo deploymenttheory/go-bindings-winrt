@@ -1,0 +1,813 @@
+{
+  "namespace": "Windows.Perception.People",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "HandJointKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Palm",
+          "value": "0"
+        },
+        {
+          "name": "Wrist",
+          "value": "1"
+        },
+        {
+          "name": "ThumbMetacarpal",
+          "value": "2"
+        },
+        {
+          "name": "ThumbProximal",
+          "value": "3"
+        },
+        {
+          "name": "ThumbDistal",
+          "value": "4"
+        },
+        {
+          "name": "ThumbTip",
+          "value": "5"
+        },
+        {
+          "name": "IndexMetacarpal",
+          "value": "6"
+        },
+        {
+          "name": "IndexProximal",
+          "value": "7"
+        },
+        {
+          "name": "IndexIntermediate",
+          "value": "8"
+        },
+        {
+          "name": "IndexDistal",
+          "value": "9"
+        },
+        {
+          "name": "IndexTip",
+          "value": "10"
+        },
+        {
+          "name": "MiddleMetacarpal",
+          "value": "11"
+        },
+        {
+          "name": "MiddleProximal",
+          "value": "12"
+        },
+        {
+          "name": "MiddleIntermediate",
+          "value": "13"
+        },
+        {
+          "name": "MiddleDistal",
+          "value": "14"
+        },
+        {
+          "name": "MiddleTip",
+          "value": "15"
+        },
+        {
+          "name": "RingMetacarpal",
+          "value": "16"
+        },
+        {
+          "name": "RingProximal",
+          "value": "17"
+        },
+        {
+          "name": "RingIntermediate",
+          "value": "18"
+        },
+        {
+          "name": "RingDistal",
+          "value": "19"
+        },
+        {
+          "name": "RingTip",
+          "value": "20"
+        },
+        {
+          "name": "LittleMetacarpal",
+          "value": "21"
+        },
+        {
+          "name": "LittleProximal",
+          "value": "22"
+        },
+        {
+          "name": "LittleIntermediate",
+          "value": "23"
+        },
+        {
+          "name": "LittleDistal",
+          "value": "24"
+        },
+        {
+          "name": "LittleTip",
+          "value": "25"
+        }
+      ]
+    },
+    "JointPoseAccuracy": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "High",
+          "value": "0"
+        },
+        {
+          "name": "Approximate",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "HandMeshVertex": {
+      "fields": [
+        {
+          "name": "Position",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "Normal",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        }
+      ]
+    },
+    "JointPose": {
+      "fields": [
+        {
+          "name": "Orientation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Quaternion",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "Position",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "Radius",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "Accuracy",
+          "type": {
+            "kind": "ApiRef",
+            "name": "JointPoseAccuracy",
+            "namespace": "Windows.Perception.People",
+            "target_kind": "Enum"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IEyesPose": {
+      "guid": "682a9b23-8a1e-5b86-a060-906ffacb62a4",
+      "exclusive_to": "Windows.Perception.People.EyesPose",
+      "methods": [
+        {
+          "name": "get_IsCalibrationValid",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Gaze",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialRay",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_UpdateTimestamp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionTimestamp",
+            "namespace": "Windows.Perception",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Gaze",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialRay",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_Gaze"
+        },
+        {
+          "name": "IsCalibrationValid",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsCalibrationValid"
+        },
+        {
+          "name": "UpdateTimestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PerceptionTimestamp",
+            "namespace": "Windows.Perception",
+            "target_kind": "Class"
+          },
+          "getter": "get_UpdateTimestamp"
+        }
+      ]
+    },
+    "IEyesPoseStatics": {
+      "guid": "1cff7413-b21f-54c0-80c1-e60d994ca58c",
+      "exclusive_to": "Windows.Perception.People.EyesPose",
+      "methods": [
+        {
+          "name": "IsSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "RequestAccessAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "GazeInputAccessStatus",
+                "namespace": "Windows.UI.Input",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IHandMeshObserver": {
+      "guid": "85ae30cb-6fc3-55c4-a7b4-29e33896ca69",
+      "exclusive_to": "Windows.Perception.People.HandMeshObserver",
+      "methods": [
+        {
+          "name": "get_Source",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSource",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_TriangleIndexCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_VertexCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "GetTriangleIndices",
+          "params": [
+            {
+              "name": "indices",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U2"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "GetVertexStateForPose",
+          "params": [
+            {
+              "name": "handPose",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HandPose",
+                "namespace": "Windows.Perception.People",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HandMeshVertexState",
+            "namespace": "Windows.Perception.People",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_NeutralPose",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HandPose",
+            "namespace": "Windows.Perception.People",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_NeutralPoseVersion",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_ModelId",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ModelId",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_ModelId"
+        },
+        {
+          "name": "NeutralPose",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HandPose",
+            "namespace": "Windows.Perception.People",
+            "target_kind": "Class"
+          },
+          "getter": "get_NeutralPose"
+        },
+        {
+          "name": "NeutralPoseVersion",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_NeutralPoseVersion"
+        },
+        {
+          "name": "Source",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSource",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_Source"
+        },
+        {
+          "name": "TriangleIndexCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_TriangleIndexCount"
+        },
+        {
+          "name": "VertexCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_VertexCount"
+        }
+      ]
+    },
+    "IHandMeshVertexState": {
+      "guid": "046c5fef-1d8b-55de-ab2c-1cd424886d8f",
+      "exclusive_to": "Windows.Perception.People.HandMeshVertexState",
+      "methods": [
+        {
+          "name": "get_CoordinateSystem",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialCoordinateSystem",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetVertices",
+          "params": [
+            {
+              "name": "vertices",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "HandMeshVertex",
+                  "namespace": "Windows.Perception.People",
+                  "target_kind": "Struct"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "get_UpdateTimestamp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionTimestamp",
+            "namespace": "Windows.Perception",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CoordinateSystem",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialCoordinateSystem",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_CoordinateSystem"
+        },
+        {
+          "name": "UpdateTimestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PerceptionTimestamp",
+            "namespace": "Windows.Perception",
+            "target_kind": "Class"
+          },
+          "getter": "get_UpdateTimestamp"
+        }
+      ]
+    },
+    "IHandPose": {
+      "guid": "4d98e79a-bb08-5d09-91de-df0dd3fae46c",
+      "exclusive_to": "Windows.Perception.People.HandPose",
+      "methods": [
+        {
+          "name": "TryGetJoint",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "joint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HandJointKind",
+                "namespace": "Windows.Perception.People",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "jointPose",
+              "type": {
+                "kind": "ApiRef",
+                "name": "JointPose",
+                "namespace": "Windows.Perception.People",
+                "target_kind": "Struct"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TryGetJoints",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "joints",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "HandJointKind",
+                  "namespace": "Windows.Perception.People",
+                  "target_kind": "Enum"
+                }
+              }
+            },
+            {
+              "name": "jointPoses",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "JointPose",
+                  "namespace": "Windows.Perception.People",
+                  "target_kind": "Struct"
+                }
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetRelativeJoint",
+          "params": [
+            {
+              "name": "joint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HandJointKind",
+                "namespace": "Windows.Perception.People",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "referenceJoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HandJointKind",
+                "namespace": "Windows.Perception.People",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "JointPose",
+            "namespace": "Windows.Perception.People",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "GetRelativeJoints",
+          "params": [
+            {
+              "name": "joints",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "HandJointKind",
+                  "namespace": "Windows.Perception.People",
+                  "target_kind": "Enum"
+                }
+              }
+            },
+            {
+              "name": "referenceJoints",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "HandJointKind",
+                  "namespace": "Windows.Perception.People",
+                  "target_kind": "Enum"
+                }
+              }
+            },
+            {
+              "name": "jointPoses",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "JointPose",
+                  "namespace": "Windows.Perception.People",
+                  "target_kind": "Struct"
+                }
+              },
+              "out": true
+            }
+          ]
+        }
+      ]
+    },
+    "IHeadPose": {
+      "guid": "7f5ac5a5-49db-379f-9429-32a2faf34fa6",
+      "exclusive_to": "Windows.Perception.People.HeadPose",
+      "methods": [
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_ForwardDirection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_UpDirection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ForwardDirection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ForwardDirection"
+        },
+        {
+          "name": "Position",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Position"
+        },
+        {
+          "name": "UpDirection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_UpDirection"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "EyesPose": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEyesPose",
+        "namespace": "Windows.Perception.People",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEyesPose",
+          "namespace": "Windows.Perception.People",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Perception.People.IEyesPoseStatics"
+      ]
+    },
+    "HandMeshObserver": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHandMeshObserver",
+        "namespace": "Windows.Perception.People",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHandMeshObserver",
+          "namespace": "Windows.Perception.People",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HandMeshVertexState": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHandMeshVertexState",
+        "namespace": "Windows.Perception.People",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHandMeshVertexState",
+          "namespace": "Windows.Perception.People",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HandPose": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHandPose",
+        "namespace": "Windows.Perception.People",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHandPose",
+          "namespace": "Windows.Perception.People",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HeadPose": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHeadPose",
+        "namespace": "Windows.Perception.People",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHeadPose",
+          "namespace": "Windows.Perception.People",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

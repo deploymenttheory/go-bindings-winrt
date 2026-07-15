@@ -1,0 +1,2328 @@
+{
+  "namespace": "Windows.ApplicationModel.Wallet",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "WalletBarcodeSymbology": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Invalid",
+          "value": "0"
+        },
+        {
+          "name": "Upca",
+          "value": "1"
+        },
+        {
+          "name": "Upce",
+          "value": "2"
+        },
+        {
+          "name": "Ean13",
+          "value": "3"
+        },
+        {
+          "name": "Ean8",
+          "value": "4"
+        },
+        {
+          "name": "Itf",
+          "value": "5"
+        },
+        {
+          "name": "Code39",
+          "value": "6"
+        },
+        {
+          "name": "Code128",
+          "value": "7"
+        },
+        {
+          "name": "Qr",
+          "value": "8"
+        },
+        {
+          "name": "Pdf417",
+          "value": "9"
+        },
+        {
+          "name": "Aztec",
+          "value": "10"
+        },
+        {
+          "name": "Custom",
+          "value": "100000"
+        }
+      ]
+    },
+    "WalletDetailViewPosition": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Hidden",
+          "value": "0"
+        },
+        {
+          "name": "HeaderField1",
+          "value": "1"
+        },
+        {
+          "name": "HeaderField2",
+          "value": "2"
+        },
+        {
+          "name": "PrimaryField1",
+          "value": "3"
+        },
+        {
+          "name": "PrimaryField2",
+          "value": "4"
+        },
+        {
+          "name": "SecondaryField1",
+          "value": "5"
+        },
+        {
+          "name": "SecondaryField2",
+          "value": "6"
+        },
+        {
+          "name": "SecondaryField3",
+          "value": "7"
+        },
+        {
+          "name": "SecondaryField4",
+          "value": "8"
+        },
+        {
+          "name": "SecondaryField5",
+          "value": "9"
+        },
+        {
+          "name": "CenterField1",
+          "value": "10"
+        },
+        {
+          "name": "FooterField1",
+          "value": "11"
+        },
+        {
+          "name": "FooterField2",
+          "value": "12"
+        },
+        {
+          "name": "FooterField3",
+          "value": "13"
+        },
+        {
+          "name": "FooterField4",
+          "value": "14"
+        }
+      ]
+    },
+    "WalletItemKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Invalid",
+          "value": "0"
+        },
+        {
+          "name": "Deal",
+          "value": "1"
+        },
+        {
+          "name": "General",
+          "value": "2"
+        },
+        {
+          "name": "PaymentInstrument",
+          "value": "3"
+        },
+        {
+          "name": "Ticket",
+          "value": "4"
+        },
+        {
+          "name": "BoardingPass",
+          "value": "5"
+        },
+        {
+          "name": "MembershipCard",
+          "value": "6"
+        }
+      ]
+    },
+    "WalletSummaryViewPosition": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Hidden",
+          "value": "0"
+        },
+        {
+          "name": "Field1",
+          "value": "1"
+        },
+        {
+          "name": "Field2",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IWalletBarcode": {
+      "guid": "4f857b29-de80-4ea4-a1cd-81cd084dac27",
+      "exclusive_to": "Windows.ApplicationModel.Wallet.WalletBarcode",
+      "methods": [
+        {
+          "name": "get_Symbology",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WalletBarcodeSymbology",
+            "namespace": "Windows.ApplicationModel.Wallet",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetImageAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStreamReference",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Symbology",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WalletBarcodeSymbology",
+            "namespace": "Windows.ApplicationModel.Wallet",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Symbology"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "IWalletBarcodeFactory": {
+      "guid": "30117161-ed9c-469e-bbfd-306c95ea7108",
+      "exclusive_to": "Windows.ApplicationModel.Wallet.WalletBarcode",
+      "methods": [
+        {
+          "name": "CreateWalletBarcode",
+          "params": [
+            {
+              "name": "symbology",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WalletBarcodeSymbology",
+                "namespace": "Windows.ApplicationModel.Wallet",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WalletBarcode",
+            "namespace": "Windows.ApplicationModel.Wallet",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateCustomWalletBarcode",
+          "params": [
+            {
+              "name": "streamToBarcodeImage",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStreamReference",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WalletBarcode",
+            "namespace": "Windows.ApplicationModel.Wallet",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IWalletItem": {
+      "guid": "20b54be8-118d-4ec4-996c-b963e7bd3e74",
+      "exclusive_to": "Windows.ApplicationModel.Wallet.WalletItem",
+      "methods": [
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DisplayName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IsAcknowledged",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsAcknowledged",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IssuerDisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_IssuerDisplayName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LastUpdated",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_LastUpdated",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WalletItemKind",
+            "namespace": "Windows.ApplicationModel.Wallet",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Barcode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WalletBarcode",
+            "namespace": "Windows.ApplicationModel.Wallet",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Barcode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WalletBarcode",
+                "namespace": "Windows.ApplicationModel.Wallet",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ExpirationDate",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_ExpirationDate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Logo159x159",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_Logo159x159",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStreamReference",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Logo336x336",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_Logo336x336",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStreamReference",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Logo99x99",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_Logo99x99",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStreamReference",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DisplayMessage",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DisplayMessage",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsDisplayMessageLaunchable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsDisplayMessageLaunchable",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LogoText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_LogoText",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_HeaderColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_HeaderColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BodyColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_BodyColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_HeaderFontColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_HeaderFontColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BodyFontColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_BodyFontColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_HeaderBackgroundImage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_HeaderBackgroundImage",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStreamReference",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BodyBackgroundImage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_BodyBackgroundImage",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStreamReference",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LogoImage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_LogoImage",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStreamReference",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PromotionalImage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_PromotionalImage",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStreamReference",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RelevantDate",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_RelevantDate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RelevantDateDisplayMessage",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_RelevantDateDisplayMessage",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TransactionHistory",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WalletTransaction",
+                "namespace": "Windows.ApplicationModel.Wallet",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_RelevantLocations",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WalletRelevantLocation",
+                "namespace": "Windows.ApplicationModel.Wallet",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_IsMoreTransactionHistoryLaunchable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsMoreTransactionHistoryLaunchable",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DisplayProperties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WalletItemCustomProperty",
+                "namespace": "Windows.ApplicationModel.Wallet",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Verbs",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WalletVerb",
+                "namespace": "Windows.ApplicationModel.Wallet",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Barcode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WalletBarcode",
+            "namespace": "Windows.ApplicationModel.Wallet",
+            "target_kind": "Class"
+          },
+          "getter": "get_Barcode",
+          "setter": "put_Barcode"
+        },
+        {
+          "name": "BodyBackgroundImage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_BodyBackgroundImage",
+          "setter": "put_BodyBackgroundImage"
+        },
+        {
+          "name": "BodyColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BodyColor",
+          "setter": "put_BodyColor"
+        },
+        {
+          "name": "BodyFontColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BodyFontColor",
+          "setter": "put_BodyFontColor"
+        },
+        {
+          "name": "DisplayMessage",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayMessage",
+          "setter": "put_DisplayMessage"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName",
+          "setter": "put_DisplayName"
+        },
+        {
+          "name": "DisplayProperties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WalletItemCustomProperty",
+                "namespace": "Windows.ApplicationModel.Wallet",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_DisplayProperties"
+        },
+        {
+          "name": "ExpirationDate",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ExpirationDate",
+          "setter": "put_ExpirationDate"
+        },
+        {
+          "name": "HeaderBackgroundImage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_HeaderBackgroundImage",
+          "setter": "put_HeaderBackgroundImage"
+        },
+        {
+          "name": "HeaderColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_HeaderColor",
+          "setter": "put_HeaderColor"
+        },
+        {
+          "name": "HeaderFontColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_HeaderFontColor",
+          "setter": "put_HeaderFontColor"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "IsAcknowledged",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAcknowledged",
+          "setter": "put_IsAcknowledged"
+        },
+        {
+          "name": "IsDisplayMessageLaunchable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsDisplayMessageLaunchable",
+          "setter": "put_IsDisplayMessageLaunchable"
+        },
+        {
+          "name": "IsMoreTransactionHistoryLaunchable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsMoreTransactionHistoryLaunchable",
+          "setter": "put_IsMoreTransactionHistoryLaunchable"
+        },
+        {
+          "name": "IssuerDisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_IssuerDisplayName",
+          "setter": "put_IssuerDisplayName"
+        },
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WalletItemKind",
+            "namespace": "Windows.ApplicationModel.Wallet",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        },
+        {
+          "name": "LastUpdated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_LastUpdated",
+          "setter": "put_LastUpdated"
+        },
+        {
+          "name": "Logo159x159",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Logo159x159",
+          "setter": "put_Logo159x159"
+        },
+        {
+          "name": "Logo336x336",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Logo336x336",
+          "setter": "put_Logo336x336"
+        },
+        {
+          "name": "Logo99x99",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Logo99x99",
+          "setter": "put_Logo99x99"
+        },
+        {
+          "name": "LogoImage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_LogoImage",
+          "setter": "put_LogoImage"
+        },
+        {
+          "name": "LogoText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LogoText",
+          "setter": "put_LogoText"
+        },
+        {
+          "name": "PromotionalImage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_PromotionalImage",
+          "setter": "put_PromotionalImage"
+        },
+        {
+          "name": "RelevantDate",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_RelevantDate",
+          "setter": "put_RelevantDate"
+        },
+        {
+          "name": "RelevantDateDisplayMessage",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RelevantDateDisplayMessage",
+          "setter": "put_RelevantDateDisplayMessage"
+        },
+        {
+          "name": "RelevantLocations",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WalletRelevantLocation",
+                "namespace": "Windows.ApplicationModel.Wallet",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_RelevantLocations"
+        },
+        {
+          "name": "TransactionHistory",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WalletTransaction",
+                "namespace": "Windows.ApplicationModel.Wallet",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_TransactionHistory"
+        },
+        {
+          "name": "Verbs",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WalletVerb",
+                "namespace": "Windows.ApplicationModel.Wallet",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Verbs"
+        }
+      ]
+    },
+    "IWalletItemCustomProperty": {
+      "guid": "b94b40f3-fa00-40fd-98dc-9de46697f1e7",
+      "exclusive_to": "Windows.ApplicationModel.Wallet.WalletItemCustomProperty",
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Name",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Value",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AutoDetectLinks",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AutoDetectLinks",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DetailViewPosition",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WalletDetailViewPosition",
+            "namespace": "Windows.ApplicationModel.Wallet",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_DetailViewPosition",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WalletDetailViewPosition",
+                "namespace": "Windows.ApplicationModel.Wallet",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SummaryViewPosition",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WalletSummaryViewPosition",
+            "namespace": "Windows.ApplicationModel.Wallet",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_SummaryViewPosition",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WalletSummaryViewPosition",
+                "namespace": "Windows.ApplicationModel.Wallet",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AutoDetectLinks",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AutoDetectLinks",
+          "setter": "put_AutoDetectLinks"
+        },
+        {
+          "name": "DetailViewPosition",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WalletDetailViewPosition",
+            "namespace": "Windows.ApplicationModel.Wallet",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DetailViewPosition",
+          "setter": "put_DetailViewPosition"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name",
+          "setter": "put_Name"
+        },
+        {
+          "name": "SummaryViewPosition",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WalletSummaryViewPosition",
+            "namespace": "Windows.ApplicationModel.Wallet",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SummaryViewPosition",
+          "setter": "put_SummaryViewPosition"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Value",
+          "setter": "put_Value"
+        }
+      ]
+    },
+    "IWalletItemCustomPropertyFactory": {
+      "guid": "d0046a44-61a1-41aa-b259-a5610ab5d575",
+      "exclusive_to": "Windows.ApplicationModel.Wallet.WalletItemCustomProperty",
+      "methods": [
+        {
+          "name": "CreateWalletItemCustomProperty",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WalletItemCustomProperty",
+            "namespace": "Windows.ApplicationModel.Wallet",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IWalletItemFactory": {
+      "guid": "53e27470-4f0b-4a3e-99e5-0bbb1eab38d4",
+      "exclusive_to": "Windows.ApplicationModel.Wallet.WalletItem",
+      "methods": [
+        {
+          "name": "CreateWalletItem",
+          "params": [
+            {
+              "name": "kind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WalletItemKind",
+                "namespace": "Windows.ApplicationModel.Wallet",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "displayName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WalletItem",
+            "namespace": "Windows.ApplicationModel.Wallet",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IWalletItemStore": {
+      "guid": "7160484b-6d49-48f8-91a9-40a1d0f13ef4",
+      "exclusive_to": "Windows.ApplicationModel.Wallet.WalletItemStore",
+      "methods": [
+        {
+          "name": "AddAsync",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "item",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WalletItem",
+                "namespace": "Windows.ApplicationModel.Wallet",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ClearAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetWalletItemAsync",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WalletItem",
+                "namespace": "Windows.ApplicationModel.Wallet",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetItemsAsync",
+          "overload": "GetItemsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "WalletItem",
+                    "namespace": "Windows.ApplicationModel.Wallet",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetItemsAsync",
+          "overload": "GetItemsWithKindAsync",
+          "params": [
+            {
+              "name": "kind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WalletItemKind",
+                "namespace": "Windows.ApplicationModel.Wallet",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "WalletItem",
+                    "namespace": "Windows.ApplicationModel.Wallet",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "ImportItemAsync",
+          "params": [
+            {
+              "name": "stream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStreamReference",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WalletItem",
+                "namespace": "Windows.ApplicationModel.Wallet",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "DeleteAsync",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ShowAsync",
+          "overload": "ShowAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ShowAsync",
+          "overload": "ShowItemAsync",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "UpdateAsync",
+          "params": [
+            {
+              "name": "item",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WalletItem",
+                "namespace": "Windows.ApplicationModel.Wallet",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IWalletItemStore2": {
+      "guid": "65e682f0-7009-4a15-bd54-4fff379bffe2",
+      "exclusive_to": "Windows.ApplicationModel.Wallet.WalletItemStore",
+      "methods": [
+        {
+          "name": "add_ItemsChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "WalletItemStore",
+                    "namespace": "Windows.ApplicationModel.Wallet",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ItemsChanged",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "ItemsChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WalletItemStore",
+                "namespace": "Windows.ApplicationModel.Wallet",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ItemsChanged",
+          "remove_method": "remove_ItemsChanged"
+        }
+      ]
+    },
+    "IWalletManagerStatics": {
+      "guid": "5111d6b8-c9a4-4c64-b4dd-e1e548001c0d",
+      "exclusive_to": "Windows.ApplicationModel.Wallet.WalletManager",
+      "methods": [
+        {
+          "name": "RequestStoreAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WalletItemStore",
+                "namespace": "Windows.ApplicationModel.Wallet",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IWalletRelevantLocation": {
+      "guid": "9fd8782a-e3f9-4de1-bab3-bb192e46b3f3",
+      "exclusive_to": "Windows.ApplicationModel.Wallet.WalletRelevantLocation",
+      "methods": [
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BasicGeoposition",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Position",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BasicGeoposition",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DisplayMessage",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DisplayMessage",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayMessage",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayMessage",
+          "setter": "put_DisplayMessage"
+        },
+        {
+          "name": "Position",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BasicGeoposition",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Position",
+          "setter": "put_Position"
+        }
+      ]
+    },
+    "IWalletTransaction": {
+      "guid": "40e1e940-2606-4519-81cb-bff1c60d1f79",
+      "exclusive_to": "Windows.ApplicationModel.Wallet.WalletTransaction",
+      "methods": [
+        {
+          "name": "get_Description",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Description",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DisplayAmount",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DisplayAmount",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IgnoreTimeOfDay",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IgnoreTimeOfDay",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DisplayLocation",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DisplayLocation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TransactionDate",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_TransactionDate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsLaunchable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsLaunchable",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Description",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Description",
+          "setter": "put_Description"
+        },
+        {
+          "name": "DisplayAmount",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayAmount",
+          "setter": "put_DisplayAmount"
+        },
+        {
+          "name": "DisplayLocation",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayLocation",
+          "setter": "put_DisplayLocation"
+        },
+        {
+          "name": "IgnoreTimeOfDay",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IgnoreTimeOfDay",
+          "setter": "put_IgnoreTimeOfDay"
+        },
+        {
+          "name": "IsLaunchable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsLaunchable",
+          "setter": "put_IsLaunchable"
+        },
+        {
+          "name": "TransactionDate",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_TransactionDate",
+          "setter": "put_TransactionDate"
+        }
+      ]
+    },
+    "IWalletVerb": {
+      "guid": "17b826d6-e3c1-4c74-8a94-217aadbc4884",
+      "exclusive_to": "Windows.ApplicationModel.Wallet.WalletVerb",
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Name",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name",
+          "setter": "put_Name"
+        }
+      ]
+    },
+    "IWalletVerbFactory": {
+      "guid": "76012771-be58-4d5e-83ed-58b1669c7ad9",
+      "exclusive_to": "Windows.ApplicationModel.Wallet.WalletVerb",
+      "methods": [
+        {
+          "name": "CreateWalletVerb",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WalletVerb",
+            "namespace": "Windows.ApplicationModel.Wallet",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "WalletBarcode": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWalletBarcode",
+        "namespace": "Windows.ApplicationModel.Wallet",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWalletBarcode",
+          "namespace": "Windows.ApplicationModel.Wallet",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Wallet.IWalletBarcodeFactory"
+      ]
+    },
+    "WalletItem": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWalletItem",
+        "namespace": "Windows.ApplicationModel.Wallet",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWalletItem",
+          "namespace": "Windows.ApplicationModel.Wallet",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Wallet.IWalletItemFactory"
+      ]
+    },
+    "WalletItemCustomProperty": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWalletItemCustomProperty",
+        "namespace": "Windows.ApplicationModel.Wallet",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWalletItemCustomProperty",
+          "namespace": "Windows.ApplicationModel.Wallet",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Wallet.IWalletItemCustomPropertyFactory"
+      ]
+    },
+    "WalletItemStore": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWalletItemStore",
+        "namespace": "Windows.ApplicationModel.Wallet",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWalletItemStore",
+          "namespace": "Windows.ApplicationModel.Wallet",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WalletManager": {
+      "static_interfaces": [
+        "Windows.ApplicationModel.Wallet.IWalletManagerStatics"
+      ]
+    },
+    "WalletRelevantLocation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWalletRelevantLocation",
+        "namespace": "Windows.ApplicationModel.Wallet",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWalletRelevantLocation",
+          "namespace": "Windows.ApplicationModel.Wallet",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "WalletTransaction": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWalletTransaction",
+        "namespace": "Windows.ApplicationModel.Wallet",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWalletTransaction",
+          "namespace": "Windows.ApplicationModel.Wallet",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "WalletVerb": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWalletVerb",
+        "namespace": "Windows.ApplicationModel.Wallet",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWalletVerb",
+          "namespace": "Windows.ApplicationModel.Wallet",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Wallet.IWalletVerbFactory"
+      ]
+    }
+  }
+}

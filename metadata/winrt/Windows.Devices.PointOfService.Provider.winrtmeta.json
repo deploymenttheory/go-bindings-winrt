@@ -1,0 +1,2727 @@
+{
+  "namespace": "Windows.Devices.PointOfService.Provider",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "BarcodeScannerTriggerState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Released",
+          "value": "0"
+        },
+        {
+          "name": "Pressed",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IBarcodeScannerDisableScannerRequest": {
+      "guid": "88ecf7c0-37b9-4275-8e77-c8e52ae5a9c8",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequest",
+      "methods": [
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IBarcodeScannerDisableScannerRequest2": {
+      "guid": "ccdfe625-65c3-4ccc-b457-f39c7a9ea60d",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequest",
+      "methods": [
+        {
+          "name": "ReportFailedAsync",
+          "overload": "ReportFailedWithFailedReasonAsync",
+          "params": [
+            {
+              "name": "reason",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "overload": "ReportFailedWithFailedReasonAndDescriptionAsync",
+          "params": [
+            {
+              "name": "reason",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "failedReasonDescription",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IBarcodeScannerDisableScannerRequestEventArgs": {
+      "guid": "7006e142-e802-46f5-b604-352a15ce9232",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BarcodeScannerDisableScannerRequest",
+            "namespace": "Windows.Devices.PointOfService.Provider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BarcodeScannerDisableScannerRequest",
+            "namespace": "Windows.Devices.PointOfService.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IBarcodeScannerEnableScannerRequest": {
+      "guid": "c0b3e9ba-816a-452b-bd77-b7e453ec446d",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequest",
+      "methods": [
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IBarcodeScannerEnableScannerRequest2": {
+      "guid": "71a4f2a8-9905-41ac-9121-b645916a84a1",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequest",
+      "methods": [
+        {
+          "name": "ReportFailedAsync",
+          "overload": "ReportFailedWithFailedReasonAsync",
+          "params": [
+            {
+              "name": "reason",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "overload": "ReportFailedWithFailedReasonAndDescriptionAsync",
+          "params": [
+            {
+              "name": "reason",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "failedReasonDescription",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IBarcodeScannerEnableScannerRequestEventArgs": {
+      "guid": "956c9419-7b4e-4451-8c41-8e10cfbc5b41",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BarcodeScannerEnableScannerRequest",
+            "namespace": "Windows.Devices.PointOfService.Provider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BarcodeScannerEnableScannerRequest",
+            "namespace": "Windows.Devices.PointOfService.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IBarcodeScannerFrameReader": {
+      "guid": "dbc72b07-64c3-482b-93c8-65fb33c22208",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReader",
+      "methods": [
+        {
+          "name": "StartAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "StopAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "TryAcquireLatestFrameAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerVideoFrame",
+                "namespace": "Windows.Devices.PointOfService.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Connection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BarcodeScannerProviderConnection",
+            "namespace": "Windows.Devices.PointOfService.Provider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_FrameArrived",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BarcodeScannerFrameReader",
+                    "namespace": "Windows.Devices.PointOfService.Provider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "BarcodeScannerFrameReaderFrameArrivedEventArgs",
+                    "namespace": "Windows.Devices.PointOfService.Provider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_FrameArrived",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Connection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BarcodeScannerProviderConnection",
+            "namespace": "Windows.Devices.PointOfService.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Connection"
+        }
+      ],
+      "events": [
+        {
+          "name": "FrameArrived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerFrameReader",
+                "namespace": "Windows.Devices.PointOfService.Provider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerFrameReaderFrameArrivedEventArgs",
+                "namespace": "Windows.Devices.PointOfService.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_FrameArrived",
+          "remove_method": "remove_FrameArrived"
+        }
+      ]
+    },
+    "IBarcodeScannerFrameReaderFrameArrivedEventArgs": {
+      "guid": "b0bbd604-54fd-436d-8629-712e787223dd",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReaderFrameArrivedEventArgs",
+      "methods": [
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IBarcodeScannerGetSymbologyAttributesRequest": {
+      "guid": "9774c46a-58e4-4c5f-b8e9-e41467632700",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequest",
+      "methods": [
+        {
+          "name": "get_Symbology",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "params": [
+            {
+              "name": "attributes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BarcodeSymbologyAttributes",
+                "namespace": "Windows.Devices.PointOfService",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Symbology",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Symbology"
+        }
+      ]
+    },
+    "IBarcodeScannerGetSymbologyAttributesRequest2": {
+      "guid": "6a6a2b13-75a8-49fb-b852-bfb93d760af7",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequest",
+      "methods": [
+        {
+          "name": "ReportFailedAsync",
+          "overload": "ReportFailedWithFailedReasonAsync",
+          "params": [
+            {
+              "name": "reason",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "overload": "ReportFailedWithFailedReasonAndDescriptionAsync",
+          "params": [
+            {
+              "name": "reason",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "failedReasonDescription",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IBarcodeScannerGetSymbologyAttributesRequestEventArgs": {
+      "guid": "7f89de3e-fb5d-493c-b402-356b24d574a6",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BarcodeScannerGetSymbologyAttributesRequest",
+            "namespace": "Windows.Devices.PointOfService.Provider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BarcodeScannerGetSymbologyAttributesRequest",
+            "namespace": "Windows.Devices.PointOfService.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IBarcodeScannerHideVideoPreviewRequest": {
+      "guid": "fa4ebe7f-6670-40e1-b90b-bb10d8d425fa",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequest",
+      "methods": [
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IBarcodeScannerHideVideoPreviewRequest2": {
+      "guid": "7e28435d-9814-431d-a2f2-d6248c5ad4b5",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequest",
+      "methods": [
+        {
+          "name": "ReportFailedAsync",
+          "overload": "ReportFailedWithFailedReasonAsync",
+          "params": [
+            {
+              "name": "reason",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "overload": "ReportFailedWithFailedReasonAndDescriptionAsync",
+          "params": [
+            {
+              "name": "reason",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "failedReasonDescription",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IBarcodeScannerHideVideoPreviewRequestEventArgs": {
+      "guid": "16a281fc-d6be-4bc7-9df1-33741f3eadea",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BarcodeScannerHideVideoPreviewRequest",
+            "namespace": "Windows.Devices.PointOfService.Provider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BarcodeScannerHideVideoPreviewRequest",
+            "namespace": "Windows.Devices.PointOfService.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IBarcodeScannerProviderConnection": {
+      "guid": "b44acbed-0b3a-4fa3-86c5-491ea30780eb",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerProviderConnection",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_VideoDeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SupportedSymbologies",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_CompanyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_CompanyName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Name",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Version",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Version",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Start"
+        },
+        {
+          "name": "ReportScannedDataAsync",
+          "params": [
+            {
+              "name": "report",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerReport",
+                "namespace": "Windows.Devices.PointOfService",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportTriggerStateAsync",
+          "params": [
+            {
+              "name": "state",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerTriggerState",
+                "namespace": "Windows.Devices.PointOfService.Provider",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportErrorAsync",
+          "overload": "ReportErrorAsync",
+          "params": [
+            {
+              "name": "errorData",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UnifiedPosErrorData",
+                "namespace": "Windows.Devices.PointOfService",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportErrorAsync",
+          "overload": "ReportErrorAsyncWithScanReport",
+          "params": [
+            {
+              "name": "errorData",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UnifiedPosErrorData",
+                "namespace": "Windows.Devices.PointOfService",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "isRetriable",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "scanReport",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerReport",
+                "namespace": "Windows.Devices.PointOfService",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "add_EnableScannerRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BarcodeScannerProviderConnection",
+                    "namespace": "Windows.Devices.PointOfService.Provider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "BarcodeScannerEnableScannerRequestEventArgs",
+                    "namespace": "Windows.Devices.PointOfService.Provider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_EnableScannerRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_DisableScannerRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BarcodeScannerProviderConnection",
+                    "namespace": "Windows.Devices.PointOfService.Provider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "BarcodeScannerDisableScannerRequestEventArgs",
+                    "namespace": "Windows.Devices.PointOfService.Provider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DisableScannerRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_SetActiveSymbologiesRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BarcodeScannerProviderConnection",
+                    "namespace": "Windows.Devices.PointOfService.Provider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "BarcodeScannerSetActiveSymbologiesRequestEventArgs",
+                    "namespace": "Windows.Devices.PointOfService.Provider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SetActiveSymbologiesRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_StartSoftwareTriggerRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BarcodeScannerProviderConnection",
+                    "namespace": "Windows.Devices.PointOfService.Provider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "BarcodeScannerStartSoftwareTriggerRequestEventArgs",
+                    "namespace": "Windows.Devices.PointOfService.Provider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_StartSoftwareTriggerRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_StopSoftwareTriggerRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BarcodeScannerProviderConnection",
+                    "namespace": "Windows.Devices.PointOfService.Provider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "BarcodeScannerStopSoftwareTriggerRequestEventArgs",
+                    "namespace": "Windows.Devices.PointOfService.Provider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_StopSoftwareTriggerRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_GetBarcodeSymbologyAttributesRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BarcodeScannerProviderConnection",
+                    "namespace": "Windows.Devices.PointOfService.Provider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "BarcodeScannerGetSymbologyAttributesRequestEventArgs",
+                    "namespace": "Windows.Devices.PointOfService.Provider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_GetBarcodeSymbologyAttributesRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_SetBarcodeSymbologyAttributesRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BarcodeScannerProviderConnection",
+                    "namespace": "Windows.Devices.PointOfService.Provider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "BarcodeScannerSetSymbologyAttributesRequestEventArgs",
+                    "namespace": "Windows.Devices.PointOfService.Provider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SetBarcodeSymbologyAttributesRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_HideVideoPreviewRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BarcodeScannerProviderConnection",
+                    "namespace": "Windows.Devices.PointOfService.Provider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "BarcodeScannerHideVideoPreviewRequestEventArgs",
+                    "namespace": "Windows.Devices.PointOfService.Provider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_HideVideoPreviewRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CompanyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CompanyName",
+          "setter": "put_CompanyName"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name",
+          "setter": "put_Name"
+        },
+        {
+          "name": "SupportedSymbologies",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_SupportedSymbologies"
+        },
+        {
+          "name": "Version",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Version",
+          "setter": "put_Version"
+        },
+        {
+          "name": "VideoDeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_VideoDeviceId"
+        }
+      ],
+      "events": [
+        {
+          "name": "DisableScannerRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerProviderConnection",
+                "namespace": "Windows.Devices.PointOfService.Provider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerDisableScannerRequestEventArgs",
+                "namespace": "Windows.Devices.PointOfService.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_DisableScannerRequested",
+          "remove_method": "remove_DisableScannerRequested"
+        },
+        {
+          "name": "EnableScannerRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerProviderConnection",
+                "namespace": "Windows.Devices.PointOfService.Provider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerEnableScannerRequestEventArgs",
+                "namespace": "Windows.Devices.PointOfService.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_EnableScannerRequested",
+          "remove_method": "remove_EnableScannerRequested"
+        },
+        {
+          "name": "GetBarcodeSymbologyAttributesRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerProviderConnection",
+                "namespace": "Windows.Devices.PointOfService.Provider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerGetSymbologyAttributesRequestEventArgs",
+                "namespace": "Windows.Devices.PointOfService.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_GetBarcodeSymbologyAttributesRequested",
+          "remove_method": "remove_GetBarcodeSymbologyAttributesRequested"
+        },
+        {
+          "name": "HideVideoPreviewRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerProviderConnection",
+                "namespace": "Windows.Devices.PointOfService.Provider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerHideVideoPreviewRequestEventArgs",
+                "namespace": "Windows.Devices.PointOfService.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_HideVideoPreviewRequested",
+          "remove_method": "remove_HideVideoPreviewRequested"
+        },
+        {
+          "name": "SetActiveSymbologiesRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerProviderConnection",
+                "namespace": "Windows.Devices.PointOfService.Provider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerSetActiveSymbologiesRequestEventArgs",
+                "namespace": "Windows.Devices.PointOfService.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SetActiveSymbologiesRequested",
+          "remove_method": "remove_SetActiveSymbologiesRequested"
+        },
+        {
+          "name": "SetBarcodeSymbologyAttributesRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerProviderConnection",
+                "namespace": "Windows.Devices.PointOfService.Provider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerSetSymbologyAttributesRequestEventArgs",
+                "namespace": "Windows.Devices.PointOfService.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SetBarcodeSymbologyAttributesRequested",
+          "remove_method": "remove_SetBarcodeSymbologyAttributesRequested"
+        },
+        {
+          "name": "StartSoftwareTriggerRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerProviderConnection",
+                "namespace": "Windows.Devices.PointOfService.Provider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerStartSoftwareTriggerRequestEventArgs",
+                "namespace": "Windows.Devices.PointOfService.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_StartSoftwareTriggerRequested",
+          "remove_method": "remove_StartSoftwareTriggerRequested"
+        },
+        {
+          "name": "StopSoftwareTriggerRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerProviderConnection",
+                "namespace": "Windows.Devices.PointOfService.Provider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerStopSoftwareTriggerRequestEventArgs",
+                "namespace": "Windows.Devices.PointOfService.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_StopSoftwareTriggerRequested",
+          "remove_method": "remove_StopSoftwareTriggerRequested"
+        }
+      ]
+    },
+    "IBarcodeScannerProviderConnection2": {
+      "guid": "be9b53cd-1134-418c-a06b-04423a73f3d7",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerProviderConnection",
+      "methods": [
+        {
+          "name": "CreateFrameReaderAsync",
+          "overload": "CreateFrameReaderAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerFrameReader",
+                "namespace": "Windows.Devices.PointOfService.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateFrameReaderAsync",
+          "overload": "CreateFrameReaderWithFormatAsync",
+          "params": [
+            {
+              "name": "preferredFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapPixelFormat",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerFrameReader",
+                "namespace": "Windows.Devices.PointOfService.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateFrameReaderAsync",
+          "overload": "CreateFrameReaderWithFormatAndSizeAsync",
+          "params": [
+            {
+              "name": "preferredFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapPixelFormat",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "preferredSize",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapSize",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BarcodeScannerFrameReader",
+                "namespace": "Windows.Devices.PointOfService.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IBarcodeScannerProviderTriggerDetails": {
+      "guid": "50856d82-24e3-48ce-99c7-70aac1cbc9f7",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerProviderTriggerDetails",
+      "methods": [
+        {
+          "name": "get_Connection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BarcodeScannerProviderConnection",
+            "namespace": "Windows.Devices.PointOfService.Provider",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Connection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BarcodeScannerProviderConnection",
+            "namespace": "Windows.Devices.PointOfService.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Connection"
+        }
+      ]
+    },
+    "IBarcodeScannerSetActiveSymbologiesRequest": {
+      "guid": "db3f32b9-f7da-41a1-9f79-07bcd95f0bdf",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequest",
+      "methods": [
+        {
+          "name": "get_Symbologies",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Symbologies",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_Symbologies"
+        }
+      ]
+    },
+    "IBarcodeScannerSetActiveSymbologiesRequest2": {
+      "guid": "f5ff6edf-fa9a-4749-b11b-e8fccb75bc6b",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequest",
+      "methods": [
+        {
+          "name": "ReportFailedAsync",
+          "overload": "ReportFailedWithFailedReasonAsync",
+          "params": [
+            {
+              "name": "reason",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "overload": "ReportFailedWithFailedReasonAndDescriptionAsync",
+          "params": [
+            {
+              "name": "reason",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "failedReasonDescription",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IBarcodeScannerSetActiveSymbologiesRequestEventArgs": {
+      "guid": "06305afa-7bf6-4d52-801a-330272f60ae1",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BarcodeScannerSetActiveSymbologiesRequest",
+            "namespace": "Windows.Devices.PointOfService.Provider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BarcodeScannerSetActiveSymbologiesRequest",
+            "namespace": "Windows.Devices.PointOfService.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IBarcodeScannerSetSymbologyAttributesRequest": {
+      "guid": "32fb814f-a37f-48b0-acea-dce1480f12ae",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequest",
+      "methods": [
+        {
+          "name": "get_Symbology",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Attributes",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BarcodeSymbologyAttributes",
+            "namespace": "Windows.Devices.PointOfService",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Attributes",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BarcodeSymbologyAttributes",
+            "namespace": "Windows.Devices.PointOfService",
+            "target_kind": "Class"
+          },
+          "getter": "get_Attributes"
+        },
+        {
+          "name": "Symbology",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Symbology"
+        }
+      ]
+    },
+    "IBarcodeScannerSetSymbologyAttributesRequest2": {
+      "guid": "dffbbfc1-dba8-4b77-be1e-b56cd72f65b3",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequest",
+      "methods": [
+        {
+          "name": "ReportFailedAsync",
+          "overload": "ReportFailedWithFailedReasonAsync",
+          "params": [
+            {
+              "name": "reason",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "overload": "ReportFailedWithFailedReasonAndDescriptionAsync",
+          "params": [
+            {
+              "name": "reason",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "failedReasonDescription",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IBarcodeScannerSetSymbologyAttributesRequestEventArgs": {
+      "guid": "b2b89809-9824-47d4-85bd-d0077baa7bd2",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BarcodeScannerSetSymbologyAttributesRequest",
+            "namespace": "Windows.Devices.PointOfService.Provider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BarcodeScannerSetSymbologyAttributesRequest",
+            "namespace": "Windows.Devices.PointOfService.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IBarcodeScannerStartSoftwareTriggerRequest": {
+      "guid": "e3fa7b27-ff62-4454-af4a-cb6144a3e3f7",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequest",
+      "methods": [
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IBarcodeScannerStartSoftwareTriggerRequest2": {
+      "guid": "eb72a25c-6658-4765-a68e-327482653deb",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequest",
+      "methods": [
+        {
+          "name": "ReportFailedAsync",
+          "overload": "ReportFailedWithFailedReasonAsync",
+          "params": [
+            {
+              "name": "reason",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "overload": "ReportFailedWithFailedReasonAndDescriptionAsync",
+          "params": [
+            {
+              "name": "reason",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "failedReasonDescription",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IBarcodeScannerStartSoftwareTriggerRequestEventArgs": {
+      "guid": "2305d843-c88f-4f3b-8c3b-d3df071051ec",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BarcodeScannerStartSoftwareTriggerRequest",
+            "namespace": "Windows.Devices.PointOfService.Provider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BarcodeScannerStartSoftwareTriggerRequest",
+            "namespace": "Windows.Devices.PointOfService.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IBarcodeScannerStopSoftwareTriggerRequest": {
+      "guid": "6f9faf35-e287-4ca8-b70d-5a91d694f668",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequest",
+      "methods": [
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IBarcodeScannerStopSoftwareTriggerRequest2": {
+      "guid": "cb57c5dd-fe50-49f8-a0b4-bdc230814da2",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequest",
+      "methods": [
+        {
+          "name": "ReportFailedAsync",
+          "overload": "ReportFailedWithFailedReasonAsync",
+          "params": [
+            {
+              "name": "reason",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "overload": "ReportFailedWithFailedReasonAndDescriptionAsync",
+          "params": [
+            {
+              "name": "reason",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "failedReasonDescription",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IBarcodeScannerStopSoftwareTriggerRequestEventArgs": {
+      "guid": "eac34450-4eb7-481a-9273-147a273b99b8",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BarcodeScannerStopSoftwareTriggerRequest",
+            "namespace": "Windows.Devices.PointOfService.Provider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BarcodeScannerStopSoftwareTriggerRequest",
+            "namespace": "Windows.Devices.PointOfService.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IBarcodeScannerVideoFrame": {
+      "guid": "7e585248-9df7-4121-a175-801d8000112e",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeScannerVideoFrame",
+      "methods": [
+        {
+          "name": "get_Format",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapPixelFormat",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Width",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Height",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_PixelData",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Format",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapPixelFormat",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Format"
+        },
+        {
+          "name": "Height",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Height"
+        },
+        {
+          "name": "PixelData",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_PixelData"
+        },
+        {
+          "name": "Width",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Width"
+        }
+      ]
+    },
+    "IBarcodeSymbologyAttributesBuilder": {
+      "guid": "c57b0cbf-e4f5-40b9-84cf-e63fbaea42b4",
+      "exclusive_to": "Windows.Devices.PointOfService.Provider.BarcodeSymbologyAttributesBuilder",
+      "methods": [
+        {
+          "name": "get_IsCheckDigitValidationSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsCheckDigitValidationSupported",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsCheckDigitTransmissionSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsCheckDigitTransmissionSupported",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsDecodeLengthSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsDecodeLengthSupported",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CreateAttributes",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BarcodeSymbologyAttributes",
+            "namespace": "Windows.Devices.PointOfService",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsCheckDigitTransmissionSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsCheckDigitTransmissionSupported",
+          "setter": "put_IsCheckDigitTransmissionSupported"
+        },
+        {
+          "name": "IsCheckDigitValidationSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsCheckDigitValidationSupported",
+          "setter": "put_IsCheckDigitValidationSupported"
+        },
+        {
+          "name": "IsDecodeLengthSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsDecodeLengthSupported",
+          "setter": "put_IsDecodeLengthSupported"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "BarcodeScannerDisableScannerRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBarcodeScannerDisableScannerRequest",
+        "namespace": "Windows.Devices.PointOfService.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerDisableScannerRequest",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerDisableScannerRequest2",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BarcodeScannerDisableScannerRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBarcodeScannerDisableScannerRequestEventArgs",
+        "namespace": "Windows.Devices.PointOfService.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerDisableScannerRequestEventArgs",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BarcodeScannerEnableScannerRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBarcodeScannerEnableScannerRequest",
+        "namespace": "Windows.Devices.PointOfService.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerEnableScannerRequest",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerEnableScannerRequest2",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BarcodeScannerEnableScannerRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBarcodeScannerEnableScannerRequestEventArgs",
+        "namespace": "Windows.Devices.PointOfService.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerEnableScannerRequestEventArgs",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BarcodeScannerFrameReader": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBarcodeScannerFrameReader",
+        "namespace": "Windows.Devices.PointOfService.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerFrameReader",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BarcodeScannerFrameReaderFrameArrivedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBarcodeScannerFrameReaderFrameArrivedEventArgs",
+        "namespace": "Windows.Devices.PointOfService.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerFrameReaderFrameArrivedEventArgs",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BarcodeScannerGetSymbologyAttributesRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBarcodeScannerGetSymbologyAttributesRequest",
+        "namespace": "Windows.Devices.PointOfService.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerGetSymbologyAttributesRequest",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerGetSymbologyAttributesRequest2",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BarcodeScannerGetSymbologyAttributesRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBarcodeScannerGetSymbologyAttributesRequestEventArgs",
+        "namespace": "Windows.Devices.PointOfService.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerGetSymbologyAttributesRequestEventArgs",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BarcodeScannerHideVideoPreviewRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBarcodeScannerHideVideoPreviewRequest",
+        "namespace": "Windows.Devices.PointOfService.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerHideVideoPreviewRequest",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerHideVideoPreviewRequest2",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BarcodeScannerHideVideoPreviewRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBarcodeScannerHideVideoPreviewRequestEventArgs",
+        "namespace": "Windows.Devices.PointOfService.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerHideVideoPreviewRequestEventArgs",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BarcodeScannerProviderConnection": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBarcodeScannerProviderConnection",
+        "namespace": "Windows.Devices.PointOfService.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerProviderConnection",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerProviderConnection2",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BarcodeScannerProviderTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBarcodeScannerProviderTriggerDetails",
+        "namespace": "Windows.Devices.PointOfService.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerProviderTriggerDetails",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BarcodeScannerSetActiveSymbologiesRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBarcodeScannerSetActiveSymbologiesRequest",
+        "namespace": "Windows.Devices.PointOfService.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerSetActiveSymbologiesRequest",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerSetActiveSymbologiesRequest2",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BarcodeScannerSetActiveSymbologiesRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBarcodeScannerSetActiveSymbologiesRequestEventArgs",
+        "namespace": "Windows.Devices.PointOfService.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerSetActiveSymbologiesRequestEventArgs",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BarcodeScannerSetSymbologyAttributesRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBarcodeScannerSetSymbologyAttributesRequest",
+        "namespace": "Windows.Devices.PointOfService.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerSetSymbologyAttributesRequest",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerSetSymbologyAttributesRequest2",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BarcodeScannerSetSymbologyAttributesRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBarcodeScannerSetSymbologyAttributesRequestEventArgs",
+        "namespace": "Windows.Devices.PointOfService.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerSetSymbologyAttributesRequestEventArgs",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BarcodeScannerStartSoftwareTriggerRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBarcodeScannerStartSoftwareTriggerRequest",
+        "namespace": "Windows.Devices.PointOfService.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerStartSoftwareTriggerRequest",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerStartSoftwareTriggerRequest2",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BarcodeScannerStartSoftwareTriggerRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBarcodeScannerStartSoftwareTriggerRequestEventArgs",
+        "namespace": "Windows.Devices.PointOfService.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerStartSoftwareTriggerRequestEventArgs",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BarcodeScannerStopSoftwareTriggerRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBarcodeScannerStopSoftwareTriggerRequest",
+        "namespace": "Windows.Devices.PointOfService.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerStopSoftwareTriggerRequest",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerStopSoftwareTriggerRequest2",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BarcodeScannerStopSoftwareTriggerRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBarcodeScannerStopSoftwareTriggerRequestEventArgs",
+        "namespace": "Windows.Devices.PointOfService.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerStopSoftwareTriggerRequestEventArgs",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BarcodeScannerVideoFrame": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBarcodeScannerVideoFrame",
+        "namespace": "Windows.Devices.PointOfService.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerVideoFrame",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BarcodeSymbologyAttributesBuilder": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBarcodeSymbologyAttributesBuilder",
+        "namespace": "Windows.Devices.PointOfService.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeSymbologyAttributesBuilder",
+          "namespace": "Windows.Devices.PointOfService.Provider",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  }
+}

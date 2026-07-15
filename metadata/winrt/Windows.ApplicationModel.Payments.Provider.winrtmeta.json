@@ -1,0 +1,445 @@
+{
+  "namespace": "Windows.ApplicationModel.Payments.Provider",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IPaymentAppCanMakePaymentTriggerDetails": {
+      "guid": "0ce201f0-8b93-4eb6-8c46-2e4a6c6a26f6",
+      "exclusive_to": "Windows.ApplicationModel.Payments.Provider.PaymentAppCanMakePaymentTriggerDetails",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentRequest",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ReportCanMakePaymentResult",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentCanMakePaymentResult",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentRequest",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IPaymentAppManager": {
+      "guid": "0e47aa53-8521-4969-a957-df2538a3a98f",
+      "exclusive_to": "Windows.ApplicationModel.Payments.Provider.PaymentAppManager",
+      "methods": [
+        {
+          "name": "RegisterAsync",
+          "params": [
+            {
+              "name": "supportedPaymentMethodIds",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "UnregisterAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IPaymentAppManagerStatics": {
+      "guid": "a341ac28-fc89-4406-b4d9-34e7fe79dfb6",
+      "exclusive_to": "Windows.ApplicationModel.Payments.Provider.PaymentAppManager",
+      "methods": [
+        {
+          "name": "get_Current",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentAppManager",
+            "namespace": "Windows.ApplicationModel.Payments.Provider",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Current",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentAppManager",
+            "namespace": "Windows.ApplicationModel.Payments.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Current"
+        }
+      ]
+    },
+    "IPaymentTransaction": {
+      "guid": "62581da0-26a5-4e9b-a6eb-66606cf001d3",
+      "exclusive_to": "Windows.ApplicationModel.Payments.Provider.PaymentTransaction",
+      "methods": [
+        {
+          "name": "get_PaymentRequest",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentRequest",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PayerEmail",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_PayerEmail",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PayerName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_PayerName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PayerPhoneNumber",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_PayerPhoneNumber",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "UpdateShippingAddressAsync",
+          "params": [
+            {
+              "name": "shippingAddress",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentAddress",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PaymentRequestChangedResult",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "UpdateSelectedShippingOptionAsync",
+          "params": [
+            {
+              "name": "selectedShippingOption",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentShippingOption",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PaymentRequestChangedResult",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "AcceptAsync",
+          "params": [
+            {
+              "name": "paymentToken",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaymentToken",
+                "namespace": "Windows.ApplicationModel.Payments",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PaymentTransactionAcceptResult",
+                "namespace": "Windows.ApplicationModel.Payments.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Reject"
+        }
+      ],
+      "properties": [
+        {
+          "name": "PayerEmail",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PayerEmail",
+          "setter": "put_PayerEmail"
+        },
+        {
+          "name": "PayerName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PayerName",
+          "setter": "put_PayerName"
+        },
+        {
+          "name": "PayerPhoneNumber",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PayerPhoneNumber",
+          "setter": "put_PayerPhoneNumber"
+        },
+        {
+          "name": "PaymentRequest",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentRequest",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Class"
+          },
+          "getter": "get_PaymentRequest"
+        }
+      ]
+    },
+    "IPaymentTransactionAcceptResult": {
+      "guid": "060e3276-d30c-4817-95a2-df7ae9273b56",
+      "exclusive_to": "Windows.ApplicationModel.Payments.Provider.PaymentTransactionAcceptResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PaymentRequestCompletionStatus",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaymentRequestCompletionStatus",
+            "namespace": "Windows.ApplicationModel.Payments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IPaymentTransactionStatics": {
+      "guid": "8d639750-ee0a-4df5-9b1e-1c0f9ec59881",
+      "exclusive_to": "Windows.ApplicationModel.Payments.Provider.PaymentTransaction",
+      "methods": [
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PaymentTransaction",
+                "namespace": "Windows.ApplicationModel.Payments.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "PaymentAppCanMakePaymentTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPaymentAppCanMakePaymentTriggerDetails",
+        "namespace": "Windows.ApplicationModel.Payments.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPaymentAppCanMakePaymentTriggerDetails",
+          "namespace": "Windows.ApplicationModel.Payments.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PaymentAppManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPaymentAppManager",
+        "namespace": "Windows.ApplicationModel.Payments.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPaymentAppManager",
+          "namespace": "Windows.ApplicationModel.Payments.Provider",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.ApplicationModel.Payments.Provider.IPaymentAppManagerStatics"
+      ]
+    },
+    "PaymentTransaction": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPaymentTransaction",
+        "namespace": "Windows.ApplicationModel.Payments.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPaymentTransaction",
+          "namespace": "Windows.ApplicationModel.Payments.Provider",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.ApplicationModel.Payments.Provider.IPaymentTransactionStatics"
+      ]
+    },
+    "PaymentTransactionAcceptResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPaymentTransactionAcceptResult",
+        "namespace": "Windows.ApplicationModel.Payments.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPaymentTransactionAcceptResult",
+          "namespace": "Windows.ApplicationModel.Payments.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

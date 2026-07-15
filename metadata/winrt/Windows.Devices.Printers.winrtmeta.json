@@ -1,0 +1,3825 @@
+{
+  "namespace": "Windows.Devices.Printers",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "IppAttributeErrorReason": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "RequestEntityTooLarge",
+          "value": "0"
+        },
+        {
+          "name": "AttributeNotSupported",
+          "value": "1"
+        },
+        {
+          "name": "AttributeValuesNotSupported",
+          "value": "2"
+        },
+        {
+          "name": "AttributeNotSettable",
+          "value": "3"
+        },
+        {
+          "name": "ConflictingAttributes",
+          "value": "4"
+        }
+      ]
+    },
+    "IppAttributeGroupKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Printer",
+          "value": "0"
+        },
+        {
+          "name": "Job",
+          "value": "1"
+        },
+        {
+          "name": "Operation",
+          "value": "2"
+        }
+      ]
+    },
+    "IppAttributeValueKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unsupported",
+          "value": "0"
+        },
+        {
+          "name": "Unknown",
+          "value": "1"
+        },
+        {
+          "name": "NoValue",
+          "value": "2"
+        },
+        {
+          "name": "Integer",
+          "value": "3"
+        },
+        {
+          "name": "Boolean",
+          "value": "4"
+        },
+        {
+          "name": "Enum",
+          "value": "5"
+        },
+        {
+          "name": "OctetString",
+          "value": "6"
+        },
+        {
+          "name": "DateTime",
+          "value": "7"
+        },
+        {
+          "name": "Resolution",
+          "value": "8"
+        },
+        {
+          "name": "RangeOfInteger",
+          "value": "9"
+        },
+        {
+          "name": "Collection",
+          "value": "10"
+        },
+        {
+          "name": "TextWithLanguage",
+          "value": "11"
+        },
+        {
+          "name": "NameWithLanguage",
+          "value": "12"
+        },
+        {
+          "name": "TextWithoutLanguage",
+          "value": "13"
+        },
+        {
+          "name": "NameWithoutLanguage",
+          "value": "14"
+        },
+        {
+          "name": "Keyword",
+          "value": "15"
+        },
+        {
+          "name": "Uri",
+          "value": "16"
+        },
+        {
+          "name": "UriSchema",
+          "value": "17"
+        },
+        {
+          "name": "Charset",
+          "value": "18"
+        },
+        {
+          "name": "NaturalLanguage",
+          "value": "19"
+        },
+        {
+          "name": "MimeMediaType",
+          "value": "20"
+        }
+      ]
+    },
+    "IppPrintDeviceInstallationStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "InstallationSucceeded",
+          "value": "0"
+        },
+        {
+          "name": "PrinterAlreadyInstalled",
+          "value": "1"
+        },
+        {
+          "name": "CommunicationError",
+          "value": "2"
+        },
+        {
+          "name": "OtherFailure",
+          "value": "3"
+        }
+      ]
+    },
+    "IppPrintDeviceKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Printer",
+          "value": "0"
+        },
+        {
+          "name": "FaxOut",
+          "value": "1"
+        },
+        {
+          "name": "VirtualPrinter",
+          "value": "2"
+        }
+      ]
+    },
+    "IppResolutionUnit": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "DotsPerInch",
+          "value": "0"
+        },
+        {
+          "name": "DotsPerCentimeter",
+          "value": "1"
+        }
+      ]
+    },
+    "PageConfigurationSource": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "PrintJobConfiguration",
+          "value": "0"
+        },
+        {
+          "name": "PdlContent",
+          "value": "1"
+        }
+      ]
+    },
+    "ReplaceDevicePropertiesStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Succeeded",
+          "value": "0"
+        },
+        {
+          "name": "AccessDenied",
+          "value": "1"
+        },
+        {
+          "name": "OtherFailure",
+          "value": "2"
+        }
+      ]
+    },
+    "VirtualPrinterInstallationStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "InstallationSucceeded",
+          "value": "0"
+        },
+        {
+          "name": "PrinterAlreadyInstalled",
+          "value": "1"
+        },
+        {
+          "name": "PrinterInstallationAccessDenied",
+          "value": "2"
+        },
+        {
+          "name": "PrinterInstallationFailed",
+          "value": "3"
+        }
+      ]
+    },
+    "VirtualPrinterPreferredInputFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "OpenXps",
+          "value": "0"
+        },
+        {
+          "name": "PostScript",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IIppAttributeConverterStatics": {
+      "guid": "91e368df-bfa4-5ca1-a92d-0793f988e82d",
+      "exclusive_to": "Windows.Devices.Printers.IppAttributeConverter",
+      "methods": [
+        {
+          "name": "ConvertPrintTicketToIppAttributesForPrinter",
+          "params": [
+            {
+              "name": "printerName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "printTicket",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WorkflowPrintTicket",
+                "namespace": "Windows.Graphics.Printing.PrintTicket",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "targetPdlFormat",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IppAttributeGroupKind",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Enum"
+              },
+              {
+                "kind": "GenericInst",
+                "name": "IMap`2",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "IppAttributeValue",
+                    "namespace": "Windows.Devices.Printers",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "ConvertBufferToIppAttributes",
+          "params": [
+            {
+              "name": "attributesBuffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "IppAttributeValue",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ConvertIppAttributesToBuffer",
+          "params": [
+            {
+              "name": "attributes",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "GenericInst",
+                    "name": "IKeyValuePair`2",
+                    "namespace": "Windows.Foundation.Collections",
+                    "target_kind": "Interface",
+                    "args": [
+                      {
+                        "kind": "Native",
+                        "name": "HString"
+                      },
+                      {
+                        "kind": "ApiRef",
+                        "name": "IppAttributeValue",
+                        "namespace": "Windows.Devices.Printers",
+                        "target_kind": "Class"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "name": "attributeGroupKind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IppAttributeGroupKind",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IIppAttributeError": {
+      "guid": "750feda1-9eef-5c39-93e4-46149bbcef27",
+      "exclusive_to": "Windows.Devices.Printers.IppAttributeError",
+      "methods": [
+        {
+          "name": "get_Reason",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeErrorReason",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ExtendedError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "GetUnsupportedValues",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IppAttributeValue",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExtendedError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtendedError"
+        },
+        {
+          "name": "Reason",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IppAttributeErrorReason",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Reason"
+        }
+      ]
+    },
+    "IIppAttributeValue": {
+      "guid": "99407fed-e2bb-59a3-988b-28a974052a26",
+      "exclusive_to": "Windows.Devices.Printers.IppAttributeValue",
+      "methods": [
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValueKind",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetIntegerArray",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetBooleanArray",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetEnumArray",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetOctetStringArray",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDateTimeArray",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetResolutionArray",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IppResolution",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetRangeOfIntegerArray",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IppIntegerRange",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetCollectionArray",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IMapView`2",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "IppAttributeValue",
+                    "namespace": "Windows.Devices.Printers",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetTextWithLanguageArray",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IppTextWithLanguage",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetNameWithLanguageArray",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IppTextWithLanguage",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetTextWithoutLanguageArray",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetNameWithoutLanguageArray",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetKeywordArray",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetUriArray",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetUriSchemaArray",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetCharsetArray",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetNaturalLanguageArray",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetMimeMediaTypeArray",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValueKind",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        }
+      ]
+    },
+    "IIppAttributeValueStatics": {
+      "guid": "10d43942-dd94-5998-b235-afafb6fa7935",
+      "exclusive_to": "Windows.Devices.Printers.IppAttributeValue",
+      "methods": [
+        {
+          "name": "CreateUnsupported",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateUnknown",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateNoValue",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateInteger",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateIntegerArray",
+          "params": [
+            {
+              "name": "values",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "I4"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateBoolean",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateBooleanArray",
+          "params": [
+            {
+              "name": "values",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Bool"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateEnum",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateEnumArray",
+          "params": [
+            {
+              "name": "values",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "I4"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateOctetString",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateOctetStringArray",
+          "params": [
+            {
+              "name": "values",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IBuffer",
+                    "namespace": "Windows.Storage.Streams",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateDateTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateDateTimeArray",
+          "params": [
+            {
+              "name": "values",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateResolution",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IppResolution",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateResolutionArray",
+          "params": [
+            {
+              "name": "values",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IppResolution",
+                    "namespace": "Windows.Devices.Printers",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateRangeOfInteger",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IppIntegerRange",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateRangeOfIntegerArray",
+          "params": [
+            {
+              "name": "values",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IppIntegerRange",
+                    "namespace": "Windows.Devices.Printers",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateCollection",
+          "params": [
+            {
+              "name": "memberAttributes",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "GenericInst",
+                    "name": "IKeyValuePair`2",
+                    "namespace": "Windows.Foundation.Collections",
+                    "target_kind": "Interface",
+                    "args": [
+                      {
+                        "kind": "Native",
+                        "name": "HString"
+                      },
+                      {
+                        "kind": "ApiRef",
+                        "name": "IppAttributeValue",
+                        "namespace": "Windows.Devices.Printers",
+                        "target_kind": "Class"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateCollectionArray",
+          "params": [
+            {
+              "name": "memberAttributesArray",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "GenericInst",
+                    "name": "IIterable`1",
+                    "namespace": "Windows.Foundation.Collections",
+                    "target_kind": "Interface",
+                    "args": [
+                      {
+                        "kind": "GenericInst",
+                        "name": "IKeyValuePair`2",
+                        "namespace": "Windows.Foundation.Collections",
+                        "target_kind": "Interface",
+                        "args": [
+                          {
+                            "kind": "Native",
+                            "name": "HString"
+                          },
+                          {
+                            "kind": "ApiRef",
+                            "name": "IppAttributeValue",
+                            "namespace": "Windows.Devices.Printers",
+                            "target_kind": "Class"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateTextWithLanguage",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IppTextWithLanguage",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateTextWithLanguageArray",
+          "params": [
+            {
+              "name": "values",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IppTextWithLanguage",
+                    "namespace": "Windows.Devices.Printers",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateNameWithLanguage",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IppTextWithLanguage",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateNameWithLanguageArray",
+          "params": [
+            {
+              "name": "values",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IppTextWithLanguage",
+                    "namespace": "Windows.Devices.Printers",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateTextWithoutLanguage",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateTextWithoutLanguageArray",
+          "params": [
+            {
+              "name": "values",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateNameWithoutLanguage",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateNameWithoutLanguageArray",
+          "params": [
+            {
+              "name": "values",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateKeyword",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateKeywordArray",
+          "params": [
+            {
+              "name": "values",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateUriArray",
+          "params": [
+            {
+              "name": "values",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateUriSchema",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateUriSchemaArray",
+          "params": [
+            {
+              "name": "values",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateCharset",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateCharsetArray",
+          "params": [
+            {
+              "name": "values",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateNaturalLanguage",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateNaturalLanguageArray",
+          "params": [
+            {
+              "name": "values",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateMimeMedia",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateMimeMediaArray",
+          "params": [
+            {
+              "name": "values",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppAttributeValue",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IIppIntegerRange": {
+      "guid": "92907346-c3ea-5ed6-bdb1-3752c62c6f7f",
+      "exclusive_to": "Windows.Devices.Printers.IppIntegerRange",
+      "methods": [
+        {
+          "name": "get_Start",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_End",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "End",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_End"
+        },
+        {
+          "name": "Start",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Start"
+        }
+      ]
+    },
+    "IIppIntegerRangeFactory": {
+      "guid": "75d4ecae-f87e-54ad-b5d0-465204db7553",
+      "exclusive_to": "Windows.Devices.Printers.IppIntegerRange",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "start",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "end",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppIntegerRange",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IIppPrintDevice": {
+      "guid": "d748ac56-76f3-5dc6-afd4-c2a8686b9359",
+      "exclusive_to": "Windows.Devices.Printers.IppPrintDevice",
+      "methods": [
+        {
+          "name": "get_PrinterName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_PrinterUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetPrinterAttributesAsBuffer",
+          "params": [
+            {
+              "name": "attributeNames",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetPrinterAttributes",
+          "params": [
+            {
+              "name": "attributeNames",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "IppAttributeValue",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SetPrinterAttributesFromBuffer",
+          "params": [
+            {
+              "name": "printerAttributesBuffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppSetAttributesResult",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetPrinterAttributes",
+          "params": [
+            {
+              "name": "printerAttributes",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "GenericInst",
+                    "name": "IKeyValuePair`2",
+                    "namespace": "Windows.Foundation.Collections",
+                    "target_kind": "Interface",
+                    "args": [
+                      {
+                        "kind": "Native",
+                        "name": "HString"
+                      },
+                      {
+                        "kind": "ApiRef",
+                        "name": "IppAttributeValue",
+                        "namespace": "Windows.Devices.Printers",
+                        "target_kind": "Class"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppSetAttributesResult",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PrinterName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PrinterName"
+        },
+        {
+          "name": "PrinterUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_PrinterUri"
+        }
+      ]
+    },
+    "IIppPrintDevice2": {
+      "guid": "f7c844c9-9d21-5c63-ac20-3676915be2d7",
+      "exclusive_to": "Windows.Devices.Printers.IppPrintDevice",
+      "methods": [
+        {
+          "name": "GetMaxSupportedPdfSize",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "GetMaxSupportedPdfVersion",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "IsPdlPassthroughSupported",
+          "params": [
+            {
+              "name": "pdlContentType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetPdlPassthroughProvider",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PdlPassthroughProvider",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IIppPrintDevice3": {
+      "guid": "b6258f6d-a46d-5e37-80ce-5f69d5544712",
+      "exclusive_to": "Windows.Devices.Printers.IppPrintDevice",
+      "methods": [
+        {
+          "name": "get_IsIppFaxOutPrinter",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsIppFaxOutPrinter",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsIppFaxOutPrinter"
+        }
+      ]
+    },
+    "IIppPrintDevice4": {
+      "guid": "8c48247e-e869-59fb-bc6d-daea0614f93e",
+      "exclusive_to": "Windows.Devices.Printers.IppPrintDevice",
+      "methods": [
+        {
+          "name": "get_DeviceKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppPrintDeviceKind",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_CanModifyUserDefaultPrintTicket",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_UserDefaultPrintTicket",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WorkflowPrintTicket",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_UserDefaultPrintTicket",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WorkflowPrintTicket",
+                "namespace": "Windows.Graphics.Printing.PrintTicket",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RefreshPrintDeviceCapabilities"
+        },
+        {
+          "name": "GetMaxSupportedPdlVersion",
+          "params": [
+            {
+              "name": "pdlContentType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CanModifyUserDefaultPrintTicket",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanModifyUserDefaultPrintTicket"
+        },
+        {
+          "name": "DeviceKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IppPrintDeviceKind",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DeviceKind"
+        },
+        {
+          "name": "UserDefaultPrintTicket",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WorkflowPrintTicket",
+            "namespace": "Windows.Graphics.Printing.PrintTicket",
+            "target_kind": "Class"
+          },
+          "getter": "get_UserDefaultPrintTicket",
+          "setter": "put_UserDefaultPrintTicket"
+        }
+      ]
+    },
+    "IIppPrintDevice5": {
+      "guid": "ea927fca-e073-5db4-9aee-13df714e853a",
+      "exclusive_to": "Windows.Devices.Printers.IppPrintDevice",
+      "methods": [
+        {
+          "name": "GetDeviceProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ReplaceDeviceProperties",
+          "params": [
+            {
+              "name": "deviceProperties",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "GenericInst",
+                    "name": "IKeyValuePair`2",
+                    "namespace": "Windows.Foundation.Collections",
+                    "target_kind": "Interface",
+                    "args": [
+                      {
+                        "kind": "Native",
+                        "name": "HString"
+                      },
+                      {
+                        "kind": "Native",
+                        "name": "Object"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ReplaceDevicePropertiesResult",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IIppPrintDeviceInstallationResult": {
+      "guid": "fb102fcc-87be-57ff-a086-92272148a256",
+      "exclusive_to": "Windows.Devices.Printers.IppPrintDeviceInstallationResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppPrintDeviceInstallationStatus",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_InstalledPrinterName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ExtendedError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExtendedError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtendedError"
+        },
+        {
+          "name": "InstalledPrinterName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_InstalledPrinterName"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IppPrintDeviceInstallationStatus",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IIppPrintDeviceManagerStatics": {
+      "guid": "8f711a45-c1b9-51bb-80c8-38969c81f800",
+      "exclusive_to": "Windows.Devices.Printers.IppPrintDeviceManager",
+      "methods": [
+        {
+          "name": "CanInstallIppPrintDevice",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "InstallIppPrintDeviceAsync",
+          "params": [
+            {
+              "name": "printerUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "printerName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IppPrintDeviceInstallationResult",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IIppPrintDeviceStatics": {
+      "guid": "7dc19f08-7f20-52ab-94a7-894b83b2a17e",
+      "exclusive_to": "Windows.Devices.Printers.IppPrintDevice",
+      "methods": [
+        {
+          "name": "GetDeviceSelector",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FromId",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppPrintDevice",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "FromPrinterName",
+          "params": [
+            {
+              "name": "printerName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppPrintDevice",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "IsIppPrinter",
+          "params": [
+            {
+              "name": "printerName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IIppResolution": {
+      "guid": "cb493f86-6bf3-56f5-86ce-263d08aead63",
+      "exclusive_to": "Windows.Devices.Printers.IppResolution",
+      "methods": [
+        {
+          "name": "get_Width",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Height",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Unit",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppResolutionUnit",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Height",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Height"
+        },
+        {
+          "name": "Unit",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IppResolutionUnit",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Unit"
+        },
+        {
+          "name": "Width",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Width"
+        }
+      ]
+    },
+    "IIppResolutionFactory": {
+      "guid": "e481c2ae-251a-5326-b173-95543ed99a35",
+      "exclusive_to": "Windows.Devices.Printers.IppResolution",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "width",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "height",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "unit",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IppResolutionUnit",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppResolution",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IIppSetAttributesResult": {
+      "guid": "7d1c7f55-aa9d-58a3-90e9-17bdc5281f07",
+      "exclusive_to": "Windows.Devices.Printers.IppSetAttributesResult",
+      "methods": [
+        {
+          "name": "get_Succeeded",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_AttributeErrors",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "IppAttributeError",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AttributeErrors",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "IppAttributeError",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_AttributeErrors"
+        },
+        {
+          "name": "Succeeded",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Succeeded"
+        }
+      ]
+    },
+    "IIppTextWithLanguage": {
+      "guid": "326447a6-5149-5936-90e8-0c736036bf77",
+      "exclusive_to": "Windows.Devices.Printers.IppTextWithLanguage",
+      "methods": [
+        {
+          "name": "get_Language",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Language",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Language"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "IIppTextWithLanguageFactory": {
+      "guid": "ca4a1e8d-2968-5775-997c-8a46f1a574ed",
+      "exclusive_to": "Windows.Devices.Printers.IppTextWithLanguage",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "language",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "text",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IppTextWithLanguage",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPageConfigurationSettings": {
+      "guid": "b6fc1e02-5331-54ff-95a0-1fcb76bb97a9",
+      "exclusive_to": "Windows.Devices.Printers.PageConfigurationSettings",
+      "methods": [
+        {
+          "name": "get_OrientationSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PageConfigurationSource",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_OrientationSource",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PageConfigurationSource",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SizeSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PageConfigurationSource",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_SizeSource",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PageConfigurationSource",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "OrientationSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PageConfigurationSource",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Enum"
+          },
+          "getter": "get_OrientationSource",
+          "setter": "put_OrientationSource"
+        },
+        {
+          "name": "SizeSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PageConfigurationSource",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SizeSource",
+          "setter": "put_SizeSource"
+        }
+      ]
+    },
+    "IPdlPassthroughProvider": {
+      "guid": "23c71dd2-6117-553f-9378-180af5849a49",
+      "exclusive_to": "Windows.Devices.Printers.PdlPassthroughProvider",
+      "methods": [
+        {
+          "name": "get_SupportedPdlContentTypes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "StartPrintJobWithTaskOptions",
+          "params": [
+            {
+              "name": "jobName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "pdlContentType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "taskOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintTaskOptions",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "pageConfigurationSettings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PageConfigurationSettings",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PdlPassthroughTarget",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "StartPrintJobWithPrintTicket",
+          "params": [
+            {
+              "name": "jobName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "pdlContentType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "printTicket",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "pageConfigurationSettings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PageConfigurationSettings",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PdlPassthroughTarget",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SupportedPdlContentTypes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_SupportedPdlContentTypes"
+        }
+      ]
+    },
+    "IPdlPassthroughProvider2": {
+      "guid": "7330305c-a17d-52ec-a129-9a4ff9c8f655",
+      "exclusive_to": "Windows.Devices.Printers.PdlPassthroughProvider",
+      "methods": [
+        {
+          "name": "get_IsPassthroughWithJobAttributesSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "StartPrintJobWithIppJobAttributes",
+          "params": [
+            {
+              "name": "jobName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "pdlContentType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "jobAttributes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "operationAttributes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PdlPassthroughTarget",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsPassthroughWithJobAttributesSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPassthroughWithJobAttributesSupported"
+        }
+      ]
+    },
+    "IPdlPassthroughTarget": {
+      "guid": "9840be79-67f8-5385-a5b9-e8c96e0fca76",
+      "exclusive_to": "Windows.Devices.Printers.PdlPassthroughTarget",
+      "methods": [
+        {
+          "name": "get_PrintJobId",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "GetOutputStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IOutputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "Submit"
+        }
+      ],
+      "properties": [
+        {
+          "name": "PrintJobId",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_PrintJobId"
+        }
+      ]
+    },
+    "IReplaceDevicePropertiesResult": {
+      "guid": "12feca4b-d973-57e1-826b-f75b9518a9f1",
+      "exclusive_to": "Windows.Devices.Printers.ReplaceDevicePropertiesResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ReplaceDevicePropertiesStatus",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ExtendedError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExtendedError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtendedError"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ReplaceDevicePropertiesStatus",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IVirtualPrinterInstallationParameters": {
+      "guid": "bbc159b3-12f3-584c-8d26-b22c0dc83241",
+      "exclusive_to": "Windows.Devices.Printers.VirtualPrinterInstallationParameters",
+      "methods": [
+        {
+          "name": "get_PrinterName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_PrinterName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OutputFileExtensions",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SupportedInputFormats",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VirtualPrinterSupportedFormat",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_PrintDeviceCapabilitiesPackageRelativeFilePath",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_PrintDeviceCapabilitiesPackageRelativeFilePath",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PrintDeviceResourcesPackageRelativeFilePath",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_PrintDeviceResourcesPackageRelativeFilePath",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PreferredInputFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VirtualPrinterPreferredInputFormat",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_PreferredInputFormat",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VirtualPrinterPreferredInputFormat",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PrinterUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_PrinterUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_EntryPoint",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_EntryPoint",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "EntryPoint",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EntryPoint",
+          "setter": "put_EntryPoint"
+        },
+        {
+          "name": "OutputFileExtensions",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_OutputFileExtensions"
+        },
+        {
+          "name": "PreferredInputFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VirtualPrinterPreferredInputFormat",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PreferredInputFormat",
+          "setter": "put_PreferredInputFormat"
+        },
+        {
+          "name": "PrintDeviceCapabilitiesPackageRelativeFilePath",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PrintDeviceCapabilitiesPackageRelativeFilePath",
+          "setter": "put_PrintDeviceCapabilitiesPackageRelativeFilePath"
+        },
+        {
+          "name": "PrintDeviceResourcesPackageRelativeFilePath",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PrintDeviceResourcesPackageRelativeFilePath",
+          "setter": "put_PrintDeviceResourcesPackageRelativeFilePath"
+        },
+        {
+          "name": "PrinterName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PrinterName",
+          "setter": "put_PrinterName"
+        },
+        {
+          "name": "PrinterUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_PrinterUri",
+          "setter": "put_PrinterUri"
+        },
+        {
+          "name": "SupportedInputFormats",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VirtualPrinterSupportedFormat",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_SupportedInputFormats"
+        }
+      ]
+    },
+    "IVirtualPrinterInstallationResult": {
+      "guid": "82defd78-1601-5657-85df-75eb691604bd",
+      "exclusive_to": "Windows.Devices.Printers.VirtualPrinterInstallationResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VirtualPrinterInstallationStatus",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ExtendedError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExtendedError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtendedError"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VirtualPrinterInstallationStatus",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IVirtualPrinterManagerStatics": {
+      "guid": "141084b6-6702-5b5f-83da-c75891657554",
+      "exclusive_to": "Windows.Devices.Printers.VirtualPrinterManager",
+      "methods": [
+        {
+          "name": "InstallVirtualPrinterAsync",
+          "overload": "InstallVirtualPrinterAsync",
+          "params": [
+            {
+              "name": "parameters",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VirtualPrinterInstallationParameters",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VirtualPrinterInstallationResult",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "InstallVirtualPrinterAsync",
+          "overload": "InstallVirtualPrinterAsync2",
+          "params": [
+            {
+              "name": "parameters",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VirtualPrinterInstallationParameters",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "appPackageFamilyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VirtualPrinterInstallationResult",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "InstallVirtualPrinterForAllUsersAsync",
+          "overload": "InstallVirtualPrinterForAllUsersAsync",
+          "params": [
+            {
+              "name": "parameters",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VirtualPrinterInstallationParameters",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VirtualPrinterInstallationResult",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "InstallVirtualPrinterForAllUsersAsync",
+          "overload": "InstallVirtualPrinterForAllUsersAsync2",
+          "params": [
+            {
+              "name": "parameters",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VirtualPrinterInstallationParameters",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "appPackageFamilyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VirtualPrinterInstallationResult",
+                "namespace": "Windows.Devices.Printers",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAllVirtualPrinters",
+          "overload": "FindAllVirtualPrinters",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAllVirtualPrinters",
+          "overload": "FindAllVirtualPrinters2",
+          "params": [
+            {
+              "name": "appPackageFamilyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RemoveVirtualPrinterAsync",
+          "params": [
+            {
+              "name": "printerName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RemoveVirtualPrinterForAllUsersAsync",
+          "params": [
+            {
+              "name": "printerName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IVirtualPrinterSupportedFormat": {
+      "guid": "3801fa17-22b5-5dab-ad38-39e47d6071af",
+      "exclusive_to": "Windows.Devices.Printers.VirtualPrinterSupportedFormat",
+      "methods": [
+        {
+          "name": "get_ContentType",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_ContentType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MaxSupportedVersion",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_MaxSupportedVersion",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContentType",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ContentType",
+          "setter": "put_ContentType"
+        },
+        {
+          "name": "MaxSupportedVersion",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MaxSupportedVersion",
+          "setter": "put_MaxSupportedVersion"
+        }
+      ]
+    },
+    "IVirtualPrinterSupportedFormatFactory": {
+      "guid": "6daaed44-97a6-57f4-be8b-9dbabc587f2d",
+      "exclusive_to": "Windows.Devices.Printers.VirtualPrinterSupportedFormat",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "contentType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "maxSupportedVersion",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VirtualPrinterSupportedFormat",
+            "namespace": "Windows.Devices.Printers",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "IppAttributeConverter": {
+      "static_interfaces": [
+        "Windows.Devices.Printers.IIppAttributeConverterStatics"
+      ]
+    },
+    "IppAttributeError": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IIppAttributeError",
+        "namespace": "Windows.Devices.Printers",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IIppAttributeError",
+          "namespace": "Windows.Devices.Printers",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "IppAttributeValue": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IIppAttributeValue",
+        "namespace": "Windows.Devices.Printers",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IIppAttributeValue",
+          "namespace": "Windows.Devices.Printers",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Printers.IIppAttributeValueStatics"
+      ]
+    },
+    "IppIntegerRange": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IIppIntegerRange",
+        "namespace": "Windows.Devices.Printers",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IIppIntegerRange",
+          "namespace": "Windows.Devices.Printers",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Printers.IIppIntegerRangeFactory"
+      ]
+    },
+    "IppPrintDevice": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IIppPrintDevice",
+        "namespace": "Windows.Devices.Printers",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IIppPrintDevice",
+          "namespace": "Windows.Devices.Printers",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IIppPrintDevice2",
+          "namespace": "Windows.Devices.Printers",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IIppPrintDevice3",
+          "namespace": "Windows.Devices.Printers",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IIppPrintDevice4",
+          "namespace": "Windows.Devices.Printers",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IIppPrintDevice5",
+          "namespace": "Windows.Devices.Printers",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Printers.IIppPrintDeviceStatics"
+      ]
+    },
+    "IppPrintDeviceInstallationResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IIppPrintDeviceInstallationResult",
+        "namespace": "Windows.Devices.Printers",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IIppPrintDeviceInstallationResult",
+          "namespace": "Windows.Devices.Printers",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "IppPrintDeviceManager": {
+      "static_interfaces": [
+        "Windows.Devices.Printers.IIppPrintDeviceManagerStatics"
+      ]
+    },
+    "IppResolution": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IIppResolution",
+        "namespace": "Windows.Devices.Printers",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IIppResolution",
+          "namespace": "Windows.Devices.Printers",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Printers.IIppResolutionFactory"
+      ]
+    },
+    "IppSetAttributesResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IIppSetAttributesResult",
+        "namespace": "Windows.Devices.Printers",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IIppSetAttributesResult",
+          "namespace": "Windows.Devices.Printers",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "IppTextWithLanguage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IIppTextWithLanguage",
+        "namespace": "Windows.Devices.Printers",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IIppTextWithLanguage",
+          "namespace": "Windows.Devices.Printers",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Printers.IIppTextWithLanguageFactory"
+      ]
+    },
+    "PageConfigurationSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPageConfigurationSettings",
+        "namespace": "Windows.Devices.Printers",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPageConfigurationSettings",
+          "namespace": "Windows.Devices.Printers",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "PdlPassthroughProvider": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPdlPassthroughProvider",
+        "namespace": "Windows.Devices.Printers",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPdlPassthroughProvider",
+          "namespace": "Windows.Devices.Printers",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPdlPassthroughProvider2",
+          "namespace": "Windows.Devices.Printers",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PdlPassthroughTarget": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPdlPassthroughTarget",
+        "namespace": "Windows.Devices.Printers",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPdlPassthroughTarget",
+          "namespace": "Windows.Devices.Printers",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ReplaceDevicePropertiesResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IReplaceDevicePropertiesResult",
+        "namespace": "Windows.Devices.Printers",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IReplaceDevicePropertiesResult",
+          "namespace": "Windows.Devices.Printers",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VirtualPrinterInstallationParameters": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVirtualPrinterInstallationParameters",
+        "namespace": "Windows.Devices.Printers",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVirtualPrinterInstallationParameters",
+          "namespace": "Windows.Devices.Printers",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "VirtualPrinterInstallationResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVirtualPrinterInstallationResult",
+        "namespace": "Windows.Devices.Printers",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVirtualPrinterInstallationResult",
+          "namespace": "Windows.Devices.Printers",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VirtualPrinterManager": {
+      "static_interfaces": [
+        "Windows.Devices.Printers.IVirtualPrinterManagerStatics"
+      ]
+    },
+    "VirtualPrinterSupportedFormat": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVirtualPrinterSupportedFormat",
+        "namespace": "Windows.Devices.Printers",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVirtualPrinterSupportedFormat",
+          "namespace": "Windows.Devices.Printers",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Printers.IVirtualPrinterSupportedFormatFactory"
+      ]
+    }
+  }
+}

@@ -1,0 +1,5936 @@
+{
+  "namespace": "Windows.UI.Core",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "AppViewBackButtonVisibility": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Visible",
+          "value": "0"
+        },
+        {
+          "name": "Collapsed",
+          "value": "1"
+        },
+        {
+          "name": "Disabled",
+          "value": "2"
+        }
+      ]
+    },
+    "CoreAcceleratorKeyEventType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Character",
+          "value": "2"
+        },
+        {
+          "name": "DeadCharacter",
+          "value": "3"
+        },
+        {
+          "name": "KeyDown",
+          "value": "0"
+        },
+        {
+          "name": "KeyUp",
+          "value": "1"
+        },
+        {
+          "name": "SystemCharacter",
+          "value": "6"
+        },
+        {
+          "name": "SystemDeadCharacter",
+          "value": "7"
+        },
+        {
+          "name": "SystemKeyDown",
+          "value": "4"
+        },
+        {
+          "name": "SystemKeyUp",
+          "value": "5"
+        },
+        {
+          "name": "UnicodeCharacter",
+          "value": "8"
+        }
+      ]
+    },
+    "CoreCursorType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Arrow",
+          "value": "0"
+        },
+        {
+          "name": "Cross",
+          "value": "1"
+        },
+        {
+          "name": "Custom",
+          "value": "2"
+        },
+        {
+          "name": "Hand",
+          "value": "3"
+        },
+        {
+          "name": "Help",
+          "value": "4"
+        },
+        {
+          "name": "IBeam",
+          "value": "5"
+        },
+        {
+          "name": "SizeAll",
+          "value": "6"
+        },
+        {
+          "name": "SizeNortheastSouthwest",
+          "value": "7"
+        },
+        {
+          "name": "SizeNorthSouth",
+          "value": "8"
+        },
+        {
+          "name": "SizeNorthwestSoutheast",
+          "value": "9"
+        },
+        {
+          "name": "SizeWestEast",
+          "value": "10"
+        },
+        {
+          "name": "UniversalNo",
+          "value": "11"
+        },
+        {
+          "name": "UpArrow",
+          "value": "12"
+        },
+        {
+          "name": "Wait",
+          "value": "13"
+        },
+        {
+          "name": "Pin",
+          "value": "14"
+        },
+        {
+          "name": "Person",
+          "value": "15"
+        }
+      ]
+    },
+    "CoreDispatcherPriority": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Idle",
+          "value": "-2"
+        },
+        {
+          "name": "Low",
+          "value": "-1"
+        },
+        {
+          "name": "Normal",
+          "value": "0"
+        },
+        {
+          "name": "High",
+          "value": "1"
+        }
+      ]
+    },
+    "CoreIndependentInputFilters": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "MouseButton",
+          "value": "1"
+        },
+        {
+          "name": "MouseWheel",
+          "value": "2"
+        },
+        {
+          "name": "MouseHover",
+          "value": "4"
+        },
+        {
+          "name": "PenWithBarrel",
+          "value": "8"
+        },
+        {
+          "name": "PenInverted",
+          "value": "16"
+        }
+      ]
+    },
+    "CoreInputDeviceTypes": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Touch",
+          "value": "1"
+        },
+        {
+          "name": "Pen",
+          "value": "2"
+        },
+        {
+          "name": "Mouse",
+          "value": "4"
+        }
+      ]
+    },
+    "CoreProcessEventsOption": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "ProcessOneAndAllPending",
+          "value": "0"
+        },
+        {
+          "name": "ProcessOneIfPresent",
+          "value": "1"
+        },
+        {
+          "name": "ProcessUntilQuit",
+          "value": "2"
+        },
+        {
+          "name": "ProcessAllIfPresent",
+          "value": "3"
+        }
+      ]
+    },
+    "CoreProximityEvaluationScore": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Closest",
+          "value": "0"
+        },
+        {
+          "name": "Farthest",
+          "value": "2147483647"
+        }
+      ]
+    },
+    "CoreVirtualKeyStates": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Down",
+          "value": "1"
+        },
+        {
+          "name": "Locked",
+          "value": "2"
+        }
+      ]
+    },
+    "CoreWindowActivationMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Deactivated",
+          "value": "1"
+        },
+        {
+          "name": "ActivatedNotForeground",
+          "value": "2"
+        },
+        {
+          "name": "ActivatedInForeground",
+          "value": "3"
+        }
+      ]
+    },
+    "CoreWindowActivationState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "CodeActivated",
+          "value": "0"
+        },
+        {
+          "name": "Deactivated",
+          "value": "1"
+        },
+        {
+          "name": "PointerActivated",
+          "value": "2"
+        }
+      ]
+    },
+    "CoreWindowFlowDirection": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "LeftToRight",
+          "value": "0"
+        },
+        {
+          "name": "RightToLeft",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "CorePhysicalKeyStatus": {
+      "fields": [
+        {
+          "name": "RepeatCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "ScanCode",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "IsExtendedKey",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsMenuKeyDown",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "WasKeyDown",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsKeyReleased",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "CoreProximityEvaluation": {
+      "fields": [
+        {
+          "name": "Score",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "AdjustedPoint",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IAcceleratorKeyEventArgs": {
+      "guid": "ff1c4c4a-9287-470b-836e-9086e3126ade",
+      "exclusive_to": "Windows.UI.Core.AcceleratorKeyEventArgs",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_EventType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreAcceleratorKeyEventType",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_VirtualKey",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VirtualKey",
+            "namespace": "Windows.System",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_KeyStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CorePhysicalKeyStatus",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EventType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreAcceleratorKeyEventType",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_EventType"
+        },
+        {
+          "name": "KeyStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CorePhysicalKeyStatus",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Struct"
+          },
+          "getter": "get_KeyStatus"
+        },
+        {
+          "name": "VirtualKey",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VirtualKey",
+            "namespace": "Windows.System",
+            "target_kind": "Enum"
+          },
+          "getter": "get_VirtualKey"
+        }
+      ]
+    },
+    "IAcceleratorKeyEventArgs2": {
+      "guid": "d300a9f6-2f7e-4873-a555-166e596ee1c5",
+      "exclusive_to": "Windows.UI.Core.AcceleratorKeyEventArgs",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        }
+      ]
+    },
+    "IAutomationProviderRequestedEventArgs": {
+      "guid": "961ff258-21bf-4b42-a298-fa479d4c52e2",
+      "exclusive_to": "Windows.UI.Core.AutomationProviderRequestedEventArgs",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_AutomationProvider",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "put_AutomationProvider",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AutomationProvider",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_AutomationProvider",
+          "setter": "put_AutomationProvider"
+        }
+      ]
+    },
+    "IBackRequestedEventArgs": {
+      "guid": "d603d28a-e411-4a4e-ba41-6a327a8675bc",
+      "exclusive_to": "Windows.UI.Core.BackRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        }
+      ]
+    },
+    "ICharacterReceivedEventArgs": {
+      "guid": "c584659f-99b2-4bcc-bd33-04e63f42902e",
+      "exclusive_to": "Windows.UI.Core.CharacterReceivedEventArgs",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_KeyCode",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_KeyStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CorePhysicalKeyStatus",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "KeyCode",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_KeyCode"
+        },
+        {
+          "name": "KeyStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CorePhysicalKeyStatus",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Struct"
+          },
+          "getter": "get_KeyStatus"
+        }
+      ]
+    },
+    "IClosestInteractiveBoundsRequestedEventArgs": {
+      "guid": "347c11d7-f6f8-40e3-b29f-ae50d3e86486",
+      "exclusive_to": "Windows.UI.Core.ClosestInteractiveBoundsRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_PointerPosition",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_SearchBounds",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_ClosestInteractiveBounds",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_ClosestInteractiveBounds",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ClosestInteractiveBounds",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ClosestInteractiveBounds",
+          "setter": "put_ClosestInteractiveBounds"
+        },
+        {
+          "name": "PointerPosition",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_PointerPosition"
+        },
+        {
+          "name": "SearchBounds",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SearchBounds"
+        }
+      ]
+    },
+    "ICoreAcceleratorKeys": {
+      "guid": "9ffdf7f5-b8c9-4ef0-b7d2-1de626561fc8",
+      "methods": [
+        {
+          "name": "add_AcceleratorKeyActivated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreDispatcher",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AcceleratorKeyEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_AcceleratorKeyActivated",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "AcceleratorKeyActivated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreDispatcher",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AcceleratorKeyEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_AcceleratorKeyActivated",
+          "remove_method": "remove_AcceleratorKeyActivated"
+        }
+      ]
+    },
+    "ICoreClosestInteractiveBoundsRequested": {
+      "guid": "f303043a-e8bf-4e8e-ae69-c9dadd57a114",
+      "exclusive_to": "Windows.UI.Core.CoreComponentInputSource",
+      "methods": [
+        {
+          "name": "add_ClosestInteractiveBoundsRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreComponentInputSource",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "ClosestInteractiveBoundsRequestedEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ClosestInteractiveBoundsRequested",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "ClosestInteractiveBoundsRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreComponentInputSource",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "ClosestInteractiveBoundsRequestedEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ClosestInteractiveBoundsRequested",
+          "remove_method": "remove_ClosestInteractiveBoundsRequested"
+        }
+      ]
+    },
+    "ICoreComponentFocusable": {
+      "guid": "52f96fa3-8742-4411-ae69-79a85f29ac8b",
+      "exclusive_to": "Windows.UI.Core.CoreComponentInputSource",
+      "methods": [
+        {
+          "name": "get_HasFocus",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "add_GotFocus",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWindowEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_GotFocus",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_LostFocus",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWindowEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_LostFocus",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "HasFocus",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasFocus"
+        }
+      ],
+      "events": [
+        {
+          "name": "GotFocus",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CoreWindowEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_GotFocus",
+          "remove_method": "remove_GotFocus"
+        },
+        {
+          "name": "LostFocus",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CoreWindowEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_LostFocus",
+          "remove_method": "remove_LostFocus"
+        }
+      ]
+    },
+    "ICoreCursor": {
+      "guid": "96893acf-111d-442c-8a77-b87992f8e2d6",
+      "exclusive_to": "Windows.UI.Core.CoreCursor",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Type",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreCursorType",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "Type",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreCursorType",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Type"
+        }
+      ]
+    },
+    "ICoreCursorFactory": {
+      "guid": "f6359621-a79d-4ed3-8c32-a9ef9d6b76a4",
+      "exclusive_to": "Windows.UI.Core.CoreCursor",
+      "methods": [
+        {
+          "name": "CreateCursor",
+          "params": [
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreCursorType",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreCursor",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ICoreDispatcher": {
+      "guid": "60db2fa8-b705-4fde-a7d6-ebbb1891d39e",
+      "exclusive_to": "Windows.UI.Core.CoreDispatcher",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreAcceleratorKeys",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_HasThreadAccess",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "ProcessEvents",
+          "params": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreProcessEventsOption",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RunAsync",
+          "params": [
+            {
+              "name": "priority",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreDispatcherPriority",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "agileCallback",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DispatchedHandler",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "RunIdleAsync",
+          "params": [
+            {
+              "name": "agileCallback",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IdleDispatchedHandler",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HasThreadAccess",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasThreadAccess"
+        }
+      ]
+    },
+    "ICoreDispatcher2": {
+      "guid": "6f5e63c7-e3aa-4eae-b0e0-dcf321ca4b2f",
+      "exclusive_to": "Windows.UI.Core.CoreDispatcher",
+      "methods": [
+        {
+          "name": "TryRunAsync",
+          "params": [
+            {
+              "name": "priority",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreDispatcherPriority",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "agileCallback",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DispatchedHandler",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryRunIdleAsync",
+          "params": [
+            {
+              "name": "agileCallback",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IdleDispatchedHandler",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ICoreDispatcherWithTaskPriority": {
+      "guid": "bafaecad-484d-41be-ba80-1d58c65263ea",
+      "exclusive_to": "Windows.UI.Core.CoreDispatcher",
+      "methods": [
+        {
+          "name": "get_CurrentPriority",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreDispatcherPriority",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_CurrentPriority",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreDispatcherPriority",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ShouldYield",
+          "overload": "ShouldYield",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "ShouldYield",
+          "overload": "ShouldYieldToPriority",
+          "params": [
+            {
+              "name": "priority",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreDispatcherPriority",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "StopProcessEvents"
+        }
+      ],
+      "properties": [
+        {
+          "name": "CurrentPriority",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreDispatcherPriority",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CurrentPriority",
+          "setter": "put_CurrentPriority"
+        }
+      ]
+    },
+    "ICoreIndependentInputSourceController": {
+      "guid": "0963261c-84fe-578a-83ca-6425309ccde4",
+      "exclusive_to": "Windows.UI.Core.CoreIndependentInputSourceController",
+      "methods": [
+        {
+          "name": "get_IsTransparentForUncontrolledInput",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsTransparentForUncontrolledInput",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsPalmRejectionEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsPalmRejectionEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Source",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreIndependentInputSource",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetControlledInput",
+          "overload": "SetControlledInput",
+          "params": [
+            {
+              "name": "inputTypes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreInputDeviceTypes",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetControlledInput",
+          "overload": "SetControlledInputWithFilters",
+          "params": [
+            {
+              "name": "inputTypes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreInputDeviceTypes",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "required",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreIndependentInputFilters",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "excluded",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreIndependentInputFilters",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsPalmRejectionEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPalmRejectionEnabled",
+          "setter": "put_IsPalmRejectionEnabled"
+        },
+        {
+          "name": "IsTransparentForUncontrolledInput",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsTransparentForUncontrolledInput",
+          "setter": "put_IsTransparentForUncontrolledInput"
+        },
+        {
+          "name": "Source",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreIndependentInputSource",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_Source"
+        }
+      ]
+    },
+    "ICoreIndependentInputSourceControllerStatics": {
+      "guid": "3edc4e20-9a8a-5691-8586-fca4cb57526d",
+      "exclusive_to": "Windows.UI.Core.CoreIndependentInputSourceController",
+      "methods": [
+        {
+          "name": "CreateForVisual",
+          "params": [
+            {
+              "name": "visual",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Visual",
+                "namespace": "Windows.UI.Composition",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreIndependentInputSourceController",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateForIVisualElement",
+          "params": [
+            {
+              "name": "visualElement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IVisualElement",
+                "namespace": "Windows.UI.Composition",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreIndependentInputSourceController",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ICoreInputSourceBase": {
+      "guid": "9f488807-4580-4be8-be68-92a9311713bb",
+      "methods": [
+        {
+          "name": "get_Dispatcher",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreDispatcher",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IsInputEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsInputEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_InputEnabled",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "InputEnabledEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_InputEnabled",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Dispatcher",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreDispatcher",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_Dispatcher"
+        },
+        {
+          "name": "IsInputEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsInputEnabled",
+          "setter": "put_IsInputEnabled"
+        }
+      ],
+      "events": [
+        {
+          "name": "InputEnabled",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "InputEnabledEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_InputEnabled",
+          "remove_method": "remove_InputEnabled"
+        }
+      ]
+    },
+    "ICoreKeyboardInputSource": {
+      "guid": "231c9088-e469-4df1-b208-6e490d71cb90",
+      "exclusive_to": "Windows.UI.Core.CoreComponentInputSource",
+      "methods": [
+        {
+          "name": "GetCurrentKeyState",
+          "params": [
+            {
+              "name": "virtualKey",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VirtualKey",
+                "namespace": "Windows.System",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreVirtualKeyStates",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_CharacterReceived",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CharacterReceivedEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CharacterReceived",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_KeyDown",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "KeyEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_KeyDown",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_KeyUp",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "KeyEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_KeyUp",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "CharacterReceived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CharacterReceivedEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_CharacterReceived",
+          "remove_method": "remove_CharacterReceived"
+        },
+        {
+          "name": "KeyDown",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "KeyEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_KeyDown",
+          "remove_method": "remove_KeyDown"
+        },
+        {
+          "name": "KeyUp",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "KeyEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_KeyUp",
+          "remove_method": "remove_KeyUp"
+        }
+      ]
+    },
+    "ICoreKeyboardInputSource2": {
+      "guid": "fa24cb94-f963-47a5-8778-207c482b0afd",
+      "exclusive_to": "Windows.UI.Core.CoreComponentInputSource",
+      "methods": [
+        {
+          "name": "GetCurrentKeyEventDeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "ICorePointerInputSource": {
+      "guid": "bbf1bb18-e47a-48eb-8807-f8f8d3ea4551",
+      "methods": [
+        {
+          "name": "ReleasePointerCapture"
+        },
+        {
+          "name": "SetPointerCapture"
+        },
+        {
+          "name": "get_HasCapture",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_PointerPosition",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_PointerCursor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreCursor",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_PointerCursor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreCursor",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerCaptureLost",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerCaptureLost",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerEntered",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerEntered",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerExited",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerExited",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerMoved",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerMoved",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerPressed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerPressed",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerReleased",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerReleased",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerWheelChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerWheelChanged",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "HasCapture",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasCapture"
+        },
+        {
+          "name": "PointerCursor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreCursor",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_PointerCursor",
+          "setter": "put_PointerCursor"
+        },
+        {
+          "name": "PointerPosition",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_PointerPosition"
+        }
+      ],
+      "events": [
+        {
+          "name": "PointerCaptureLost",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerCaptureLost",
+          "remove_method": "remove_PointerCaptureLost"
+        },
+        {
+          "name": "PointerEntered",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerEntered",
+          "remove_method": "remove_PointerEntered"
+        },
+        {
+          "name": "PointerExited",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerExited",
+          "remove_method": "remove_PointerExited"
+        },
+        {
+          "name": "PointerMoved",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerMoved",
+          "remove_method": "remove_PointerMoved"
+        },
+        {
+          "name": "PointerPressed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerPressed",
+          "remove_method": "remove_PointerPressed"
+        },
+        {
+          "name": "PointerReleased",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerReleased",
+          "remove_method": "remove_PointerReleased"
+        },
+        {
+          "name": "PointerWheelChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerWheelChanged",
+          "remove_method": "remove_PointerWheelChanged"
+        }
+      ]
+    },
+    "ICorePointerInputSource2": {
+      "guid": "d703708a-4516-4786-b1e5-2751d563f997",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ICorePointerInputSource",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_DispatcherQueue",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DispatcherQueue",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DispatcherQueue",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DispatcherQueue",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_DispatcherQueue"
+        }
+      ]
+    },
+    "ICorePointerRedirector": {
+      "guid": "8f9d0c94-5688-4b0c-a9f1-f931f7fa3dc3",
+      "methods": [
+        {
+          "name": "add_PointerRoutedAway",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ICorePointerRedirector",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerRoutedAway",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerRoutedTo",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ICorePointerRedirector",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerRoutedTo",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerRoutedReleased",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ICorePointerRedirector",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerRoutedReleased",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "PointerRoutedAway",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ICorePointerRedirector",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerRoutedAway",
+          "remove_method": "remove_PointerRoutedAway"
+        },
+        {
+          "name": "PointerRoutedReleased",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ICorePointerRedirector",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerRoutedReleased",
+          "remove_method": "remove_PointerRoutedReleased"
+        },
+        {
+          "name": "PointerRoutedTo",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ICorePointerRedirector",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerRoutedTo",
+          "remove_method": "remove_PointerRoutedTo"
+        }
+      ]
+    },
+    "ICoreTouchHitTesting": {
+      "guid": "b1d8a289-3acf-4124-9fa3-ea8aba353c21",
+      "exclusive_to": "Windows.UI.Core.CoreComponentInputSource",
+      "methods": [
+        {
+          "name": "add_TouchHitTesting",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "TouchHitTestingEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_TouchHitTesting",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "TouchHitTesting",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "TouchHitTestingEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_TouchHitTesting",
+          "remove_method": "remove_TouchHitTesting"
+        }
+      ]
+    },
+    "ICoreWindow": {
+      "guid": "79b9d5f2-879e-4b89-b798-79e47598030c",
+      "methods": [
+        {
+          "name": "get_AutomationHostProvider",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "get_Bounds",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_CustomProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IPropertySet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Dispatcher",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreDispatcher",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_FlowDirection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreWindowFlowDirection",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_FlowDirection",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreWindowFlowDirection",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsInputEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsInputEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PointerCursor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreCursor",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_PointerCursor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreCursor",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PointerPosition",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Visible",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "Activate"
+        },
+        {
+          "name": "Close"
+        },
+        {
+          "name": "GetAsyncKeyState",
+          "params": [
+            {
+              "name": "virtualKey",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VirtualKey",
+                "namespace": "Windows.System",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreVirtualKeyStates",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetKeyState",
+          "params": [
+            {
+              "name": "virtualKey",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VirtualKey",
+                "namespace": "Windows.System",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreVirtualKeyStates",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "ReleasePointerCapture"
+        },
+        {
+          "name": "SetPointerCapture"
+        },
+        {
+          "name": "add_Activated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWindow",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WindowActivatedEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Activated",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_AutomationProviderRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWindow",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AutomationProviderRequestedEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_AutomationProviderRequested",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_CharacterReceived",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWindow",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CharacterReceivedEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CharacterReceived",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Closed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWindow",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWindowEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Closed",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_InputEnabled",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWindow",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "InputEnabledEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_InputEnabled",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_KeyDown",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWindow",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "KeyEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_KeyDown",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_KeyUp",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWindow",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "KeyEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_KeyUp",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerCaptureLost",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWindow",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerCaptureLost",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerEntered",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWindow",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerEntered",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerExited",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWindow",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerExited",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerMoved",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWindow",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerMoved",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerPressed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWindow",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerPressed",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerReleased",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWindow",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerReleased",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_TouchHitTesting",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWindow",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "TouchHitTestingEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_TouchHitTesting",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PointerWheelChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWindow",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PointerEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PointerWheelChanged",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_SizeChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWindow",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WindowSizeChangedEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SizeChanged",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_VisibilityChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWindow",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "VisibilityChangedEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_VisibilityChanged",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AutomationHostProvider",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_AutomationHostProvider"
+        },
+        {
+          "name": "Bounds",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Bounds"
+        },
+        {
+          "name": "CustomProperties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IPropertySet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface"
+          },
+          "getter": "get_CustomProperties"
+        },
+        {
+          "name": "Dispatcher",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreDispatcher",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_Dispatcher"
+        },
+        {
+          "name": "FlowDirection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreWindowFlowDirection",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_FlowDirection",
+          "setter": "put_FlowDirection"
+        },
+        {
+          "name": "IsInputEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsInputEnabled",
+          "setter": "put_IsInputEnabled"
+        },
+        {
+          "name": "PointerCursor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreCursor",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_PointerCursor",
+          "setter": "put_PointerCursor"
+        },
+        {
+          "name": "PointerPosition",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_PointerPosition"
+        },
+        {
+          "name": "Visible",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Visible"
+        }
+      ],
+      "events": [
+        {
+          "name": "Activated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWindow",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WindowActivatedEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Activated",
+          "remove_method": "remove_Activated"
+        },
+        {
+          "name": "AutomationProviderRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWindow",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AutomationProviderRequestedEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_AutomationProviderRequested",
+          "remove_method": "remove_AutomationProviderRequested"
+        },
+        {
+          "name": "CharacterReceived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWindow",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CharacterReceivedEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_CharacterReceived",
+          "remove_method": "remove_CharacterReceived"
+        },
+        {
+          "name": "Closed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWindow",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CoreWindowEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Closed",
+          "remove_method": "remove_Closed"
+        },
+        {
+          "name": "InputEnabled",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWindow",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "InputEnabledEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_InputEnabled",
+          "remove_method": "remove_InputEnabled"
+        },
+        {
+          "name": "KeyDown",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWindow",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "KeyEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_KeyDown",
+          "remove_method": "remove_KeyDown"
+        },
+        {
+          "name": "KeyUp",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWindow",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "KeyEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_KeyUp",
+          "remove_method": "remove_KeyUp"
+        },
+        {
+          "name": "PointerCaptureLost",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWindow",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerCaptureLost",
+          "remove_method": "remove_PointerCaptureLost"
+        },
+        {
+          "name": "PointerEntered",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWindow",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerEntered",
+          "remove_method": "remove_PointerEntered"
+        },
+        {
+          "name": "PointerExited",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWindow",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerExited",
+          "remove_method": "remove_PointerExited"
+        },
+        {
+          "name": "PointerMoved",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWindow",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerMoved",
+          "remove_method": "remove_PointerMoved"
+        },
+        {
+          "name": "PointerPressed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWindow",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerPressed",
+          "remove_method": "remove_PointerPressed"
+        },
+        {
+          "name": "PointerReleased",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWindow",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerReleased",
+          "remove_method": "remove_PointerReleased"
+        },
+        {
+          "name": "PointerWheelChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWindow",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PointerEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PointerWheelChanged",
+          "remove_method": "remove_PointerWheelChanged"
+        },
+        {
+          "name": "SizeChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWindow",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WindowSizeChangedEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SizeChanged",
+          "remove_method": "remove_SizeChanged"
+        },
+        {
+          "name": "TouchHitTesting",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWindow",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "TouchHitTestingEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_TouchHitTesting",
+          "remove_method": "remove_TouchHitTesting"
+        },
+        {
+          "name": "VisibilityChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWindow",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "VisibilityChangedEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_VisibilityChanged",
+          "remove_method": "remove_VisibilityChanged"
+        }
+      ]
+    },
+    "ICoreWindow2": {
+      "guid": "7c2b1b85-6917-4361-9c02-0d9e3a420b95",
+      "exclusive_to": "Windows.UI.Core.CoreWindow",
+      "methods": [
+        {
+          "name": "put_PointerPosition",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "PointerPosition",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "setter": "put_PointerPosition"
+        }
+      ]
+    },
+    "ICoreWindow3": {
+      "guid": "32c20dd8-faef-4375-a2ab-32640e4815c7",
+      "exclusive_to": "Windows.UI.Core.CoreWindow",
+      "methods": [
+        {
+          "name": "add_ClosestInteractiveBoundsRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWindow",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "ClosestInteractiveBoundsRequestedEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ClosestInteractiveBoundsRequested",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetCurrentKeyEventDeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "events": [
+        {
+          "name": "ClosestInteractiveBoundsRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWindow",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "ClosestInteractiveBoundsRequestedEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ClosestInteractiveBoundsRequested",
+          "remove_method": "remove_ClosestInteractiveBoundsRequested"
+        }
+      ]
+    },
+    "ICoreWindow4": {
+      "guid": "35caf0d0-47f0-436c-af97-0dd88f6f5f02",
+      "exclusive_to": "Windows.UI.Core.CoreWindow",
+      "methods": [
+        {
+          "name": "add_ResizeStarted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWindow",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ResizeStarted",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ResizeCompleted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreWindow",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ResizeCompleted",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "ResizeCompleted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWindow",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ResizeCompleted",
+          "remove_method": "remove_ResizeCompleted"
+        },
+        {
+          "name": "ResizeStarted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreWindow",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ResizeStarted",
+          "remove_method": "remove_ResizeStarted"
+        }
+      ]
+    },
+    "ICoreWindow5": {
+      "guid": "4b4ae1e1-2e6d-4eaa-bda1-1c5cc1bee141",
+      "exclusive_to": "Windows.UI.Core.CoreWindow",
+      "methods": [
+        {
+          "name": "get_DispatcherQueue",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DispatcherQueue",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ActivationMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreWindowActivationMode",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ActivationMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreWindowActivationMode",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ActivationMode"
+        },
+        {
+          "name": "DispatcherQueue",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DispatcherQueue",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_DispatcherQueue"
+        }
+      ]
+    },
+    "ICoreWindowEventArgs": {
+      "guid": "272b1ef3-c633-4da5-a26c-c6d0f56b29da",
+      "methods": [
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        }
+      ]
+    },
+    "ICoreWindowResizeManager": {
+      "guid": "b8f0b925-b350-48b3-a198-5c1a84700243",
+      "exclusive_to": "Windows.UI.Core.CoreWindowResizeManager",
+      "methods": [
+        {
+          "name": "NotifyLayoutCompleted"
+        }
+      ]
+    },
+    "ICoreWindowResizeManagerLayoutCapability": {
+      "guid": "bb74f27b-a544-4301-80e6-0ae033ef4536",
+      "exclusive_to": "Windows.UI.Core.CoreWindowResizeManager",
+      "methods": [
+        {
+          "name": "put_ShouldWaitForLayoutCompletion",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ShouldWaitForLayoutCompletion",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ShouldWaitForLayoutCompletion",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ShouldWaitForLayoutCompletion",
+          "setter": "put_ShouldWaitForLayoutCompletion"
+        }
+      ]
+    },
+    "ICoreWindowResizeManagerStatics": {
+      "guid": "ae4a9045-6d70-49db-8e68-46ffbd17d38d",
+      "exclusive_to": "Windows.UI.Core.CoreWindowResizeManager",
+      "methods": [
+        {
+          "name": "GetForCurrentView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreWindowResizeManager",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ICoreWindowStatic": {
+      "guid": "4d239005-3c2a-41b1-9022-536bb9cf93b1",
+      "exclusive_to": "Windows.UI.Core.CoreWindow",
+      "methods": [
+        {
+          "name": "GetForCurrentThread",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreWindow",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ICoreWindowWithContext": {
+      "guid": "9ac40241-3575-4c3b-af66-e8c529d4d06c",
+      "exclusive_to": "Windows.UI.Core.CoreWindow",
+      "methods": [
+        {
+          "name": "get_UIContext",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UIContext",
+            "namespace": "Windows.UI",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "UIContext",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UIContext",
+            "namespace": "Windows.UI",
+            "target_kind": "Class"
+          },
+          "getter": "get_UIContext"
+        }
+      ]
+    },
+    "IIdleDispatchedHandlerArgs": {
+      "guid": "98bb6a24-dc1c-43cb-b4ed-d1c0eb2391f3",
+      "exclusive_to": "Windows.UI.Core.IdleDispatchedHandlerArgs",
+      "methods": [
+        {
+          "name": "get_IsDispatcherIdle",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsDispatcherIdle",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsDispatcherIdle"
+        }
+      ]
+    },
+    "IInitializeWithCoreWindow": {
+      "guid": "188f20d6-9873-464a-ace5-57e010f465e6",
+      "methods": [
+        {
+          "name": "Initialize",
+          "params": [
+            {
+              "name": "window",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreWindow",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IInputEnabledEventArgs": {
+      "guid": "80371d4f-2fd8-4c24-aa86-3163a87b4e5a",
+      "exclusive_to": "Windows.UI.Core.InputEnabledEventArgs",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_InputEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InputEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_InputEnabled"
+        }
+      ]
+    },
+    "IKeyEventArgs": {
+      "guid": "5ff5e930-2544-4a17-bd78-1f2fdebb106b",
+      "exclusive_to": "Windows.UI.Core.KeyEventArgs",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_VirtualKey",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VirtualKey",
+            "namespace": "Windows.System",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_KeyStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CorePhysicalKeyStatus",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "KeyStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CorePhysicalKeyStatus",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Struct"
+          },
+          "getter": "get_KeyStatus"
+        },
+        {
+          "name": "VirtualKey",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VirtualKey",
+            "namespace": "Windows.System",
+            "target_kind": "Enum"
+          },
+          "getter": "get_VirtualKey"
+        }
+      ]
+    },
+    "IKeyEventArgs2": {
+      "guid": "583add98-0790-4571-9b12-645ef9d79e42",
+      "exclusive_to": "Windows.UI.Core.KeyEventArgs",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        }
+      ]
+    },
+    "IPointerEventArgs": {
+      "guid": "920d9cb1-a5fc-4a21-8c09-49dfe6ffe25f",
+      "exclusive_to": "Windows.UI.Core.PointerEventArgs",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_CurrentPoint",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PointerPoint",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_KeyModifiers",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VirtualKeyModifiers",
+            "namespace": "Windows.System",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetIntermediatePoints",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PointerPoint",
+                "namespace": "Windows.UI.Input",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CurrentPoint",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PointerPoint",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Class"
+          },
+          "getter": "get_CurrentPoint"
+        },
+        {
+          "name": "KeyModifiers",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VirtualKeyModifiers",
+            "namespace": "Windows.System",
+            "target_kind": "Enum"
+          },
+          "getter": "get_KeyModifiers"
+        }
+      ]
+    },
+    "ISystemNavigationManager": {
+      "guid": "93023118-cf50-42a6-9706-69107fa122e1",
+      "exclusive_to": "Windows.UI.Core.SystemNavigationManager",
+      "methods": [
+        {
+          "name": "add_BackRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BackRequestedEventArgs",
+                    "namespace": "Windows.UI.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_BackRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "BackRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BackRequestedEventArgs",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_BackRequested",
+          "remove_method": "remove_BackRequested"
+        }
+      ]
+    },
+    "ISystemNavigationManager2": {
+      "guid": "8c510401-67be-49ae-9509-671c1e54a389",
+      "exclusive_to": "Windows.UI.Core.SystemNavigationManager",
+      "methods": [
+        {
+          "name": "get_AppViewBackButtonVisibility",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppViewBackButtonVisibility",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_AppViewBackButtonVisibility",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppViewBackButtonVisibility",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppViewBackButtonVisibility",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppViewBackButtonVisibility",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AppViewBackButtonVisibility",
+          "setter": "put_AppViewBackButtonVisibility"
+        }
+      ]
+    },
+    "ISystemNavigationManagerStatics": {
+      "guid": "dc52b5ce-bee0-4305-8c54-68228ed683b5",
+      "exclusive_to": "Windows.UI.Core.SystemNavigationManager",
+      "methods": [
+        {
+          "name": "GetForCurrentView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SystemNavigationManager",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ITouchHitTestingEventArgs": {
+      "guid": "22f3b823-0b7c-424e-9df7-33d4f962931b",
+      "exclusive_to": "Windows.UI.Core.TouchHitTestingEventArgs",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_ProximityEvaluation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreProximityEvaluation",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_ProximityEvaluation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreProximityEvaluation",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Point",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_BoundingBox",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "EvaluateProximity",
+          "overload": "EvaluateProximityToRect",
+          "is_default_overload": true,
+          "params": [
+            {
+              "name": "controlBoundingBox",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreProximityEvaluation",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "EvaluateProximity",
+          "overload": "EvaluateProximityToPolygon",
+          "params": [
+            {
+              "name": "controlVertices",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Point",
+                  "namespace": "Windows.Foundation",
+                  "target_kind": "Struct"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreProximityEvaluation",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BoundingBox",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BoundingBox"
+        },
+        {
+          "name": "Point",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Point"
+        },
+        {
+          "name": "ProximityEvaluation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreProximityEvaluation",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ProximityEvaluation",
+          "setter": "put_ProximityEvaluation"
+        }
+      ]
+    },
+    "IVisibilityChangedEventArgs": {
+      "guid": "bf9918ea-d801-4564-a495-b1e84f8ad085",
+      "exclusive_to": "Windows.UI.Core.VisibilityChangedEventArgs",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Visible",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Visible",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Visible"
+        }
+      ]
+    },
+    "IWindowActivatedEventArgs": {
+      "guid": "179d65e7-4658-4cb6-aa13-41d094ea255e",
+      "exclusive_to": "Windows.UI.Core.WindowActivatedEventArgs",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_WindowActivationState",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreWindowActivationState",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "WindowActivationState",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreWindowActivationState",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_WindowActivationState"
+        }
+      ]
+    },
+    "IWindowSizeChangedEventArgs": {
+      "guid": "5a200ec7-0426-47dc-b86c-6f475915e451",
+      "exclusive_to": "Windows.UI.Core.WindowSizeChangedEventArgs",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Size",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Size",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Size"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AcceleratorKeyEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAcceleratorKeyEventArgs",
+        "namespace": "Windows.UI.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAcceleratorKeyEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAcceleratorKeyEventArgs2",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AutomationProviderRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAutomationProviderRequestedEventArgs",
+        "namespace": "Windows.UI.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAutomationProviderRequestedEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BackRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackRequestedEventArgs",
+        "namespace": "Windows.UI.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackRequestedEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CharacterReceivedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICharacterReceivedEventArgs",
+        "namespace": "Windows.UI.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICharacterReceivedEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ClosestInteractiveBoundsRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IClosestInteractiveBoundsRequestedEventArgs",
+        "namespace": "Windows.UI.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosestInteractiveBoundsRequestedEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreAcceleratorKeys": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreAcceleratorKeys",
+        "namespace": "Windows.UI.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreAcceleratorKeys",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreComponentInputSource": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreInputSourceBase",
+        "namespace": "Windows.UI.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreInputSourceBase",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICorePointerInputSource",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreKeyboardInputSource",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreComponentFocusable",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreTouchHitTesting",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreClosestInteractiveBoundsRequested",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreKeyboardInputSource2",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICorePointerInputSource2",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreCursor": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreCursor",
+        "namespace": "Windows.UI.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreCursor",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.UI.Core.ICoreCursorFactory"
+      ]
+    },
+    "CoreDispatcher": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreDispatcher",
+        "namespace": "Windows.UI.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreDispatcher",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreAcceleratorKeys",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreDispatcherWithTaskPriority",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreDispatcher2",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreIndependentInputSource": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreInputSourceBase",
+        "namespace": "Windows.UI.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreInputSourceBase",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICorePointerInputSource",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICorePointerInputSource2",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICorePointerRedirector",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreIndependentInputSourceController": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreIndependentInputSourceController",
+        "namespace": "Windows.UI.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreIndependentInputSourceController",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Core.ICoreIndependentInputSourceControllerStatics"
+      ]
+    },
+    "CoreWindow": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreWindow",
+        "namespace": "Windows.UI.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindow",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindow2",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICorePointerRedirector",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindow3",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindow4",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindow5",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowWithContext",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Core.ICoreWindowStatic"
+      ]
+    },
+    "CoreWindowEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreWindowEventArgs",
+        "namespace": "Windows.UI.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreWindowResizeManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreWindowResizeManager",
+        "namespace": "Windows.UI.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowResizeManager",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowResizeManagerLayoutCapability",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Core.ICoreWindowResizeManagerStatics"
+      ]
+    },
+    "IdleDispatchedHandlerArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IIdleDispatchedHandlerArgs",
+        "namespace": "Windows.UI.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IIdleDispatchedHandlerArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InputEnabledEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInputEnabledEventArgs",
+        "namespace": "Windows.UI.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInputEnabledEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "KeyEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IKeyEventArgs",
+        "namespace": "Windows.UI.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IKeyEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IKeyEventArgs2",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PointerEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPointerEventArgs",
+        "namespace": "Windows.UI.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPointerEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SystemNavigationManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISystemNavigationManager",
+        "namespace": "Windows.UI.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISystemNavigationManager",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISystemNavigationManager2",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Core.ISystemNavigationManagerStatics"
+      ]
+    },
+    "TouchHitTestingEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITouchHitTestingEventArgs",
+        "namespace": "Windows.UI.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITouchHitTestingEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VisibilityChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVisibilityChangedEventArgs",
+        "namespace": "Windows.UI.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVisibilityChangedEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WindowActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWindowActivatedEventArgs",
+        "namespace": "Windows.UI.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWindowActivatedEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WindowSizeChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWindowSizeChangedEventArgs",
+        "namespace": "Windows.UI.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWindowSizeChangedEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreWindowEventArgs",
+          "namespace": "Windows.UI.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  },
+  "delegates": {
+    "DispatchedHandler": {
+      "guid": "d1f276c4-98d8-4636-bf49-eb79507548e9",
+      "invoke": {
+        "name": "Invoke"
+      }
+    },
+    "IdleDispatchedHandler": {
+      "guid": "a42b0c24-7f21-4abc-99c1-8f01007f0880",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "IdleDispatchedHandlerArgs",
+              "namespace": "Windows.UI.Core",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

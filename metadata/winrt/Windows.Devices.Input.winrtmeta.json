@@ -1,0 +1,1484 @@
+{
+  "namespace": "Windows.Devices.Input",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "PointerDeviceType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Touch",
+          "value": "0"
+        },
+        {
+          "name": "Pen",
+          "value": "1"
+        },
+        {
+          "name": "Mouse",
+          "value": "2"
+        },
+        {
+          "name": "Touchpad",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "MouseDelta": {
+      "fields": [
+        {
+          "name": "X",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "Y",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ]
+    },
+    "PointerDeviceUsage": {
+      "fields": [
+        {
+          "name": "UsagePage",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "Usage",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "MinLogical",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "MaxLogical",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "MinPhysical",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "MaxPhysical",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "Unit",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "PhysicalMultiplier",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IKeyboardCapabilities": {
+      "guid": "3a3f9b56-6798-4bbc-833e-0f34b17c65ff",
+      "exclusive_to": "Windows.Devices.Input.KeyboardCapabilities",
+      "methods": [
+        {
+          "name": "get_KeyboardPresent",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "KeyboardPresent",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_KeyboardPresent"
+        }
+      ]
+    },
+    "IMouseCapabilities": {
+      "guid": "bca5e023-7dd9-4b6b-9a92-55d43cb38f73",
+      "exclusive_to": "Windows.Devices.Input.MouseCapabilities",
+      "methods": [
+        {
+          "name": "get_MousePresent",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_VerticalWheelPresent",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_HorizontalWheelPresent",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_SwapButtons",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_NumberOfButtons",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HorizontalWheelPresent",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_HorizontalWheelPresent"
+        },
+        {
+          "name": "MousePresent",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MousePresent"
+        },
+        {
+          "name": "NumberOfButtons",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_NumberOfButtons"
+        },
+        {
+          "name": "SwapButtons",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_SwapButtons"
+        },
+        {
+          "name": "VerticalWheelPresent",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_VerticalWheelPresent"
+        }
+      ]
+    },
+    "IMouseDevice": {
+      "guid": "88edf458-f2c8-49f4-be1f-c256b388bc11",
+      "exclusive_to": "Windows.Devices.Input.MouseDevice",
+      "methods": [
+        {
+          "name": "add_MouseMoved",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "MouseDevice",
+                    "namespace": "Windows.Devices.Input",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "MouseEventArgs",
+                    "namespace": "Windows.Devices.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_MouseMoved",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "MouseMoved",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MouseDevice",
+                "namespace": "Windows.Devices.Input",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "MouseEventArgs",
+                "namespace": "Windows.Devices.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_MouseMoved",
+          "remove_method": "remove_MouseMoved"
+        }
+      ]
+    },
+    "IMouseDeviceStatics": {
+      "guid": "484a9045-6d70-49db-8e68-46ffbd17d38d",
+      "exclusive_to": "Windows.Devices.Input.MouseDevice",
+      "methods": [
+        {
+          "name": "GetForCurrentView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MouseDevice",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMouseEventArgs": {
+      "guid": "f625aa5d-2354-4cc7-9230-96941c969fde",
+      "exclusive_to": "Windows.Devices.Input.MouseEventArgs",
+      "methods": [
+        {
+          "name": "get_MouseDelta",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MouseDelta",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "MouseDelta",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MouseDelta",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Struct"
+          },
+          "getter": "get_MouseDelta"
+        }
+      ]
+    },
+    "IPenButtonListener": {
+      "guid": "8245c376-1ee3-53f7-b1f7-8334a16f2815",
+      "exclusive_to": "Windows.Devices.Input.PenButtonListener",
+      "methods": [
+        {
+          "name": "IsSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "add_IsSupportedChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PenButtonListener",
+                    "namespace": "Windows.Devices.Input",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_IsSupportedChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_TailButtonClicked",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PenButtonListener",
+                    "namespace": "Windows.Devices.Input",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PenTailButtonClickedEventArgs",
+                    "namespace": "Windows.Devices.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_TailButtonClicked",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_TailButtonDoubleClicked",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PenButtonListener",
+                    "namespace": "Windows.Devices.Input",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PenTailButtonDoubleClickedEventArgs",
+                    "namespace": "Windows.Devices.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_TailButtonDoubleClicked",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_TailButtonLongPressed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PenButtonListener",
+                    "namespace": "Windows.Devices.Input",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PenTailButtonLongPressedEventArgs",
+                    "namespace": "Windows.Devices.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_TailButtonLongPressed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "IsSupportedChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PenButtonListener",
+                "namespace": "Windows.Devices.Input",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_IsSupportedChanged",
+          "remove_method": "remove_IsSupportedChanged"
+        },
+        {
+          "name": "TailButtonClicked",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PenButtonListener",
+                "namespace": "Windows.Devices.Input",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PenTailButtonClickedEventArgs",
+                "namespace": "Windows.Devices.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_TailButtonClicked",
+          "remove_method": "remove_TailButtonClicked"
+        },
+        {
+          "name": "TailButtonDoubleClicked",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PenButtonListener",
+                "namespace": "Windows.Devices.Input",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PenTailButtonDoubleClickedEventArgs",
+                "namespace": "Windows.Devices.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_TailButtonDoubleClicked",
+          "remove_method": "remove_TailButtonDoubleClicked"
+        },
+        {
+          "name": "TailButtonLongPressed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PenButtonListener",
+                "namespace": "Windows.Devices.Input",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PenTailButtonLongPressedEventArgs",
+                "namespace": "Windows.Devices.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_TailButtonLongPressed",
+          "remove_method": "remove_TailButtonLongPressed"
+        }
+      ]
+    },
+    "IPenButtonListenerStatics": {
+      "guid": "19a8a584-862f-5f69-bfea-05f6584f133f",
+      "exclusive_to": "Windows.Devices.Input.PenButtonListener",
+      "methods": [
+        {
+          "name": "GetDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PenButtonListener",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPenDevice": {
+      "guid": "31856eba-a738-5a8c-b8f6-f97ef68d18ef",
+      "exclusive_to": "Windows.Devices.Input.PenDevice",
+      "methods": [
+        {
+          "name": "get_PenId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PenId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_PenId"
+        }
+      ]
+    },
+    "IPenDevice2": {
+      "guid": "0207d327-7fb8-5566-8c34-f8342037b7f9",
+      "exclusive_to": "Windows.Devices.Input.PenDevice",
+      "methods": [
+        {
+          "name": "get_SimpleHapticsController",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SimpleHapticsController",
+            "namespace": "Windows.Devices.Haptics",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SimpleHapticsController",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SimpleHapticsController",
+            "namespace": "Windows.Devices.Haptics",
+            "target_kind": "Class"
+          },
+          "getter": "get_SimpleHapticsController"
+        }
+      ]
+    },
+    "IPenDeviceStatics": {
+      "guid": "9dfbbe01-0966-5180-bcb4-b85060e39479",
+      "exclusive_to": "Windows.Devices.Input.PenDevice",
+      "methods": [
+        {
+          "name": "GetFromPointerId",
+          "params": [
+            {
+              "name": "pointerId",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PenDevice",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPenDockListener": {
+      "guid": "759f4d90-1dc0-55cb-ad18-b9101456f592",
+      "exclusive_to": "Windows.Devices.Input.PenDockListener",
+      "methods": [
+        {
+          "name": "IsSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "add_IsSupportedChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PenDockListener",
+                    "namespace": "Windows.Devices.Input",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_IsSupportedChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Docked",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PenDockListener",
+                    "namespace": "Windows.Devices.Input",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PenDockedEventArgs",
+                    "namespace": "Windows.Devices.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Docked",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Undocked",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PenDockListener",
+                    "namespace": "Windows.Devices.Input",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PenUndockedEventArgs",
+                    "namespace": "Windows.Devices.Input",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Undocked",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "Docked",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PenDockListener",
+                "namespace": "Windows.Devices.Input",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PenDockedEventArgs",
+                "namespace": "Windows.Devices.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Docked",
+          "remove_method": "remove_Docked"
+        },
+        {
+          "name": "IsSupportedChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PenDockListener",
+                "namespace": "Windows.Devices.Input",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_IsSupportedChanged",
+          "remove_method": "remove_IsSupportedChanged"
+        },
+        {
+          "name": "Undocked",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PenDockListener",
+                "namespace": "Windows.Devices.Input",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PenUndockedEventArgs",
+                "namespace": "Windows.Devices.Input",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Undocked",
+          "remove_method": "remove_Undocked"
+        }
+      ]
+    },
+    "IPenDockListenerStatics": {
+      "guid": "cab75e9a-0016-5c72-969e-a97e11992a93",
+      "exclusive_to": "Windows.Devices.Input.PenDockListener",
+      "methods": [
+        {
+          "name": "GetDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PenDockListener",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPenDockedEventArgs": {
+      "guid": "fd4277c6-ca63-5d4e-9ed3-a28a54521c8c",
+      "exclusive_to": "Windows.Devices.Input.PenDockedEventArgs"
+    },
+    "IPenTailButtonClickedEventArgs": {
+      "guid": "5d2fb7b6-6ad3-5d3e-ab29-05ea2410e390",
+      "exclusive_to": "Windows.Devices.Input.PenTailButtonClickedEventArgs"
+    },
+    "IPenTailButtonDoubleClickedEventArgs": {
+      "guid": "846321a2-618a-5478-b04c-b358231da4a7",
+      "exclusive_to": "Windows.Devices.Input.PenTailButtonDoubleClickedEventArgs"
+    },
+    "IPenTailButtonLongPressedEventArgs": {
+      "guid": "f37c606e-c60a-5f42-b818-a53112406c13",
+      "exclusive_to": "Windows.Devices.Input.PenTailButtonLongPressedEventArgs"
+    },
+    "IPenUndockedEventArgs": {
+      "guid": "ccd09150-261b-59e6-a5d4-c1964cd03feb",
+      "exclusive_to": "Windows.Devices.Input.PenUndockedEventArgs"
+    },
+    "IPointerDevice": {
+      "guid": "93c9bafc-ebcb-467e-82c6-276feae36b5a",
+      "exclusive_to": "Windows.Devices.Input.PointerDevice",
+      "methods": [
+        {
+          "name": "get_PointerDeviceType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PointerDeviceType",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_IsIntegrated",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_MaxContacts",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_PhysicalDeviceRect",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_ScreenRect",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_SupportedUsages",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PointerDeviceUsage",
+                "namespace": "Windows.Devices.Input",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsIntegrated",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsIntegrated"
+        },
+        {
+          "name": "MaxContacts",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxContacts"
+        },
+        {
+          "name": "PhysicalDeviceRect",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_PhysicalDeviceRect"
+        },
+        {
+          "name": "PointerDeviceType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PointerDeviceType",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PointerDeviceType"
+        },
+        {
+          "name": "ScreenRect",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ScreenRect"
+        },
+        {
+          "name": "SupportedUsages",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PointerDeviceUsage",
+                "namespace": "Windows.Devices.Input",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_SupportedUsages"
+        }
+      ]
+    },
+    "IPointerDevice2": {
+      "guid": "f8a6d2a0-c484-489f-ae3e-30d2ee1ffd3e",
+      "exclusive_to": "Windows.Devices.Input.PointerDevice",
+      "methods": [
+        {
+          "name": "get_MaxPointersWithZDistance",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "MaxPointersWithZDistance",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxPointersWithZDistance"
+        }
+      ]
+    },
+    "IPointerDeviceStatics": {
+      "guid": "d8b89aa1-d1c6-416e-bd8d-5790914dc563",
+      "exclusive_to": "Windows.Devices.Input.PointerDevice",
+      "methods": [
+        {
+          "name": "GetPointerDevice",
+          "params": [
+            {
+              "name": "pointerId",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PointerDevice",
+            "namespace": "Windows.Devices.Input",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetPointerDevices",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PointerDevice",
+                "namespace": "Windows.Devices.Input",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ITouchCapabilities": {
+      "guid": "20dd55f9-13f1-46c8-9285-2c05fa3eda6f",
+      "exclusive_to": "Windows.Devices.Input.TouchCapabilities",
+      "methods": [
+        {
+          "name": "get_TouchPresent",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Contacts",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Contacts",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Contacts"
+        },
+        {
+          "name": "TouchPresent",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_TouchPresent"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "KeyboardCapabilities": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IKeyboardCapabilities",
+        "namespace": "Windows.Devices.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IKeyboardCapabilities",
+          "namespace": "Windows.Devices.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "MouseCapabilities": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMouseCapabilities",
+        "namespace": "Windows.Devices.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMouseCapabilities",
+          "namespace": "Windows.Devices.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "MouseDevice": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMouseDevice",
+        "namespace": "Windows.Devices.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMouseDevice",
+          "namespace": "Windows.Devices.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Input.IMouseDeviceStatics"
+      ]
+    },
+    "MouseEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMouseEventArgs",
+        "namespace": "Windows.Devices.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMouseEventArgs",
+          "namespace": "Windows.Devices.Input",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PenButtonListener": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPenButtonListener",
+        "namespace": "Windows.Devices.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPenButtonListener",
+          "namespace": "Windows.Devices.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Input.IPenButtonListenerStatics"
+      ]
+    },
+    "PenDevice": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPenDevice",
+        "namespace": "Windows.Devices.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPenDevice",
+          "namespace": "Windows.Devices.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPenDevice2",
+          "namespace": "Windows.Devices.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Input.IPenDeviceStatics"
+      ]
+    },
+    "PenDockListener": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPenDockListener",
+        "namespace": "Windows.Devices.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPenDockListener",
+          "namespace": "Windows.Devices.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Input.IPenDockListenerStatics"
+      ]
+    },
+    "PenDockedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPenDockedEventArgs",
+        "namespace": "Windows.Devices.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPenDockedEventArgs",
+          "namespace": "Windows.Devices.Input",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PenTailButtonClickedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPenTailButtonClickedEventArgs",
+        "namespace": "Windows.Devices.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPenTailButtonClickedEventArgs",
+          "namespace": "Windows.Devices.Input",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PenTailButtonDoubleClickedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPenTailButtonDoubleClickedEventArgs",
+        "namespace": "Windows.Devices.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPenTailButtonDoubleClickedEventArgs",
+          "namespace": "Windows.Devices.Input",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PenTailButtonLongPressedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPenTailButtonLongPressedEventArgs",
+        "namespace": "Windows.Devices.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPenTailButtonLongPressedEventArgs",
+          "namespace": "Windows.Devices.Input",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PenUndockedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPenUndockedEventArgs",
+        "namespace": "Windows.Devices.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPenUndockedEventArgs",
+          "namespace": "Windows.Devices.Input",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PointerDevice": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPointerDevice",
+        "namespace": "Windows.Devices.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPointerDevice",
+          "namespace": "Windows.Devices.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPointerDevice2",
+          "namespace": "Windows.Devices.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Input.IPointerDeviceStatics"
+      ]
+    },
+    "TouchCapabilities": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITouchCapabilities",
+        "namespace": "Windows.Devices.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITouchCapabilities",
+          "namespace": "Windows.Devices.Input",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  }
+}

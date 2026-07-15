@@ -1,0 +1,2743 @@
+{
+  "namespace": "Windows.Storage.Search",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "CommonFileQuery": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "DefaultQuery",
+          "value": "0"
+        },
+        {
+          "name": "OrderByName",
+          "value": "1"
+        },
+        {
+          "name": "OrderByTitle",
+          "value": "2"
+        },
+        {
+          "name": "OrderByMusicProperties",
+          "value": "3"
+        },
+        {
+          "name": "OrderBySearchRank",
+          "value": "4"
+        },
+        {
+          "name": "OrderByDate",
+          "value": "5"
+        }
+      ]
+    },
+    "CommonFolderQuery": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "DefaultQuery",
+          "value": "0"
+        },
+        {
+          "name": "GroupByYear",
+          "value": "100"
+        },
+        {
+          "name": "GroupByMonth",
+          "value": "101"
+        },
+        {
+          "name": "GroupByArtist",
+          "value": "102"
+        },
+        {
+          "name": "GroupByAlbum",
+          "value": "103"
+        },
+        {
+          "name": "GroupByAlbumArtist",
+          "value": "104"
+        },
+        {
+          "name": "GroupByComposer",
+          "value": "105"
+        },
+        {
+          "name": "GroupByGenre",
+          "value": "106"
+        },
+        {
+          "name": "GroupByPublishedYear",
+          "value": "107"
+        },
+        {
+          "name": "GroupByRating",
+          "value": "108"
+        },
+        {
+          "name": "GroupByTag",
+          "value": "109"
+        },
+        {
+          "name": "GroupByAuthor",
+          "value": "110"
+        },
+        {
+          "name": "GroupByType",
+          "value": "111"
+        }
+      ]
+    },
+    "DateStackOption": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Year",
+          "value": "1"
+        },
+        {
+          "name": "Month",
+          "value": "2"
+        }
+      ]
+    },
+    "FolderDepth": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Shallow",
+          "value": "0"
+        },
+        {
+          "name": "Deep",
+          "value": "1"
+        }
+      ]
+    },
+    "IndexedState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "NotIndexed",
+          "value": "1"
+        },
+        {
+          "name": "PartiallyIndexed",
+          "value": "2"
+        },
+        {
+          "name": "FullyIndexed",
+          "value": "3"
+        }
+      ]
+    },
+    "IndexerOption": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "UseIndexerWhenAvailable",
+          "value": "0"
+        },
+        {
+          "name": "OnlyUseIndexer",
+          "value": "1"
+        },
+        {
+          "name": "DoNotUseIndexer",
+          "value": "2"
+        },
+        {
+          "name": "OnlyUseIndexerAndOptimizeForIndexedProperties",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "SortEntry": {
+      "fields": [
+        {
+          "name": "PropertyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "AscendingOrder",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IContentIndexer": {
+      "guid": "b1767f8d-f698-4982-b05f-3a6e8cab01a2",
+      "exclusive_to": "Windows.Storage.Search.ContentIndexer",
+      "methods": [
+        {
+          "name": "AddAsync",
+          "params": [
+            {
+              "name": "indexableContent",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IIndexableContent",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "UpdateAsync",
+          "params": [
+            {
+              "name": "indexableContent",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IIndexableContent",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "DeleteAsync",
+          "params": [
+            {
+              "name": "contentId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "DeleteMultipleAsync",
+          "params": [
+            {
+              "name": "contentIds",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "DeleteAllAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "RetrievePropertiesAsync",
+          "params": [
+            {
+              "name": "contentId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "propertiesToRetrieve",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IMapView`2",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Revision",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Revision",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_Revision"
+        }
+      ]
+    },
+    "IContentIndexerQuery": {
+      "guid": "70e3b0f8-4bfc-428a-8889-cc51da9a7b9d",
+      "exclusive_to": "Windows.Storage.Search.ContentIndexerQuery",
+      "methods": [
+        {
+          "name": "GetCountAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetPropertiesAsync",
+          "overload": "GetPropertiesAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "GenericInst",
+                    "name": "IMapView`2",
+                    "namespace": "Windows.Foundation.Collections",
+                    "target_kind": "Interface",
+                    "args": [
+                      {
+                        "kind": "Native",
+                        "name": "HString"
+                      },
+                      {
+                        "kind": "Native",
+                        "name": "Object"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetPropertiesAsync",
+          "overload": "GetPropertiesRangeAsync",
+          "params": [
+            {
+              "name": "startIndex",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "maxItems",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "GenericInst",
+                    "name": "IMapView`2",
+                    "namespace": "Windows.Foundation.Collections",
+                    "target_kind": "Interface",
+                    "args": [
+                      {
+                        "kind": "Native",
+                        "name": "HString"
+                      },
+                      {
+                        "kind": "Native",
+                        "name": "Object"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetAsync",
+          "overload": "GetAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IIndexableContent",
+                    "namespace": "Windows.Storage.Search",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetAsync",
+          "overload": "GetRangeAsync",
+          "params": [
+            {
+              "name": "startIndex",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "maxItems",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IIndexableContent",
+                    "namespace": "Windows.Storage.Search",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_QueryFolder",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageFolder",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "QueryFolder",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StorageFolder",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          },
+          "getter": "get_QueryFolder"
+        }
+      ]
+    },
+    "IContentIndexerQueryOperations": {
+      "guid": "28823e10-4786-42f1-9730-792b3566b150",
+      "exclusive_to": "Windows.Storage.Search.ContentIndexer",
+      "methods": [
+        {
+          "name": "CreateQuery",
+          "overload": "CreateQueryWithSortOrderAndLanguage",
+          "params": [
+            {
+              "name": "searchFilter",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "propertiesToRetrieve",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "sortOrder",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SortEntry",
+                    "namespace": "Windows.Storage.Search",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "searchFilterLanguage",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ContentIndexerQuery",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateQuery",
+          "overload": "CreateQueryWithSortOrder",
+          "params": [
+            {
+              "name": "searchFilter",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "propertiesToRetrieve",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "sortOrder",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SortEntry",
+                    "namespace": "Windows.Storage.Search",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ContentIndexerQuery",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateQuery",
+          "overload": "CreateQuery",
+          "params": [
+            {
+              "name": "searchFilter",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "propertiesToRetrieve",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ContentIndexerQuery",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IContentIndexerStatics": {
+      "guid": "8c488375-b37e-4c60-9ba8-b760fda3e59d",
+      "exclusive_to": "Windows.Storage.Search.ContentIndexer",
+      "methods": [
+        {
+          "name": "GetIndexer",
+          "overload": "GetIndexerWithName",
+          "params": [
+            {
+              "name": "indexName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ContentIndexer",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetIndexer",
+          "overload": "GetIndexer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ContentIndexer",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IIndexableContent": {
+      "guid": "ccf1a05f-d4b5-483a-b06e-e0db1ec420e4",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Id",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Stream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_Stream",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_StreamContentType",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_StreamContentType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id",
+          "setter": "put_Id"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "Stream",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Stream",
+          "setter": "put_Stream"
+        },
+        {
+          "name": "StreamContentType",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_StreamContentType",
+          "setter": "put_StreamContentType"
+        }
+      ]
+    },
+    "IQueryOptions": {
+      "guid": "1e5e46ee-0f45-4838-a8e9-d0479d446c30",
+      "exclusive_to": "Windows.Storage.Search.QueryOptions",
+      "methods": [
+        {
+          "name": "get_FileTypeFilter",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_FolderDepth",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FolderDepth",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_FolderDepth",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FolderDepth",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ApplicationSearchFilter",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_ApplicationSearchFilter",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_UserSearchFilter",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_UserSearchFilter",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Language",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Language",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IndexerOption",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IndexerOption",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_IndexerOption",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IndexerOption",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SortOrder",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SortEntry",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_GroupPropertyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DateStackOption",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateStackOption",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "SaveToString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "LoadFromString",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetThumbnailPrefetch",
+          "params": [
+            {
+              "name": "mode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ThumbnailMode",
+                "namespace": "Windows.Storage.FileProperties",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "requestedSize",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ThumbnailOptions",
+                "namespace": "Windows.Storage.FileProperties",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetPropertyPrefetch",
+          "params": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PropertyPrefetchOptions",
+                "namespace": "Windows.Storage.FileProperties",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "propertiesToRetrieve",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ApplicationSearchFilter",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ApplicationSearchFilter",
+          "setter": "put_ApplicationSearchFilter"
+        },
+        {
+          "name": "DateStackOption",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateStackOption",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DateStackOption"
+        },
+        {
+          "name": "FileTypeFilter",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_FileTypeFilter"
+        },
+        {
+          "name": "FolderDepth",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FolderDepth",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Enum"
+          },
+          "getter": "get_FolderDepth",
+          "setter": "put_FolderDepth"
+        },
+        {
+          "name": "GroupPropertyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_GroupPropertyName"
+        },
+        {
+          "name": "IndexerOption",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IndexerOption",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Enum"
+          },
+          "getter": "get_IndexerOption",
+          "setter": "put_IndexerOption"
+        },
+        {
+          "name": "Language",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Language",
+          "setter": "put_Language"
+        },
+        {
+          "name": "SortOrder",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SortEntry",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_SortOrder"
+        },
+        {
+          "name": "UserSearchFilter",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_UserSearchFilter",
+          "setter": "put_UserSearchFilter"
+        }
+      ]
+    },
+    "IQueryOptionsAdditionalSearchSources": {
+      "guid": "8d342d6b-8800-426e-b5cf-4b328f824e7e",
+      "exclusive_to": "Windows.Storage.Search.QueryOptions",
+      "methods": [
+        {
+          "name": "get_IncludeLocalSemanticIndex",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IncludeLocalSemanticIndex",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IncludeCloudProviders",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IncludeCloudProviders",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IncludeCloudProviders",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IncludeCloudProviders",
+          "setter": "put_IncludeCloudProviders"
+        },
+        {
+          "name": "IncludeLocalSemanticIndex",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IncludeLocalSemanticIndex",
+          "setter": "put_IncludeLocalSemanticIndex"
+        }
+      ]
+    },
+    "IQueryOptionsFactory": {
+      "guid": "032e1f8c-a9c1-4e71-8011-0dee9d4811a3",
+      "exclusive_to": "Windows.Storage.Search.QueryOptions",
+      "methods": [
+        {
+          "name": "CreateCommonFileQuery",
+          "params": [
+            {
+              "name": "query",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CommonFileQuery",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "fileTypeFilter",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "QueryOptions",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateCommonFolderQuery",
+          "params": [
+            {
+              "name": "query",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CommonFolderQuery",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "QueryOptions",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IQueryOptionsWithProviderFilter": {
+      "guid": "5b9d1026-15c4-44dd-b89a-47a59b7d7c4f",
+      "exclusive_to": "Windows.Storage.Search.QueryOptions",
+      "methods": [
+        {
+          "name": "get_StorageProviderIdFilter",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "StorageProviderIdFilter",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_StorageProviderIdFilter"
+        }
+      ]
+    },
+    "IStorageFileQueryResult": {
+      "guid": "52fda447-2baa-412c-b29f-d4b1778efa1e",
+      "exclusive_to": "Windows.Storage.Search.StorageFileQueryResult",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IStorageQueryResultBase",
+          "namespace": "Windows.Storage.Search",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "GetFilesAsync",
+          "overload": "GetFilesAsync",
+          "params": [
+            {
+              "name": "startIndex",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "maxNumberOfItems",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "StorageFile",
+                    "namespace": "Windows.Storage",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetFilesAsync",
+          "overload": "GetFilesAsyncDefaultStartAndCount",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "StorageFile",
+                    "namespace": "Windows.Storage",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IStorageFileQueryResult2": {
+      "guid": "4e5db9dd-7141-46c4-8be3-e9dc9e27275c",
+      "exclusive_to": "Windows.Storage.Search.StorageFileQueryResult",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IStorageQueryResultBase",
+          "namespace": "Windows.Storage.Search",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "GetMatchingPropertiesWithRanges",
+          "params": [
+            {
+              "name": "file",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "TextSegment",
+                    "namespace": "Windows.Data.Text",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IStorageFolderQueryOperations": {
+      "guid": "cb43ccc9-446b-4a4f-be97-757771be5203",
+      "methods": [
+        {
+          "name": "GetIndexedStateAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IndexedState",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateFileQuery",
+          "overload": "CreateFileQueryOverloadDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageFileQueryResult",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFileQuery",
+          "overload": "CreateFileQuery",
+          "params": [
+            {
+              "name": "query",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CommonFileQuery",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageFileQueryResult",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFileQueryWithOptions",
+          "params": [
+            {
+              "name": "queryOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "QueryOptions",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageFileQueryResult",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFolderQuery",
+          "overload": "CreateFolderQueryOverloadDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageFolderQueryResult",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFolderQuery",
+          "overload": "CreateFolderQuery",
+          "params": [
+            {
+              "name": "query",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CommonFolderQuery",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageFolderQueryResult",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFolderQueryWithOptions",
+          "params": [
+            {
+              "name": "queryOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "QueryOptions",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageFolderQueryResult",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateItemQuery",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageItemQueryResult",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateItemQueryWithOptions",
+          "params": [
+            {
+              "name": "queryOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "QueryOptions",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageItemQueryResult",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetFilesAsync",
+          "overload": "GetFilesAsync",
+          "params": [
+            {
+              "name": "query",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CommonFileQuery",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "startIndex",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "maxItemsToRetrieve",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "StorageFile",
+                    "namespace": "Windows.Storage",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetFilesAsync",
+          "overload": "GetFilesAsyncOverloadDefaultStartAndCount",
+          "params": [
+            {
+              "name": "query",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CommonFileQuery",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "StorageFile",
+                    "namespace": "Windows.Storage",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetFoldersAsync",
+          "overload": "GetFoldersAsync",
+          "params": [
+            {
+              "name": "query",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CommonFolderQuery",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "startIndex",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "maxItemsToRetrieve",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "StorageFolder",
+                    "namespace": "Windows.Storage",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetFoldersAsync",
+          "overload": "GetFoldersAsyncOverloadDefaultStartAndCount",
+          "params": [
+            {
+              "name": "query",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CommonFolderQuery",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "StorageFolder",
+                    "namespace": "Windows.Storage",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetItemsAsync",
+          "overload": "GetItemsAsync",
+          "params": [
+            {
+              "name": "startIndex",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "maxItemsToRetrieve",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IStorageItem",
+                    "namespace": "Windows.Storage",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "AreQueryOptionsSupported",
+          "params": [
+            {
+              "name": "queryOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "QueryOptions",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsCommonFolderQuerySupported",
+          "params": [
+            {
+              "name": "query",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CommonFolderQuery",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsCommonFileQuerySupported",
+          "params": [
+            {
+              "name": "query",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CommonFileQuery",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IStorageFolderQueryResult": {
+      "guid": "6654c911-7d66-46fa-aecf-e4a4baa93ab8",
+      "exclusive_to": "Windows.Storage.Search.StorageFolderQueryResult",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IStorageQueryResultBase",
+          "namespace": "Windows.Storage.Search",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "GetFoldersAsync",
+          "overload": "GetFoldersAsync",
+          "params": [
+            {
+              "name": "startIndex",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "maxNumberOfItems",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "StorageFolder",
+                    "namespace": "Windows.Storage",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetFoldersAsync",
+          "overload": "GetFoldersAsyncDefaultStartAndCount",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "StorageFolder",
+                    "namespace": "Windows.Storage",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IStorageItemQueryResult": {
+      "guid": "e8948079-9d58-47b8-b2b2-41b07f4795f9",
+      "exclusive_to": "Windows.Storage.Search.StorageItemQueryResult",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IStorageQueryResultBase",
+          "namespace": "Windows.Storage.Search",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "GetItemsAsync",
+          "overload": "GetItemsAsync",
+          "params": [
+            {
+              "name": "startIndex",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "maxNumberOfItems",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IStorageItem",
+                    "namespace": "Windows.Storage",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetItemsAsync",
+          "overload": "GetItemsAsyncDefaultStartAndCount",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IStorageItem",
+                    "namespace": "Windows.Storage",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IStorageLibraryChangeTrackerTriggerDetails": {
+      "guid": "1dc7a369-b7a3-4df2-9d61-eba85a0343d2",
+      "exclusive_to": "Windows.Storage.Search.StorageLibraryChangeTrackerTriggerDetails",
+      "methods": [
+        {
+          "name": "get_Folder",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageFolder",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ChangeTracker",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageLibraryChangeTracker",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ChangeTracker",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StorageLibraryChangeTracker",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          },
+          "getter": "get_ChangeTracker"
+        },
+        {
+          "name": "Folder",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StorageFolder",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          },
+          "getter": "get_Folder"
+        }
+      ]
+    },
+    "IStorageLibraryContentChangedTriggerDetails": {
+      "guid": "2a371977-abbf-4e1d-8aa5-6385d8884799",
+      "exclusive_to": "Windows.Storage.Search.StorageLibraryContentChangedTriggerDetails",
+      "methods": [
+        {
+          "name": "get_Folder",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageFolder",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateModifiedSinceQuery",
+          "params": [
+            {
+              "name": "lastQueryTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageItemQueryResult",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Folder",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StorageFolder",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          },
+          "getter": "get_Folder"
+        }
+      ]
+    },
+    "IStorageQueryResultBase": {
+      "guid": "c297d70d-7353-47ab-ba58-8c61425dc54b",
+      "methods": [
+        {
+          "name": "GetItemCountAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Folder",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageFolder",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_ContentsChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IStorageQueryResultBase",
+                    "namespace": "Windows.Storage.Search",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ContentsChanged",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_OptionsChanged",
+          "params": [
+            {
+              "name": "changedHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IStorageQueryResultBase",
+                    "namespace": "Windows.Storage.Search",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_OptionsChanged",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "FindStartIndexAsync",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetCurrentQueryOptions",
+          "return": {
+            "kind": "ApiRef",
+            "name": "QueryOptions",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ApplyNewQueryOptions",
+          "params": [
+            {
+              "name": "newQueryOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "QueryOptions",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Folder",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StorageFolder",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          },
+          "getter": "get_Folder"
+        }
+      ],
+      "events": [
+        {
+          "name": "ContentsChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IStorageQueryResultBase",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ContentsChanged",
+          "remove_method": "remove_ContentsChanged"
+        },
+        {
+          "name": "OptionsChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IStorageQueryResultBase",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_OptionsChanged",
+          "remove_method": "remove_OptionsChanged"
+        }
+      ]
+    },
+    "IValueAndLanguage": {
+      "guid": "b9914881-a1ee-4bc4-92a5-466968e30436",
+      "exclusive_to": "Windows.Storage.Search.ValueAndLanguage",
+      "methods": [
+        {
+          "name": "get_Language",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Language",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "put_Value",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Language",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Language",
+          "setter": "put_Language"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_Value",
+          "setter": "put_Value"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "ContentIndexer": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IContentIndexer",
+        "namespace": "Windows.Storage.Search",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IContentIndexer",
+          "namespace": "Windows.Storage.Search",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IContentIndexerQueryOperations",
+          "namespace": "Windows.Storage.Search",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Storage.Search.IContentIndexerStatics"
+      ]
+    },
+    "ContentIndexerQuery": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IContentIndexerQuery",
+        "namespace": "Windows.Storage.Search",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IContentIndexerQuery",
+          "namespace": "Windows.Storage.Search",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "IndexableContent": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IIndexableContent",
+        "namespace": "Windows.Storage.Search",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IIndexableContent",
+          "namespace": "Windows.Storage.Search",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "QueryOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IQueryOptions",
+        "namespace": "Windows.Storage.Search",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IQueryOptions",
+          "namespace": "Windows.Storage.Search",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IQueryOptionsWithProviderFilter",
+          "namespace": "Windows.Storage.Search",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IQueryOptionsAdditionalSearchSources",
+          "namespace": "Windows.Storage.Search",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Storage.Search.IQueryOptionsFactory"
+      ]
+    },
+    "SortEntryVector": {
+      "default_interface": {
+        "kind": "GenericInst",
+        "name": "IVector`1",
+        "namespace": "Windows.Foundation.Collections",
+        "target_kind": "Interface",
+        "args": [
+          {
+            "kind": "ApiRef",
+            "name": "SortEntry",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Struct"
+          }
+        ]
+      },
+      "interfaces": [
+        {
+          "kind": "GenericInst",
+          "name": "IVector`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "SortEntry",
+              "namespace": "Windows.Storage.Search",
+              "target_kind": "Struct"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "SortEntry",
+              "namespace": "Windows.Storage.Search",
+              "target_kind": "Struct"
+            }
+          ]
+        }
+      ]
+    },
+    "StorageFileQueryResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStorageFileQueryResult",
+        "namespace": "Windows.Storage.Search",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStorageFileQueryResult",
+          "namespace": "Windows.Storage.Search",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStorageQueryResultBase",
+          "namespace": "Windows.Storage.Search",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStorageFileQueryResult2",
+          "namespace": "Windows.Storage.Search",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "StorageFolderQueryResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStorageFolderQueryResult",
+        "namespace": "Windows.Storage.Search",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStorageFolderQueryResult",
+          "namespace": "Windows.Storage.Search",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStorageQueryResultBase",
+          "namespace": "Windows.Storage.Search",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "StorageItemQueryResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStorageItemQueryResult",
+        "namespace": "Windows.Storage.Search",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStorageItemQueryResult",
+          "namespace": "Windows.Storage.Search",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStorageQueryResultBase",
+          "namespace": "Windows.Storage.Search",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "StorageLibraryChangeTrackerTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStorageLibraryChangeTrackerTriggerDetails",
+        "namespace": "Windows.Storage.Search",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStorageLibraryChangeTrackerTriggerDetails",
+          "namespace": "Windows.Storage.Search",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "StorageLibraryContentChangedTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStorageLibraryContentChangedTriggerDetails",
+        "namespace": "Windows.Storage.Search",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStorageLibraryContentChangedTriggerDetails",
+          "namespace": "Windows.Storage.Search",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ValueAndLanguage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IValueAndLanguage",
+        "namespace": "Windows.Storage.Search",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IValueAndLanguage",
+          "namespace": "Windows.Storage.Search",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  }
+}

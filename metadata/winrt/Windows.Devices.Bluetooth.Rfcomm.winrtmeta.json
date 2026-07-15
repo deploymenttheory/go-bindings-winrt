@@ -1,0 +1,960 @@
+{
+  "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IRfcommDeviceService": {
+      "guid": "ae81ff1f-c5a1-4c40-8c28-f3efd69062f3",
+      "exclusive_to": "Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService",
+      "methods": [
+        {
+          "name": "get_ConnectionHostName",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ConnectionServiceName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ServiceId",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RfcommServiceId",
+            "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ProtectionLevel",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SocketProtectionLevel",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_MaxProtectionLevel",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SocketProtectionLevel",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetSdpRawAttributesAsync",
+          "overload": "GetSdpRawAttributesAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IMapView`2",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "U4"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "IBuffer",
+                    "namespace": "Windows.Storage.Streams",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetSdpRawAttributesAsync",
+          "overload": "GetSdpRawAttributesWithCacheModeAsync",
+          "params": [
+            {
+              "name": "cacheMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothCacheMode",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IMapView`2",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "U4"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "IBuffer",
+                    "namespace": "Windows.Storage.Streams",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ConnectionHostName",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          },
+          "getter": "get_ConnectionHostName"
+        },
+        {
+          "name": "ConnectionServiceName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ConnectionServiceName"
+        },
+        {
+          "name": "MaxProtectionLevel",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SocketProtectionLevel",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MaxProtectionLevel"
+        },
+        {
+          "name": "ProtectionLevel",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SocketProtectionLevel",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ProtectionLevel"
+        },
+        {
+          "name": "ServiceId",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RfcommServiceId",
+            "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+            "target_kind": "Class"
+          },
+          "getter": "get_ServiceId"
+        }
+      ]
+    },
+    "IRfcommDeviceService2": {
+      "guid": "536ced14-ebcd-49fe-bf9f-40efc689b20d",
+      "exclusive_to": "Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IRfcommDeviceService",
+          "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Device",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothDevice",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Device",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothDevice",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          },
+          "getter": "get_Device"
+        }
+      ]
+    },
+    "IRfcommDeviceService3": {
+      "guid": "1c22ace6-dd44-4d23-866d-8f3486ee6490",
+      "exclusive_to": "Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IRfcommDeviceService2",
+          "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRfcommDeviceService",
+          "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_DeviceAccessInformation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceAccessInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "RequestAccessAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceAccessStatus",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceAccessInformation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceAccessInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          },
+          "getter": "get_DeviceAccessInformation"
+        }
+      ]
+    },
+    "IRfcommDeviceServiceStatics": {
+      "guid": "a4a149ef-626d-41ac-b253-87ac5c27e28a",
+      "exclusive_to": "Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService",
+      "methods": [
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RfcommDeviceService",
+                "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDeviceSelector",
+          "params": [
+            {
+              "name": "serviceId",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RfcommServiceId",
+                "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "IRfcommDeviceServiceStatics2": {
+      "guid": "aa8cb1c9-e78d-4be4-8076-0a3d87a0a05f",
+      "exclusive_to": "Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IRfcommDeviceServiceStatics",
+          "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "GetDeviceSelectorForBluetoothDevice",
+          "overload": "GetDeviceSelectorForBluetoothDevice",
+          "params": [
+            {
+              "name": "bluetoothDevice",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothDevice",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDeviceSelectorForBluetoothDevice",
+          "overload": "GetDeviceSelectorForBluetoothDeviceWithCacheMode",
+          "params": [
+            {
+              "name": "bluetoothDevice",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothDevice",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "cacheMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothCacheMode",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDeviceSelectorForBluetoothDeviceAndServiceId",
+          "overload": "GetDeviceSelectorForBluetoothDeviceAndServiceId",
+          "params": [
+            {
+              "name": "bluetoothDevice",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothDevice",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "serviceId",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RfcommServiceId",
+                "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDeviceSelectorForBluetoothDeviceAndServiceId",
+          "overload": "GetDeviceSelectorForBluetoothDeviceAndServiceIdWithCacheMode",
+          "params": [
+            {
+              "name": "bluetoothDevice",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothDevice",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "serviceId",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RfcommServiceId",
+                "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "cacheMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothCacheMode",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "IRfcommDeviceServicesResult": {
+      "guid": "3b48388c-7ccf-488e-9625-d259a5732d55",
+      "exclusive_to": "Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceServicesResult",
+      "methods": [
+        {
+          "name": "get_Error",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothError",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Services",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RfcommDeviceService",
+                "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Error",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothError",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Error"
+        },
+        {
+          "name": "Services",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RfcommDeviceService",
+                "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Services"
+        }
+      ]
+    },
+    "IRfcommServiceId": {
+      "guid": "22629204-7e02-4017-8136-da1b6a1b9bbf",
+      "exclusive_to": "Windows.Devices.Bluetooth.Rfcomm.RfcommServiceId",
+      "methods": [
+        {
+          "name": "get_Uuid",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "AsShortId",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "AsString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Uuid",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_Uuid"
+        }
+      ]
+    },
+    "IRfcommServiceIdStatics": {
+      "guid": "2a179eba-a975-46e3-b56b-08ffd783a5fe",
+      "exclusive_to": "Windows.Devices.Bluetooth.Rfcomm.RfcommServiceId",
+      "methods": [
+        {
+          "name": "FromUuid",
+          "params": [
+            {
+              "name": "uuid",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RfcommServiceId",
+            "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "FromShortId",
+          "params": [
+            {
+              "name": "shortId",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RfcommServiceId",
+            "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_SerialPort",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RfcommServiceId",
+            "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ObexObjectPush",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RfcommServiceId",
+            "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ObexFileTransfer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RfcommServiceId",
+            "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PhoneBookAccessPce",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RfcommServiceId",
+            "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PhoneBookAccessPse",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RfcommServiceId",
+            "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_GenericFileTransfer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RfcommServiceId",
+            "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "GenericFileTransfer",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RfcommServiceId",
+            "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+            "target_kind": "Class"
+          },
+          "getter": "get_GenericFileTransfer"
+        },
+        {
+          "name": "ObexFileTransfer",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RfcommServiceId",
+            "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+            "target_kind": "Class"
+          },
+          "getter": "get_ObexFileTransfer"
+        },
+        {
+          "name": "ObexObjectPush",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RfcommServiceId",
+            "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+            "target_kind": "Class"
+          },
+          "getter": "get_ObexObjectPush"
+        },
+        {
+          "name": "PhoneBookAccessPce",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RfcommServiceId",
+            "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+            "target_kind": "Class"
+          },
+          "getter": "get_PhoneBookAccessPce"
+        },
+        {
+          "name": "PhoneBookAccessPse",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RfcommServiceId",
+            "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+            "target_kind": "Class"
+          },
+          "getter": "get_PhoneBookAccessPse"
+        },
+        {
+          "name": "SerialPort",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RfcommServiceId",
+            "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+            "target_kind": "Class"
+          },
+          "getter": "get_SerialPort"
+        }
+      ]
+    },
+    "IRfcommServiceProvider": {
+      "guid": "eadbfdc4-b1f6-44ff-9f7c-e7a82ab86821",
+      "exclusive_to": "Windows.Devices.Bluetooth.Rfcomm.RfcommServiceProvider",
+      "methods": [
+        {
+          "name": "get_ServiceId",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RfcommServiceId",
+            "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_SdpRawAttributes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "StartAdvertising",
+          "params": [
+            {
+              "name": "listener",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StreamSocketListener",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "StopAdvertising"
+        }
+      ],
+      "properties": [
+        {
+          "name": "SdpRawAttributes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          },
+          "getter": "get_SdpRawAttributes"
+        },
+        {
+          "name": "ServiceId",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RfcommServiceId",
+            "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+            "target_kind": "Class"
+          },
+          "getter": "get_ServiceId"
+        }
+      ]
+    },
+    "IRfcommServiceProvider2": {
+      "guid": "736bdfc6-3c81-4d1e-baf2-ddbb81284512",
+      "exclusive_to": "Windows.Devices.Bluetooth.Rfcomm.RfcommServiceProvider",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IRfcommServiceProvider",
+          "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "StartAdvertising",
+          "overload": "StartAdvertisingWithRadioDiscoverability",
+          "params": [
+            {
+              "name": "listener",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StreamSocketListener",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "radioDiscoverable",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IRfcommServiceProviderStatics": {
+      "guid": "98888303-69ca-413a-84f7-4344c7292997",
+      "exclusive_to": "Windows.Devices.Bluetooth.Rfcomm.RfcommServiceProvider",
+      "methods": [
+        {
+          "name": "CreateAsync",
+          "params": [
+            {
+              "name": "serviceId",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RfcommServiceId",
+                "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RfcommServiceProvider",
+                "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "RfcommDeviceService": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRfcommDeviceService",
+        "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRfcommDeviceService",
+          "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRfcommDeviceService2",
+          "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRfcommDeviceService3",
+          "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceServiceStatics2",
+        "Windows.Devices.Bluetooth.Rfcomm.IRfcommDeviceServiceStatics"
+      ]
+    },
+    "RfcommDeviceServicesResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRfcommDeviceServicesResult",
+        "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRfcommDeviceServicesResult",
+          "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RfcommServiceId": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRfcommServiceId",
+        "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRfcommServiceId",
+          "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceIdStatics"
+      ]
+    },
+    "RfcommServiceProvider": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRfcommServiceProvider",
+        "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRfcommServiceProvider",
+          "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRfcommServiceProvider2",
+          "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Bluetooth.Rfcomm.IRfcommServiceProviderStatics"
+      ]
+    }
+  }
+}

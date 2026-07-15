@@ -1,0 +1,263 @@
+{
+  "namespace": "Windows.Storage.Compression",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "CompressAlgorithm": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "InvalidAlgorithm",
+          "value": "0"
+        },
+        {
+          "name": "NullAlgorithm",
+          "value": "1"
+        },
+        {
+          "name": "Mszip",
+          "value": "2"
+        },
+        {
+          "name": "Xpress",
+          "value": "3"
+        },
+        {
+          "name": "XpressHuff",
+          "value": "4"
+        },
+        {
+          "name": "Lzms",
+          "value": "5"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ICompressor": {
+      "guid": "0ac3645a-57ac-4ee1-b702-84d39d5424e0",
+      "exclusive_to": "Windows.Storage.Compression.Compressor",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IOutputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "FinishAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "DetachStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IOutputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "ICompressorFactory": {
+      "guid": "5f3d96a4-2cfb-442c-a8ba-d7d11b039da0",
+      "exclusive_to": "Windows.Storage.Compression.Compressor",
+      "methods": [
+        {
+          "name": "CreateCompressor",
+          "params": [
+            {
+              "name": "underlyingStream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IOutputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Compressor",
+            "namespace": "Windows.Storage.Compression",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateCompressorEx",
+          "params": [
+            {
+              "name": "underlyingStream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IOutputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "algorithm",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CompressAlgorithm",
+                "namespace": "Windows.Storage.Compression",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "blockSize",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Compressor",
+            "namespace": "Windows.Storage.Compression",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDecompressor": {
+      "guid": "b883fe46-d68a-4c8b-ada0-4ee813fc5283",
+      "exclusive_to": "Windows.Storage.Compression.Decompressor",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IInputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "DetachStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IInputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IDecompressorFactory": {
+      "guid": "5337e252-1da2-42e1-8834-0379d28d742f",
+      "exclusive_to": "Windows.Storage.Compression.Decompressor",
+      "methods": [
+        {
+          "name": "CreateDecompressor",
+          "params": [
+            {
+              "name": "underlyingStream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Decompressor",
+            "namespace": "Windows.Storage.Compression",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "Compressor": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICompressor",
+        "namespace": "Windows.Storage.Compression",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICompressor",
+          "namespace": "Windows.Storage.Compression",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IOutputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Storage.Compression.ICompressorFactory"
+      ]
+    },
+    "Decompressor": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDecompressor",
+        "namespace": "Windows.Storage.Compression",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDecompressor",
+          "namespace": "Windows.Storage.Compression",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Storage.Compression.IDecompressorFactory"
+      ]
+    }
+  }
+}

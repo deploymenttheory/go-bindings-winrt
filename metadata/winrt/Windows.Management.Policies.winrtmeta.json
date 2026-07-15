@@ -1,0 +1,340 @@
+{
+  "namespace": "Windows.Management.Policies",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "NamedPolicyKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Invalid",
+          "value": "0"
+        },
+        {
+          "name": "Binary",
+          "value": "1"
+        },
+        {
+          "name": "Boolean",
+          "value": "2"
+        },
+        {
+          "name": "Int32",
+          "value": "3"
+        },
+        {
+          "name": "Int64",
+          "value": "4"
+        },
+        {
+          "name": "String",
+          "value": "5"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "INamedPolicyData": {
+      "guid": "38dcb198-95ac-4077-a643-8078cae26400",
+      "exclusive_to": "Windows.Management.Policies.NamedPolicyData",
+      "methods": [
+        {
+          "name": "get_Area",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NamedPolicyKind",
+            "namespace": "Windows.Management.Policies",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_IsManaged",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsUserPolicy",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetBoolean",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetBinary",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetInt32",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "GetInt64",
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        },
+        {
+          "name": "GetString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "add_Changed",
+          "params": [
+            {
+              "name": "changedHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "NamedPolicyData",
+                    "namespace": "Windows.Management.Policies",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Changed",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Area",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Area"
+        },
+        {
+          "name": "IsManaged",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsManaged"
+        },
+        {
+          "name": "IsUserPolicy",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsUserPolicy"
+        },
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NamedPolicyKind",
+            "namespace": "Windows.Management.Policies",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        },
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ],
+      "events": [
+        {
+          "name": "Changed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "NamedPolicyData",
+                "namespace": "Windows.Management.Policies",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_Changed",
+          "remove_method": "remove_Changed"
+        }
+      ]
+    },
+    "INamedPolicyStatics": {
+      "guid": "7f793be7-76c4-4058-8cad-67662cd05f0d",
+      "exclusive_to": "Windows.Management.Policies.NamedPolicy",
+      "methods": [
+        {
+          "name": "GetPolicyFromPath",
+          "params": [
+            {
+              "name": "area",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "NamedPolicyData",
+            "namespace": "Windows.Management.Policies",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetPolicyFromPathForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "area",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "NamedPolicyData",
+            "namespace": "Windows.Management.Policies",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "NamedPolicy": {
+      "static_interfaces": [
+        "Windows.Management.Policies.INamedPolicyStatics"
+      ]
+    },
+    "NamedPolicyData": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INamedPolicyData",
+        "namespace": "Windows.Management.Policies",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INamedPolicyData",
+          "namespace": "Windows.Management.Policies",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

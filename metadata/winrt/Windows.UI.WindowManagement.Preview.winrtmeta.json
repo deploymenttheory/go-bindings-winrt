@@ -1,0 +1,61 @@
+{
+  "namespace": "Windows.UI.WindowManagement.Preview",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IWindowManagementPreview": {
+      "guid": "4ef55b0d-561d-513c-a67c-2c02b69cef41",
+      "exclusive_to": "Windows.UI.WindowManagement.Preview.WindowManagementPreview"
+    },
+    "IWindowManagementPreviewStatics": {
+      "guid": "0f9725c6-c004-5a23-8fd2-8d092ce2704a",
+      "exclusive_to": "Windows.UI.WindowManagement.Preview.WindowManagementPreview",
+      "methods": [
+        {
+          "name": "SetPreferredMinSize",
+          "params": [
+            {
+              "name": "window",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppWindow",
+                "namespace": "Windows.UI.WindowManagement",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "preferredFrameMinSize",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Size",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "classes": {
+    "WindowManagementPreview": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWindowManagementPreview",
+        "namespace": "Windows.UI.WindowManagement.Preview",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWindowManagementPreview",
+          "namespace": "Windows.UI.WindowManagement.Preview",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.WindowManagement.Preview.IWindowManagementPreviewStatics"
+      ]
+    }
+  }
+}

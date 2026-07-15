@@ -1,0 +1,5022 @@
+{
+  "namespace": "Windows.Security.Cryptography.Certificates",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "CertificateChainPolicy": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Base",
+          "value": "0"
+        },
+        {
+          "name": "Ssl",
+          "value": "1"
+        },
+        {
+          "name": "NTAuthentication",
+          "value": "2"
+        },
+        {
+          "name": "MicrosoftRoot",
+          "value": "3"
+        }
+      ]
+    },
+    "ChainValidationResult": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "Untrusted",
+          "value": "1"
+        },
+        {
+          "name": "Revoked",
+          "value": "2"
+        },
+        {
+          "name": "Expired",
+          "value": "3"
+        },
+        {
+          "name": "IncompleteChain",
+          "value": "4"
+        },
+        {
+          "name": "InvalidSignature",
+          "value": "5"
+        },
+        {
+          "name": "WrongUsage",
+          "value": "6"
+        },
+        {
+          "name": "InvalidName",
+          "value": "7"
+        },
+        {
+          "name": "InvalidCertificateAuthorityPolicy",
+          "value": "8"
+        },
+        {
+          "name": "BasicConstraintsError",
+          "value": "9"
+        },
+        {
+          "name": "UnknownCriticalExtension",
+          "value": "10"
+        },
+        {
+          "name": "RevocationInformationMissing",
+          "value": "11"
+        },
+        {
+          "name": "RevocationFailure",
+          "value": "12"
+        },
+        {
+          "name": "OtherErrors",
+          "value": "13"
+        }
+      ]
+    },
+    "EnrollKeyUsages": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Decryption",
+          "value": "1"
+        },
+        {
+          "name": "Signing",
+          "value": "2"
+        },
+        {
+          "name": "KeyAgreement",
+          "value": "4"
+        },
+        {
+          "name": "All",
+          "value": "16777215"
+        }
+      ]
+    },
+    "ExportOption": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "NotExportable",
+          "value": "0"
+        },
+        {
+          "name": "Exportable",
+          "value": "1"
+        }
+      ]
+    },
+    "InstallOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "DeleteExpired",
+          "value": "1"
+        }
+      ]
+    },
+    "KeyProtectionLevel": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "NoConsent",
+          "value": "0"
+        },
+        {
+          "name": "ConsentOnly",
+          "value": "1"
+        },
+        {
+          "name": "ConsentWithPassword",
+          "value": "2"
+        },
+        {
+          "name": "ConsentWithFingerprint",
+          "value": "3"
+        }
+      ]
+    },
+    "KeySize": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Invalid",
+          "value": "0"
+        },
+        {
+          "name": "Rsa2048",
+          "value": "2048"
+        },
+        {
+          "name": "Rsa4096",
+          "value": "4096"
+        }
+      ]
+    },
+    "SignatureValidationResult": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "InvalidParameter",
+          "value": "1"
+        },
+        {
+          "name": "BadMessage",
+          "value": "2"
+        },
+        {
+          "name": "InvalidSignature",
+          "value": "3"
+        },
+        {
+          "name": "OtherErrors",
+          "value": "4"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ICertificate": {
+      "guid": "333f740c-04d8-43b3-b278-8c5fcc9be5a0",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.Certificate",
+      "methods": [
+        {
+          "name": "BuildChainAsync",
+          "overload": "BuildChainAsync",
+          "params": [
+            {
+              "name": "certificates",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Certificate",
+                    "namespace": "Windows.Security.Cryptography.Certificates",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CertificateChain",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "BuildChainAsync",
+          "overload": "BuildChainWithParametersAsync",
+          "params": [
+            {
+              "name": "certificates",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Certificate",
+                    "namespace": "Windows.Security.Cryptography.Certificates",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "parameters",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ChainBuildingParameters",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CertificateChain",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SerialNumber",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          }
+        },
+        {
+          "name": "GetHashValue",
+          "overload": "GetHashValue",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          }
+        },
+        {
+          "name": "GetHashValue",
+          "overload": "GetHashValueWithAlgorithm",
+          "params": [
+            {
+              "name": "hashAlgorithmName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          }
+        },
+        {
+          "name": "GetCertificateBlob",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Subject",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Issuer",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_HasPrivateKey",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsStronglyProtected",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_ValidFrom",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_ValidTo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_EnhancedKeyUsages",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_FriendlyName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FriendlyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EnhancedKeyUsages",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_EnhancedKeyUsages"
+        },
+        {
+          "name": "FriendlyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_FriendlyName",
+          "setter": "put_FriendlyName"
+        },
+        {
+          "name": "HasPrivateKey",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasPrivateKey"
+        },
+        {
+          "name": "IsStronglyProtected",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsStronglyProtected"
+        },
+        {
+          "name": "Issuer",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Issuer"
+        },
+        {
+          "name": "SerialNumber",
+          "type": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          },
+          "getter": "get_SerialNumber"
+        },
+        {
+          "name": "Subject",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Subject"
+        },
+        {
+          "name": "ValidFrom",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ValidFrom"
+        },
+        {
+          "name": "ValidTo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ValidTo"
+        }
+      ]
+    },
+    "ICertificate2": {
+      "guid": "17b8374c-8a25-4d96-a492-8fc29ac4fda6",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.Certificate",
+      "methods": [
+        {
+          "name": "get_IsSecurityDeviceBound",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_KeyUsages",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CertificateKeyUsages",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_KeyAlgorithmName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SignatureAlgorithmName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SignatureHashAlgorithmName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SubjectAlternativeName",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SubjectAlternativeNameInfo",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsSecurityDeviceBound",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSecurityDeviceBound"
+        },
+        {
+          "name": "KeyAlgorithmName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_KeyAlgorithmName"
+        },
+        {
+          "name": "KeyUsages",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CertificateKeyUsages",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          },
+          "getter": "get_KeyUsages"
+        },
+        {
+          "name": "SignatureAlgorithmName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SignatureAlgorithmName"
+        },
+        {
+          "name": "SignatureHashAlgorithmName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SignatureHashAlgorithmName"
+        },
+        {
+          "name": "SubjectAlternativeName",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SubjectAlternativeNameInfo",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          },
+          "getter": "get_SubjectAlternativeName"
+        }
+      ]
+    },
+    "ICertificate3": {
+      "guid": "be51a966-ae5f-4652-ace7-c6d7e7724cf3",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.Certificate",
+      "methods": [
+        {
+          "name": "get_IsPerUser",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_StoreName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_KeyStorageProviderName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsPerUser",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPerUser"
+        },
+        {
+          "name": "KeyStorageProviderName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_KeyStorageProviderName"
+        },
+        {
+          "name": "StoreName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_StoreName"
+        }
+      ]
+    },
+    "ICertificateChain": {
+      "guid": "20bf5385-3691-4501-a62c-fd97278b31ee",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.CertificateChain",
+      "methods": [
+        {
+          "name": "Validate",
+          "overload": "Validate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChainValidationResult",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Validate",
+          "overload": "ValidateWithParameters",
+          "params": [
+            {
+              "name": "parameter",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ChainValidationParameters",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ChainValidationResult",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetCertificates",
+          "params": [
+            {
+              "name": "includeRoot",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ICertificateEnrollmentManagerStatics": {
+      "guid": "8846ef3f-a986-48fb-9fd7-9aec06935bf1",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.CertificateEnrollmentManager",
+      "methods": [
+        {
+          "name": "CreateRequestAsync",
+          "params": [
+            {
+              "name": "request",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CertificateRequestProperties",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "InstallCertificateAsync",
+          "params": [
+            {
+              "name": "certificate",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "installOption",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InstallOptions",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ImportPfxDataAsync",
+          "overload": "ImportPfxDataAsync",
+          "params": [
+            {
+              "name": "pfxData",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "password",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "exportable",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ExportOption",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "keyProtectionLevel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "KeyProtectionLevel",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "installOption",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InstallOptions",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "friendlyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "ICertificateEnrollmentManagerStatics2": {
+      "guid": "dc5b1c33-6429-4014-999c-5d9735802d1d",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.CertificateEnrollmentManager",
+      "methods": [
+        {
+          "name": "get_UserCertificateEnrollmentManager",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserCertificateEnrollmentManager",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ImportPfxDataAsync",
+          "overload": "ImportPfxDataToKspAsync",
+          "params": [
+            {
+              "name": "pfxData",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "password",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "exportable",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ExportOption",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "keyProtectionLevel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "KeyProtectionLevel",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "installOption",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InstallOptions",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "friendlyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "keyStorageProvider",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "UserCertificateEnrollmentManager",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserCertificateEnrollmentManager",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          },
+          "getter": "get_UserCertificateEnrollmentManager"
+        }
+      ]
+    },
+    "ICertificateEnrollmentManagerStatics3": {
+      "guid": "fdec82be-617c-425a-b72d-398b26ac7264",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.CertificateEnrollmentManager",
+      "methods": [
+        {
+          "name": "ImportPfxDataAsync",
+          "overload": "ImportPfxDataToKspWithParametersAsync",
+          "params": [
+            {
+              "name": "pfxData",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "password",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "pfxImportParameters",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PfxImportParameters",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "ICertificateExtension": {
+      "guid": "84cf0656-a9e6-454d-8e45-2ea7c4bcd53b",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.CertificateExtension",
+      "methods": [
+        {
+          "name": "get_ObjectId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_ObjectId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsCritical",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsCritical",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "EncodeValue",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          }
+        },
+        {
+          "name": "put_Value",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsCritical",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsCritical",
+          "setter": "put_IsCritical"
+        },
+        {
+          "name": "ObjectId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ObjectId",
+          "setter": "put_ObjectId"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          },
+          "getter": "get_Value",
+          "setter": "put_Value"
+        }
+      ]
+    },
+    "ICertificateFactory": {
+      "guid": "17b4221c-4baf-44a2-9608-04fb62b16942",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.Certificate",
+      "methods": [
+        {
+          "name": "CreateCertificate",
+          "params": [
+            {
+              "name": "certBlob",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ICertificateKeyUsages": {
+      "guid": "6ac6206f-e1cf-486a-b485-a69c83e46fd1",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.CertificateKeyUsages",
+      "methods": [
+        {
+          "name": "get_EncipherOnly",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_EncipherOnly",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CrlSign",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_CrlSign",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_KeyCertificateSign",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_KeyCertificateSign",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_KeyAgreement",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_KeyAgreement",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DataEncipherment",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_DataEncipherment",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_KeyEncipherment",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_KeyEncipherment",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_NonRepudiation",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_NonRepudiation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DigitalSignature",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_DigitalSignature",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CrlSign",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CrlSign",
+          "setter": "put_CrlSign"
+        },
+        {
+          "name": "DataEncipherment",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_DataEncipherment",
+          "setter": "put_DataEncipherment"
+        },
+        {
+          "name": "DigitalSignature",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_DigitalSignature",
+          "setter": "put_DigitalSignature"
+        },
+        {
+          "name": "EncipherOnly",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_EncipherOnly",
+          "setter": "put_EncipherOnly"
+        },
+        {
+          "name": "KeyAgreement",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_KeyAgreement",
+          "setter": "put_KeyAgreement"
+        },
+        {
+          "name": "KeyCertificateSign",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_KeyCertificateSign",
+          "setter": "put_KeyCertificateSign"
+        },
+        {
+          "name": "KeyEncipherment",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_KeyEncipherment",
+          "setter": "put_KeyEncipherment"
+        },
+        {
+          "name": "NonRepudiation",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_NonRepudiation",
+          "setter": "put_NonRepudiation"
+        }
+      ]
+    },
+    "ICertificateQuery": {
+      "guid": "5b082a31-a728-4916-b5ee-ffcb8acf2417",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.CertificateQuery",
+      "methods": [
+        {
+          "name": "get_EnhancedKeyUsages",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_IssuerName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_IssuerName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FriendlyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_FriendlyName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Thumbprint",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          }
+        },
+        {
+          "name": "put_Thumbprint",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_HardwareOnly",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_HardwareOnly",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "EnhancedKeyUsages",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_EnhancedKeyUsages"
+        },
+        {
+          "name": "FriendlyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_FriendlyName",
+          "setter": "put_FriendlyName"
+        },
+        {
+          "name": "HardwareOnly",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HardwareOnly",
+          "setter": "put_HardwareOnly"
+        },
+        {
+          "name": "IssuerName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_IssuerName",
+          "setter": "put_IssuerName"
+        },
+        {
+          "name": "Thumbprint",
+          "type": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          },
+          "getter": "get_Thumbprint",
+          "setter": "put_Thumbprint"
+        }
+      ]
+    },
+    "ICertificateQuery2": {
+      "guid": "935a0af7-0bd9-4f75-b8c2-e27a7f74eecd",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.CertificateQuery",
+      "methods": [
+        {
+          "name": "get_IncludeDuplicates",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IncludeDuplicates",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IncludeExpiredCertificates",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IncludeExpiredCertificates",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_StoreName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_StoreName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IncludeDuplicates",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IncludeDuplicates",
+          "setter": "put_IncludeDuplicates"
+        },
+        {
+          "name": "IncludeExpiredCertificates",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IncludeExpiredCertificates",
+          "setter": "put_IncludeExpiredCertificates"
+        },
+        {
+          "name": "StoreName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_StoreName",
+          "setter": "put_StoreName"
+        }
+      ]
+    },
+    "ICertificateRequestProperties": {
+      "guid": "487e84f6-94e2-4dce-8833-1a700a37a29a",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.CertificateRequestProperties",
+      "methods": [
+        {
+          "name": "get_Subject",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Subject",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_KeyAlgorithmName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_KeyAlgorithmName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_KeySize",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_KeySize",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FriendlyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_FriendlyName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_HashAlgorithmName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_HashAlgorithmName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Exportable",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ExportOption",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Exportable",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ExportOption",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_KeyUsages",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EnrollKeyUsages",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_KeyUsages",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EnrollKeyUsages",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_KeyProtectionLevel",
+          "return": {
+            "kind": "ApiRef",
+            "name": "KeyProtectionLevel",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_KeyProtectionLevel",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "KeyProtectionLevel",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_KeyStorageProviderName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_KeyStorageProviderName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Exportable",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ExportOption",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Exportable",
+          "setter": "put_Exportable"
+        },
+        {
+          "name": "FriendlyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_FriendlyName",
+          "setter": "put_FriendlyName"
+        },
+        {
+          "name": "HashAlgorithmName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HashAlgorithmName",
+          "setter": "put_HashAlgorithmName"
+        },
+        {
+          "name": "KeyAlgorithmName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_KeyAlgorithmName",
+          "setter": "put_KeyAlgorithmName"
+        },
+        {
+          "name": "KeyProtectionLevel",
+          "type": {
+            "kind": "ApiRef",
+            "name": "KeyProtectionLevel",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Enum"
+          },
+          "getter": "get_KeyProtectionLevel",
+          "setter": "put_KeyProtectionLevel"
+        },
+        {
+          "name": "KeySize",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_KeySize",
+          "setter": "put_KeySize"
+        },
+        {
+          "name": "KeyStorageProviderName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_KeyStorageProviderName",
+          "setter": "put_KeyStorageProviderName"
+        },
+        {
+          "name": "KeyUsages",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EnrollKeyUsages",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Enum"
+          },
+          "getter": "get_KeyUsages",
+          "setter": "put_KeyUsages"
+        },
+        {
+          "name": "Subject",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Subject",
+          "setter": "put_Subject"
+        }
+      ]
+    },
+    "ICertificateRequestProperties2": {
+      "guid": "3da0c954-d73f-4ff3-a0a6-0677c0ada05b",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.CertificateRequestProperties",
+      "methods": [
+        {
+          "name": "get_SmartcardReaderName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_SmartcardReaderName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SigningCertificate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_SigningCertificate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AttestationCredentialCertificate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_AttestationCredentialCertificate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AttestationCredentialCertificate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          },
+          "getter": "get_AttestationCredentialCertificate",
+          "setter": "put_AttestationCredentialCertificate"
+        },
+        {
+          "name": "SigningCertificate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          },
+          "getter": "get_SigningCertificate",
+          "setter": "put_SigningCertificate"
+        },
+        {
+          "name": "SmartcardReaderName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SmartcardReaderName",
+          "setter": "put_SmartcardReaderName"
+        }
+      ]
+    },
+    "ICertificateRequestProperties3": {
+      "guid": "e687f616-734d-46b1-9d4c-6edfdbfc845b",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.CertificateRequestProperties",
+      "methods": [
+        {
+          "name": "get_CurveName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_CurveName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CurveParameters",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          }
+        },
+        {
+          "name": "put_CurveParameters",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ContainerNamePrefix",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_ContainerNamePrefix",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ContainerName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_ContainerName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_UseExistingKey",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_UseExistingKey",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContainerName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ContainerName",
+          "setter": "put_ContainerName"
+        },
+        {
+          "name": "ContainerNamePrefix",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ContainerNamePrefix",
+          "setter": "put_ContainerNamePrefix"
+        },
+        {
+          "name": "CurveName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CurveName",
+          "setter": "put_CurveName"
+        },
+        {
+          "name": "CurveParameters",
+          "type": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          },
+          "getter": "get_CurveParameters",
+          "setter": "put_CurveParameters"
+        },
+        {
+          "name": "UseExistingKey",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_UseExistingKey",
+          "setter": "put_UseExistingKey"
+        }
+      ]
+    },
+    "ICertificateRequestProperties4": {
+      "guid": "4e429ad2-1c61-4fea-b8fe-135fb19cdce4",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.CertificateRequestProperties",
+      "methods": [
+        {
+          "name": "get_SuppressedDefaults",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SubjectAlternativeName",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SubjectAlternativeNameInfo",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Extensions",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CertificateExtension",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Extensions",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CertificateExtension",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Extensions"
+        },
+        {
+          "name": "SubjectAlternativeName",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SubjectAlternativeNameInfo",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          },
+          "getter": "get_SubjectAlternativeName"
+        },
+        {
+          "name": "SuppressedDefaults",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_SuppressedDefaults"
+        }
+      ]
+    },
+    "ICertificateStore": {
+      "guid": "b0bff720-344e-4331-af14-a7f7a7ebc93a",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.CertificateStore",
+      "methods": [
+        {
+          "name": "Add",
+          "params": [
+            {
+              "name": "certificate",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Delete",
+          "params": [
+            {
+              "name": "certificate",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "ICertificateStore2": {
+      "guid": "c7e68e4a-417d-4d1a-babd-15687e549974",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.CertificateStore",
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        }
+      ]
+    },
+    "ICertificateStoresStatics": {
+      "guid": "fbecc739-c6fe-4de7-99cf-74c3e596e032",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.CertificateStores",
+      "methods": [
+        {
+          "name": "FindAllAsync",
+          "overload": "FindAllAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Certificate",
+                    "namespace": "Windows.Security.Cryptography.Certificates",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAllAsync",
+          "overload": "FindAllWithQueryAsync",
+          "params": [
+            {
+              "name": "query",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CertificateQuery",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Certificate",
+                    "namespace": "Windows.Security.Cryptography.Certificates",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_TrustedRootCertificationAuthorities",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CertificateStore",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IntermediateCertificationAuthorities",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CertificateStore",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetStoreByName",
+          "params": [
+            {
+              "name": "storeName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CertificateStore",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IntermediateCertificationAuthorities",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CertificateStore",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          },
+          "getter": "get_IntermediateCertificationAuthorities"
+        },
+        {
+          "name": "TrustedRootCertificationAuthorities",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CertificateStore",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          },
+          "getter": "get_TrustedRootCertificationAuthorities"
+        }
+      ]
+    },
+    "ICertificateStoresStatics2": {
+      "guid": "fa900b79-a0d4-4b8c-bc55-c0a37eb141ed",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.CertificateStores",
+      "methods": [
+        {
+          "name": "GetUserStoreByName",
+          "params": [
+            {
+              "name": "storeName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserCertificateStore",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IChainBuildingParameters": {
+      "guid": "422ba922-7c8d-47b7-b59b-b12703733ac3",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.ChainBuildingParameters",
+      "methods": [
+        {
+          "name": "get_EnhancedKeyUsages",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ValidationTimestamp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_ValidationTimestamp",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RevocationCheckEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_RevocationCheckEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_NetworkRetrievalEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_NetworkRetrievalEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AuthorityInformationAccessEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AuthorityInformationAccessEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CurrentTimeValidationEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_CurrentTimeValidationEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ExclusiveTrustRoots",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AuthorityInformationAccessEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AuthorityInformationAccessEnabled",
+          "setter": "put_AuthorityInformationAccessEnabled"
+        },
+        {
+          "name": "CurrentTimeValidationEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CurrentTimeValidationEnabled",
+          "setter": "put_CurrentTimeValidationEnabled"
+        },
+        {
+          "name": "EnhancedKeyUsages",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_EnhancedKeyUsages"
+        },
+        {
+          "name": "ExclusiveTrustRoots",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_ExclusiveTrustRoots"
+        },
+        {
+          "name": "NetworkRetrievalEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_NetworkRetrievalEnabled",
+          "setter": "put_NetworkRetrievalEnabled"
+        },
+        {
+          "name": "RevocationCheckEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_RevocationCheckEnabled",
+          "setter": "put_RevocationCheckEnabled"
+        },
+        {
+          "name": "ValidationTimestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ValidationTimestamp",
+          "setter": "put_ValidationTimestamp"
+        }
+      ]
+    },
+    "IChainValidationParameters": {
+      "guid": "c4743b4a-7eb0-4b56-a040-b9c8e655ddf3",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.ChainValidationParameters",
+      "methods": [
+        {
+          "name": "get_CertificateChainPolicy",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CertificateChainPolicy",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_CertificateChainPolicy",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CertificateChainPolicy",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ServerDnsName",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ServerDnsName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CertificateChainPolicy",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CertificateChainPolicy",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CertificateChainPolicy",
+          "setter": "put_CertificateChainPolicy"
+        },
+        {
+          "name": "ServerDnsName",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          },
+          "getter": "get_ServerDnsName",
+          "setter": "put_ServerDnsName"
+        }
+      ]
+    },
+    "ICmsAttachedSignature": {
+      "guid": "61899d9d-3757-4ecb-bddc-0ca357d7a936",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.CmsAttachedSignature",
+      "methods": [
+        {
+          "name": "get_Certificates",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Content",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          }
+        },
+        {
+          "name": "get_Signers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CmsSignerInfo",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "VerifySignature",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SignatureValidationResult",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Certificates",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Certificates"
+        },
+        {
+          "name": "Content",
+          "type": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          },
+          "getter": "get_Content"
+        },
+        {
+          "name": "Signers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CmsSignerInfo",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Signers"
+        }
+      ]
+    },
+    "ICmsAttachedSignatureFactory": {
+      "guid": "d0c8fc15-f757-4c64-a362-52cc1c77cffb",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.CmsAttachedSignature",
+      "methods": [
+        {
+          "name": "CreateCmsAttachedSignature",
+          "params": [
+            {
+              "name": "inputBlob",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CmsAttachedSignature",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ICmsAttachedSignatureStatics": {
+      "guid": "87989c8e-b0ad-498d-a7f5-78b59bce4b36",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.CmsAttachedSignature",
+      "methods": [
+        {
+          "name": "GenerateSignatureAsync",
+          "params": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "signers",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CmsSignerInfo",
+                    "namespace": "Windows.Security.Cryptography.Certificates",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "certificates",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Certificate",
+                    "namespace": "Windows.Security.Cryptography.Certificates",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ICmsDetachedSignature": {
+      "guid": "0f1ef154-f65e-4536-8339-5944081db2ca",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.CmsDetachedSignature",
+      "methods": [
+        {
+          "name": "get_Certificates",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Signers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CmsSignerInfo",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "VerifySignatureAsync",
+          "params": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SignatureValidationResult",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Certificates",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Certificates"
+        },
+        {
+          "name": "Signers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CmsSignerInfo",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Signers"
+        }
+      ]
+    },
+    "ICmsDetachedSignatureFactory": {
+      "guid": "c4ab3503-ae7f-4387-ad19-00f150e48ebb",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.CmsDetachedSignature",
+      "methods": [
+        {
+          "name": "CreateCmsDetachedSignature",
+          "params": [
+            {
+              "name": "inputBlob",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CmsDetachedSignature",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ICmsDetachedSignatureStatics": {
+      "guid": "3d114cfd-bf9b-4682-9be6-91f57c053808",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.CmsDetachedSignature",
+      "methods": [
+        {
+          "name": "GenerateSignatureAsync",
+          "params": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "signers",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CmsSignerInfo",
+                    "namespace": "Windows.Security.Cryptography.Certificates",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "certificates",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Certificate",
+                    "namespace": "Windows.Security.Cryptography.Certificates",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ICmsSignerInfo": {
+      "guid": "50d020db-1d2f-4c1a-b5c5-d0188ff91f47",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.CmsSignerInfo",
+      "methods": [
+        {
+          "name": "get_Certificate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Certificate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_HashAlgorithmName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_HashAlgorithmName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TimestampInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CmsTimestampInfo",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Certificate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          },
+          "getter": "get_Certificate",
+          "setter": "put_Certificate"
+        },
+        {
+          "name": "HashAlgorithmName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HashAlgorithmName",
+          "setter": "put_HashAlgorithmName"
+        },
+        {
+          "name": "TimestampInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CmsTimestampInfo",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          },
+          "getter": "get_TimestampInfo"
+        }
+      ]
+    },
+    "ICmsTimestampInfo": {
+      "guid": "2f5f00f2-2c18-4f88-8435-c534086076f5",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.CmsTimestampInfo",
+      "methods": [
+        {
+          "name": "get_SigningCertificate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Certificates",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Timestamp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Certificates",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Certificates"
+        },
+        {
+          "name": "SigningCertificate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          },
+          "getter": "get_SigningCertificate"
+        },
+        {
+          "name": "Timestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Timestamp"
+        }
+      ]
+    },
+    "IKeyAlgorithmNamesStatics": {
+      "guid": "479065d7-7ac7-4581-8c3b-d07027140448",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.KeyAlgorithmNames",
+      "methods": [
+        {
+          "name": "get_Rsa",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Dsa",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Ecdh256",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Ecdh384",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Ecdh521",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Ecdsa256",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Ecdsa384",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Ecdsa521",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Dsa",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Dsa"
+        },
+        {
+          "name": "Ecdh256",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Ecdh256"
+        },
+        {
+          "name": "Ecdh384",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Ecdh384"
+        },
+        {
+          "name": "Ecdh521",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Ecdh521"
+        },
+        {
+          "name": "Ecdsa256",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Ecdsa256"
+        },
+        {
+          "name": "Ecdsa384",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Ecdsa384"
+        },
+        {
+          "name": "Ecdsa521",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Ecdsa521"
+        },
+        {
+          "name": "Rsa",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Rsa"
+        }
+      ]
+    },
+    "IKeyAlgorithmNamesStatics2": {
+      "guid": "c99b5686-e1fd-4a4a-893d-a26f33dd8bb4",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.KeyAlgorithmNames",
+      "methods": [
+        {
+          "name": "get_Ecdsa",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Ecdh",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Ecdh",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Ecdh"
+        },
+        {
+          "name": "Ecdsa",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Ecdsa"
+        }
+      ]
+    },
+    "IKeyAttestationHelperStatics": {
+      "guid": "1648e246-f644-4326-88be-3af102d30e0c",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.KeyAttestationHelper",
+      "methods": [
+        {
+          "name": "DecryptTpmAttestationCredentialAsync",
+          "overload": "DecryptTpmAttestationCredentialAsync",
+          "params": [
+            {
+              "name": "credential",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetTpmAttestationCredentialId",
+          "params": [
+            {
+              "name": "credential",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "IKeyAttestationHelperStatics2": {
+      "guid": "9c590b2c-a6c6-4a5e-9e64-e85d5279df97",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.KeyAttestationHelper",
+      "methods": [
+        {
+          "name": "DecryptTpmAttestationCredentialAsync",
+          "overload": "DecryptTpmAttestationCredentialWithContainerNameAsync",
+          "params": [
+            {
+              "name": "credential",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "containerName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IKeyStorageProviderNamesStatics": {
+      "guid": "af186ae0-5529-4602-bd94-0aab91957b5c",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.KeyStorageProviderNames",
+      "methods": [
+        {
+          "name": "get_SoftwareKeyStorageProvider",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SmartcardKeyStorageProvider",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_PlatformKeyStorageProvider",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PlatformKeyStorageProvider",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PlatformKeyStorageProvider"
+        },
+        {
+          "name": "SmartcardKeyStorageProvider",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SmartcardKeyStorageProvider"
+        },
+        {
+          "name": "SoftwareKeyStorageProvider",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SoftwareKeyStorageProvider"
+        }
+      ]
+    },
+    "IKeyStorageProviderNamesStatics2": {
+      "guid": "262d743d-9c2e-41cc-8812-c4d971dd7c60",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.KeyStorageProviderNames",
+      "methods": [
+        {
+          "name": "get_PassportKeyStorageProvider",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PassportKeyStorageProvider",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PassportKeyStorageProvider"
+        }
+      ]
+    },
+    "IPfxImportParameters": {
+      "guid": "680d3511-9a08-47c8-864a-2edd4d8eb46c",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.PfxImportParameters",
+      "methods": [
+        {
+          "name": "get_Exportable",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ExportOption",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Exportable",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ExportOption",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_KeyProtectionLevel",
+          "return": {
+            "kind": "ApiRef",
+            "name": "KeyProtectionLevel",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_KeyProtectionLevel",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "KeyProtectionLevel",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_InstallOptions",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InstallOptions",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_InstallOptions",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InstallOptions",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FriendlyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_FriendlyName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_KeyStorageProviderName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_KeyStorageProviderName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ContainerNamePrefix",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_ContainerNamePrefix",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ReaderName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_ReaderName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContainerNamePrefix",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ContainerNamePrefix",
+          "setter": "put_ContainerNamePrefix"
+        },
+        {
+          "name": "Exportable",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ExportOption",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Exportable",
+          "setter": "put_Exportable"
+        },
+        {
+          "name": "FriendlyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_FriendlyName",
+          "setter": "put_FriendlyName"
+        },
+        {
+          "name": "InstallOptions",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InstallOptions",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InstallOptions",
+          "setter": "put_InstallOptions"
+        },
+        {
+          "name": "KeyProtectionLevel",
+          "type": {
+            "kind": "ApiRef",
+            "name": "KeyProtectionLevel",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Enum"
+          },
+          "getter": "get_KeyProtectionLevel",
+          "setter": "put_KeyProtectionLevel"
+        },
+        {
+          "name": "KeyStorageProviderName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_KeyStorageProviderName",
+          "setter": "put_KeyStorageProviderName"
+        },
+        {
+          "name": "ReaderName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ReaderName",
+          "setter": "put_ReaderName"
+        }
+      ]
+    },
+    "IStandardCertificateStoreNamesStatics": {
+      "guid": "0c154adb-a496-41f8-8fe5-9e96f36efbf8",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.StandardCertificateStoreNames",
+      "methods": [
+        {
+          "name": "get_Personal",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TrustedRootCertificationAuthorities",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IntermediateCertificationAuthorities",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IntermediateCertificationAuthorities",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_IntermediateCertificationAuthorities"
+        },
+        {
+          "name": "Personal",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Personal"
+        },
+        {
+          "name": "TrustedRootCertificationAuthorities",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TrustedRootCertificationAuthorities"
+        }
+      ]
+    },
+    "ISubjectAlternativeNameInfo": {
+      "guid": "582859f1-569d-4c20-be7b-4e1c9a0bc52b",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.SubjectAlternativeNameInfo",
+      "methods": [
+        {
+          "name": "get_EmailName",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_IPAddress",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Url",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_DnsName",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_DistinguishedName",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_PrincipalName",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DistinguishedName",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_DistinguishedName"
+        },
+        {
+          "name": "DnsName",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_DnsName"
+        },
+        {
+          "name": "EmailName",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_EmailName"
+        },
+        {
+          "name": "IPAddress",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_IPAddress"
+        },
+        {
+          "name": "PrincipalName",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_PrincipalName"
+        },
+        {
+          "name": "Url",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Url"
+        }
+      ]
+    },
+    "ISubjectAlternativeNameInfo2": {
+      "guid": "437a78c6-1c51-41ea-b34a-3d654398a370",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.SubjectAlternativeNameInfo",
+      "methods": [
+        {
+          "name": "get_EmailNames",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_IPAddresses",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Urls",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_DnsNames",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_DistinguishedNames",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_PrincipalNames",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Extension",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CertificateExtension",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DistinguishedNames",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_DistinguishedNames"
+        },
+        {
+          "name": "DnsNames",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_DnsNames"
+        },
+        {
+          "name": "EmailNames",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_EmailNames"
+        },
+        {
+          "name": "Extension",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CertificateExtension",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          },
+          "getter": "get_Extension"
+        },
+        {
+          "name": "IPAddresses",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_IPAddresses"
+        },
+        {
+          "name": "PrincipalNames",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_PrincipalNames"
+        },
+        {
+          "name": "Urls",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Urls"
+        }
+      ]
+    },
+    "IUserCertificateEnrollmentManager": {
+      "guid": "96313718-22e1-4819-b20b-ab46a6eca06e",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.UserCertificateEnrollmentManager",
+      "methods": [
+        {
+          "name": "CreateRequestAsync",
+          "params": [
+            {
+              "name": "request",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CertificateRequestProperties",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "InstallCertificateAsync",
+          "params": [
+            {
+              "name": "certificate",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "installOption",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InstallOptions",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ImportPfxDataAsync",
+          "overload": "ImportPfxDataAsync",
+          "params": [
+            {
+              "name": "pfxData",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "password",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "exportable",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ExportOption",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "keyProtectionLevel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "KeyProtectionLevel",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "installOption",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InstallOptions",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "friendlyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ImportPfxDataAsync",
+          "overload": "ImportPfxDataToKspAsync",
+          "params": [
+            {
+              "name": "pfxData",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "password",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "exportable",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ExportOption",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "keyProtectionLevel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "KeyProtectionLevel",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "installOption",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InstallOptions",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "friendlyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "keyStorageProvider",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IUserCertificateEnrollmentManager2": {
+      "guid": "0dad9cb1-65de-492a-b86d-fc5c482c3747",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.UserCertificateEnrollmentManager",
+      "methods": [
+        {
+          "name": "ImportPfxDataAsync",
+          "overload": "ImportPfxDataToKspWithParametersAsync",
+          "params": [
+            {
+              "name": "pfxData",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "password",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "pfxImportParameters",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PfxImportParameters",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IUserCertificateStore": {
+      "guid": "c9fb1d83-789f-4b4e-9180-045a757aac6d",
+      "exclusive_to": "Windows.Security.Cryptography.Certificates.UserCertificateStore",
+      "methods": [
+        {
+          "name": "RequestAddAsync",
+          "params": [
+            {
+              "name": "certificate",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestDeleteAsync",
+          "params": [
+            {
+              "name": "certificate",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "Certificate": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICertificate",
+        "namespace": "Windows.Security.Cryptography.Certificates",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICertificate",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICertificate2",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICertificate3",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Security.Cryptography.Certificates.ICertificateFactory"
+      ]
+    },
+    "CertificateChain": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICertificateChain",
+        "namespace": "Windows.Security.Cryptography.Certificates",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICertificateChain",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CertificateEnrollmentManager": {
+      "static_interfaces": [
+        "Windows.Security.Cryptography.Certificates.ICertificateEnrollmentManagerStatics2",
+        "Windows.Security.Cryptography.Certificates.ICertificateEnrollmentManagerStatics3",
+        "Windows.Security.Cryptography.Certificates.ICertificateEnrollmentManagerStatics"
+      ]
+    },
+    "CertificateExtension": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICertificateExtension",
+        "namespace": "Windows.Security.Cryptography.Certificates",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICertificateExtension",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "CertificateKeyUsages": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICertificateKeyUsages",
+        "namespace": "Windows.Security.Cryptography.Certificates",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICertificateKeyUsages",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "CertificateQuery": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICertificateQuery",
+        "namespace": "Windows.Security.Cryptography.Certificates",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICertificateQuery",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICertificateQuery2",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "CertificateRequestProperties": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICertificateRequestProperties",
+        "namespace": "Windows.Security.Cryptography.Certificates",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICertificateRequestProperties",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICertificateRequestProperties2",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICertificateRequestProperties3",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICertificateRequestProperties4",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "CertificateStore": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICertificateStore",
+        "namespace": "Windows.Security.Cryptography.Certificates",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICertificateStore",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICertificateStore2",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CertificateStores": {
+      "static_interfaces": [
+        "Windows.Security.Cryptography.Certificates.ICertificateStoresStatics2",
+        "Windows.Security.Cryptography.Certificates.ICertificateStoresStatics"
+      ]
+    },
+    "ChainBuildingParameters": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChainBuildingParameters",
+        "namespace": "Windows.Security.Cryptography.Certificates",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChainBuildingParameters",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "ChainValidationParameters": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChainValidationParameters",
+        "namespace": "Windows.Security.Cryptography.Certificates",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IChainValidationParameters",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "CmsAttachedSignature": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICmsAttachedSignature",
+        "namespace": "Windows.Security.Cryptography.Certificates",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICmsAttachedSignature",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Security.Cryptography.Certificates.ICmsAttachedSignatureFactory"
+      ],
+      "static_interfaces": [
+        "Windows.Security.Cryptography.Certificates.ICmsAttachedSignatureStatics"
+      ]
+    },
+    "CmsDetachedSignature": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICmsDetachedSignature",
+        "namespace": "Windows.Security.Cryptography.Certificates",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICmsDetachedSignature",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Security.Cryptography.Certificates.ICmsDetachedSignatureFactory"
+      ],
+      "static_interfaces": [
+        "Windows.Security.Cryptography.Certificates.ICmsDetachedSignatureStatics"
+      ]
+    },
+    "CmsSignerInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICmsSignerInfo",
+        "namespace": "Windows.Security.Cryptography.Certificates",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICmsSignerInfo",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "CmsTimestampInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICmsTimestampInfo",
+        "namespace": "Windows.Security.Cryptography.Certificates",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICmsTimestampInfo",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "KeyAlgorithmNames": {
+      "static_interfaces": [
+        "Windows.Security.Cryptography.Certificates.IKeyAlgorithmNamesStatics2",
+        "Windows.Security.Cryptography.Certificates.IKeyAlgorithmNamesStatics"
+      ]
+    },
+    "KeyAttestationHelper": {
+      "static_interfaces": [
+        "Windows.Security.Cryptography.Certificates.IKeyAttestationHelperStatics",
+        "Windows.Security.Cryptography.Certificates.IKeyAttestationHelperStatics2"
+      ]
+    },
+    "KeyStorageProviderNames": {
+      "static_interfaces": [
+        "Windows.Security.Cryptography.Certificates.IKeyStorageProviderNamesStatics",
+        "Windows.Security.Cryptography.Certificates.IKeyStorageProviderNamesStatics2"
+      ]
+    },
+    "PfxImportParameters": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPfxImportParameters",
+        "namespace": "Windows.Security.Cryptography.Certificates",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPfxImportParameters",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "StandardCertificateStoreNames": {
+      "static_interfaces": [
+        "Windows.Security.Cryptography.Certificates.IStandardCertificateStoreNamesStatics"
+      ]
+    },
+    "SubjectAlternativeNameInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISubjectAlternativeNameInfo",
+        "namespace": "Windows.Security.Cryptography.Certificates",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISubjectAlternativeNameInfo",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISubjectAlternativeNameInfo2",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "UserCertificateEnrollmentManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserCertificateEnrollmentManager",
+        "namespace": "Windows.Security.Cryptography.Certificates",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserCertificateEnrollmentManager",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IUserCertificateEnrollmentManager2",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserCertificateStore": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserCertificateStore",
+        "namespace": "Windows.Security.Cryptography.Certificates",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserCertificateStore",
+          "namespace": "Windows.Security.Cryptography.Certificates",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

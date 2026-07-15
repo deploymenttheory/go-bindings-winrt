@@ -1,0 +1,265 @@
+{
+  "namespace": "Windows.UI.Xaml.Hosting",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IElementCompositionPreview": {
+      "guid": "b6f1a676-cfe6-46ac-acf6-c4687bb65e60",
+      "exclusive_to": "Windows.UI.Xaml.Hosting.ElementCompositionPreview"
+    },
+    "IElementCompositionPreviewStatics": {
+      "guid": "08c92b38-ec99-4c55-bc85-a1c180b27646",
+      "exclusive_to": "Windows.UI.Xaml.Hosting.ElementCompositionPreview",
+      "methods": [
+        {
+          "name": "GetElementVisual",
+          "params": [
+            {
+              "name": "element",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElement",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Visual",
+            "namespace": "Windows.UI.Composition",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetElementChildVisual",
+          "params": [
+            {
+              "name": "element",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElement",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Visual",
+            "namespace": "Windows.UI.Composition",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetElementChildVisual",
+          "params": [
+            {
+              "name": "element",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElement",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "visual",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Visual",
+                "namespace": "Windows.UI.Composition",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetScrollViewerManipulationPropertySet",
+          "params": [
+            {
+              "name": "scrollViewer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ScrollViewer",
+                "namespace": "Windows.UI.Xaml.Controls",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CompositionPropertySet",
+            "namespace": "Windows.UI.Composition",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IElementCompositionPreviewStatics2": {
+      "guid": "24148fbb-23d6-4f37-ba0c-0733e799722d",
+      "exclusive_to": "Windows.UI.Xaml.Hosting.ElementCompositionPreview",
+      "methods": [
+        {
+          "name": "SetImplicitShowAnimation",
+          "params": [
+            {
+              "name": "element",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElement",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "animation",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ICompositionAnimationBase",
+                "namespace": "Windows.UI.Composition",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetImplicitHideAnimation",
+          "params": [
+            {
+              "name": "element",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElement",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "animation",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ICompositionAnimationBase",
+                "namespace": "Windows.UI.Composition",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetIsTranslationEnabled",
+          "params": [
+            {
+              "name": "element",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElement",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetPointerPositionPropertySet",
+          "params": [
+            {
+              "name": "targetElement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElement",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CompositionPropertySet",
+            "namespace": "Windows.UI.Composition",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IElementCompositionPreviewStatics3": {
+      "guid": "843bc4c3-c105-59fe-a3d1-373c1d3e6fbc",
+      "exclusive_to": "Windows.UI.Xaml.Hosting.ElementCompositionPreview",
+      "methods": [
+        {
+          "name": "SetAppWindowContent",
+          "params": [
+            {
+              "name": "appWindow",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppWindow",
+                "namespace": "Windows.UI.WindowManagement",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "xamlContent",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElement",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetAppWindowContent",
+          "params": [
+            {
+              "name": "appWindow",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppWindow",
+                "namespace": "Windows.UI.WindowManagement",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UIElement",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "ElementCompositionPreview": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IElementCompositionPreview",
+        "namespace": "Windows.UI.Xaml.Hosting",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IElementCompositionPreview",
+          "namespace": "Windows.UI.Xaml.Hosting",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Xaml.Hosting.IElementCompositionPreviewStatics2",
+        "Windows.UI.Xaml.Hosting.IElementCompositionPreviewStatics",
+        "Windows.UI.Xaml.Hosting.IElementCompositionPreviewStatics3"
+      ]
+    }
+  }
+}

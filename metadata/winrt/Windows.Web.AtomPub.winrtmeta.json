@@ -1,0 +1,759 @@
+{
+  "namespace": "Windows.Web.AtomPub",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IAtomPubClient": {
+      "guid": "35392c38-cded-4d4c-9637-05f15c1c9406",
+      "exclusive_to": "Windows.Web.AtomPub.AtomPubClient",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationClient",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "RetrieveServiceDocumentAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ServiceDocument",
+                "namespace": "Windows.Web.AtomPub",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "RetrievalProgress",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RetrieveMediaResourceAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "RetrievalProgress",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RetrieveResourceAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationItem",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "RetrievalProgress",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateResourceAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "description",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "item",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SyndicationItem",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationItem",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "TransferProgress",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateMediaResourceAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "mediaType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "description",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "mediaStream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationItem",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "TransferProgress",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "UpdateMediaResourceAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "mediaType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "mediaStream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncActionWithProgress`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TransferProgress",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "UpdateResourceAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "item",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SyndicationItem",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncActionWithProgress`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TransferProgress",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "UpdateResourceItemAsync",
+          "params": [
+            {
+              "name": "item",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SyndicationItem",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncActionWithProgress`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TransferProgress",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "DeleteResourceAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncActionWithProgress`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TransferProgress",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "DeleteResourceItemAsync",
+          "params": [
+            {
+              "name": "item",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SyndicationItem",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncActionWithProgress`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TransferProgress",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CancelAsyncOperations"
+        }
+      ]
+    },
+    "IAtomPubClientFactory": {
+      "guid": "49d55012-57cb-4bde-ab9f-2610b172777b",
+      "exclusive_to": "Windows.Web.AtomPub.AtomPubClient",
+      "methods": [
+        {
+          "name": "CreateAtomPubClientWithCredentials",
+          "params": [
+            {
+              "name": "serverCredential",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PasswordCredential",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AtomPubClient",
+            "namespace": "Windows.Web.AtomPub",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IResourceCollection": {
+      "guid": "7f5fd609-bc88-41d4-88fa-3de6704d428e",
+      "exclusive_to": "Windows.Web.AtomPub.ResourceCollection",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationNode",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Title",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ISyndicationText",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Uri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Categories",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationCategory",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Accepts",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Accepts",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Accepts"
+        },
+        {
+          "name": "Categories",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SyndicationCategory",
+                "namespace": "Windows.Web.Syndication",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Categories"
+        },
+        {
+          "name": "Title",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ISyndicationText",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Title"
+        },
+        {
+          "name": "Uri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Uri"
+        }
+      ]
+    },
+    "IServiceDocument": {
+      "guid": "8b7ec771-2ab3-4dbe-8bcc-778f92b75e51",
+      "exclusive_to": "Windows.Web.AtomPub.ServiceDocument",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationNode",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Workspaces",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Workspace",
+                "namespace": "Windows.Web.AtomPub",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Workspaces",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Workspace",
+                "namespace": "Windows.Web.AtomPub",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Workspaces"
+        }
+      ]
+    },
+    "IWorkspace": {
+      "guid": "b41da63b-a4b8-4036-89c5-83c31266ba49",
+      "exclusive_to": "Windows.Web.AtomPub.Workspace",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationNode",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Title",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ISyndicationText",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Collections",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ResourceCollection",
+                "namespace": "Windows.Web.AtomPub",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Collections",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ResourceCollection",
+                "namespace": "Windows.Web.AtomPub",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Collections"
+        },
+        {
+          "name": "Title",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ISyndicationText",
+            "namespace": "Windows.Web.Syndication",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Title"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AtomPubClient": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAtomPubClient",
+        "namespace": "Windows.Web.AtomPub",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAtomPubClient",
+          "namespace": "Windows.Web.AtomPub",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationClient",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Web.AtomPub.IAtomPubClientFactory"
+      ]
+    },
+    "ResourceCollection": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IResourceCollection",
+        "namespace": "Windows.Web.AtomPub",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IResourceCollection",
+          "namespace": "Windows.Web.AtomPub",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationNode",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ServiceDocument": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IServiceDocument",
+        "namespace": "Windows.Web.AtomPub",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IServiceDocument",
+          "namespace": "Windows.Web.AtomPub",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationNode",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "Workspace": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWorkspace",
+        "namespace": "Windows.Web.AtomPub",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWorkspace",
+          "namespace": "Windows.Web.AtomPub",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISyndicationNode",
+          "namespace": "Windows.Web.Syndication",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

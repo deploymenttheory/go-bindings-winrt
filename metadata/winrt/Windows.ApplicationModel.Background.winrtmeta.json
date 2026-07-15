@@ -1,0 +1,6003 @@
+{
+  "namespace": "Windows.ApplicationModel.Background",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "ApplicationTriggerResult": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Allowed",
+          "value": "0"
+        },
+        {
+          "name": "CurrentlyRunning",
+          "value": "1"
+        },
+        {
+          "name": "DisabledByPolicy",
+          "value": "2"
+        },
+        {
+          "name": "UnknownError",
+          "value": "3"
+        }
+      ]
+    },
+    "BackgroundAccessRequestKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "AlwaysAllowed",
+          "value": "0"
+        },
+        {
+          "name": "AllowedSubjectToSystemPolicy",
+          "value": "1"
+        }
+      ]
+    },
+    "BackgroundAccessStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unspecified",
+          "value": "0"
+        },
+        {
+          "name": "AllowedWithAlwaysOnRealTimeConnectivity",
+          "value": "1"
+        },
+        {
+          "name": "AllowedMayUseActiveRealTimeConnectivity",
+          "value": "2"
+        },
+        {
+          "name": "Denied",
+          "value": "3"
+        },
+        {
+          "name": "AlwaysAllowed",
+          "value": "4"
+        },
+        {
+          "name": "AllowedSubjectToSystemPolicy",
+          "value": "5"
+        },
+        {
+          "name": "DeniedBySystemPolicy",
+          "value": "6"
+        },
+        {
+          "name": "DeniedByUser",
+          "value": "7"
+        }
+      ]
+    },
+    "BackgroundTaskCancellationReason": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Abort",
+          "value": "0"
+        },
+        {
+          "name": "Terminating",
+          "value": "1"
+        },
+        {
+          "name": "LoggingOff",
+          "value": "2"
+        },
+        {
+          "name": "ServicingUpdate",
+          "value": "3"
+        },
+        {
+          "name": "IdleTask",
+          "value": "4"
+        },
+        {
+          "name": "Uninstall",
+          "value": "5"
+        },
+        {
+          "name": "ConditionLoss",
+          "value": "6"
+        },
+        {
+          "name": "SystemPolicy",
+          "value": "7"
+        },
+        {
+          "name": "QuietHoursEntered",
+          "value": "8"
+        },
+        {
+          "name": "ExecutionTimeExceeded",
+          "value": "9"
+        },
+        {
+          "name": "ResourceRevocation",
+          "value": "10"
+        },
+        {
+          "name": "EnergySaver",
+          "value": "11"
+        }
+      ]
+    },
+    "BackgroundTaskThrottleCounter": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "All",
+          "value": "0"
+        },
+        {
+          "name": "Cpu",
+          "value": "1"
+        },
+        {
+          "name": "Network",
+          "value": "2"
+        }
+      ]
+    },
+    "BackgroundWorkCostValue": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Low",
+          "value": "0"
+        },
+        {
+          "name": "Medium",
+          "value": "1"
+        },
+        {
+          "name": "High",
+          "value": "2"
+        }
+      ]
+    },
+    "CustomSystemEventTriggerRecurrence": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Once",
+          "value": "0"
+        },
+        {
+          "name": "Always",
+          "value": "1"
+        }
+      ]
+    },
+    "DeviceTriggerResult": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Allowed",
+          "value": "0"
+        },
+        {
+          "name": "DeniedByUser",
+          "value": "1"
+        },
+        {
+          "name": "DeniedBySystem",
+          "value": "2"
+        },
+        {
+          "name": "LowBattery",
+          "value": "3"
+        }
+      ]
+    },
+    "EnergyUseLevel": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "UnderHalfOfBudget",
+          "value": "1"
+        },
+        {
+          "name": "OverHalfOfBudget",
+          "value": "2"
+        },
+        {
+          "name": "OverBudget",
+          "value": "3"
+        }
+      ]
+    },
+    "LocationTriggerType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Geofence",
+          "value": "0"
+        }
+      ]
+    },
+    "MediaProcessingTriggerResult": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Allowed",
+          "value": "0"
+        },
+        {
+          "name": "CurrentlyRunning",
+          "value": "1"
+        },
+        {
+          "name": "DisabledByPolicy",
+          "value": "2"
+        },
+        {
+          "name": "UnknownError",
+          "value": "3"
+        }
+      ]
+    },
+    "SystemConditionType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Invalid",
+          "value": "0"
+        },
+        {
+          "name": "UserPresent",
+          "value": "1"
+        },
+        {
+          "name": "UserNotPresent",
+          "value": "2"
+        },
+        {
+          "name": "InternetAvailable",
+          "value": "3"
+        },
+        {
+          "name": "InternetNotAvailable",
+          "value": "4"
+        },
+        {
+          "name": "SessionConnected",
+          "value": "5"
+        },
+        {
+          "name": "SessionDisconnected",
+          "value": "6"
+        },
+        {
+          "name": "FreeNetworkAvailable",
+          "value": "7"
+        },
+        {
+          "name": "BackgroundWorkCostNotHigh",
+          "value": "8"
+        }
+      ]
+    },
+    "SystemTriggerType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Invalid",
+          "value": "0"
+        },
+        {
+          "name": "SmsReceived",
+          "value": "1"
+        },
+        {
+          "name": "UserPresent",
+          "value": "2"
+        },
+        {
+          "name": "UserAway",
+          "value": "3"
+        },
+        {
+          "name": "NetworkStateChange",
+          "value": "4"
+        },
+        {
+          "name": "ControlChannelReset",
+          "value": "5"
+        },
+        {
+          "name": "InternetAvailable",
+          "value": "6"
+        },
+        {
+          "name": "SessionConnected",
+          "value": "7"
+        },
+        {
+          "name": "ServicingComplete",
+          "value": "8"
+        },
+        {
+          "name": "LockScreenApplicationAdded",
+          "value": "9"
+        },
+        {
+          "name": "LockScreenApplicationRemoved",
+          "value": "10"
+        },
+        {
+          "name": "TimeZoneChange",
+          "value": "11"
+        },
+        {
+          "name": "OnlineIdConnectedStateChange",
+          "value": "12"
+        },
+        {
+          "name": "BackgroundWorkCostChange",
+          "value": "13"
+        },
+        {
+          "name": "PowerStateChange",
+          "value": "14"
+        },
+        {
+          "name": "DefaultSignInAccountChange",
+          "value": "15"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IActivitySensorTrigger": {
+      "guid": "d0dd4342-e37b-4823-a5fe-6b31dfefdeb0",
+      "exclusive_to": "Windows.ApplicationModel.Background.ActivitySensorTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_SubscribedActivities",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ActivityType",
+                "namespace": "Windows.Devices.Sensors",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ReportInterval",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_SupportedActivities",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ActivityType",
+                "namespace": "Windows.Devices.Sensors",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_MinimumReportInterval",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "MinimumReportInterval",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MinimumReportInterval"
+        },
+        {
+          "name": "ReportInterval",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ReportInterval"
+        },
+        {
+          "name": "SubscribedActivities",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ActivityType",
+                "namespace": "Windows.Devices.Sensors",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SubscribedActivities"
+        },
+        {
+          "name": "SupportedActivities",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ActivityType",
+                "namespace": "Windows.Devices.Sensors",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SupportedActivities"
+        }
+      ]
+    },
+    "IActivitySensorTriggerFactory": {
+      "guid": "a72691c3-3837-44f7-831b-0132cc872bc3",
+      "exclusive_to": "Windows.ApplicationModel.Background.ActivitySensorTrigger",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "reportIntervalInMilliseconds",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ActivitySensorTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IApplicationTrigger": {
+      "guid": "0b468630-9574-492c-9e93-1a3ae6335fe9",
+      "exclusive_to": "Windows.ApplicationModel.Background.ApplicationTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "RequestAsync",
+          "overload": "RequestAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ApplicationTriggerResult",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestAsync",
+          "overload": "RequestAsyncWithArguments",
+          "params": [
+            {
+              "name": "arguments",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ValueSet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ApplicationTriggerResult",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IApplicationTriggerDetails": {
+      "guid": "97dc6ab2-2219-4a9e-9c5e-41d047f76e82",
+      "exclusive_to": "Windows.ApplicationModel.Background.ApplicationTriggerDetails",
+      "methods": [
+        {
+          "name": "get_Arguments",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Arguments",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          },
+          "getter": "get_Arguments"
+        }
+      ]
+    },
+    "IAppointmentStoreNotificationTrigger": {
+      "guid": "64d4040c-c201-42ad-aa2a-e21ba3425b6d",
+      "exclusive_to": "Windows.ApplicationModel.Background.AppointmentStoreNotificationTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "IBackgroundCondition": {
+      "guid": "ae48a1ee-8951-400a-8302-9c9c9a2a3a3b"
+    },
+    "IBackgroundExecutionManagerStatics": {
+      "guid": "e826ea58-66a9-4d41-83d4-b4c18c87b846",
+      "exclusive_to": "Windows.ApplicationModel.Background.BackgroundExecutionManager",
+      "methods": [
+        {
+          "name": "RequestAccessAsync",
+          "overload": "RequestAccessAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BackgroundAccessStatus",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestAccessAsync",
+          "overload": "RequestAccessForApplicationAsync",
+          "params": [
+            {
+              "name": "applicationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BackgroundAccessStatus",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RemoveAccess",
+          "overload": "RemoveAccess"
+        },
+        {
+          "name": "RemoveAccess",
+          "overload": "RemoveAccessForApplication",
+          "params": [
+            {
+              "name": "applicationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetAccessStatus",
+          "overload": "GetAccessStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundAccessStatus",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetAccessStatus",
+          "overload": "GetAccessStatusForApplication",
+          "params": [
+            {
+              "name": "applicationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundAccessStatus",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Enum"
+          }
+        }
+      ]
+    },
+    "IBackgroundExecutionManagerStatics2": {
+      "guid": "469b24ef-9bbb-4e18-999a-fd6512931be9",
+      "exclusive_to": "Windows.ApplicationModel.Background.BackgroundExecutionManager",
+      "methods": [
+        {
+          "name": "RequestAccessKindAsync",
+          "overload": "RequestAccessKindAsync",
+          "params": [
+            {
+              "name": "requestedAccess",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BackgroundAccessRequestKind",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "reason",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IBackgroundExecutionManagerStatics3": {
+      "guid": "98a5d3f6-5a25-5b6c-9192-d77a43dfedc4",
+      "exclusive_to": "Windows.ApplicationModel.Background.BackgroundExecutionManager",
+      "methods": [
+        {
+          "name": "RequestAccessKindForModernStandbyAsync",
+          "params": [
+            {
+              "name": "requestedAccess",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BackgroundAccessRequestKind",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "reason",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetAccessStatusForModernStandby",
+          "overload": "GetAccessStatusForModernStandby",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundAccessStatus",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetAccessStatusForModernStandby",
+          "overload": "GetAccessStatusForModernStandbyForApplication",
+          "params": [
+            {
+              "name": "applicationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundAccessStatus",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Enum"
+          }
+        }
+      ]
+    },
+    "IBackgroundTask": {
+      "guid": "7d13d534-fd12-43ce-8c22-ea1ff13c06df",
+      "methods": [
+        {
+          "name": "Run",
+          "params": [
+            {
+              "name": "taskInstance",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBackgroundTaskInstance",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IBackgroundTaskBuilder": {
+      "guid": "0351550e-3e64-4572-a93a-84075a37c917",
+      "exclusive_to": "Windows.ApplicationModel.Background.BackgroundTaskBuilder",
+      "methods": [
+        {
+          "name": "put_TaskEntryPoint",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TaskEntryPoint",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "SetTrigger",
+          "params": [
+            {
+              "name": "trigger",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBackgroundTrigger",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddCondition",
+          "params": [
+            {
+              "name": "condition",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBackgroundCondition",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "put_Name",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "Register",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundTaskRegistration",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name",
+          "setter": "put_Name"
+        },
+        {
+          "name": "TaskEntryPoint",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TaskEntryPoint",
+          "setter": "put_TaskEntryPoint"
+        }
+      ]
+    },
+    "IBackgroundTaskBuilder2": {
+      "guid": "6ae7cfb1-104f-406d-8db6-844a570f42bb",
+      "exclusive_to": "Windows.ApplicationModel.Background.BackgroundTaskBuilder",
+      "methods": [
+        {
+          "name": "put_CancelOnConditionLoss",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CancelOnConditionLoss",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CancelOnConditionLoss",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CancelOnConditionLoss",
+          "setter": "put_CancelOnConditionLoss"
+        }
+      ]
+    },
+    "IBackgroundTaskBuilder3": {
+      "guid": "28c74f4a-8ba9-4c09-a24f-19683e2c924c",
+      "exclusive_to": "Windows.ApplicationModel.Background.BackgroundTaskBuilder",
+      "methods": [
+        {
+          "name": "put_IsNetworkRequested",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsNetworkRequested",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsNetworkRequested",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsNetworkRequested",
+          "setter": "put_IsNetworkRequested"
+        }
+      ]
+    },
+    "IBackgroundTaskBuilder4": {
+      "guid": "4755e522-cba2-4e35-bd16-a6da7f1c19aa",
+      "exclusive_to": "Windows.ApplicationModel.Background.BackgroundTaskBuilder",
+      "methods": [
+        {
+          "name": "get_TaskGroup",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundTaskRegistrationGroup",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_TaskGroup",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BackgroundTaskRegistrationGroup",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "TaskGroup",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BackgroundTaskRegistrationGroup",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          },
+          "getter": "get_TaskGroup",
+          "setter": "put_TaskGroup"
+        }
+      ]
+    },
+    "IBackgroundTaskBuilder5": {
+      "guid": "077103f6-99f5-4af4-bcad-4731d0330d43",
+      "exclusive_to": "Windows.ApplicationModel.Background.BackgroundTaskBuilder",
+      "methods": [
+        {
+          "name": "SetTaskEntryPointClsid",
+          "params": [
+            {
+              "name": "TaskEntryPoint",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IBackgroundTaskBuilder6": {
+      "guid": "80b47b17-ec8b-5653-850b-7508a01f52e7",
+      "exclusive_to": "Windows.ApplicationModel.Background.BackgroundTaskBuilder",
+      "methods": [
+        {
+          "name": "get_AllowRunningTaskInStandby",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AllowRunningTaskInStandby",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Validate",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "Register",
+          "params": [
+            {
+              "name": "taskName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundTaskRegistration",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllowRunningTaskInStandby",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AllowRunningTaskInStandby",
+          "setter": "put_AllowRunningTaskInStandby"
+        }
+      ]
+    },
+    "IBackgroundTaskBuilderStatics": {
+      "guid": "d1eb5046-06f2-55b4-9bb7-a6457ebf3300",
+      "exclusive_to": "Windows.ApplicationModel.Background.BackgroundTaskBuilder",
+      "methods": [
+        {
+          "name": "get_IsRunningTaskInStandbySupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsRunningTaskInStandbySupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsRunningTaskInStandbySupported"
+        }
+      ]
+    },
+    "IBackgroundTaskCompletedEventArgs": {
+      "guid": "565d25cf-f209-48f4-9967-2b184f7bfbf0",
+      "exclusive_to": "Windows.ApplicationModel.Background.BackgroundTaskCompletedEventArgs",
+      "methods": [
+        {
+          "name": "get_InstanceId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "CheckResult"
+        }
+      ],
+      "properties": [
+        {
+          "name": "InstanceId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_InstanceId"
+        }
+      ]
+    },
+    "IBackgroundTaskDeferral": {
+      "guid": "93cc156d-af27-4dd3-846e-24ee40cadd25",
+      "exclusive_to": "Windows.ApplicationModel.Background.BackgroundTaskDeferral",
+      "methods": [
+        {
+          "name": "Complete"
+        }
+      ]
+    },
+    "IBackgroundTaskInstance": {
+      "guid": "865bda7a-21d8-4573-8f32-928a1b0641f6",
+      "methods": [
+        {
+          "name": "get_InstanceId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_Task",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundTaskRegistration",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Progress",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_Progress",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TriggerDetails",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "add_Canceled",
+          "params": [
+            {
+              "name": "cancelHandler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BackgroundTaskCanceledEventHandler",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Canceled",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SuspendedCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundTaskDeferral",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InstanceId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_InstanceId"
+        },
+        {
+          "name": "Progress",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Progress",
+          "setter": "put_Progress"
+        },
+        {
+          "name": "SuspendedCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SuspendedCount"
+        },
+        {
+          "name": "Task",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BackgroundTaskRegistration",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          },
+          "getter": "get_Task"
+        },
+        {
+          "name": "TriggerDetails",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_TriggerDetails"
+        }
+      ],
+      "events": [
+        {
+          "name": "Canceled",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BackgroundTaskCanceledEventHandler",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_Canceled",
+          "remove_method": "remove_Canceled"
+        }
+      ]
+    },
+    "IBackgroundTaskInstance2": {
+      "guid": "4f7d0176-0c76-4fb4-896d-5de1864122f6",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTaskInstance",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "GetThrottleCount",
+          "params": [
+            {
+              "name": "counter",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BackgroundTaskThrottleCounter",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ]
+    },
+    "IBackgroundTaskInstance4": {
+      "guid": "7f29f23c-aa04-4b08-97b0-06d874cdabf5",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTaskInstance",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ]
+    },
+    "IBackgroundTaskProgressEventArgs": {
+      "guid": "fb1468ac-8332-4d0a-9532-03eae684da31",
+      "exclusive_to": "Windows.ApplicationModel.Background.BackgroundTaskProgressEventArgs",
+      "methods": [
+        {
+          "name": "get_InstanceId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_Progress",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InstanceId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_InstanceId"
+        },
+        {
+          "name": "Progress",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Progress"
+        }
+      ]
+    },
+    "IBackgroundTaskRegistration": {
+      "guid": "10654cc2-a26e-43bf-8c12-1fb40dbfbfa0",
+      "methods": [
+        {
+          "name": "get_TaskId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "add_Progress",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BackgroundTaskProgressEventHandler",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Progress",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Completed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BackgroundTaskCompletedEventHandler",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Completed",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Unregister",
+          "params": [
+            {
+              "name": "cancelTask",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        },
+        {
+          "name": "TaskId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_TaskId"
+        }
+      ],
+      "events": [
+        {
+          "name": "Completed",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BackgroundTaskCompletedEventHandler",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_Completed",
+          "remove_method": "remove_Completed"
+        },
+        {
+          "name": "Progress",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BackgroundTaskProgressEventHandler",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_Progress",
+          "remove_method": "remove_Progress"
+        }
+      ]
+    },
+    "IBackgroundTaskRegistration2": {
+      "guid": "6138c703-bb86-4112-afc3-7f939b166e3b",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTaskRegistration",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Trigger",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBackgroundTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Trigger",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBackgroundTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Trigger"
+        }
+      ]
+    },
+    "IBackgroundTaskRegistration3": {
+      "guid": "fe338195-9423-4d8b-830d-b1dd2c7badd5",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTaskRegistration",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_TaskGroup",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundTaskRegistrationGroup",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "TaskGroup",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BackgroundTaskRegistrationGroup",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          },
+          "getter": "get_TaskGroup"
+        }
+      ]
+    },
+    "IBackgroundTaskRegistration4": {
+      "guid": "169c09c9-b0de-5576-a05b-a02067989879",
+      "exclusive_to": "Windows.ApplicationModel.Background.BackgroundTaskRegistration",
+      "methods": [
+        {
+          "name": "get_TaskLastThrottledInStandbyTimestamp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_AppEnergyUsePredictionContribution",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppEnergyUsePredictionContribution",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_AppEnergyUsePredictionContribution"
+        },
+        {
+          "name": "TaskLastThrottledInStandbyTimestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_TaskLastThrottledInStandbyTimestamp"
+        }
+      ]
+    },
+    "IBackgroundTaskRegistrationGroup": {
+      "guid": "2ab1919a-871b-4167-8a76-055cd67b5b23",
+      "exclusive_to": "Windows.ApplicationModel.Background.BackgroundTaskRegistrationGroup",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "add_BackgroundActivated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BackgroundTaskRegistrationGroup",
+                    "namespace": "Windows.ApplicationModel.Background",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "BackgroundActivatedEventArgs",
+                    "namespace": "Windows.ApplicationModel.Activation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_BackgroundActivated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AllTasks",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "BackgroundTaskRegistration",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllTasks",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "BackgroundTaskRegistration",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_AllTasks"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        }
+      ],
+      "events": [
+        {
+          "name": "BackgroundActivated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BackgroundTaskRegistrationGroup",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "BackgroundActivatedEventArgs",
+                "namespace": "Windows.ApplicationModel.Activation",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_BackgroundActivated",
+          "remove_method": "remove_BackgroundActivated"
+        }
+      ]
+    },
+    "IBackgroundTaskRegistrationGroupFactory": {
+      "guid": "83d92b69-44cf-4631-9740-03c7d8741bc5",
+      "exclusive_to": "Windows.ApplicationModel.Background.BackgroundTaskRegistrationGroup",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundTaskRegistrationGroup",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithName",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundTaskRegistrationGroup",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IBackgroundTaskRegistrationStatics": {
+      "guid": "4c542f69-b000-42ba-a093-6a563c65e3f8",
+      "exclusive_to": "Windows.ApplicationModel.Background.BackgroundTaskRegistration",
+      "methods": [
+        {
+          "name": "get_AllTasks",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "IBackgroundTaskRegistration",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllTasks",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "IBackgroundTaskRegistration",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Interface"
+              }
+            ]
+          },
+          "getter": "get_AllTasks"
+        }
+      ]
+    },
+    "IBackgroundTaskRegistrationStatics2": {
+      "guid": "174b671e-b20d-4fa9-ad9a-e93ad6c71e01",
+      "exclusive_to": "Windows.ApplicationModel.Background.BackgroundTaskRegistration",
+      "methods": [
+        {
+          "name": "get_AllTaskGroups",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "BackgroundTaskRegistrationGroup",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetTaskGroup",
+          "params": [
+            {
+              "name": "groupId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundTaskRegistrationGroup",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllTaskGroups",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "BackgroundTaskRegistrationGroup",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_AllTaskGroups"
+        }
+      ]
+    },
+    "IBackgroundTrigger": {
+      "guid": "84b3a058-6027-4b87-9790-bdf3f757dbd7"
+    },
+    "IBackgroundWorkCostStatics": {
+      "guid": "c740a662-c310-4b82-b3e3-3bcfb9e4c77d",
+      "exclusive_to": "Windows.ApplicationModel.Background.BackgroundWorkCost",
+      "methods": [
+        {
+          "name": "get_CurrentBackgroundWorkCost",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundWorkCostValue",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CurrentBackgroundWorkCost",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BackgroundWorkCostValue",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CurrentBackgroundWorkCost"
+        }
+      ]
+    },
+    "IBackgroundWorkCostStatics2": {
+      "guid": "d868c976-81f6-57c8-ab2b-400b749e21d6",
+      "exclusive_to": "Windows.ApplicationModel.Background.BackgroundWorkCost",
+      "methods": [
+        {
+          "name": "get_AppEnergyUseLevel",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EnergyUseLevel",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_AppEnergyUsePrediction",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EnergyUseLevel",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_AppLastThrottledInStandbyTimestamp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppEnergyUseLevel",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EnergyUseLevel",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AppEnergyUseLevel"
+        },
+        {
+          "name": "AppEnergyUsePrediction",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EnergyUseLevel",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AppEnergyUsePrediction"
+        },
+        {
+          "name": "AppLastThrottledInStandbyTimestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_AppLastThrottledInStandbyTimestamp"
+        }
+      ]
+    },
+    "IBluetoothLEAdvertisementPublisherTrigger": {
+      "guid": "ab3e2612-25d3-48ae-8724-d81877ae6129",
+      "exclusive_to": "Windows.ApplicationModel.Background.BluetoothLEAdvertisementPublisherTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Advertisement",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEAdvertisement",
+            "namespace": "Windows.Devices.Bluetooth.Advertisement",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Advertisement",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEAdvertisement",
+            "namespace": "Windows.Devices.Bluetooth.Advertisement",
+            "target_kind": "Class"
+          },
+          "getter": "get_Advertisement"
+        }
+      ]
+    },
+    "IBluetoothLEAdvertisementPublisherTrigger2": {
+      "guid": "aa28d064-38f4-597d-b597-4e55588c6503",
+      "exclusive_to": "Windows.ApplicationModel.Background.BluetoothLEAdvertisementPublisherTrigger",
+      "methods": [
+        {
+          "name": "get_PreferredTransmitPowerLevelInDBm",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I2"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_PreferredTransmitPowerLevelInDBm",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "I2"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_UseExtendedFormat",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_UseExtendedFormat",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsAnonymous",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsAnonymous",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IncludeTransmitPowerLevel",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IncludeTransmitPowerLevel",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IncludeTransmitPowerLevel",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IncludeTransmitPowerLevel",
+          "setter": "put_IncludeTransmitPowerLevel"
+        },
+        {
+          "name": "IsAnonymous",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAnonymous",
+          "setter": "put_IsAnonymous"
+        },
+        {
+          "name": "PreferredTransmitPowerLevelInDBm",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I2"
+              }
+            ]
+          },
+          "getter": "get_PreferredTransmitPowerLevelInDBm",
+          "setter": "put_PreferredTransmitPowerLevelInDBm"
+        },
+        {
+          "name": "UseExtendedFormat",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_UseExtendedFormat",
+          "setter": "put_UseExtendedFormat"
+        }
+      ]
+    },
+    "IBluetoothLEAdvertisementPublisherTrigger3": {
+      "guid": "64419d03-d604-5bdc-b7d2-a7fe25c55460",
+      "exclusive_to": "Windows.ApplicationModel.Background.BluetoothLEAdvertisementPublisherTrigger",
+      "methods": [
+        {
+          "name": "get_PrimaryPhy",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEAdvertisementPhyType",
+            "namespace": "Windows.Devices.Bluetooth.Advertisement",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_PrimaryPhy",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothLEAdvertisementPhyType",
+                "namespace": "Windows.Devices.Bluetooth.Advertisement",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SecondaryPhy",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEAdvertisementPhyType",
+            "namespace": "Windows.Devices.Bluetooth.Advertisement",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_SecondaryPhy",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothLEAdvertisementPhyType",
+                "namespace": "Windows.Devices.Bluetooth.Advertisement",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "PrimaryPhy",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEAdvertisementPhyType",
+            "namespace": "Windows.Devices.Bluetooth.Advertisement",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PrimaryPhy",
+          "setter": "put_PrimaryPhy"
+        },
+        {
+          "name": "SecondaryPhy",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEAdvertisementPhyType",
+            "namespace": "Windows.Devices.Bluetooth.Advertisement",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SecondaryPhy",
+          "setter": "put_SecondaryPhy"
+        }
+      ]
+    },
+    "IBluetoothLEAdvertisementWatcherTrigger": {
+      "guid": "1aab1819-bce1-48eb-a827-59fb7cee52a6",
+      "exclusive_to": "Windows.ApplicationModel.Background.BluetoothLEAdvertisementWatcherTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_MinSamplingInterval",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_MaxSamplingInterval",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_MinOutOfRangeTimeout",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_MaxOutOfRangeTimeout",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_SignalStrengthFilter",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothSignalStrengthFilter",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_SignalStrengthFilter",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothSignalStrengthFilter",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AdvertisementFilter",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEAdvertisementFilter",
+            "namespace": "Windows.Devices.Bluetooth.Advertisement",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_AdvertisementFilter",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothLEAdvertisementFilter",
+                "namespace": "Windows.Devices.Bluetooth.Advertisement",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AdvertisementFilter",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEAdvertisementFilter",
+            "namespace": "Windows.Devices.Bluetooth.Advertisement",
+            "target_kind": "Class"
+          },
+          "getter": "get_AdvertisementFilter",
+          "setter": "put_AdvertisementFilter"
+        },
+        {
+          "name": "MaxOutOfRangeTimeout",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_MaxOutOfRangeTimeout"
+        },
+        {
+          "name": "MaxSamplingInterval",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_MaxSamplingInterval"
+        },
+        {
+          "name": "MinOutOfRangeTimeout",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_MinOutOfRangeTimeout"
+        },
+        {
+          "name": "MinSamplingInterval",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_MinSamplingInterval"
+        },
+        {
+          "name": "SignalStrengthFilter",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothSignalStrengthFilter",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          },
+          "getter": "get_SignalStrengthFilter",
+          "setter": "put_SignalStrengthFilter"
+        }
+      ]
+    },
+    "IBluetoothLEAdvertisementWatcherTrigger2": {
+      "guid": "39b56799-eb39-5ab6-9932-aa9e4549604d",
+      "exclusive_to": "Windows.ApplicationModel.Background.BluetoothLEAdvertisementWatcherTrigger",
+      "methods": [
+        {
+          "name": "get_AllowExtendedAdvertisements",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AllowExtendedAdvertisements",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllowExtendedAdvertisements",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AllowExtendedAdvertisements",
+          "setter": "put_AllowExtendedAdvertisements"
+        }
+      ]
+    },
+    "IBluetoothLEAdvertisementWatcherTrigger3": {
+      "guid": "da50011a-8261-56a0-ac7b-a8de1624088b",
+      "exclusive_to": "Windows.ApplicationModel.Background.BluetoothLEAdvertisementWatcherTrigger",
+      "methods": [
+        {
+          "name": "get_UseUncoded1MPhy",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_UseUncoded1MPhy",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_UseCodedPhy",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_UseCodedPhy",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ScanParameters",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEAdvertisementScanParameters",
+            "namespace": "Windows.Devices.Bluetooth.Advertisement",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ScanParameters",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothLEAdvertisementScanParameters",
+                "namespace": "Windows.Devices.Bluetooth.Advertisement",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ScanParameters",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEAdvertisementScanParameters",
+            "namespace": "Windows.Devices.Bluetooth.Advertisement",
+            "target_kind": "Class"
+          },
+          "getter": "get_ScanParameters",
+          "setter": "put_ScanParameters"
+        },
+        {
+          "name": "UseCodedPhy",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_UseCodedPhy",
+          "setter": "put_UseCodedPhy"
+        },
+        {
+          "name": "UseUncoded1MPhy",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_UseUncoded1MPhy",
+          "setter": "put_UseUncoded1MPhy"
+        }
+      ]
+    },
+    "ICachedFileUpdaterTrigger": {
+      "guid": "e21caeeb-32f2-4d31-b553-b9e01bde37e0",
+      "exclusive_to": "Windows.ApplicationModel.Background.CachedFileUpdaterTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ICachedFileUpdaterTriggerDetails": {
+      "guid": "71838c13-1314-47b4-9597-dc7e248c17cc",
+      "exclusive_to": "Windows.ApplicationModel.Background.CachedFileUpdaterTriggerDetails",
+      "methods": [
+        {
+          "name": "get_UpdateTarget",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CachedFileTarget",
+            "namespace": "Windows.Storage.Provider",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_UpdateRequest",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FileUpdateRequest",
+            "namespace": "Windows.Storage.Provider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CanRequestUserInput",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CanRequestUserInput",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanRequestUserInput"
+        },
+        {
+          "name": "UpdateRequest",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FileUpdateRequest",
+            "namespace": "Windows.Storage.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_UpdateRequest"
+        },
+        {
+          "name": "UpdateTarget",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CachedFileTarget",
+            "namespace": "Windows.Storage.Provider",
+            "target_kind": "Enum"
+          },
+          "getter": "get_UpdateTarget"
+        }
+      ]
+    },
+    "IChatMessageNotificationTrigger": {
+      "guid": "513b43bf-1d40-5c5d-78f5-c923fee3739e",
+      "exclusive_to": "Windows.ApplicationModel.Background.ChatMessageNotificationTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "IChatMessageReceivedNotificationTrigger": {
+      "guid": "3ea3760e-baf5-4077-88e9-060cf6f0c6d5",
+      "exclusive_to": "Windows.ApplicationModel.Background.ChatMessageReceivedNotificationTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "IContactStoreNotificationTrigger": {
+      "guid": "c833419b-4705-4571-9a16-06b997bf9c96",
+      "exclusive_to": "Windows.ApplicationModel.Background.ContactStoreNotificationTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "IContentPrefetchTrigger": {
+      "guid": "710627ee-04fa-440b-80c0-173202199e5d",
+      "exclusive_to": "Windows.ApplicationModel.Background.ContentPrefetchTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_WaitInterval",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "WaitInterval",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_WaitInterval"
+        }
+      ]
+    },
+    "IContentPrefetchTriggerFactory": {
+      "guid": "c2643eda-8a03-409e-b8c4-88814c28ccb6",
+      "exclusive_to": "Windows.ApplicationModel.Background.ContentPrefetchTrigger",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "waitInterval",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ContentPrefetchTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ICustomSystemEventTrigger": {
+      "guid": "f3596798-cf6b-4ef4-a0ca-29cf4a278c87",
+      "exclusive_to": "Windows.ApplicationModel.Background.CustomSystemEventTrigger",
+      "methods": [
+        {
+          "name": "get_TriggerId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Recurrence",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CustomSystemEventTriggerRecurrence",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Recurrence",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CustomSystemEventTriggerRecurrence",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Recurrence"
+        },
+        {
+          "name": "TriggerId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TriggerId"
+        }
+      ]
+    },
+    "ICustomSystemEventTriggerFactory": {
+      "guid": "6bcb16c5-f2dc-41b2-9efd-b96bdcd13ced",
+      "exclusive_to": "Windows.ApplicationModel.Background.CustomSystemEventTrigger",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "triggerId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "recurrence",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CustomSystemEventTriggerRecurrence",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CustomSystemEventTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDeviceConnectionChangeTrigger": {
+      "guid": "90875e64-3cdd-4efb-ab1c-5b3b6a60ce34",
+      "exclusive_to": "Windows.ApplicationModel.Background.DeviceConnectionChangeTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CanMaintainConnection",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_MaintainConnection",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_MaintainConnection",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CanMaintainConnection",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanMaintainConnection"
+        },
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        },
+        {
+          "name": "MaintainConnection",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_MaintainConnection",
+          "setter": "put_MaintainConnection"
+        }
+      ]
+    },
+    "IDeviceConnectionChangeTriggerStatics": {
+      "guid": "c3ea246a-4efd-4498-aa60-a4e4e3b17ab9",
+      "exclusive_to": "Windows.ApplicationModel.Background.DeviceConnectionChangeTrigger",
+      "methods": [
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceConnectionChangeTrigger",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IDeviceManufacturerNotificationTrigger": {
+      "guid": "81278ab5-41ab-16da-86c2-7f7bf0912f5b",
+      "exclusive_to": "Windows.ApplicationModel.Background.DeviceManufacturerNotificationTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_TriggerQualifier",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_OneShot",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "OneShot",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_OneShot"
+        },
+        {
+          "name": "TriggerQualifier",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TriggerQualifier"
+        }
+      ]
+    },
+    "IDeviceManufacturerNotificationTriggerFactory": {
+      "guid": "7955de75-25bb-4153-a1a2-3029fcabb652",
+      "exclusive_to": "Windows.ApplicationModel.Background.DeviceManufacturerNotificationTrigger",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "triggerQualifier",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "oneShot",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceManufacturerNotificationTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDeviceServicingTrigger": {
+      "guid": "1ab217ad-6e34-49d3-9e6f-17f1b6dfa881",
+      "exclusive_to": "Windows.ApplicationModel.Background.DeviceServicingTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "RequestAsync",
+          "overload": "RequestAsyncSimple",
+          "is_default_overload": true,
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "expectedDuration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceTriggerResult",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestAsync",
+          "overload": "RequestAsyncWithArguments",
+          "is_default_overload": true,
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "expectedDuration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "arguments",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceTriggerResult",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IDeviceUseTrigger": {
+      "guid": "0da68011-334f-4d57-b6ec-6dca64b412e4",
+      "exclusive_to": "Windows.ApplicationModel.Background.DeviceUseTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "RequestAsync",
+          "overload": "RequestAsyncSimple",
+          "is_default_overload": true,
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceTriggerResult",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestAsync",
+          "overload": "RequestAsyncWithArguments",
+          "is_default_overload": true,
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "arguments",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceTriggerResult",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IDeviceWatcherTrigger": {
+      "guid": "a4617fdd-8573-4260-befc-5bec89cb693d",
+      "exclusive_to": "Windows.ApplicationModel.Background.DeviceWatcherTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "IEmailStoreNotificationTrigger": {
+      "guid": "986d06da-47eb-4268-a4f2-f3f77188388a",
+      "exclusive_to": "Windows.ApplicationModel.Background.EmailStoreNotificationTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "IGattCharacteristicNotificationTrigger": {
+      "guid": "e25f8fc8-0696-474f-a732-f292b0cebc5d",
+      "exclusive_to": "Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Characteristic",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GattCharacteristic",
+            "namespace": "Windows.Devices.Bluetooth.GenericAttributeProfile",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Characteristic",
+          "type": {
+            "kind": "ApiRef",
+            "name": "GattCharacteristic",
+            "namespace": "Windows.Devices.Bluetooth.GenericAttributeProfile",
+            "target_kind": "Class"
+          },
+          "getter": "get_Characteristic"
+        }
+      ]
+    },
+    "IGattCharacteristicNotificationTrigger2": {
+      "guid": "9322a2c4-ae0e-42f2-b28c-f51372e69245",
+      "exclusive_to": "Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger",
+      "methods": [
+        {
+          "name": "get_EventTriggeringMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothEventTriggeringMode",
+            "namespace": "Windows.Devices.Bluetooth.Background",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EventTriggeringMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothEventTriggeringMode",
+            "namespace": "Windows.Devices.Bluetooth.Background",
+            "target_kind": "Enum"
+          },
+          "getter": "get_EventTriggeringMode"
+        }
+      ]
+    },
+    "IGattCharacteristicNotificationTriggerFactory": {
+      "guid": "57ba1995-b143-4575-9f6b-fd59d93ace1a",
+      "exclusive_to": "Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger",
+      "methods": [
+        {
+          "name": "Create",
+          "overload": "Create",
+          "params": [
+            {
+              "name": "characteristic",
+              "type": {
+                "kind": "ApiRef",
+                "name": "GattCharacteristic",
+                "namespace": "Windows.Devices.Bluetooth.GenericAttributeProfile",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "GattCharacteristicNotificationTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IGattCharacteristicNotificationTriggerFactory2": {
+      "guid": "5998e91f-8a53-4e9f-a32c-23cd33664cee",
+      "exclusive_to": "Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger",
+      "methods": [
+        {
+          "name": "Create",
+          "overload": "CreateWithEventTriggeringMode",
+          "params": [
+            {
+              "name": "characteristic",
+              "type": {
+                "kind": "ApiRef",
+                "name": "GattCharacteristic",
+                "namespace": "Windows.Devices.Bluetooth.GenericAttributeProfile",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "eventTriggeringMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothEventTriggeringMode",
+                "namespace": "Windows.Devices.Bluetooth.Background",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "GattCharacteristicNotificationTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IGattServiceProviderTrigger": {
+      "guid": "ddc6a3e9-1557-4bd8-8542-468aa0c696f6",
+      "exclusive_to": "Windows.ApplicationModel.Background.GattServiceProviderTrigger",
+      "methods": [
+        {
+          "name": "get_TriggerId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Service",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GattLocalService",
+            "namespace": "Windows.Devices.Bluetooth.GenericAttributeProfile",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_AdvertisingParameters",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "GattServiceProviderAdvertisingParameters",
+                "namespace": "Windows.Devices.Bluetooth.GenericAttributeProfile",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AdvertisingParameters",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GattServiceProviderAdvertisingParameters",
+            "namespace": "Windows.Devices.Bluetooth.GenericAttributeProfile",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AdvertisingParameters",
+          "type": {
+            "kind": "ApiRef",
+            "name": "GattServiceProviderAdvertisingParameters",
+            "namespace": "Windows.Devices.Bluetooth.GenericAttributeProfile",
+            "target_kind": "Class"
+          },
+          "getter": "get_AdvertisingParameters",
+          "setter": "put_AdvertisingParameters"
+        },
+        {
+          "name": "Service",
+          "type": {
+            "kind": "ApiRef",
+            "name": "GattLocalService",
+            "namespace": "Windows.Devices.Bluetooth.GenericAttributeProfile",
+            "target_kind": "Class"
+          },
+          "getter": "get_Service"
+        },
+        {
+          "name": "TriggerId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TriggerId"
+        }
+      ]
+    },
+    "IGattServiceProviderTriggerResult": {
+      "guid": "3c4691b1-b198-4e84-bad4-cf4ad299ed3a",
+      "exclusive_to": "Windows.ApplicationModel.Background.GattServiceProviderTriggerResult",
+      "methods": [
+        {
+          "name": "get_Trigger",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GattServiceProviderTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Error",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothError",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Error",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothError",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Error"
+        },
+        {
+          "name": "Trigger",
+          "type": {
+            "kind": "ApiRef",
+            "name": "GattServiceProviderTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          },
+          "getter": "get_Trigger"
+        }
+      ]
+    },
+    "IGattServiceProviderTriggerStatics": {
+      "guid": "b413a36a-e294-4591-a5a6-64891a828153",
+      "exclusive_to": "Windows.ApplicationModel.Background.GattServiceProviderTrigger",
+      "methods": [
+        {
+          "name": "CreateAsync",
+          "overload": "CreateAsync",
+          "params": [
+            {
+              "name": "triggerId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "serviceUuid",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "GattServiceProviderTriggerResult",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IGeovisitTrigger": {
+      "guid": "4818edaa-04e1-4127-9a4c-19351b8a80a4",
+      "exclusive_to": "Windows.ApplicationModel.Background.GeovisitTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_MonitoringScope",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VisitMonitoringScope",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_MonitoringScope",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VisitMonitoringScope",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "MonitoringScope",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VisitMonitoringScope",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MonitoringScope",
+          "setter": "put_MonitoringScope"
+        }
+      ]
+    },
+    "ILocationTrigger": {
+      "guid": "47666a1c-6877-481e-8026-ff7e14a811a0",
+      "exclusive_to": "Windows.ApplicationModel.Background.LocationTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_TriggerType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LocationTriggerType",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "TriggerType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LocationTriggerType",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Enum"
+          },
+          "getter": "get_TriggerType"
+        }
+      ]
+    },
+    "ILocationTriggerFactory": {
+      "guid": "1106bb07-ff69-4e09-aa8b-1384ea475e98",
+      "exclusive_to": "Windows.ApplicationModel.Background.LocationTrigger",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "triggerType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LocationTriggerType",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "LocationTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMaintenanceTrigger": {
+      "guid": "68184c83-fc22-4ce5-841a-7239a9810047",
+      "exclusive_to": "Windows.ApplicationModel.Background.MaintenanceTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_FreshnessTime",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_OneShot",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FreshnessTime",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_FreshnessTime"
+        },
+        {
+          "name": "OneShot",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_OneShot"
+        }
+      ]
+    },
+    "IMaintenanceTriggerFactory": {
+      "guid": "4b3ddb2e-97dd-4629-88b0-b06cf9482ae5",
+      "exclusive_to": "Windows.ApplicationModel.Background.MaintenanceTrigger",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "freshnessTime",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "oneShot",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MaintenanceTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMediaProcessingTrigger": {
+      "guid": "9a95be65-8a52-4b30-9011-cf38040ea8b0",
+      "exclusive_to": "Windows.ApplicationModel.Background.MediaProcessingTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "RequestAsync",
+          "overload": "RequestAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaProcessingTriggerResult",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestAsync",
+          "overload": "RequestAsyncWithArguments",
+          "params": [
+            {
+              "name": "arguments",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ValueSet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaProcessingTriggerResult",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "INetworkOperatorHotspotAuthenticationTrigger": {
+      "guid": "e756c791-3001-4de5-83c7-de61d88831d0",
+      "exclusive_to": "Windows.ApplicationModel.Background.NetworkOperatorHotspotAuthenticationTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "INetworkOperatorNotificationTrigger": {
+      "guid": "90089cc6-63cd-480c-95d1-6e6aef801e4a",
+      "exclusive_to": "Windows.ApplicationModel.Background.NetworkOperatorNotificationTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_NetworkAccountId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "NetworkAccountId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NetworkAccountId"
+        }
+      ]
+    },
+    "INetworkOperatorNotificationTriggerFactory": {
+      "guid": "0a223e00-27d7-4353-adb9-9265aaea579d",
+      "exclusive_to": "Windows.ApplicationModel.Background.NetworkOperatorNotificationTrigger",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "networkAccountId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "NetworkOperatorNotificationTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPushNotificationTriggerFactory": {
+      "guid": "6dd8ed1b-458e-4fc2-bc2e-d5664f77ed19",
+      "exclusive_to": "Windows.ApplicationModel.Background.PushNotificationTrigger",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "applicationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PushNotificationTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IRcsEndUserMessageAvailableTrigger": {
+      "guid": "986d0d6a-b2f6-467f-a978-a44091c11a66",
+      "exclusive_to": "Windows.ApplicationModel.Background.RcsEndUserMessageAvailableTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "IRfcommConnectionTrigger": {
+      "guid": "e8c4cae2-0b53-4464-9394-fd875654de64",
+      "exclusive_to": "Windows.ApplicationModel.Background.RfcommConnectionTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_InboundConnection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RfcommInboundConnectionInformation",
+            "namespace": "Windows.Devices.Bluetooth.Background",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_OutboundConnection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RfcommOutboundConnectionInformation",
+            "namespace": "Windows.Devices.Bluetooth.Background",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_AllowMultipleConnections",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AllowMultipleConnections",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ProtectionLevel",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SocketProtectionLevel",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_ProtectionLevel",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SocketProtectionLevel",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RemoteHostName",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_RemoteHostName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllowMultipleConnections",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AllowMultipleConnections",
+          "setter": "put_AllowMultipleConnections"
+        },
+        {
+          "name": "InboundConnection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RfcommInboundConnectionInformation",
+            "namespace": "Windows.Devices.Bluetooth.Background",
+            "target_kind": "Class"
+          },
+          "getter": "get_InboundConnection"
+        },
+        {
+          "name": "OutboundConnection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RfcommOutboundConnectionInformation",
+            "namespace": "Windows.Devices.Bluetooth.Background",
+            "target_kind": "Class"
+          },
+          "getter": "get_OutboundConnection"
+        },
+        {
+          "name": "ProtectionLevel",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SocketProtectionLevel",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ProtectionLevel",
+          "setter": "put_ProtectionLevel"
+        },
+        {
+          "name": "RemoteHostName",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          },
+          "getter": "get_RemoteHostName",
+          "setter": "put_RemoteHostName"
+        }
+      ]
+    },
+    "ISecondaryAuthenticationFactorAuthenticationTrigger": {
+      "guid": "f237f327-5181-4f24-96a7-700a4e5fac62",
+      "exclusive_to": "Windows.ApplicationModel.Background.SecondaryAuthenticationFactorAuthenticationTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ISensorDataThresholdTrigger": {
+      "guid": "5bc0f372-d48b-4b7f-abec-15f9bacc12e2",
+      "exclusive_to": "Windows.ApplicationModel.Background.SensorDataThresholdTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ISensorDataThresholdTriggerFactory": {
+      "guid": "921fe675-7df0-4da3-97b3-e544ee857fe6",
+      "exclusive_to": "Windows.ApplicationModel.Background.SensorDataThresholdTrigger",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "threshold",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ISensorDataThreshold",
+                "namespace": "Windows.Devices.Sensors",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SensorDataThresholdTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISmsMessageReceivedTriggerFactory": {
+      "guid": "ea3ad8c8-6ba4-4ab2-8d21-bc6b09c77564",
+      "exclusive_to": "Windows.ApplicationModel.Background.SmsMessageReceivedTrigger",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "filterRules",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SmsFilterRules",
+                "namespace": "Windows.Devices.Sms",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsMessageReceivedTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISocketActivityTrigger": {
+      "guid": "a9bbf810-9dde-4f8a-83e3-b0e0e7a50d70",
+      "exclusive_to": "Windows.ApplicationModel.Background.SocketActivityTrigger",
+      "methods": [
+        {
+          "name": "get_IsWakeFromLowPowerSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsWakeFromLowPowerSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsWakeFromLowPowerSupported"
+        }
+      ]
+    },
+    "IStorageLibraryChangeTrackerTriggerFactory": {
+      "guid": "1eb0ffd0-5a85-499e-a888-824607124f50",
+      "exclusive_to": "Windows.ApplicationModel.Background.StorageLibraryChangeTrackerTrigger",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "tracker",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StorageLibraryChangeTracker",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageLibraryChangeTrackerTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IStorageLibraryContentChangedTrigger": {
+      "guid": "1637e0a7-829c-45bc-929b-a1e7ea78d89b",
+      "exclusive_to": "Windows.ApplicationModel.Background.StorageLibraryContentChangedTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "IStorageLibraryContentChangedTriggerStatics": {
+      "guid": "7f9f1b39-5f90-4e12-914e-a7d8e0bbfb18",
+      "exclusive_to": "Windows.ApplicationModel.Background.StorageLibraryContentChangedTrigger",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "storageLibrary",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StorageLibrary",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageLibraryContentChangedTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFromLibraries",
+          "params": [
+            {
+              "name": "storageLibraries",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "StorageLibrary",
+                    "namespace": "Windows.Storage",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageLibraryContentChangedTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISystemCondition": {
+      "guid": "c15fb476-89c5-420b-abd3-fb3030472128",
+      "exclusive_to": "Windows.ApplicationModel.Background.SystemCondition",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundCondition",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_ConditionType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SystemConditionType",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ConditionType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SystemConditionType",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ConditionType"
+        }
+      ]
+    },
+    "ISystemConditionFactory": {
+      "guid": "d269d1f1-05a7-49ae-87d7-16b2b8b9a553",
+      "exclusive_to": "Windows.ApplicationModel.Background.SystemCondition",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "conditionType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SystemConditionType",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SystemCondition",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISystemTrigger": {
+      "guid": "1d80c776-3748-4463-8d7e-276dc139ac1c",
+      "exclusive_to": "Windows.ApplicationModel.Background.SystemTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_OneShot",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_TriggerType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SystemTriggerType",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "OneShot",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_OneShot"
+        },
+        {
+          "name": "TriggerType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SystemTriggerType",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Enum"
+          },
+          "getter": "get_TriggerType"
+        }
+      ]
+    },
+    "ISystemTriggerFactory": {
+      "guid": "e80423d4-8791-4579-8126-87ec8aaa407a",
+      "exclusive_to": "Windows.ApplicationModel.Background.SystemTrigger",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "triggerType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SystemTriggerType",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "oneShot",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SystemTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ITimeTrigger": {
+      "guid": "656e5556-0b2a-4377-ba70-3b45a935547f",
+      "exclusive_to": "Windows.ApplicationModel.Background.TimeTrigger",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_FreshnessTime",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_OneShot",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FreshnessTime",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_FreshnessTime"
+        },
+        {
+          "name": "OneShot",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_OneShot"
+        }
+      ]
+    },
+    "ITimeTriggerFactory": {
+      "guid": "38c682fe-9b54-45e6-b2f3-269b87a6f734",
+      "exclusive_to": "Windows.ApplicationModel.Background.TimeTrigger",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "freshnessTime",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "oneShot",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IToastNotificationActionTriggerFactory": {
+      "guid": "b09dfc27-6480-4349-8125-97b3efaa0a3a",
+      "exclusive_to": "Windows.ApplicationModel.Background.ToastNotificationActionTrigger",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "applicationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ToastNotificationActionTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IToastNotificationHistoryChangedTriggerFactory": {
+      "guid": "81c6faad-8797-4785-81b4-b0cccb73d1d9",
+      "exclusive_to": "Windows.ApplicationModel.Background.ToastNotificationHistoryChangedTrigger",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "applicationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ToastNotificationHistoryChangedTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IUserNotificationChangedTriggerFactory": {
+      "guid": "cad4436c-69ab-4e18-a48a-5ed2ac435957",
+      "exclusive_to": "Windows.ApplicationModel.Background.UserNotificationChangedTrigger",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "notificationKinds",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NotificationKinds",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserNotificationChangedTrigger",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "ActivitySensorTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IActivitySensorTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivitySensorTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Background.IActivitySensorTriggerFactory"
+      ]
+    },
+    "ApplicationTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IApplicationTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "ApplicationTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IApplicationTriggerDetails",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationTriggerDetails",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentStoreNotificationTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentStoreNotificationTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentStoreNotificationTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "BackgroundExecutionManager": {
+      "static_interfaces": [
+        "Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics2",
+        "Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics",
+        "Windows.ApplicationModel.Background.IBackgroundExecutionManagerStatics3"
+      ]
+    },
+    "BackgroundTaskBuilder": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTaskBuilder",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTaskBuilder",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTaskBuilder2",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTaskBuilder3",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTaskBuilder4",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTaskBuilder5",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTaskBuilder6",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.ApplicationModel.Background.IBackgroundTaskBuilderStatics"
+      ]
+    },
+    "BackgroundTaskCompletedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTaskCompletedEventArgs",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTaskCompletedEventArgs",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BackgroundTaskDeferral": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTaskDeferral",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTaskDeferral",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BackgroundTaskProgressEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTaskProgressEventArgs",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTaskProgressEventArgs",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BackgroundTaskRegistration": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTaskRegistration",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTaskRegistration",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTaskRegistration2",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTaskRegistration3",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTaskRegistration4",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.ApplicationModel.Background.IBackgroundTaskRegistrationStatics",
+        "Windows.ApplicationModel.Background.IBackgroundTaskRegistrationStatics2"
+      ]
+    },
+    "BackgroundTaskRegistrationGroup": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTaskRegistrationGroup",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTaskRegistrationGroup",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Background.IBackgroundTaskRegistrationGroupFactory"
+      ]
+    },
+    "BackgroundWorkCost": {
+      "static_interfaces": [
+        "Windows.ApplicationModel.Background.IBackgroundWorkCostStatics",
+        "Windows.ApplicationModel.Background.IBackgroundWorkCostStatics2"
+      ]
+    },
+    "BluetoothLEAdvertisementPublisherTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBluetoothLEAdvertisementPublisherTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothLEAdvertisementPublisherTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothLEAdvertisementPublisherTrigger2",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothLEAdvertisementPublisherTrigger3",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "BluetoothLEAdvertisementWatcherTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBluetoothLEAdvertisementWatcherTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothLEAdvertisementWatcherTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothLEAdvertisementWatcherTrigger2",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothLEAdvertisementWatcherTrigger3",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "CachedFileUpdaterTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICachedFileUpdaterTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICachedFileUpdaterTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "CachedFileUpdaterTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICachedFileUpdaterTriggerDetails",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICachedFileUpdaterTriggerDetails",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ChatMessageNotificationTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatMessageNotificationTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageNotificationTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "ChatMessageReceivedNotificationTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IChatMessageReceivedNotificationTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IChatMessageReceivedNotificationTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "ContactStoreNotificationTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IContactStoreNotificationTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IContactStoreNotificationTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "ContentPrefetchTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IContentPrefetchTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IContentPrefetchTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.ApplicationModel.Background.IContentPrefetchTriggerFactory"
+      ]
+    },
+    "ConversationalAgentTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "CustomSystemEventTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICustomSystemEventTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICustomSystemEventTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Background.ICustomSystemEventTriggerFactory"
+      ]
+    },
+    "DeviceConnectionChangeTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeviceConnectionChangeTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceConnectionChangeTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.ApplicationModel.Background.IDeviceConnectionChangeTriggerStatics"
+      ]
+    },
+    "DeviceManufacturerNotificationTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeviceManufacturerNotificationTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceManufacturerNotificationTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Background.IDeviceManufacturerNotificationTriggerFactory"
+      ]
+    },
+    "DeviceServicingTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeviceServicingTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceServicingTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "DeviceUseTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeviceUseTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceUseTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "DeviceWatcherTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeviceWatcherTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceWatcherTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EmailStoreNotificationTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmailStoreNotificationTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IEmailStoreNotificationTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "GattCharacteristicNotificationTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGattCharacteristicNotificationTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGattCharacteristicNotificationTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGattCharacteristicNotificationTrigger2",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Background.IGattCharacteristicNotificationTriggerFactory2",
+        "Windows.ApplicationModel.Background.IGattCharacteristicNotificationTriggerFactory"
+      ]
+    },
+    "GattServiceProviderTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGattServiceProviderTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGattServiceProviderTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.ApplicationModel.Background.IGattServiceProviderTriggerStatics"
+      ]
+    },
+    "GattServiceProviderTriggerResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGattServiceProviderTriggerResult",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGattServiceProviderTriggerResult",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "GeovisitTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGeovisitTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeovisitTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "LocationTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILocationTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILocationTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Background.ILocationTriggerFactory"
+      ]
+    },
+    "MaintenanceTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMaintenanceTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMaintenanceTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Background.IMaintenanceTriggerFactory"
+      ]
+    },
+    "MediaProcessingTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaProcessingTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaProcessingTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "MobileBroadbandDeviceServiceNotificationTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "MobileBroadbandPcoDataChangeTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "MobileBroadbandPinLockStateChangeTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "MobileBroadbandRadioStateChangeTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "MobileBroadbandRegistrationStateChangeTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "NetworkOperatorDataUsageTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "NetworkOperatorHotspotAuthenticationTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INetworkOperatorHotspotAuthenticationTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INetworkOperatorHotspotAuthenticationTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "NetworkOperatorNotificationTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INetworkOperatorNotificationTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INetworkOperatorNotificationTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Background.INetworkOperatorNotificationTriggerFactory"
+      ]
+    },
+    "PaymentAppCanMakePaymentTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "PushNotificationTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.ApplicationModel.Background.IPushNotificationTriggerFactory"
+      ]
+    },
+    "RcsEndUserMessageAvailableTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRcsEndUserMessageAvailableTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRcsEndUserMessageAvailableTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "RfcommConnectionTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRfcommConnectionTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRfcommConnectionTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "SecondaryAuthenticationFactorAuthenticationTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISecondaryAuthenticationFactorAuthenticationTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISecondaryAuthenticationFactorAuthenticationTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "SensorDataThresholdTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISensorDataThresholdTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISensorDataThresholdTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Background.ISensorDataThresholdTriggerFactory"
+      ]
+    },
+    "SmsMessageReceivedTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Background.ISmsMessageReceivedTriggerFactory"
+      ]
+    },
+    "SocketActivityTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISocketActivityTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "StorageLibraryChangeTrackerTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Background.IStorageLibraryChangeTrackerTriggerFactory"
+      ]
+    },
+    "StorageLibraryContentChangedTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStorageLibraryContentChangedTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStorageLibraryContentChangedTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.ApplicationModel.Background.IStorageLibraryContentChangedTriggerStatics"
+      ]
+    },
+    "SystemCondition": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISystemCondition",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISystemCondition",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundCondition",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Background.ISystemConditionFactory"
+      ]
+    },
+    "SystemTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISystemTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISystemTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Background.ISystemTriggerFactory"
+      ]
+    },
+    "TetheringEntitlementCheckTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "TimeTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITimeTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITimeTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Background.ITimeTriggerFactory"
+      ]
+    },
+    "ToastNotificationActionTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.ApplicationModel.Background.IToastNotificationActionTriggerFactory"
+      ]
+    },
+    "ToastNotificationHistoryChangedTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.ApplicationModel.Background.IToastNotificationHistoryChangedTriggerFactory"
+      ]
+    },
+    "UserNotificationChangedTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.Background.IUserNotificationChangedTriggerFactory"
+      ]
+    },
+    "WiFiOnDemandHotspotConnectTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "WiFiOnDemandHotspotUpdateMetadataTrigger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTrigger",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTrigger",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  },
+  "delegates": {
+    "BackgroundTaskCanceledEventHandler": {
+      "guid": "a6c4bac0-51f8-4c57-ac3f-156dd1680c4f",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "ApiRef",
+              "name": "IBackgroundTaskInstance",
+              "namespace": "Windows.ApplicationModel.Background",
+              "target_kind": "Interface"
+            }
+          },
+          {
+            "name": "reason",
+            "type": {
+              "kind": "ApiRef",
+              "name": "BackgroundTaskCancellationReason",
+              "namespace": "Windows.ApplicationModel.Background",
+              "target_kind": "Enum"
+            }
+          }
+        ]
+      }
+    },
+    "BackgroundTaskCompletedEventHandler": {
+      "guid": "5b38e929-a086-46a7-a678-439135822bcf",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "ApiRef",
+              "name": "BackgroundTaskRegistration",
+              "namespace": "Windows.ApplicationModel.Background",
+              "target_kind": "Class"
+            }
+          },
+          {
+            "name": "args",
+            "type": {
+              "kind": "ApiRef",
+              "name": "BackgroundTaskCompletedEventArgs",
+              "namespace": "Windows.ApplicationModel.Background",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "BackgroundTaskProgressEventHandler": {
+      "guid": "46e0683c-8a88-4c99-804c-76897f6277a6",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "ApiRef",
+              "name": "BackgroundTaskRegistration",
+              "namespace": "Windows.ApplicationModel.Background",
+              "target_kind": "Class"
+            }
+          },
+          {
+            "name": "args",
+            "type": {
+              "kind": "ApiRef",
+              "name": "BackgroundTaskProgressEventArgs",
+              "namespace": "Windows.ApplicationModel.Background",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

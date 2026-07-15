@@ -1,0 +1,3040 @@
+{
+  "namespace": "Windows.Perception.Spatial",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "SpatialAnchorExportPurpose": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Relocalization",
+          "value": "0"
+        },
+        {
+          "name": "Sharing",
+          "value": "1"
+        }
+      ]
+    },
+    "SpatialEntityWatcherStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Created",
+          "value": "0"
+        },
+        {
+          "name": "Started",
+          "value": "1"
+        },
+        {
+          "name": "EnumerationCompleted",
+          "value": "2"
+        },
+        {
+          "name": "Stopping",
+          "value": "3"
+        },
+        {
+          "name": "Stopped",
+          "value": "4"
+        },
+        {
+          "name": "Aborted",
+          "value": "5"
+        }
+      ]
+    },
+    "SpatialLocatability": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unavailable",
+          "value": "0"
+        },
+        {
+          "name": "OrientationOnly",
+          "value": "1"
+        },
+        {
+          "name": "PositionalTrackingActivating",
+          "value": "2"
+        },
+        {
+          "name": "PositionalTrackingActive",
+          "value": "3"
+        },
+        {
+          "name": "PositionalTrackingInhibited",
+          "value": "4"
+        }
+      ]
+    },
+    "SpatialLookDirectionRange": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "ForwardOnly",
+          "value": "0"
+        },
+        {
+          "name": "Omnidirectional",
+          "value": "1"
+        }
+      ]
+    },
+    "SpatialMovementRange": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "NoMovement",
+          "value": "0"
+        },
+        {
+          "name": "Bounded",
+          "value": "1"
+        }
+      ]
+    },
+    "SpatialPerceptionAccessStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unspecified",
+          "value": "0"
+        },
+        {
+          "name": "Allowed",
+          "value": "1"
+        },
+        {
+          "name": "DeniedByUser",
+          "value": "2"
+        },
+        {
+          "name": "DeniedBySystem",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "SpatialBoundingBox": {
+      "fields": [
+        {
+          "name": "Center",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "Extents",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        }
+      ]
+    },
+    "SpatialBoundingFrustum": {
+      "fields": [
+        {
+          "name": "Near",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Plane",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "Far",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Plane",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "Right",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Plane",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "Left",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Plane",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "Top",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Plane",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "Bottom",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Plane",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        }
+      ]
+    },
+    "SpatialBoundingOrientedBox": {
+      "fields": [
+        {
+          "name": "Center",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "Extents",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "Orientation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Quaternion",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        }
+      ]
+    },
+    "SpatialBoundingSphere": {
+      "fields": [
+        {
+          "name": "Center",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "Radius",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        }
+      ]
+    },
+    "SpatialRay": {
+      "fields": [
+        {
+          "name": "Origin",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "Direction",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ISpatialAnchor": {
+      "guid": "0529e5ce-1d34-3702-bcec-eabff578a869",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialAnchor",
+      "methods": [
+        {
+          "name": "get_CoordinateSystem",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialCoordinateSystem",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_RawCoordinateSystem",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialCoordinateSystem",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_RawCoordinateSystemAdjusted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialAnchor",
+                    "namespace": "Windows.Perception.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialAnchorRawCoordinateSystemAdjustedEventArgs",
+                    "namespace": "Windows.Perception.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_RawCoordinateSystemAdjusted",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CoordinateSystem",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialCoordinateSystem",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_CoordinateSystem"
+        },
+        {
+          "name": "RawCoordinateSystem",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialCoordinateSystem",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_RawCoordinateSystem"
+        }
+      ],
+      "events": [
+        {
+          "name": "RawCoordinateSystemAdjusted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialAnchor",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialAnchorRawCoordinateSystemAdjustedEventArgs",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_RawCoordinateSystemAdjusted",
+          "remove_method": "remove_RawCoordinateSystemAdjusted"
+        }
+      ]
+    },
+    "ISpatialAnchor2": {
+      "guid": "ed17c908-a695-4cf6-92fd-97263ba71047",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialAnchor",
+      "methods": [
+        {
+          "name": "get_RemovedByUser",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RemovedByUser",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_RemovedByUser"
+        }
+      ]
+    },
+    "ISpatialAnchorExportSufficiency": {
+      "guid": "77c25b2b-3409-4088-b91b-fdfd05d1648f",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialAnchorExportSufficiency",
+      "methods": [
+        {
+          "name": "get_IsMinimallySufficient",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SufficiencyLevel",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_RecommendedSufficiencyLevel",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsMinimallySufficient",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsMinimallySufficient"
+        },
+        {
+          "name": "RecommendedSufficiencyLevel",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_RecommendedSufficiencyLevel"
+        },
+        {
+          "name": "SufficiencyLevel",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_SufficiencyLevel"
+        }
+      ]
+    },
+    "ISpatialAnchorExporter": {
+      "guid": "9a2a4338-24fb-4269-89c5-88304aeef20f",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialAnchorExporter",
+      "methods": [
+        {
+          "name": "GetAnchorExportSufficiencyAsync",
+          "params": [
+            {
+              "name": "anchor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialAnchor",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "purpose",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialAnchorExportPurpose",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialAnchorExportSufficiency",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryExportAnchorAsync",
+          "params": [
+            {
+              "name": "anchor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialAnchor",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "purpose",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialAnchorExportPurpose",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "stream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IOutputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ISpatialAnchorExporterStatics": {
+      "guid": "ed2507b8-2475-439c-85ff-7fed341fdc88",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialAnchorExporter",
+      "methods": [
+        {
+          "name": "GetDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialAnchorExporter",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "RequestAccessAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialPerceptionAccessStatus",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ISpatialAnchorManagerStatics": {
+      "guid": "88e30eab-f3b7-420b-b086-8a80c07d910d",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialAnchorManager",
+      "methods": [
+        {
+          "name": "RequestStoreAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialAnchorStore",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ISpatialAnchorRawCoordinateSystemAdjustedEventArgs": {
+      "guid": "a1e81eb8-56c7-3117-a2e4-81e0fcf28e00",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialAnchorRawCoordinateSystemAdjustedEventArgs",
+      "methods": [
+        {
+          "name": "get_OldRawCoordinateSystemToNewRawCoordinateSystemTransform",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Matrix4x4",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "OldRawCoordinateSystemToNewRawCoordinateSystemTransform",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Matrix4x4",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_OldRawCoordinateSystemToNewRawCoordinateSystemTransform"
+        }
+      ]
+    },
+    "ISpatialAnchorStatics": {
+      "guid": "a9928642-0174-311c-ae79-0e5107669f16",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialAnchor",
+      "methods": [
+        {
+          "name": "TryCreateRelativeTo",
+          "overload": "TryCreateRelativeTo",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialAnchor",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryCreateRelativeTo",
+          "overload": "TryCreateWithPositionRelativeTo",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "position",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialAnchor",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryCreateRelativeTo",
+          "overload": "TryCreateWithPositionAndOrientationRelativeTo",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "position",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "orientation",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Quaternion",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialAnchor",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISpatialAnchorStore": {
+      "guid": "b0bc3636-486a-3cb0-9e6f-1245165c4db6",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialAnchorStore",
+      "methods": [
+        {
+          "name": "GetAllSavedAnchors",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialAnchor",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TrySave",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "anchor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialAnchor",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "Remove",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Clear"
+        }
+      ]
+    },
+    "ISpatialAnchorTransferManagerStatics": {
+      "guid": "03bbf9b9-12d8-4bce-8835-c5df3ac0adab",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialAnchorTransferManager",
+      "methods": [
+        {
+          "name": "TryImportAnchorsAsync",
+          "params": [
+            {
+              "name": "stream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IMapView`2",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialAnchor",
+                    "namespace": "Windows.Perception.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryExportAnchorsAsync",
+          "params": [
+            {
+              "name": "anchors",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "GenericInst",
+                    "name": "IKeyValuePair`2",
+                    "namespace": "Windows.Foundation.Collections",
+                    "target_kind": "Interface",
+                    "args": [
+                      {
+                        "kind": "Native",
+                        "name": "HString"
+                      },
+                      {
+                        "kind": "ApiRef",
+                        "name": "SpatialAnchor",
+                        "namespace": "Windows.Perception.Spatial",
+                        "target_kind": "Class"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "name": "stream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IOutputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestAccessAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialPerceptionAccessStatus",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ISpatialBoundingVolume": {
+      "guid": "fb2065da-68c3-33df-b7af-4c787207999c",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialBoundingVolume"
+    },
+    "ISpatialBoundingVolumeStatics": {
+      "guid": "05889117-b3e1-36d8-b017-566181a5b196",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialBoundingVolume",
+      "methods": [
+        {
+          "name": "FromBox",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "box",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialBoundingBox",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialBoundingVolume",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "FromOrientedBox",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "box",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialBoundingOrientedBox",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialBoundingVolume",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "FromSphere",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "sphere",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialBoundingSphere",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialBoundingVolume",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "FromFrustum",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "frustum",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialBoundingFrustum",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialBoundingVolume",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISpatialCoordinateSystem": {
+      "guid": "69ebca4b-60a3-3586-a653-59a7bd676d07",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialCoordinateSystem",
+      "methods": [
+        {
+          "name": "TryGetTransformTo",
+          "params": [
+            {
+              "name": "target",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Matrix4x4",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ISpatialEntity": {
+      "guid": "166de955-e1eb-454c-ba08-e6c0668ddc65",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialEntity",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Anchor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialAnchor",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Anchor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialAnchor",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_Anchor"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          },
+          "getter": "get_Properties"
+        }
+      ]
+    },
+    "ISpatialEntityAddedEventArgs": {
+      "guid": "a397f49b-156a-4707-ac2c-d31d570ed399",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialEntityAddedEventArgs",
+      "methods": [
+        {
+          "name": "get_Entity",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialEntity",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Entity",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialEntity",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_Entity"
+        }
+      ]
+    },
+    "ISpatialEntityFactory": {
+      "guid": "e1f1e325-349f-4225-a2f3-4b01c15fe056",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialEntity",
+      "methods": [
+        {
+          "name": "CreateWithSpatialAnchor",
+          "params": [
+            {
+              "name": "spatialAnchor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialAnchor",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialEntity",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithSpatialAnchorAndProperties",
+          "params": [
+            {
+              "name": "spatialAnchor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialAnchor",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "propertySet",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ValueSet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialEntity",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISpatialEntityRemovedEventArgs": {
+      "guid": "91741800-536d-4e9f-abf6-415b5444d651",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialEntityRemovedEventArgs",
+      "methods": [
+        {
+          "name": "get_Entity",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialEntity",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Entity",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialEntity",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_Entity"
+        }
+      ]
+    },
+    "ISpatialEntityStore": {
+      "guid": "329788ba-e513-4f06-889d-1be30ecf43e6",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialEntityStore",
+      "methods": [
+        {
+          "name": "SaveAsync",
+          "params": [
+            {
+              "name": "entity",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialEntity",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "RemoveAsync",
+          "params": [
+            {
+              "name": "entity",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialEntity",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "CreateEntityWatcher",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialEntityWatcher",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISpatialEntityStoreStatics": {
+      "guid": "6b4b389e-7c50-4e92-8a62-4d1d4b7ccd3e",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialEntityStore",
+      "methods": [
+        {
+          "name": "get_IsSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TryGet",
+          "overload": "TryGetForRemoteSystemSession",
+          "params": [
+            {
+              "name": "session",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSession",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialEntityStore",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSupported"
+        }
+      ]
+    },
+    "ISpatialEntityUpdatedEventArgs": {
+      "guid": "e5671766-627b-43cb-a49f-b3be6d47deed",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialEntityUpdatedEventArgs",
+      "methods": [
+        {
+          "name": "get_Entity",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialEntity",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Entity",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialEntity",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_Entity"
+        }
+      ]
+    },
+    "ISpatialEntityWatcher": {
+      "guid": "b3b85fa0-6d5e-4bbc-805d-5fe5b9ba1959",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialEntityWatcher",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialEntityWatcherStatus",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_Added",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialEntityWatcher",
+                    "namespace": "Windows.Perception.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialEntityAddedEventArgs",
+                    "namespace": "Windows.Perception.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Added",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Updated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialEntityWatcher",
+                    "namespace": "Windows.Perception.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialEntityUpdatedEventArgs",
+                    "namespace": "Windows.Perception.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Updated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Removed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialEntityWatcher",
+                    "namespace": "Windows.Perception.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialEntityRemovedEventArgs",
+                    "namespace": "Windows.Perception.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Removed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_EnumerationCompleted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialEntityWatcher",
+                    "namespace": "Windows.Perception.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_EnumerationCompleted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Start"
+        },
+        {
+          "name": "Stop"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialEntityWatcherStatus",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ],
+      "events": [
+        {
+          "name": "Added",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialEntityWatcher",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialEntityAddedEventArgs",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Added",
+          "remove_method": "remove_Added"
+        },
+        {
+          "name": "EnumerationCompleted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialEntityWatcher",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_EnumerationCompleted",
+          "remove_method": "remove_EnumerationCompleted"
+        },
+        {
+          "name": "Removed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialEntityWatcher",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialEntityRemovedEventArgs",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Removed",
+          "remove_method": "remove_Removed"
+        },
+        {
+          "name": "Updated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialEntityWatcher",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialEntityUpdatedEventArgs",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Updated",
+          "remove_method": "remove_Updated"
+        }
+      ]
+    },
+    "ISpatialLocation": {
+      "guid": "1d81d29d-24a1-37d5-8fa1-39b4f9ad67e2",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialLocation",
+      "methods": [
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Orientation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Quaternion",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_AbsoluteLinearVelocity",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_AbsoluteLinearAcceleration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_AbsoluteAngularVelocity",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Quaternion",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_AbsoluteAngularAcceleration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Quaternion",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AbsoluteAngularAcceleration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Quaternion",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_AbsoluteAngularAcceleration"
+        },
+        {
+          "name": "AbsoluteAngularVelocity",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Quaternion",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_AbsoluteAngularVelocity"
+        },
+        {
+          "name": "AbsoluteLinearAcceleration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_AbsoluteLinearAcceleration"
+        },
+        {
+          "name": "AbsoluteLinearVelocity",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_AbsoluteLinearVelocity"
+        },
+        {
+          "name": "Orientation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Quaternion",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Orientation"
+        },
+        {
+          "name": "Position",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Position"
+        }
+      ]
+    },
+    "ISpatialLocation2": {
+      "guid": "117f2416-38a7-4a18-b404-ab8fabe1d78b",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialLocation",
+      "methods": [
+        {
+          "name": "get_AbsoluteAngularVelocityAxisAngle",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_AbsoluteAngularAccelerationAxisAngle",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AbsoluteAngularAccelerationAxisAngle",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_AbsoluteAngularAccelerationAxisAngle"
+        },
+        {
+          "name": "AbsoluteAngularVelocityAxisAngle",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_AbsoluteAngularVelocityAxisAngle"
+        }
+      ]
+    },
+    "ISpatialLocator": {
+      "guid": "f6478925-9e0c-3bb6-997e-b64ecca24cf4",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialLocator",
+      "methods": [
+        {
+          "name": "get_Locatability",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialLocatability",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_LocatabilityChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialLocator",
+                    "namespace": "Windows.Perception.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_LocatabilityChanged",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PositionalTrackingDeactivating",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialLocator",
+                    "namespace": "Windows.Perception.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialLocatorPositionalTrackingDeactivatingEventArgs",
+                    "namespace": "Windows.Perception.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PositionalTrackingDeactivating",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TryLocateAtTimestamp",
+          "params": [
+            {
+              "name": "timestamp",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionTimestamp",
+                "namespace": "Windows.Perception",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialLocation",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateAttachedFrameOfReferenceAtCurrentHeading",
+          "overload": "CreateAttachedFrameOfReferenceAtCurrentHeading",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialLocatorAttachedFrameOfReference",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateAttachedFrameOfReferenceAtCurrentHeading",
+          "overload": "CreateAttachedFrameOfReferenceAtCurrentHeadingWithPosition",
+          "params": [
+            {
+              "name": "relativePosition",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialLocatorAttachedFrameOfReference",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateAttachedFrameOfReferenceAtCurrentHeading",
+          "overload": "CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientation",
+          "params": [
+            {
+              "name": "relativePosition",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "relativeOrientation",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Quaternion",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialLocatorAttachedFrameOfReference",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateAttachedFrameOfReferenceAtCurrentHeading",
+          "overload": "CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientationAndRelativeHeading",
+          "params": [
+            {
+              "name": "relativePosition",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "relativeOrientation",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Quaternion",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "relativeHeadingInRadians",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialLocatorAttachedFrameOfReference",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateStationaryFrameOfReferenceAtCurrentLocation",
+          "overload": "CreateStationaryFrameOfReferenceAtCurrentLocation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialStationaryFrameOfReference",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateStationaryFrameOfReferenceAtCurrentLocation",
+          "overload": "CreateStationaryFrameOfReferenceAtCurrentLocationWithPosition",
+          "params": [
+            {
+              "name": "relativePosition",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialStationaryFrameOfReference",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateStationaryFrameOfReferenceAtCurrentLocation",
+          "overload": "CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientation",
+          "params": [
+            {
+              "name": "relativePosition",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "relativeOrientation",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Quaternion",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialStationaryFrameOfReference",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateStationaryFrameOfReferenceAtCurrentLocation",
+          "overload": "CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientationAndRelativeHeading",
+          "params": [
+            {
+              "name": "relativePosition",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "relativeOrientation",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Quaternion",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "relativeHeadingInRadians",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialStationaryFrameOfReference",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Locatability",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialLocatability",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Locatability"
+        }
+      ],
+      "events": [
+        {
+          "name": "LocatabilityChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialLocator",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_LocatabilityChanged",
+          "remove_method": "remove_LocatabilityChanged"
+        },
+        {
+          "name": "PositionalTrackingDeactivating",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialLocator",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialLocatorPositionalTrackingDeactivatingEventArgs",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PositionalTrackingDeactivating",
+          "remove_method": "remove_PositionalTrackingDeactivating"
+        }
+      ]
+    },
+    "ISpatialLocatorAttachedFrameOfReference": {
+      "guid": "e1774ef6-1f4f-499c-9625-ef5e6ed7a048",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialLocatorAttachedFrameOfReference",
+      "methods": [
+        {
+          "name": "get_RelativePosition",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_RelativePosition",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RelativeOrientation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Quaternion",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_RelativeOrientation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Quaternion",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AdjustHeading",
+          "params": [
+            {
+              "name": "headingOffsetInRadians",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetStationaryCoordinateSystemAtTimestamp",
+          "params": [
+            {
+              "name": "timestamp",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionTimestamp",
+                "namespace": "Windows.Perception",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialCoordinateSystem",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryGetRelativeHeadingAtTimestamp",
+          "params": [
+            {
+              "name": "timestamp",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionTimestamp",
+                "namespace": "Windows.Perception",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RelativeOrientation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Quaternion",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_RelativeOrientation",
+          "setter": "put_RelativeOrientation"
+        },
+        {
+          "name": "RelativePosition",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_RelativePosition",
+          "setter": "put_RelativePosition"
+        }
+      ]
+    },
+    "ISpatialLocatorPositionalTrackingDeactivatingEventArgs": {
+      "guid": "b8a84063-e3f4-368b-9061-9ea9d1d6cc16",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialLocatorPositionalTrackingDeactivatingEventArgs",
+      "methods": [
+        {
+          "name": "get_Canceled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Canceled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Canceled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Canceled",
+          "setter": "put_Canceled"
+        }
+      ]
+    },
+    "ISpatialLocatorStatics": {
+      "guid": "b76e3340-a7c2-361b-bb82-56e93b89b1bb",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialLocator",
+      "methods": [
+        {
+          "name": "GetDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialLocator",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISpatialStageFrameOfReference": {
+      "guid": "7a8a3464-ad0d-4590-ab86-33062b674926",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialStageFrameOfReference",
+      "methods": [
+        {
+          "name": "get_CoordinateSystem",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialCoordinateSystem",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_MovementRange",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialMovementRange",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_LookDirectionRange",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialLookDirectionRange",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetCoordinateSystemAtCurrentLocation",
+          "params": [
+            {
+              "name": "locator",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialLocator",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialCoordinateSystem",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryGetMovementBounds",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "ApiRef",
+              "name": "Vector3",
+              "namespace": "Windows.Foundation.Numerics",
+              "target_kind": "Struct"
+            }
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CoordinateSystem",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialCoordinateSystem",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_CoordinateSystem"
+        },
+        {
+          "name": "LookDirectionRange",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialLookDirectionRange",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_LookDirectionRange"
+        },
+        {
+          "name": "MovementRange",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialMovementRange",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MovementRange"
+        }
+      ]
+    },
+    "ISpatialStageFrameOfReferenceStatics": {
+      "guid": "f78d5c4d-a0a4-499c-8d91-a8c965d40654",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialStageFrameOfReference",
+      "methods": [
+        {
+          "name": "get_Current",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialStageFrameOfReference",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_CurrentChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CurrentChanged",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RequestNewStageAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialStageFrameOfReference",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Current",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialStageFrameOfReference",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_Current"
+        }
+      ],
+      "events": [
+        {
+          "name": "CurrentChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_CurrentChanged",
+          "remove_method": "remove_CurrentChanged"
+        }
+      ]
+    },
+    "ISpatialStationaryFrameOfReference": {
+      "guid": "09dbccb9-bcf8-3e7f-be7e-7edccbb178a8",
+      "exclusive_to": "Windows.Perception.Spatial.SpatialStationaryFrameOfReference",
+      "methods": [
+        {
+          "name": "get_CoordinateSystem",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialCoordinateSystem",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CoordinateSystem",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialCoordinateSystem",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_CoordinateSystem"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "SpatialAnchor": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialAnchor",
+        "namespace": "Windows.Perception.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialAnchor",
+          "namespace": "Windows.Perception.Spatial",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialAnchor2",
+          "namespace": "Windows.Perception.Spatial",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Perception.Spatial.ISpatialAnchorStatics"
+      ]
+    },
+    "SpatialAnchorExportSufficiency": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialAnchorExportSufficiency",
+        "namespace": "Windows.Perception.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialAnchorExportSufficiency",
+          "namespace": "Windows.Perception.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialAnchorExporter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialAnchorExporter",
+        "namespace": "Windows.Perception.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialAnchorExporter",
+          "namespace": "Windows.Perception.Spatial",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Perception.Spatial.ISpatialAnchorExporterStatics"
+      ]
+    },
+    "SpatialAnchorManager": {
+      "static_interfaces": [
+        "Windows.Perception.Spatial.ISpatialAnchorManagerStatics"
+      ]
+    },
+    "SpatialAnchorRawCoordinateSystemAdjustedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialAnchorRawCoordinateSystemAdjustedEventArgs",
+        "namespace": "Windows.Perception.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialAnchorRawCoordinateSystemAdjustedEventArgs",
+          "namespace": "Windows.Perception.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialAnchorStore": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialAnchorStore",
+        "namespace": "Windows.Perception.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialAnchorStore",
+          "namespace": "Windows.Perception.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialAnchorTransferManager": {
+      "static_interfaces": [
+        "Windows.Perception.Spatial.ISpatialAnchorTransferManagerStatics"
+      ]
+    },
+    "SpatialBoundingVolume": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialBoundingVolume",
+        "namespace": "Windows.Perception.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialBoundingVolume",
+          "namespace": "Windows.Perception.Spatial",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Perception.Spatial.ISpatialBoundingVolumeStatics"
+      ]
+    },
+    "SpatialCoordinateSystem": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialCoordinateSystem",
+        "namespace": "Windows.Perception.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialCoordinateSystem",
+          "namespace": "Windows.Perception.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialEntity": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialEntity",
+        "namespace": "Windows.Perception.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialEntity",
+          "namespace": "Windows.Perception.Spatial",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Perception.Spatial.ISpatialEntityFactory"
+      ]
+    },
+    "SpatialEntityAddedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialEntityAddedEventArgs",
+        "namespace": "Windows.Perception.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialEntityAddedEventArgs",
+          "namespace": "Windows.Perception.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialEntityRemovedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialEntityRemovedEventArgs",
+        "namespace": "Windows.Perception.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialEntityRemovedEventArgs",
+          "namespace": "Windows.Perception.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialEntityStore": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialEntityStore",
+        "namespace": "Windows.Perception.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialEntityStore",
+          "namespace": "Windows.Perception.Spatial",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Perception.Spatial.ISpatialEntityStoreStatics"
+      ]
+    },
+    "SpatialEntityUpdatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialEntityUpdatedEventArgs",
+        "namespace": "Windows.Perception.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialEntityUpdatedEventArgs",
+          "namespace": "Windows.Perception.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialEntityWatcher": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialEntityWatcher",
+        "namespace": "Windows.Perception.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialEntityWatcher",
+          "namespace": "Windows.Perception.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialLocation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialLocation",
+        "namespace": "Windows.Perception.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialLocation",
+          "namespace": "Windows.Perception.Spatial",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialLocation2",
+          "namespace": "Windows.Perception.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialLocator": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialLocator",
+        "namespace": "Windows.Perception.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialLocator",
+          "namespace": "Windows.Perception.Spatial",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Perception.Spatial.ISpatialLocatorStatics"
+      ]
+    },
+    "SpatialLocatorAttachedFrameOfReference": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialLocatorAttachedFrameOfReference",
+        "namespace": "Windows.Perception.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialLocatorAttachedFrameOfReference",
+          "namespace": "Windows.Perception.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialLocatorPositionalTrackingDeactivatingEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialLocatorPositionalTrackingDeactivatingEventArgs",
+        "namespace": "Windows.Perception.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialLocatorPositionalTrackingDeactivatingEventArgs",
+          "namespace": "Windows.Perception.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialStageFrameOfReference": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialStageFrameOfReference",
+        "namespace": "Windows.Perception.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialStageFrameOfReference",
+          "namespace": "Windows.Perception.Spatial",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Perception.Spatial.ISpatialStageFrameOfReferenceStatics"
+      ]
+    },
+    "SpatialStationaryFrameOfReference": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialStationaryFrameOfReference",
+        "namespace": "Windows.Perception.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialStationaryFrameOfReference",
+          "namespace": "Windows.Perception.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

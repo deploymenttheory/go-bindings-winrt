@@ -1,0 +1,3161 @@
+{
+  "namespace": "Windows.Devices.Sms",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "CellularClass": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Gsm",
+          "value": "1"
+        },
+        {
+          "name": "Cdma",
+          "value": "2"
+        }
+      ]
+    },
+    "SmsBroadcastType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Other",
+          "value": "0"
+        },
+        {
+          "name": "CmasPresidential",
+          "value": "1"
+        },
+        {
+          "name": "CmasExtreme",
+          "value": "2"
+        },
+        {
+          "name": "CmasSevere",
+          "value": "3"
+        },
+        {
+          "name": "CmasAmber",
+          "value": "4"
+        },
+        {
+          "name": "CmasTest",
+          "value": "5"
+        },
+        {
+          "name": "EUAlert1",
+          "value": "6"
+        },
+        {
+          "name": "EUAlert2",
+          "value": "7"
+        },
+        {
+          "name": "EUAlert3",
+          "value": "8"
+        },
+        {
+          "name": "EUAlertAmber",
+          "value": "9"
+        },
+        {
+          "name": "EUAlertInfo",
+          "value": "10"
+        },
+        {
+          "name": "EtwsEarthquake",
+          "value": "11"
+        },
+        {
+          "name": "EtwsTsunami",
+          "value": "12"
+        },
+        {
+          "name": "EtwsTsunamiAndEarthquake",
+          "value": "13"
+        },
+        {
+          "name": "LatAlertLocal",
+          "value": "14"
+        }
+      ]
+    },
+    "SmsDataFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "CdmaSubmit",
+          "value": "1"
+        },
+        {
+          "name": "GsmSubmit",
+          "value": "2"
+        },
+        {
+          "name": "CdmaDeliver",
+          "value": "3"
+        },
+        {
+          "name": "GsmDeliver",
+          "value": "4"
+        }
+      ]
+    },
+    "SmsDeviceStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Off",
+          "value": "0"
+        },
+        {
+          "name": "Ready",
+          "value": "1"
+        },
+        {
+          "name": "SimNotInserted",
+          "value": "2"
+        },
+        {
+          "name": "BadSim",
+          "value": "3"
+        },
+        {
+          "name": "DeviceFailure",
+          "value": "4"
+        },
+        {
+          "name": "SubscriptionNotActivated",
+          "value": "5"
+        },
+        {
+          "name": "DeviceLocked",
+          "value": "6"
+        },
+        {
+          "name": "DeviceBlocked",
+          "value": "7"
+        }
+      ]
+    },
+    "SmsEncoding": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "Optimal",
+          "value": "1"
+        },
+        {
+          "name": "SevenBitAscii",
+          "value": "2"
+        },
+        {
+          "name": "Unicode",
+          "value": "3"
+        },
+        {
+          "name": "GsmSevenBit",
+          "value": "4"
+        },
+        {
+          "name": "EightBit",
+          "value": "5"
+        },
+        {
+          "name": "Latin",
+          "value": "6"
+        },
+        {
+          "name": "Korean",
+          "value": "7"
+        },
+        {
+          "name": "IA5",
+          "value": "8"
+        },
+        {
+          "name": "ShiftJis",
+          "value": "9"
+        },
+        {
+          "name": "LatinHebrew",
+          "value": "10"
+        }
+      ]
+    },
+    "SmsFilterActionType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "AcceptImmediately",
+          "value": "0"
+        },
+        {
+          "name": "Drop",
+          "value": "1"
+        },
+        {
+          "name": "Peek",
+          "value": "2"
+        },
+        {
+          "name": "Accept",
+          "value": "3"
+        }
+      ]
+    },
+    "SmsGeographicalScope": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "CellWithImmediateDisplay",
+          "value": "1"
+        },
+        {
+          "name": "LocationArea",
+          "value": "2"
+        },
+        {
+          "name": "Plmn",
+          "value": "3"
+        },
+        {
+          "name": "Cell",
+          "value": "4"
+        }
+      ]
+    },
+    "SmsMessageClass": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Class0",
+          "value": "1"
+        },
+        {
+          "name": "Class1",
+          "value": "2"
+        },
+        {
+          "name": "Class2",
+          "value": "3"
+        },
+        {
+          "name": "Class3",
+          "value": "4"
+        }
+      ]
+    },
+    "SmsMessageType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Binary",
+          "value": "0"
+        },
+        {
+          "name": "Text",
+          "value": "1"
+        },
+        {
+          "name": "Wap",
+          "value": "2"
+        },
+        {
+          "name": "App",
+          "value": "3"
+        },
+        {
+          "name": "Broadcast",
+          "value": "4"
+        },
+        {
+          "name": "Voicemail",
+          "value": "5"
+        },
+        {
+          "name": "Status",
+          "value": "6"
+        }
+      ]
+    },
+    "SmsModemErrorCode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Other",
+          "value": "0"
+        },
+        {
+          "name": "MessagingNetworkError",
+          "value": "1"
+        },
+        {
+          "name": "SmsOperationNotSupportedByDevice",
+          "value": "2"
+        },
+        {
+          "name": "SmsServiceNotSupportedByNetwork",
+          "value": "3"
+        },
+        {
+          "name": "DeviceFailure",
+          "value": "4"
+        },
+        {
+          "name": "MessageNotEncodedProperly",
+          "value": "5"
+        },
+        {
+          "name": "MessageTooLarge",
+          "value": "6"
+        },
+        {
+          "name": "DeviceNotReady",
+          "value": "7"
+        },
+        {
+          "name": "NetworkNotReady",
+          "value": "8"
+        },
+        {
+          "name": "InvalidSmscAddress",
+          "value": "9"
+        },
+        {
+          "name": "NetworkFailure",
+          "value": "10"
+        },
+        {
+          "name": "FixedDialingNumberRestricted",
+          "value": "11"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "SmsEncodedLength": {
+      "fields": [
+        {
+          "name": "SegmentCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "CharacterCountLastSegment",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "CharactersPerSegment",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "ByteCountLastSegment",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "BytesPerSegment",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ISmsAppMessage": {
+      "guid": "e8bb8494-d3a0-4a0a-86d7-291033a8cf54",
+      "exclusive_to": "Windows.Devices.Sms.SmsAppMessage",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmsMessageBase",
+          "namespace": "Windows.Devices.Sms",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Timestamp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_To",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_To",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_From",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Body",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Body",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CallbackNumber",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_CallbackNumber",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsDeliveryNotificationEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsDeliveryNotificationEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RetryAttemptCount",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_RetryAttemptCount",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Encoding",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsEncoding",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Encoding",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SmsEncoding",
+                "namespace": "Windows.Devices.Sms",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PortNumber",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_PortNumber",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TeleserviceId",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_TeleserviceId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ProtocolId",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_ProtocolId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BinaryBody",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_BinaryBody",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "BinaryBody",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_BinaryBody",
+          "setter": "put_BinaryBody"
+        },
+        {
+          "name": "Body",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Body",
+          "setter": "put_Body"
+        },
+        {
+          "name": "CallbackNumber",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CallbackNumber",
+          "setter": "put_CallbackNumber"
+        },
+        {
+          "name": "Encoding",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmsEncoding",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Encoding",
+          "setter": "put_Encoding"
+        },
+        {
+          "name": "From",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_From"
+        },
+        {
+          "name": "IsDeliveryNotificationEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsDeliveryNotificationEnabled",
+          "setter": "put_IsDeliveryNotificationEnabled"
+        },
+        {
+          "name": "PortNumber",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_PortNumber",
+          "setter": "put_PortNumber"
+        },
+        {
+          "name": "ProtocolId",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_ProtocolId",
+          "setter": "put_ProtocolId"
+        },
+        {
+          "name": "RetryAttemptCount",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_RetryAttemptCount",
+          "setter": "put_RetryAttemptCount"
+        },
+        {
+          "name": "TeleserviceId",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_TeleserviceId",
+          "setter": "put_TeleserviceId"
+        },
+        {
+          "name": "Timestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Timestamp"
+        },
+        {
+          "name": "To",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_To",
+          "setter": "put_To"
+        }
+      ]
+    },
+    "ISmsBroadcastMessage": {
+      "guid": "75aebbf1-e4b7-4874-a09c-2956e592f957",
+      "exclusive_to": "Windows.Devices.Sms.SmsBroadcastMessage",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmsMessageBase",
+          "namespace": "Windows.Devices.Sms",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Timestamp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_To",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Body",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Channel",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_GeographicalScope",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsGeographicalScope",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_MessageCode",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_UpdateNumber",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_BroadcastType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsBroadcastType",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_IsEmergencyAlert",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsUserPopupRequested",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Body",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Body"
+        },
+        {
+          "name": "BroadcastType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmsBroadcastType",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          },
+          "getter": "get_BroadcastType"
+        },
+        {
+          "name": "Channel",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Channel"
+        },
+        {
+          "name": "GeographicalScope",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmsGeographicalScope",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          },
+          "getter": "get_GeographicalScope"
+        },
+        {
+          "name": "IsEmergencyAlert",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsEmergencyAlert"
+        },
+        {
+          "name": "IsUserPopupRequested",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsUserPopupRequested"
+        },
+        {
+          "name": "MessageCode",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MessageCode"
+        },
+        {
+          "name": "Timestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Timestamp"
+        },
+        {
+          "name": "To",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_To"
+        },
+        {
+          "name": "UpdateNumber",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_UpdateNumber"
+        }
+      ]
+    },
+    "ISmsDevice2": {
+      "guid": "bd8a5c13-e522-46cb-b8d5-9ead30fb6c47",
+      "exclusive_to": "Windows.Devices.Sms.SmsDevice2",
+      "methods": [
+        {
+          "name": "get_SmscAddress",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_SmscAddress",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ParentDeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AccountPhoneNumber",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CellularClass",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CellularClass",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_DeviceStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsDeviceStatus",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "CalculateLength",
+          "params": [
+            {
+              "name": "message",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ISmsMessageBase",
+                "namespace": "Windows.Devices.Sms",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsEncodedLength",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "SendMessageAndGetResultAsync",
+          "params": [
+            {
+              "name": "message",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ISmsMessageBase",
+                "namespace": "Windows.Devices.Sms",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SmsSendMessageResult",
+                "namespace": "Windows.Devices.Sms",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_DeviceStatusChanged",
+          "params": [
+            {
+              "name": "eventHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SmsDevice2",
+                    "namespace": "Windows.Devices.Sms",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DeviceStatusChanged",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AccountPhoneNumber",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AccountPhoneNumber"
+        },
+        {
+          "name": "CellularClass",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CellularClass",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CellularClass"
+        },
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        },
+        {
+          "name": "DeviceStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmsDeviceStatus",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DeviceStatus"
+        },
+        {
+          "name": "ParentDeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ParentDeviceId"
+        },
+        {
+          "name": "SmscAddress",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SmscAddress",
+          "setter": "put_SmscAddress"
+        }
+      ],
+      "events": [
+        {
+          "name": "DeviceStatusChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SmsDevice2",
+                "namespace": "Windows.Devices.Sms",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_DeviceStatusChanged",
+          "remove_method": "remove_DeviceStatusChanged"
+        }
+      ]
+    },
+    "ISmsDevice2Statics": {
+      "guid": "65c78325-1031-491e-8fb6-ef9991afe363",
+      "exclusive_to": "Windows.Devices.Sms.SmsDevice2",
+      "methods": [
+        {
+          "name": "GetDeviceSelector",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FromId",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsDevice2",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsDevice2",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "FromParentId",
+          "params": [
+            {
+              "name": "parentDeviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsDevice2",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISmsFilterRule": {
+      "guid": "40e32fae-b049-4fbc-afe9-e2a610eff55c",
+      "exclusive_to": "Windows.Devices.Sms.SmsFilterRule",
+      "methods": [
+        {
+          "name": "get_MessageType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsMessageType",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ImsiPrefixes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_DeviceIds",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SenderNumbers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_TextMessagePrefixes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_PortNumbers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_CellularClass",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CellularClass",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_CellularClass",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CellularClass",
+                "namespace": "Windows.Devices.Sms",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ProtocolIds",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_TeleserviceIds",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_WapApplicationIds",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_WapContentTypes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_BroadcastTypes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SmsBroadcastType",
+                "namespace": "Windows.Devices.Sms",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_BroadcastChannels",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BroadcastChannels",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          },
+          "getter": "get_BroadcastChannels"
+        },
+        {
+          "name": "BroadcastTypes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SmsBroadcastType",
+                "namespace": "Windows.Devices.Sms",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_BroadcastTypes"
+        },
+        {
+          "name": "CellularClass",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CellularClass",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CellularClass",
+          "setter": "put_CellularClass"
+        },
+        {
+          "name": "DeviceIds",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_DeviceIds"
+        },
+        {
+          "name": "ImsiPrefixes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_ImsiPrefixes"
+        },
+        {
+          "name": "MessageType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmsMessageType",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MessageType"
+        },
+        {
+          "name": "PortNumbers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          },
+          "getter": "get_PortNumbers"
+        },
+        {
+          "name": "ProtocolIds",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          },
+          "getter": "get_ProtocolIds"
+        },
+        {
+          "name": "SenderNumbers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_SenderNumbers"
+        },
+        {
+          "name": "TeleserviceIds",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          },
+          "getter": "get_TeleserviceIds"
+        },
+        {
+          "name": "TextMessagePrefixes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_TextMessagePrefixes"
+        },
+        {
+          "name": "WapApplicationIds",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_WapApplicationIds"
+        },
+        {
+          "name": "WapContentTypes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_WapContentTypes"
+        }
+      ]
+    },
+    "ISmsFilterRuleFactory": {
+      "guid": "00c36508-6296-4f29-9aad-8920ceba3ce8",
+      "exclusive_to": "Windows.Devices.Sms.SmsFilterRule",
+      "methods": [
+        {
+          "name": "CreateFilterRule",
+          "params": [
+            {
+              "name": "messageType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SmsMessageType",
+                "namespace": "Windows.Devices.Sms",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsFilterRule",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISmsFilterRules": {
+      "guid": "4e47eafb-79cd-4881-9894-55a4135b23fa",
+      "exclusive_to": "Windows.Devices.Sms.SmsFilterRules",
+      "methods": [
+        {
+          "name": "get_ActionType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsFilterActionType",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Rules",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SmsFilterRule",
+                "namespace": "Windows.Devices.Sms",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ActionType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmsFilterActionType",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ActionType"
+        },
+        {
+          "name": "Rules",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SmsFilterRule",
+                "namespace": "Windows.Devices.Sms",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Rules"
+        }
+      ]
+    },
+    "ISmsFilterRulesFactory": {
+      "guid": "a09924ed-6e2e-4530-9fde-465d02eed00e",
+      "exclusive_to": "Windows.Devices.Sms.SmsFilterRules",
+      "methods": [
+        {
+          "name": "CreateFilterRules",
+          "params": [
+            {
+              "name": "actionType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SmsFilterActionType",
+                "namespace": "Windows.Devices.Sms",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsFilterRules",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISmsMessageBase": {
+      "guid": "2cf0fe30-fe50-4fc6-aa88-4ccfe27a29ea",
+      "methods": [
+        {
+          "name": "get_MessageType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsMessageType",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CellularClass",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CellularClass",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_MessageClass",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsMessageClass",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_SimIccId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CellularClass",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CellularClass",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CellularClass"
+        },
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        },
+        {
+          "name": "MessageClass",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmsMessageClass",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MessageClass"
+        },
+        {
+          "name": "MessageType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmsMessageType",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MessageType"
+        },
+        {
+          "name": "SimIccId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SimIccId"
+        }
+      ]
+    },
+    "ISmsMessageReceivedTriggerDetails": {
+      "guid": "2bcfcbd4-2657-4128-ad5f-e3877132bdb1",
+      "exclusive_to": "Windows.Devices.Sms.SmsMessageReceivedTriggerDetails",
+      "methods": [
+        {
+          "name": "get_MessageType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsMessageType",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_TextMessage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsTextMessage2",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_WapMessage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsWapMessage",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_AppMessage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsAppMessage",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_BroadcastMessage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsBroadcastMessage",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_VoicemailMessage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsVoicemailMessage",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_StatusMessage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsStatusMessage",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "Drop"
+        },
+        {
+          "name": "Accept"
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppMessage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmsAppMessage",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Class"
+          },
+          "getter": "get_AppMessage"
+        },
+        {
+          "name": "BroadcastMessage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmsBroadcastMessage",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Class"
+          },
+          "getter": "get_BroadcastMessage"
+        },
+        {
+          "name": "MessageType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmsMessageType",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MessageType"
+        },
+        {
+          "name": "StatusMessage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmsStatusMessage",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Class"
+          },
+          "getter": "get_StatusMessage"
+        },
+        {
+          "name": "TextMessage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmsTextMessage2",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Class"
+          },
+          "getter": "get_TextMessage"
+        },
+        {
+          "name": "VoicemailMessage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmsVoicemailMessage",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Class"
+          },
+          "getter": "get_VoicemailMessage"
+        },
+        {
+          "name": "WapMessage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmsWapMessage",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Class"
+          },
+          "getter": "get_WapMessage"
+        }
+      ]
+    },
+    "ISmsMessageRegistration": {
+      "guid": "1720503e-f34f-446b-83b3-0ff19923b409",
+      "exclusive_to": "Windows.Devices.Sms.SmsMessageRegistration",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "Unregister"
+        },
+        {
+          "name": "add_MessageReceived",
+          "params": [
+            {
+              "name": "eventHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SmsMessageRegistration",
+                    "namespace": "Windows.Devices.Sms",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SmsMessageReceivedTriggerDetails",
+                    "namespace": "Windows.Devices.Sms",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_MessageReceived",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        }
+      ],
+      "events": [
+        {
+          "name": "MessageReceived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SmsMessageRegistration",
+                "namespace": "Windows.Devices.Sms",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SmsMessageReceivedTriggerDetails",
+                "namespace": "Windows.Devices.Sms",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_MessageReceived",
+          "remove_method": "remove_MessageReceived"
+        }
+      ]
+    },
+    "ISmsMessageRegistrationStatics": {
+      "guid": "63a05464-2898-4778-a03c-6f994907d63a",
+      "exclusive_to": "Windows.Devices.Sms.SmsMessageRegistration",
+      "methods": [
+        {
+          "name": "get_AllRegistrations",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SmsMessageRegistration",
+                "namespace": "Windows.Devices.Sms",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Register",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "filterRules",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SmsFilterRules",
+                "namespace": "Windows.Devices.Sms",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsMessageRegistration",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllRegistrations",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SmsMessageRegistration",
+                "namespace": "Windows.Devices.Sms",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_AllRegistrations"
+        }
+      ]
+    },
+    "ISmsSendMessageResult": {
+      "guid": "db139af2-78c9-4feb-9622-452328088d62",
+      "exclusive_to": "Windows.Devices.Sms.SmsSendMessageResult",
+      "methods": [
+        {
+          "name": "get_IsSuccessful",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_MessageReferenceNumbers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_CellularClass",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CellularClass",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ModemErrorCode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsModemErrorCode",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_IsErrorTransient",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_NetworkCauseCode",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_TransportFailureCause",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CellularClass",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CellularClass",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CellularClass"
+        },
+        {
+          "name": "IsErrorTransient",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsErrorTransient"
+        },
+        {
+          "name": "IsSuccessful",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSuccessful"
+        },
+        {
+          "name": "MessageReferenceNumbers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          },
+          "getter": "get_MessageReferenceNumbers"
+        },
+        {
+          "name": "ModemErrorCode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmsModemErrorCode",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ModemErrorCode"
+        },
+        {
+          "name": "NetworkCauseCode",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_NetworkCauseCode"
+        },
+        {
+          "name": "TransportFailureCause",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_TransportFailureCause"
+        }
+      ]
+    },
+    "ISmsStatusMessage": {
+      "guid": "e6d28342-b70b-4677-9379-c9783fdff8f4",
+      "exclusive_to": "Windows.Devices.Sms.SmsStatusMessage",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmsMessageBase",
+          "namespace": "Windows.Devices.Sms",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_To",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_From",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Body",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MessageReferenceNumber",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_ServiceCenterTimestamp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_DischargeTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Body",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Body"
+        },
+        {
+          "name": "DischargeTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_DischargeTime"
+        },
+        {
+          "name": "From",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_From"
+        },
+        {
+          "name": "MessageReferenceNumber",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MessageReferenceNumber"
+        },
+        {
+          "name": "ServiceCenterTimestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ServiceCenterTimestamp"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Status"
+        },
+        {
+          "name": "To",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_To"
+        }
+      ]
+    },
+    "ISmsTextMessage2": {
+      "guid": "22a0d893-4555-4755-b5a1-e7fd84955f8d",
+      "exclusive_to": "Windows.Devices.Sms.SmsTextMessage2",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmsMessageBase",
+          "namespace": "Windows.Devices.Sms",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Timestamp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_To",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_To",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_From",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Body",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Body",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Encoding",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmsEncoding",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Encoding",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SmsEncoding",
+                "namespace": "Windows.Devices.Sms",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CallbackNumber",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_CallbackNumber",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsDeliveryNotificationEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsDeliveryNotificationEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RetryAttemptCount",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_RetryAttemptCount",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TeleserviceId",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_ProtocolId",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Body",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Body",
+          "setter": "put_Body"
+        },
+        {
+          "name": "CallbackNumber",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CallbackNumber",
+          "setter": "put_CallbackNumber"
+        },
+        {
+          "name": "Encoding",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmsEncoding",
+            "namespace": "Windows.Devices.Sms",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Encoding",
+          "setter": "put_Encoding"
+        },
+        {
+          "name": "From",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_From"
+        },
+        {
+          "name": "IsDeliveryNotificationEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsDeliveryNotificationEnabled",
+          "setter": "put_IsDeliveryNotificationEnabled"
+        },
+        {
+          "name": "ProtocolId",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_ProtocolId"
+        },
+        {
+          "name": "RetryAttemptCount",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_RetryAttemptCount",
+          "setter": "put_RetryAttemptCount"
+        },
+        {
+          "name": "TeleserviceId",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_TeleserviceId"
+        },
+        {
+          "name": "Timestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Timestamp"
+        },
+        {
+          "name": "To",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_To",
+          "setter": "put_To"
+        }
+      ]
+    },
+    "ISmsVoicemailMessage": {
+      "guid": "271aa0a6-95b1-44ff-bcb8-b8fdd7e08bc3",
+      "exclusive_to": "Windows.Devices.Sms.SmsVoicemailMessage",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmsMessageBase",
+          "namespace": "Windows.Devices.Sms",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Timestamp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_To",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Body",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MessageCount",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Body",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Body"
+        },
+        {
+          "name": "MessageCount",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          },
+          "getter": "get_MessageCount"
+        },
+        {
+          "name": "Timestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Timestamp"
+        },
+        {
+          "name": "To",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_To"
+        }
+      ]
+    },
+    "ISmsWapMessage": {
+      "guid": "cd937743-7a55-4d3b-9021-f22e022d09c5",
+      "exclusive_to": "Windows.Devices.Sms.SmsWapMessage",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmsMessageBase",
+          "namespace": "Windows.Devices.Sms",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Timestamp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_To",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_From",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ApplicationId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ContentType",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BinaryBody",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Headers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ApplicationId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ApplicationId"
+        },
+        {
+          "name": "BinaryBody",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_BinaryBody"
+        },
+        {
+          "name": "ContentType",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ContentType"
+        },
+        {
+          "name": "From",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_From"
+        },
+        {
+          "name": "Headers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Headers"
+        },
+        {
+          "name": "Timestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Timestamp"
+        },
+        {
+          "name": "To",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_To"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "SmsAppMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISmsAppMessage",
+        "namespace": "Windows.Devices.Sms",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmsAppMessage",
+          "namespace": "Windows.Devices.Sms",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISmsMessageBase",
+          "namespace": "Windows.Devices.Sms",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "SmsBroadcastMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISmsBroadcastMessage",
+        "namespace": "Windows.Devices.Sms",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmsBroadcastMessage",
+          "namespace": "Windows.Devices.Sms",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISmsMessageBase",
+          "namespace": "Windows.Devices.Sms",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SmsDevice2": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISmsDevice2",
+        "namespace": "Windows.Devices.Sms",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmsDevice2",
+          "namespace": "Windows.Devices.Sms",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Sms.ISmsDevice2Statics"
+      ]
+    },
+    "SmsFilterRule": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISmsFilterRule",
+        "namespace": "Windows.Devices.Sms",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmsFilterRule",
+          "namespace": "Windows.Devices.Sms",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Sms.ISmsFilterRuleFactory"
+      ]
+    },
+    "SmsFilterRules": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISmsFilterRules",
+        "namespace": "Windows.Devices.Sms",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmsFilterRules",
+          "namespace": "Windows.Devices.Sms",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Sms.ISmsFilterRulesFactory"
+      ]
+    },
+    "SmsMessageReceivedTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISmsMessageReceivedTriggerDetails",
+        "namespace": "Windows.Devices.Sms",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmsMessageReceivedTriggerDetails",
+          "namespace": "Windows.Devices.Sms",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SmsMessageRegistration": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISmsMessageRegistration",
+        "namespace": "Windows.Devices.Sms",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmsMessageRegistration",
+          "namespace": "Windows.Devices.Sms",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Sms.ISmsMessageRegistrationStatics"
+      ]
+    },
+    "SmsSendMessageResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISmsSendMessageResult",
+        "namespace": "Windows.Devices.Sms",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmsSendMessageResult",
+          "namespace": "Windows.Devices.Sms",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SmsStatusMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISmsStatusMessage",
+        "namespace": "Windows.Devices.Sms",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmsStatusMessage",
+          "namespace": "Windows.Devices.Sms",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISmsMessageBase",
+          "namespace": "Windows.Devices.Sms",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SmsTextMessage2": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISmsTextMessage2",
+        "namespace": "Windows.Devices.Sms",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmsTextMessage2",
+          "namespace": "Windows.Devices.Sms",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISmsMessageBase",
+          "namespace": "Windows.Devices.Sms",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "SmsVoicemailMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISmsVoicemailMessage",
+        "namespace": "Windows.Devices.Sms",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmsVoicemailMessage",
+          "namespace": "Windows.Devices.Sms",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISmsMessageBase",
+          "namespace": "Windows.Devices.Sms",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SmsWapMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISmsWapMessage",
+        "namespace": "Windows.Devices.Sms",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmsWapMessage",
+          "namespace": "Windows.Devices.Sms",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISmsMessageBase",
+          "namespace": "Windows.Devices.Sms",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

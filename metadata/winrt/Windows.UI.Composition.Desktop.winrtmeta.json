@@ -1,0 +1,49 @@
+{
+  "namespace": "Windows.UI.Composition.Desktop",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IDesktopWindowTarget": {
+      "guid": "6329d6ca-3366-490e-9db3-25312929ac51",
+      "exclusive_to": "Windows.UI.Composition.Desktop.DesktopWindowTarget",
+      "methods": [
+        {
+          "name": "get_IsTopmost",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsTopmost",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsTopmost"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "DesktopWindowTarget": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDesktopWindowTarget",
+        "namespace": "Windows.UI.Composition.Desktop",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDesktopWindowTarget",
+          "namespace": "Windows.UI.Composition.Desktop",
+          "target_kind": "Interface"
+        }
+      ],
+      "composable": true
+    }
+  }
+}

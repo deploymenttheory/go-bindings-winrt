@@ -1,0 +1,1597 @@
+{
+  "namespace": "Windows.UI.Xaml.Markup",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "structs": {
+    "XamlBinaryWriterErrorInformation": {
+      "fields": [
+        {
+          "name": "InputStreamIndex",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "LineNumber",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "LinePosition",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ]
+    },
+    "XmlnsDefinition": {
+      "fields": [
+        {
+          "name": "XmlNamespace",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "Namespace",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IComponentConnector": {
+      "guid": "f6790987-e6e5-47f2-92c6-eccce4ba159a",
+      "methods": [
+        {
+          "name": "Connect",
+          "params": [
+            {
+              "name": "connectionId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "target",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IComponentConnector2": {
+      "guid": "dc8f368b-eccc-498e-b139-91142254d7ae",
+      "methods": [
+        {
+          "name": "GetBindingConnector",
+          "params": [
+            {
+              "name": "connectionId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "target",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IComponentConnector",
+            "namespace": "Windows.UI.Xaml.Markup",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IDataTemplateComponent": {
+      "guid": "08429dc8-8ab0-4747-aa9a-feadfc8da8e1",
+      "methods": [
+        {
+          "name": "Recycle"
+        },
+        {
+          "name": "ProcessBindings",
+          "params": [
+            {
+              "name": "item",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "itemIndex",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "phase",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "nextPhase",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              },
+              "out": true
+            }
+          ]
+        }
+      ]
+    },
+    "IMarkupExtension": {
+      "guid": "1ee3416d-562b-486e-9ee5-0f0cbcc8048c",
+      "exclusive_to": "Windows.UI.Xaml.Markup.MarkupExtension"
+    },
+    "IMarkupExtensionFactory": {
+      "guid": "65329c05-fb5a-4567-9d55-5cdfbada2739",
+      "exclusive_to": "Windows.UI.Xaml.Markup.MarkupExtension",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "baseInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "innerInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MarkupExtension",
+            "namespace": "Windows.UI.Xaml.Markup",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMarkupExtensionOverrides": {
+      "guid": "393779bf-b9c0-4ffb-a57f-58e7356e425f",
+      "exclusive_to": "Windows.UI.Xaml.Markup.MarkupExtension",
+      "methods": [
+        {
+          "name": "ProvideValue",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        }
+      ]
+    },
+    "IXamlBinaryWriter": {
+      "guid": "829d2ad3-620a-46f6-845d-436a05927100",
+      "exclusive_to": "Windows.UI.Xaml.Markup.XamlBinaryWriter"
+    },
+    "IXamlBinaryWriterStatics": {
+      "guid": "0d8ed07a-9b82-4aa8-b68b-026f2de1cc86",
+      "exclusive_to": "Windows.UI.Xaml.Markup.XamlBinaryWriter",
+      "methods": [
+        {
+          "name": "Write",
+          "params": [
+            {
+              "name": "inputStreams",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVector`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IRandomAccessStream",
+                    "namespace": "Windows.Storage.Streams",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "outputStreams",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVector`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IRandomAccessStream",
+                    "namespace": "Windows.Storage.Streams",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "xamlMetadataProvider",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IXamlMetadataProvider",
+                "namespace": "Windows.UI.Xaml.Markup",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XamlBinaryWriterErrorInformation",
+            "namespace": "Windows.UI.Xaml.Markup",
+            "target_kind": "Struct"
+          }
+        }
+      ]
+    },
+    "IXamlBindScopeDiagnostics": {
+      "guid": "f264a29d-bded-43aa-a5b0-26ac21a81eb8",
+      "methods": [
+        {
+          "name": "Disable",
+          "params": [
+            {
+              "name": "lineNumber",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "columnNumber",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IXamlBindingHelper": {
+      "guid": "faa6fb06-8ab9-4ef7-8ae7-fbd30bbfd06d",
+      "exclusive_to": "Windows.UI.Xaml.Markup.XamlBindingHelper"
+    },
+    "IXamlBindingHelperStatics": {
+      "guid": "f65cfb71-c80c-4ffa-86ee-558754ee336d",
+      "exclusive_to": "Windows.UI.Xaml.Markup.XamlBindingHelper",
+      "methods": [
+        {
+          "name": "get_DataTemplateComponentProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDataTemplateComponent",
+          "params": [
+            {
+              "name": "element",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyObject",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IDataTemplateComponent",
+            "namespace": "Windows.UI.Xaml.Markup",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SetDataTemplateComponent",
+          "params": [
+            {
+              "name": "element",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyObject",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IDataTemplateComponent",
+                "namespace": "Windows.UI.Xaml.Markup",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SuspendRendering",
+          "params": [
+            {
+              "name": "target",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElement",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ResumeRendering",
+          "params": [
+            {
+              "name": "target",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElement",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ConvertValue",
+          "params": [
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TypeName",
+                "namespace": "Windows.UI.Xaml.Interop",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "SetPropertyFromString",
+          "params": [
+            {
+              "name": "dependencyObject",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "propertyToSet",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyProperty",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetPropertyFromBoolean",
+          "params": [
+            {
+              "name": "dependencyObject",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "propertyToSet",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyProperty",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetPropertyFromChar16",
+          "params": [
+            {
+              "name": "dependencyObject",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "propertyToSet",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyProperty",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Char16"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetPropertyFromDateTime",
+          "params": [
+            {
+              "name": "dependencyObject",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "propertyToSet",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyProperty",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetPropertyFromDouble",
+          "params": [
+            {
+              "name": "dependencyObject",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "propertyToSet",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyProperty",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetPropertyFromInt32",
+          "params": [
+            {
+              "name": "dependencyObject",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "propertyToSet",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyProperty",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetPropertyFromUInt32",
+          "params": [
+            {
+              "name": "dependencyObject",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "propertyToSet",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyProperty",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetPropertyFromInt64",
+          "params": [
+            {
+              "name": "dependencyObject",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "propertyToSet",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyProperty",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I8"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetPropertyFromUInt64",
+          "params": [
+            {
+              "name": "dependencyObject",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "propertyToSet",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyProperty",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetPropertyFromSingle",
+          "params": [
+            {
+              "name": "dependencyObject",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "propertyToSet",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyProperty",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetPropertyFromPoint",
+          "params": [
+            {
+              "name": "dependencyObject",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "propertyToSet",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyProperty",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetPropertyFromRect",
+          "params": [
+            {
+              "name": "dependencyObject",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "propertyToSet",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyProperty",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetPropertyFromSize",
+          "params": [
+            {
+              "name": "dependencyObject",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "propertyToSet",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyProperty",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Size",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetPropertyFromTimeSpan",
+          "params": [
+            {
+              "name": "dependencyObject",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "propertyToSet",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyProperty",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetPropertyFromByte",
+          "params": [
+            {
+              "name": "dependencyObject",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "propertyToSet",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyProperty",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetPropertyFromUri",
+          "params": [
+            {
+              "name": "dependencyObject",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "propertyToSet",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyProperty",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetPropertyFromObject",
+          "params": [
+            {
+              "name": "dependencyObject",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "propertyToSet",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyProperty",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DataTemplateComponentProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_DataTemplateComponentProperty"
+        }
+      ]
+    },
+    "IXamlMarkupHelper": {
+      "guid": "d0e6673c-5342-44ef-85a7-ed327a739d9a",
+      "exclusive_to": "Windows.UI.Xaml.Markup.XamlMarkupHelper"
+    },
+    "IXamlMarkupHelperStatics": {
+      "guid": "c9bc3725-f34f-445c-81a2-6b72a5e8f072",
+      "exclusive_to": "Windows.UI.Xaml.Markup.XamlMarkupHelper",
+      "methods": [
+        {
+          "name": "UnloadObject",
+          "params": [
+            {
+              "name": "element",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DependencyObject",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IXamlMember": {
+      "guid": "c541f58c-43a9-4216-b718-e0b11b14e93e",
+      "methods": [
+        {
+          "name": "get_IsAttachable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsDependencyProperty",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsReadOnly",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TargetType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXamlType",
+            "namespace": "Windows.UI.Xaml.Markup",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Type",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXamlType",
+            "namespace": "Windows.UI.Xaml.Markup",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetValue",
+          "params": [
+            {
+              "name": "instance",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "SetValue",
+          "params": [
+            {
+              "name": "instance",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsAttachable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAttachable"
+        },
+        {
+          "name": "IsDependencyProperty",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsDependencyProperty"
+        },
+        {
+          "name": "IsReadOnly",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsReadOnly"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        },
+        {
+          "name": "TargetType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IXamlType",
+            "namespace": "Windows.UI.Xaml.Markup",
+            "target_kind": "Interface"
+          },
+          "getter": "get_TargetType"
+        },
+        {
+          "name": "Type",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IXamlType",
+            "namespace": "Windows.UI.Xaml.Markup",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Type"
+        }
+      ]
+    },
+    "IXamlMetadataProvider": {
+      "guid": "b3765d69-68a5-4b32-8861-fdb90c1f5836",
+      "methods": [
+        {
+          "name": "GetXamlType",
+          "overload": "GetXamlType",
+          "is_default_overload": true,
+          "params": [
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TypeName",
+                "namespace": "Windows.UI.Xaml.Interop",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXamlType",
+            "namespace": "Windows.UI.Xaml.Markup",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetXamlType",
+          "overload": "GetXamlTypeByFullName",
+          "params": [
+            {
+              "name": "fullName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXamlType",
+            "namespace": "Windows.UI.Xaml.Markup",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetXmlnsDefinitions",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "ApiRef",
+              "name": "XmlnsDefinition",
+              "namespace": "Windows.UI.Xaml.Markup",
+              "target_kind": "Struct"
+            }
+          }
+        }
+      ]
+    },
+    "IXamlReader": {
+      "guid": "24374cf1-cceb-48bf-a514-41b0186f84c2",
+      "exclusive_to": "Windows.UI.Xaml.Markup.XamlReader"
+    },
+    "IXamlReaderStatics": {
+      "guid": "9891c6bd-534f-4955-b85a-8a8dc0dca602",
+      "exclusive_to": "Windows.UI.Xaml.Markup.XamlReader",
+      "methods": [
+        {
+          "name": "Load",
+          "params": [
+            {
+              "name": "xaml",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "LoadWithInitialTemplateValidation",
+          "params": [
+            {
+              "name": "xaml",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        }
+      ]
+    },
+    "IXamlType": {
+      "guid": "7920eab1-a2e5-479a-bd50-6cef3c0b4970",
+      "methods": [
+        {
+          "name": "get_BaseType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXamlType",
+            "namespace": "Windows.UI.Xaml.Markup",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_ContentProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXamlMember",
+            "namespace": "Windows.UI.Xaml.Markup",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_FullName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IsArray",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsCollection",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsConstructible",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsDictionary",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsMarkupExtension",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsBindable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_ItemType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXamlType",
+            "namespace": "Windows.UI.Xaml.Markup",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_KeyType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXamlType",
+            "namespace": "Windows.UI.Xaml.Markup",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_UnderlyingType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TypeName",
+            "namespace": "Windows.UI.Xaml.Interop",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "ActivateInstance",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateFromString",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "GetMember",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXamlMember",
+            "namespace": "Windows.UI.Xaml.Markup",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "AddToVector",
+          "params": [
+            {
+              "name": "instance",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddToMap",
+          "params": [
+            {
+              "name": "instance",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "key",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RunInitializer"
+        }
+      ],
+      "properties": [
+        {
+          "name": "BaseType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IXamlType",
+            "namespace": "Windows.UI.Xaml.Markup",
+            "target_kind": "Interface"
+          },
+          "getter": "get_BaseType"
+        },
+        {
+          "name": "ContentProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IXamlMember",
+            "namespace": "Windows.UI.Xaml.Markup",
+            "target_kind": "Interface"
+          },
+          "getter": "get_ContentProperty"
+        },
+        {
+          "name": "FullName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_FullName"
+        },
+        {
+          "name": "IsArray",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsArray"
+        },
+        {
+          "name": "IsBindable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsBindable"
+        },
+        {
+          "name": "IsCollection",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsCollection"
+        },
+        {
+          "name": "IsConstructible",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsConstructible"
+        },
+        {
+          "name": "IsDictionary",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsDictionary"
+        },
+        {
+          "name": "IsMarkupExtension",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsMarkupExtension"
+        },
+        {
+          "name": "ItemType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IXamlType",
+            "namespace": "Windows.UI.Xaml.Markup",
+            "target_kind": "Interface"
+          },
+          "getter": "get_ItemType"
+        },
+        {
+          "name": "KeyType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IXamlType",
+            "namespace": "Windows.UI.Xaml.Markup",
+            "target_kind": "Interface"
+          },
+          "getter": "get_KeyType"
+        },
+        {
+          "name": "UnderlyingType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TypeName",
+            "namespace": "Windows.UI.Xaml.Interop",
+            "target_kind": "Struct"
+          },
+          "getter": "get_UnderlyingType"
+        }
+      ]
+    },
+    "IXamlType2": {
+      "guid": "9f0c6e3b-433b-56ad-8f69-78a4dd3e64f9",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IXamlType",
+          "namespace": "Windows.UI.Xaml.Markup",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_BoxedType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXamlType",
+            "namespace": "Windows.UI.Xaml.Markup",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BoxedType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IXamlType",
+            "namespace": "Windows.UI.Xaml.Markup",
+            "target_kind": "Interface"
+          },
+          "getter": "get_BoxedType"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "MarkupExtension": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMarkupExtension",
+        "namespace": "Windows.UI.Xaml.Markup",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMarkupExtension",
+          "namespace": "Windows.UI.Xaml.Markup",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMarkupExtensionOverrides",
+          "namespace": "Windows.UI.Xaml.Markup",
+          "target_kind": "Interface"
+        }
+      ],
+      "composable_factories": [
+        "Windows.UI.Xaml.Markup.IMarkupExtensionFactory"
+      ]
+    },
+    "XamlBinaryWriter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IXamlBinaryWriter",
+        "namespace": "Windows.UI.Xaml.Markup",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IXamlBinaryWriter",
+          "namespace": "Windows.UI.Xaml.Markup",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Xaml.Markup.IXamlBinaryWriterStatics"
+      ]
+    },
+    "XamlBindingHelper": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IXamlBindingHelper",
+        "namespace": "Windows.UI.Xaml.Markup",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IXamlBindingHelper",
+          "namespace": "Windows.UI.Xaml.Markup",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Xaml.Markup.IXamlBindingHelperStatics"
+      ]
+    },
+    "XamlMarkupHelper": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IXamlMarkupHelper",
+        "namespace": "Windows.UI.Xaml.Markup",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IXamlMarkupHelper",
+          "namespace": "Windows.UI.Xaml.Markup",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Xaml.Markup.IXamlMarkupHelperStatics"
+      ]
+    },
+    "XamlReader": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IXamlReader",
+        "namespace": "Windows.UI.Xaml.Markup",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IXamlReader",
+          "namespace": "Windows.UI.Xaml.Markup",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Xaml.Markup.IXamlReaderStatics"
+      ]
+    }
+  }
+}

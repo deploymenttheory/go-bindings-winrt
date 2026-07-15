@@ -1,0 +1,800 @@
+{
+  "namespace": "Windows.Media.SpeechSynthesis",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "SpeechAppendedSilence": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "Min",
+          "value": "1"
+        }
+      ]
+    },
+    "SpeechPunctuationSilence": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "Min",
+          "value": "1"
+        }
+      ]
+    },
+    "VoiceGender": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Male",
+          "value": "0"
+        },
+        {
+          "name": "Female",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IInstalledVoicesStatic": {
+      "guid": "7d526ecc-7533-4c3f-85be-888c2baeebdc",
+      "exclusive_to": "Windows.Media.SpeechSynthesis.SpeechSynthesizer",
+      "methods": [
+        {
+          "name": "get_AllVoices",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VoiceInformation",
+                "namespace": "Windows.Media.SpeechSynthesis",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_DefaultVoice",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VoiceInformation",
+            "namespace": "Windows.Media.SpeechSynthesis",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllVoices",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VoiceInformation",
+                "namespace": "Windows.Media.SpeechSynthesis",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_AllVoices"
+        },
+        {
+          "name": "DefaultVoice",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VoiceInformation",
+            "namespace": "Windows.Media.SpeechSynthesis",
+            "target_kind": "Class"
+          },
+          "getter": "get_DefaultVoice"
+        }
+      ]
+    },
+    "IInstalledVoicesStatic2": {
+      "guid": "64255f2e-358d-4058-be9a-fd3fcb423530",
+      "exclusive_to": "Windows.Media.SpeechSynthesis.SpeechSynthesizer",
+      "methods": [
+        {
+          "name": "TrySetDefaultVoiceAsync",
+          "params": [
+            {
+              "name": "voice",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VoiceInformation",
+                "namespace": "Windows.Media.SpeechSynthesis",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ISpeechSynthesisStream": {
+      "guid": "83e46e93-244c-4622-ba0b-6229c4d0d65d",
+      "exclusive_to": "Windows.Media.SpeechSynthesis.SpeechSynthesisStream",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IRandomAccessStreamWithContentType",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRandomAccessStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IOutputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IContentTypeProvider",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Markers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IMediaMarker",
+                "namespace": "Windows.Media",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Markers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IMediaMarker",
+                "namespace": "Windows.Media",
+                "target_kind": "Interface"
+              }
+            ]
+          },
+          "getter": "get_Markers"
+        }
+      ]
+    },
+    "ISpeechSynthesizer": {
+      "guid": "ce9f7c76-97f4-4ced-ad68-d51c458e45c6",
+      "exclusive_to": "Windows.Media.SpeechSynthesis.SpeechSynthesizer",
+      "methods": [
+        {
+          "name": "SynthesizeTextToStreamAsync",
+          "params": [
+            {
+              "name": "text",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpeechSynthesisStream",
+                "namespace": "Windows.Media.SpeechSynthesis",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SynthesizeSsmlToStreamAsync",
+          "params": [
+            {
+              "name": "Ssml",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpeechSynthesisStream",
+                "namespace": "Windows.Media.SpeechSynthesis",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Voice",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VoiceInformation",
+                "namespace": "Windows.Media.SpeechSynthesis",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Voice",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VoiceInformation",
+            "namespace": "Windows.Media.SpeechSynthesis",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Voice",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VoiceInformation",
+            "namespace": "Windows.Media.SpeechSynthesis",
+            "target_kind": "Class"
+          },
+          "getter": "get_Voice",
+          "setter": "put_Voice"
+        }
+      ]
+    },
+    "ISpeechSynthesizer2": {
+      "guid": "a7c5ecb2-4339-4d6a-bbf8-c7a4f1544c2e",
+      "exclusive_to": "Windows.Media.SpeechSynthesis.SpeechSynthesizer",
+      "methods": [
+        {
+          "name": "get_Options",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechSynthesizerOptions",
+            "namespace": "Windows.Media.SpeechSynthesis",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Options",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpeechSynthesizerOptions",
+            "namespace": "Windows.Media.SpeechSynthesis",
+            "target_kind": "Class"
+          },
+          "getter": "get_Options"
+        }
+      ]
+    },
+    "ISpeechSynthesizerOptions": {
+      "guid": "a0e23871-cc3d-43c9-91b1-ee185324d83d",
+      "exclusive_to": "Windows.Media.SpeechSynthesis.SpeechSynthesizerOptions",
+      "methods": [
+        {
+          "name": "get_IncludeWordBoundaryMetadata",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IncludeWordBoundaryMetadata",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IncludeSentenceBoundaryMetadata",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IncludeSentenceBoundaryMetadata",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IncludeSentenceBoundaryMetadata",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IncludeSentenceBoundaryMetadata",
+          "setter": "put_IncludeSentenceBoundaryMetadata"
+        },
+        {
+          "name": "IncludeWordBoundaryMetadata",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IncludeWordBoundaryMetadata",
+          "setter": "put_IncludeWordBoundaryMetadata"
+        }
+      ]
+    },
+    "ISpeechSynthesizerOptions2": {
+      "guid": "1cbef60e-119c-4bed-b118-d250c3a25793",
+      "exclusive_to": "Windows.Media.SpeechSynthesis.SpeechSynthesizerOptions",
+      "methods": [
+        {
+          "name": "get_AudioVolume",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_AudioVolume",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SpeakingRate",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_SpeakingRate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AudioPitch",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_AudioPitch",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AudioPitch",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_AudioPitch",
+          "setter": "put_AudioPitch"
+        },
+        {
+          "name": "AudioVolume",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_AudioVolume",
+          "setter": "put_AudioVolume"
+        },
+        {
+          "name": "SpeakingRate",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_SpeakingRate",
+          "setter": "put_SpeakingRate"
+        }
+      ]
+    },
+    "ISpeechSynthesizerOptions3": {
+      "guid": "401ed877-902c-4814-a582-a5d0c0769fa8",
+      "exclusive_to": "Windows.Media.SpeechSynthesis.SpeechSynthesizerOptions",
+      "methods": [
+        {
+          "name": "get_AppendedSilence",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechAppendedSilence",
+            "namespace": "Windows.Media.SpeechSynthesis",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_AppendedSilence",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpeechAppendedSilence",
+                "namespace": "Windows.Media.SpeechSynthesis",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PunctuationSilence",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechPunctuationSilence",
+            "namespace": "Windows.Media.SpeechSynthesis",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_PunctuationSilence",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpeechPunctuationSilence",
+                "namespace": "Windows.Media.SpeechSynthesis",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppendedSilence",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpeechAppendedSilence",
+            "namespace": "Windows.Media.SpeechSynthesis",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AppendedSilence",
+          "setter": "put_AppendedSilence"
+        },
+        {
+          "name": "PunctuationSilence",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpeechPunctuationSilence",
+            "namespace": "Windows.Media.SpeechSynthesis",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PunctuationSilence",
+          "setter": "put_PunctuationSilence"
+        }
+      ]
+    },
+    "IVoiceInformation": {
+      "guid": "b127d6a4-1291-4604-aa9c-83134083352c",
+      "exclusive_to": "Windows.Media.SpeechSynthesis.VoiceInformation",
+      "methods": [
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Language",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Description",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Gender",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VoiceGender",
+            "namespace": "Windows.Media.SpeechSynthesis",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Description",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Description"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "Gender",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VoiceGender",
+            "namespace": "Windows.Media.SpeechSynthesis",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Gender"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "Language",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Language"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "SpeechSynthesisStream": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpeechSynthesisStream",
+        "namespace": "Windows.Media.SpeechSynthesis",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechSynthesisStream",
+          "namespace": "Windows.Media.SpeechSynthesis",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRandomAccessStreamWithContentType",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IContentTypeProvider",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRandomAccessStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IOutputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ITimedMetadataTrackProvider",
+          "namespace": "Windows.Media.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpeechSynthesizer": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpeechSynthesizer",
+        "namespace": "Windows.Media.SpeechSynthesis",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechSynthesizer",
+          "namespace": "Windows.Media.SpeechSynthesis",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechSynthesizer2",
+          "namespace": "Windows.Media.SpeechSynthesis",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Media.SpeechSynthesis.IInstalledVoicesStatic",
+        "Windows.Media.SpeechSynthesis.IInstalledVoicesStatic2"
+      ]
+    },
+    "SpeechSynthesizerOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpeechSynthesizerOptions",
+        "namespace": "Windows.Media.SpeechSynthesis",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechSynthesizerOptions",
+          "namespace": "Windows.Media.SpeechSynthesis",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechSynthesizerOptions2",
+          "namespace": "Windows.Media.SpeechSynthesis",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechSynthesizerOptions3",
+          "namespace": "Windows.Media.SpeechSynthesis",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VoiceInformation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVoiceInformation",
+        "namespace": "Windows.Media.SpeechSynthesis",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVoiceInformation",
+          "namespace": "Windows.Media.SpeechSynthesis",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

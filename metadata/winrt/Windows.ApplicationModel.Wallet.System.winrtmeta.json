@@ -1,0 +1,280 @@
+{
+  "namespace": "Windows.ApplicationModel.Wallet.System",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "WalletItemAppAssociation": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "AppInstalled",
+          "value": "1"
+        },
+        {
+          "name": "AppNotInstalled",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IWalletItemSystemStore": {
+      "guid": "522e2bff-96a2-4a17-8d19-fe1d9f837561",
+      "exclusive_to": "Windows.ApplicationModel.Wallet.System.WalletItemSystemStore",
+      "methods": [
+        {
+          "name": "GetItemsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "WalletItem",
+                    "namespace": "Windows.ApplicationModel.Wallet",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "DeleteAsync",
+          "params": [
+            {
+              "name": "item",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WalletItem",
+                "namespace": "Windows.ApplicationModel.Wallet",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ImportItemAsync",
+          "params": [
+            {
+              "name": "stream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStreamReference",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WalletItem",
+                "namespace": "Windows.ApplicationModel.Wallet",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetAppStatusForItem",
+          "params": [
+            {
+              "name": "item",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WalletItem",
+                "namespace": "Windows.ApplicationModel.Wallet",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WalletItemAppAssociation",
+            "namespace": "Windows.ApplicationModel.Wallet.System",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "LaunchAppForItemAsync",
+          "params": [
+            {
+              "name": "item",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WalletItem",
+                "namespace": "Windows.ApplicationModel.Wallet",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IWalletItemSystemStore2": {
+      "guid": "f98d3a4e-be00-4fdd-9734-6c113c1ac1cb",
+      "exclusive_to": "Windows.ApplicationModel.Wallet.System.WalletItemSystemStore",
+      "methods": [
+        {
+          "name": "add_ItemsChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "WalletItemSystemStore",
+                    "namespace": "Windows.ApplicationModel.Wallet.System",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ItemsChanged",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "ItemsChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WalletItemSystemStore",
+                "namespace": "Windows.ApplicationModel.Wallet.System",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ItemsChanged",
+          "remove_method": "remove_ItemsChanged"
+        }
+      ]
+    },
+    "IWalletManagerSystemStatics": {
+      "guid": "bee8eb89-2634-4b9a-8b23-ee8903c91fe0",
+      "exclusive_to": "Windows.ApplicationModel.Wallet.System.WalletManagerSystem",
+      "methods": [
+        {
+          "name": "RequestStoreAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WalletItemSystemStore",
+                "namespace": "Windows.ApplicationModel.Wallet.System",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "WalletItemSystemStore": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWalletItemSystemStore",
+        "namespace": "Windows.ApplicationModel.Wallet.System",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWalletItemSystemStore",
+          "namespace": "Windows.ApplicationModel.Wallet.System",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IWalletItemSystemStore2",
+          "namespace": "Windows.ApplicationModel.Wallet.System",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WalletManagerSystem": {
+      "static_interfaces": [
+        "Windows.ApplicationModel.Wallet.System.IWalletManagerSystemStatics"
+      ]
+    }
+  }
+}

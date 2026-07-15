@@ -1,0 +1,3484 @@
+{
+  "namespace": "Windows.ApplicationModel.Activation",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "ActivationKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Launch",
+          "value": "0"
+        },
+        {
+          "name": "Search",
+          "value": "1"
+        },
+        {
+          "name": "ShareTarget",
+          "value": "2"
+        },
+        {
+          "name": "File",
+          "value": "3"
+        },
+        {
+          "name": "Protocol",
+          "value": "4"
+        },
+        {
+          "name": "FileOpenPicker",
+          "value": "5"
+        },
+        {
+          "name": "FileSavePicker",
+          "value": "6"
+        },
+        {
+          "name": "CachedFileUpdater",
+          "value": "7"
+        },
+        {
+          "name": "ContactPicker",
+          "value": "8"
+        },
+        {
+          "name": "Device",
+          "value": "9"
+        },
+        {
+          "name": "PrintTaskSettings",
+          "value": "10"
+        },
+        {
+          "name": "CameraSettings",
+          "value": "11"
+        },
+        {
+          "name": "RestrictedLaunch",
+          "value": "12"
+        },
+        {
+          "name": "AppointmentsProvider",
+          "value": "13"
+        },
+        {
+          "name": "Contact",
+          "value": "14"
+        },
+        {
+          "name": "LockScreenCall",
+          "value": "15"
+        },
+        {
+          "name": "VoiceCommand",
+          "value": "16"
+        },
+        {
+          "name": "LockScreen",
+          "value": "17"
+        },
+        {
+          "name": "PickerReturned",
+          "value": "1000"
+        },
+        {
+          "name": "WalletAction",
+          "value": "1001"
+        },
+        {
+          "name": "PickFileContinuation",
+          "value": "1002"
+        },
+        {
+          "name": "PickSaveFileContinuation",
+          "value": "1003"
+        },
+        {
+          "name": "PickFolderContinuation",
+          "value": "1004"
+        },
+        {
+          "name": "WebAuthenticationBrokerContinuation",
+          "value": "1005"
+        },
+        {
+          "name": "WebAccountProvider",
+          "value": "1006"
+        },
+        {
+          "name": "ComponentUI",
+          "value": "1007"
+        },
+        {
+          "name": "ProtocolForResults",
+          "value": "1009"
+        },
+        {
+          "name": "ToastNotification",
+          "value": "1010"
+        },
+        {
+          "name": "Print3DWorkflow",
+          "value": "1011"
+        },
+        {
+          "name": "DialReceiver",
+          "value": "1012"
+        },
+        {
+          "name": "DevicePairing",
+          "value": "1013"
+        },
+        {
+          "name": "UserDataAccountsProvider",
+          "value": "1014"
+        },
+        {
+          "name": "FilePickerExperience",
+          "value": "1015"
+        },
+        {
+          "name": "LockScreenComponent",
+          "value": "1016"
+        },
+        {
+          "name": "ContactPanel",
+          "value": "1017"
+        },
+        {
+          "name": "PrintWorkflowForegroundTask",
+          "value": "1018"
+        },
+        {
+          "name": "GameUIProvider",
+          "value": "1019"
+        },
+        {
+          "name": "StartupTask",
+          "value": "1020"
+        },
+        {
+          "name": "CommandLineLaunch",
+          "value": "1021"
+        },
+        {
+          "name": "BarcodeScannerProvider",
+          "value": "1022"
+        },
+        {
+          "name": "PrintSupportJobUI",
+          "value": "1023"
+        },
+        {
+          "name": "PrintSupportSettingsUI",
+          "value": "1024"
+        },
+        {
+          "name": "PhoneCallActivation",
+          "value": "1025"
+        },
+        {
+          "name": "VpnForeground",
+          "value": "1026"
+        },
+        {
+          "name": "PrintSupportEnterpriseManagementUI",
+          "value": "1027"
+        }
+      ]
+    },
+    "ApplicationExecutionState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "NotRunning",
+          "value": "0"
+        },
+        {
+          "name": "Running",
+          "value": "1"
+        },
+        {
+          "name": "Suspended",
+          "value": "2"
+        },
+        {
+          "name": "Terminated",
+          "value": "3"
+        },
+        {
+          "name": "ClosedByUser",
+          "value": "4"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IActivatedEventArgs": {
+      "guid": "cf651713-cd08-4fd8-b697-a281b6544e2e",
+      "methods": [
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ActivationKind",
+            "namespace": "Windows.ApplicationModel.Activation",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_PreviousExecutionState",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ApplicationExecutionState",
+            "namespace": "Windows.ApplicationModel.Activation",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_SplashScreen",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SplashScreen",
+            "namespace": "Windows.ApplicationModel.Activation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ActivationKind",
+            "namespace": "Windows.ApplicationModel.Activation",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        },
+        {
+          "name": "PreviousExecutionState",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ApplicationExecutionState",
+            "namespace": "Windows.ApplicationModel.Activation",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PreviousExecutionState"
+        },
+        {
+          "name": "SplashScreen",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SplashScreen",
+            "namespace": "Windows.ApplicationModel.Activation",
+            "target_kind": "Class"
+          },
+          "getter": "get_SplashScreen"
+        }
+      ]
+    },
+    "IActivatedEventArgsWithUser": {
+      "guid": "1cf09b9e-9962-4936-80ff-afc8e8ae5c8c",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ]
+    },
+    "IApplicationViewActivatedEventArgs": {
+      "guid": "930cef4b-b829-40fc-88f4-8513e8a64738",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_CurrentlyShownApplicationViewId",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CurrentlyShownApplicationViewId",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_CurrentlyShownApplicationViewId"
+        }
+      ]
+    },
+    "IAppointmentsProviderActivatedEventArgs": {
+      "guid": "3364c405-933c-4e7d-a034-500fb8dcd9f3",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Verb",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Verb",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Verb"
+        }
+      ]
+    },
+    "IAppointmentsProviderAddAppointmentActivatedEventArgs": {
+      "guid": "a2861367-cee5-4e4d-9ed7-41c34ec18b02",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_AddAppointmentOperation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AddAppointmentOperation",
+            "namespace": "Windows.ApplicationModel.Appointments.AppointmentsProvider",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AddAppointmentOperation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AddAppointmentOperation",
+            "namespace": "Windows.ApplicationModel.Appointments.AppointmentsProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_AddAppointmentOperation"
+        }
+      ]
+    },
+    "IAppointmentsProviderRemoveAppointmentActivatedEventArgs": {
+      "guid": "751f3ab8-0b8e-451c-9f15-966e699bac25",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_RemoveAppointmentOperation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoveAppointmentOperation",
+            "namespace": "Windows.ApplicationModel.Appointments.AppointmentsProvider",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RemoveAppointmentOperation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoveAppointmentOperation",
+            "namespace": "Windows.ApplicationModel.Appointments.AppointmentsProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_RemoveAppointmentOperation"
+        }
+      ]
+    },
+    "IAppointmentsProviderReplaceAppointmentActivatedEventArgs": {
+      "guid": "1551b7d4-a981-4067-8a62-0524e4ade121",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_ReplaceAppointmentOperation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ReplaceAppointmentOperation",
+            "namespace": "Windows.ApplicationModel.Appointments.AppointmentsProvider",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ReplaceAppointmentOperation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ReplaceAppointmentOperation",
+            "namespace": "Windows.ApplicationModel.Appointments.AppointmentsProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_ReplaceAppointmentOperation"
+        }
+      ]
+    },
+    "IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs": {
+      "guid": "3958f065-9841-4ca5-999b-885198b9ef2a",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_InstanceStartDate",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_LocalId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RoamingId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InstanceStartDate",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_InstanceStartDate"
+        },
+        {
+          "name": "LocalId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LocalId"
+        },
+        {
+          "name": "RoamingId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RoamingId"
+        }
+      ]
+    },
+    "IAppointmentsProviderShowTimeFrameActivatedEventArgs": {
+      "guid": "9baeaba6-0e0b-49aa-babc-12b1dc774986",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_TimeToShow",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Duration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Duration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Duration"
+        },
+        {
+          "name": "TimeToShow",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_TimeToShow"
+        }
+      ]
+    },
+    "IBackgroundActivatedEventArgs": {
+      "guid": "ab14bee0-e760-440e-a91c-44796de3a92d",
+      "methods": [
+        {
+          "name": "get_TaskInstance",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBackgroundTaskInstance",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "TaskInstance",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBackgroundTaskInstance",
+            "namespace": "Windows.ApplicationModel.Background",
+            "target_kind": "Interface"
+          },
+          "getter": "get_TaskInstance"
+        }
+      ]
+    },
+    "IBarcodeScannerPreviewActivatedEventArgs": {
+      "guid": "6772797c-99bf-4349-af22-e4123560371c",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_ConnectionId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ConnectionId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ConnectionId"
+        }
+      ]
+    },
+    "ICachedFileUpdaterActivatedEventArgs": {
+      "guid": "d06eb1c7-3805-4ecb-b757-6cf15e26fef3",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_CachedFileUpdaterUI",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CachedFileUpdaterUI",
+            "namespace": "Windows.Storage.Provider",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CachedFileUpdaterUI",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CachedFileUpdaterUI",
+            "namespace": "Windows.Storage.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_CachedFileUpdaterUI"
+        }
+      ]
+    },
+    "ICommandLineActivatedEventArgs": {
+      "guid": "4506472c-006a-48eb-8afb-d07ab25e3366",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Operation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CommandLineActivationOperation",
+            "namespace": "Windows.ApplicationModel.Activation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Operation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CommandLineActivationOperation",
+            "namespace": "Windows.ApplicationModel.Activation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Operation"
+        }
+      ]
+    },
+    "ICommandLineActivationOperation": {
+      "guid": "994b2841-c59e-4f69-bcfd-b61ed4e622eb",
+      "exclusive_to": "Windows.ApplicationModel.Activation.CommandLineActivationOperation",
+      "methods": [
+        {
+          "name": "get_Arguments",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CurrentDirectoryPath",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_ExitCode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ExitCode",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Arguments",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Arguments"
+        },
+        {
+          "name": "CurrentDirectoryPath",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CurrentDirectoryPath"
+        },
+        {
+          "name": "ExitCode",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_ExitCode",
+          "setter": "put_ExitCode"
+        }
+      ]
+    },
+    "IContactPanelActivatedEventArgs": {
+      "guid": "52bb63e4-d3d4-4b63-8051-4af2082cab80",
+      "methods": [
+        {
+          "name": "get_ContactPanel",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ContactPanel",
+            "namespace": "Windows.ApplicationModel.Contacts",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Contact",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Contact",
+            "namespace": "Windows.ApplicationModel.Contacts",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Contact",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Contact",
+            "namespace": "Windows.ApplicationModel.Contacts",
+            "target_kind": "Class"
+          },
+          "getter": "get_Contact"
+        },
+        {
+          "name": "ContactPanel",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ContactPanel",
+            "namespace": "Windows.ApplicationModel.Contacts",
+            "target_kind": "Class"
+          },
+          "getter": "get_ContactPanel"
+        }
+      ]
+    },
+    "IContinuationActivatedEventArgs": {
+      "guid": "e58106b5-155f-4a94-a742-c7e08f4e188c",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_ContinuationData",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContinuationData",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          },
+          "getter": "get_ContinuationData"
+        }
+      ]
+    },
+    "IDeviceActivatedEventArgs": {
+      "guid": "cd50b9a9-ce10-44d2-8234-c355a073ef33",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_DeviceInformationId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Verb",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceInformationId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceInformationId"
+        },
+        {
+          "name": "Verb",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Verb"
+        }
+      ]
+    },
+    "IDevicePairingActivatedEventArgs": {
+      "guid": "eba0d1e4-ecc6-4148-94ed-f4b37ec05b3e",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_DeviceInformation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceInformation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          },
+          "getter": "get_DeviceInformation"
+        }
+      ]
+    },
+    "IDialReceiverActivatedEventArgs": {
+      "guid": "fb777ed7-85ee-456e-a44d-85d730e70aed",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ILaunchActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_AppName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppName"
+        }
+      ]
+    },
+    "IFileActivatedEventArgs": {
+      "guid": "bb2afc33-93b1-42ed-8b26-236dd9c78496",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Files",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IStorageItem",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Verb",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Files",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IStorageItem",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            ]
+          },
+          "getter": "get_Files"
+        },
+        {
+          "name": "Verb",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Verb"
+        }
+      ]
+    },
+    "IFileActivatedEventArgsWithCallerPackageFamilyName": {
+      "guid": "2d60f06b-d25f-4d25-8653-e1c5e1108309",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_CallerPackageFamilyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CallerPackageFamilyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CallerPackageFamilyName"
+        }
+      ]
+    },
+    "IFileActivatedEventArgsWithNeighboringFiles": {
+      "guid": "433ba1a4-e1e2-48fd-b7fc-b5d6eee65033",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IFileActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_NeighboringFilesQuery",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageFileQueryResult",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "NeighboringFilesQuery",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StorageFileQueryResult",
+            "namespace": "Windows.Storage.Search",
+            "target_kind": "Class"
+          },
+          "getter": "get_NeighboringFilesQuery"
+        }
+      ]
+    },
+    "IFileOpenPickerActivatedEventArgs": {
+      "guid": "72827082-5525-4bf2-bc09-1f5095d4964d",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_FileOpenPickerUI",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FileOpenPickerUI",
+            "namespace": "Windows.Storage.Pickers.Provider",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FileOpenPickerUI",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FileOpenPickerUI",
+            "namespace": "Windows.Storage.Pickers.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_FileOpenPickerUI"
+        }
+      ]
+    },
+    "IFileOpenPickerActivatedEventArgs2": {
+      "guid": "5e731f66-8d1f-45fb-af1d-73205c8fc7a1",
+      "methods": [
+        {
+          "name": "get_CallerPackageFamilyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CallerPackageFamilyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CallerPackageFamilyName"
+        }
+      ]
+    },
+    "IFileOpenPickerContinuationEventArgs": {
+      "guid": "f0fa3f3a-d4e8-4ad3-9c34-2308f32fcec9",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IContinuationActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Files",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Files",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Files"
+        }
+      ]
+    },
+    "IFileSavePickerActivatedEventArgs": {
+      "guid": "81c19cf1-74e6-4387-82eb-bb8fd64b4346",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_FileSavePickerUI",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FileSavePickerUI",
+            "namespace": "Windows.Storage.Pickers.Provider",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FileSavePickerUI",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FileSavePickerUI",
+            "namespace": "Windows.Storage.Pickers.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_FileSavePickerUI"
+        }
+      ]
+    },
+    "IFileSavePickerActivatedEventArgs2": {
+      "guid": "6b73fe13-2cf2-4d48-8cbc-af67d23f1ce7",
+      "methods": [
+        {
+          "name": "get_CallerPackageFamilyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_EnterpriseId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CallerPackageFamilyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CallerPackageFamilyName"
+        },
+        {
+          "name": "EnterpriseId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EnterpriseId"
+        }
+      ]
+    },
+    "IFileSavePickerContinuationEventArgs": {
+      "guid": "2c846fe1-3bad-4f33-8c8b-e46fae824b4b",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IContinuationActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_File",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageFile",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "File",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StorageFile",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          },
+          "getter": "get_File"
+        }
+      ]
+    },
+    "IFolderPickerContinuationEventArgs": {
+      "guid": "51882366-9f4b-498f-beb0-42684f6e1c29",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IContinuationActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Folder",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageFolder",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Folder",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StorageFolder",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          },
+          "getter": "get_Folder"
+        }
+      ]
+    },
+    "ILaunchActivatedEventArgs": {
+      "guid": "fbc93e26-a14a-4b4f-82b0-33bed920af52",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Arguments",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TileId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Arguments",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Arguments"
+        },
+        {
+          "name": "TileId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TileId"
+        }
+      ]
+    },
+    "ILaunchActivatedEventArgs2": {
+      "guid": "0fd37ebc-9dc9-46b5-9ace-bd95d4565345",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ILaunchActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_TileActivatedInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TileActivatedInfo",
+            "namespace": "Windows.ApplicationModel.Activation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "TileActivatedInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TileActivatedInfo",
+            "namespace": "Windows.ApplicationModel.Activation",
+            "target_kind": "Class"
+          },
+          "getter": "get_TileActivatedInfo"
+        }
+      ]
+    },
+    "ILockScreenActivatedEventArgs": {
+      "guid": "3ca77966-6108-4a41-8220-ee7d133c8532",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Info",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Info",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_Info"
+        }
+      ]
+    },
+    "IPhoneCallActivatedEventArgs": {
+      "guid": "54615221-a3c1-4ced-b62f-8c60523619ad",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_LineId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "LineId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_LineId"
+        }
+      ]
+    },
+    "IPickerReturnedActivatedEventArgs": {
+      "guid": "360defb9-a9d3-4984-a4ed-9ec734604921",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_PickerOperationId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PickerOperationId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PickerOperationId"
+        }
+      ]
+    },
+    "IPrelaunchActivatedEventArgs": {
+      "guid": "0c44717b-19f7-48d6-b046-cf22826eaa74",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_PrelaunchActivated",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PrelaunchActivated",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_PrelaunchActivated"
+        }
+      ]
+    },
+    "IProtocolActivatedEventArgs": {
+      "guid": "6095f4dd-b7c0-46ab-81fe-d90f36d00d24",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Uri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Uri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Uri"
+        }
+      ]
+    },
+    "IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData": {
+      "guid": "d84a0c12-5c8f-438c-83cb-c28fcc0b2fdb",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_CallerPackageFamilyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Data",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CallerPackageFamilyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CallerPackageFamilyName"
+        },
+        {
+          "name": "Data",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          },
+          "getter": "get_Data"
+        }
+      ]
+    },
+    "IProtocolForResultsActivatedEventArgs": {
+      "guid": "e75132c2-7ae7-4517-80ac-dbe8d7cc5b9c",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_ProtocolForResultsOperation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ProtocolForResultsOperation",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ProtocolForResultsOperation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ProtocolForResultsOperation",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_ProtocolForResultsOperation"
+        }
+      ]
+    },
+    "IRestrictedLaunchActivatedEventArgs": {
+      "guid": "e0b7ac81-bfc3-4344-a5da-19fd5a27baae",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_SharedContext",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SharedContext",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_SharedContext"
+        }
+      ]
+    },
+    "ISearchActivatedEventArgs": {
+      "guid": "8cb36951-58c8-43e3-94bc-41d33f8b630e",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_QueryText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Language",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Language",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Language"
+        },
+        {
+          "name": "QueryText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_QueryText"
+        }
+      ]
+    },
+    "ISearchActivatedEventArgsWithLinguisticDetails": {
+      "guid": "c09f33da-08ab-4931-9b7c-451025f21f81",
+      "methods": [
+        {
+          "name": "get_LinguisticDetails",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SearchPaneQueryLinguisticDetails",
+            "namespace": "Windows.ApplicationModel.Search",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "LinguisticDetails",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SearchPaneQueryLinguisticDetails",
+            "namespace": "Windows.ApplicationModel.Search",
+            "target_kind": "Class"
+          },
+          "getter": "get_LinguisticDetails"
+        }
+      ]
+    },
+    "IShareTargetActivatedEventArgs": {
+      "guid": "4bdaf9c8-cdb2-4acb-bfc3-6648563378ec",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_ShareOperation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ShareOperation",
+            "namespace": "Windows.ApplicationModel.DataTransfer.ShareTarget",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ShareOperation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ShareOperation",
+            "namespace": "Windows.ApplicationModel.DataTransfer.ShareTarget",
+            "target_kind": "Class"
+          },
+          "getter": "get_ShareOperation"
+        }
+      ]
+    },
+    "ISplashScreen": {
+      "guid": "ca4d975c-d4d6-43f0-97c0-0833c6391c24",
+      "exclusive_to": "Windows.ApplicationModel.Activation.SplashScreen",
+      "methods": [
+        {
+          "name": "get_ImageLocation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "add_Dismissed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SplashScreen",
+                    "namespace": "Windows.ApplicationModel.Activation",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Dismissed",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ImageLocation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ImageLocation"
+        }
+      ],
+      "events": [
+        {
+          "name": "Dismissed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SplashScreen",
+                "namespace": "Windows.ApplicationModel.Activation",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_Dismissed",
+          "remove_method": "remove_Dismissed"
+        }
+      ]
+    },
+    "IStartupTaskActivatedEventArgs": {
+      "guid": "03b11a58-5276-4d91-8621-54611864d5fa",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_TaskId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "TaskId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TaskId"
+        }
+      ]
+    },
+    "ITileActivatedInfo": {
+      "guid": "80e4a3b1-3980-4f17-b738-89194e0b8f65",
+      "exclusive_to": "Windows.ApplicationModel.Activation.TileActivatedInfo",
+      "methods": [
+        {
+          "name": "get_RecentlyShownNotifications",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ShownTileNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RecentlyShownNotifications",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ShownTileNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_RecentlyShownNotifications"
+        }
+      ]
+    },
+    "IToastNotificationActivatedEventArgs": {
+      "guid": "92a86f82-5290-431d-be85-c4aaeeb8685f",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Argument",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_UserInput",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Argument",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Argument"
+        },
+        {
+          "name": "UserInput",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          },
+          "getter": "get_UserInput"
+        }
+      ]
+    },
+    "IUserDataAccountProviderActivatedEventArgs": {
+      "guid": "1bc9f723-8ef1-4a51-a63a-fe711eeab607",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Operation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IUserDataAccountProviderOperation",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts.Provider",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Operation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IUserDataAccountProviderOperation",
+            "namespace": "Windows.ApplicationModel.UserDataAccounts.Provider",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Operation"
+        }
+      ]
+    },
+    "IViewSwitcherProvider": {
+      "guid": "33f288a6-5c2c-4d27-bac7-7536088f1219",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_ViewSwitcher",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ActivationViewSwitcher",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ViewSwitcher",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ActivationViewSwitcher",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Class"
+          },
+          "getter": "get_ViewSwitcher"
+        }
+      ]
+    },
+    "IVoiceCommandActivatedEventArgs": {
+      "guid": "ab92dcfd-8d43-4de6-9775-20704b581b00",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Result",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionResult",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Result",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionResult",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Class"
+          },
+          "getter": "get_Result"
+        }
+      ]
+    },
+    "IWebAccountProviderActivatedEventArgs": {
+      "guid": "72b71774-98ea-4ccf-9752-46d9051004f1",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Operation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IWebAccountProviderOperation",
+            "namespace": "Windows.Security.Authentication.Web.Provider",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Operation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IWebAccountProviderOperation",
+            "namespace": "Windows.Security.Authentication.Web.Provider",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Operation"
+        }
+      ]
+    },
+    "IWebAuthenticationBrokerContinuationEventArgs": {
+      "guid": "75dda3d4-7714-453d-b7ff-b95e3a1709da",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IContinuationActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_WebAuthenticationResult",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebAuthenticationResult",
+            "namespace": "Windows.Security.Authentication.Web",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "WebAuthenticationResult",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebAuthenticationResult",
+            "namespace": "Windows.Security.Authentication.Web",
+            "target_kind": "Class"
+          },
+          "getter": "get_WebAuthenticationResult"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AppointmentsProviderAddAppointmentActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentsProviderAddAppointmentActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderAddAppointmentActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentsProviderRemoveAppointmentActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentsProviderRemoveAppointmentActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderRemoveAppointmentActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentsProviderReplaceAppointmentActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentsProviderReplaceAppointmentActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderReplaceAppointmentActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentsProviderShowAppointmentDetailsActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentsProviderShowTimeFrameActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentsProviderShowTimeFrameActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderShowTimeFrameActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentsProviderActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BackgroundActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BarcodeScannerPreviewActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBarcodeScannerPreviewActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBarcodeScannerPreviewActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CachedFileUpdaterActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICachedFileUpdaterActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICachedFileUpdaterActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CommandLineActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICommandLineActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICommandLineActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CommandLineActivationOperation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICommandLineActivationOperation",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICommandLineActivationOperation",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ContactPanelActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IContactPanelActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IContactPanelActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DeviceActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeviceActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeviceActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationViewActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IViewSwitcherProvider",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DevicePairingActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDevicePairingActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDevicePairingActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DialReceiverActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDialReceiverActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDialReceiverActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ILaunchActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationViewActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IViewSwitcherProvider",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FileActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFileActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFileActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IFileActivatedEventArgsWithNeighboringFiles",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IFileActivatedEventArgsWithCallerPackageFamilyName",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationViewActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IViewSwitcherProvider",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FileOpenPickerActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFileOpenPickerActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFileOpenPickerActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IFileOpenPickerActivatedEventArgs2",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FileOpenPickerContinuationEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFileOpenPickerContinuationEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFileOpenPickerContinuationEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IContinuationActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FileSavePickerActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFileSavePickerActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFileSavePickerActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IFileSavePickerActivatedEventArgs2",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FileSavePickerContinuationEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFileSavePickerContinuationEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFileSavePickerContinuationEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IContinuationActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FolderPickerContinuationEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFolderPickerContinuationEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFolderPickerContinuationEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IContinuationActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "LaunchActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILaunchActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILaunchActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationViewActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrelaunchActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IViewSwitcherProvider",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ILaunchActivatedEventArgs2",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "LockScreenActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILockScreenActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILockScreenActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "LockScreenComponentActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PhoneCallActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhoneCallActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhoneCallActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PickerReturnedActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPickerReturnedActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPickerReturnedActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ProtocolActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IProtocolActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IProtocolActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationViewActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IViewSwitcherProvider",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ProtocolForResultsActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IProtocolForResultsActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IProtocolForResultsActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IProtocolActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationViewActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IViewSwitcherProvider",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RestrictedLaunchActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRestrictedLaunchActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRestrictedLaunchActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SearchActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISearchActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISearchActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationViewActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISearchActivatedEventArgsWithLinguisticDetails",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IViewSwitcherProvider",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ShareTargetActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IShareTargetActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IShareTargetActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SplashScreen": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISplashScreen",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISplashScreen",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "StartupTaskActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStartupTaskActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStartupTaskActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "TileActivatedInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITileActivatedInfo",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITileActivatedInfo",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ToastNotificationActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IToastNotificationActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IToastNotificationActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationViewActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataAccountProviderActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataAccountProviderActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataAccountProviderActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VoiceCommandActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVoiceCommandActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVoiceCommandActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebAccountProviderActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebAccountProviderActivatedEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebAccountProviderActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgsWithUser",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebAuthenticationBrokerContinuationEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebAuthenticationBrokerContinuationEventArgs",
+        "namespace": "Windows.ApplicationModel.Activation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebAuthenticationBrokerContinuationEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IContinuationActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivatedEventArgs",
+          "namespace": "Windows.ApplicationModel.Activation",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,1715 @@
+{
+  "namespace": "Windows.Media.Control",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "GlobalSystemMediaTransportControlsSessionPlaybackStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Closed",
+          "value": "0"
+        },
+        {
+          "name": "Opened",
+          "value": "1"
+        },
+        {
+          "name": "Changing",
+          "value": "2"
+        },
+        {
+          "name": "Stopped",
+          "value": "3"
+        },
+        {
+          "name": "Playing",
+          "value": "4"
+        },
+        {
+          "name": "Paused",
+          "value": "5"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ICurrentSessionChangedEventArgs": {
+      "guid": "6969cb39-0bfa-5fe0-8d73-09cc5e5408e1",
+      "exclusive_to": "Windows.Media.Control.CurrentSessionChangedEventArgs"
+    },
+    "IGlobalSystemMediaTransportControlsSession": {
+      "guid": "7148c835-9b14-5ae2-ab85-dc9b1c14e1a8",
+      "exclusive_to": "Windows.Media.Control.GlobalSystemMediaTransportControlsSession",
+      "methods": [
+        {
+          "name": "get_SourceAppUserModelId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "TryGetMediaPropertiesAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "GlobalSystemMediaTransportControlsSessionMediaProperties",
+                "namespace": "Windows.Media.Control",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetTimelineProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GlobalSystemMediaTransportControlsSessionTimelineProperties",
+            "namespace": "Windows.Media.Control",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetPlaybackInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GlobalSystemMediaTransportControlsSessionPlaybackInfo",
+            "namespace": "Windows.Media.Control",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryPlayAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryPauseAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryStopAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryRecordAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryFastForwardAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryRewindAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TrySkipNextAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TrySkipPreviousAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryChangeChannelUpAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryChangeChannelDownAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryTogglePlayPauseAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryChangeAutoRepeatModeAsync",
+          "params": [
+            {
+              "name": "requestedAutoRepeatMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaPlaybackAutoRepeatMode",
+                "namespace": "Windows.Media",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryChangePlaybackRateAsync",
+          "params": [
+            {
+              "name": "requestedPlaybackRate",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryChangeShuffleActiveAsync",
+          "params": [
+            {
+              "name": "requestedShuffleState",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryChangePlaybackPositionAsync",
+          "params": [
+            {
+              "name": "requestedPlaybackPosition",
+              "type": {
+                "kind": "Native",
+                "name": "I8"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_TimelinePropertiesChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "GlobalSystemMediaTransportControlsSession",
+                    "namespace": "Windows.Media.Control",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "TimelinePropertiesChangedEventArgs",
+                    "namespace": "Windows.Media.Control",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_TimelinePropertiesChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PlaybackInfoChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "GlobalSystemMediaTransportControlsSession",
+                    "namespace": "Windows.Media.Control",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PlaybackInfoChangedEventArgs",
+                    "namespace": "Windows.Media.Control",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PlaybackInfoChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_MediaPropertiesChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "GlobalSystemMediaTransportControlsSession",
+                    "namespace": "Windows.Media.Control",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "MediaPropertiesChangedEventArgs",
+                    "namespace": "Windows.Media.Control",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_MediaPropertiesChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "SourceAppUserModelId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SourceAppUserModelId"
+        }
+      ],
+      "events": [
+        {
+          "name": "MediaPropertiesChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "GlobalSystemMediaTransportControlsSession",
+                "namespace": "Windows.Media.Control",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "MediaPropertiesChangedEventArgs",
+                "namespace": "Windows.Media.Control",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_MediaPropertiesChanged",
+          "remove_method": "remove_MediaPropertiesChanged"
+        },
+        {
+          "name": "PlaybackInfoChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "GlobalSystemMediaTransportControlsSession",
+                "namespace": "Windows.Media.Control",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PlaybackInfoChangedEventArgs",
+                "namespace": "Windows.Media.Control",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PlaybackInfoChanged",
+          "remove_method": "remove_PlaybackInfoChanged"
+        },
+        {
+          "name": "TimelinePropertiesChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "GlobalSystemMediaTransportControlsSession",
+                "namespace": "Windows.Media.Control",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "TimelinePropertiesChangedEventArgs",
+                "namespace": "Windows.Media.Control",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_TimelinePropertiesChanged",
+          "remove_method": "remove_TimelinePropertiesChanged"
+        }
+      ]
+    },
+    "IGlobalSystemMediaTransportControlsSessionManager": {
+      "guid": "cace8eac-e86e-504a-ab31-5ff8ff1bce49",
+      "exclusive_to": "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionManager",
+      "methods": [
+        {
+          "name": "GetCurrentSession",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GlobalSystemMediaTransportControlsSession",
+            "namespace": "Windows.Media.Control",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetSessions",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "GlobalSystemMediaTransportControlsSession",
+                "namespace": "Windows.Media.Control",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_CurrentSessionChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "GlobalSystemMediaTransportControlsSessionManager",
+                    "namespace": "Windows.Media.Control",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CurrentSessionChangedEventArgs",
+                    "namespace": "Windows.Media.Control",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CurrentSessionChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_SessionsChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "GlobalSystemMediaTransportControlsSessionManager",
+                    "namespace": "Windows.Media.Control",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SessionsChangedEventArgs",
+                    "namespace": "Windows.Media.Control",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SessionsChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "CurrentSessionChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "GlobalSystemMediaTransportControlsSessionManager",
+                "namespace": "Windows.Media.Control",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CurrentSessionChangedEventArgs",
+                "namespace": "Windows.Media.Control",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_CurrentSessionChanged",
+          "remove_method": "remove_CurrentSessionChanged"
+        },
+        {
+          "name": "SessionsChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "GlobalSystemMediaTransportControlsSessionManager",
+                "namespace": "Windows.Media.Control",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SessionsChangedEventArgs",
+                "namespace": "Windows.Media.Control",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SessionsChanged",
+          "remove_method": "remove_SessionsChanged"
+        }
+      ]
+    },
+    "IGlobalSystemMediaTransportControlsSessionManagerStatics": {
+      "guid": "2050c4ee-11a0-57de-aed7-c97c70338245",
+      "exclusive_to": "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionManager",
+      "methods": [
+        {
+          "name": "RequestAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "GlobalSystemMediaTransportControlsSessionManager",
+                "namespace": "Windows.Media.Control",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IGlobalSystemMediaTransportControlsSessionMediaProperties": {
+      "guid": "68856cf6-adb4-54b2-ac16-05837907acb6",
+      "exclusive_to": "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionMediaProperties",
+      "methods": [
+        {
+          "name": "get_Title",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Subtitle",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AlbumArtist",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Artist",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AlbumTitle",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TrackNumber",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Genres",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_AlbumTrackCount",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_PlaybackType",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaPlaybackType",
+                "namespace": "Windows.Media",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Thumbnail",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AlbumArtist",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AlbumArtist"
+        },
+        {
+          "name": "AlbumTitle",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AlbumTitle"
+        },
+        {
+          "name": "AlbumTrackCount",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_AlbumTrackCount"
+        },
+        {
+          "name": "Artist",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Artist"
+        },
+        {
+          "name": "Genres",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Genres"
+        },
+        {
+          "name": "PlaybackType",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaPlaybackType",
+                "namespace": "Windows.Media",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_PlaybackType"
+        },
+        {
+          "name": "Subtitle",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Subtitle"
+        },
+        {
+          "name": "Thumbnail",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Thumbnail"
+        },
+        {
+          "name": "Title",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Title"
+        },
+        {
+          "name": "TrackNumber",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_TrackNumber"
+        }
+      ]
+    },
+    "IGlobalSystemMediaTransportControlsSessionPlaybackControls": {
+      "guid": "6501a3e6-bc7a-503a-bb1b-68f158f3fb03",
+      "exclusive_to": "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackControls",
+      "methods": [
+        {
+          "name": "get_IsPlayEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsPauseEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsStopEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsRecordEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsFastForwardEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsRewindEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsNextEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsPreviousEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsChannelUpEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsChannelDownEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsPlayPauseToggleEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsShuffleEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsRepeatEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsPlaybackRateEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsPlaybackPositionEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsChannelDownEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsChannelDownEnabled"
+        },
+        {
+          "name": "IsChannelUpEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsChannelUpEnabled"
+        },
+        {
+          "name": "IsFastForwardEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsFastForwardEnabled"
+        },
+        {
+          "name": "IsNextEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsNextEnabled"
+        },
+        {
+          "name": "IsPauseEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPauseEnabled"
+        },
+        {
+          "name": "IsPlayEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPlayEnabled"
+        },
+        {
+          "name": "IsPlayPauseToggleEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPlayPauseToggleEnabled"
+        },
+        {
+          "name": "IsPlaybackPositionEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPlaybackPositionEnabled"
+        },
+        {
+          "name": "IsPlaybackRateEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPlaybackRateEnabled"
+        },
+        {
+          "name": "IsPreviousEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPreviousEnabled"
+        },
+        {
+          "name": "IsRecordEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsRecordEnabled"
+        },
+        {
+          "name": "IsRepeatEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsRepeatEnabled"
+        },
+        {
+          "name": "IsRewindEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsRewindEnabled"
+        },
+        {
+          "name": "IsShuffleEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsShuffleEnabled"
+        },
+        {
+          "name": "IsStopEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsStopEnabled"
+        }
+      ]
+    },
+    "IGlobalSystemMediaTransportControlsSessionPlaybackInfo": {
+      "guid": "94b4b6cf-e8ba-51ad-87a7-c10ade106127",
+      "exclusive_to": "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionPlaybackInfo",
+      "methods": [
+        {
+          "name": "get_Controls",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GlobalSystemMediaTransportControlsSessionPlaybackControls",
+            "namespace": "Windows.Media.Control",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PlaybackStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GlobalSystemMediaTransportControlsSessionPlaybackStatus",
+            "namespace": "Windows.Media.Control",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_PlaybackType",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaPlaybackType",
+                "namespace": "Windows.Media",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_AutoRepeatMode",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaPlaybackAutoRepeatMode",
+                "namespace": "Windows.Media",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_PlaybackRate",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_IsShuffleActive",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AutoRepeatMode",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaPlaybackAutoRepeatMode",
+                "namespace": "Windows.Media",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_AutoRepeatMode"
+        },
+        {
+          "name": "Controls",
+          "type": {
+            "kind": "ApiRef",
+            "name": "GlobalSystemMediaTransportControlsSessionPlaybackControls",
+            "namespace": "Windows.Media.Control",
+            "target_kind": "Class"
+          },
+          "getter": "get_Controls"
+        },
+        {
+          "name": "IsShuffleActive",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          },
+          "getter": "get_IsShuffleActive"
+        },
+        {
+          "name": "PlaybackRate",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          },
+          "getter": "get_PlaybackRate"
+        },
+        {
+          "name": "PlaybackStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "GlobalSystemMediaTransportControlsSessionPlaybackStatus",
+            "namespace": "Windows.Media.Control",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PlaybackStatus"
+        },
+        {
+          "name": "PlaybackType",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaPlaybackType",
+                "namespace": "Windows.Media",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_PlaybackType"
+        }
+      ]
+    },
+    "IGlobalSystemMediaTransportControlsSessionTimelineProperties": {
+      "guid": "ede34136-6f25-588d-8ecf-ea5b6735aaa5",
+      "exclusive_to": "Windows.Media.Control.GlobalSystemMediaTransportControlsSessionTimelineProperties",
+      "methods": [
+        {
+          "name": "get_StartTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_EndTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_MinSeekTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_MaxSeekTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_LastUpdatedTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EndTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_EndTime"
+        },
+        {
+          "name": "LastUpdatedTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_LastUpdatedTime"
+        },
+        {
+          "name": "MaxSeekTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_MaxSeekTime"
+        },
+        {
+          "name": "MinSeekTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_MinSeekTime"
+        },
+        {
+          "name": "Position",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Position"
+        },
+        {
+          "name": "StartTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_StartTime"
+        }
+      ]
+    },
+    "IMediaPropertiesChangedEventArgs": {
+      "guid": "7d3741cb-adf0-5cef-91ba-cfabcdd77678",
+      "exclusive_to": "Windows.Media.Control.MediaPropertiesChangedEventArgs"
+    },
+    "IPlaybackInfoChangedEventArgs": {
+      "guid": "786756c2-bc0d-50a5-8807-054291fef139",
+      "exclusive_to": "Windows.Media.Control.PlaybackInfoChangedEventArgs"
+    },
+    "ISessionsChangedEventArgs": {
+      "guid": "bbf0cd32-42c4-5a58-b317-f34bbfbd26e0",
+      "exclusive_to": "Windows.Media.Control.SessionsChangedEventArgs"
+    },
+    "ITimelinePropertiesChangedEventArgs": {
+      "guid": "29033a2f-c923-5a77-bcaf-055ff415ad32",
+      "exclusive_to": "Windows.Media.Control.TimelinePropertiesChangedEventArgs"
+    }
+  },
+  "classes": {
+    "CurrentSessionChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICurrentSessionChangedEventArgs",
+        "namespace": "Windows.Media.Control",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICurrentSessionChangedEventArgs",
+          "namespace": "Windows.Media.Control",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "GlobalSystemMediaTransportControlsSession": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGlobalSystemMediaTransportControlsSession",
+        "namespace": "Windows.Media.Control",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGlobalSystemMediaTransportControlsSession",
+          "namespace": "Windows.Media.Control",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "GlobalSystemMediaTransportControlsSessionManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGlobalSystemMediaTransportControlsSessionManager",
+        "namespace": "Windows.Media.Control",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGlobalSystemMediaTransportControlsSessionManager",
+          "namespace": "Windows.Media.Control",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Media.Control.IGlobalSystemMediaTransportControlsSessionManagerStatics"
+      ]
+    },
+    "GlobalSystemMediaTransportControlsSessionMediaProperties": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGlobalSystemMediaTransportControlsSessionMediaProperties",
+        "namespace": "Windows.Media.Control",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGlobalSystemMediaTransportControlsSessionMediaProperties",
+          "namespace": "Windows.Media.Control",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "GlobalSystemMediaTransportControlsSessionPlaybackControls": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGlobalSystemMediaTransportControlsSessionPlaybackControls",
+        "namespace": "Windows.Media.Control",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGlobalSystemMediaTransportControlsSessionPlaybackControls",
+          "namespace": "Windows.Media.Control",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "GlobalSystemMediaTransportControlsSessionPlaybackInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGlobalSystemMediaTransportControlsSessionPlaybackInfo",
+        "namespace": "Windows.Media.Control",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGlobalSystemMediaTransportControlsSessionPlaybackInfo",
+          "namespace": "Windows.Media.Control",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "GlobalSystemMediaTransportControlsSessionTimelineProperties": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGlobalSystemMediaTransportControlsSessionTimelineProperties",
+        "namespace": "Windows.Media.Control",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGlobalSystemMediaTransportControlsSessionTimelineProperties",
+          "namespace": "Windows.Media.Control",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MediaPropertiesChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaPropertiesChangedEventArgs",
+        "namespace": "Windows.Media.Control",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaPropertiesChangedEventArgs",
+          "namespace": "Windows.Media.Control",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PlaybackInfoChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlaybackInfoChangedEventArgs",
+        "namespace": "Windows.Media.Control",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlaybackInfoChangedEventArgs",
+          "namespace": "Windows.Media.Control",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SessionsChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISessionsChangedEventArgs",
+        "namespace": "Windows.Media.Control",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISessionsChangedEventArgs",
+          "namespace": "Windows.Media.Control",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "TimelinePropertiesChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITimelinePropertiesChangedEventArgs",
+        "namespace": "Windows.Media.Control",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITimelinePropertiesChangedEventArgs",
+          "namespace": "Windows.Media.Control",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

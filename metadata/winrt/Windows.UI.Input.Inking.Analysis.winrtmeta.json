@@ -1,0 +1,1122 @@
+{
+  "namespace": "Windows.UI.Input.Inking.Analysis",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "InkAnalysisDrawingKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Drawing",
+          "value": "0"
+        },
+        {
+          "name": "Circle",
+          "value": "1"
+        },
+        {
+          "name": "Ellipse",
+          "value": "2"
+        },
+        {
+          "name": "Triangle",
+          "value": "3"
+        },
+        {
+          "name": "IsoscelesTriangle",
+          "value": "4"
+        },
+        {
+          "name": "EquilateralTriangle",
+          "value": "5"
+        },
+        {
+          "name": "RightTriangle",
+          "value": "6"
+        },
+        {
+          "name": "Quadrilateral",
+          "value": "7"
+        },
+        {
+          "name": "Rectangle",
+          "value": "8"
+        },
+        {
+          "name": "Square",
+          "value": "9"
+        },
+        {
+          "name": "Diamond",
+          "value": "10"
+        },
+        {
+          "name": "Trapezoid",
+          "value": "11"
+        },
+        {
+          "name": "Parallelogram",
+          "value": "12"
+        },
+        {
+          "name": "Pentagon",
+          "value": "13"
+        },
+        {
+          "name": "Hexagon",
+          "value": "14"
+        }
+      ]
+    },
+    "InkAnalysisNodeKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "UnclassifiedInk",
+          "value": "0"
+        },
+        {
+          "name": "Root",
+          "value": "1"
+        },
+        {
+          "name": "WritingRegion",
+          "value": "2"
+        },
+        {
+          "name": "Paragraph",
+          "value": "3"
+        },
+        {
+          "name": "Line",
+          "value": "4"
+        },
+        {
+          "name": "InkWord",
+          "value": "5"
+        },
+        {
+          "name": "InkBullet",
+          "value": "6"
+        },
+        {
+          "name": "InkDrawing",
+          "value": "7"
+        },
+        {
+          "name": "ListItem",
+          "value": "8"
+        }
+      ]
+    },
+    "InkAnalysisStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Updated",
+          "value": "0"
+        },
+        {
+          "name": "Unchanged",
+          "value": "1"
+        }
+      ]
+    },
+    "InkAnalysisStrokeKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Auto",
+          "value": "0"
+        },
+        {
+          "name": "Writing",
+          "value": "1"
+        },
+        {
+          "name": "Drawing",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IInkAnalysisInkBullet": {
+      "guid": "ee049368-6110-4136-95f9-ee809fc20030",
+      "exclusive_to": "Windows.UI.Input.Inking.Analysis.InkAnalysisInkBullet",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisNode",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_RecognizedText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RecognizedText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RecognizedText"
+        }
+      ]
+    },
+    "IInkAnalysisInkDrawing": {
+      "guid": "6a85ed1f-1fe4-4e15-898c-8e112377e021",
+      "exclusive_to": "Windows.UI.Input.Inking.Analysis.InkAnalysisInkDrawing",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisNode",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_DrawingKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkAnalysisDrawingKind",
+            "namespace": "Windows.UI.Input.Inking.Analysis",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Center",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Points",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Center",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Center"
+        },
+        {
+          "name": "DrawingKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InkAnalysisDrawingKind",
+            "namespace": "Windows.UI.Input.Inking.Analysis",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DrawingKind"
+        },
+        {
+          "name": "Points",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_Points"
+        }
+      ]
+    },
+    "IInkAnalysisInkWord": {
+      "guid": "4bd228ad-83af-4034-8f3b-f8687dfff436",
+      "exclusive_to": "Windows.UI.Input.Inking.Analysis.InkAnalysisInkWord",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisNode",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_RecognizedText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TextAlternates",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RecognizedText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RecognizedText"
+        },
+        {
+          "name": "TextAlternates",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_TextAlternates"
+        }
+      ]
+    },
+    "IInkAnalysisLine": {
+      "guid": "a06d048d-2b8d-4754-ad5a-d0871193a956",
+      "exclusive_to": "Windows.UI.Input.Inking.Analysis.InkAnalysisLine",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisNode",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_RecognizedText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IndentLevel",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IndentLevel",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_IndentLevel"
+        },
+        {
+          "name": "RecognizedText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RecognizedText"
+        }
+      ]
+    },
+    "IInkAnalysisListItem": {
+      "guid": "b4e3c23f-c4c3-4c3a-a1a6-9d85547ee586",
+      "exclusive_to": "Windows.UI.Input.Inking.Analysis.InkAnalysisListItem",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisNode",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_RecognizedText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RecognizedText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RecognizedText"
+        }
+      ]
+    },
+    "IInkAnalysisNode": {
+      "guid": "30831f05-5f64-4a2c-ba37-4f4887879574",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkAnalysisNodeKind",
+            "namespace": "Windows.UI.Input.Inking.Analysis",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_BoundingRect",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_RotatedBoundingRect",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Children",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IInkAnalysisNode",
+                "namespace": "Windows.UI.Input.Inking.Analysis",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Parent",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IInkAnalysisNode",
+            "namespace": "Windows.UI.Input.Inking.Analysis",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetStrokeIds",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BoundingRect",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BoundingRect"
+        },
+        {
+          "name": "Children",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IInkAnalysisNode",
+                "namespace": "Windows.UI.Input.Inking.Analysis",
+                "target_kind": "Interface"
+              }
+            ]
+          },
+          "getter": "get_Children"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InkAnalysisNodeKind",
+            "namespace": "Windows.UI.Input.Inking.Analysis",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        },
+        {
+          "name": "Parent",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IInkAnalysisNode",
+            "namespace": "Windows.UI.Input.Inking.Analysis",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Parent"
+        },
+        {
+          "name": "RotatedBoundingRect",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_RotatedBoundingRect"
+        }
+      ]
+    },
+    "IInkAnalysisParagraph": {
+      "guid": "d9ad045c-0cd1-4dd4-a68b-eb1f12b3d727",
+      "exclusive_to": "Windows.UI.Input.Inking.Analysis.InkAnalysisParagraph",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisNode",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_RecognizedText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RecognizedText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RecognizedText"
+        }
+      ]
+    },
+    "IInkAnalysisResult": {
+      "guid": "8948ba79-a243-4aa3-a294-1f98bd0ff580",
+      "exclusive_to": "Windows.UI.Input.Inking.Analysis.InkAnalysisResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkAnalysisStatus",
+            "namespace": "Windows.UI.Input.Inking.Analysis",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InkAnalysisStatus",
+            "namespace": "Windows.UI.Input.Inking.Analysis",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IInkAnalysisRoot": {
+      "guid": "3fb6a3c4-2fde-4061-8502-a90f32545b84",
+      "exclusive_to": "Windows.UI.Input.Inking.Analysis.InkAnalysisRoot",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisNode",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_RecognizedText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FindNodes",
+          "params": [
+            {
+              "name": "nodeKind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkAnalysisNodeKind",
+                "namespace": "Windows.UI.Input.Inking.Analysis",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IInkAnalysisNode",
+                "namespace": "Windows.UI.Input.Inking.Analysis",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RecognizedText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RecognizedText"
+        }
+      ]
+    },
+    "IInkAnalysisWritingRegion": {
+      "guid": "dd6d6231-bd16-4663-b5ae-941d3043ef5b",
+      "exclusive_to": "Windows.UI.Input.Inking.Analysis.InkAnalysisWritingRegion",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisNode",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_RecognizedText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RecognizedText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RecognizedText"
+        }
+      ]
+    },
+    "IInkAnalyzer": {
+      "guid": "f12b8f95-0866-4dc5-8c77-f88614dfe38c",
+      "exclusive_to": "Windows.UI.Input.Inking.Analysis.InkAnalyzer",
+      "methods": [
+        {
+          "name": "get_AnalysisRoot",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkAnalysisRoot",
+            "namespace": "Windows.UI.Input.Inking.Analysis",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IsAnalyzing",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "AddDataForStroke",
+          "params": [
+            {
+              "name": "stroke",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkStroke",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddDataForStrokes",
+          "params": [
+            {
+              "name": "strokes",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InkStroke",
+                    "namespace": "Windows.UI.Input.Inking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "ClearDataForAllStrokes"
+        },
+        {
+          "name": "RemoveDataForStroke",
+          "params": [
+            {
+              "name": "strokeId",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RemoveDataForStrokes",
+          "params": [
+            {
+              "name": "strokeIds",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "U4"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "ReplaceDataForStroke",
+          "params": [
+            {
+              "name": "stroke",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkStroke",
+                "namespace": "Windows.UI.Input.Inking",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetStrokeDataKind",
+          "params": [
+            {
+              "name": "strokeId",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "strokeKind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InkAnalysisStrokeKind",
+                "namespace": "Windows.UI.Input.Inking.Analysis",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AnalyzeAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InkAnalysisResult",
+                "namespace": "Windows.UI.Input.Inking.Analysis",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AnalysisRoot",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InkAnalysisRoot",
+            "namespace": "Windows.UI.Input.Inking.Analysis",
+            "target_kind": "Class"
+          },
+          "getter": "get_AnalysisRoot"
+        },
+        {
+          "name": "IsAnalyzing",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAnalyzing"
+        }
+      ]
+    },
+    "IInkAnalyzerFactory": {
+      "guid": "29138686-1963-49d8-9589-e14384c769e3",
+      "methods": [
+        {
+          "name": "CreateAnalyzer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InkAnalyzer",
+            "namespace": "Windows.UI.Input.Inking.Analysis",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "InkAnalysisInkBullet": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkAnalysisInkBullet",
+        "namespace": "Windows.UI.Input.Inking.Analysis",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisInkBullet",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisNode",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InkAnalysisInkDrawing": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkAnalysisInkDrawing",
+        "namespace": "Windows.UI.Input.Inking.Analysis",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisInkDrawing",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisNode",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InkAnalysisInkWord": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkAnalysisInkWord",
+        "namespace": "Windows.UI.Input.Inking.Analysis",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisInkWord",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisNode",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InkAnalysisLine": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkAnalysisLine",
+        "namespace": "Windows.UI.Input.Inking.Analysis",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisLine",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisNode",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InkAnalysisListItem": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkAnalysisListItem",
+        "namespace": "Windows.UI.Input.Inking.Analysis",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisListItem",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisNode",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InkAnalysisNode": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkAnalysisNode",
+        "namespace": "Windows.UI.Input.Inking.Analysis",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisNode",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InkAnalysisParagraph": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkAnalysisParagraph",
+        "namespace": "Windows.UI.Input.Inking.Analysis",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisParagraph",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisNode",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InkAnalysisResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkAnalysisResult",
+        "namespace": "Windows.UI.Input.Inking.Analysis",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisResult",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InkAnalysisRoot": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkAnalysisRoot",
+        "namespace": "Windows.UI.Input.Inking.Analysis",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisRoot",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisNode",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InkAnalysisWritingRegion": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkAnalysisWritingRegion",
+        "namespace": "Windows.UI.Input.Inking.Analysis",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisWritingRegion",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalysisNode",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InkAnalyzer": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInkAnalyzer",
+        "namespace": "Windows.UI.Input.Inking.Analysis",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInkAnalyzer",
+          "namespace": "Windows.UI.Input.Inking.Analysis",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  }
+}

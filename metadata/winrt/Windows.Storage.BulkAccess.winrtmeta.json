@@ -1,0 +1,816 @@
+{
+  "namespace": "Windows.Storage.BulkAccess",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IFileInformationFactory": {
+      "guid": "401d88be-960f-4d6d-a7d0-1a3861e76c83",
+      "exclusive_to": "Windows.Storage.BulkAccess.FileInformationFactory",
+      "methods": [
+        {
+          "name": "GetItemsAsync",
+          "overload": "GetItemsAsync",
+          "params": [
+            {
+              "name": "startIndex",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "maxItemsToRetrieve",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IStorageItemInformation",
+                    "namespace": "Windows.Storage.BulkAccess",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetItemsAsync",
+          "overload": "GetItemsAsyncDefaultStartAndCount",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IStorageItemInformation",
+                    "namespace": "Windows.Storage.BulkAccess",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetFilesAsync",
+          "overload": "GetFilesAsync",
+          "params": [
+            {
+              "name": "startIndex",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "maxItemsToRetrieve",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "FileInformation",
+                    "namespace": "Windows.Storage.BulkAccess",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetFilesAsync",
+          "overload": "GetFilesAsyncDefaultStartAndCount",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "FileInformation",
+                    "namespace": "Windows.Storage.BulkAccess",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetFoldersAsync",
+          "overload": "GetFoldersAsync",
+          "params": [
+            {
+              "name": "startIndex",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "maxItemsToRetrieve",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "FolderInformation",
+                    "namespace": "Windows.Storage.BulkAccess",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetFoldersAsync",
+          "overload": "GetFoldersAsyncDefaultStartAndCount",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "FolderInformation",
+                    "namespace": "Windows.Storage.BulkAccess",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetVirtualizedItemsVector",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "GetVirtualizedFilesVector",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "GetVirtualizedFoldersVector",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        }
+      ]
+    },
+    "IFileInformationFactoryFactory": {
+      "guid": "84ea0e7d-e4a2-4f00-8afa-af5e0f826bd5",
+      "exclusive_to": "Windows.Storage.BulkAccess.FileInformationFactory",
+      "methods": [
+        {
+          "name": "CreateWithMode",
+          "params": [
+            {
+              "name": "queryResult",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageQueryResultBase",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "mode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ThumbnailMode",
+                "namespace": "Windows.Storage.FileProperties",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "FileInformationFactory",
+            "namespace": "Windows.Storage.BulkAccess",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithModeAndSize",
+          "params": [
+            {
+              "name": "queryResult",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageQueryResultBase",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "mode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ThumbnailMode",
+                "namespace": "Windows.Storage.FileProperties",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "requestedThumbnailSize",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "FileInformationFactory",
+            "namespace": "Windows.Storage.BulkAccess",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithModeAndSizeAndOptions",
+          "params": [
+            {
+              "name": "queryResult",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageQueryResultBase",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "mode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ThumbnailMode",
+                "namespace": "Windows.Storage.FileProperties",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "requestedThumbnailSize",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "thumbnailOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ThumbnailOptions",
+                "namespace": "Windows.Storage.FileProperties",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "FileInformationFactory",
+            "namespace": "Windows.Storage.BulkAccess",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithModeAndSizeAndOptionsAndFlags",
+          "params": [
+            {
+              "name": "queryResult",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageQueryResultBase",
+                "namespace": "Windows.Storage.Search",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "mode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ThumbnailMode",
+                "namespace": "Windows.Storage.FileProperties",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "requestedThumbnailSize",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "thumbnailOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ThumbnailOptions",
+                "namespace": "Windows.Storage.FileProperties",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "delayLoad",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "FileInformationFactory",
+            "namespace": "Windows.Storage.BulkAccess",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IStorageItemInformation": {
+      "guid": "87a5cb8b-8972-4f40-8de0-d86fb179d8fa",
+      "methods": [
+        {
+          "name": "get_MusicProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MusicProperties",
+            "namespace": "Windows.Storage.FileProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_VideoProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoProperties",
+            "namespace": "Windows.Storage.FileProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ImageProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ImageProperties",
+            "namespace": "Windows.Storage.FileProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DocumentProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DocumentProperties",
+            "namespace": "Windows.Storage.FileProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_BasicProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BasicProperties",
+            "namespace": "Windows.Storage.FileProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Thumbnail",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageItemThumbnail",
+            "namespace": "Windows.Storage.FileProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_ThumbnailUpdated",
+          "params": [
+            {
+              "name": "changedHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IStorageItemInformation",
+                    "namespace": "Windows.Storage.BulkAccess",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ThumbnailUpdated",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PropertiesUpdated",
+          "params": [
+            {
+              "name": "changedHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IStorageItemInformation",
+                    "namespace": "Windows.Storage.BulkAccess",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PropertiesUpdated",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "BasicProperties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BasicProperties",
+            "namespace": "Windows.Storage.FileProperties",
+            "target_kind": "Class"
+          },
+          "getter": "get_BasicProperties"
+        },
+        {
+          "name": "DocumentProperties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DocumentProperties",
+            "namespace": "Windows.Storage.FileProperties",
+            "target_kind": "Class"
+          },
+          "getter": "get_DocumentProperties"
+        },
+        {
+          "name": "ImageProperties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ImageProperties",
+            "namespace": "Windows.Storage.FileProperties",
+            "target_kind": "Class"
+          },
+          "getter": "get_ImageProperties"
+        },
+        {
+          "name": "MusicProperties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MusicProperties",
+            "namespace": "Windows.Storage.FileProperties",
+            "target_kind": "Class"
+          },
+          "getter": "get_MusicProperties"
+        },
+        {
+          "name": "Thumbnail",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StorageItemThumbnail",
+            "namespace": "Windows.Storage.FileProperties",
+            "target_kind": "Class"
+          },
+          "getter": "get_Thumbnail"
+        },
+        {
+          "name": "VideoProperties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoProperties",
+            "namespace": "Windows.Storage.FileProperties",
+            "target_kind": "Class"
+          },
+          "getter": "get_VideoProperties"
+        }
+      ],
+      "events": [
+        {
+          "name": "PropertiesUpdated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IStorageItemInformation",
+                "namespace": "Windows.Storage.BulkAccess",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_PropertiesUpdated",
+          "remove_method": "remove_PropertiesUpdated"
+        },
+        {
+          "name": "ThumbnailUpdated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IStorageItemInformation",
+                "namespace": "Windows.Storage.BulkAccess",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ThumbnailUpdated",
+          "remove_method": "remove_ThumbnailUpdated"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "FileInformation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStorageItemInformation",
+        "namespace": "Windows.Storage.BulkAccess",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStorageItemInformation",
+          "namespace": "Windows.Storage.BulkAccess",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStorageFile",
+          "namespace": "Windows.Storage",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInputStreamReference",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRandomAccessStreamReference",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStorageItem",
+          "namespace": "Windows.Storage",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStorageItemProperties",
+          "namespace": "Windows.Storage",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStorageItem2",
+          "namespace": "Windows.Storage",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStorageItemPropertiesWithProvider",
+          "namespace": "Windows.Storage",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStorageFilePropertiesWithAvailability",
+          "namespace": "Windows.Storage",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStorageFile2",
+          "namespace": "Windows.Storage",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FileInformationFactory": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFileInformationFactory",
+        "namespace": "Windows.Storage.BulkAccess",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFileInformationFactory",
+          "namespace": "Windows.Storage.BulkAccess",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Storage.BulkAccess.IFileInformationFactoryFactory"
+      ]
+    },
+    "FolderInformation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStorageItemInformation",
+        "namespace": "Windows.Storage.BulkAccess",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStorageItemInformation",
+          "namespace": "Windows.Storage.BulkAccess",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStorageFolder",
+          "namespace": "Windows.Storage",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStorageItem",
+          "namespace": "Windows.Storage",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStorageItemProperties",
+          "namespace": "Windows.Storage",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStorageFolderQueryOperations",
+          "namespace": "Windows.Storage.Search",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStorageItem2",
+          "namespace": "Windows.Storage",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStorageFolder2",
+          "namespace": "Windows.Storage",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStorageItemPropertiesWithProvider",
+          "namespace": "Windows.Storage",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

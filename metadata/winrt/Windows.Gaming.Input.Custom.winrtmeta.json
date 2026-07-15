@@ -1,0 +1,1039 @@
+{
+  "namespace": "Windows.Gaming.Input.Custom",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "GipFirmwareUpdateStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Completed",
+          "value": "0"
+        },
+        {
+          "name": "UpToDate",
+          "value": "1"
+        },
+        {
+          "name": "Failed",
+          "value": "2"
+        }
+      ]
+    },
+    "GipMessageClass": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Command",
+          "value": "0"
+        },
+        {
+          "name": "LowLatency",
+          "value": "1"
+        },
+        {
+          "name": "StandardLatency",
+          "value": "2"
+        }
+      ]
+    },
+    "XusbDeviceSubtype": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "Gamepad",
+          "value": "1"
+        },
+        {
+          "name": "ArcadePad",
+          "value": "2"
+        },
+        {
+          "name": "ArcadeStick",
+          "value": "3"
+        },
+        {
+          "name": "FlightStick",
+          "value": "4"
+        },
+        {
+          "name": "Wheel",
+          "value": "5"
+        },
+        {
+          "name": "Guitar",
+          "value": "6"
+        },
+        {
+          "name": "GuitarAlternate",
+          "value": "7"
+        },
+        {
+          "name": "GuitarBass",
+          "value": "8"
+        },
+        {
+          "name": "DrumKit",
+          "value": "9"
+        },
+        {
+          "name": "DancePad",
+          "value": "10"
+        }
+      ]
+    },
+    "XusbDeviceType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "Gamepad",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "GameControllerVersionInfo": {
+      "fields": [
+        {
+          "name": "Major",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "Minor",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "Build",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "Revision",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        }
+      ]
+    },
+    "GipFirmwareUpdateProgress": {
+      "fields": [
+        {
+          "name": "PercentCompleted",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "CurrentComponentId",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ICustomGameControllerFactory": {
+      "guid": "69a0ae5e-758e-4cbe-ace6-62155fe9126f",
+      "methods": [
+        {
+          "name": "CreateGameController",
+          "params": [
+            {
+              "name": "provider",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IGameControllerProvider",
+                "namespace": "Windows.Gaming.Input.Custom",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "OnGameControllerAdded",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IGameController",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "OnGameControllerRemoved",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IGameController",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IGameControllerFactoryManagerStatics": {
+      "guid": "36cb66e3-d0a1-4986-a24c-40b137deba9e",
+      "exclusive_to": "Windows.Gaming.Input.Custom.GameControllerFactoryManager",
+      "methods": [
+        {
+          "name": "RegisterCustomFactoryForGipInterface",
+          "params": [
+            {
+              "name": "factory",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ICustomGameControllerFactory",
+                "namespace": "Windows.Gaming.Input.Custom",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "interfaceId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RegisterCustomFactoryForHardwareId",
+          "params": [
+            {
+              "name": "factory",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ICustomGameControllerFactory",
+                "namespace": "Windows.Gaming.Input.Custom",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "hardwareVendorId",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "hardwareProductId",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RegisterCustomFactoryForXusbType",
+          "params": [
+            {
+              "name": "factory",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ICustomGameControllerFactory",
+                "namespace": "Windows.Gaming.Input.Custom",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "xusbType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XusbDeviceType",
+                "namespace": "Windows.Gaming.Input.Custom",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "xusbSubtype",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XusbDeviceSubtype",
+                "namespace": "Windows.Gaming.Input.Custom",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IGameControllerFactoryManagerStatics2": {
+      "guid": "eace5644-19df-4115-b32a-2793e2aea3bb",
+      "exclusive_to": "Windows.Gaming.Input.Custom.GameControllerFactoryManager",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IGameControllerFactoryManagerStatics",
+          "namespace": "Windows.Gaming.Input.Custom",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "TryGetFactoryControllerFromGameController",
+          "params": [
+            {
+              "name": "factory",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ICustomGameControllerFactory",
+                "namespace": "Windows.Gaming.Input.Custom",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "gameController",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IGameController",
+                "namespace": "Windows.Gaming.Input",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IGameController",
+            "namespace": "Windows.Gaming.Input",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IGameControllerInputSink": {
+      "guid": "1ff6f922-c640-4c78-a820-9a715c558bcb",
+      "methods": [
+        {
+          "name": "OnInputResumed",
+          "params": [
+            {
+              "name": "timestamp",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ]
+        },
+        {
+          "name": "OnInputSuspended",
+          "params": [
+            {
+              "name": "timestamp",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IGameControllerProvider": {
+      "guid": "e6d73982-2996-4559-b16c-3e57d46e58d6",
+      "methods": [
+        {
+          "name": "get_FirmwareVersionInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GameControllerVersionInfo",
+            "namespace": "Windows.Gaming.Input.Custom",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_HardwareProductId",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_HardwareVendorId",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_HardwareVersionInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GameControllerVersionInfo",
+            "namespace": "Windows.Gaming.Input.Custom",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_IsConnected",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FirmwareVersionInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "GameControllerVersionInfo",
+            "namespace": "Windows.Gaming.Input.Custom",
+            "target_kind": "Struct"
+          },
+          "getter": "get_FirmwareVersionInfo"
+        },
+        {
+          "name": "HardwareProductId",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_HardwareProductId"
+        },
+        {
+          "name": "HardwareVendorId",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_HardwareVendorId"
+        },
+        {
+          "name": "HardwareVersionInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "GameControllerVersionInfo",
+            "namespace": "Windows.Gaming.Input.Custom",
+            "target_kind": "Struct"
+          },
+          "getter": "get_HardwareVersionInfo"
+        },
+        {
+          "name": "IsConnected",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsConnected"
+        }
+      ]
+    },
+    "IGipFirmwareUpdateResult": {
+      "guid": "6b794d32-8553-4292-8e03-e16651a2f8bc",
+      "exclusive_to": "Windows.Gaming.Input.Custom.GipFirmwareUpdateResult",
+      "methods": [
+        {
+          "name": "get_ExtendedErrorCode",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_FinalComponentId",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GipFirmwareUpdateStatus",
+            "namespace": "Windows.Gaming.Input.Custom",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExtendedErrorCode",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ExtendedErrorCode"
+        },
+        {
+          "name": "FinalComponentId",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_FinalComponentId"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "GipFirmwareUpdateStatus",
+            "namespace": "Windows.Gaming.Input.Custom",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IGipGameControllerInputSink": {
+      "guid": "a2108abf-09f1-43bc-a140-80f899ec36fb",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IGameControllerInputSink",
+          "namespace": "Windows.Gaming.Input.Custom",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "OnKeyReceived",
+          "params": [
+            {
+              "name": "timestamp",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            },
+            {
+              "name": "keyCode",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            },
+            {
+              "name": "isPressed",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "OnMessageReceived",
+          "params": [
+            {
+              "name": "timestamp",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            },
+            {
+              "name": "messageClass",
+              "type": {
+                "kind": "ApiRef",
+                "name": "GipMessageClass",
+                "namespace": "Windows.Gaming.Input.Custom",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "messageId",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            },
+            {
+              "name": "sequenceId",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            },
+            {
+              "name": "messageBuffer",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IGipGameControllerProvider": {
+      "guid": "dbcf1e19-1af5-45a8-bf02-a0ee50c823fc",
+      "exclusive_to": "Windows.Gaming.Input.Custom.GipGameControllerProvider",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IGameControllerProvider",
+          "namespace": "Windows.Gaming.Input.Custom",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "SendMessage",
+          "params": [
+            {
+              "name": "messageClass",
+              "type": {
+                "kind": "ApiRef",
+                "name": "GipMessageClass",
+                "namespace": "Windows.Gaming.Input.Custom",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "messageId",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            },
+            {
+              "name": "messageBuffer",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "SendReceiveMessage",
+          "params": [
+            {
+              "name": "messageClass",
+              "type": {
+                "kind": "ApiRef",
+                "name": "GipMessageClass",
+                "namespace": "Windows.Gaming.Input.Custom",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "messageId",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            },
+            {
+              "name": "requestMessageBuffer",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            },
+            {
+              "name": "responseMessageBuffer",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "UpdateFirmwareAsync",
+          "params": [
+            {
+              "name": "firmwareImage",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "GipFirmwareUpdateResult",
+                "namespace": "Windows.Gaming.Input.Custom",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "GipFirmwareUpdateProgress",
+                "namespace": "Windows.Gaming.Input.Custom",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IHidGameControllerInputSink": {
+      "guid": "f754c322-182d-40e4-a126-fcee4ffa1e31",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IGameControllerInputSink",
+          "namespace": "Windows.Gaming.Input.Custom",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "OnInputReportReceived",
+          "params": [
+            {
+              "name": "timestamp",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            },
+            {
+              "name": "reportId",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            },
+            {
+              "name": "reportBuffer",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IHidGameControllerProvider": {
+      "guid": "95ce3af4-abf0-4b68-a081-3b7de73ff0e7",
+      "exclusive_to": "Windows.Gaming.Input.Custom.HidGameControllerProvider",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IGameControllerProvider",
+          "namespace": "Windows.Gaming.Input.Custom",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_UsageId",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_UsagePage",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "GetFeatureReport",
+          "params": [
+            {
+              "name": "reportId",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            },
+            {
+              "name": "reportBuffer",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "SendFeatureReport",
+          "params": [
+            {
+              "name": "reportId",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            },
+            {
+              "name": "reportBuffer",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "SendOutputReport",
+          "params": [
+            {
+              "name": "reportId",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            },
+            {
+              "name": "reportBuffer",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "UsageId",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_UsageId"
+        },
+        {
+          "name": "UsagePage",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_UsagePage"
+        }
+      ]
+    },
+    "IXusbGameControllerInputSink": {
+      "guid": "b2ac1d95-6ecb-42b3-8aab-025401ca4712",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IGameControllerInputSink",
+          "namespace": "Windows.Gaming.Input.Custom",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "OnInputReceived",
+          "params": [
+            {
+              "name": "timestamp",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            },
+            {
+              "name": "reportId",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            },
+            {
+              "name": "inputBuffer",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IXusbGameControllerProvider": {
+      "guid": "6e2971eb-0efb-48b4-808b-837643b2f216",
+      "exclusive_to": "Windows.Gaming.Input.Custom.XusbGameControllerProvider",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IGameControllerProvider",
+          "namespace": "Windows.Gaming.Input.Custom",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "SetVibration",
+          "params": [
+            {
+              "name": "lowFrequencyMotorSpeed",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "highFrequencyMotorSpeed",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "classes": {
+    "GameControllerFactoryManager": {
+      "static_interfaces": [
+        "Windows.Gaming.Input.Custom.IGameControllerFactoryManagerStatics",
+        "Windows.Gaming.Input.Custom.IGameControllerFactoryManagerStatics2"
+      ]
+    },
+    "GipFirmwareUpdateResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGipFirmwareUpdateResult",
+        "namespace": "Windows.Gaming.Input.Custom",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGipFirmwareUpdateResult",
+          "namespace": "Windows.Gaming.Input.Custom",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "GipGameControllerProvider": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGipGameControllerProvider",
+        "namespace": "Windows.Gaming.Input.Custom",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGipGameControllerProvider",
+          "namespace": "Windows.Gaming.Input.Custom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGameControllerProvider",
+          "namespace": "Windows.Gaming.Input.Custom",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HidGameControllerProvider": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHidGameControllerProvider",
+        "namespace": "Windows.Gaming.Input.Custom",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHidGameControllerProvider",
+          "namespace": "Windows.Gaming.Input.Custom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGameControllerProvider",
+          "namespace": "Windows.Gaming.Input.Custom",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "XusbGameControllerProvider": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IXusbGameControllerProvider",
+        "namespace": "Windows.Gaming.Input.Custom",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IXusbGameControllerProvider",
+          "namespace": "Windows.Gaming.Input.Custom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IGameControllerProvider",
+          "namespace": "Windows.Gaming.Input.Custom",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

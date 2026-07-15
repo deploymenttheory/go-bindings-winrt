@@ -1,0 +1,1220 @@
+{
+  "namespace": "Windows.UI.Xaml.Media.Media3D",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "structs": {
+    "Matrix3D": {
+      "fields": [
+        {
+          "name": "M11",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "M12",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "M13",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "M14",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "M21",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "M22",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "M23",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "M24",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "M31",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "M32",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "M33",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "M34",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "OffsetX",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "OffsetY",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "OffsetZ",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "M44",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ICompositeTransform3D": {
+      "guid": "8977cb01-af8d-4af5-b084-c08eb9704abe",
+      "exclusive_to": "Windows.UI.Xaml.Media.Media3D.CompositeTransform3D",
+      "methods": [
+        {
+          "name": "get_CenterX",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_CenterX",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CenterY",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_CenterY",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CenterZ",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_CenterZ",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RotationX",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_RotationX",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RotationY",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_RotationY",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RotationZ",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_RotationZ",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ScaleX",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_ScaleX",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ScaleY",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_ScaleY",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ScaleZ",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_ScaleZ",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TranslateX",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_TranslateX",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TranslateY",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_TranslateY",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TranslateZ",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_TranslateZ",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CenterX",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_CenterX",
+          "setter": "put_CenterX"
+        },
+        {
+          "name": "CenterY",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_CenterY",
+          "setter": "put_CenterY"
+        },
+        {
+          "name": "CenterZ",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_CenterZ",
+          "setter": "put_CenterZ"
+        },
+        {
+          "name": "RotationX",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_RotationX",
+          "setter": "put_RotationX"
+        },
+        {
+          "name": "RotationY",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_RotationY",
+          "setter": "put_RotationY"
+        },
+        {
+          "name": "RotationZ",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_RotationZ",
+          "setter": "put_RotationZ"
+        },
+        {
+          "name": "ScaleX",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_ScaleX",
+          "setter": "put_ScaleX"
+        },
+        {
+          "name": "ScaleY",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_ScaleY",
+          "setter": "put_ScaleY"
+        },
+        {
+          "name": "ScaleZ",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_ScaleZ",
+          "setter": "put_ScaleZ"
+        },
+        {
+          "name": "TranslateX",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_TranslateX",
+          "setter": "put_TranslateX"
+        },
+        {
+          "name": "TranslateY",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_TranslateY",
+          "setter": "put_TranslateY"
+        },
+        {
+          "name": "TranslateZ",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_TranslateZ",
+          "setter": "put_TranslateZ"
+        }
+      ]
+    },
+    "ICompositeTransform3DStatics": {
+      "guid": "ddbf4d67-2a25-48f3-9808-c51ec3d55bec",
+      "exclusive_to": "Windows.UI.Xaml.Media.Media3D.CompositeTransform3D",
+      "methods": [
+        {
+          "name": "get_CenterXProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CenterYProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CenterZProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_RotationXProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_RotationYProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_RotationZProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ScaleXProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ScaleYProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ScaleZProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_TranslateXProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_TranslateYProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_TranslateZProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CenterXProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_CenterXProperty"
+        },
+        {
+          "name": "CenterYProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_CenterYProperty"
+        },
+        {
+          "name": "CenterZProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_CenterZProperty"
+        },
+        {
+          "name": "RotationXProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_RotationXProperty"
+        },
+        {
+          "name": "RotationYProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_RotationYProperty"
+        },
+        {
+          "name": "RotationZProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_RotationZProperty"
+        },
+        {
+          "name": "ScaleXProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_ScaleXProperty"
+        },
+        {
+          "name": "ScaleYProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_ScaleYProperty"
+        },
+        {
+          "name": "ScaleZProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_ScaleZProperty"
+        },
+        {
+          "name": "TranslateXProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_TranslateXProperty"
+        },
+        {
+          "name": "TranslateYProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_TranslateYProperty"
+        },
+        {
+          "name": "TranslateZProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_TranslateZProperty"
+        }
+      ]
+    },
+    "IMatrix3DHelper": {
+      "guid": "e48c10ef-9927-4c9b-8213-07775512ba04",
+      "exclusive_to": "Windows.UI.Xaml.Media.Media3D.Matrix3DHelper"
+    },
+    "IMatrix3DHelperStatics": {
+      "guid": "9264545e-e158-4e74-8899-689160bd2f8c",
+      "exclusive_to": "Windows.UI.Xaml.Media.Media3D.Matrix3DHelper",
+      "methods": [
+        {
+          "name": "get_Identity",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Matrix3D",
+            "namespace": "Windows.UI.Xaml.Media.Media3D",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "Multiply",
+          "params": [
+            {
+              "name": "matrix1",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Matrix3D",
+                "namespace": "Windows.UI.Xaml.Media.Media3D",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "matrix2",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Matrix3D",
+                "namespace": "Windows.UI.Xaml.Media.Media3D",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Matrix3D",
+            "namespace": "Windows.UI.Xaml.Media.Media3D",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "FromElements",
+          "params": [
+            {
+              "name": "m11",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "m12",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "m13",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "m14",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "m21",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "m22",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "m23",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "m24",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "m31",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "m32",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "m33",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "m34",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "offsetX",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "offsetY",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "offsetZ",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "m44",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Matrix3D",
+            "namespace": "Windows.UI.Xaml.Media.Media3D",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "GetHasInverse",
+          "params": [
+            {
+              "name": "target",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Matrix3D",
+                "namespace": "Windows.UI.Xaml.Media.Media3D",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetIsIdentity",
+          "params": [
+            {
+              "name": "target",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Matrix3D",
+                "namespace": "Windows.UI.Xaml.Media.Media3D",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "Invert",
+          "params": [
+            {
+              "name": "target",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Matrix3D",
+                "namespace": "Windows.UI.Xaml.Media.Media3D",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Matrix3D",
+            "namespace": "Windows.UI.Xaml.Media.Media3D",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Identity",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Matrix3D",
+            "namespace": "Windows.UI.Xaml.Media.Media3D",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Identity"
+        }
+      ]
+    },
+    "IPerspectiveTransform3D": {
+      "guid": "9a7b532a-30f9-40a1-96c9-c59d87f95ac3",
+      "exclusive_to": "Windows.UI.Xaml.Media.Media3D.PerspectiveTransform3D",
+      "methods": [
+        {
+          "name": "get_Depth",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_Depth",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OffsetX",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_OffsetX",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OffsetY",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_OffsetY",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Depth",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Depth",
+          "setter": "put_Depth"
+        },
+        {
+          "name": "OffsetX",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_OffsetX",
+          "setter": "put_OffsetX"
+        },
+        {
+          "name": "OffsetY",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_OffsetY",
+          "setter": "put_OffsetY"
+        }
+      ]
+    },
+    "IPerspectiveTransform3DStatics": {
+      "guid": "8e6f6400-620c-48c7-844d-3f0984da5b17",
+      "exclusive_to": "Windows.UI.Xaml.Media.Media3D.PerspectiveTransform3D",
+      "methods": [
+        {
+          "name": "get_DepthProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_OffsetXProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_OffsetYProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DepthProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_DepthProperty"
+        },
+        {
+          "name": "OffsetXProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_OffsetXProperty"
+        },
+        {
+          "name": "OffsetYProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_OffsetYProperty"
+        }
+      ]
+    },
+    "ITransform3D": {
+      "guid": "ae3ed43a-a9fc-4c31-86cd-56d9ca251a69",
+      "exclusive_to": "Windows.UI.Xaml.Media.Media3D.Transform3D"
+    },
+    "ITransform3DFactory": {
+      "guid": "052c1f7a-8d73-48cd-bbb8-d00434caae5d",
+      "exclusive_to": "Windows.UI.Xaml.Media.Media3D.Transform3D",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "baseInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "innerInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Transform3D",
+            "namespace": "Windows.UI.Xaml.Media.Media3D",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "CompositeTransform3D": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICompositeTransform3D",
+        "namespace": "Windows.UI.Xaml.Media.Media3D",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICompositeTransform3D",
+          "namespace": "Windows.UI.Xaml.Media.Media3D",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.UI.Xaml.Media.Media3D.ICompositeTransform3DStatics"
+      ],
+      "composable": true
+    },
+    "Matrix3DHelper": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMatrix3DHelper",
+        "namespace": "Windows.UI.Xaml.Media.Media3D",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMatrix3DHelper",
+          "namespace": "Windows.UI.Xaml.Media.Media3D",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Xaml.Media.Media3D.IMatrix3DHelperStatics"
+      ]
+    },
+    "PerspectiveTransform3D": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerspectiveTransform3D",
+        "namespace": "Windows.UI.Xaml.Media.Media3D",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerspectiveTransform3D",
+          "namespace": "Windows.UI.Xaml.Media.Media3D",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.UI.Xaml.Media.Media3D.IPerspectiveTransform3DStatics"
+      ],
+      "composable": true
+    },
+    "Transform3D": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITransform3D",
+        "namespace": "Windows.UI.Xaml.Media.Media3D",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITransform3D",
+          "namespace": "Windows.UI.Xaml.Media.Media3D",
+          "target_kind": "Interface"
+        }
+      ],
+      "composable_factories": [
+        "Windows.UI.Xaml.Media.Media3D.ITransform3DFactory"
+      ],
+      "composable": true
+    }
+  }
+}

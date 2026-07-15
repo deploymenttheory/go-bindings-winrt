@@ -1,0 +1,290 @@
+{
+  "namespace": "Windows.ApplicationModel.ExtendedExecution.Foreground",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "ExtendedExecutionForegroundReason": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unspecified",
+          "value": "0"
+        },
+        {
+          "name": "SavingData",
+          "value": "1"
+        },
+        {
+          "name": "BackgroundAudio",
+          "value": "2"
+        },
+        {
+          "name": "Unconstrained",
+          "value": "3"
+        }
+      ]
+    },
+    "ExtendedExecutionForegroundResult": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Allowed",
+          "value": "0"
+        },
+        {
+          "name": "Denied",
+          "value": "1"
+        }
+      ]
+    },
+    "ExtendedExecutionForegroundRevokedReason": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Resumed",
+          "value": "0"
+        },
+        {
+          "name": "SystemPolicy",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IExtendedExecutionForegroundRevokedEventArgs": {
+      "guid": "b07cd940-9557-aea4-2c99-bdd56d9be461",
+      "exclusive_to": "Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedEventArgs",
+      "methods": [
+        {
+          "name": "get_Reason",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ExtendedExecutionForegroundRevokedReason",
+            "namespace": "Windows.ApplicationModel.ExtendedExecution.Foreground",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Reason",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ExtendedExecutionForegroundRevokedReason",
+            "namespace": "Windows.ApplicationModel.ExtendedExecution.Foreground",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Reason"
+        }
+      ]
+    },
+    "IExtendedExecutionForegroundSession": {
+      "guid": "fbf440e1-9d10-4201-b01e-c83275296f2e",
+      "exclusive_to": "Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundSession",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Description",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Description",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Revoked",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "ExtendedExecutionForegroundRevokedEventArgs",
+                    "namespace": "Windows.ApplicationModel.ExtendedExecution.Foreground",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Revoked",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RequestExtensionAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ExtendedExecutionForegroundResult",
+                "namespace": "Windows.ApplicationModel.ExtendedExecution.Foreground",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Reason",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ExtendedExecutionForegroundReason",
+            "namespace": "Windows.ApplicationModel.ExtendedExecution.Foreground",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Reason",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ExtendedExecutionForegroundReason",
+                "namespace": "Windows.ApplicationModel.ExtendedExecution.Foreground",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Description",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Description",
+          "setter": "put_Description"
+        },
+        {
+          "name": "Reason",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ExtendedExecutionForegroundReason",
+            "namespace": "Windows.ApplicationModel.ExtendedExecution.Foreground",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Reason",
+          "setter": "put_Reason"
+        }
+      ],
+      "events": [
+        {
+          "name": "Revoked",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "ExtendedExecutionForegroundRevokedEventArgs",
+                "namespace": "Windows.ApplicationModel.ExtendedExecution.Foreground",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Revoked",
+          "remove_method": "remove_Revoked"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "ExtendedExecutionForegroundRevokedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IExtendedExecutionForegroundRevokedEventArgs",
+        "namespace": "Windows.ApplicationModel.ExtendedExecution.Foreground",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IExtendedExecutionForegroundRevokedEventArgs",
+          "namespace": "Windows.ApplicationModel.ExtendedExecution.Foreground",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ExtendedExecutionForegroundSession": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IExtendedExecutionForegroundSession",
+        "namespace": "Windows.ApplicationModel.ExtendedExecution.Foreground",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IExtendedExecutionForegroundSession",
+          "namespace": "Windows.ApplicationModel.ExtendedExecution.Foreground",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  }
+}

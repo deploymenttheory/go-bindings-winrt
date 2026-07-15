@@ -1,0 +1,858 @@
+{
+  "namespace": "Windows.Perception.Spatial.Surfaces",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "ISpatialSurfaceInfo": {
+      "guid": "f8e9ebe7-39b7-3962-bb03-57f56e1fb0a1",
+      "exclusive_to": "Windows.Perception.Spatial.Surfaces.SpatialSurfaceInfo",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_UpdateTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "TryGetBounds",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialBoundingOrientedBox",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryComputeLatestMeshAsync",
+          "overload": "TryComputeLatestMeshAsync",
+          "params": [
+            {
+              "name": "maxTrianglesPerCubicMeter",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialSurfaceMesh",
+                "namespace": "Windows.Perception.Spatial.Surfaces",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryComputeLatestMeshAsync",
+          "overload": "TryComputeLatestMeshWithOptionsAsync",
+          "params": [
+            {
+              "name": "maxTrianglesPerCubicMeter",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialSurfaceMeshOptions",
+                "namespace": "Windows.Perception.Spatial.Surfaces",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialSurfaceMesh",
+                "namespace": "Windows.Perception.Spatial.Surfaces",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "UpdateTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_UpdateTime"
+        }
+      ]
+    },
+    "ISpatialSurfaceMesh": {
+      "guid": "108f57d9-df0d-3950-a0fd-f972c77c27b4",
+      "exclusive_to": "Windows.Perception.Spatial.Surfaces.SpatialSurfaceMesh",
+      "methods": [
+        {
+          "name": "get_SurfaceInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialSurfaceInfo",
+            "namespace": "Windows.Perception.Spatial.Surfaces",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CoordinateSystem",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialCoordinateSystem",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_TriangleIndices",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialSurfaceMeshBuffer",
+            "namespace": "Windows.Perception.Spatial.Surfaces",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_VertexPositions",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialSurfaceMeshBuffer",
+            "namespace": "Windows.Perception.Spatial.Surfaces",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_VertexPositionScale",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_VertexNormals",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialSurfaceMeshBuffer",
+            "namespace": "Windows.Perception.Spatial.Surfaces",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CoordinateSystem",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialCoordinateSystem",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_CoordinateSystem"
+        },
+        {
+          "name": "SurfaceInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialSurfaceInfo",
+            "namespace": "Windows.Perception.Spatial.Surfaces",
+            "target_kind": "Class"
+          },
+          "getter": "get_SurfaceInfo"
+        },
+        {
+          "name": "TriangleIndices",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialSurfaceMeshBuffer",
+            "namespace": "Windows.Perception.Spatial.Surfaces",
+            "target_kind": "Class"
+          },
+          "getter": "get_TriangleIndices"
+        },
+        {
+          "name": "VertexNormals",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialSurfaceMeshBuffer",
+            "namespace": "Windows.Perception.Spatial.Surfaces",
+            "target_kind": "Class"
+          },
+          "getter": "get_VertexNormals"
+        },
+        {
+          "name": "VertexPositionScale",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_VertexPositionScale"
+        },
+        {
+          "name": "VertexPositions",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialSurfaceMeshBuffer",
+            "namespace": "Windows.Perception.Spatial.Surfaces",
+            "target_kind": "Class"
+          },
+          "getter": "get_VertexPositions"
+        }
+      ]
+    },
+    "ISpatialSurfaceMeshBuffer": {
+      "guid": "93cf59e0-871f-33f8-98b2-03d101458f6f",
+      "exclusive_to": "Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshBuffer",
+      "methods": [
+        {
+          "name": "get_Format",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DirectXPixelFormat",
+            "namespace": "Windows.Graphics.DirectX",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Stride",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_ElementCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Data",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Data",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Data"
+        },
+        {
+          "name": "ElementCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ElementCount"
+        },
+        {
+          "name": "Format",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DirectXPixelFormat",
+            "namespace": "Windows.Graphics.DirectX",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Format"
+        },
+        {
+          "name": "Stride",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Stride"
+        }
+      ]
+    },
+    "ISpatialSurfaceMeshOptions": {
+      "guid": "d2759f89-3572-3d2d-a10d-5fee9394aa37",
+      "exclusive_to": "Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshOptions",
+      "methods": [
+        {
+          "name": "get_VertexPositionFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DirectXPixelFormat",
+            "namespace": "Windows.Graphics.DirectX",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_VertexPositionFormat",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DirectXPixelFormat",
+                "namespace": "Windows.Graphics.DirectX",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TriangleIndexFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DirectXPixelFormat",
+            "namespace": "Windows.Graphics.DirectX",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_TriangleIndexFormat",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DirectXPixelFormat",
+                "namespace": "Windows.Graphics.DirectX",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_VertexNormalFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DirectXPixelFormat",
+            "namespace": "Windows.Graphics.DirectX",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_VertexNormalFormat",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DirectXPixelFormat",
+                "namespace": "Windows.Graphics.DirectX",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IncludeVertexNormals",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IncludeVertexNormals",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IncludeVertexNormals",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IncludeVertexNormals",
+          "setter": "put_IncludeVertexNormals"
+        },
+        {
+          "name": "TriangleIndexFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DirectXPixelFormat",
+            "namespace": "Windows.Graphics.DirectX",
+            "target_kind": "Enum"
+          },
+          "getter": "get_TriangleIndexFormat",
+          "setter": "put_TriangleIndexFormat"
+        },
+        {
+          "name": "VertexNormalFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DirectXPixelFormat",
+            "namespace": "Windows.Graphics.DirectX",
+            "target_kind": "Enum"
+          },
+          "getter": "get_VertexNormalFormat",
+          "setter": "put_VertexNormalFormat"
+        },
+        {
+          "name": "VertexPositionFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DirectXPixelFormat",
+            "namespace": "Windows.Graphics.DirectX",
+            "target_kind": "Enum"
+          },
+          "getter": "get_VertexPositionFormat",
+          "setter": "put_VertexPositionFormat"
+        }
+      ]
+    },
+    "ISpatialSurfaceMeshOptionsStatics": {
+      "guid": "9b340abf-9781-4505-8935-013575caae5e",
+      "exclusive_to": "Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshOptions",
+      "methods": [
+        {
+          "name": "get_SupportedVertexPositionFormats",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DirectXPixelFormat",
+                "namespace": "Windows.Graphics.DirectX",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SupportedTriangleIndexFormats",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DirectXPixelFormat",
+                "namespace": "Windows.Graphics.DirectX",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SupportedVertexNormalFormats",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DirectXPixelFormat",
+                "namespace": "Windows.Graphics.DirectX",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SupportedTriangleIndexFormats",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DirectXPixelFormat",
+                "namespace": "Windows.Graphics.DirectX",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SupportedTriangleIndexFormats"
+        },
+        {
+          "name": "SupportedVertexNormalFormats",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DirectXPixelFormat",
+                "namespace": "Windows.Graphics.DirectX",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SupportedVertexNormalFormats"
+        },
+        {
+          "name": "SupportedVertexPositionFormats",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DirectXPixelFormat",
+                "namespace": "Windows.Graphics.DirectX",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SupportedVertexPositionFormats"
+        }
+      ]
+    },
+    "ISpatialSurfaceObserver": {
+      "guid": "10b69819-ddca-3483-ac3a-748fe8c86df5",
+      "exclusive_to": "Windows.Perception.Spatial.Surfaces.SpatialSurfaceObserver",
+      "methods": [
+        {
+          "name": "GetObservedSurfaces",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialSurfaceInfo",
+                "namespace": "Windows.Perception.Spatial.Surfaces",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SetBoundingVolume",
+          "params": [
+            {
+              "name": "bounds",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialBoundingVolume",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetBoundingVolumes",
+          "params": [
+            {
+              "name": "bounds",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialBoundingVolume",
+                    "namespace": "Windows.Perception.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ObservedSurfacesChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialSurfaceObserver",
+                    "namespace": "Windows.Perception.Spatial.Surfaces",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ObservedSurfacesChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "ObservedSurfacesChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialSurfaceObserver",
+                "namespace": "Windows.Perception.Spatial.Surfaces",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ObservedSurfacesChanged",
+          "remove_method": "remove_ObservedSurfacesChanged"
+        }
+      ]
+    },
+    "ISpatialSurfaceObserverStatics": {
+      "guid": "165951ed-2108-4168-9175-87e027bc9285",
+      "exclusive_to": "Windows.Perception.Spatial.Surfaces.SpatialSurfaceObserver",
+      "methods": [
+        {
+          "name": "RequestAccessAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialPerceptionAccessStatus",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ISpatialSurfaceObserverStatics2": {
+      "guid": "0f534261-c55d-4e6b-a895-a19de69a42e3",
+      "exclusive_to": "Windows.Perception.Spatial.Surfaces.SpatialSurfaceObserver",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialSurfaceObserverStatics",
+          "namespace": "Windows.Perception.Spatial.Surfaces",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "IsSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "SpatialSurfaceInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialSurfaceInfo",
+        "namespace": "Windows.Perception.Spatial.Surfaces",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialSurfaceInfo",
+          "namespace": "Windows.Perception.Spatial.Surfaces",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialSurfaceMesh": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialSurfaceMesh",
+        "namespace": "Windows.Perception.Spatial.Surfaces",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialSurfaceMesh",
+          "namespace": "Windows.Perception.Spatial.Surfaces",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialSurfaceMeshBuffer": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialSurfaceMeshBuffer",
+        "namespace": "Windows.Perception.Spatial.Surfaces",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialSurfaceMeshBuffer",
+          "namespace": "Windows.Perception.Spatial.Surfaces",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialSurfaceMeshOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialSurfaceMeshOptions",
+        "namespace": "Windows.Perception.Spatial.Surfaces",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialSurfaceMeshOptions",
+          "namespace": "Windows.Perception.Spatial.Surfaces",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Perception.Spatial.Surfaces.ISpatialSurfaceMeshOptionsStatics"
+      ]
+    },
+    "SpatialSurfaceObserver": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialSurfaceObserver",
+        "namespace": "Windows.Perception.Spatial.Surfaces",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialSurfaceObserver",
+          "namespace": "Windows.Perception.Spatial.Surfaces",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Perception.Spatial.Surfaces.ISpatialSurfaceObserverStatics2",
+        "Windows.Perception.Spatial.Surfaces.ISpatialSurfaceObserverStatics"
+      ]
+    }
+  }
+}

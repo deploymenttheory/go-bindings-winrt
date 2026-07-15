@@ -1,0 +1,3462 @@
+{
+  "namespace": "Windows.Graphics.Holographic",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "HolographicDepthReprojectionMethod": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "DepthReprojection",
+          "value": "0"
+        },
+        {
+          "name": "AutoPlanar",
+          "value": "1"
+        }
+      ]
+    },
+    "HolographicFramePresentResult": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "DeviceRemoved",
+          "value": "1"
+        }
+      ]
+    },
+    "HolographicFramePresentWaitBehavior": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "WaitForFrameToFinish",
+          "value": "0"
+        },
+        {
+          "name": "DoNotWaitForFrameToFinish",
+          "value": "1"
+        }
+      ]
+    },
+    "HolographicReprojectionMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "PositionAndOrientation",
+          "value": "0"
+        },
+        {
+          "name": "OrientationOnly",
+          "value": "1"
+        },
+        {
+          "name": "Disabled",
+          "value": "2"
+        }
+      ]
+    },
+    "HolographicSpaceUserPresence": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Absent",
+          "value": "0"
+        },
+        {
+          "name": "PresentPassive",
+          "value": "1"
+        },
+        {
+          "name": "PresentActive",
+          "value": "2"
+        }
+      ]
+    },
+    "HolographicViewConfigurationKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Display",
+          "value": "0"
+        },
+        {
+          "name": "PhotoVideoCamera",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "HolographicAdapterId": {
+      "fields": [
+        {
+          "name": "LowPart",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "HighPart",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ]
+    },
+    "HolographicFrameId": {
+      "fields": [
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        }
+      ]
+    },
+    "HolographicStereoTransform": {
+      "fields": [
+        {
+          "name": "Left",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Matrix4x4",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "Right",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Matrix4x4",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IHolographicCamera": {
+      "guid": "e4e98445-9bed-4980-9ba0-e87680d1cb74",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicCamera",
+      "methods": [
+        {
+          "name": "get_RenderTargetSize",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_ViewportScaleFactor",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_ViewportScaleFactor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsStereo",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "SetNearPlaneDistance",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetFarPlaneDistance",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "IsStereo",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsStereo"
+        },
+        {
+          "name": "RenderTargetSize",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_RenderTargetSize"
+        },
+        {
+          "name": "ViewportScaleFactor",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_ViewportScaleFactor",
+          "setter": "put_ViewportScaleFactor"
+        }
+      ]
+    },
+    "IHolographicCamera2": {
+      "guid": "b55b9f1a-ba8c-4f84-ad79-2e7e1e2450f3",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicCamera",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicCamera",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_LeftViewportParameters",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicCameraViewportParameters",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_RightViewportParameters",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicCameraViewportParameters",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Display",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicDisplay",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Display",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HolographicDisplay",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          },
+          "getter": "get_Display"
+        },
+        {
+          "name": "LeftViewportParameters",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HolographicCameraViewportParameters",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          },
+          "getter": "get_LeftViewportParameters"
+        },
+        {
+          "name": "RightViewportParameters",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HolographicCameraViewportParameters",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          },
+          "getter": "get_RightViewportParameters"
+        }
+      ]
+    },
+    "IHolographicCamera3": {
+      "guid": "45aa4fb3-7b59-524e-4a3f-4a6ad6650477",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicCamera",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicCamera2",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicCamera",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_IsPrimaryLayerEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsPrimaryLayerEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MaxQuadLayerCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_QuadLayers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HolographicQuadLayer",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsPrimaryLayerEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPrimaryLayerEnabled",
+          "setter": "put_IsPrimaryLayerEnabled"
+        },
+        {
+          "name": "MaxQuadLayerCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxQuadLayerCount"
+        },
+        {
+          "name": "QuadLayers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HolographicQuadLayer",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_QuadLayers"
+        }
+      ]
+    },
+    "IHolographicCamera4": {
+      "guid": "9a2531d6-4723-4f39-a9a5-9d05181d9b44",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicCamera",
+      "methods": [
+        {
+          "name": "get_CanOverrideViewport",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CanOverrideViewport",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanOverrideViewport"
+        }
+      ]
+    },
+    "IHolographicCamera5": {
+      "guid": "229706f2-628d-4ef5-9c08-a63fdd7787c6",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicCamera",
+      "methods": [
+        {
+          "name": "get_IsHardwareContentProtectionSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsHardwareContentProtectionEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsHardwareContentProtectionEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsHardwareContentProtectionEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsHardwareContentProtectionEnabled",
+          "setter": "put_IsHardwareContentProtectionEnabled"
+        },
+        {
+          "name": "IsHardwareContentProtectionSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsHardwareContentProtectionSupported"
+        }
+      ]
+    },
+    "IHolographicCamera6": {
+      "guid": "0209194f-632d-5154-ab52-0b5d15b12505",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicCamera",
+      "methods": [
+        {
+          "name": "get_ViewConfiguration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicViewConfiguration",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ViewConfiguration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HolographicViewConfiguration",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          },
+          "getter": "get_ViewConfiguration"
+        }
+      ]
+    },
+    "IHolographicCameraPose": {
+      "guid": "0d7d7e30-12de-45bd-912b-c7f6561599d1",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicCameraPose",
+      "methods": [
+        {
+          "name": "get_HolographicCamera",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicCamera",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Viewport",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "TryGetViewTransform",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HolographicStereoTransform",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ProjectionTransform",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicStereoTransform",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "TryGetCullingFrustum",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialBoundingFrustum",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryGetVisibleFrustum",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialBoundingFrustum",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_NearPlaneDistance",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_FarPlaneDistance",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FarPlaneDistance",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_FarPlaneDistance"
+        },
+        {
+          "name": "HolographicCamera",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HolographicCamera",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          },
+          "getter": "get_HolographicCamera"
+        },
+        {
+          "name": "NearPlaneDistance",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_NearPlaneDistance"
+        },
+        {
+          "name": "ProjectionTransform",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HolographicStereoTransform",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ProjectionTransform"
+        },
+        {
+          "name": "Viewport",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Viewport"
+        }
+      ]
+    },
+    "IHolographicCameraPose2": {
+      "guid": "232be073-5d2d-4560-814e-2697c4fce16b",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicCameraPose",
+      "methods": [
+        {
+          "name": "OverrideViewTransform",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "coordinateSystemToViewTransform",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HolographicStereoTransform",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "OverrideProjectionTransform",
+          "params": [
+            {
+              "name": "projectionTransform",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HolographicStereoTransform",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "OverrideViewport",
+          "params": [
+            {
+              "name": "leftViewport",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "rightViewport",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IHolographicCameraRenderingParameters": {
+      "guid": "8eac2ed1-5bf4-4e16-8236-ae0800c11d0d",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicCameraRenderingParameters",
+      "methods": [
+        {
+          "name": "SetFocusPoint",
+          "overload": "SetFocusPoint",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "position",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetFocusPoint",
+          "overload": "SetFocusPointWithNormal",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "position",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "normal",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetFocusPoint",
+          "overload": "SetFocusPointWithNormalLinearVelocity",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "position",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "normal",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "linearVelocity",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Direct3D11Device",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IDirect3DDevice",
+            "namespace": "Windows.Graphics.DirectX.Direct3D11",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Direct3D11BackBuffer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IDirect3DSurface",
+            "namespace": "Windows.Graphics.DirectX.Direct3D11",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Direct3D11BackBuffer",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IDirect3DSurface",
+            "namespace": "Windows.Graphics.DirectX.Direct3D11",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Direct3D11BackBuffer"
+        },
+        {
+          "name": "Direct3D11Device",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IDirect3DDevice",
+            "namespace": "Windows.Graphics.DirectX.Direct3D11",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Direct3D11Device"
+        }
+      ]
+    },
+    "IHolographicCameraRenderingParameters2": {
+      "guid": "261270e3-b696-4634-94d6-be0681643599",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicCameraRenderingParameters",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicCameraRenderingParameters",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_ReprojectionMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicReprojectionMode",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_ReprojectionMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HolographicReprojectionMode",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CommitDirect3D11DepthBuffer",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IDirect3DSurface",
+                "namespace": "Windows.Graphics.DirectX.Direct3D11",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ReprojectionMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HolographicReprojectionMode",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ReprojectionMode",
+          "setter": "put_ReprojectionMode"
+        }
+      ]
+    },
+    "IHolographicCameraRenderingParameters3": {
+      "guid": "b1aa513f-136d-4b06-b9d4-e4b914cd0683",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicCameraRenderingParameters",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicCameraRenderingParameters2",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicCameraRenderingParameters",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_IsContentProtectionEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsContentProtectionEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsContentProtectionEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsContentProtectionEnabled",
+          "setter": "put_IsContentProtectionEnabled"
+        }
+      ]
+    },
+    "IHolographicCameraRenderingParameters4": {
+      "guid": "0878fa4c-e163-57dc-82b7-c406ab3e0537",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicCameraRenderingParameters",
+      "methods": [
+        {
+          "name": "get_DepthReprojectionMethod",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicDepthReprojectionMethod",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_DepthReprojectionMethod",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HolographicDepthReprojectionMethod",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DepthReprojectionMethod",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HolographicDepthReprojectionMethod",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DepthReprojectionMethod",
+          "setter": "put_DepthReprojectionMethod"
+        }
+      ]
+    },
+    "IHolographicCameraViewportParameters": {
+      "guid": "80cdf3f7-842a-41e1-93ed-5692ab1fbb10",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicCameraViewportParameters",
+      "methods": [
+        {
+          "name": "get_HiddenAreaMesh",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "ApiRef",
+              "name": "Vector2",
+              "namespace": "Windows.Foundation.Numerics",
+              "target_kind": "Struct"
+            }
+          }
+        },
+        {
+          "name": "get_VisibleAreaMesh",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "ApiRef",
+              "name": "Vector2",
+              "namespace": "Windows.Foundation.Numerics",
+              "target_kind": "Struct"
+            }
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HiddenAreaMesh",
+          "type": {
+            "kind": "Array",
+            "elem": {
+              "kind": "ApiRef",
+              "name": "Vector2",
+              "namespace": "Windows.Foundation.Numerics",
+              "target_kind": "Struct"
+            }
+          },
+          "getter": "get_HiddenAreaMesh"
+        },
+        {
+          "name": "VisibleAreaMesh",
+          "type": {
+            "kind": "Array",
+            "elem": {
+              "kind": "ApiRef",
+              "name": "Vector2",
+              "namespace": "Windows.Foundation.Numerics",
+              "target_kind": "Struct"
+            }
+          },
+          "getter": "get_VisibleAreaMesh"
+        }
+      ]
+    },
+    "IHolographicDisplay": {
+      "guid": "9acea414-1d9f-4090-a388-90c06f6eae9c",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicDisplay",
+      "methods": [
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MaxViewportSize",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_IsStereo",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsOpaque",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_AdapterId",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicAdapterId",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_SpatialLocator",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialLocator",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AdapterId",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HolographicAdapterId",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Struct"
+          },
+          "getter": "get_AdapterId"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "IsOpaque",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsOpaque"
+        },
+        {
+          "name": "IsStereo",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsStereo"
+        },
+        {
+          "name": "MaxViewportSize",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_MaxViewportSize"
+        },
+        {
+          "name": "SpatialLocator",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialLocator",
+            "namespace": "Windows.Perception.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_SpatialLocator"
+        }
+      ]
+    },
+    "IHolographicDisplay2": {
+      "guid": "75ac3f82-e755-436c-8d96-4d32d131473e",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicDisplay",
+      "methods": [
+        {
+          "name": "get_RefreshRate",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RefreshRate",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_RefreshRate"
+        }
+      ]
+    },
+    "IHolographicDisplay3": {
+      "guid": "fc4c6ac6-6480-5008-b29e-157d77c843f7",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicDisplay",
+      "methods": [
+        {
+          "name": "TryGetViewConfiguration",
+          "params": [
+            {
+              "name": "kind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HolographicViewConfigurationKind",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicViewConfiguration",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IHolographicDisplayStatics": {
+      "guid": "cb374983-e7b0-4841-8355-3ae5b536e9a4",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicDisplay",
+      "methods": [
+        {
+          "name": "GetDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicDisplay",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IHolographicFrame": {
+      "guid": "c6988eb6-a8b9-3054-a6eb-d624b6536375",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicFrame",
+      "methods": [
+        {
+          "name": "get_AddedCameras",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HolographicCamera",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_RemovedCameras",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HolographicCamera",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetRenderingParameters",
+          "params": [
+            {
+              "name": "cameraPose",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HolographicCameraPose",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicCameraRenderingParameters",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Duration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_CurrentPrediction",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicFramePrediction",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "UpdateCurrentPrediction"
+        },
+        {
+          "name": "PresentUsingCurrentPrediction",
+          "overload": "PresentUsingCurrentPrediction",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicFramePresentResult",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "PresentUsingCurrentPrediction",
+          "overload": "PresentUsingCurrentPredictionWithBehavior",
+          "params": [
+            {
+              "name": "waitBehavior",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HolographicFramePresentWaitBehavior",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicFramePresentResult",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "WaitForFrameToFinish"
+        }
+      ],
+      "properties": [
+        {
+          "name": "AddedCameras",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HolographicCamera",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_AddedCameras"
+        },
+        {
+          "name": "CurrentPrediction",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HolographicFramePrediction",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          },
+          "getter": "get_CurrentPrediction"
+        },
+        {
+          "name": "Duration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Duration"
+        },
+        {
+          "name": "RemovedCameras",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HolographicCamera",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_RemovedCameras"
+        }
+      ]
+    },
+    "IHolographicFrame2": {
+      "guid": "283f37bf-3bf2-5e91-6633-870574e6f217",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicFrame",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicFrame",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "GetQuadLayerUpdateParameters",
+          "params": [
+            {
+              "name": "layer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HolographicQuadLayer",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicQuadLayerUpdateParameters",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IHolographicFrame3": {
+      "guid": "e5e964c9-8a27-55d3-9f98-94530d369052",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicFrame",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicFrameId",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HolographicFrameId",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Id"
+        }
+      ]
+    },
+    "IHolographicFramePrediction": {
+      "guid": "520f4de1-5c0a-4e79-a81e-6abe02bb2739",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicFramePrediction",
+      "methods": [
+        {
+          "name": "get_CameraPoses",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HolographicCameraPose",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Timestamp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionTimestamp",
+            "namespace": "Windows.Perception",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CameraPoses",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HolographicCameraPose",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_CameraPoses"
+        },
+        {
+          "name": "Timestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PerceptionTimestamp",
+            "namespace": "Windows.Perception",
+            "target_kind": "Class"
+          },
+          "getter": "get_Timestamp"
+        }
+      ]
+    },
+    "IHolographicFramePresentationMonitor": {
+      "guid": "ca87256c-6fae-428e-bb83-25dfee51136b",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicFramePresentationMonitor",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "ReadReports",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HolographicFramePresentationReport",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IHolographicFramePresentationReport": {
+      "guid": "80baf614-f2f4-4c8a-8de3-065c78f6d5de",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicFramePresentationReport",
+      "methods": [
+        {
+          "name": "get_CompositorGpuDuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_AppGpuDuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_AppGpuOverrun",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_MissedPresentationOpportunityCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_PresentationCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppGpuDuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_AppGpuDuration"
+        },
+        {
+          "name": "AppGpuOverrun",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_AppGpuOverrun"
+        },
+        {
+          "name": "CompositorGpuDuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_CompositorGpuDuration"
+        },
+        {
+          "name": "MissedPresentationOpportunityCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MissedPresentationOpportunityCount"
+        },
+        {
+          "name": "PresentationCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_PresentationCount"
+        }
+      ]
+    },
+    "IHolographicFrameRenderingReport": {
+      "guid": "05f32de4-e384-51b3-b934-f0d3a0f78606",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicFrameRenderingReport",
+      "methods": [
+        {
+          "name": "get_FrameId",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicFrameId",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_MissedLatchCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_SystemRelativeFrameReadyTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_SystemRelativeActualGpuFinishTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_SystemRelativeTargetLatchTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FrameId",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HolographicFrameId",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Struct"
+          },
+          "getter": "get_FrameId"
+        },
+        {
+          "name": "MissedLatchCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MissedLatchCount"
+        },
+        {
+          "name": "SystemRelativeActualGpuFinishTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SystemRelativeActualGpuFinishTime"
+        },
+        {
+          "name": "SystemRelativeFrameReadyTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SystemRelativeFrameReadyTime"
+        },
+        {
+          "name": "SystemRelativeTargetLatchTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SystemRelativeTargetLatchTime"
+        }
+      ]
+    },
+    "IHolographicFrameScanoutMonitor": {
+      "guid": "7e83efa9-843c-5401-8095-9bc1b8b08638",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicFrameScanoutMonitor",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "ReadReports",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HolographicFrameScanoutReport",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IHolographicFrameScanoutReport": {
+      "guid": "0ebbe606-03a0-5ca0-b46e-bba068d7233f",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicFrameScanoutReport",
+      "methods": [
+        {
+          "name": "get_RenderingReport",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicFrameRenderingReport",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_MissedScanoutCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_SystemRelativeLatchTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_SystemRelativeScanoutStartTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_SystemRelativePhotonTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "MissedScanoutCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MissedScanoutCount"
+        },
+        {
+          "name": "RenderingReport",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HolographicFrameRenderingReport",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          },
+          "getter": "get_RenderingReport"
+        },
+        {
+          "name": "SystemRelativeLatchTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SystemRelativeLatchTime"
+        },
+        {
+          "name": "SystemRelativePhotonTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SystemRelativePhotonTime"
+        },
+        {
+          "name": "SystemRelativeScanoutStartTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SystemRelativeScanoutStartTime"
+        }
+      ]
+    },
+    "IHolographicQuadLayer": {
+      "guid": "903460c9-c9d9-5d5c-41ac-a2d5ab0fd331",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicQuadLayer",
+      "methods": [
+        {
+          "name": "get_PixelFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DirectXPixelFormat",
+            "namespace": "Windows.Graphics.DirectX",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Size",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PixelFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DirectXPixelFormat",
+            "namespace": "Windows.Graphics.DirectX",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PixelFormat"
+        },
+        {
+          "name": "Size",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Size"
+        }
+      ]
+    },
+    "IHolographicQuadLayerFactory": {
+      "guid": "a67538f3-5a14-5a10-489a-455065b37b76",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicQuadLayer",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "size",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Size",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicQuadLayer",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithPixelFormat",
+          "params": [
+            {
+              "name": "size",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Size",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "pixelFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DirectXPixelFormat",
+                "namespace": "Windows.Graphics.DirectX",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicQuadLayer",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IHolographicQuadLayerUpdateParameters": {
+      "guid": "2b0ea3b0-798d-5bca-55c2-2c0c762ebb08",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicQuadLayerUpdateParameters",
+      "methods": [
+        {
+          "name": "AcquireBufferToUpdateContent",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IDirect3DSurface",
+            "namespace": "Windows.Graphics.DirectX.Direct3D11",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "UpdateViewport",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "UpdateContentProtectionEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "UpdateExtents",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector2",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "UpdateLocationWithStationaryMode",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "position",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "orientation",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Quaternion",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "UpdateLocationWithDisplayRelativeMode",
+          "params": [
+            {
+              "name": "position",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "orientation",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Quaternion",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IHolographicQuadLayerUpdateParameters2": {
+      "guid": "4f33d32d-82c1-46c1-8980-3cb70d98182b",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicQuadLayerUpdateParameters",
+      "methods": [
+        {
+          "name": "get_CanAcquireWithHardwareProtection",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "AcquireBufferToUpdateContentWithHardwareProtection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IDirect3DSurface",
+            "namespace": "Windows.Graphics.DirectX.Direct3D11",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CanAcquireWithHardwareProtection",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanAcquireWithHardwareProtection"
+        }
+      ]
+    },
+    "IHolographicSpace": {
+      "guid": "4380dba6-5e78-434f-807c-3433d1efe8b7",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicSpace",
+      "methods": [
+        {
+          "name": "get_PrimaryAdapterId",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicAdapterId",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "SetDirect3D11Device",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IDirect3DDevice",
+                "namespace": "Windows.Graphics.DirectX.Direct3D11",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_CameraAdded",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "HolographicSpace",
+                    "namespace": "Windows.Graphics.Holographic",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "HolographicSpaceCameraAddedEventArgs",
+                    "namespace": "Windows.Graphics.Holographic",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CameraAdded",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_CameraRemoved",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "HolographicSpace",
+                    "namespace": "Windows.Graphics.Holographic",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "HolographicSpaceCameraRemovedEventArgs",
+                    "namespace": "Windows.Graphics.Holographic",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CameraRemoved",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CreateNextFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicFrame",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PrimaryAdapterId",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HolographicAdapterId",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Struct"
+          },
+          "getter": "get_PrimaryAdapterId"
+        }
+      ],
+      "events": [
+        {
+          "name": "CameraAdded",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HolographicSpace",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "HolographicSpaceCameraAddedEventArgs",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_CameraAdded",
+          "remove_method": "remove_CameraAdded"
+        },
+        {
+          "name": "CameraRemoved",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HolographicSpace",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "HolographicSpaceCameraRemovedEventArgs",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_CameraRemoved",
+          "remove_method": "remove_CameraRemoved"
+        }
+      ]
+    },
+    "IHolographicSpace2": {
+      "guid": "4f81a9a8-b7ff-4883-9827-7d677287ea70",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicSpace",
+      "methods": [
+        {
+          "name": "get_UserPresence",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicSpaceUserPresence",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_UserPresenceChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "HolographicSpace",
+                    "namespace": "Windows.Graphics.Holographic",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_UserPresenceChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "WaitForNextFrameReady"
+        },
+        {
+          "name": "WaitForNextFrameReadyWithHeadStart",
+          "params": [
+            {
+              "name": "requestedHeadStartDuration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CreateFramePresentationMonitor",
+          "params": [
+            {
+              "name": "maxQueuedReports",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicFramePresentationMonitor",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "UserPresence",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HolographicSpaceUserPresence",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Enum"
+          },
+          "getter": "get_UserPresence"
+        }
+      ],
+      "events": [
+        {
+          "name": "UserPresenceChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HolographicSpace",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_UserPresenceChanged",
+          "remove_method": "remove_UserPresenceChanged"
+        }
+      ]
+    },
+    "IHolographicSpace3": {
+      "guid": "df1733d1-f224-587e-8d71-1e8fc8f07b1f",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicSpace",
+      "methods": [
+        {
+          "name": "CreateFrameScanoutMonitor",
+          "params": [
+            {
+              "name": "maxQueuedReports",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicFrameScanoutMonitor",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IHolographicSpaceCameraAddedEventArgs": {
+      "guid": "58f1da35-bbb3-3c8f-993d-6c80e7feb99f",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicSpaceCameraAddedEventArgs",
+      "methods": [
+        {
+          "name": "get_Camera",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicCamera",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Camera",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HolographicCamera",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          },
+          "getter": "get_Camera"
+        }
+      ]
+    },
+    "IHolographicSpaceCameraRemovedEventArgs": {
+      "guid": "805444a8-f2ae-322e-8da9-836a0a95a4c1",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicSpaceCameraRemovedEventArgs",
+      "methods": [
+        {
+          "name": "get_Camera",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicCamera",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Camera",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HolographicCamera",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          },
+          "getter": "get_Camera"
+        }
+      ]
+    },
+    "IHolographicSpaceStatics": {
+      "guid": "364e6064-c8f2-3ba1-8391-66b8489e67fd",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicSpace",
+      "methods": [
+        {
+          "name": "CreateForCoreWindow",
+          "params": [
+            {
+              "name": "window",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreWindow",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicSpace",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IHolographicSpaceStatics2": {
+      "guid": "0e777088-75fc-48af-8758-0652f6f07c59",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicSpace",
+      "methods": [
+        {
+          "name": "get_IsSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsAvailable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "add_IsAvailableChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_IsAvailableChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsAvailable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAvailable"
+        },
+        {
+          "name": "IsSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSupported"
+        }
+      ],
+      "events": [
+        {
+          "name": "IsAvailableChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_IsAvailableChanged",
+          "remove_method": "remove_IsAvailableChanged"
+        }
+      ]
+    },
+    "IHolographicSpaceStatics3": {
+      "guid": "3b00de3d-b1a3-4dfe-8e79-fec5909e6df8",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicSpace",
+      "methods": [
+        {
+          "name": "get_IsConfigured",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsConfigured",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsConfigured"
+        }
+      ]
+    },
+    "IHolographicViewConfiguration": {
+      "guid": "5c1de6e6-67e9-5004-b02c-67a3a122b576",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicViewConfiguration",
+      "methods": [
+        {
+          "name": "get_NativeRenderTargetSize",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_RenderTargetSize",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "RequestRenderTargetSize",
+          "params": [
+            {
+              "name": "size",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Size",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_SupportedPixelFormats",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DirectXPixelFormat",
+                "namespace": "Windows.Graphics.DirectX",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_PixelFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DirectXPixelFormat",
+            "namespace": "Windows.Graphics.DirectX",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_PixelFormat",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DirectXPixelFormat",
+                "namespace": "Windows.Graphics.DirectX",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsStereo",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_RefreshRate",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicViewConfigurationKind",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Display",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicDisplay",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IsEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Display",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HolographicDisplay",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Class"
+          },
+          "getter": "get_Display"
+        },
+        {
+          "name": "IsEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsEnabled",
+          "setter": "put_IsEnabled"
+        },
+        {
+          "name": "IsStereo",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsStereo"
+        },
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HolographicViewConfigurationKind",
+            "namespace": "Windows.Graphics.Holographic",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        },
+        {
+          "name": "NativeRenderTargetSize",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_NativeRenderTargetSize"
+        },
+        {
+          "name": "PixelFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DirectXPixelFormat",
+            "namespace": "Windows.Graphics.DirectX",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PixelFormat",
+          "setter": "put_PixelFormat"
+        },
+        {
+          "name": "RefreshRate",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_RefreshRate"
+        },
+        {
+          "name": "RenderTargetSize",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_RenderTargetSize"
+        },
+        {
+          "name": "SupportedPixelFormats",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DirectXPixelFormat",
+                "namespace": "Windows.Graphics.DirectX",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SupportedPixelFormats"
+        }
+      ]
+    },
+    "IHolographicViewConfiguration2": {
+      "guid": "e241756e-e0d0-5019-9af5-1b165bc2f54e",
+      "exclusive_to": "Windows.Graphics.Holographic.HolographicViewConfiguration",
+      "methods": [
+        {
+          "name": "get_SupportedDepthReprojectionMethods",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HolographicDepthReprojectionMethod",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SupportedDepthReprojectionMethods",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HolographicDepthReprojectionMethod",
+                "namespace": "Windows.Graphics.Holographic",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SupportedDepthReprojectionMethods"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "HolographicCamera": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHolographicCamera",
+        "namespace": "Windows.Graphics.Holographic",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicCamera",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicCamera2",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicCamera3",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicCamera4",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicCamera5",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicCamera6",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HolographicCameraPose": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHolographicCameraPose",
+        "namespace": "Windows.Graphics.Holographic",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicCameraPose",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicCameraPose2",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HolographicCameraRenderingParameters": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHolographicCameraRenderingParameters",
+        "namespace": "Windows.Graphics.Holographic",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicCameraRenderingParameters",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicCameraRenderingParameters2",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicCameraRenderingParameters3",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicCameraRenderingParameters4",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HolographicCameraViewportParameters": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHolographicCameraViewportParameters",
+        "namespace": "Windows.Graphics.Holographic",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicCameraViewportParameters",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HolographicDisplay": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHolographicDisplay",
+        "namespace": "Windows.Graphics.Holographic",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicDisplay",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicDisplay2",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicDisplay3",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Graphics.Holographic.IHolographicDisplayStatics"
+      ]
+    },
+    "HolographicFrame": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHolographicFrame",
+        "namespace": "Windows.Graphics.Holographic",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicFrame",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicFrame2",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicFrame3",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HolographicFramePrediction": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHolographicFramePrediction",
+        "namespace": "Windows.Graphics.Holographic",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicFramePrediction",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HolographicFramePresentationMonitor": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHolographicFramePresentationMonitor",
+        "namespace": "Windows.Graphics.Holographic",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicFramePresentationMonitor",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HolographicFramePresentationReport": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHolographicFramePresentationReport",
+        "namespace": "Windows.Graphics.Holographic",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicFramePresentationReport",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HolographicFrameRenderingReport": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHolographicFrameRenderingReport",
+        "namespace": "Windows.Graphics.Holographic",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicFrameRenderingReport",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HolographicFrameScanoutMonitor": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHolographicFrameScanoutMonitor",
+        "namespace": "Windows.Graphics.Holographic",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicFrameScanoutMonitor",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HolographicFrameScanoutReport": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHolographicFrameScanoutReport",
+        "namespace": "Windows.Graphics.Holographic",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicFrameScanoutReport",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HolographicQuadLayer": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHolographicQuadLayer",
+        "namespace": "Windows.Graphics.Holographic",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicQuadLayer",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Graphics.Holographic.IHolographicQuadLayerFactory"
+      ]
+    },
+    "HolographicQuadLayerUpdateParameters": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHolographicQuadLayerUpdateParameters",
+        "namespace": "Windows.Graphics.Holographic",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicQuadLayerUpdateParameters",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicQuadLayerUpdateParameters2",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HolographicSpace": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHolographicSpace",
+        "namespace": "Windows.Graphics.Holographic",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicSpace",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicSpace2",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicSpace3",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Graphics.Holographic.IHolographicSpaceStatics2",
+        "Windows.Graphics.Holographic.IHolographicSpaceStatics3",
+        "Windows.Graphics.Holographic.IHolographicSpaceStatics"
+      ]
+    },
+    "HolographicSpaceCameraAddedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHolographicSpaceCameraAddedEventArgs",
+        "namespace": "Windows.Graphics.Holographic",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicSpaceCameraAddedEventArgs",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HolographicSpaceCameraRemovedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHolographicSpaceCameraRemovedEventArgs",
+        "namespace": "Windows.Graphics.Holographic",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicSpaceCameraRemovedEventArgs",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HolographicViewConfiguration": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHolographicViewConfiguration",
+        "namespace": "Windows.Graphics.Holographic",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicViewConfiguration",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicViewConfiguration2",
+          "namespace": "Windows.Graphics.Holographic",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

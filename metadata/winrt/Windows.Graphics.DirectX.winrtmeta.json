@@ -1,0 +1,655 @@
+{
+  "namespace": "Windows.Graphics.DirectX",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "DirectXAlphaMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unspecified",
+          "value": "0"
+        },
+        {
+          "name": "Premultiplied",
+          "value": "1"
+        },
+        {
+          "name": "Straight",
+          "value": "2"
+        },
+        {
+          "name": "Ignore",
+          "value": "3"
+        }
+      ]
+    },
+    "DirectXColorSpace": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "RgbFullG22NoneP709",
+          "value": "0"
+        },
+        {
+          "name": "RgbFullG10NoneP709",
+          "value": "1"
+        },
+        {
+          "name": "RgbStudioG22NoneP709",
+          "value": "2"
+        },
+        {
+          "name": "RgbStudioG22NoneP2020",
+          "value": "3"
+        },
+        {
+          "name": "Reserved",
+          "value": "4"
+        },
+        {
+          "name": "YccFullG22NoneP709X601",
+          "value": "5"
+        },
+        {
+          "name": "YccStudioG22LeftP601",
+          "value": "6"
+        },
+        {
+          "name": "YccFullG22LeftP601",
+          "value": "7"
+        },
+        {
+          "name": "YccStudioG22LeftP709",
+          "value": "8"
+        },
+        {
+          "name": "YccFullG22LeftP709",
+          "value": "9"
+        },
+        {
+          "name": "YccStudioG22LeftP2020",
+          "value": "10"
+        },
+        {
+          "name": "YccFullG22LeftP2020",
+          "value": "11"
+        },
+        {
+          "name": "RgbFullG2084NoneP2020",
+          "value": "12"
+        },
+        {
+          "name": "YccStudioG2084LeftP2020",
+          "value": "13"
+        },
+        {
+          "name": "RgbStudioG2084NoneP2020",
+          "value": "14"
+        },
+        {
+          "name": "YccStudioG22TopLeftP2020",
+          "value": "15"
+        },
+        {
+          "name": "YccStudioG2084TopLeftP2020",
+          "value": "16"
+        },
+        {
+          "name": "RgbFullG22NoneP2020",
+          "value": "17"
+        },
+        {
+          "name": "YccStudioGHlgTopLeftP2020",
+          "value": "18"
+        },
+        {
+          "name": "YccFullGHlgTopLeftP2020",
+          "value": "19"
+        },
+        {
+          "name": "RgbStudioG24NoneP709",
+          "value": "20"
+        },
+        {
+          "name": "RgbStudioG24NoneP2020",
+          "value": "21"
+        },
+        {
+          "name": "YccStudioG24LeftP709",
+          "value": "22"
+        },
+        {
+          "name": "YccStudioG24LeftP2020",
+          "value": "23"
+        },
+        {
+          "name": "YccStudioG24TopLeftP2020",
+          "value": "24"
+        }
+      ]
+    },
+    "DirectXPixelFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "R32G32B32A32Typeless",
+          "value": "1"
+        },
+        {
+          "name": "R32G32B32A32Float",
+          "value": "2"
+        },
+        {
+          "name": "R32G32B32A32UInt",
+          "value": "3"
+        },
+        {
+          "name": "R32G32B32A32Int",
+          "value": "4"
+        },
+        {
+          "name": "R32G32B32Typeless",
+          "value": "5"
+        },
+        {
+          "name": "R32G32B32Float",
+          "value": "6"
+        },
+        {
+          "name": "R32G32B32UInt",
+          "value": "7"
+        },
+        {
+          "name": "R32G32B32Int",
+          "value": "8"
+        },
+        {
+          "name": "R16G16B16A16Typeless",
+          "value": "9"
+        },
+        {
+          "name": "R16G16B16A16Float",
+          "value": "10"
+        },
+        {
+          "name": "R16G16B16A16UIntNormalized",
+          "value": "11"
+        },
+        {
+          "name": "R16G16B16A16UInt",
+          "value": "12"
+        },
+        {
+          "name": "R16G16B16A16IntNormalized",
+          "value": "13"
+        },
+        {
+          "name": "R16G16B16A16Int",
+          "value": "14"
+        },
+        {
+          "name": "R32G32Typeless",
+          "value": "15"
+        },
+        {
+          "name": "R32G32Float",
+          "value": "16"
+        },
+        {
+          "name": "R32G32UInt",
+          "value": "17"
+        },
+        {
+          "name": "R32G32Int",
+          "value": "18"
+        },
+        {
+          "name": "R32G8X24Typeless",
+          "value": "19"
+        },
+        {
+          "name": "D32FloatS8X24UInt",
+          "value": "20"
+        },
+        {
+          "name": "R32FloatX8X24Typeless",
+          "value": "21"
+        },
+        {
+          "name": "X32TypelessG8X24UInt",
+          "value": "22"
+        },
+        {
+          "name": "R10G10B10A2Typeless",
+          "value": "23"
+        },
+        {
+          "name": "R10G10B10A2UIntNormalized",
+          "value": "24"
+        },
+        {
+          "name": "R10G10B10A2UInt",
+          "value": "25"
+        },
+        {
+          "name": "R11G11B10Float",
+          "value": "26"
+        },
+        {
+          "name": "R8G8B8A8Typeless",
+          "value": "27"
+        },
+        {
+          "name": "R8G8B8A8UIntNormalized",
+          "value": "28"
+        },
+        {
+          "name": "R8G8B8A8UIntNormalizedSrgb",
+          "value": "29"
+        },
+        {
+          "name": "R8G8B8A8UInt",
+          "value": "30"
+        },
+        {
+          "name": "R8G8B8A8IntNormalized",
+          "value": "31"
+        },
+        {
+          "name": "R8G8B8A8Int",
+          "value": "32"
+        },
+        {
+          "name": "R16G16Typeless",
+          "value": "33"
+        },
+        {
+          "name": "R16G16Float",
+          "value": "34"
+        },
+        {
+          "name": "R16G16UIntNormalized",
+          "value": "35"
+        },
+        {
+          "name": "R16G16UInt",
+          "value": "36"
+        },
+        {
+          "name": "R16G16IntNormalized",
+          "value": "37"
+        },
+        {
+          "name": "R16G16Int",
+          "value": "38"
+        },
+        {
+          "name": "R32Typeless",
+          "value": "39"
+        },
+        {
+          "name": "D32Float",
+          "value": "40"
+        },
+        {
+          "name": "R32Float",
+          "value": "41"
+        },
+        {
+          "name": "R32UInt",
+          "value": "42"
+        },
+        {
+          "name": "R32Int",
+          "value": "43"
+        },
+        {
+          "name": "R24G8Typeless",
+          "value": "44"
+        },
+        {
+          "name": "D24UIntNormalizedS8UInt",
+          "value": "45"
+        },
+        {
+          "name": "R24UIntNormalizedX8Typeless",
+          "value": "46"
+        },
+        {
+          "name": "X24TypelessG8UInt",
+          "value": "47"
+        },
+        {
+          "name": "R8G8Typeless",
+          "value": "48"
+        },
+        {
+          "name": "R8G8UIntNormalized",
+          "value": "49"
+        },
+        {
+          "name": "R8G8UInt",
+          "value": "50"
+        },
+        {
+          "name": "R8G8IntNormalized",
+          "value": "51"
+        },
+        {
+          "name": "R8G8Int",
+          "value": "52"
+        },
+        {
+          "name": "R16Typeless",
+          "value": "53"
+        },
+        {
+          "name": "R16Float",
+          "value": "54"
+        },
+        {
+          "name": "D16UIntNormalized",
+          "value": "55"
+        },
+        {
+          "name": "R16UIntNormalized",
+          "value": "56"
+        },
+        {
+          "name": "R16UInt",
+          "value": "57"
+        },
+        {
+          "name": "R16IntNormalized",
+          "value": "58"
+        },
+        {
+          "name": "R16Int",
+          "value": "59"
+        },
+        {
+          "name": "R8Typeless",
+          "value": "60"
+        },
+        {
+          "name": "R8UIntNormalized",
+          "value": "61"
+        },
+        {
+          "name": "R8UInt",
+          "value": "62"
+        },
+        {
+          "name": "R8IntNormalized",
+          "value": "63"
+        },
+        {
+          "name": "R8Int",
+          "value": "64"
+        },
+        {
+          "name": "A8UIntNormalized",
+          "value": "65"
+        },
+        {
+          "name": "R1UIntNormalized",
+          "value": "66"
+        },
+        {
+          "name": "R9G9B9E5SharedExponent",
+          "value": "67"
+        },
+        {
+          "name": "R8G8B8G8UIntNormalized",
+          "value": "68"
+        },
+        {
+          "name": "G8R8G8B8UIntNormalized",
+          "value": "69"
+        },
+        {
+          "name": "BC1Typeless",
+          "value": "70"
+        },
+        {
+          "name": "BC1UIntNormalized",
+          "value": "71"
+        },
+        {
+          "name": "BC1UIntNormalizedSrgb",
+          "value": "72"
+        },
+        {
+          "name": "BC2Typeless",
+          "value": "73"
+        },
+        {
+          "name": "BC2UIntNormalized",
+          "value": "74"
+        },
+        {
+          "name": "BC2UIntNormalizedSrgb",
+          "value": "75"
+        },
+        {
+          "name": "BC3Typeless",
+          "value": "76"
+        },
+        {
+          "name": "BC3UIntNormalized",
+          "value": "77"
+        },
+        {
+          "name": "BC3UIntNormalizedSrgb",
+          "value": "78"
+        },
+        {
+          "name": "BC4Typeless",
+          "value": "79"
+        },
+        {
+          "name": "BC4UIntNormalized",
+          "value": "80"
+        },
+        {
+          "name": "BC4IntNormalized",
+          "value": "81"
+        },
+        {
+          "name": "BC5Typeless",
+          "value": "82"
+        },
+        {
+          "name": "BC5UIntNormalized",
+          "value": "83"
+        },
+        {
+          "name": "BC5IntNormalized",
+          "value": "84"
+        },
+        {
+          "name": "B5G6R5UIntNormalized",
+          "value": "85"
+        },
+        {
+          "name": "B5G5R5A1UIntNormalized",
+          "value": "86"
+        },
+        {
+          "name": "B8G8R8A8UIntNormalized",
+          "value": "87"
+        },
+        {
+          "name": "B8G8R8X8UIntNormalized",
+          "value": "88"
+        },
+        {
+          "name": "R10G10B10XRBiasA2UIntNormalized",
+          "value": "89"
+        },
+        {
+          "name": "B8G8R8A8Typeless",
+          "value": "90"
+        },
+        {
+          "name": "B8G8R8A8UIntNormalizedSrgb",
+          "value": "91"
+        },
+        {
+          "name": "B8G8R8X8Typeless",
+          "value": "92"
+        },
+        {
+          "name": "B8G8R8X8UIntNormalizedSrgb",
+          "value": "93"
+        },
+        {
+          "name": "BC6HTypeless",
+          "value": "94"
+        },
+        {
+          "name": "BC6H16UnsignedFloat",
+          "value": "95"
+        },
+        {
+          "name": "BC6H16Float",
+          "value": "96"
+        },
+        {
+          "name": "BC7Typeless",
+          "value": "97"
+        },
+        {
+          "name": "BC7UIntNormalized",
+          "value": "98"
+        },
+        {
+          "name": "BC7UIntNormalizedSrgb",
+          "value": "99"
+        },
+        {
+          "name": "Ayuv",
+          "value": "100"
+        },
+        {
+          "name": "Y410",
+          "value": "101"
+        },
+        {
+          "name": "Y416",
+          "value": "102"
+        },
+        {
+          "name": "NV12",
+          "value": "103"
+        },
+        {
+          "name": "P010",
+          "value": "104"
+        },
+        {
+          "name": "P016",
+          "value": "105"
+        },
+        {
+          "name": "Opaque420",
+          "value": "106"
+        },
+        {
+          "name": "Yuy2",
+          "value": "107"
+        },
+        {
+          "name": "Y210",
+          "value": "108"
+        },
+        {
+          "name": "Y216",
+          "value": "109"
+        },
+        {
+          "name": "NV11",
+          "value": "110"
+        },
+        {
+          "name": "AI44",
+          "value": "111"
+        },
+        {
+          "name": "IA44",
+          "value": "112"
+        },
+        {
+          "name": "P8",
+          "value": "113"
+        },
+        {
+          "name": "A8P8",
+          "value": "114"
+        },
+        {
+          "name": "B4G4R4A4UIntNormalized",
+          "value": "115"
+        },
+        {
+          "name": "P208",
+          "value": "130"
+        },
+        {
+          "name": "V208",
+          "value": "131"
+        },
+        {
+          "name": "V408",
+          "value": "132"
+        },
+        {
+          "name": "SamplerFeedbackMinMipOpaque",
+          "value": "189"
+        },
+        {
+          "name": "SamplerFeedbackMipRegionUsedOpaque",
+          "value": "190"
+        },
+        {
+          "name": "A4B4G4R4",
+          "value": "191"
+        }
+      ]
+    },
+    "DirectXPrimitiveTopology": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Undefined",
+          "value": "0"
+        },
+        {
+          "name": "PointList",
+          "value": "1"
+        },
+        {
+          "name": "LineList",
+          "value": "2"
+        },
+        {
+          "name": "LineStrip",
+          "value": "3"
+        },
+        {
+          "name": "TriangleList",
+          "value": "4"
+        },
+        {
+          "name": "TriangleStrip",
+          "value": "5"
+        }
+      ]
+    }
+  }
+}

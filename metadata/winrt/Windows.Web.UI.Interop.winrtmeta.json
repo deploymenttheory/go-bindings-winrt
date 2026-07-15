@@ -1,0 +1,1003 @@
+{
+  "namespace": "Windows.Web.UI.Interop",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "WebViewControlAcceleratorKeyRoutingStage": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Tunneling",
+          "value": "0"
+        },
+        {
+          "name": "Bubbling",
+          "value": "1"
+        }
+      ]
+    },
+    "WebViewControlMoveFocusReason": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Programmatic",
+          "value": "0"
+        },
+        {
+          "name": "Next",
+          "value": "1"
+        },
+        {
+          "name": "Previous",
+          "value": "2"
+        }
+      ]
+    },
+    "WebViewControlProcessCapabilityState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "Disabled",
+          "value": "1"
+        },
+        {
+          "name": "Enabled",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IWebViewControlAcceleratorKeyPressedEventArgs": {
+      "guid": "77a2a53e-7c74-437d-a290-3ac0d8cd5655",
+      "exclusive_to": "Windows.Web.UI.Interop.WebViewControlAcceleratorKeyPressedEventArgs",
+      "methods": [
+        {
+          "name": "get_EventType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreAcceleratorKeyEventType",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_VirtualKey",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VirtualKey",
+            "namespace": "Windows.System",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_KeyStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CorePhysicalKeyStatus",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_RoutingStage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebViewControlAcceleratorKeyRoutingStage",
+            "namespace": "Windows.Web.UI.Interop",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "EventType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreAcceleratorKeyEventType",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_EventType"
+        },
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        },
+        {
+          "name": "KeyStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CorePhysicalKeyStatus",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Struct"
+          },
+          "getter": "get_KeyStatus"
+        },
+        {
+          "name": "RoutingStage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebViewControlAcceleratorKeyRoutingStage",
+            "namespace": "Windows.Web.UI.Interop",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RoutingStage"
+        },
+        {
+          "name": "VirtualKey",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VirtualKey",
+            "namespace": "Windows.System",
+            "target_kind": "Enum"
+          },
+          "getter": "get_VirtualKey"
+        }
+      ]
+    },
+    "IWebViewControlMoveFocusRequestedEventArgs": {
+      "guid": "6b2a340d-4bd0-405e-b7c1-1e72a492f446",
+      "exclusive_to": "Windows.Web.UI.Interop.WebViewControlMoveFocusRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_Reason",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebViewControlMoveFocusReason",
+            "namespace": "Windows.Web.UI.Interop",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Reason",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebViewControlMoveFocusReason",
+            "namespace": "Windows.Web.UI.Interop",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Reason"
+        }
+      ]
+    },
+    "IWebViewControlProcess": {
+      "guid": "02c723ec-98d6-424a-b63e-c6136c36a0f2",
+      "exclusive_to": "Windows.Web.UI.Interop.WebViewControlProcess",
+      "methods": [
+        {
+          "name": "get_ProcessId",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_EnterpriseId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IsPrivateNetworkClientServerCapabilityEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "CreateWebViewControlAsync",
+          "params": [
+            {
+              "name": "hostWindowHandle",
+              "type": {
+                "kind": "Native",
+                "name": "I8"
+              }
+            },
+            {
+              "name": "bounds",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControl",
+                "namespace": "Windows.Web.UI.Interop",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetWebViewControls",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControl",
+                "namespace": "Windows.Web.UI.Interop",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Terminate"
+        },
+        {
+          "name": "add_ProcessExited",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebViewControlProcess",
+                    "namespace": "Windows.Web.UI.Interop",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ProcessExited",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "EnterpriseId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EnterpriseId"
+        },
+        {
+          "name": "IsPrivateNetworkClientServerCapabilityEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPrivateNetworkClientServerCapabilityEnabled"
+        },
+        {
+          "name": "ProcessId",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ProcessId"
+        }
+      ],
+      "events": [
+        {
+          "name": "ProcessExited",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControlProcess",
+                "namespace": "Windows.Web.UI.Interop",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ProcessExited",
+          "remove_method": "remove_ProcessExited"
+        }
+      ]
+    },
+    "IWebViewControlProcessFactory": {
+      "guid": "47b65cf9-a2d2-453c-b097-f6779d4b8e02",
+      "exclusive_to": "Windows.Web.UI.Interop.WebViewControlProcess",
+      "methods": [
+        {
+          "name": "CreateWithOptions",
+          "params": [
+            {
+              "name": "processOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebViewControlProcessOptions",
+                "namespace": "Windows.Web.UI.Interop",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebViewControlProcess",
+            "namespace": "Windows.Web.UI.Interop",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IWebViewControlProcessOptions": {
+      "guid": "1cca72a7-3bd6-4826-8261-6c8189505d89",
+      "exclusive_to": "Windows.Web.UI.Interop.WebViewControlProcessOptions",
+      "methods": [
+        {
+          "name": "put_EnterpriseId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_EnterpriseId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_PrivateNetworkClientServerCapability",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebViewControlProcessCapabilityState",
+                "namespace": "Windows.Web.UI.Interop",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PrivateNetworkClientServerCapability",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebViewControlProcessCapabilityState",
+            "namespace": "Windows.Web.UI.Interop",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EnterpriseId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EnterpriseId",
+          "setter": "put_EnterpriseId"
+        },
+        {
+          "name": "PrivateNetworkClientServerCapability",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebViewControlProcessCapabilityState",
+            "namespace": "Windows.Web.UI.Interop",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PrivateNetworkClientServerCapability",
+          "setter": "put_PrivateNetworkClientServerCapability"
+        }
+      ]
+    },
+    "IWebViewControlSite": {
+      "guid": "133f47c6-12dc-4898-bd47-04967de648ba",
+      "exclusive_to": "Windows.Web.UI.Interop.WebViewControl",
+      "methods": [
+        {
+          "name": "get_Process",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebViewControlProcess",
+            "namespace": "Windows.Web.UI.Interop",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Scale",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Scale",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_Bounds",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Bounds",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_IsVisible",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsVisible",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "Close"
+        },
+        {
+          "name": "MoveFocus",
+          "params": [
+            {
+              "name": "reason",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebViewControlMoveFocusReason",
+                "namespace": "Windows.Web.UI.Interop",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_MoveFocusRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebViewControl",
+                    "namespace": "Windows.Web.UI.Interop",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebViewControlMoveFocusRequestedEventArgs",
+                    "namespace": "Windows.Web.UI.Interop",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_MoveFocusRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_AcceleratorKeyPressed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebViewControl",
+                    "namespace": "Windows.Web.UI.Interop",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebViewControlAcceleratorKeyPressedEventArgs",
+                    "namespace": "Windows.Web.UI.Interop",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_AcceleratorKeyPressed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Bounds",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Bounds",
+          "setter": "put_Bounds"
+        },
+        {
+          "name": "IsVisible",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsVisible",
+          "setter": "put_IsVisible"
+        },
+        {
+          "name": "Process",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebViewControlProcess",
+            "namespace": "Windows.Web.UI.Interop",
+            "target_kind": "Class"
+          },
+          "getter": "get_Process"
+        },
+        {
+          "name": "Scale",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Scale",
+          "setter": "put_Scale"
+        }
+      ],
+      "events": [
+        {
+          "name": "AcceleratorKeyPressed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControl",
+                "namespace": "Windows.Web.UI.Interop",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControlAcceleratorKeyPressedEventArgs",
+                "namespace": "Windows.Web.UI.Interop",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_AcceleratorKeyPressed",
+          "remove_method": "remove_AcceleratorKeyPressed"
+        },
+        {
+          "name": "MoveFocusRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControl",
+                "namespace": "Windows.Web.UI.Interop",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControlMoveFocusRequestedEventArgs",
+                "namespace": "Windows.Web.UI.Interop",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_MoveFocusRequested",
+          "remove_method": "remove_MoveFocusRequested"
+        }
+      ]
+    },
+    "IWebViewControlSite2": {
+      "guid": "d13b2e3f-48ee-4730-8243-d2ed0c05606a",
+      "exclusive_to": "Windows.Web.UI.Interop.WebViewControl",
+      "methods": [
+        {
+          "name": "add_GotFocus",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebViewControl",
+                    "namespace": "Windows.Web.UI.Interop",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_GotFocus",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_LostFocus",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebViewControl",
+                    "namespace": "Windows.Web.UI.Interop",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_LostFocus",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "GotFocus",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControl",
+                "namespace": "Windows.Web.UI.Interop",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_GotFocus",
+          "remove_method": "remove_GotFocus"
+        },
+        {
+          "name": "LostFocus",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControl",
+                "namespace": "Windows.Web.UI.Interop",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_LostFocus",
+          "remove_method": "remove_LostFocus"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "WebViewControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebViewControl",
+        "namespace": "Windows.Web.UI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControl",
+          "namespace": "Windows.Web.UI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControlSite",
+          "namespace": "Windows.Web.UI.Interop",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControl2",
+          "namespace": "Windows.Web.UI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControlSite2",
+          "namespace": "Windows.Web.UI.Interop",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebViewControlAcceleratorKeyPressedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebViewControlAcceleratorKeyPressedEventArgs",
+        "namespace": "Windows.Web.UI.Interop",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControlAcceleratorKeyPressedEventArgs",
+          "namespace": "Windows.Web.UI.Interop",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebViewControlMoveFocusRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebViewControlMoveFocusRequestedEventArgs",
+        "namespace": "Windows.Web.UI.Interop",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControlMoveFocusRequestedEventArgs",
+          "namespace": "Windows.Web.UI.Interop",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebViewControlProcess": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebViewControlProcess",
+        "namespace": "Windows.Web.UI.Interop",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControlProcess",
+          "namespace": "Windows.Web.UI.Interop",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Web.UI.Interop.IWebViewControlProcessFactory"
+      ]
+    },
+    "WebViewControlProcessOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebViewControlProcessOptions",
+        "namespace": "Windows.Web.UI.Interop",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControlProcessOptions",
+          "namespace": "Windows.Web.UI.Interop",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  }
+}

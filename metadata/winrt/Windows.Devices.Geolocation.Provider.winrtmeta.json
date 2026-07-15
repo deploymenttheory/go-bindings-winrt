@@ -1,0 +1,170 @@
+{
+  "namespace": "Windows.Devices.Geolocation.Provider",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "LocationOverrideStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "AccessDenied",
+          "value": "1"
+        },
+        {
+          "name": "AlreadyStarted",
+          "value": "2"
+        },
+        {
+          "name": "Other",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IGeolocationProvider": {
+      "guid": "e4cf071d-3f64-509f-8dc2-0b74a059829d",
+      "exclusive_to": "Windows.Devices.Geolocation.Provider.GeolocationProvider",
+      "methods": [
+        {
+          "name": "get_IsOverridden",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "SetOverridePosition",
+          "params": [
+            {
+              "name": "newPosition",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BasicGeoposition",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "positionSource",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PositionSource",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "accuracyInMeters",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "LocationOverrideStatus",
+            "namespace": "Windows.Devices.Geolocation.Provider",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "ClearOverridePosition"
+        },
+        {
+          "name": "add_IsOverriddenChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_IsOverriddenChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsOverridden",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsOverridden"
+        }
+      ],
+      "events": [
+        {
+          "name": "IsOverriddenChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_IsOverriddenChanged",
+          "remove_method": "remove_IsOverriddenChanged"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "GeolocationProvider": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGeolocationProvider",
+        "namespace": "Windows.Devices.Geolocation.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGeolocationProvider",
+          "namespace": "Windows.Devices.Geolocation.Provider",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  }
+}

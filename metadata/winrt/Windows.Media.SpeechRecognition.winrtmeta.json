@@ -1,0 +1,2529 @@
+{
+  "namespace": "Windows.Media.SpeechRecognition",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "SpeechContinuousRecognitionMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "PauseOnRecognition",
+          "value": "1"
+        }
+      ]
+    },
+    "SpeechRecognitionAudioProblem": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "TooNoisy",
+          "value": "1"
+        },
+        {
+          "name": "NoSignal",
+          "value": "2"
+        },
+        {
+          "name": "TooLoud",
+          "value": "3"
+        },
+        {
+          "name": "TooQuiet",
+          "value": "4"
+        },
+        {
+          "name": "TooFast",
+          "value": "5"
+        },
+        {
+          "name": "TooSlow",
+          "value": "6"
+        }
+      ]
+    },
+    "SpeechRecognitionConfidence": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "High",
+          "value": "0"
+        },
+        {
+          "name": "Medium",
+          "value": "1"
+        },
+        {
+          "name": "Low",
+          "value": "2"
+        },
+        {
+          "name": "Rejected",
+          "value": "3"
+        }
+      ]
+    },
+    "SpeechRecognitionConstraintProbability": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "Min",
+          "value": "1"
+        },
+        {
+          "name": "Max",
+          "value": "2"
+        }
+      ]
+    },
+    "SpeechRecognitionConstraintType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Topic",
+          "value": "0"
+        },
+        {
+          "name": "List",
+          "value": "1"
+        },
+        {
+          "name": "Grammar",
+          "value": "2"
+        },
+        {
+          "name": "VoiceCommandDefinition",
+          "value": "3"
+        }
+      ]
+    },
+    "SpeechRecognitionResultStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "TopicLanguageNotSupported",
+          "value": "1"
+        },
+        {
+          "name": "GrammarLanguageMismatch",
+          "value": "2"
+        },
+        {
+          "name": "GrammarCompilationFailure",
+          "value": "3"
+        },
+        {
+          "name": "AudioQualityFailure",
+          "value": "4"
+        },
+        {
+          "name": "UserCanceled",
+          "value": "5"
+        },
+        {
+          "name": "Unknown",
+          "value": "6"
+        },
+        {
+          "name": "TimeoutExceeded",
+          "value": "7"
+        },
+        {
+          "name": "PauseLimitExceeded",
+          "value": "8"
+        },
+        {
+          "name": "NetworkFailure",
+          "value": "9"
+        },
+        {
+          "name": "MicrophoneUnavailable",
+          "value": "10"
+        }
+      ]
+    },
+    "SpeechRecognitionScenario": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "WebSearch",
+          "value": "0"
+        },
+        {
+          "name": "Dictation",
+          "value": "1"
+        },
+        {
+          "name": "FormFilling",
+          "value": "2"
+        }
+      ]
+    },
+    "SpeechRecognizerState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Idle",
+          "value": "0"
+        },
+        {
+          "name": "Capturing",
+          "value": "1"
+        },
+        {
+          "name": "Processing",
+          "value": "2"
+        },
+        {
+          "name": "SoundStarted",
+          "value": "3"
+        },
+        {
+          "name": "SoundEnded",
+          "value": "4"
+        },
+        {
+          "name": "SpeechDetected",
+          "value": "5"
+        },
+        {
+          "name": "Paused",
+          "value": "6"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ISpeechContinuousRecognitionCompletedEventArgs": {
+      "guid": "e3d069bb-e30c-5e18-424b-7fbe81f8fbd0",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechContinuousRecognitionCompletedEventArgs",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionResultStatus",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionResultStatus",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "ISpeechContinuousRecognitionResultGeneratedEventArgs": {
+      "guid": "19091e1e-6e7e-5a46-40fb-76594f786504",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechContinuousRecognitionResultGeneratedEventArgs",
+      "methods": [
+        {
+          "name": "get_Result",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionResult",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Result",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionResult",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Class"
+          },
+          "getter": "get_Result"
+        }
+      ]
+    },
+    "ISpeechContinuousRecognitionSession": {
+      "guid": "6a213c04-6614-49f8-99a2-b5e9b3a085c8",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechContinuousRecognitionSession",
+      "methods": [
+        {
+          "name": "get_AutoStopSilenceTimeout",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_AutoStopSilenceTimeout",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "StartAsync",
+          "overload": "StartAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "StartAsync",
+          "overload": "StartWithModeAsync",
+          "params": [
+            {
+              "name": "mode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpeechContinuousRecognitionMode",
+                "namespace": "Windows.Media.SpeechRecognition",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "StopAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "CancelAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "PauseAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "Resume"
+        },
+        {
+          "name": "add_Completed",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpeechContinuousRecognitionSession",
+                    "namespace": "Windows.Media.SpeechRecognition",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpeechContinuousRecognitionCompletedEventArgs",
+                    "namespace": "Windows.Media.SpeechRecognition",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Completed",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ResultGenerated",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpeechContinuousRecognitionSession",
+                    "namespace": "Windows.Media.SpeechRecognition",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpeechContinuousRecognitionResultGeneratedEventArgs",
+                    "namespace": "Windows.Media.SpeechRecognition",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ResultGenerated",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AutoStopSilenceTimeout",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_AutoStopSilenceTimeout",
+          "setter": "put_AutoStopSilenceTimeout"
+        }
+      ],
+      "events": [
+        {
+          "name": "Completed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpeechContinuousRecognitionSession",
+                "namespace": "Windows.Media.SpeechRecognition",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpeechContinuousRecognitionCompletedEventArgs",
+                "namespace": "Windows.Media.SpeechRecognition",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Completed",
+          "remove_method": "remove_Completed"
+        },
+        {
+          "name": "ResultGenerated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpeechContinuousRecognitionSession",
+                "namespace": "Windows.Media.SpeechRecognition",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpeechContinuousRecognitionResultGeneratedEventArgs",
+                "namespace": "Windows.Media.SpeechRecognition",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ResultGenerated",
+          "remove_method": "remove_ResultGenerated"
+        }
+      ]
+    },
+    "ISpeechRecognitionCompilationResult": {
+      "guid": "407e6c5d-6ac7-4da4-9cc1-2fce32cf7489",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechRecognitionCompilationResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionResultStatus",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionResultStatus",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "ISpeechRecognitionConstraint": {
+      "guid": "79ac1628-4d68-43c4-8911-40dc4101b55b",
+      "methods": [
+        {
+          "name": "get_IsEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Tag",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Tag",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Type",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionConstraintType",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Probability",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionConstraintProbability",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Probability",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpeechRecognitionConstraintProbability",
+                "namespace": "Windows.Media.SpeechRecognition",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsEnabled",
+          "setter": "put_IsEnabled"
+        },
+        {
+          "name": "Probability",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionConstraintProbability",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Probability",
+          "setter": "put_Probability"
+        },
+        {
+          "name": "Tag",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Tag",
+          "setter": "put_Tag"
+        },
+        {
+          "name": "Type",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionConstraintType",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Type"
+        }
+      ]
+    },
+    "ISpeechRecognitionGrammarFileConstraint": {
+      "guid": "b5031a8f-85ca-4fa4-b11a-474fc41b3835",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechRecognitionGrammarFileConstraint",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechRecognitionConstraint",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_GrammarFile",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageFile",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "GrammarFile",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StorageFile",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          },
+          "getter": "get_GrammarFile"
+        }
+      ]
+    },
+    "ISpeechRecognitionGrammarFileConstraintFactory": {
+      "guid": "3da770eb-c479-4c27-9f19-89974ef392d1",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechRecognitionGrammarFileConstraint",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "file",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionGrammarFileConstraint",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithTag",
+          "params": [
+            {
+              "name": "file",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "tag",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionGrammarFileConstraint",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISpeechRecognitionHypothesis": {
+      "guid": "7a7b25b0-99c5-4f7d-bf84-10aa1302b634",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechRecognitionHypothesis",
+      "methods": [
+        {
+          "name": "get_Text",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Text",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Text"
+        }
+      ]
+    },
+    "ISpeechRecognitionHypothesisGeneratedEventArgs": {
+      "guid": "55161a7a-8023-5866-411d-1213bb271476",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechRecognitionHypothesisGeneratedEventArgs",
+      "methods": [
+        {
+          "name": "get_Hypothesis",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionHypothesis",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Hypothesis",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionHypothesis",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Class"
+          },
+          "getter": "get_Hypothesis"
+        }
+      ]
+    },
+    "ISpeechRecognitionListConstraint": {
+      "guid": "09c487e9-e4ad-4526-81f2-4946fb481d98",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechRecognitionListConstraint",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechRecognitionConstraint",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Commands",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Commands",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Commands"
+        }
+      ]
+    },
+    "ISpeechRecognitionListConstraintFactory": {
+      "guid": "40f3cdc7-562a-426a-9f3b-3b4e282be1d5",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechRecognitionListConstraint",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "commands",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionListConstraint",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithTag",
+          "params": [
+            {
+              "name": "commands",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "tag",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionListConstraint",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISpeechRecognitionQualityDegradingEventArgs": {
+      "guid": "4fe24105-8c3a-4c7e-8d0a-5bd4f5b14ad8",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechRecognitionQualityDegradingEventArgs",
+      "methods": [
+        {
+          "name": "get_Problem",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionAudioProblem",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Problem",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionAudioProblem",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Problem"
+        }
+      ]
+    },
+    "ISpeechRecognitionResult": {
+      "guid": "4e303157-034e-4652-857e-d0454cc4beec",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechRecognitionResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionResultStatus",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Text",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Confidence",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionConfidence",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_SemanticInterpretation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionSemanticInterpretation",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetAlternates",
+          "params": [
+            {
+              "name": "maxAlternates",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpeechRecognitionResult",
+                "namespace": "Windows.Media.SpeechRecognition",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Constraint",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ISpeechRecognitionConstraint",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_RulePath",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_RawConfidence",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Confidence",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionConfidence",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Confidence"
+        },
+        {
+          "name": "Constraint",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ISpeechRecognitionConstraint",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Constraint"
+        },
+        {
+          "name": "RawConfidence",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_RawConfidence"
+        },
+        {
+          "name": "RulePath",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_RulePath"
+        },
+        {
+          "name": "SemanticInterpretation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionSemanticInterpretation",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Class"
+          },
+          "getter": "get_SemanticInterpretation"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionResultStatus",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        },
+        {
+          "name": "Text",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Text"
+        }
+      ]
+    },
+    "ISpeechRecognitionResult2": {
+      "guid": "af7ed1ba-451b-4166-a0c1-1ffe84032d03",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechRecognitionResult",
+      "methods": [
+        {
+          "name": "get_PhraseStartTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_PhraseDuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PhraseDuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_PhraseDuration"
+        },
+        {
+          "name": "PhraseStartTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_PhraseStartTime"
+        }
+      ]
+    },
+    "ISpeechRecognitionSemanticInterpretation": {
+      "guid": "aae1da9b-7e32-4c1f-89fe-0c65f486f52e",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechRecognitionSemanticInterpretation",
+      "methods": [
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        }
+      ]
+    },
+    "ISpeechRecognitionTopicConstraint": {
+      "guid": "bf6fdf19-825d-4e69-a681-36e48cf1c93e",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechRecognitionTopicConstraint",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechRecognitionConstraint",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Scenario",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionScenario",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_TopicHint",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Scenario",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionScenario",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Scenario"
+        },
+        {
+          "name": "TopicHint",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TopicHint"
+        }
+      ]
+    },
+    "ISpeechRecognitionTopicConstraintFactory": {
+      "guid": "6e6863df-ec05-47d7-a5df-56a3431e58d2",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechRecognitionTopicConstraint",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "scenario",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpeechRecognitionScenario",
+                "namespace": "Windows.Media.SpeechRecognition",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "topicHint",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionTopicConstraint",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithTag",
+          "params": [
+            {
+              "name": "scenario",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpeechRecognitionScenario",
+                "namespace": "Windows.Media.SpeechRecognition",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "topicHint",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "tag",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionTopicConstraint",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISpeechRecognitionVoiceCommandDefinitionConstraint": {
+      "guid": "f2791c2b-1ef4-4ae7-9d77-b6ff10b8a3c2",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechRecognitionVoiceCommandDefinitionConstraint",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechRecognitionConstraint",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ISpeechRecognizer": {
+      "guid": "0bc3c9cb-c26a-40f2-aeb5-8096b2e48073",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechRecognizer",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_CurrentLanguage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Language",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Constraints",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ISpeechRecognitionConstraint",
+                "namespace": "Windows.Media.SpeechRecognition",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Timeouts",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognizerTimeouts",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_UIOptions",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognizerUIOptions",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CompileConstraintsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpeechRecognitionCompilationResult",
+                "namespace": "Windows.Media.SpeechRecognition",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RecognizeAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpeechRecognitionResult",
+                "namespace": "Windows.Media.SpeechRecognition",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RecognizeWithUIAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpeechRecognitionResult",
+                "namespace": "Windows.Media.SpeechRecognition",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_RecognitionQualityDegrading",
+          "params": [
+            {
+              "name": "speechRecognitionQualityDegradingHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpeechRecognizer",
+                    "namespace": "Windows.Media.SpeechRecognition",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpeechRecognitionQualityDegradingEventArgs",
+                    "namespace": "Windows.Media.SpeechRecognition",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_RecognitionQualityDegrading",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_StateChanged",
+          "params": [
+            {
+              "name": "stateChangedHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpeechRecognizer",
+                    "namespace": "Windows.Media.SpeechRecognition",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpeechRecognizerStateChangedEventArgs",
+                    "namespace": "Windows.Media.SpeechRecognition",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_StateChanged",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Constraints",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ISpeechRecognitionConstraint",
+                "namespace": "Windows.Media.SpeechRecognition",
+                "target_kind": "Interface"
+              }
+            ]
+          },
+          "getter": "get_Constraints"
+        },
+        {
+          "name": "CurrentLanguage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Language",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Class"
+          },
+          "getter": "get_CurrentLanguage"
+        },
+        {
+          "name": "Timeouts",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognizerTimeouts",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Class"
+          },
+          "getter": "get_Timeouts"
+        },
+        {
+          "name": "UIOptions",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognizerUIOptions",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Class"
+          },
+          "getter": "get_UIOptions"
+        }
+      ],
+      "events": [
+        {
+          "name": "RecognitionQualityDegrading",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpeechRecognizer",
+                "namespace": "Windows.Media.SpeechRecognition",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpeechRecognitionQualityDegradingEventArgs",
+                "namespace": "Windows.Media.SpeechRecognition",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_RecognitionQualityDegrading",
+          "remove_method": "remove_RecognitionQualityDegrading"
+        },
+        {
+          "name": "StateChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpeechRecognizer",
+                "namespace": "Windows.Media.SpeechRecognition",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpeechRecognizerStateChangedEventArgs",
+                "namespace": "Windows.Media.SpeechRecognition",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_StateChanged",
+          "remove_method": "remove_StateChanged"
+        }
+      ]
+    },
+    "ISpeechRecognizer2": {
+      "guid": "63c9baf1-91e3-4ea4-86a1-7c3867d084a6",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechRecognizer",
+      "methods": [
+        {
+          "name": "get_ContinuousRecognitionSession",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechContinuousRecognitionSession",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_State",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognizerState",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "StopRecognitionAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "add_HypothesisGenerated",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpeechRecognizer",
+                    "namespace": "Windows.Media.SpeechRecognition",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpeechRecognitionHypothesisGeneratedEventArgs",
+                    "namespace": "Windows.Media.SpeechRecognition",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_HypothesisGenerated",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContinuousRecognitionSession",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpeechContinuousRecognitionSession",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Class"
+          },
+          "getter": "get_ContinuousRecognitionSession"
+        },
+        {
+          "name": "State",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognizerState",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Enum"
+          },
+          "getter": "get_State"
+        }
+      ],
+      "events": [
+        {
+          "name": "HypothesisGenerated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpeechRecognizer",
+                "namespace": "Windows.Media.SpeechRecognition",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpeechRecognitionHypothesisGeneratedEventArgs",
+                "namespace": "Windows.Media.SpeechRecognition",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_HypothesisGenerated",
+          "remove_method": "remove_HypothesisGenerated"
+        }
+      ]
+    },
+    "ISpeechRecognizerFactory": {
+      "guid": "60c488dd-7fb8-4033-ac70-d046f64818e1",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechRecognizer",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "language",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Language",
+                "namespace": "Windows.Globalization",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognizer",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISpeechRecognizerStateChangedEventArgs": {
+      "guid": "563d4f09-ba03-4bad-ad81-ddc6c4dab0c3",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechRecognizerStateChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_State",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognizerState",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "State",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognizerState",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Enum"
+          },
+          "getter": "get_State"
+        }
+      ]
+    },
+    "ISpeechRecognizerStatics": {
+      "guid": "87a35eac-a7dc-4b0b-bcc9-24f47c0b7ebf",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechRecognizer",
+      "methods": [
+        {
+          "name": "get_SystemSpeechLanguage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Language",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_SupportedTopicLanguages",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Language",
+                "namespace": "Windows.Globalization",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SupportedGrammarLanguages",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Language",
+                "namespace": "Windows.Globalization",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SupportedGrammarLanguages",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Language",
+                "namespace": "Windows.Globalization",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_SupportedGrammarLanguages"
+        },
+        {
+          "name": "SupportedTopicLanguages",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Language",
+                "namespace": "Windows.Globalization",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_SupportedTopicLanguages"
+        },
+        {
+          "name": "SystemSpeechLanguage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Language",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Class"
+          },
+          "getter": "get_SystemSpeechLanguage"
+        }
+      ]
+    },
+    "ISpeechRecognizerStatics2": {
+      "guid": "1d1b0d95-7565-4ef9-a2f3-ba15162a96cf",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechRecognizer",
+      "methods": [
+        {
+          "name": "TrySetSystemSpeechLanguageAsync",
+          "params": [
+            {
+              "name": "speechLanguage",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Language",
+                "namespace": "Windows.Globalization",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ISpeechRecognizerTimeouts": {
+      "guid": "2ef76fca-6a3c-4dca-a153-df1bc88a79af",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechRecognizerTimeouts",
+      "methods": [
+        {
+          "name": "get_InitialSilenceTimeout",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_InitialSilenceTimeout",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_EndSilenceTimeout",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_EndSilenceTimeout",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BabbleTimeout",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_BabbleTimeout",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "BabbleTimeout",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BabbleTimeout",
+          "setter": "put_BabbleTimeout"
+        },
+        {
+          "name": "EndSilenceTimeout",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_EndSilenceTimeout",
+          "setter": "put_EndSilenceTimeout"
+        },
+        {
+          "name": "InitialSilenceTimeout",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_InitialSilenceTimeout",
+          "setter": "put_InitialSilenceTimeout"
+        }
+      ]
+    },
+    "ISpeechRecognizerUIOptions": {
+      "guid": "7888d641-b92b-44ba-a25f-d1864630641f",
+      "exclusive_to": "Windows.Media.SpeechRecognition.SpeechRecognizerUIOptions",
+      "methods": [
+        {
+          "name": "get_ExampleText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_ExampleText",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AudiblePrompt",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_AudiblePrompt",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsReadBackEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsReadBackEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ShowConfirmation",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_ShowConfirmation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AudiblePrompt",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AudiblePrompt",
+          "setter": "put_AudiblePrompt"
+        },
+        {
+          "name": "ExampleText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ExampleText",
+          "setter": "put_ExampleText"
+        },
+        {
+          "name": "IsReadBackEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsReadBackEnabled",
+          "setter": "put_IsReadBackEnabled"
+        },
+        {
+          "name": "ShowConfirmation",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ShowConfirmation",
+          "setter": "put_ShowConfirmation"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "SpeechContinuousRecognitionCompletedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpeechContinuousRecognitionCompletedEventArgs",
+        "namespace": "Windows.Media.SpeechRecognition",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechContinuousRecognitionCompletedEventArgs",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpeechContinuousRecognitionResultGeneratedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpeechContinuousRecognitionResultGeneratedEventArgs",
+        "namespace": "Windows.Media.SpeechRecognition",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechContinuousRecognitionResultGeneratedEventArgs",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpeechContinuousRecognitionSession": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpeechContinuousRecognitionSession",
+        "namespace": "Windows.Media.SpeechRecognition",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechContinuousRecognitionSession",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpeechRecognitionCompilationResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpeechRecognitionCompilationResult",
+        "namespace": "Windows.Media.SpeechRecognition",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechRecognitionCompilationResult",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpeechRecognitionGrammarFileConstraint": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpeechRecognitionGrammarFileConstraint",
+        "namespace": "Windows.Media.SpeechRecognition",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechRecognitionGrammarFileConstraint",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechRecognitionConstraint",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Media.SpeechRecognition.ISpeechRecognitionGrammarFileConstraintFactory"
+      ]
+    },
+    "SpeechRecognitionHypothesis": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpeechRecognitionHypothesis",
+        "namespace": "Windows.Media.SpeechRecognition",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechRecognitionHypothesis",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpeechRecognitionHypothesisGeneratedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpeechRecognitionHypothesisGeneratedEventArgs",
+        "namespace": "Windows.Media.SpeechRecognition",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechRecognitionHypothesisGeneratedEventArgs",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpeechRecognitionListConstraint": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpeechRecognitionListConstraint",
+        "namespace": "Windows.Media.SpeechRecognition",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechRecognitionListConstraint",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechRecognitionConstraint",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Media.SpeechRecognition.ISpeechRecognitionListConstraintFactory"
+      ]
+    },
+    "SpeechRecognitionQualityDegradingEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpeechRecognitionQualityDegradingEventArgs",
+        "namespace": "Windows.Media.SpeechRecognition",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechRecognitionQualityDegradingEventArgs",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpeechRecognitionResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpeechRecognitionResult",
+        "namespace": "Windows.Media.SpeechRecognition",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechRecognitionResult",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechRecognitionResult2",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpeechRecognitionSemanticInterpretation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpeechRecognitionSemanticInterpretation",
+        "namespace": "Windows.Media.SpeechRecognition",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechRecognitionSemanticInterpretation",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpeechRecognitionTopicConstraint": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpeechRecognitionTopicConstraint",
+        "namespace": "Windows.Media.SpeechRecognition",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechRecognitionTopicConstraint",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechRecognitionConstraint",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Media.SpeechRecognition.ISpeechRecognitionTopicConstraintFactory"
+      ]
+    },
+    "SpeechRecognitionVoiceCommandDefinitionConstraint": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpeechRecognitionVoiceCommandDefinitionConstraint",
+        "namespace": "Windows.Media.SpeechRecognition",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechRecognitionVoiceCommandDefinitionConstraint",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechRecognitionConstraint",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpeechRecognizer": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpeechRecognizer",
+        "namespace": "Windows.Media.SpeechRecognition",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechRecognizer",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechRecognizer2",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Media.SpeechRecognition.ISpeechRecognizerFactory"
+      ],
+      "static_interfaces": [
+        "Windows.Media.SpeechRecognition.ISpeechRecognizerStatics",
+        "Windows.Media.SpeechRecognition.ISpeechRecognizerStatics2"
+      ]
+    },
+    "SpeechRecognizerStateChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpeechRecognizerStateChangedEventArgs",
+        "namespace": "Windows.Media.SpeechRecognition",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechRecognizerStateChangedEventArgs",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpeechRecognizerTimeouts": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpeechRecognizerTimeouts",
+        "namespace": "Windows.Media.SpeechRecognition",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechRecognizerTimeouts",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpeechRecognizerUIOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpeechRecognizerUIOptions",
+        "namespace": "Windows.Media.SpeechRecognition",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpeechRecognizerUIOptions",
+          "namespace": "Windows.Media.SpeechRecognition",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

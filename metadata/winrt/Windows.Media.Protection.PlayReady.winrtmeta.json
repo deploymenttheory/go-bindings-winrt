@@ -1,0 +1,5093 @@
+{
+  "namespace": "Windows.Media.Protection.PlayReady",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "NDCertificateFeature": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Transmitter",
+          "value": "1"
+        },
+        {
+          "name": "Receiver",
+          "value": "2"
+        },
+        {
+          "name": "SharedCertificate",
+          "value": "3"
+        },
+        {
+          "name": "SecureClock",
+          "value": "4"
+        },
+        {
+          "name": "AntiRollBackClock",
+          "value": "5"
+        },
+        {
+          "name": "CRLS",
+          "value": "9"
+        },
+        {
+          "name": "PlayReady3Features",
+          "value": "13"
+        }
+      ]
+    },
+    "NDCertificatePlatformID": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Windows",
+          "value": "0"
+        },
+        {
+          "name": "OSX",
+          "value": "1"
+        },
+        {
+          "name": "WindowsOnARM",
+          "value": "2"
+        },
+        {
+          "name": "WindowsMobile7",
+          "value": "5"
+        },
+        {
+          "name": "iOSOnARM",
+          "value": "6"
+        },
+        {
+          "name": "XBoxOnPPC",
+          "value": "7"
+        },
+        {
+          "name": "WindowsPhone8OnARM",
+          "value": "8"
+        },
+        {
+          "name": "WindowsPhone8OnX86",
+          "value": "9"
+        },
+        {
+          "name": "XboxOne",
+          "value": "10"
+        },
+        {
+          "name": "AndroidOnARM",
+          "value": "11"
+        },
+        {
+          "name": "WindowsPhone81OnARM",
+          "value": "12"
+        },
+        {
+          "name": "WindowsPhone81OnX86",
+          "value": "13"
+        }
+      ]
+    },
+    "NDCertificateType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "PC",
+          "value": "1"
+        },
+        {
+          "name": "Device",
+          "value": "2"
+        },
+        {
+          "name": "Domain",
+          "value": "3"
+        },
+        {
+          "name": "Issuer",
+          "value": "4"
+        },
+        {
+          "name": "CrlSigner",
+          "value": "5"
+        },
+        {
+          "name": "Service",
+          "value": "6"
+        },
+        {
+          "name": "Silverlight",
+          "value": "7"
+        },
+        {
+          "name": "Application",
+          "value": "8"
+        },
+        {
+          "name": "Metering",
+          "value": "9"
+        },
+        {
+          "name": "KeyFileSigner",
+          "value": "10"
+        },
+        {
+          "name": "Server",
+          "value": "11"
+        },
+        {
+          "name": "LicenseSigner",
+          "value": "12"
+        }
+      ]
+    },
+    "NDClosedCaptionFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "ATSC",
+          "value": "0"
+        },
+        {
+          "name": "SCTE20",
+          "value": "1"
+        },
+        {
+          "name": "Unknown",
+          "value": "2"
+        }
+      ]
+    },
+    "NDContentIDType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "KeyID",
+          "value": "1"
+        },
+        {
+          "name": "PlayReadyObject",
+          "value": "2"
+        },
+        {
+          "name": "Custom",
+          "value": "3"
+        }
+      ]
+    },
+    "NDMediaStreamType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Audio",
+          "value": "1"
+        },
+        {
+          "name": "Video",
+          "value": "2"
+        }
+      ]
+    },
+    "NDProximityDetectionType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "UDP",
+          "value": "1"
+        },
+        {
+          "name": "TCP",
+          "value": "2"
+        },
+        {
+          "name": "TransportAgnostic",
+          "value": "4"
+        }
+      ]
+    },
+    "NDStartAsyncOptions": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "MutualAuthentication",
+          "value": "1"
+        },
+        {
+          "name": "WaitForLicenseDescriptor",
+          "value": "2"
+        }
+      ]
+    },
+    "PlayReadyDecryptorSetup": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Uninitialized",
+          "value": "0"
+        },
+        {
+          "name": "OnDemand",
+          "value": "1"
+        }
+      ]
+    },
+    "PlayReadyEncryptionAlgorithm": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unprotected",
+          "value": "0"
+        },
+        {
+          "name": "Aes128Ctr",
+          "value": "1"
+        },
+        {
+          "name": "Cocktail",
+          "value": "4"
+        },
+        {
+          "name": "Aes128Cbc",
+          "value": "5"
+        },
+        {
+          "name": "Unspecified",
+          "value": "65535"
+        },
+        {
+          "name": "Uninitialized",
+          "value": "2147483647"
+        }
+      ]
+    },
+    "PlayReadyHardwareDRMFeatures": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "HardwareDRM",
+          "value": "1"
+        },
+        {
+          "name": "HEVC",
+          "value": "2"
+        },
+        {
+          "name": "Aes128Cbc",
+          "value": "3"
+        }
+      ]
+    },
+    "PlayReadyITADataFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "SerializedProperties",
+          "value": "0"
+        },
+        {
+          "name": "SerializedProperties_WithContentProtectionWrapper",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "INDClient": {
+      "guid": "3bd6781b-61b8-46e2-99a5-8abcb6b9f7d6",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.NDClient",
+      "methods": [
+        {
+          "name": "add_RegistrationCompleted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "NDClient",
+                    "namespace": "Windows.Media.Protection.PlayReady",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "INDRegistrationCompletedEventArgs",
+                    "namespace": "Windows.Media.Protection.PlayReady",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_RegistrationCompleted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ProximityDetectionCompleted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "NDClient",
+                    "namespace": "Windows.Media.Protection.PlayReady",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "INDProximityDetectionCompletedEventArgs",
+                    "namespace": "Windows.Media.Protection.PlayReady",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ProximityDetectionCompleted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_LicenseFetchCompleted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "NDClient",
+                    "namespace": "Windows.Media.Protection.PlayReady",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "INDLicenseFetchCompletedEventArgs",
+                    "namespace": "Windows.Media.Protection.PlayReady",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_LicenseFetchCompleted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ReRegistrationNeeded",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "NDClient",
+                    "namespace": "Windows.Media.Protection.PlayReady",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ReRegistrationNeeded",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ClosedCaptionDataReceived",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "NDClient",
+                    "namespace": "Windows.Media.Protection.PlayReady",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "INDClosedCaptionDataReceivedEventArgs",
+                    "namespace": "Windows.Media.Protection.PlayReady",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ClosedCaptionDataReceived",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "StartAsync",
+          "params": [
+            {
+              "name": "contentUrl",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "startAsyncOptions",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "registrationCustomData",
+              "type": {
+                "kind": "ApiRef",
+                "name": "INDCustomData",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "licenseFetchDescriptor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "INDLicenseFetchDescriptor",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "INDStartResult",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "LicenseFetchAsync",
+          "params": [
+            {
+              "name": "licenseFetchDescriptor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "INDLicenseFetchDescriptor",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "INDLicenseFetchResult",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ReRegistrationAsync",
+          "params": [
+            {
+              "name": "registrationCustomData",
+              "type": {
+                "kind": "ApiRef",
+                "name": "INDCustomData",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "Close"
+        }
+      ],
+      "events": [
+        {
+          "name": "ClosedCaptionDataReceived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "NDClient",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "INDClosedCaptionDataReceivedEventArgs",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Interface"
+              }
+            ]
+          },
+          "add_method": "add_ClosedCaptionDataReceived",
+          "remove_method": "remove_ClosedCaptionDataReceived"
+        },
+        {
+          "name": "LicenseFetchCompleted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "NDClient",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "INDLicenseFetchCompletedEventArgs",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Interface"
+              }
+            ]
+          },
+          "add_method": "add_LicenseFetchCompleted",
+          "remove_method": "remove_LicenseFetchCompleted"
+        },
+        {
+          "name": "ProximityDetectionCompleted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "NDClient",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "INDProximityDetectionCompletedEventArgs",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Interface"
+              }
+            ]
+          },
+          "add_method": "add_ProximityDetectionCompleted",
+          "remove_method": "remove_ProximityDetectionCompleted"
+        },
+        {
+          "name": "ReRegistrationNeeded",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "NDClient",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ReRegistrationNeeded",
+          "remove_method": "remove_ReRegistrationNeeded"
+        },
+        {
+          "name": "RegistrationCompleted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "NDClient",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "INDRegistrationCompletedEventArgs",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Interface"
+              }
+            ]
+          },
+          "add_method": "add_RegistrationCompleted",
+          "remove_method": "remove_RegistrationCompleted"
+        }
+      ]
+    },
+    "INDClientFactory": {
+      "guid": "3e53dd62-fee8-451f-b0d4-f706cca3e037",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.NDClient",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "downloadEngine",
+              "type": {
+                "kind": "ApiRef",
+                "name": "INDDownloadEngine",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "streamParser",
+              "type": {
+                "kind": "ApiRef",
+                "name": "INDStreamParser",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "pMessenger",
+              "type": {
+                "kind": "ApiRef",
+                "name": "INDMessenger",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "NDClient",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "INDClosedCaptionDataReceivedEventArgs": {
+      "guid": "4738d29f-c345-4649-8468-b8c5fc357190",
+      "methods": [
+        {
+          "name": "get_ClosedCaptionDataFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NDClosedCaptionFormat",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_PresentationTimestamp",
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        },
+        {
+          "name": "get_ClosedCaptionData",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ClosedCaptionData",
+          "type": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          },
+          "getter": "get_ClosedCaptionData"
+        },
+        {
+          "name": "ClosedCaptionDataFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NDClosedCaptionFormat",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ClosedCaptionDataFormat"
+        },
+        {
+          "name": "PresentationTimestamp",
+          "type": {
+            "kind": "Native",
+            "name": "I8"
+          },
+          "getter": "get_PresentationTimestamp"
+        }
+      ]
+    },
+    "INDCustomData": {
+      "guid": "f5cb0fdc-2d09-4f19-b5e1-76a0b3ee9267",
+      "methods": [
+        {
+          "name": "get_CustomDataTypeID",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          }
+        },
+        {
+          "name": "get_CustomData",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CustomData",
+          "type": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          },
+          "getter": "get_CustomData"
+        },
+        {
+          "name": "CustomDataTypeID",
+          "type": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          },
+          "getter": "get_CustomDataTypeID"
+        }
+      ]
+    },
+    "INDCustomDataFactory": {
+      "guid": "d65405ab-3424-4833-8c9a-af5fdeb22872",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.NDCustomData",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "customDataTypeIDBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            },
+            {
+              "name": "customDataBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "NDCustomData",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "INDDownloadEngine": {
+      "guid": "2d223d65-c4b6-4438-8d46-b96e6d0fb21f",
+      "methods": [
+        {
+          "name": "Open",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "sessionIDBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "Pause"
+        },
+        {
+          "name": "Resume"
+        },
+        {
+          "name": "Close"
+        },
+        {
+          "name": "Seek",
+          "params": [
+            {
+              "name": "startPosition",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CanSeek",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_BufferFullMinThresholdInSamples",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_BufferFullMaxThresholdInSamples",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Notifier",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NDDownloadEngineNotifier",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BufferFullMaxThresholdInSamples",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_BufferFullMaxThresholdInSamples"
+        },
+        {
+          "name": "BufferFullMinThresholdInSamples",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_BufferFullMinThresholdInSamples"
+        },
+        {
+          "name": "CanSeek",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanSeek"
+        },
+        {
+          "name": "Notifier",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NDDownloadEngineNotifier",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          },
+          "getter": "get_Notifier"
+        }
+      ]
+    },
+    "INDDownloadEngineNotifier": {
+      "guid": "d720b4d4-f4b8-4530-a809-9193a571e7fc",
+      "methods": [
+        {
+          "name": "OnStreamOpened"
+        },
+        {
+          "name": "OnPlayReadyObjectReceived",
+          "params": [
+            {
+              "name": "dataBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "OnContentIDReceived",
+          "params": [
+            {
+              "name": "licenseFetchDescriptor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "INDLicenseFetchDescriptor",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "OnDataReceived",
+          "params": [
+            {
+              "name": "dataBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            },
+            {
+              "name": "bytesReceived",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "OnEndOfStream"
+        },
+        {
+          "name": "OnNetworkError"
+        }
+      ]
+    },
+    "INDLicenseFetchCompletedEventArgs": {
+      "guid": "1ee30a1a-11b2-4558-8865-e3a516922517",
+      "methods": [
+        {
+          "name": "get_ResponseCustomData",
+          "return": {
+            "kind": "ApiRef",
+            "name": "INDCustomData",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ResponseCustomData",
+          "type": {
+            "kind": "ApiRef",
+            "name": "INDCustomData",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Interface"
+          },
+          "getter": "get_ResponseCustomData"
+        }
+      ]
+    },
+    "INDLicenseFetchDescriptor": {
+      "guid": "5498d33a-e686-4935-a567-7ca77ad20fa4",
+      "methods": [
+        {
+          "name": "get_ContentIDType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NDContentIDType",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ContentID",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          }
+        },
+        {
+          "name": "get_LicenseFetchChallengeCustomData",
+          "return": {
+            "kind": "ApiRef",
+            "name": "INDCustomData",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_LicenseFetchChallengeCustomData",
+          "params": [
+            {
+              "name": "licenseFetchChallengeCustomData",
+              "type": {
+                "kind": "ApiRef",
+                "name": "INDCustomData",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContentID",
+          "type": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          },
+          "getter": "get_ContentID"
+        },
+        {
+          "name": "ContentIDType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NDContentIDType",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ContentIDType"
+        },
+        {
+          "name": "LicenseFetchChallengeCustomData",
+          "type": {
+            "kind": "ApiRef",
+            "name": "INDCustomData",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Interface"
+          },
+          "getter": "get_LicenseFetchChallengeCustomData",
+          "setter": "put_LicenseFetchChallengeCustomData"
+        }
+      ]
+    },
+    "INDLicenseFetchDescriptorFactory": {
+      "guid": "d0031202-cfac-4f00-ae6a-97af80b848f2",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.NDLicenseFetchDescriptor",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "contentIDType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NDContentIDType",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "contentIDBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            },
+            {
+              "name": "licenseFetchChallengeCustomData",
+              "type": {
+                "kind": "ApiRef",
+                "name": "INDCustomData",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "NDLicenseFetchDescriptor",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "INDLicenseFetchResult": {
+      "guid": "21d39698-aa62-45ff-a5ff-8037e5433825",
+      "methods": [
+        {
+          "name": "get_ResponseCustomData",
+          "return": {
+            "kind": "ApiRef",
+            "name": "INDCustomData",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ResponseCustomData",
+          "type": {
+            "kind": "ApiRef",
+            "name": "INDCustomData",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Interface"
+          },
+          "getter": "get_ResponseCustomData"
+        }
+      ]
+    },
+    "INDMessenger": {
+      "guid": "d42df95d-a75b-47bf-8249-bc83820da38a",
+      "methods": [
+        {
+          "name": "SendRegistrationRequestAsync",
+          "params": [
+            {
+              "name": "sessionIDBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            },
+            {
+              "name": "challengeDataBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "INDSendResult",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SendProximityDetectionStartAsync",
+          "params": [
+            {
+              "name": "pdType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NDProximityDetectionType",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "transmitterChannelBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            },
+            {
+              "name": "sessionIDBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            },
+            {
+              "name": "challengeDataBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "INDSendResult",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SendProximityDetectionResponseAsync",
+          "params": [
+            {
+              "name": "pdType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NDProximityDetectionType",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "transmitterChannelBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            },
+            {
+              "name": "sessionIDBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            },
+            {
+              "name": "responseDataBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "INDSendResult",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SendLicenseFetchRequestAsync",
+          "params": [
+            {
+              "name": "sessionIDBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            },
+            {
+              "name": "challengeDataBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "INDSendResult",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "INDProximityDetectionCompletedEventArgs": {
+      "guid": "2a706328-da25-4f8c-9eb7-5d0fc3658bca",
+      "methods": [
+        {
+          "name": "get_ProximityDetectionRetryCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ProximityDetectionRetryCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ProximityDetectionRetryCount"
+        }
+      ]
+    },
+    "INDRegistrationCompletedEventArgs": {
+      "guid": "9e39b64d-ab5b-4905-acdc-787a77c6374d",
+      "methods": [
+        {
+          "name": "get_ResponseCustomData",
+          "return": {
+            "kind": "ApiRef",
+            "name": "INDCustomData",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_TransmitterProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "INDTransmitterProperties",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_TransmitterCertificateAccepted",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_TransmitterCertificateAccepted",
+          "params": [
+            {
+              "name": "accept",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ResponseCustomData",
+          "type": {
+            "kind": "ApiRef",
+            "name": "INDCustomData",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Interface"
+          },
+          "getter": "get_ResponseCustomData"
+        },
+        {
+          "name": "TransmitterCertificateAccepted",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_TransmitterCertificateAccepted",
+          "setter": "put_TransmitterCertificateAccepted"
+        },
+        {
+          "name": "TransmitterProperties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "INDTransmitterProperties",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Interface"
+          },
+          "getter": "get_TransmitterProperties"
+        }
+      ]
+    },
+    "INDSendResult": {
+      "guid": "e3685517-a584-479d-90b7-d689c7bf7c80",
+      "methods": [
+        {
+          "name": "get_Response",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Response",
+          "type": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          },
+          "getter": "get_Response"
+        }
+      ]
+    },
+    "INDStartResult": {
+      "guid": "79f6e96e-f50f-4015-8ba4-c2bc344ebd4e",
+      "methods": [
+        {
+          "name": "get_MediaStreamSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaStreamSource",
+            "namespace": "Windows.Media.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "MediaStreamSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaStreamSource",
+            "namespace": "Windows.Media.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_MediaStreamSource"
+        }
+      ]
+    },
+    "INDStorageFileHelper": {
+      "guid": "d8f0bef8-91d2-4d47-a3f9-eaff4edb729f",
+      "methods": [
+        {
+          "name": "GetFileURLs",
+          "params": [
+            {
+              "name": "file",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "INDStreamParser": {
+      "guid": "e0baa198-9796-41c9-8695-59437e67e66a",
+      "methods": [
+        {
+          "name": "ParseData",
+          "params": [
+            {
+              "name": "dataBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetStreamInformation",
+          "params": [
+            {
+              "name": "descriptor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IMediaStreamDescriptor",
+                "namespace": "Windows.Media.Core",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "streamType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NDMediaStreamType",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Enum"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "BeginOfStream"
+        },
+        {
+          "name": "EndOfStream"
+        },
+        {
+          "name": "get_Notifier",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NDStreamParserNotifier",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Notifier",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NDStreamParserNotifier",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          },
+          "getter": "get_Notifier"
+        }
+      ]
+    },
+    "INDStreamParserNotifier": {
+      "guid": "c167acd0-2ce6-426c-ace5-5e9275fea715",
+      "methods": [
+        {
+          "name": "OnContentIDReceived",
+          "params": [
+            {
+              "name": "licenseFetchDescriptor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "INDLicenseFetchDescriptor",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "OnMediaStreamDescriptorCreated",
+          "params": [
+            {
+              "name": "audioStreamDescriptors",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVector`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AudioStreamDescriptor",
+                    "namespace": "Windows.Media.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "videoStreamDescriptors",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVector`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "VideoStreamDescriptor",
+                    "namespace": "Windows.Media.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "OnSampleParsed",
+          "params": [
+            {
+              "name": "streamID",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "streamType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NDMediaStreamType",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "streamSample",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaStreamSample",
+                "namespace": "Windows.Media.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "pts",
+              "type": {
+                "kind": "Native",
+                "name": "I8"
+              }
+            },
+            {
+              "name": "ccFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NDClosedCaptionFormat",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "ccDataBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "OnBeginSetupDecryptor",
+          "params": [
+            {
+              "name": "descriptor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IMediaStreamDescriptor",
+                "namespace": "Windows.Media.Core",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "keyID",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "proBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "INDTCPMessengerFactory": {
+      "guid": "7dd85cfe-1b99-4f68-8f82-8177f7cedf2b",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.NDTCPMessenger",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "remoteHostName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "remoteHostPort",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "NDTCPMessenger",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "INDTransmitterProperties": {
+      "guid": "e536af23-ac4f-4adc-8c66-4ff7c2702dd6",
+      "methods": [
+        {
+          "name": "get_CertificateType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NDCertificateType",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_PlatformIdentifier",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NDCertificatePlatformID",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_SupportedFeatures",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "ApiRef",
+              "name": "NDCertificateFeature",
+              "namespace": "Windows.Media.Protection.PlayReady",
+              "target_kind": "Enum"
+            }
+          }
+        },
+        {
+          "name": "get_SecurityLevel",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_SecurityVersion",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_ExpirationDate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_ClientID",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          }
+        },
+        {
+          "name": "get_ModelDigest",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          }
+        },
+        {
+          "name": "get_ModelManufacturerName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ModelName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ModelNumber",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CertificateType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NDCertificateType",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CertificateType"
+        },
+        {
+          "name": "ClientID",
+          "type": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          },
+          "getter": "get_ClientID"
+        },
+        {
+          "name": "ExpirationDate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExpirationDate"
+        },
+        {
+          "name": "ModelDigest",
+          "type": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          },
+          "getter": "get_ModelDigest"
+        },
+        {
+          "name": "ModelManufacturerName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ModelManufacturerName"
+        },
+        {
+          "name": "ModelName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ModelName"
+        },
+        {
+          "name": "ModelNumber",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ModelNumber"
+        },
+        {
+          "name": "PlatformIdentifier",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NDCertificatePlatformID",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PlatformIdentifier"
+        },
+        {
+          "name": "SecurityLevel",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SecurityLevel"
+        },
+        {
+          "name": "SecurityVersion",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SecurityVersion"
+        },
+        {
+          "name": "SupportedFeatures",
+          "type": {
+            "kind": "Array",
+            "elem": {
+              "kind": "ApiRef",
+              "name": "NDCertificateFeature",
+              "namespace": "Windows.Media.Protection.PlayReady",
+              "target_kind": "Enum"
+            }
+          },
+          "getter": "get_SupportedFeatures"
+        }
+      ]
+    },
+    "IPlayReadyContentHeader": {
+      "guid": "9a438a6a-7f4c-452e-88bd-0148c6387a2c",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadyContentHeader",
+      "methods": [
+        {
+          "name": "get_KeyId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_KeyIdString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_LicenseAcquisitionUrl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_LicenseAcquisitionUserInterfaceUrl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DomainServiceId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_EncryptionType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayReadyEncryptionAlgorithm",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_CustomAttributes",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DecryptorSetup",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayReadyDecryptorSetup",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetSerializedHeader",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          }
+        },
+        {
+          "name": "get_HeaderWithEmbeddedUpdates",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayReadyContentHeader",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CustomAttributes",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CustomAttributes"
+        },
+        {
+          "name": "DecryptorSetup",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PlayReadyDecryptorSetup",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DecryptorSetup"
+        },
+        {
+          "name": "DomainServiceId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_DomainServiceId"
+        },
+        {
+          "name": "EncryptionType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PlayReadyEncryptionAlgorithm",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Enum"
+          },
+          "getter": "get_EncryptionType"
+        },
+        {
+          "name": "HeaderWithEmbeddedUpdates",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PlayReadyContentHeader",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          },
+          "getter": "get_HeaderWithEmbeddedUpdates"
+        },
+        {
+          "name": "KeyId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_KeyId"
+        },
+        {
+          "name": "KeyIdString",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_KeyIdString"
+        },
+        {
+          "name": "LicenseAcquisitionUrl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_LicenseAcquisitionUrl"
+        },
+        {
+          "name": "LicenseAcquisitionUserInterfaceUrl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_LicenseAcquisitionUserInterfaceUrl"
+        }
+      ]
+    },
+    "IPlayReadyContentHeader2": {
+      "guid": "359c79f4-2180-498c-965b-e754d875eab2",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadyContentHeader",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyContentHeader",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_KeyIds",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "Guid"
+            }
+          }
+        },
+        {
+          "name": "get_KeyIdStrings",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "HString"
+            }
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "KeyIdStrings",
+          "type": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "HString"
+            }
+          },
+          "getter": "get_KeyIdStrings"
+        },
+        {
+          "name": "KeyIds",
+          "type": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "Guid"
+            }
+          },
+          "getter": "get_KeyIds"
+        }
+      ]
+    },
+    "IPlayReadyContentHeaderFactory": {
+      "guid": "cb97c8ff-b758-4776-bf01-217a8b510b2c",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadyContentHeader",
+      "methods": [
+        {
+          "name": "CreateInstanceFromWindowsMediaDrmHeader",
+          "params": [
+            {
+              "name": "headerBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            },
+            {
+              "name": "licenseAcquisitionUrl",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "licenseAcquisitionUserInterfaceUrl",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "customAttributes",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "domainServiceId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayReadyContentHeader",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateInstanceFromComponents",
+          "params": [
+            {
+              "name": "contentKeyId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "contentKeyIdString",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "contentEncryptionAlgorithm",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PlayReadyEncryptionAlgorithm",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "licenseAcquisitionUrl",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "licenseAcquisitionUserInterfaceUrl",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "customAttributes",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "domainServiceId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayReadyContentHeader",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateInstanceFromPlayReadyHeader",
+          "params": [
+            {
+              "name": "headerBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayReadyContentHeader",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPlayReadyContentHeaderFactory2": {
+      "guid": "d1239cf5-ae6d-4778-97fd-6e3a2eeadbeb",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadyContentHeader",
+      "methods": [
+        {
+          "name": "CreateInstanceFromComponents2",
+          "params": [
+            {
+              "name": "dwFlags",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "contentKeyIds",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "Guid"
+                }
+              }
+            },
+            {
+              "name": "contentKeyIdStrings",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "HString"
+                }
+              }
+            },
+            {
+              "name": "contentEncryptionAlgorithm",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PlayReadyEncryptionAlgorithm",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "licenseAcquisitionUrl",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "licenseAcquisitionUserInterfaceUrl",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "customAttributes",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "domainServiceId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayReadyContentHeader",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPlayReadyContentResolver": {
+      "guid": "fbfd2523-906d-4982-a6b8-6849565a7ce8",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadyContentResolver",
+      "methods": [
+        {
+          "name": "ServiceRequest",
+          "params": [
+            {
+              "name": "contentHeader",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PlayReadyContentHeader",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IPlayReadyServiceRequest",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IPlayReadyDomain": {
+      "guid": "adcc93ac-97e6-43ef-95e4-d7868f3b16a9",
+      "methods": [
+        {
+          "name": "get_AccountId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_ServiceId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_Revision",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_FriendlyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DomainJoinUrl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AccountId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_AccountId"
+        },
+        {
+          "name": "DomainJoinUrl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_DomainJoinUrl"
+        },
+        {
+          "name": "FriendlyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_FriendlyName"
+        },
+        {
+          "name": "Revision",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Revision"
+        },
+        {
+          "name": "ServiceId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_ServiceId"
+        }
+      ]
+    },
+    "IPlayReadyDomainIterableFactory": {
+      "guid": "4df384ee-3121-4df3-a5e8-d0c24c0500fc",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadyDomainIterable",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "domainAccountId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayReadyDomainIterable",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPlayReadyDomainJoinServiceRequest": {
+      "guid": "171b4a5a-405f-4739-b040-67b9f0c38758",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadyDomainJoinServiceRequest",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaProtectionServiceRequest",
+          "namespace": "Windows.Media.Protection",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_DomainAccountId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "put_DomainAccountId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DomainFriendlyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DomainFriendlyName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DomainServiceId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "put_DomainServiceId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DomainAccountId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_DomainAccountId",
+          "setter": "put_DomainAccountId"
+        },
+        {
+          "name": "DomainFriendlyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DomainFriendlyName",
+          "setter": "put_DomainFriendlyName"
+        },
+        {
+          "name": "DomainServiceId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_DomainServiceId",
+          "setter": "put_DomainServiceId"
+        }
+      ]
+    },
+    "IPlayReadyDomainLeaveServiceRequest": {
+      "guid": "062d58be-97ad-4917-aa03-46d4c252d464",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadyDomainLeaveServiceRequest",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaProtectionServiceRequest",
+          "namespace": "Windows.Media.Protection",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_DomainAccountId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "put_DomainAccountId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DomainServiceId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "put_DomainServiceId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DomainAccountId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_DomainAccountId",
+          "setter": "put_DomainAccountId"
+        },
+        {
+          "name": "DomainServiceId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_DomainServiceId",
+          "setter": "put_DomainServiceId"
+        }
+      ]
+    },
+    "IPlayReadyITADataGenerator": {
+      "guid": "24446b8e-10b9-4530-b25b-901a8029a9b2",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadyITADataGenerator",
+      "methods": [
+        {
+          "name": "GenerateData",
+          "params": [
+            {
+              "name": "guidCPSystemId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "countOfStreams",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "configuration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPropertySet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PlayReadyITADataFormat",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          }
+        }
+      ]
+    },
+    "IPlayReadyIndividualizationServiceRequest": {
+      "guid": "21f5a86b-008c-4611-ab2f-aaa6c69f0e24",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadyIndividualizationServiceRequest",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaProtectionServiceRequest",
+          "namespace": "Windows.Media.Protection",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "IPlayReadyLicense": {
+      "guid": "ee474c4e-fa3c-414d-a9f2-3ffc1ef832d4",
+      "methods": [
+        {
+          "name": "get_FullyEvaluated",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_UsableForPlay",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_ExpirationDate",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ExpireAfterFirstPlay",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_DomainAccountID",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_ChainDepth",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "GetKIDAtChainDepth",
+          "params": [
+            {
+              "name": "chainDepth",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ChainDepth",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ChainDepth"
+        },
+        {
+          "name": "DomainAccountID",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_DomainAccountID"
+        },
+        {
+          "name": "ExpirationDate",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ExpirationDate"
+        },
+        {
+          "name": "ExpireAfterFirstPlay",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ExpireAfterFirstPlay"
+        },
+        {
+          "name": "FullyEvaluated",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_FullyEvaluated"
+        },
+        {
+          "name": "UsableForPlay",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_UsableForPlay"
+        }
+      ]
+    },
+    "IPlayReadyLicense2": {
+      "guid": "30f4e7a7-d8e3-48a0-bcda-ff9f40530436",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadyLicense",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyLicense",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_SecureStopId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_SecurityLevel",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_InMemoryOnly",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_ExpiresInRealTime",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExpiresInRealTime",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ExpiresInRealTime"
+        },
+        {
+          "name": "InMemoryOnly",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_InMemoryOnly"
+        },
+        {
+          "name": "SecureStopId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_SecureStopId"
+        },
+        {
+          "name": "SecurityLevel",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SecurityLevel"
+        }
+      ]
+    },
+    "IPlayReadyLicenseAcquisitionServiceRequest": {
+      "guid": "5d85ff45-3e9f-4f48-93e1-9530c8d58c3e",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaProtectionServiceRequest",
+          "namespace": "Windows.Media.Protection",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_ContentHeader",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayReadyContentHeader",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ContentHeader",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PlayReadyContentHeader",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DomainServiceId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "put_DomainServiceId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContentHeader",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PlayReadyContentHeader",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          },
+          "getter": "get_ContentHeader",
+          "setter": "put_ContentHeader"
+        },
+        {
+          "name": "DomainServiceId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_DomainServiceId",
+          "setter": "put_DomainServiceId"
+        }
+      ]
+    },
+    "IPlayReadyLicenseAcquisitionServiceRequest2": {
+      "guid": "b7fa5eb5-fe0c-b225-bc60-5a9edd32ceb5",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadyLicenseAcquisitionServiceRequest",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyLicenseAcquisitionServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaProtectionServiceRequest",
+          "namespace": "Windows.Media.Protection",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_SessionId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SessionId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_SessionId"
+        }
+      ]
+    },
+    "IPlayReadyLicenseAcquisitionServiceRequest3": {
+      "guid": "394e5f4d-7f75-430d-b2e7-7f75f34b2d75",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadyLicenseAcquisitionServiceRequest",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyLicenseAcquisitionServiceRequest2",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyLicenseAcquisitionServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaProtectionServiceRequest",
+          "namespace": "Windows.Media.Protection",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "CreateLicenseIterable",
+          "params": [
+            {
+              "name": "contentHeader",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PlayReadyContentHeader",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "fullyEvaluated",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayReadyLicenseIterable",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPlayReadyLicenseIterableFactory": {
+      "guid": "d4179f08-0837-4978-8e68-be4293c8d7a6",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadyLicenseIterable",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "contentHeader",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PlayReadyContentHeader",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "fullyEvaluated",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayReadyLicenseIterable",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPlayReadyLicenseManagement": {
+      "guid": "aaeb2141-0957-4405-b892-8bf3ec5dadd9",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadyLicenseManagement",
+      "methods": [
+        {
+          "name": "DeleteLicenses",
+          "params": [
+            {
+              "name": "contentHeader",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PlayReadyContentHeader",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IPlayReadyLicenseSession": {
+      "guid": "a1723a39-87fa-4fdd-abbb-a9720e845259",
+      "methods": [
+        {
+          "name": "CreateLAServiceRequest",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IPlayReadyLicenseAcquisitionServiceRequest",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ConfigureMediaProtectionManager",
+          "params": [
+            {
+              "name": "mpm",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaProtectionManager",
+                "namespace": "Windows.Media.Protection",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IPlayReadyLicenseSession2": {
+      "guid": "4909be3a-3aed-4656-8ad7-ee0fd7799510",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyLicenseSession",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "CreateLicenseIterable",
+          "params": [
+            {
+              "name": "contentHeader",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PlayReadyContentHeader",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "fullyEvaluated",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayReadyLicenseIterable",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPlayReadyLicenseSessionFactory": {
+      "guid": "62492699-6527-429e-98be-48d798ac2739",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadyLicenseSession",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "configuration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPropertySet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayReadyLicenseSession",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPlayReadyMeteringReportServiceRequest": {
+      "guid": "c12b231c-0ecd-4f11-a185-1e24a4a67fb7",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadyMeteringReportServiceRequest",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaProtectionServiceRequest",
+          "namespace": "Windows.Media.Protection",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_MeteringCertificate",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          }
+        },
+        {
+          "name": "put_MeteringCertificate",
+          "params": [
+            {
+              "name": "meteringCertBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "MeteringCertificate",
+          "type": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          },
+          "getter": "get_MeteringCertificate",
+          "setter": "put_MeteringCertificate"
+        }
+      ]
+    },
+    "IPlayReadyRevocationServiceRequest": {
+      "guid": "543d66ac-faf0-4560-84a5-0e4acec939e4",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadyRevocationServiceRequest",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaProtectionServiceRequest",
+          "namespace": "Windows.Media.Protection",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "IPlayReadySecureStopIterableFactory": {
+      "guid": "5f1f0165-4214-4d9e-81eb-e89f9d294aee",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadySecureStopIterable",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "publisherCertBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayReadySecureStopIterable",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPlayReadySecureStopServiceRequest": {
+      "guid": "b5501ee5-01bf-4401-9677-05630a6a4cc8",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaProtectionServiceRequest",
+          "namespace": "Windows.Media.Protection",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_SessionID",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_StartTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_UpdateTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Stopped",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_PublisherCertificate",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PublisherCertificate",
+          "type": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          },
+          "getter": "get_PublisherCertificate"
+        },
+        {
+          "name": "SessionID",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_SessionID"
+        },
+        {
+          "name": "StartTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_StartTime"
+        },
+        {
+          "name": "Stopped",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Stopped"
+        },
+        {
+          "name": "UpdateTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_UpdateTime"
+        }
+      ]
+    },
+    "IPlayReadySecureStopServiceRequestFactory": {
+      "guid": "0e448ac9-e67e-494e-9f49-6285438c76cf",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadySecureStopServiceRequest",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "publisherCertBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayReadySecureStopServiceRequest",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateInstanceFromSessionID",
+          "params": [
+            {
+              "name": "sessionID",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "publisherCertBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayReadySecureStopServiceRequest",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPlayReadyServiceRequest": {
+      "guid": "8bad2836-a703-45a6-a180-76f3565aa725",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaProtectionServiceRequest",
+          "namespace": "Windows.Media.Protection",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Uri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Uri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ResponseCustomData",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ChallengeCustomData",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_ChallengeCustomData",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "BeginServiceRequest",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "NextServiceRequest",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IPlayReadyServiceRequest",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GenerateManualEnablingChallenge",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayReadySoapMessage",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ProcessManualEnablingResponse",
+          "params": [
+            {
+              "name": "responseBytes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ChallengeCustomData",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ChallengeCustomData",
+          "setter": "put_ChallengeCustomData"
+        },
+        {
+          "name": "ResponseCustomData",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ResponseCustomData"
+        },
+        {
+          "name": "Uri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Uri",
+          "setter": "put_Uri"
+        }
+      ]
+    },
+    "IPlayReadySoapMessage": {
+      "guid": "b659fcb5-ce41-41ba-8a0d-61df5fffa139",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadySoapMessage",
+      "methods": [
+        {
+          "name": "GetMessageBody",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          }
+        },
+        {
+          "name": "get_MessageHeaders",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IPropertySet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Uri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "MessageHeaders",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IPropertySet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface"
+          },
+          "getter": "get_MessageHeaders"
+        },
+        {
+          "name": "Uri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Uri"
+        }
+      ]
+    },
+    "IPlayReadyStatics": {
+      "guid": "5e69c00d-247c-469a-8f31-5c1a1571d9c6",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadyStatics",
+      "methods": [
+        {
+          "name": "get_DomainJoinServiceRequestType",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_DomainLeaveServiceRequestType",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_IndividualizationServiceRequestType",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_LicenseAcquirerServiceRequestType",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_MeteringReportServiceRequestType",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_RevocationServiceRequestType",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_MediaProtectionSystemId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_PlayReadySecurityVersion",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DomainJoinServiceRequestType",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_DomainJoinServiceRequestType"
+        },
+        {
+          "name": "DomainLeaveServiceRequestType",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_DomainLeaveServiceRequestType"
+        },
+        {
+          "name": "IndividualizationServiceRequestType",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_IndividualizationServiceRequestType"
+        },
+        {
+          "name": "LicenseAcquirerServiceRequestType",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_LicenseAcquirerServiceRequestType"
+        },
+        {
+          "name": "MediaProtectionSystemId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_MediaProtectionSystemId"
+        },
+        {
+          "name": "MeteringReportServiceRequestType",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_MeteringReportServiceRequestType"
+        },
+        {
+          "name": "PlayReadySecurityVersion",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_PlayReadySecurityVersion"
+        },
+        {
+          "name": "RevocationServiceRequestType",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_RevocationServiceRequestType"
+        }
+      ]
+    },
+    "IPlayReadyStatics2": {
+      "guid": "1f8d6a92-5f9a-423e-9466-b33969af7a3d",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadyStatics",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyStatics",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_PlayReadyCertificateSecurityLevel",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PlayReadyCertificateSecurityLevel",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_PlayReadyCertificateSecurityLevel"
+        }
+      ]
+    },
+    "IPlayReadyStatics3": {
+      "guid": "3fa33f71-2dd3-4bed-ae49-f7148e63e710",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadyStatics",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyStatics2",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyStatics",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_SecureStopServiceRequestType",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "CheckSupportedHardware",
+          "params": [
+            {
+              "name": "hwdrmFeature",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PlayReadyHardwareDRMFeatures",
+                "namespace": "Windows.Media.Protection.PlayReady",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SecureStopServiceRequestType",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_SecureStopServiceRequestType"
+        }
+      ]
+    },
+    "IPlayReadyStatics4": {
+      "guid": "50a91300-d824-4231-9d5e-78ef8844c7d7",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadyStatics",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyStatics3",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyStatics2",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyStatics",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_InputTrustAuthorityToCreate",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ProtectionSystemId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InputTrustAuthorityToCreate",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_InputTrustAuthorityToCreate"
+        },
+        {
+          "name": "ProtectionSystemId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_ProtectionSystemId"
+        }
+      ]
+    },
+    "IPlayReadyStatics5": {
+      "guid": "230a7075-dfa0-4f8e-a779-cefea9c6824b",
+      "exclusive_to": "Windows.Media.Protection.PlayReady.PlayReadyStatics",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyStatics4",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyStatics3",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyStatics2",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyStatics",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_HardwareDRMDisabledAtTime",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_HardwareDRMDisabledUntilTime",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ResetHardwareDRMDisabled"
+        }
+      ],
+      "properties": [
+        {
+          "name": "HardwareDRMDisabledAtTime",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_HardwareDRMDisabledAtTime"
+        },
+        {
+          "name": "HardwareDRMDisabledUntilTime",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_HardwareDRMDisabledUntilTime"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "NDClient": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INDClient",
+        "namespace": "Windows.Media.Protection.PlayReady",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INDClient",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Media.Protection.PlayReady.INDClientFactory"
+      ]
+    },
+    "NDCustomData": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INDCustomData",
+        "namespace": "Windows.Media.Protection.PlayReady",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INDCustomData",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Media.Protection.PlayReady.INDCustomDataFactory"
+      ]
+    },
+    "NDDownloadEngineNotifier": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INDDownloadEngineNotifier",
+        "namespace": "Windows.Media.Protection.PlayReady",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INDDownloadEngineNotifier",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "NDLicenseFetchDescriptor": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INDLicenseFetchDescriptor",
+        "namespace": "Windows.Media.Protection.PlayReady",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INDLicenseFetchDescriptor",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Media.Protection.PlayReady.INDLicenseFetchDescriptorFactory"
+      ]
+    },
+    "NDStorageFileHelper": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INDStorageFileHelper",
+        "namespace": "Windows.Media.Protection.PlayReady",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INDStorageFileHelper",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "NDStreamParserNotifier": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INDStreamParserNotifier",
+        "namespace": "Windows.Media.Protection.PlayReady",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INDStreamParserNotifier",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "NDTCPMessenger": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INDMessenger",
+        "namespace": "Windows.Media.Protection.PlayReady",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INDMessenger",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Media.Protection.PlayReady.INDTCPMessengerFactory"
+      ]
+    },
+    "PlayReadyContentHeader": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlayReadyContentHeader",
+        "namespace": "Windows.Media.Protection.PlayReady",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyContentHeader",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyContentHeader2",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Media.Protection.PlayReady.IPlayReadyContentHeaderFactory2",
+        "Windows.Media.Protection.PlayReady.IPlayReadyContentHeaderFactory"
+      ]
+    },
+    "PlayReadyContentResolver": {
+      "static_interfaces": [
+        "Windows.Media.Protection.PlayReady.IPlayReadyContentResolver"
+      ]
+    },
+    "PlayReadyDomain": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlayReadyDomain",
+        "namespace": "Windows.Media.Protection.PlayReady",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyDomain",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PlayReadyDomainIterable": {
+      "default_interface": {
+        "kind": "GenericInst",
+        "name": "IIterable`1",
+        "namespace": "Windows.Foundation.Collections",
+        "target_kind": "Interface",
+        "args": [
+          {
+            "kind": "ApiRef",
+            "name": "IPlayReadyDomain",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Interface"
+          }
+        ]
+      },
+      "interfaces": [
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "IPlayReadyDomain",
+              "namespace": "Windows.Media.Protection.PlayReady",
+              "target_kind": "Interface"
+            }
+          ]
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Media.Protection.PlayReady.IPlayReadyDomainIterableFactory"
+      ]
+    },
+    "PlayReadyDomainIterator": {
+      "default_interface": {
+        "kind": "GenericInst",
+        "name": "IIterator`1",
+        "namespace": "Windows.Foundation.Collections",
+        "target_kind": "Interface",
+        "args": [
+          {
+            "kind": "ApiRef",
+            "name": "IPlayReadyDomain",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Interface"
+          }
+        ]
+      },
+      "interfaces": [
+        {
+          "kind": "GenericInst",
+          "name": "IIterator`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "IPlayReadyDomain",
+              "namespace": "Windows.Media.Protection.PlayReady",
+              "target_kind": "Interface"
+            }
+          ]
+        }
+      ]
+    },
+    "PlayReadyDomainJoinServiceRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlayReadyDomainJoinServiceRequest",
+        "namespace": "Windows.Media.Protection.PlayReady",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyDomainJoinServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaProtectionServiceRequest",
+          "namespace": "Windows.Media.Protection",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "PlayReadyDomainLeaveServiceRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlayReadyDomainLeaveServiceRequest",
+        "namespace": "Windows.Media.Protection.PlayReady",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyDomainLeaveServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaProtectionServiceRequest",
+          "namespace": "Windows.Media.Protection",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "PlayReadyITADataGenerator": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlayReadyITADataGenerator",
+        "namespace": "Windows.Media.Protection.PlayReady",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyITADataGenerator",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "PlayReadyIndividualizationServiceRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlayReadyIndividualizationServiceRequest",
+        "namespace": "Windows.Media.Protection.PlayReady",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyIndividualizationServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaProtectionServiceRequest",
+          "namespace": "Windows.Media.Protection",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "PlayReadyLicense": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlayReadyLicense",
+        "namespace": "Windows.Media.Protection.PlayReady",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyLicense",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyLicense2",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PlayReadyLicenseAcquisitionServiceRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlayReadyLicenseAcquisitionServiceRequest",
+        "namespace": "Windows.Media.Protection.PlayReady",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyLicenseAcquisitionServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaProtectionServiceRequest",
+          "namespace": "Windows.Media.Protection",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyLicenseAcquisitionServiceRequest2",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyLicenseAcquisitionServiceRequest3",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "PlayReadyLicenseIterable": {
+      "default_interface": {
+        "kind": "GenericInst",
+        "name": "IIterable`1",
+        "namespace": "Windows.Foundation.Collections",
+        "target_kind": "Interface",
+        "args": [
+          {
+            "kind": "ApiRef",
+            "name": "IPlayReadyLicense",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Interface"
+          }
+        ]
+      },
+      "interfaces": [
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "IPlayReadyLicense",
+              "namespace": "Windows.Media.Protection.PlayReady",
+              "target_kind": "Interface"
+            }
+          ]
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Media.Protection.PlayReady.IPlayReadyLicenseIterableFactory"
+      ]
+    },
+    "PlayReadyLicenseIterator": {
+      "default_interface": {
+        "kind": "GenericInst",
+        "name": "IIterator`1",
+        "namespace": "Windows.Foundation.Collections",
+        "target_kind": "Interface",
+        "args": [
+          {
+            "kind": "ApiRef",
+            "name": "IPlayReadyLicense",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Interface"
+          }
+        ]
+      },
+      "interfaces": [
+        {
+          "kind": "GenericInst",
+          "name": "IIterator`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "IPlayReadyLicense",
+              "namespace": "Windows.Media.Protection.PlayReady",
+              "target_kind": "Interface"
+            }
+          ]
+        }
+      ]
+    },
+    "PlayReadyLicenseManagement": {
+      "static_interfaces": [
+        "Windows.Media.Protection.PlayReady.IPlayReadyLicenseManagement"
+      ]
+    },
+    "PlayReadyLicenseSession": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlayReadyLicenseSession",
+        "namespace": "Windows.Media.Protection.PlayReady",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyLicenseSession",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyLicenseSession2",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Media.Protection.PlayReady.IPlayReadyLicenseSessionFactory"
+      ]
+    },
+    "PlayReadyMeteringReportServiceRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlayReadyMeteringReportServiceRequest",
+        "namespace": "Windows.Media.Protection.PlayReady",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyMeteringReportServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaProtectionServiceRequest",
+          "namespace": "Windows.Media.Protection",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "PlayReadyRevocationServiceRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlayReadyRevocationServiceRequest",
+        "namespace": "Windows.Media.Protection.PlayReady",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyRevocationServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaProtectionServiceRequest",
+          "namespace": "Windows.Media.Protection",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "PlayReadySecureStopIterable": {
+      "default_interface": {
+        "kind": "GenericInst",
+        "name": "IIterable`1",
+        "namespace": "Windows.Foundation.Collections",
+        "target_kind": "Interface",
+        "args": [
+          {
+            "kind": "ApiRef",
+            "name": "IPlayReadySecureStopServiceRequest",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Interface"
+          }
+        ]
+      },
+      "interfaces": [
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "IPlayReadySecureStopServiceRequest",
+              "namespace": "Windows.Media.Protection.PlayReady",
+              "target_kind": "Interface"
+            }
+          ]
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Media.Protection.PlayReady.IPlayReadySecureStopIterableFactory"
+      ]
+    },
+    "PlayReadySecureStopIterator": {
+      "default_interface": {
+        "kind": "GenericInst",
+        "name": "IIterator`1",
+        "namespace": "Windows.Foundation.Collections",
+        "target_kind": "Interface",
+        "args": [
+          {
+            "kind": "ApiRef",
+            "name": "IPlayReadySecureStopServiceRequest",
+            "namespace": "Windows.Media.Protection.PlayReady",
+            "target_kind": "Interface"
+          }
+        ]
+      },
+      "interfaces": [
+        {
+          "kind": "GenericInst",
+          "name": "IIterator`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "IPlayReadySecureStopServiceRequest",
+              "namespace": "Windows.Media.Protection.PlayReady",
+              "target_kind": "Interface"
+            }
+          ]
+        }
+      ]
+    },
+    "PlayReadySecureStopServiceRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlayReadySecureStopServiceRequest",
+        "namespace": "Windows.Media.Protection.PlayReady",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadySecureStopServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadyServiceRequest",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaProtectionServiceRequest",
+          "namespace": "Windows.Media.Protection",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Media.Protection.PlayReady.IPlayReadySecureStopServiceRequestFactory"
+      ]
+    },
+    "PlayReadySoapMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlayReadySoapMessage",
+        "namespace": "Windows.Media.Protection.PlayReady",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayReadySoapMessage",
+          "namespace": "Windows.Media.Protection.PlayReady",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PlayReadyStatics": {
+      "static_interfaces": [
+        "Windows.Media.Protection.PlayReady.IPlayReadyStatics3",
+        "Windows.Media.Protection.PlayReady.IPlayReadyStatics4",
+        "Windows.Media.Protection.PlayReady.IPlayReadyStatics5",
+        "Windows.Media.Protection.PlayReady.IPlayReadyStatics2",
+        "Windows.Media.Protection.PlayReady.IPlayReadyStatics"
+      ]
+    }
+  }
+}

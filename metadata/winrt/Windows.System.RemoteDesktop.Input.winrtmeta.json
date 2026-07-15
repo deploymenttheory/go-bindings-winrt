@@ -1,0 +1,284 @@
+{
+  "namespace": "Windows.System.RemoteDesktop.Input",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "RemoteKeyEventAttributes": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "KeyUp",
+          "value": "1"
+        },
+        {
+          "name": "Repeat",
+          "value": "2"
+        },
+        {
+          "name": "Extended",
+          "value": "4"
+        },
+        {
+          "name": "Extended1",
+          "value": "8"
+        }
+      ]
+    },
+    "RemoteTextConnectionOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "EnablePredictedKeyReporting",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IRemoteTextConnection": {
+      "guid": "4e7bb02a-183e-5e66-b5e4-3e6e5c570cf1",
+      "exclusive_to": "Windows.System.RemoteDesktop.Input.RemoteTextConnection",
+      "methods": [
+        {
+          "name": "get_IsEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RegisterThread",
+          "params": [
+            {
+              "name": "threadId",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "UnregisterThread",
+          "params": [
+            {
+              "name": "threadId",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ReportDataReceived",
+          "params": [
+            {
+              "name": "pduData",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsEnabled",
+          "setter": "put_IsEnabled"
+        }
+      ]
+    },
+    "IRemoteTextConnection2": {
+      "guid": "05f99345-84c8-56c5-934f-73ea00f8c2d5",
+      "exclusive_to": "Windows.System.RemoteDesktop.Input.RemoteTextConnection",
+      "methods": [
+        {
+          "name": "ReportPredictedKeyEvent",
+          "params": [
+            {
+              "name": "scanCode",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "attributes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RemoteKeyEventAttributes",
+                "namespace": "Windows.System.RemoteDesktop.Input",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IRemoteTextConnectionFactory": {
+      "guid": "88e075c2-0cae-596c-850f-78d345cd728b",
+      "exclusive_to": "Windows.System.RemoteDesktop.Input.RemoteTextConnection",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "connectionId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "pduForwarder",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RemoteTextConnectionDataHandler",
+                "namespace": "Windows.System.RemoteDesktop.Input",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteTextConnection",
+            "namespace": "Windows.System.RemoteDesktop.Input",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IRemoteTextConnectionFactory2": {
+      "guid": "9425c7d9-ed9b-5d00-99cc-b0b8dc9e4c60",
+      "exclusive_to": "Windows.System.RemoteDesktop.Input.RemoteTextConnection",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "connectionId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "pduForwarder",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RemoteTextConnectionDataHandler",
+                "namespace": "Windows.System.RemoteDesktop.Input",
+                "target_kind": "Delegate"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RemoteTextConnectionOptions",
+                "namespace": "Windows.System.RemoteDesktop.Input",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteTextConnection",
+            "namespace": "Windows.System.RemoteDesktop.Input",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "RemoteTextConnection": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteTextConnection",
+        "namespace": "Windows.System.RemoteDesktop.Input",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteTextConnection",
+          "namespace": "Windows.System.RemoteDesktop.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteTextConnection2",
+          "namespace": "Windows.System.RemoteDesktop.Input",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.System.RemoteDesktop.Input.IRemoteTextConnectionFactory",
+        "Windows.System.RemoteDesktop.Input.IRemoteTextConnectionFactory2"
+      ]
+    }
+  },
+  "delegates": {
+    "RemoteTextConnectionDataHandler": {
+      "guid": "099ffbc8-8bcb-41b5-b056-57e77021bf1b",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "pduData",
+            "type": {
+              "kind": "Array",
+              "elem": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            }
+          }
+        ],
+        "return": {
+          "kind": "Native",
+          "name": "Bool"
+        }
+      }
+    }
+  }
+}

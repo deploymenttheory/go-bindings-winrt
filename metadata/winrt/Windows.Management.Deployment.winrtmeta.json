@@ -1,0 +1,6764 @@
+{
+  "namespace": "Windows.Management.Deployment",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "AddPackageByAppInstallerOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "InstallAllResources",
+          "value": "32"
+        },
+        {
+          "name": "ForceTargetAppShutdown",
+          "value": "64"
+        },
+        {
+          "name": "RequiredContentGroupOnly",
+          "value": "256"
+        },
+        {
+          "name": "LimitToExistingPackages",
+          "value": "512"
+        }
+      ]
+    },
+    "DeploymentOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "ForceApplicationShutdown",
+          "value": "1"
+        },
+        {
+          "name": "DevelopmentMode",
+          "value": "2"
+        },
+        {
+          "name": "InstallAllResources",
+          "value": "32"
+        },
+        {
+          "name": "ForceTargetApplicationShutdown",
+          "value": "64"
+        },
+        {
+          "name": "RequiredContentGroupOnly",
+          "value": "256"
+        },
+        {
+          "name": "ForceUpdateFromAnyVersion",
+          "value": "262144"
+        },
+        {
+          "name": "RetainFilesOnFailure",
+          "value": "2097152"
+        },
+        {
+          "name": "StageInPlace",
+          "value": "4194304"
+        }
+      ]
+    },
+    "DeploymentProgressState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Queued",
+          "value": "0"
+        },
+        {
+          "name": "Processing",
+          "value": "1"
+        }
+      ]
+    },
+    "PackageInstallState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "NotInstalled",
+          "value": "0"
+        },
+        {
+          "name": "Staged",
+          "value": "1"
+        },
+        {
+          "name": "Installed",
+          "value": "2"
+        },
+        {
+          "name": "Paused",
+          "value": "6"
+        }
+      ]
+    },
+    "PackageOperationPriority": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Low",
+          "value": "0"
+        },
+        {
+          "name": "Normal",
+          "value": "1"
+        },
+        {
+          "name": "High",
+          "value": "2"
+        }
+      ]
+    },
+    "PackageState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Normal",
+          "value": "0"
+        },
+        {
+          "name": "LicenseInvalid",
+          "value": "1"
+        },
+        {
+          "name": "Modified",
+          "value": "2"
+        },
+        {
+          "name": "Tampered",
+          "value": "3"
+        }
+      ]
+    },
+    "PackageStatus": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "OK",
+          "value": "0"
+        },
+        {
+          "name": "LicenseIssue",
+          "value": "1"
+        },
+        {
+          "name": "Modified",
+          "value": "2"
+        },
+        {
+          "name": "Tampered",
+          "value": "4"
+        },
+        {
+          "name": "Disabled",
+          "value": "8"
+        }
+      ]
+    },
+    "PackageStubPreference": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Full",
+          "value": "0"
+        },
+        {
+          "name": "Stub",
+          "value": "1"
+        }
+      ]
+    },
+    "PackageTypes": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Main",
+          "value": "1"
+        },
+        {
+          "name": "Framework",
+          "value": "2"
+        },
+        {
+          "name": "Resource",
+          "value": "4"
+        },
+        {
+          "name": "Bundle",
+          "value": "8"
+        },
+        {
+          "name": "Xap",
+          "value": "16"
+        },
+        {
+          "name": "Optional",
+          "value": "32"
+        },
+        {
+          "name": "All",
+          "value": "4294967295"
+        }
+      ]
+    },
+    "RemovalOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "PreserveApplicationData",
+          "value": "4096"
+        },
+        {
+          "name": "PreserveRoamableApplicationData",
+          "value": "128"
+        },
+        {
+          "name": "DeferRemovalWhenPackagesAreInUse",
+          "value": "8192"
+        },
+        {
+          "name": "RemoveForAllUsers",
+          "value": "524288"
+        }
+      ]
+    },
+    "StubPackageOption": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "InstallFull",
+          "value": "1"
+        },
+        {
+          "name": "InstallStub",
+          "value": "2"
+        },
+        {
+          "name": "UsePreference",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "DeploymentProgress": {
+      "fields": [
+        {
+          "name": "state",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeploymentProgressState",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "percentage",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IAddPackageOptions": {
+      "guid": "05cee018-f68f-422b-95a4-66679ec77fc0",
+      "exclusive_to": "Windows.Management.Deployment.AddPackageOptions",
+      "methods": [
+        {
+          "name": "get_DependencyPackageUris",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_TargetVolume",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PackageVolume",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_TargetVolume",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageVolume",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OptionalPackageFamilyNames",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_OptionalPackageUris",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_RelatedPackageUris",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ExternalLocationUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ExternalLocationUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_StubPackageOption",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StubPackageOption",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_StubPackageOption",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StubPackageOption",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DeveloperMode",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_DeveloperMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ForceAppShutdown",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_ForceAppShutdown",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ForceTargetAppShutdown",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_ForceTargetAppShutdown",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ForceUpdateFromAnyVersion",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_ForceUpdateFromAnyVersion",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_InstallAllResources",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_InstallAllResources",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RequiredContentGroupOnly",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_RequiredContentGroupOnly",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RetainFilesOnFailure",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_RetainFilesOnFailure",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_StageInPlace",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_StageInPlace",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AllowUnsigned",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AllowUnsigned",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DeferRegistrationWhenPackagesAreInUse",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_DeferRegistrationWhenPackagesAreInUse",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllowUnsigned",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AllowUnsigned",
+          "setter": "put_AllowUnsigned"
+        },
+        {
+          "name": "DeferRegistrationWhenPackagesAreInUse",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_DeferRegistrationWhenPackagesAreInUse",
+          "setter": "put_DeferRegistrationWhenPackagesAreInUse"
+        },
+        {
+          "name": "DependencyPackageUris",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_DependencyPackageUris"
+        },
+        {
+          "name": "DeveloperMode",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_DeveloperMode",
+          "setter": "put_DeveloperMode"
+        },
+        {
+          "name": "ExternalLocationUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_ExternalLocationUri",
+          "setter": "put_ExternalLocationUri"
+        },
+        {
+          "name": "ForceAppShutdown",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ForceAppShutdown",
+          "setter": "put_ForceAppShutdown"
+        },
+        {
+          "name": "ForceTargetAppShutdown",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ForceTargetAppShutdown",
+          "setter": "put_ForceTargetAppShutdown"
+        },
+        {
+          "name": "ForceUpdateFromAnyVersion",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ForceUpdateFromAnyVersion",
+          "setter": "put_ForceUpdateFromAnyVersion"
+        },
+        {
+          "name": "InstallAllResources",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_InstallAllResources",
+          "setter": "put_InstallAllResources"
+        },
+        {
+          "name": "OptionalPackageFamilyNames",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_OptionalPackageFamilyNames"
+        },
+        {
+          "name": "OptionalPackageUris",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_OptionalPackageUris"
+        },
+        {
+          "name": "RelatedPackageUris",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_RelatedPackageUris"
+        },
+        {
+          "name": "RequiredContentGroupOnly",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_RequiredContentGroupOnly",
+          "setter": "put_RequiredContentGroupOnly"
+        },
+        {
+          "name": "RetainFilesOnFailure",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_RetainFilesOnFailure",
+          "setter": "put_RetainFilesOnFailure"
+        },
+        {
+          "name": "StageInPlace",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_StageInPlace",
+          "setter": "put_StageInPlace"
+        },
+        {
+          "name": "StubPackageOption",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StubPackageOption",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Enum"
+          },
+          "getter": "get_StubPackageOption",
+          "setter": "put_StubPackageOption"
+        },
+        {
+          "name": "TargetVolume",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PackageVolume",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Class"
+          },
+          "getter": "get_TargetVolume",
+          "setter": "put_TargetVolume"
+        }
+      ]
+    },
+    "IAddPackageOptions2": {
+      "guid": "ee515828-bf33-40f7-84af-1b6fad2919d7",
+      "exclusive_to": "Windows.Management.Deployment.AddPackageOptions",
+      "methods": [
+        {
+          "name": "get_ExpectedDigests",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_LimitToExistingPackages",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_LimitToExistingPackages",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExpectedDigests",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_ExpectedDigests"
+        },
+        {
+          "name": "LimitToExistingPackages",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_LimitToExistingPackages",
+          "setter": "put_LimitToExistingPackages"
+        }
+      ]
+    },
+    "IAddPackageOptions3": {
+      "guid": "cba622a7-aa31-45ab-8b88-40d08b0a8b27",
+      "exclusive_to": "Windows.Management.Deployment.AddPackageOptions",
+      "methods": [
+        {
+          "name": "get_PackageOperationPriority",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PackageOperationPriority",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_PackageOperationPriority",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageOperationPriority",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "PackageOperationPriority",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PackageOperationPriority",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PackageOperationPriority",
+          "setter": "put_PackageOperationPriority"
+        }
+      ]
+    },
+    "IAppInstallerManager": {
+      "guid": "e7ee21c3-2103-53ee-9b18-68afeab0033d",
+      "exclusive_to": "Windows.Management.Deployment.AppInstallerManager",
+      "methods": [
+        {
+          "name": "SetAutoUpdateSettings",
+          "params": [
+            {
+              "name": "packageFamilyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "appInstallerInfo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AutoUpdateSettingsOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ClearAutoUpdateSettings",
+          "params": [
+            {
+              "name": "packageFamilyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "PauseAutoUpdatesUntil",
+          "params": [
+            {
+              "name": "packageFamilyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "dateTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IAppInstallerManagerStatics": {
+      "guid": "c95a6ed5-fc59-5336-9b2e-2b07c5e61434",
+      "exclusive_to": "Windows.Management.Deployment.AppInstallerManager",
+      "methods": [
+        {
+          "name": "GetDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppInstallerManager",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetForSystem",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppInstallerManager",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IAutoUpdateSettingsOptions": {
+      "guid": "67491d87-35e1-512a-8968-1ae88d1be6d3",
+      "exclusive_to": "Windows.Management.Deployment.AutoUpdateSettingsOptions",
+      "methods": [
+        {
+          "name": "get_Version",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PackageVersion",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Version",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageVersion",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AppInstallerUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_AppInstallerUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OnLaunch",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_OnLaunch",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_HoursBetweenUpdateChecks",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_HoursBetweenUpdateChecks",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ShowPrompt",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_ShowPrompt",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_UpdateBlocksActivation",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_UpdateBlocksActivation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AutomaticBackgroundTask",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AutomaticBackgroundTask",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ForceUpdateFromAnyVersion",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_ForceUpdateFromAnyVersion",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsAutoRepairEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsAutoRepairEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_UpdateUris",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_RepairUris",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_DependencyPackageUris",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_OptionalPackageUris",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppInstallerUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_AppInstallerUri",
+          "setter": "put_AppInstallerUri"
+        },
+        {
+          "name": "AutomaticBackgroundTask",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AutomaticBackgroundTask",
+          "setter": "put_AutomaticBackgroundTask"
+        },
+        {
+          "name": "DependencyPackageUris",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_DependencyPackageUris"
+        },
+        {
+          "name": "ForceUpdateFromAnyVersion",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ForceUpdateFromAnyVersion",
+          "setter": "put_ForceUpdateFromAnyVersion"
+        },
+        {
+          "name": "HoursBetweenUpdateChecks",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_HoursBetweenUpdateChecks",
+          "setter": "put_HoursBetweenUpdateChecks"
+        },
+        {
+          "name": "IsAutoRepairEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAutoRepairEnabled",
+          "setter": "put_IsAutoRepairEnabled"
+        },
+        {
+          "name": "OnLaunch",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_OnLaunch",
+          "setter": "put_OnLaunch"
+        },
+        {
+          "name": "OptionalPackageUris",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_OptionalPackageUris"
+        },
+        {
+          "name": "RepairUris",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_RepairUris"
+        },
+        {
+          "name": "ShowPrompt",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ShowPrompt",
+          "setter": "put_ShowPrompt"
+        },
+        {
+          "name": "UpdateBlocksActivation",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_UpdateBlocksActivation",
+          "setter": "put_UpdateBlocksActivation"
+        },
+        {
+          "name": "UpdateUris",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_UpdateUris"
+        },
+        {
+          "name": "Version",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PackageVersion",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Version",
+          "setter": "put_Version"
+        }
+      ]
+    },
+    "IAutoUpdateSettingsOptionsStatics": {
+      "guid": "887b337d-0c05-54d0-bd49-3bb7a2c084cb",
+      "exclusive_to": "Windows.Management.Deployment.AutoUpdateSettingsOptions",
+      "methods": [
+        {
+          "name": "CreateFromAppInstallerInfo",
+          "params": [
+            {
+              "name": "appInstallerInfo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppInstallerInfo",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AutoUpdateSettingsOptions",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDeploymentResult": {
+      "guid": "2563b9ae-b77d-4c1f-8a7b-20e6ad515ef3",
+      "exclusive_to": "Windows.Management.Deployment.DeploymentResult",
+      "methods": [
+        {
+          "name": "get_ErrorText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ActivityId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_ExtendedErrorCode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ActivityId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_ActivityId"
+        },
+        {
+          "name": "ErrorText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ErrorText"
+        },
+        {
+          "name": "ExtendedErrorCode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtendedErrorCode"
+        }
+      ]
+    },
+    "IDeploymentResult2": {
+      "guid": "fc0e715c-5a01-4bd7-bcf1-381c8c82e04a",
+      "exclusive_to": "Windows.Management.Deployment.DeploymentResult",
+      "methods": [
+        {
+          "name": "get_IsRegistered",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsRegistered",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsRegistered"
+        }
+      ]
+    },
+    "IPackageAllUserProvisioningOptions": {
+      "guid": "da35aa22-1de0-5d3e-99ff-d24f3118bf5e",
+      "exclusive_to": "Windows.Management.Deployment.PackageAllUserProvisioningOptions",
+      "methods": [
+        {
+          "name": "get_OptionalPackageFamilyNames",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ProjectionOrderPackageFamilyNames",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "OptionalPackageFamilyNames",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_OptionalPackageFamilyNames"
+        },
+        {
+          "name": "ProjectionOrderPackageFamilyNames",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_ProjectionOrderPackageFamilyNames"
+        }
+      ]
+    },
+    "IPackageAllUserProvisioningOptions2": {
+      "guid": "b9e3cab5-2d97-579f-9368-d10bb4d4542b",
+      "exclusive_to": "Windows.Management.Deployment.PackageAllUserProvisioningOptions",
+      "methods": [
+        {
+          "name": "get_DeferAutomaticRegistration",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_DeferAutomaticRegistration",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeferAutomaticRegistration",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_DeferAutomaticRegistration",
+          "setter": "put_DeferAutomaticRegistration"
+        }
+      ]
+    },
+    "IPackageManager": {
+      "guid": "9a7d4b65-5e8f-4fc7-a2e5-7f6925cb8b53",
+      "exclusive_to": "Windows.Management.Deployment.PackageManager",
+      "methods": [
+        {
+          "name": "AddPackageAsync",
+          "overload": "AddPackageAsync",
+          "params": [
+            {
+              "name": "packageUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "dependencyPackageUris",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "deploymentOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeploymentOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "UpdatePackageAsync",
+          "params": [
+            {
+              "name": "packageUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "dependencyPackageUris",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "deploymentOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeploymentOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RemovePackageAsync",
+          "params": [
+            {
+              "name": "packageFullName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "StagePackageAsync",
+          "params": [
+            {
+              "name": "packageUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "dependencyPackageUris",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RegisterPackageAsync",
+          "overload": "RegisterPackageAsync",
+          "params": [
+            {
+              "name": "manifestUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "dependencyPackageUris",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "deploymentOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeploymentOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackages",
+          "overload": "FindPackages",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IIterable`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackagesForUser",
+          "overload": "FindPackagesByUserSecurityId",
+          "params": [
+            {
+              "name": "userSecurityId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IIterable`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackages",
+          "overload": "FindPackagesByNamePublisher",
+          "params": [
+            {
+              "name": "packageName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packagePublisher",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IIterable`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackagesForUser",
+          "overload": "FindPackagesByUserSecurityIdNamePublisher",
+          "params": [
+            {
+              "name": "userSecurityId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packageName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packagePublisher",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IIterable`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindUsers",
+          "params": [
+            {
+              "name": "packageFullName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IIterable`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PackageUserInformation",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SetPackageState",
+          "params": [
+            {
+              "name": "packageFullName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packageState",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageState",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "FindPackage",
+          "overload": "FindPackageByPackageFullName",
+          "params": [
+            {
+              "name": "packageFullName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Package",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CleanupPackageForUserAsync",
+          "params": [
+            {
+              "name": "packageName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "userSecurityId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackages",
+          "overload": "FindPackagesByPackageFamilyName",
+          "params": [
+            {
+              "name": "packageFamilyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IIterable`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackagesForUser",
+          "overload": "FindPackagesByUserSecurityIdPackageFamilyName",
+          "params": [
+            {
+              "name": "userSecurityId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packageFamilyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IIterable`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackageForUser",
+          "overload": "FindPackageByUserSecurityIdPackageFullName",
+          "params": [
+            {
+              "name": "userSecurityId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packageFullName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Package",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPackageManager10": {
+      "guid": "a7d7d07e-2e66-4093-aed5-e093ed87b3bb",
+      "exclusive_to": "Windows.Management.Deployment.PackageManager",
+      "methods": [
+        {
+          "name": "ProvisionPackageForAllUsersAsync",
+          "overload": "ProvisionPackageForAllUsersWithOptionsAsync",
+          "params": [
+            {
+              "name": "mainPackageFamilyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageAllUserProvisioningOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPackageManager11": {
+      "guid": "12950b24-c77e-4ea7-8859-325318074e15",
+      "exclusive_to": "Windows.Management.Deployment.PackageManager",
+      "methods": [
+        {
+          "name": "RemovePackageByUriAsync",
+          "params": [
+            {
+              "name": "packageUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RemovePackageOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPackageManager12": {
+      "guid": "5d233adf-f9e3-4d96-b40d-96788e39539f",
+      "exclusive_to": "Windows.Management.Deployment.PackageManager",
+      "methods": [
+        {
+          "name": "IsPackageRemovalPending",
+          "params": [
+            {
+              "name": "packageFullName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsPackageRemovalPendingForUser",
+          "params": [
+            {
+              "name": "packageFullName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "userSecurityId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsPackageRemovalPendingByUri",
+          "params": [
+            {
+              "name": "packageUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsPackageRemovalPendingByUriForUser",
+          "params": [
+            {
+              "name": "packageUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "userSecurityId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IPackageManager2": {
+      "guid": "f7aad08d-0840-46f2-b5d8-cad47693a095",
+      "exclusive_to": "Windows.Management.Deployment.PackageManager",
+      "methods": [
+        {
+          "name": "RemovePackageAsync",
+          "overload": "RemovePackageWithOptionsAsync",
+          "params": [
+            {
+              "name": "packageFullName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "removalOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RemovalOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "StagePackageAsync",
+          "overload": "StagePackageWithOptionsAsync",
+          "params": [
+            {
+              "name": "packageUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "dependencyPackageUris",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "deploymentOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeploymentOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RegisterPackageByFullNameAsync",
+          "params": [
+            {
+              "name": "mainPackageFullName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "dependencyPackageFullNames",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "deploymentOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeploymentOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackagesWithPackageTypes",
+          "overload": "FindPackagesWithPackageTypes",
+          "params": [
+            {
+              "name": "packageTypes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageTypes",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IIterable`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackagesForUserWithPackageTypes",
+          "overload": "FindPackagesByUserSecurityIdWithPackageTypes",
+          "params": [
+            {
+              "name": "userSecurityId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packageTypes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageTypes",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IIterable`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackagesWithPackageTypes",
+          "overload": "FindPackagesByNamePublisherWithPackageTypes",
+          "params": [
+            {
+              "name": "packageName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packagePublisher",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packageTypes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageTypes",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IIterable`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackagesForUserWithPackageTypes",
+          "overload": "FindPackagesByUserSecurityIdNamePublisherWithPackageTypes",
+          "params": [
+            {
+              "name": "userSecurityId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packageName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packagePublisher",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packageTypes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageTypes",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IIterable`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackagesWithPackageTypes",
+          "overload": "FindPackagesByPackageFamilyNameWithPackageTypes",
+          "params": [
+            {
+              "name": "packageFamilyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packageTypes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageTypes",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IIterable`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackagesForUserWithPackageTypes",
+          "overload": "FindPackagesByUserSecurityIdPackageFamilyNameWithPackageTypes",
+          "params": [
+            {
+              "name": "userSecurityId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packageFamilyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packageTypes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageTypes",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IIterable`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "StageUserDataAsync",
+          "overload": "StageUserDataAsync",
+          "params": [
+            {
+              "name": "packageFullName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPackageManager3": {
+      "guid": "daad9948-36f1-41a7-9188-bc263e0dcb72",
+      "exclusive_to": "Windows.Management.Deployment.PackageManager",
+      "methods": [
+        {
+          "name": "AddPackageVolumeAsync",
+          "params": [
+            {
+              "name": "packageStorePath",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PackageVolume",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "AddPackageAsync",
+          "overload": "AddPackageToVolumeAsync",
+          "params": [
+            {
+              "name": "packageUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "dependencyPackageUris",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "deploymentOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeploymentOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "targetVolume",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageVolume",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ClearPackageStatus",
+          "params": [
+            {
+              "name": "packageFullName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "status",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageStatus",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RegisterPackageAsync",
+          "overload": "RegisterPackageWithAppDataVolumeAsync",
+          "params": [
+            {
+              "name": "manifestUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "dependencyPackageUris",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "deploymentOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeploymentOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "appDataVolume",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageVolume",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackageVolume",
+          "overload": "FindPackageVolumeByName",
+          "params": [
+            {
+              "name": "volumeName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PackageVolume",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "FindPackageVolumes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IIterable`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PackageVolume",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDefaultPackageVolume",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PackageVolume",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "MovePackageToVolumeAsync",
+          "params": [
+            {
+              "name": "packageFullName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "deploymentOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeploymentOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "targetVolume",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageVolume",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RemovePackageVolumeAsync",
+          "params": [
+            {
+              "name": "volume",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageVolume",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SetDefaultPackageVolume",
+          "params": [
+            {
+              "name": "volume",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageVolume",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetPackageStatus",
+          "params": [
+            {
+              "name": "packageFullName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "status",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageStatus",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetPackageVolumeOfflineAsync",
+          "params": [
+            {
+              "name": "packageVolume",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageVolume",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SetPackageVolumeOnlineAsync",
+          "params": [
+            {
+              "name": "packageVolume",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageVolume",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "StagePackageAsync",
+          "overload": "StagePackageToVolumeAsync",
+          "params": [
+            {
+              "name": "packageUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "dependencyPackageUris",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "deploymentOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeploymentOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "targetVolume",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageVolume",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "StageUserDataAsync",
+          "overload": "StageUserDataWithOptionsAsync",
+          "params": [
+            {
+              "name": "packageFullName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "deploymentOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeploymentOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPackageManager4": {
+      "guid": "3c719963-bab6-46bf-8ff7-da4719230ae6",
+      "exclusive_to": "Windows.Management.Deployment.PackageManager",
+      "methods": [
+        {
+          "name": "GetPackageVolumesAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PackageVolume",
+                    "namespace": "Windows.Management.Deployment",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPackageManager5": {
+      "guid": "711f3117-1afd-4313-978c-9bb6e1b864a7",
+      "exclusive_to": "Windows.Management.Deployment.PackageManager",
+      "methods": [
+        {
+          "name": "AddPackageAsync",
+          "overload": "AddPackageToVolumeAndOptionalPackagesAsync",
+          "is_default_overload": true,
+          "params": [
+            {
+              "name": "packageUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "dependencyPackageUris",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "deploymentOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeploymentOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "targetVolume",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageVolume",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "optionalPackageFamilyNames",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "externalPackageUris",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "StagePackageAsync",
+          "overload": "StagePackageToVolumeAndOptionalPackagesAsync",
+          "is_default_overload": true,
+          "params": [
+            {
+              "name": "packageUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "dependencyPackageUris",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "deploymentOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeploymentOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "targetVolume",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageVolume",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "optionalPackageFamilyNames",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "externalPackageUris",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RegisterPackageByFamilyNameAsync",
+          "overload": "RegisterPackageByFamilyNameAndOptionalPackagesAsync",
+          "params": [
+            {
+              "name": "mainPackageFamilyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "dependencyPackageFamilyNames",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "deploymentOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeploymentOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "appDataVolume",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageVolume",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "optionalPackageFamilyNames",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_DebugSettings",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PackageManagerDebugSettings",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DebugSettings",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PackageManagerDebugSettings",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Class"
+          },
+          "getter": "get_DebugSettings"
+        }
+      ]
+    },
+    "IPackageManager6": {
+      "guid": "0847e909-53cd-4e4f-832e-57d180f6e447",
+      "exclusive_to": "Windows.Management.Deployment.PackageManager",
+      "methods": [
+        {
+          "name": "ProvisionPackageForAllUsersAsync",
+          "params": [
+            {
+              "name": "packageFamilyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "AddPackageByAppInstallerFileAsync",
+          "params": [
+            {
+              "name": "appInstallerFileUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AddPackageByAppInstallerOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "targetVolume",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageVolume",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestAddPackageByAppInstallerFileAsync",
+          "params": [
+            {
+              "name": "appInstallerFileUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AddPackageByAppInstallerOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "targetVolume",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageVolume",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "AddPackageAsync",
+          "overload": "AddPackageToVolumeAndRelatedSetAsync",
+          "params": [
+            {
+              "name": "packageUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "dependencyPackageUris",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeploymentOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "targetVolume",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageVolume",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "optionalPackageFamilyNames",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "packageUrisToInstall",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "relatedPackageUris",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "StagePackageAsync",
+          "overload": "StagePackageToVolumeAndRelatedSetAsync",
+          "params": [
+            {
+              "name": "packageUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "dependencyPackageUris",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeploymentOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "targetVolume",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageVolume",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "optionalPackageFamilyNames",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "packageUrisToInstall",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "relatedPackageUris",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestAddPackageAsync",
+          "params": [
+            {
+              "name": "packageUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "dependencyPackageUris",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "deploymentOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeploymentOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "targetVolume",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageVolume",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "optionalPackageFamilyNames",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "relatedPackageUris",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPackageManager7": {
+      "guid": "f28654f4-2ba7-4b80-88d6-be15f9a23fba",
+      "exclusive_to": "Windows.Management.Deployment.PackageManager",
+      "methods": [
+        {
+          "name": "RequestAddPackageAsync",
+          "overload": "RequestAddPackageAndRelatedSetAsync",
+          "params": [
+            {
+              "name": "packageUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "dependencyPackageUris",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "deploymentOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeploymentOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "targetVolume",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageVolume",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "optionalPackageFamilyNames",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "relatedPackageUris",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "packageUrisToInstall",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPackageManager8": {
+      "guid": "b8575330-1298-4ee2-80ee-7f659c5d2782",
+      "exclusive_to": "Windows.Management.Deployment.PackageManager",
+      "methods": [
+        {
+          "name": "DeprovisionPackageForAllUsersAsync",
+          "params": [
+            {
+              "name": "packageFamilyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPackageManager9": {
+      "guid": "1aa79035-cc71-4b2e-80a6-c7041d8579a7",
+      "exclusive_to": "Windows.Management.Deployment.PackageManager",
+      "methods": [
+        {
+          "name": "FindProvisionedPackages",
+          "overload": "FindProvisionedPackages",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "AddPackageByUriAsync",
+          "overload": "AddPackageByUriAsync",
+          "params": [
+            {
+              "name": "packageUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AddPackageOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "StagePackageByUriAsync",
+          "overload": "StagePackageByUriAsync",
+          "params": [
+            {
+              "name": "packageUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StagePackageOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RegisterPackageByUriAsync",
+          "overload": "RegisterPackageByUriAsync",
+          "params": [
+            {
+              "name": "manifestUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RegisterPackageOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RegisterPackagesByFullNameAsync",
+          "overload": "RegisterPackagesByFullNameAsync",
+          "params": [
+            {
+              "name": "packageFullNames",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RegisterPackageOptions",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentResult",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DeploymentProgress",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SetPackageStubPreference",
+          "overload": "SetPackageStubPreference",
+          "params": [
+            {
+              "name": "packageFamilyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "useStub",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageStubPreference",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetPackageStubPreference",
+          "overload": "GetPackageStubPreference",
+          "params": [
+            {
+              "name": "packageFamilyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PackageStubPreference",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Enum"
+          }
+        }
+      ]
+    },
+    "IPackageManagerDebugSettings": {
+      "guid": "1a611683-a988-4fcf-8f0f-ce175898e8eb",
+      "exclusive_to": "Windows.Management.Deployment.PackageManagerDebugSettings",
+      "methods": [
+        {
+          "name": "SetContentGroupStateAsync",
+          "overload": "SetContentGroupStateAsync",
+          "params": [
+            {
+              "name": "package",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "contentGroupName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "state",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageContentGroupState",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SetContentGroupStateAsync",
+          "overload": "SetContentGroupStateWithPercentageAsync",
+          "params": [
+            {
+              "name": "package",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "contentGroupName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "state",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageContentGroupState",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "completionPercentage",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IPackageUserInformation": {
+      "guid": "f6383423-fa09-4cbc-9055-15ca275e2e7e",
+      "exclusive_to": "Windows.Management.Deployment.PackageUserInformation",
+      "methods": [
+        {
+          "name": "get_UserSecurityId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_InstallState",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PackageInstallState",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InstallState",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PackageInstallState",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InstallState"
+        },
+        {
+          "name": "UserSecurityId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_UserSecurityId"
+        }
+      ]
+    },
+    "IPackageVolume": {
+      "guid": "cf2672c3-1a40-4450-9739-2ace2e898853",
+      "exclusive_to": "Windows.Management.Deployment.PackageVolume",
+      "methods": [
+        {
+          "name": "get_IsOffline",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsSystemVolume",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_MountPoint",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_PackageStorePath",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SupportsHardLinks",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "FindPackages",
+          "overload": "FindPackages",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackages",
+          "overload": "FindPackagesByNamePublisher",
+          "params": [
+            {
+              "name": "packageName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packagePublisher",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackages",
+          "overload": "FindPackagesByPackageFamilyName",
+          "params": [
+            {
+              "name": "packageFamilyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackagesWithPackageTypes",
+          "overload": "FindPackagesWithPackageTypes",
+          "params": [
+            {
+              "name": "packageTypes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageTypes",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackagesWithPackageTypes",
+          "overload": "FindPackagesByNamePublisherWithPackagesTypes",
+          "params": [
+            {
+              "name": "packageTypes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageTypes",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "packageName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packagePublisher",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackagesWithPackageTypes",
+          "overload": "FindPackagesByPackageFamilyNameWithPackageTypes",
+          "params": [
+            {
+              "name": "packageTypes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageTypes",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "packageFamilyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackage",
+          "overload": "FindPackageByPackageFullName",
+          "params": [
+            {
+              "name": "packageFullName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackagesForUser",
+          "overload": "FindPackagesByUserSecurityId",
+          "params": [
+            {
+              "name": "userSecurityId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackagesForUser",
+          "overload": "FindPackagesByUserSecurityIdNamePublisher",
+          "params": [
+            {
+              "name": "userSecurityId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packageName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packagePublisher",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackagesForUser",
+          "overload": "FindPackagesByUserSecurityIdPackageFamilyName",
+          "params": [
+            {
+              "name": "userSecurityId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packageFamilyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackagesForUserWithPackageTypes",
+          "overload": "FindPackagesByUserSecurityIdWithPackageTypes",
+          "params": [
+            {
+              "name": "userSecurityId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packageTypes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageTypes",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackagesForUserWithPackageTypes",
+          "overload": "FindPackagesByUserSecurityIdNamePublisherWithPackageTypes",
+          "params": [
+            {
+              "name": "userSecurityId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packageTypes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageTypes",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "packageName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packagePublisher",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackagesForUserWithPackageTypes",
+          "overload": "FindPackagesByUserSecurityIdPackageFamilyNameWithPackagesTypes",
+          "params": [
+            {
+              "name": "userSecurityId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packageTypes",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageTypes",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "packageFamilyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackageForUser",
+          "overload": "FindPackageByUserSecurityIdPackageFullName",
+          "params": [
+            {
+              "name": "userSecurityId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "packageFullName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Package",
+                "namespace": "Windows.ApplicationModel",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsOffline",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsOffline"
+        },
+        {
+          "name": "IsSystemVolume",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSystemVolume"
+        },
+        {
+          "name": "MountPoint",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MountPoint"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        },
+        {
+          "name": "PackageStorePath",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PackageStorePath"
+        },
+        {
+          "name": "SupportsHardLinks",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SupportsHardLinks"
+        }
+      ]
+    },
+    "IPackageVolume2": {
+      "guid": "46abcf2e-9dd4-47a2-ab8c-c6408349bcd8",
+      "exclusive_to": "Windows.Management.Deployment.PackageVolume",
+      "methods": [
+        {
+          "name": "get_IsFullTrustPackageSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsAppxInstallSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetAvailableSpaceAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsAppxInstallSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAppxInstallSupported"
+        },
+        {
+          "name": "IsFullTrustPackageSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsFullTrustPackageSupported"
+        }
+      ]
+    },
+    "IRegisterPackageOptions": {
+      "guid": "677112a7-50d4-496c-8415-0602b4c6d3bf",
+      "exclusive_to": "Windows.Management.Deployment.RegisterPackageOptions",
+      "methods": [
+        {
+          "name": "get_DependencyPackageUris",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_AppDataVolume",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PackageVolume",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_AppDataVolume",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageVolume",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OptionalPackageFamilyNames",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ExternalLocationUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ExternalLocationUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DeveloperMode",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_DeveloperMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ForceAppShutdown",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_ForceAppShutdown",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ForceTargetAppShutdown",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_ForceTargetAppShutdown",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ForceUpdateFromAnyVersion",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_ForceUpdateFromAnyVersion",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_InstallAllResources",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_InstallAllResources",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_StageInPlace",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_StageInPlace",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AllowUnsigned",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AllowUnsigned",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DeferRegistrationWhenPackagesAreInUse",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_DeferRegistrationWhenPackagesAreInUse",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllowUnsigned",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AllowUnsigned",
+          "setter": "put_AllowUnsigned"
+        },
+        {
+          "name": "AppDataVolume",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PackageVolume",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Class"
+          },
+          "getter": "get_AppDataVolume",
+          "setter": "put_AppDataVolume"
+        },
+        {
+          "name": "DeferRegistrationWhenPackagesAreInUse",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_DeferRegistrationWhenPackagesAreInUse",
+          "setter": "put_DeferRegistrationWhenPackagesAreInUse"
+        },
+        {
+          "name": "DependencyPackageUris",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_DependencyPackageUris"
+        },
+        {
+          "name": "DeveloperMode",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_DeveloperMode",
+          "setter": "put_DeveloperMode"
+        },
+        {
+          "name": "ExternalLocationUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_ExternalLocationUri",
+          "setter": "put_ExternalLocationUri"
+        },
+        {
+          "name": "ForceAppShutdown",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ForceAppShutdown",
+          "setter": "put_ForceAppShutdown"
+        },
+        {
+          "name": "ForceTargetAppShutdown",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ForceTargetAppShutdown",
+          "setter": "put_ForceTargetAppShutdown"
+        },
+        {
+          "name": "ForceUpdateFromAnyVersion",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ForceUpdateFromAnyVersion",
+          "setter": "put_ForceUpdateFromAnyVersion"
+        },
+        {
+          "name": "InstallAllResources",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_InstallAllResources",
+          "setter": "put_InstallAllResources"
+        },
+        {
+          "name": "OptionalPackageFamilyNames",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_OptionalPackageFamilyNames"
+        },
+        {
+          "name": "StageInPlace",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_StageInPlace",
+          "setter": "put_StageInPlace"
+        }
+      ]
+    },
+    "IRegisterPackageOptions2": {
+      "guid": "3dfa9743-86ff-4a11-bc93-434eb6be3a0b",
+      "exclusive_to": "Windows.Management.Deployment.RegisterPackageOptions",
+      "methods": [
+        {
+          "name": "get_ExpectedDigests",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExpectedDigests",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_ExpectedDigests"
+        }
+      ]
+    },
+    "IRemovePackageOptions": {
+      "guid": "13cf01f3-c450-4f7c-a5a3-5e3c631b7462",
+      "exclusive_to": "Windows.Management.Deployment.RemovePackageOptions",
+      "methods": [
+        {
+          "name": "get_PreserveApplicationData",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_PreserveApplicationData",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PreserveRoamableApplicationData",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_PreserveRoamableApplicationData",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RemoveForAllUsers",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_RemoveForAllUsers",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "PreserveApplicationData",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_PreserveApplicationData",
+          "setter": "put_PreserveApplicationData"
+        },
+        {
+          "name": "PreserveRoamableApplicationData",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_PreserveRoamableApplicationData",
+          "setter": "put_PreserveRoamableApplicationData"
+        },
+        {
+          "name": "RemoveForAllUsers",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_RemoveForAllUsers",
+          "setter": "put_RemoveForAllUsers"
+        }
+      ]
+    },
+    "IRemovePackageOptions2": {
+      "guid": "3fcc61e5-22c5-423b-b4b4-cf10bb50830c",
+      "exclusive_to": "Windows.Management.Deployment.RemovePackageOptions",
+      "methods": [
+        {
+          "name": "get_DeferRemovalWhenPackagesAreInUse",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_DeferRemovalWhenPackagesAreInUse",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeferRemovalWhenPackagesAreInUse",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_DeferRemovalWhenPackagesAreInUse",
+          "setter": "put_DeferRemovalWhenPackagesAreInUse"
+        }
+      ]
+    },
+    "IStagePackageOptions": {
+      "guid": "0b110c9c-b95d-4c56-bd36-6d656800d06b",
+      "exclusive_to": "Windows.Management.Deployment.StagePackageOptions",
+      "methods": [
+        {
+          "name": "get_DependencyPackageUris",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_TargetVolume",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PackageVolume",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_TargetVolume",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageVolume",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OptionalPackageFamilyNames",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_OptionalPackageUris",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_RelatedPackageUris",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ExternalLocationUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ExternalLocationUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_StubPackageOption",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StubPackageOption",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_StubPackageOption",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StubPackageOption",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DeveloperMode",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_DeveloperMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ForceUpdateFromAnyVersion",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_ForceUpdateFromAnyVersion",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_InstallAllResources",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_InstallAllResources",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RequiredContentGroupOnly",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_RequiredContentGroupOnly",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_StageInPlace",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_StageInPlace",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AllowUnsigned",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AllowUnsigned",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllowUnsigned",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AllowUnsigned",
+          "setter": "put_AllowUnsigned"
+        },
+        {
+          "name": "DependencyPackageUris",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_DependencyPackageUris"
+        },
+        {
+          "name": "DeveloperMode",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_DeveloperMode",
+          "setter": "put_DeveloperMode"
+        },
+        {
+          "name": "ExternalLocationUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_ExternalLocationUri",
+          "setter": "put_ExternalLocationUri"
+        },
+        {
+          "name": "ForceUpdateFromAnyVersion",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ForceUpdateFromAnyVersion",
+          "setter": "put_ForceUpdateFromAnyVersion"
+        },
+        {
+          "name": "InstallAllResources",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_InstallAllResources",
+          "setter": "put_InstallAllResources"
+        },
+        {
+          "name": "OptionalPackageFamilyNames",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_OptionalPackageFamilyNames"
+        },
+        {
+          "name": "OptionalPackageUris",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_OptionalPackageUris"
+        },
+        {
+          "name": "RelatedPackageUris",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_RelatedPackageUris"
+        },
+        {
+          "name": "RequiredContentGroupOnly",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_RequiredContentGroupOnly",
+          "setter": "put_RequiredContentGroupOnly"
+        },
+        {
+          "name": "StageInPlace",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_StageInPlace",
+          "setter": "put_StageInPlace"
+        },
+        {
+          "name": "StubPackageOption",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StubPackageOption",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Enum"
+          },
+          "getter": "get_StubPackageOption",
+          "setter": "put_StubPackageOption"
+        },
+        {
+          "name": "TargetVolume",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PackageVolume",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Class"
+          },
+          "getter": "get_TargetVolume",
+          "setter": "put_TargetVolume"
+        }
+      ]
+    },
+    "IStagePackageOptions2": {
+      "guid": "990c4ccc-6226-4192-ba92-79875fce0d9c",
+      "exclusive_to": "Windows.Management.Deployment.StagePackageOptions",
+      "methods": [
+        {
+          "name": "get_ExpectedDigests",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExpectedDigests",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_ExpectedDigests"
+        }
+      ]
+    },
+    "IStagePackageOptions3": {
+      "guid": "ce392e55-1743-4945-ad43-9e5add4be96d",
+      "exclusive_to": "Windows.Management.Deployment.StagePackageOptions",
+      "methods": [
+        {
+          "name": "get_PackageOperationPriority",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PackageOperationPriority",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_PackageOperationPriority",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PackageOperationPriority",
+                "namespace": "Windows.Management.Deployment",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "PackageOperationPriority",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PackageOperationPriority",
+            "namespace": "Windows.Management.Deployment",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PackageOperationPriority",
+          "setter": "put_PackageOperationPriority"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AddPackageOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAddPackageOptions",
+        "namespace": "Windows.Management.Deployment",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAddPackageOptions",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAddPackageOptions2",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAddPackageOptions3",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "AppInstallerManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppInstallerManager",
+        "namespace": "Windows.Management.Deployment",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppInstallerManager",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Management.Deployment.IAppInstallerManagerStatics"
+      ]
+    },
+    "AutoUpdateSettingsOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAutoUpdateSettingsOptions",
+        "namespace": "Windows.Management.Deployment",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAutoUpdateSettingsOptions",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Management.Deployment.IAutoUpdateSettingsOptionsStatics"
+      ]
+    },
+    "DeploymentResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDeploymentResult",
+        "namespace": "Windows.Management.Deployment",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDeploymentResult",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDeploymentResult2",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PackageAllUserProvisioningOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPackageAllUserProvisioningOptions",
+        "namespace": "Windows.Management.Deployment",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPackageAllUserProvisioningOptions",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPackageAllUserProvisioningOptions2",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "PackageManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPackageManager",
+        "namespace": "Windows.Management.Deployment",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPackageManager",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPackageManager2",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPackageManager3",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPackageManager4",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPackageManager5",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPackageManager6",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPackageManager7",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPackageManager8",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPackageManager9",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPackageManager10",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPackageManager11",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPackageManager12",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "PackageManagerDebugSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPackageManagerDebugSettings",
+        "namespace": "Windows.Management.Deployment",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPackageManagerDebugSettings",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PackageUserInformation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPackageUserInformation",
+        "namespace": "Windows.Management.Deployment",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPackageUserInformation",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PackageVolume": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPackageVolume",
+        "namespace": "Windows.Management.Deployment",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPackageVolume",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPackageVolume2",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RegisterPackageOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRegisterPackageOptions",
+        "namespace": "Windows.Management.Deployment",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRegisterPackageOptions",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRegisterPackageOptions2",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "RemovePackageOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemovePackageOptions",
+        "namespace": "Windows.Management.Deployment",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemovePackageOptions",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRemovePackageOptions2",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "StagePackageOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStagePackageOptions",
+        "namespace": "Windows.Management.Deployment",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStagePackageOptions",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStagePackageOptions2",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStagePackageOptions3",
+          "namespace": "Windows.Management.Deployment",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  }
+}

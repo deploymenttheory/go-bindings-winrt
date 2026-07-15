@@ -1,0 +1,3136 @@
+{
+  "namespace": "Windows.Graphics.Imaging",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "BitmapAlphaMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Premultiplied",
+          "value": "0"
+        },
+        {
+          "name": "Straight",
+          "value": "1"
+        },
+        {
+          "name": "Ignore",
+          "value": "2"
+        }
+      ]
+    },
+    "BitmapBufferAccessMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Read",
+          "value": "0"
+        },
+        {
+          "name": "ReadWrite",
+          "value": "1"
+        },
+        {
+          "name": "Write",
+          "value": "2"
+        }
+      ]
+    },
+    "BitmapFlip": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Horizontal",
+          "value": "1"
+        },
+        {
+          "name": "Vertical",
+          "value": "2"
+        }
+      ]
+    },
+    "BitmapInterpolationMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "NearestNeighbor",
+          "value": "0"
+        },
+        {
+          "name": "Linear",
+          "value": "1"
+        },
+        {
+          "name": "Cubic",
+          "value": "2"
+        },
+        {
+          "name": "Fant",
+          "value": "3"
+        }
+      ]
+    },
+    "BitmapPixelFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "Rgba16",
+          "value": "12"
+        },
+        {
+          "name": "Rgba8",
+          "value": "30"
+        },
+        {
+          "name": "Gray16",
+          "value": "57"
+        },
+        {
+          "name": "Gray8",
+          "value": "62"
+        },
+        {
+          "name": "Bgra8",
+          "value": "87"
+        },
+        {
+          "name": "Nv12",
+          "value": "103"
+        },
+        {
+          "name": "P010",
+          "value": "104"
+        },
+        {
+          "name": "Yuy2",
+          "value": "107"
+        }
+      ]
+    },
+    "BitmapRotation": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Clockwise90Degrees",
+          "value": "1"
+        },
+        {
+          "name": "Clockwise180Degrees",
+          "value": "2"
+        },
+        {
+          "name": "Clockwise270Degrees",
+          "value": "3"
+        }
+      ]
+    },
+    "ColorManagementMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "DoNotColorManage",
+          "value": "0"
+        },
+        {
+          "name": "ColorManageToSRgb",
+          "value": "1"
+        }
+      ]
+    },
+    "ExifOrientationMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "IgnoreExifOrientation",
+          "value": "0"
+        },
+        {
+          "name": "RespectExifOrientation",
+          "value": "1"
+        }
+      ]
+    },
+    "JpegSubsamplingMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "Y4Cb2Cr0",
+          "value": "1"
+        },
+        {
+          "name": "Y4Cb2Cr2",
+          "value": "2"
+        },
+        {
+          "name": "Y4Cb4Cr4",
+          "value": "3"
+        }
+      ]
+    },
+    "PngFilterMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Automatic",
+          "value": "0"
+        },
+        {
+          "name": "None",
+          "value": "1"
+        },
+        {
+          "name": "Sub",
+          "value": "2"
+        },
+        {
+          "name": "Up",
+          "value": "3"
+        },
+        {
+          "name": "Average",
+          "value": "4"
+        },
+        {
+          "name": "Paeth",
+          "value": "5"
+        },
+        {
+          "name": "Adaptive",
+          "value": "6"
+        }
+      ]
+    },
+    "TiffCompressionMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Automatic",
+          "value": "0"
+        },
+        {
+          "name": "None",
+          "value": "1"
+        },
+        {
+          "name": "Ccitt3",
+          "value": "2"
+        },
+        {
+          "name": "Ccitt4",
+          "value": "3"
+        },
+        {
+          "name": "Lzw",
+          "value": "4"
+        },
+        {
+          "name": "Rle",
+          "value": "5"
+        },
+        {
+          "name": "Zip",
+          "value": "6"
+        },
+        {
+          "name": "LzwhDifferencing",
+          "value": "7"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "BitmapBounds": {
+      "fields": [
+        {
+          "name": "X",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "Y",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "Width",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "Height",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ]
+    },
+    "BitmapPlaneDescription": {
+      "fields": [
+        {
+          "name": "StartIndex",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "Width",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "Height",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "Stride",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ]
+    },
+    "BitmapSize": {
+      "fields": [
+        {
+          "name": "Width",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "Height",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IBitmapBuffer": {
+      "guid": "a53e04c4-399c-438c-b28f-a63a6b83d1a1",
+      "exclusive_to": "Windows.Graphics.Imaging.BitmapBuffer",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMemoryBuffer",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "GetPlaneCount",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "GetPlaneDescription",
+          "params": [
+            {
+              "name": "index",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapPlaneDescription",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Struct"
+          }
+        }
+      ]
+    },
+    "IBitmapCodecInformation": {
+      "guid": "400caaf2-c4b0-4392-a3b0-6f6f9ba95cb4",
+      "exclusive_to": "Windows.Graphics.Imaging.BitmapCodecInformation",
+      "methods": [
+        {
+          "name": "get_CodecId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_FileExtensions",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_FriendlyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MimeTypes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CodecId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_CodecId"
+        },
+        {
+          "name": "FileExtensions",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_FileExtensions"
+        },
+        {
+          "name": "FriendlyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_FriendlyName"
+        },
+        {
+          "name": "MimeTypes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_MimeTypes"
+        }
+      ]
+    },
+    "IBitmapDecoder": {
+      "guid": "acef22ba-1d74-4c91-9dfc-9620745233e6",
+      "exclusive_to": "Windows.Graphics.Imaging.BitmapDecoder",
+      "methods": [
+        {
+          "name": "get_BitmapContainerProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapPropertiesView",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DecoderInformation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapCodecInformation",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_FrameCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "GetPreviewAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ImageStream",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetFrameAsync",
+          "params": [
+            {
+              "name": "frameIndex",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BitmapFrame",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BitmapContainerProperties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapPropertiesView",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          },
+          "getter": "get_BitmapContainerProperties"
+        },
+        {
+          "name": "DecoderInformation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapCodecInformation",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          },
+          "getter": "get_DecoderInformation"
+        },
+        {
+          "name": "FrameCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_FrameCount"
+        }
+      ]
+    },
+    "IBitmapDecoderStatics": {
+      "guid": "438ccb26-bcef-4e95-bad6-23a822e58d01",
+      "exclusive_to": "Windows.Graphics.Imaging.BitmapDecoder",
+      "methods": [
+        {
+          "name": "get_BmpDecoderId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_JpegDecoderId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_PngDecoderId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_TiffDecoderId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_GifDecoderId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_JpegXRDecoderId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_IcoDecoderId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "GetDecoderInformationEnumerator",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BitmapCodecInformation",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateAsync",
+          "overload": "CreateAsync",
+          "params": [
+            {
+              "name": "stream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BitmapDecoder",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateAsync",
+          "overload": "CreateWithIdAsync",
+          "params": [
+            {
+              "name": "decoderId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "stream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BitmapDecoder",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BmpDecoderId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_BmpDecoderId"
+        },
+        {
+          "name": "GifDecoderId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_GifDecoderId"
+        },
+        {
+          "name": "IcoDecoderId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_IcoDecoderId"
+        },
+        {
+          "name": "JpegDecoderId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_JpegDecoderId"
+        },
+        {
+          "name": "JpegXRDecoderId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_JpegXRDecoderId"
+        },
+        {
+          "name": "PngDecoderId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_PngDecoderId"
+        },
+        {
+          "name": "TiffDecoderId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_TiffDecoderId"
+        }
+      ]
+    },
+    "IBitmapDecoderStatics2": {
+      "guid": "50ba68ea-99a1-40c4-80d9-aef0dafa6c3f",
+      "exclusive_to": "Windows.Graphics.Imaging.BitmapDecoder",
+      "methods": [
+        {
+          "name": "get_HeifDecoderId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_WebpDecoderId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HeifDecoderId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_HeifDecoderId"
+        },
+        {
+          "name": "WebpDecoderId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_WebpDecoderId"
+        }
+      ]
+    },
+    "IBitmapEncoder": {
+      "guid": "2bc468e3-e1f8-4b54-95e8-32919551ce62",
+      "exclusive_to": "Windows.Graphics.Imaging.BitmapEncoder",
+      "methods": [
+        {
+          "name": "get_EncoderInformation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapCodecInformation",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_BitmapProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapProperties",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_BitmapContainerProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapProperties",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IsThumbnailGenerated",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsThumbnailGenerated",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_GeneratedThumbnailWidth",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_GeneratedThumbnailWidth",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_GeneratedThumbnailHeight",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_GeneratedThumbnailHeight",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BitmapTransform",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapTransform",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetPixelData",
+          "params": [
+            {
+              "name": "pixelFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapPixelFormat",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "alphaMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapAlphaMode",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "width",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "height",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "dpiX",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "dpiY",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "pixels",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "GoToNextFrameAsync",
+          "overload": "GoToNextFrameAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GoToNextFrameAsync",
+          "overload": "GoToNextFrameWithEncodingOptionsAsync",
+          "params": [
+            {
+              "name": "encodingOptions",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "GenericInst",
+                    "name": "IKeyValuePair`2",
+                    "namespace": "Windows.Foundation.Collections",
+                    "target_kind": "Interface",
+                    "args": [
+                      {
+                        "kind": "Native",
+                        "name": "HString"
+                      },
+                      {
+                        "kind": "ApiRef",
+                        "name": "BitmapTypedValue",
+                        "namespace": "Windows.Graphics.Imaging",
+                        "target_kind": "Class"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "FlushAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BitmapContainerProperties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapProperties",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          },
+          "getter": "get_BitmapContainerProperties"
+        },
+        {
+          "name": "BitmapProperties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapProperties",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          },
+          "getter": "get_BitmapProperties"
+        },
+        {
+          "name": "BitmapTransform",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapTransform",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          },
+          "getter": "get_BitmapTransform"
+        },
+        {
+          "name": "EncoderInformation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapCodecInformation",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          },
+          "getter": "get_EncoderInformation"
+        },
+        {
+          "name": "GeneratedThumbnailHeight",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_GeneratedThumbnailHeight",
+          "setter": "put_GeneratedThumbnailHeight"
+        },
+        {
+          "name": "GeneratedThumbnailWidth",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_GeneratedThumbnailWidth",
+          "setter": "put_GeneratedThumbnailWidth"
+        },
+        {
+          "name": "IsThumbnailGenerated",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsThumbnailGenerated",
+          "setter": "put_IsThumbnailGenerated"
+        }
+      ]
+    },
+    "IBitmapEncoderStatics": {
+      "guid": "a74356a7-a4e4-4eb9-8e40-564de7e1ccb2",
+      "exclusive_to": "Windows.Graphics.Imaging.BitmapEncoder",
+      "methods": [
+        {
+          "name": "get_BmpEncoderId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_JpegEncoderId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_PngEncoderId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_TiffEncoderId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_GifEncoderId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_JpegXREncoderId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "GetEncoderInformationEnumerator",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BitmapCodecInformation",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateAsync",
+          "overload": "CreateAsync",
+          "params": [
+            {
+              "name": "encoderId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "stream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BitmapEncoder",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateAsync",
+          "overload": "CreateWithEncodingOptionsAsync",
+          "params": [
+            {
+              "name": "encoderId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "stream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "encodingOptions",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "GenericInst",
+                    "name": "IKeyValuePair`2",
+                    "namespace": "Windows.Foundation.Collections",
+                    "target_kind": "Interface",
+                    "args": [
+                      {
+                        "kind": "Native",
+                        "name": "HString"
+                      },
+                      {
+                        "kind": "ApiRef",
+                        "name": "BitmapTypedValue",
+                        "namespace": "Windows.Graphics.Imaging",
+                        "target_kind": "Class"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BitmapEncoder",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateForTranscodingAsync",
+          "params": [
+            {
+              "name": "stream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "bitmapDecoder",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapDecoder",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BitmapEncoder",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateForInPlacePropertyEncodingAsync",
+          "params": [
+            {
+              "name": "bitmapDecoder",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapDecoder",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BitmapEncoder",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BmpEncoderId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_BmpEncoderId"
+        },
+        {
+          "name": "GifEncoderId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_GifEncoderId"
+        },
+        {
+          "name": "JpegEncoderId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_JpegEncoderId"
+        },
+        {
+          "name": "JpegXREncoderId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_JpegXREncoderId"
+        },
+        {
+          "name": "PngEncoderId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_PngEncoderId"
+        },
+        {
+          "name": "TiffEncoderId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_TiffEncoderId"
+        }
+      ]
+    },
+    "IBitmapEncoderStatics2": {
+      "guid": "33cbc259-fe31-41b1-b812-086d21e87e16",
+      "exclusive_to": "Windows.Graphics.Imaging.BitmapEncoder",
+      "methods": [
+        {
+          "name": "get_HeifEncoderId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HeifEncoderId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_HeifEncoderId"
+        }
+      ]
+    },
+    "IBitmapEncoderWithSoftwareBitmap": {
+      "guid": "686cd241-4330-4c77-ace4-0334968b1768",
+      "exclusive_to": "Windows.Graphics.Imaging.BitmapEncoder",
+      "methods": [
+        {
+          "name": "SetSoftwareBitmap",
+          "params": [
+            {
+              "name": "bitmap",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SoftwareBitmap",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IBitmapFrame": {
+      "guid": "72a49a1c-8081-438d-91bc-94ecfc8185c6",
+      "methods": [
+        {
+          "name": "GetThumbnailAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ImageStream",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_BitmapProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapPropertiesView",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_BitmapPixelFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapPixelFormat",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_BitmapAlphaMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapAlphaMode",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_DpiX",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_DpiY",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_PixelWidth",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_PixelHeight",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_OrientedPixelWidth",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_OrientedPixelHeight",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "GetPixelDataAsync",
+          "overload": "GetPixelDataAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PixelDataProvider",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetPixelDataAsync",
+          "overload": "GetPixelDataTransformedAsync",
+          "params": [
+            {
+              "name": "pixelFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapPixelFormat",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "alphaMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapAlphaMode",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "transform",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapTransform",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "exifOrientationMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ExifOrientationMode",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "colorManagementMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ColorManagementMode",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PixelDataProvider",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BitmapAlphaMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapAlphaMode",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Enum"
+          },
+          "getter": "get_BitmapAlphaMode"
+        },
+        {
+          "name": "BitmapPixelFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapPixelFormat",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Enum"
+          },
+          "getter": "get_BitmapPixelFormat"
+        },
+        {
+          "name": "BitmapProperties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapPropertiesView",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          },
+          "getter": "get_BitmapProperties"
+        },
+        {
+          "name": "DpiX",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_DpiX"
+        },
+        {
+          "name": "DpiY",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_DpiY"
+        },
+        {
+          "name": "OrientedPixelHeight",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_OrientedPixelHeight"
+        },
+        {
+          "name": "OrientedPixelWidth",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_OrientedPixelWidth"
+        },
+        {
+          "name": "PixelHeight",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_PixelHeight"
+        },
+        {
+          "name": "PixelWidth",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_PixelWidth"
+        }
+      ]
+    },
+    "IBitmapFrameWithSoftwareBitmap": {
+      "guid": "fe287c9a-420c-4963-87ad-691436e08383",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBitmapFrame",
+          "namespace": "Windows.Graphics.Imaging",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "GetSoftwareBitmapAsync",
+          "overload": "GetSoftwareBitmapAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SoftwareBitmap",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetSoftwareBitmapAsync",
+          "overload": "GetSoftwareBitmapConvertedAsync",
+          "params": [
+            {
+              "name": "pixelFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapPixelFormat",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "alphaMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapAlphaMode",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SoftwareBitmap",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetSoftwareBitmapAsync",
+          "overload": "GetSoftwareBitmapTransformedAsync",
+          "params": [
+            {
+              "name": "pixelFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapPixelFormat",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "alphaMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapAlphaMode",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "transform",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapTransform",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "exifOrientationMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ExifOrientationMode",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "colorManagementMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ColorManagementMode",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SoftwareBitmap",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IBitmapProperties": {
+      "guid": "ea9f4f1b-b505-4450-a4d1-e8ca94529d8d",
+      "exclusive_to": "Windows.Graphics.Imaging.BitmapProperties",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IBitmapPropertiesView",
+          "namespace": "Windows.Graphics.Imaging",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "SetPropertiesAsync",
+          "params": [
+            {
+              "name": "propertiesToSet",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "GenericInst",
+                    "name": "IKeyValuePair`2",
+                    "namespace": "Windows.Foundation.Collections",
+                    "target_kind": "Interface",
+                    "args": [
+                      {
+                        "kind": "Native",
+                        "name": "HString"
+                      },
+                      {
+                        "kind": "ApiRef",
+                        "name": "BitmapTypedValue",
+                        "namespace": "Windows.Graphics.Imaging",
+                        "target_kind": "Class"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IBitmapPropertiesView": {
+      "guid": "7e0fe87a-3a70-48f8-9c55-196cf5a545f5",
+      "methods": [
+        {
+          "name": "GetPropertiesAsync",
+          "params": [
+            {
+              "name": "propertiesToRetrieve",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BitmapPropertySet",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IBitmapTransform": {
+      "guid": "ae755344-e268-4d35-adcf-e995d31a8d34",
+      "exclusive_to": "Windows.Graphics.Imaging.BitmapTransform",
+      "methods": [
+        {
+          "name": "get_ScaledWidth",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_ScaledWidth",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ScaledHeight",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_ScaledHeight",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_InterpolationMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapInterpolationMode",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_InterpolationMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapInterpolationMode",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Flip",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapFlip",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Flip",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapFlip",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Rotation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapRotation",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Rotation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapRotation",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Bounds",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapBounds",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Bounds",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapBounds",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Bounds",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapBounds",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Bounds",
+          "setter": "put_Bounds"
+        },
+        {
+          "name": "Flip",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapFlip",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Flip",
+          "setter": "put_Flip"
+        },
+        {
+          "name": "InterpolationMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapInterpolationMode",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InterpolationMode",
+          "setter": "put_InterpolationMode"
+        },
+        {
+          "name": "Rotation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapRotation",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Rotation",
+          "setter": "put_Rotation"
+        },
+        {
+          "name": "ScaledHeight",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ScaledHeight",
+          "setter": "put_ScaledHeight"
+        },
+        {
+          "name": "ScaledWidth",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ScaledWidth",
+          "setter": "put_ScaledWidth"
+        }
+      ]
+    },
+    "IBitmapTypedValue": {
+      "guid": "cd8044a9-2443-4000-b0cd-79316c56f589",
+      "exclusive_to": "Windows.Graphics.Imaging.BitmapTypedValue",
+      "methods": [
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "get_Type",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PropertyType",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Type",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PropertyType",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Type"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "IBitmapTypedValueFactory": {
+      "guid": "92dbb599-ce13-46bb-9545-cb3a3f63eb8b",
+      "exclusive_to": "Windows.Graphics.Imaging.BitmapTypedValue",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PropertyType",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapTypedValue",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPixelDataProvider": {
+      "guid": "dd831f25-185c-4595-9fb9-ccbe6ec18a6f",
+      "exclusive_to": "Windows.Graphics.Imaging.PixelDataProvider",
+      "methods": [
+        {
+          "name": "DetachPixelData",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          }
+        }
+      ]
+    },
+    "ISoftwareBitmap": {
+      "guid": "689e0708-7eef-483f-963f-da938818e073",
+      "exclusive_to": "Windows.Graphics.Imaging.SoftwareBitmap",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_BitmapPixelFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapPixelFormat",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_BitmapAlphaMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapAlphaMode",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_PixelWidth",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_PixelHeight",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_IsReadOnly",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_DpiX",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DpiX",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_DpiY",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DpiY",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "LockBuffer",
+          "params": [
+            {
+              "name": "mode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapBufferAccessMode",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapBuffer",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CopyTo",
+          "params": [
+            {
+              "name": "bitmap",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SoftwareBitmap",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CopyFromBuffer",
+          "params": [
+            {
+              "name": "buffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CopyToBuffer",
+          "params": [
+            {
+              "name": "buffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetReadOnlyView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SoftwareBitmap",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BitmapAlphaMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapAlphaMode",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Enum"
+          },
+          "getter": "get_BitmapAlphaMode"
+        },
+        {
+          "name": "BitmapPixelFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapPixelFormat",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Enum"
+          },
+          "getter": "get_BitmapPixelFormat"
+        },
+        {
+          "name": "DpiX",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_DpiX",
+          "setter": "put_DpiX"
+        },
+        {
+          "name": "DpiY",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_DpiY",
+          "setter": "put_DpiY"
+        },
+        {
+          "name": "IsReadOnly",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsReadOnly"
+        },
+        {
+          "name": "PixelHeight",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_PixelHeight"
+        },
+        {
+          "name": "PixelWidth",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_PixelWidth"
+        }
+      ]
+    },
+    "ISoftwareBitmapFactory": {
+      "guid": "c99feb69-2d62-4d47-a6b3-4fdb6a07fdf8",
+      "exclusive_to": "Windows.Graphics.Imaging.SoftwareBitmap",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapPixelFormat",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "width",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "height",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SoftwareBitmap",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithAlpha",
+          "params": [
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapPixelFormat",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "width",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "height",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "alpha",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapAlphaMode",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SoftwareBitmap",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISoftwareBitmapStatics": {
+      "guid": "df0385db-672f-4a9d-806e-c2442f343e86",
+      "exclusive_to": "Windows.Graphics.Imaging.SoftwareBitmap",
+      "methods": [
+        {
+          "name": "Copy",
+          "params": [
+            {
+              "name": "source",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SoftwareBitmap",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SoftwareBitmap",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "Convert",
+          "overload": "Convert",
+          "params": [
+            {
+              "name": "source",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SoftwareBitmap",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapPixelFormat",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SoftwareBitmap",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "Convert",
+          "overload": "ConvertWithAlpha",
+          "params": [
+            {
+              "name": "source",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SoftwareBitmap",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapPixelFormat",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "alpha",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapAlphaMode",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SoftwareBitmap",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateCopyFromBuffer",
+          "overload": "CreateCopyFromBuffer",
+          "params": [
+            {
+              "name": "source",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapPixelFormat",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "width",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "height",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SoftwareBitmap",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateCopyFromBuffer",
+          "overload": "CreateCopyWithAlphaFromBuffer",
+          "params": [
+            {
+              "name": "source",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapPixelFormat",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "width",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "height",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "alpha",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapAlphaMode",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SoftwareBitmap",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateCopyFromSurfaceAsync",
+          "overload": "CreateCopyFromSurfaceAsync",
+          "params": [
+            {
+              "name": "surface",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IDirect3DSurface",
+                "namespace": "Windows.Graphics.DirectX.Direct3D11",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SoftwareBitmap",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateCopyFromSurfaceAsync",
+          "overload": "CreateCopyWithAlphaFromSurfaceAsync",
+          "params": [
+            {
+              "name": "surface",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IDirect3DSurface",
+                "namespace": "Windows.Graphics.DirectX.Direct3D11",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "alpha",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapAlphaMode",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SoftwareBitmap",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "BitmapBuffer": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBitmapBuffer",
+        "namespace": "Windows.Graphics.Imaging",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBitmapBuffer",
+          "namespace": "Windows.Graphics.Imaging",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMemoryBuffer",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BitmapCodecInformation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBitmapCodecInformation",
+        "namespace": "Windows.Graphics.Imaging",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBitmapCodecInformation",
+          "namespace": "Windows.Graphics.Imaging",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BitmapDecoder": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBitmapDecoder",
+        "namespace": "Windows.Graphics.Imaging",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBitmapDecoder",
+          "namespace": "Windows.Graphics.Imaging",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBitmapFrame",
+          "namespace": "Windows.Graphics.Imaging",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBitmapFrameWithSoftwareBitmap",
+          "namespace": "Windows.Graphics.Imaging",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Graphics.Imaging.IBitmapDecoderStatics",
+        "Windows.Graphics.Imaging.IBitmapDecoderStatics2"
+      ]
+    },
+    "BitmapEncoder": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBitmapEncoder",
+        "namespace": "Windows.Graphics.Imaging",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBitmapEncoder",
+          "namespace": "Windows.Graphics.Imaging",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBitmapEncoderWithSoftwareBitmap",
+          "namespace": "Windows.Graphics.Imaging",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Graphics.Imaging.IBitmapEncoderStatics",
+        "Windows.Graphics.Imaging.IBitmapEncoderStatics2"
+      ]
+    },
+    "BitmapFrame": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBitmapFrame",
+        "namespace": "Windows.Graphics.Imaging",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBitmapFrame",
+          "namespace": "Windows.Graphics.Imaging",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBitmapFrameWithSoftwareBitmap",
+          "namespace": "Windows.Graphics.Imaging",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BitmapProperties": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBitmapProperties",
+        "namespace": "Windows.Graphics.Imaging",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBitmapProperties",
+          "namespace": "Windows.Graphics.Imaging",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBitmapPropertiesView",
+          "namespace": "Windows.Graphics.Imaging",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BitmapPropertiesView": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBitmapPropertiesView",
+        "namespace": "Windows.Graphics.Imaging",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBitmapPropertiesView",
+          "namespace": "Windows.Graphics.Imaging",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BitmapPropertySet": {
+      "default_interface": {
+        "kind": "GenericInst",
+        "name": "IMap`2",
+        "namespace": "Windows.Foundation.Collections",
+        "target_kind": "Interface",
+        "args": [
+          {
+            "kind": "Native",
+            "name": "HString"
+          },
+          {
+            "kind": "ApiRef",
+            "name": "BitmapTypedValue",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          }
+        ]
+      },
+      "interfaces": [
+        {
+          "kind": "GenericInst",
+          "name": "IMap`2",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "Native",
+              "name": "HString"
+            },
+            {
+              "kind": "ApiRef",
+              "name": "BitmapTypedValue",
+              "namespace": "Windows.Graphics.Imaging",
+              "target_kind": "Class"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "GenericInst",
+              "name": "IKeyValuePair`2",
+              "namespace": "Windows.Foundation.Collections",
+              "target_kind": "Interface",
+              "args": [
+                {
+                  "kind": "Native",
+                  "name": "HString"
+                },
+                {
+                  "kind": "ApiRef",
+                  "name": "BitmapTypedValue",
+                  "namespace": "Windows.Graphics.Imaging",
+                  "target_kind": "Class"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "activatable_direct": true
+    },
+    "BitmapTransform": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBitmapTransform",
+        "namespace": "Windows.Graphics.Imaging",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBitmapTransform",
+          "namespace": "Windows.Graphics.Imaging",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "BitmapTypedValue": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBitmapTypedValue",
+        "namespace": "Windows.Graphics.Imaging",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBitmapTypedValue",
+          "namespace": "Windows.Graphics.Imaging",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Graphics.Imaging.IBitmapTypedValueFactory"
+      ]
+    },
+    "ImageStream": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRandomAccessStreamWithContentType",
+        "namespace": "Windows.Storage.Streams",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRandomAccessStreamWithContentType",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IContentTypeProvider",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRandomAccessStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IOutputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PixelDataProvider": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPixelDataProvider",
+        "namespace": "Windows.Graphics.Imaging",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPixelDataProvider",
+          "namespace": "Windows.Graphics.Imaging",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SoftwareBitmap": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISoftwareBitmap",
+        "namespace": "Windows.Graphics.Imaging",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISoftwareBitmap",
+          "namespace": "Windows.Graphics.Imaging",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Graphics.Imaging.ISoftwareBitmapFactory"
+      ],
+      "static_interfaces": [
+        "Windows.Graphics.Imaging.ISoftwareBitmapStatics"
+      ]
+    }
+  }
+}

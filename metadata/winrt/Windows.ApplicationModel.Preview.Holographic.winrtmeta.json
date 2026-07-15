@@ -1,0 +1,163 @@
+{
+  "namespace": "Windows.ApplicationModel.Preview.Holographic",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IHolographicApplicationPreviewStatics": {
+      "guid": "fe038691-2a3a-45a9-a208-7bed691919f3",
+      "exclusive_to": "Windows.ApplicationModel.Preview.Holographic.HolographicApplicationPreview",
+      "methods": [
+        {
+          "name": "IsCurrentViewPresentedOnHolographicDisplay",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsHolographicActivation",
+          "params": [
+            {
+              "name": "activatedEventArgs",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IActivatedEventArgs",
+                "namespace": "Windows.ApplicationModel.Activation",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IHolographicKeyboardPlacementOverridePreview": {
+      "guid": "c8a8ce3a-dfde-5a14-8d5f-182c526dd9c4",
+      "exclusive_to": "Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview",
+      "methods": [
+        {
+          "name": "SetPlacementOverride",
+          "overload": "SetPlacementOverride",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "topCenterPosition",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "normal",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetPlacementOverride",
+          "overload": "SetPlacementOverrideWithMaxSize",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "topCenterPosition",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "normal",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "maxSize",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Vector2",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ResetPlacementOverride"
+        }
+      ]
+    },
+    "IHolographicKeyboardPlacementOverridePreviewStatics": {
+      "guid": "202e6039-1ff6-5a06-aac4-a5e24fa3ec4b",
+      "exclusive_to": "Windows.ApplicationModel.Preview.Holographic.HolographicKeyboardPlacementOverridePreview",
+      "methods": [
+        {
+          "name": "GetForCurrentView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HolographicKeyboardPlacementOverridePreview",
+            "namespace": "Windows.ApplicationModel.Preview.Holographic",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "HolographicApplicationPreview": {
+      "static_interfaces": [
+        "Windows.ApplicationModel.Preview.Holographic.IHolographicApplicationPreviewStatics"
+      ]
+    },
+    "HolographicKeyboardPlacementOverridePreview": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHolographicKeyboardPlacementOverridePreview",
+        "namespace": "Windows.ApplicationModel.Preview.Holographic",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHolographicKeyboardPlacementOverridePreview",
+          "namespace": "Windows.ApplicationModel.Preview.Holographic",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.ApplicationModel.Preview.Holographic.IHolographicKeyboardPlacementOverridePreviewStatics"
+      ]
+    }
+  }
+}

@@ -1,0 +1,4781 @@
+{
+  "namespace": "Windows.System.RemoteSystems",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "RemoteSystemAccessStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unspecified",
+          "value": "0"
+        },
+        {
+          "name": "Allowed",
+          "value": "1"
+        },
+        {
+          "name": "DeniedByUser",
+          "value": "2"
+        },
+        {
+          "name": "DeniedBySystem",
+          "value": "3"
+        }
+      ]
+    },
+    "RemoteSystemAuthorizationKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "SameUser",
+          "value": "0"
+        },
+        {
+          "name": "Anonymous",
+          "value": "1"
+        },
+        {
+          "name": "SameFamily",
+          "value": "2"
+        }
+      ]
+    },
+    "RemoteSystemDiscoveryType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Any",
+          "value": "0"
+        },
+        {
+          "name": "Proximal",
+          "value": "1"
+        },
+        {
+          "name": "Cloud",
+          "value": "2"
+        },
+        {
+          "name": "SpatiallyProximal",
+          "value": "3"
+        }
+      ]
+    },
+    "RemoteSystemPlatform": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "Windows",
+          "value": "1"
+        },
+        {
+          "name": "Android",
+          "value": "2"
+        },
+        {
+          "name": "Ios",
+          "value": "3"
+        },
+        {
+          "name": "Linux",
+          "value": "4"
+        }
+      ]
+    },
+    "RemoteSystemSessionCreationStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "SessionLimitsExceeded",
+          "value": "1"
+        },
+        {
+          "name": "OperationAborted",
+          "value": "2"
+        }
+      ]
+    },
+    "RemoteSystemSessionDisconnectedReason": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "SessionUnavailable",
+          "value": "0"
+        },
+        {
+          "name": "RemovedByController",
+          "value": "1"
+        },
+        {
+          "name": "SessionClosed",
+          "value": "2"
+        }
+      ]
+    },
+    "RemoteSystemSessionJoinStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "SessionLimitsExceeded",
+          "value": "1"
+        },
+        {
+          "name": "OperationAborted",
+          "value": "2"
+        },
+        {
+          "name": "SessionUnavailable",
+          "value": "3"
+        },
+        {
+          "name": "RejectedByController",
+          "value": "4"
+        }
+      ]
+    },
+    "RemoteSystemSessionMessageChannelReliability": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Reliable",
+          "value": "0"
+        },
+        {
+          "name": "Unreliable",
+          "value": "1"
+        }
+      ]
+    },
+    "RemoteSystemSessionParticipantWatcherStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Created",
+          "value": "0"
+        },
+        {
+          "name": "Started",
+          "value": "1"
+        },
+        {
+          "name": "EnumerationCompleted",
+          "value": "2"
+        },
+        {
+          "name": "Stopping",
+          "value": "3"
+        },
+        {
+          "name": "Stopped",
+          "value": "4"
+        },
+        {
+          "name": "Aborted",
+          "value": "5"
+        }
+      ]
+    },
+    "RemoteSystemSessionWatcherStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Created",
+          "value": "0"
+        },
+        {
+          "name": "Started",
+          "value": "1"
+        },
+        {
+          "name": "EnumerationCompleted",
+          "value": "2"
+        },
+        {
+          "name": "Stopping",
+          "value": "3"
+        },
+        {
+          "name": "Stopped",
+          "value": "4"
+        },
+        {
+          "name": "Aborted",
+          "value": "5"
+        }
+      ]
+    },
+    "RemoteSystemStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unavailable",
+          "value": "0"
+        },
+        {
+          "name": "DiscoveringAvailability",
+          "value": "1"
+        },
+        {
+          "name": "Available",
+          "value": "2"
+        },
+        {
+          "name": "Unknown",
+          "value": "3"
+        }
+      ]
+    },
+    "RemoteSystemStatusType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Any",
+          "value": "0"
+        },
+        {
+          "name": "Available",
+          "value": "1"
+        }
+      ]
+    },
+    "RemoteSystemWatcherError": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "InternetNotAvailable",
+          "value": "1"
+        },
+        {
+          "name": "AuthenticationError",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IKnownRemoteSystemCapabilitiesStatics": {
+      "guid": "8108e380-7f8a-44e4-92cd-03b6469b94a3",
+      "exclusive_to": "Windows.System.RemoteSystems.KnownRemoteSystemCapabilities",
+      "methods": [
+        {
+          "name": "get_AppService",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_LaunchUri",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RemoteSession",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SpatialEntity",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppService",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppService"
+        },
+        {
+          "name": "LaunchUri",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LaunchUri"
+        },
+        {
+          "name": "RemoteSession",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RemoteSession"
+        },
+        {
+          "name": "SpatialEntity",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SpatialEntity"
+        }
+      ]
+    },
+    "IRemoteSystem": {
+      "guid": "ed5838cd-1e10-4a8c-b4a6-4e5fd6f97721",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystem",
+      "methods": [
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemStatus",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_IsAvailableByProximity",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "IsAvailableByProximity",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAvailableByProximity"
+        },
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Kind"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemStatus",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IRemoteSystem2": {
+      "guid": "09dfe4ec-fb8b-4a08-a758-6876435d769e",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystem",
+      "methods": [
+        {
+          "name": "get_IsAvailableBySpatialProximity",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetCapabilitySupportedAsync",
+          "params": [
+            {
+              "name": "capabilityName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsAvailableBySpatialProximity",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAvailableBySpatialProximity"
+        }
+      ]
+    },
+    "IRemoteSystem3": {
+      "guid": "72b4b495-b7c6-40be-831b-73562f12ffa8",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystem",
+      "methods": [
+        {
+          "name": "get_ManufacturerDisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ModelDisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ManufacturerDisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ManufacturerDisplayName"
+        },
+        {
+          "name": "ModelDisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ModelDisplayName"
+        }
+      ]
+    },
+    "IRemoteSystem4": {
+      "guid": "f164ffe5-b987-4ca5-9926-fa0438be6273",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystem",
+      "methods": [
+        {
+          "name": "get_Platform",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemPlatform",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Platform",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemPlatform",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Platform"
+        }
+      ]
+    },
+    "IRemoteSystem5": {
+      "guid": "eb2ad723-e5e2-4ae2-a7a7-a1097a098e90",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystem",
+      "methods": [
+        {
+          "name": "get_Apps",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemApp",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Apps",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemApp",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Apps"
+        }
+      ]
+    },
+    "IRemoteSystem6": {
+      "guid": "d4cda942-c027-533e-9384-3a19b4f7eef3",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystem",
+      "methods": [
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ]
+    },
+    "IRemoteSystemAddedEventArgs": {
+      "guid": "8f39560f-e534-4697-8836-7abea151516e",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemAddedEventArgs",
+      "methods": [
+        {
+          "name": "get_RemoteSystem",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystem",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RemoteSystem",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystem",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          },
+          "getter": "get_RemoteSystem"
+        }
+      ]
+    },
+    "IRemoteSystemApp": {
+      "guid": "80e5bcbd-d54d-41b1-9b16-6810a871ed4f",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemApp",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IsAvailableByProximity",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsAvailableBySpatialProximity",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Attributes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Attributes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Attributes"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "IsAvailableByProximity",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAvailableByProximity"
+        },
+        {
+          "name": "IsAvailableBySpatialProximity",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAvailableBySpatialProximity"
+        }
+      ]
+    },
+    "IRemoteSystemApp2": {
+      "guid": "6369bf15-0a96-577a-8ff6-c35904dfa8f3",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemApp",
+      "methods": [
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ConnectionToken",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ConnectionToken",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ConnectionToken"
+        },
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ]
+    },
+    "IRemoteSystemAppRegistration": {
+      "guid": "b47947b5-7035-4a5a-b8df-962d8f8431f4",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemAppRegistration",
+      "methods": [
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Attributes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SaveAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Attributes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Attributes"
+        },
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ]
+    },
+    "IRemoteSystemAppRegistrationStatics": {
+      "guid": "01b99840-cfd2-453f-ae25-c2539f086afd",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemAppRegistration",
+      "methods": [
+        {
+          "name": "GetDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemAppRegistration",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemAppRegistration",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IRemoteSystemAuthorizationKindFilter": {
+      "guid": "6b0dde8e-04d0-40f4-a27f-c2acbbd6b734",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemAuthorizationKindFilter",
+      "methods": [
+        {
+          "name": "get_RemoteSystemAuthorizationKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemAuthorizationKind",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RemoteSystemAuthorizationKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemAuthorizationKind",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RemoteSystemAuthorizationKind"
+        }
+      ]
+    },
+    "IRemoteSystemAuthorizationKindFilterFactory": {
+      "guid": "ad65df4d-b66a-45a4-8177-8caed75d9e5a",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemAuthorizationKindFilter",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "remoteSystemAuthorizationKind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RemoteSystemAuthorizationKind",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemAuthorizationKindFilter",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IRemoteSystemConnectionInfo": {
+      "guid": "23278bc3-0d09-52cb-9c6a-eed2940bee43",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemConnectionInfo",
+      "methods": [
+        {
+          "name": "get_IsProximal",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsProximal",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsProximal"
+        }
+      ]
+    },
+    "IRemoteSystemConnectionInfoStatics": {
+      "guid": "ac831e2d-66c5-56d7-a4ce-705d94925ad6",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemConnectionInfo",
+      "methods": [
+        {
+          "name": "TryCreateFromAppServiceConnection",
+          "overload": "TryCreateFromAppServiceConnection",
+          "params": [
+            {
+              "name": "connection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppServiceConnection",
+                "namespace": "Windows.ApplicationModel.AppService",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemConnectionInfo",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IRemoteSystemConnectionRequest": {
+      "guid": "84ed4104-8d5e-4d72-8238-7621576c7a67",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemConnectionRequest",
+      "methods": [
+        {
+          "name": "get_RemoteSystem",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystem",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RemoteSystem",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystem",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          },
+          "getter": "get_RemoteSystem"
+        }
+      ]
+    },
+    "IRemoteSystemConnectionRequest2": {
+      "guid": "12df6d6f-bffc-483a-8abe-d34a6c19f92b",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemConnectionRequest",
+      "methods": [
+        {
+          "name": "get_RemoteSystemApp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemApp",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RemoteSystemApp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemApp",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          },
+          "getter": "get_RemoteSystemApp"
+        }
+      ]
+    },
+    "IRemoteSystemConnectionRequest3": {
+      "guid": "de86c3e7-c9cc-5a50-b8d9-ba7b34bb8d0e",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemConnectionRequest",
+      "methods": [
+        {
+          "name": "get_ConnectionToken",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ConnectionToken",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ConnectionToken"
+        }
+      ]
+    },
+    "IRemoteSystemConnectionRequestFactory": {
+      "guid": "aa0a0a20-baeb-4575-b530-810bb9786334",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemConnectionRequest",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "remoteSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RemoteSystem",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemConnectionRequest",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IRemoteSystemConnectionRequestStatics": {
+      "guid": "86ca143d-8214-425c-8932-db49032d1306",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemConnectionRequest",
+      "methods": [
+        {
+          "name": "CreateForApp",
+          "params": [
+            {
+              "name": "remoteSystemApp",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RemoteSystemApp",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemConnectionRequest",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IRemoteSystemConnectionRequestStatics2": {
+      "guid": "460f1027-64ec-598e-a800-4f2ee58def19",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemConnectionRequest",
+      "methods": [
+        {
+          "name": "CreateFromConnectionToken",
+          "params": [
+            {
+              "name": "connectionToken",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemConnectionRequest",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFromConnectionTokenForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "connectionToken",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemConnectionRequest",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IRemoteSystemDiscoveryTypeFilter": {
+      "guid": "42d9041f-ee5a-43da-ac6a-6fee25460741",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemDiscoveryTypeFilter",
+      "methods": [
+        {
+          "name": "get_RemoteSystemDiscoveryType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemDiscoveryType",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RemoteSystemDiscoveryType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemDiscoveryType",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RemoteSystemDiscoveryType"
+        }
+      ]
+    },
+    "IRemoteSystemDiscoveryTypeFilterFactory": {
+      "guid": "9f9eb993-c260-4161-92f2-9c021f23fe5d",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemDiscoveryTypeFilter",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "discoveryType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RemoteSystemDiscoveryType",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemDiscoveryTypeFilter",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IRemoteSystemEnumerationCompletedEventArgs": {
+      "guid": "c6e83d5f-4030-4354-a060-14f1b22c545d",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemEnumerationCompletedEventArgs"
+    },
+    "IRemoteSystemFilter": {
+      "guid": "4a3ba9e4-99eb-45eb-ba16-0367728ff374"
+    },
+    "IRemoteSystemKindFilter": {
+      "guid": "38e1c9ec-22c3-4ef6-901a-bbb1c7aad4ed",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemKindFilter",
+      "methods": [
+        {
+          "name": "get_RemoteSystemKinds",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RemoteSystemKinds",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_RemoteSystemKinds"
+        }
+      ]
+    },
+    "IRemoteSystemKindFilterFactory": {
+      "guid": "a1fb18ee-99ea-40bc-9a39-c670aa804a28",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemKindFilter",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "remoteSystemKinds",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemKindFilter",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IRemoteSystemKindStatics": {
+      "guid": "f6317633-ab14-41d0-9553-796aadb882db",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemKinds",
+      "methods": [
+        {
+          "name": "get_Phone",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Hub",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Holographic",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Desktop",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Xbox",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Desktop",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Desktop"
+        },
+        {
+          "name": "Holographic",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Holographic"
+        },
+        {
+          "name": "Hub",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Hub"
+        },
+        {
+          "name": "Phone",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Phone"
+        },
+        {
+          "name": "Xbox",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Xbox"
+        }
+      ]
+    },
+    "IRemoteSystemKindStatics2": {
+      "guid": "b9e3a3d0-0466-4749-91e8-65f9d19a96a5",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemKinds",
+      "methods": [
+        {
+          "name": "get_Iot",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Tablet",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Laptop",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Iot",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Iot"
+        },
+        {
+          "name": "Laptop",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Laptop"
+        },
+        {
+          "name": "Tablet",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Tablet"
+        }
+      ]
+    },
+    "IRemoteSystemRemovedEventArgs": {
+      "guid": "8b3d16bb-7306-49ea-b7df-67d5714cb013",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemRemovedEventArgs",
+      "methods": [
+        {
+          "name": "get_RemoteSystemId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RemoteSystemId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RemoteSystemId"
+        }
+      ]
+    },
+    "IRemoteSystemSession": {
+      "guid": "69476a01-9ada-490f-9549-d31cb14c9e95",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSession",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ControllerDisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "add_Disconnected",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemSession",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemSessionDisconnectedEventArgs",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Disconnected",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CreateParticipantWatcher",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionParticipantWatcher",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SendInvitationAsync",
+          "params": [
+            {
+              "name": "invitee",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RemoteSystem",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ControllerDisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ControllerDisplayName"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        }
+      ],
+      "events": [
+        {
+          "name": "Disconnected",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSession",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSessionDisconnectedEventArgs",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Disconnected",
+          "remove_method": "remove_Disconnected"
+        }
+      ]
+    },
+    "IRemoteSystemSessionAddedEventArgs": {
+      "guid": "d585d754-bc97-4c39-99b4-beca76e04c3f",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSessionAddedEventArgs",
+      "methods": [
+        {
+          "name": "get_SessionInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionInfo",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SessionInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionInfo",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          },
+          "getter": "get_SessionInfo"
+        }
+      ]
+    },
+    "IRemoteSystemSessionController": {
+      "guid": "e48b2dd2-6820-4867-b425-d89c0a3ef7ba",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSessionController",
+      "methods": [
+        {
+          "name": "add_JoinRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemSessionController",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemSessionJoinRequestedEventArgs",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_JoinRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RemoveParticipantAsync",
+          "params": [
+            {
+              "name": "pParticipant",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSessionParticipant",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateSessionAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSessionCreationResult",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "events": [
+        {
+          "name": "JoinRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSessionController",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSessionJoinRequestedEventArgs",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_JoinRequested",
+          "remove_method": "remove_JoinRequested"
+        }
+      ]
+    },
+    "IRemoteSystemSessionControllerFactory": {
+      "guid": "bfcc2f6b-ac3d-4199-82cd-6670a773ef2e",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSessionController",
+      "methods": [
+        {
+          "name": "CreateController",
+          "overload": "CreateController",
+          "params": [
+            {
+              "name": "displayName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionController",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateController",
+          "overload": "CreateControllerWithSessionOptions",
+          "params": [
+            {
+              "name": "displayName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSessionOptions",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionController",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IRemoteSystemSessionCreationResult": {
+      "guid": "a79812c2-37de-448c-8b83-a30aa3c4ead6",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSessionCreationResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionCreationStatus",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Session",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSession",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Session",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSession",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          },
+          "getter": "get_Session"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionCreationStatus",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IRemoteSystemSessionDisconnectedEventArgs": {
+      "guid": "de0bc69b-77c5-461c-8209-7c6c5d3111ab",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSessionDisconnectedEventArgs",
+      "methods": [
+        {
+          "name": "get_Reason",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionDisconnectedReason",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Reason",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionDisconnectedReason",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Reason"
+        }
+      ]
+    },
+    "IRemoteSystemSessionInfo": {
+      "guid": "ff4df648-8b0a-4e9a-9905-69e4b841c588",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSessionInfo",
+      "methods": [
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ControllerDisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "JoinAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSessionJoinResult",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ControllerDisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ControllerDisplayName"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        }
+      ]
+    },
+    "IRemoteSystemSessionInvitation": {
+      "guid": "3e32cc91-51d7-4766-a121-25516c3b8294",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSessionInvitation",
+      "methods": [
+        {
+          "name": "get_Sender",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystem",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_SessionInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionInfo",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Sender",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystem",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          },
+          "getter": "get_Sender"
+        },
+        {
+          "name": "SessionInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionInfo",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          },
+          "getter": "get_SessionInfo"
+        }
+      ]
+    },
+    "IRemoteSystemSessionInvitationListener": {
+      "guid": "08f4003f-bc71-49e1-874a-31ddff9a27b9",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSessionInvitationListener",
+      "methods": [
+        {
+          "name": "add_InvitationReceived",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemSessionInvitationListener",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemSessionInvitationReceivedEventArgs",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_InvitationReceived",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "InvitationReceived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSessionInvitationListener",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSessionInvitationReceivedEventArgs",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_InvitationReceived",
+          "remove_method": "remove_InvitationReceived"
+        }
+      ]
+    },
+    "IRemoteSystemSessionInvitationReceivedEventArgs": {
+      "guid": "5e964a2d-a10d-4edb-8dea-54d20ac19543",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSessionInvitationReceivedEventArgs",
+      "methods": [
+        {
+          "name": "get_Invitation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionInvitation",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Invitation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionInvitation",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          },
+          "getter": "get_Invitation"
+        }
+      ]
+    },
+    "IRemoteSystemSessionJoinRequest": {
+      "guid": "20600068-7994-4331-86d1-d89d882585ee",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSessionJoinRequest",
+      "methods": [
+        {
+          "name": "get_Participant",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionParticipant",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "Accept"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Participant",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionParticipant",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          },
+          "getter": "get_Participant"
+        }
+      ]
+    },
+    "IRemoteSystemSessionJoinRequestedEventArgs": {
+      "guid": "dbca4fc3-82b9-4816-9c24-e40e61774bd8",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSessionJoinRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_JoinRequest",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionJoinRequest",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "JoinRequest",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionJoinRequest",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          },
+          "getter": "get_JoinRequest"
+        }
+      ]
+    },
+    "IRemoteSystemSessionJoinResult": {
+      "guid": "ce7b1f04-a03e-41a4-900b-1e79328c1267",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSessionJoinResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionJoinStatus",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Session",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSession",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Session",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSession",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          },
+          "getter": "get_Session"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionJoinStatus",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IRemoteSystemSessionMessageChannel": {
+      "guid": "9524d12a-73d9-4c10-b751-c26784437127",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSessionMessageChannel",
+      "methods": [
+        {
+          "name": "get_Session",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSession",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "BroadcastValueSetAsync",
+          "params": [
+            {
+              "name": "messageData",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ValueSet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SendValueSetAsync",
+          "params": [
+            {
+              "name": "messageData",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ValueSet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "participant",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSessionParticipant",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SendValueSetToParticipantsAsync",
+          "params": [
+            {
+              "name": "messageData",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ValueSet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "participants",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemSessionParticipant",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_ValueSetReceived",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemSessionMessageChannel",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemSessionValueSetReceivedEventArgs",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ValueSetReceived",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Session",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSession",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          },
+          "getter": "get_Session"
+        }
+      ],
+      "events": [
+        {
+          "name": "ValueSetReceived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSessionMessageChannel",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSessionValueSetReceivedEventArgs",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ValueSetReceived",
+          "remove_method": "remove_ValueSetReceived"
+        }
+      ]
+    },
+    "IRemoteSystemSessionMessageChannelFactory": {
+      "guid": "295e1c4a-bd16-4298-b7ce-415482b0e11d",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSessionMessageChannel",
+      "methods": [
+        {
+          "name": "Create",
+          "overload": "Create",
+          "params": [
+            {
+              "name": "session",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSession",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "channelName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionMessageChannel",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "Create",
+          "overload": "CreateWithReliability",
+          "params": [
+            {
+              "name": "session",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSession",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "channelName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "reliability",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSessionMessageChannelReliability",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionMessageChannel",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IRemoteSystemSessionOptions": {
+      "guid": "740ed755-8418-4f01-9353-e21c9ecc6cfc",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSessionOptions",
+      "methods": [
+        {
+          "name": "get_IsInviteOnly",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsInviteOnly",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsInviteOnly",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsInviteOnly",
+          "setter": "put_IsInviteOnly"
+        }
+      ]
+    },
+    "IRemoteSystemSessionParticipant": {
+      "guid": "7e90058c-acf9-4729-8a17-44e7baed5dcc",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSessionParticipant",
+      "methods": [
+        {
+          "name": "get_RemoteSystem",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystem",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetHostNames",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RemoteSystem",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystem",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          },
+          "getter": "get_RemoteSystem"
+        }
+      ]
+    },
+    "IRemoteSystemSessionParticipantAddedEventArgs": {
+      "guid": "d35a57d8-c9a1-4bb7-b6b0-79bb91adf93d",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSessionParticipantAddedEventArgs",
+      "methods": [
+        {
+          "name": "get_Participant",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionParticipant",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Participant",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionParticipant",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          },
+          "getter": "get_Participant"
+        }
+      ]
+    },
+    "IRemoteSystemSessionParticipantRemovedEventArgs": {
+      "guid": "866ef088-de68-4abf-88a1-f90d16274192",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSessionParticipantRemovedEventArgs",
+      "methods": [
+        {
+          "name": "get_Participant",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionParticipant",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Participant",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionParticipant",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          },
+          "getter": "get_Participant"
+        }
+      ]
+    },
+    "IRemoteSystemSessionParticipantWatcher": {
+      "guid": "dcdd02cc-aa87-4d79-b6cc-4459b3e92075",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSessionParticipantWatcher",
+      "methods": [
+        {
+          "name": "Start"
+        },
+        {
+          "name": "Stop"
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionParticipantWatcherStatus",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_Added",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemSessionParticipantWatcher",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemSessionParticipantAddedEventArgs",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Added",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Removed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemSessionParticipantWatcher",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemSessionParticipantRemovedEventArgs",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Removed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_EnumerationCompleted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemSessionParticipantWatcher",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_EnumerationCompleted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionParticipantWatcherStatus",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ],
+      "events": [
+        {
+          "name": "Added",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSessionParticipantWatcher",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSessionParticipantAddedEventArgs",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Added",
+          "remove_method": "remove_Added"
+        },
+        {
+          "name": "EnumerationCompleted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSessionParticipantWatcher",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_EnumerationCompleted",
+          "remove_method": "remove_EnumerationCompleted"
+        },
+        {
+          "name": "Removed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSessionParticipantWatcher",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSessionParticipantRemovedEventArgs",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Removed",
+          "remove_method": "remove_Removed"
+        }
+      ]
+    },
+    "IRemoteSystemSessionRemovedEventArgs": {
+      "guid": "af82914e-39a1-4dea-9d63-43798d5bbbd0",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSessionRemovedEventArgs",
+      "methods": [
+        {
+          "name": "get_SessionInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionInfo",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SessionInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionInfo",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          },
+          "getter": "get_SessionInfo"
+        }
+      ]
+    },
+    "IRemoteSystemSessionStatics": {
+      "guid": "8524899f-fd20-44e3-9565-e75a3b14c66e",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSession",
+      "methods": [
+        {
+          "name": "CreateWatcher",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionWatcher",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IRemoteSystemSessionUpdatedEventArgs": {
+      "guid": "16875069-231e-4c91-8ec8-b3a39d9e55a3",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSessionUpdatedEventArgs",
+      "methods": [
+        {
+          "name": "get_SessionInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionInfo",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SessionInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionInfo",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          },
+          "getter": "get_SessionInfo"
+        }
+      ]
+    },
+    "IRemoteSystemSessionValueSetReceivedEventArgs": {
+      "guid": "06f31785-2da5-4e58-a78f-9e8d0784ee25",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSessionValueSetReceivedEventArgs",
+      "methods": [
+        {
+          "name": "get_Sender",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionParticipant",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Message",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Message",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          },
+          "getter": "get_Message"
+        },
+        {
+          "name": "Sender",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionParticipant",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          },
+          "getter": "get_Sender"
+        }
+      ]
+    },
+    "IRemoteSystemSessionWatcher": {
+      "guid": "8003e340-0c41-4a62-b6d7-bdbe2b19be2d",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemSessionWatcher",
+      "methods": [
+        {
+          "name": "Start"
+        },
+        {
+          "name": "Stop"
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionWatcherStatus",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_Added",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemSessionWatcher",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemSessionAddedEventArgs",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Added",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Updated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemSessionWatcher",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemSessionUpdatedEventArgs",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Updated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Removed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemSessionWatcher",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemSessionRemovedEventArgs",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Removed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemSessionWatcherStatus",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ],
+      "events": [
+        {
+          "name": "Added",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSessionWatcher",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSessionAddedEventArgs",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Added",
+          "remove_method": "remove_Added"
+        },
+        {
+          "name": "Removed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSessionWatcher",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSessionRemovedEventArgs",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Removed",
+          "remove_method": "remove_Removed"
+        },
+        {
+          "name": "Updated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSessionWatcher",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemSessionUpdatedEventArgs",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Updated",
+          "remove_method": "remove_Updated"
+        }
+      ]
+    },
+    "IRemoteSystemStatics": {
+      "guid": "a485b392-ff2b-4b47-be62-743f2f140f30",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystem",
+      "methods": [
+        {
+          "name": "FindByHostNameAsync",
+          "params": [
+            {
+              "name": "hostName",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystem",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateWatcher",
+          "overload": "CreateWatcher",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemWatcher",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWatcher",
+          "overload": "CreateWatcherWithFilters",
+          "params": [
+            {
+              "name": "filters",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IRemoteSystemFilter",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemWatcher",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "RequestAccessAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemAccessStatus",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IRemoteSystemStatics2": {
+      "guid": "0c98edca-6f99-4c52-a272-ea4f36471744",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystem",
+      "methods": [
+        {
+          "name": "IsAuthorizationKindEnabled",
+          "params": [
+            {
+              "name": "kind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RemoteSystemAuthorizationKind",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IRemoteSystemStatics3": {
+      "guid": "9995f16f-0b3c-5ac5-b325-cc73f437dfcd",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystem",
+      "methods": [
+        {
+          "name": "CreateWatcherForUser",
+          "overload": "CreateWatcherForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemWatcher",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWatcherForUser",
+          "overload": "CreateWatcherWithFiltersForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "filters",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IRemoteSystemFilter",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Interface"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemWatcher",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IRemoteSystemStatusTypeFilter": {
+      "guid": "0c39514e-cbb6-4777-8534-2e0c521affa2",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemStatusTypeFilter",
+      "methods": [
+        {
+          "name": "get_RemoteSystemStatusType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemStatusType",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RemoteSystemStatusType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemStatusType",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RemoteSystemStatusType"
+        }
+      ]
+    },
+    "IRemoteSystemStatusTypeFilterFactory": {
+      "guid": "33cf78fa-d724-4125-ac7a-8d281e44c949",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemStatusTypeFilter",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "remoteSystemStatusType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RemoteSystemStatusType",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemStatusTypeFilter",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IRemoteSystemUpdatedEventArgs": {
+      "guid": "7502ff0e-dbcb-4155-b4ca-b30a04f27627",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemUpdatedEventArgs",
+      "methods": [
+        {
+          "name": "get_RemoteSystem",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystem",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RemoteSystem",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystem",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          },
+          "getter": "get_RemoteSystem"
+        }
+      ]
+    },
+    "IRemoteSystemWatcher": {
+      "guid": "5d600c7e-2c07-48c5-889c-455d2b099771",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemWatcher",
+      "methods": [
+        {
+          "name": "Start"
+        },
+        {
+          "name": "Stop"
+        },
+        {
+          "name": "add_RemoteSystemAdded",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemWatcher",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemAddedEventArgs",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_RemoteSystemAdded",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_RemoteSystemUpdated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemWatcher",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemUpdatedEventArgs",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_RemoteSystemUpdated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_RemoteSystemRemoved",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemWatcher",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemRemovedEventArgs",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_RemoteSystemRemoved",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "RemoteSystemAdded",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemWatcher",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemAddedEventArgs",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_RemoteSystemAdded",
+          "remove_method": "remove_RemoteSystemAdded"
+        },
+        {
+          "name": "RemoteSystemRemoved",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemWatcher",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemRemovedEventArgs",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_RemoteSystemRemoved",
+          "remove_method": "remove_RemoteSystemRemoved"
+        },
+        {
+          "name": "RemoteSystemUpdated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemWatcher",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemUpdatedEventArgs",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_RemoteSystemUpdated",
+          "remove_method": "remove_RemoteSystemUpdated"
+        }
+      ]
+    },
+    "IRemoteSystemWatcher2": {
+      "guid": "73436700-19ca-48f9-a4cd-780f7ad58c71",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemWatcher",
+      "methods": [
+        {
+          "name": "add_EnumerationCompleted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemWatcher",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemEnumerationCompletedEventArgs",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_EnumerationCompleted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ErrorOccurred",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemWatcher",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "RemoteSystemWatcherErrorOccurredEventArgs",
+                    "namespace": "Windows.System.RemoteSystems",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ErrorOccurred",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "EnumerationCompleted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemWatcher",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemEnumerationCompletedEventArgs",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_EnumerationCompleted",
+          "remove_method": "remove_EnumerationCompleted"
+        },
+        {
+          "name": "ErrorOccurred",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemWatcher",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "RemoteSystemWatcherErrorOccurredEventArgs",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ErrorOccurred",
+          "remove_method": "remove_ErrorOccurred"
+        }
+      ]
+    },
+    "IRemoteSystemWatcher3": {
+      "guid": "f79c0fcf-a913-55d3-8413-418fcf15ba54",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemWatcher",
+      "methods": [
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ]
+    },
+    "IRemoteSystemWatcherErrorOccurredEventArgs": {
+      "guid": "74c5c6af-5114-4426-9216-20d81f8519ae",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemWatcherErrorOccurredEventArgs",
+      "methods": [
+        {
+          "name": "get_Error",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemWatcherError",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Error",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemWatcherError",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Error"
+        }
+      ]
+    },
+    "IRemoteSystemWebAccountFilter": {
+      "guid": "3fb75873-87c8-5d8f-977e-f69f96d67238",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemWebAccountFilter",
+      "methods": [
+        {
+          "name": "get_Account",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebAccount",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Account",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebAccount",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          },
+          "getter": "get_Account"
+        }
+      ]
+    },
+    "IRemoteSystemWebAccountFilterFactory": {
+      "guid": "348a2709-5f4d-5127-b4a7-bf99d5252b1b",
+      "exclusive_to": "Windows.System.RemoteSystems.RemoteSystemWebAccountFilter",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "account",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAccount",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RemoteSystemWebAccountFilter",
+            "namespace": "Windows.System.RemoteSystems",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "KnownRemoteSystemCapabilities": {
+      "static_interfaces": [
+        "Windows.System.RemoteSystems.IKnownRemoteSystemCapabilitiesStatics"
+      ]
+    },
+    "RemoteSystem": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystem",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystem",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystem2",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystem3",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystem4",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystem5",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystem6",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.System.RemoteSystems.IRemoteSystemStatics2",
+        "Windows.System.RemoteSystems.IRemoteSystemStatics3",
+        "Windows.System.RemoteSystems.IRemoteSystemStatics"
+      ]
+    },
+    "RemoteSystemAddedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemAddedEventArgs",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemAddedEventArgs",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteSystemApp": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemApp",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemApp",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemApp2",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteSystemAppRegistration": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemAppRegistration",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemAppRegistration",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.System.RemoteSystems.IRemoteSystemAppRegistrationStatics"
+      ]
+    },
+    "RemoteSystemAuthorizationKindFilter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemAuthorizationKindFilter",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemAuthorizationKindFilter",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemFilter",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.System.RemoteSystems.IRemoteSystemAuthorizationKindFilterFactory"
+      ]
+    },
+    "RemoteSystemConnectionInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemConnectionInfo",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemConnectionInfo",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.System.RemoteSystems.IRemoteSystemConnectionInfoStatics"
+      ]
+    },
+    "RemoteSystemConnectionRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemConnectionRequest",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemConnectionRequest",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemConnectionRequest2",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemConnectionRequest3",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.System.RemoteSystems.IRemoteSystemConnectionRequestFactory"
+      ],
+      "static_interfaces": [
+        "Windows.System.RemoteSystems.IRemoteSystemConnectionRequestStatics2",
+        "Windows.System.RemoteSystems.IRemoteSystemConnectionRequestStatics"
+      ]
+    },
+    "RemoteSystemDiscoveryTypeFilter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemDiscoveryTypeFilter",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemDiscoveryTypeFilter",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemFilter",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.System.RemoteSystems.IRemoteSystemDiscoveryTypeFilterFactory"
+      ]
+    },
+    "RemoteSystemEnumerationCompletedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemEnumerationCompletedEventArgs",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemEnumerationCompletedEventArgs",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteSystemKindFilter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemKindFilter",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemKindFilter",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemFilter",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.System.RemoteSystems.IRemoteSystemKindFilterFactory"
+      ]
+    },
+    "RemoteSystemKinds": {
+      "static_interfaces": [
+        "Windows.System.RemoteSystems.IRemoteSystemKindStatics",
+        "Windows.System.RemoteSystems.IRemoteSystemKindStatics2"
+      ]
+    },
+    "RemoteSystemRemovedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemRemovedEventArgs",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemRemovedEventArgs",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteSystemSession": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemSession",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemSession",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.System.RemoteSystems.IRemoteSystemSessionStatics"
+      ]
+    },
+    "RemoteSystemSessionAddedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemSessionAddedEventArgs",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemSessionAddedEventArgs",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteSystemSessionController": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemSessionController",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemSessionController",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.System.RemoteSystems.IRemoteSystemSessionControllerFactory"
+      ]
+    },
+    "RemoteSystemSessionCreationResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemSessionCreationResult",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemSessionCreationResult",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteSystemSessionDisconnectedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemSessionDisconnectedEventArgs",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemSessionDisconnectedEventArgs",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteSystemSessionInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemSessionInfo",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemSessionInfo",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteSystemSessionInvitation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemSessionInvitation",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemSessionInvitation",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteSystemSessionInvitationListener": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemSessionInvitationListener",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemSessionInvitationListener",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "RemoteSystemSessionInvitationReceivedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemSessionInvitationReceivedEventArgs",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemSessionInvitationReceivedEventArgs",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteSystemSessionJoinRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemSessionJoinRequest",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemSessionJoinRequest",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteSystemSessionJoinRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemSessionJoinRequestedEventArgs",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemSessionJoinRequestedEventArgs",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteSystemSessionJoinResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemSessionJoinResult",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemSessionJoinResult",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteSystemSessionMessageChannel": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemSessionMessageChannel",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemSessionMessageChannel",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.System.RemoteSystems.IRemoteSystemSessionMessageChannelFactory"
+      ]
+    },
+    "RemoteSystemSessionOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemSessionOptions",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemSessionOptions",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "RemoteSystemSessionParticipant": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemSessionParticipant",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemSessionParticipant",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteSystemSessionParticipantAddedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemSessionParticipantAddedEventArgs",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemSessionParticipantAddedEventArgs",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteSystemSessionParticipantRemovedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemSessionParticipantRemovedEventArgs",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemSessionParticipantRemovedEventArgs",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteSystemSessionParticipantWatcher": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemSessionParticipantWatcher",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemSessionParticipantWatcher",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteSystemSessionRemovedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemSessionRemovedEventArgs",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemSessionRemovedEventArgs",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteSystemSessionUpdatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemSessionUpdatedEventArgs",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemSessionUpdatedEventArgs",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteSystemSessionValueSetReceivedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemSessionValueSetReceivedEventArgs",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemSessionValueSetReceivedEventArgs",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteSystemSessionWatcher": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemSessionWatcher",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemSessionWatcher",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteSystemStatusTypeFilter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemStatusTypeFilter",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemStatusTypeFilter",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemFilter",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.System.RemoteSystems.IRemoteSystemStatusTypeFilterFactory"
+      ]
+    },
+    "RemoteSystemUpdatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemUpdatedEventArgs",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemUpdatedEventArgs",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteSystemWatcher": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemWatcher",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemWatcher",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemWatcher2",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemWatcher3",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteSystemWatcherErrorOccurredEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemWatcherErrorOccurredEventArgs",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemWatcherErrorOccurredEventArgs",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RemoteSystemWebAccountFilter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRemoteSystemWebAccountFilter",
+        "namespace": "Windows.System.RemoteSystems",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemWebAccountFilter",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRemoteSystemFilter",
+          "namespace": "Windows.System.RemoteSystems",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.System.RemoteSystems.IRemoteSystemWebAccountFilterFactory"
+      ]
+    }
+  }
+}

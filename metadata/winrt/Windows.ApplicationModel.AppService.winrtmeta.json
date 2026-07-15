@@ -1,0 +1,1137 @@
+{
+  "namespace": "Windows.ApplicationModel.AppService",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "AppServiceClosedStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Completed",
+          "value": "0"
+        },
+        {
+          "name": "Canceled",
+          "value": "1"
+        },
+        {
+          "name": "ResourceLimitsExceeded",
+          "value": "2"
+        },
+        {
+          "name": "Unknown",
+          "value": "3"
+        }
+      ]
+    },
+    "AppServiceConnectionStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "AppNotInstalled",
+          "value": "1"
+        },
+        {
+          "name": "AppUnavailable",
+          "value": "2"
+        },
+        {
+          "name": "AppServiceUnavailable",
+          "value": "3"
+        },
+        {
+          "name": "Unknown",
+          "value": "4"
+        },
+        {
+          "name": "RemoteSystemUnavailable",
+          "value": "5"
+        },
+        {
+          "name": "RemoteSystemNotSupportedByApp",
+          "value": "6"
+        },
+        {
+          "name": "NotAuthorized",
+          "value": "7"
+        },
+        {
+          "name": "AuthenticationError",
+          "value": "8"
+        },
+        {
+          "name": "NetworkNotAvailable",
+          "value": "9"
+        },
+        {
+          "name": "DisabledByPolicy",
+          "value": "10"
+        },
+        {
+          "name": "WebServiceUnavailable",
+          "value": "11"
+        }
+      ]
+    },
+    "AppServiceResponseStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "Failure",
+          "value": "1"
+        },
+        {
+          "name": "ResourceLimitsExceeded",
+          "value": "2"
+        },
+        {
+          "name": "Unknown",
+          "value": "3"
+        },
+        {
+          "name": "RemoteSystemUnavailable",
+          "value": "4"
+        },
+        {
+          "name": "MessageSizeTooLarge",
+          "value": "5"
+        },
+        {
+          "name": "AppUnavailable",
+          "value": "6"
+        },
+        {
+          "name": "AuthenticationError",
+          "value": "7"
+        },
+        {
+          "name": "NetworkNotAvailable",
+          "value": "8"
+        },
+        {
+          "name": "DisabledByPolicy",
+          "value": "9"
+        },
+        {
+          "name": "WebServiceUnavailable",
+          "value": "10"
+        }
+      ]
+    },
+    "StatelessAppServiceResponseStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "AppNotInstalled",
+          "value": "1"
+        },
+        {
+          "name": "AppUnavailable",
+          "value": "2"
+        },
+        {
+          "name": "AppServiceUnavailable",
+          "value": "3"
+        },
+        {
+          "name": "RemoteSystemUnavailable",
+          "value": "4"
+        },
+        {
+          "name": "RemoteSystemNotSupportedByApp",
+          "value": "5"
+        },
+        {
+          "name": "NotAuthorized",
+          "value": "6"
+        },
+        {
+          "name": "ResourceLimitsExceeded",
+          "value": "7"
+        },
+        {
+          "name": "MessageSizeTooLarge",
+          "value": "8"
+        },
+        {
+          "name": "Failure",
+          "value": "9"
+        },
+        {
+          "name": "Unknown",
+          "value": "10"
+        },
+        {
+          "name": "AuthenticationError",
+          "value": "11"
+        },
+        {
+          "name": "NetworkNotAvailable",
+          "value": "12"
+        },
+        {
+          "name": "DisabledByPolicy",
+          "value": "13"
+        },
+        {
+          "name": "WebServiceUnavailable",
+          "value": "14"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IAppServiceCatalogStatics": {
+      "guid": "ef0d2507-d132-4c85-8395-3c31d5a1e941",
+      "exclusive_to": "Windows.ApplicationModel.AppService.AppServiceCatalog",
+      "methods": [
+        {
+          "name": "FindAppServiceProvidersAsync",
+          "params": [
+            {
+              "name": "appServiceName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppInfo",
+                    "namespace": "Windows.ApplicationModel",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IAppServiceClosedEventArgs": {
+      "guid": "de6016f6-cb03-4d35-ac8d-cc6303239731",
+      "exclusive_to": "Windows.ApplicationModel.AppService.AppServiceClosedEventArgs",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppServiceClosedStatus",
+            "namespace": "Windows.ApplicationModel.AppService",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppServiceClosedStatus",
+            "namespace": "Windows.ApplicationModel.AppService",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IAppServiceConnection": {
+      "guid": "9dd474a2-871f-4d52-89a9-9e090531bd27",
+      "exclusive_to": "Windows.ApplicationModel.AppService.AppServiceConnection",
+      "methods": [
+        {
+          "name": "get_AppServiceName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_AppServiceName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PackageFamilyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_PackageFamilyName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "OpenAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppServiceConnectionStatus",
+                "namespace": "Windows.ApplicationModel.AppService",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SendMessageAsync",
+          "params": [
+            {
+              "name": "message",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ValueSet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppServiceResponse",
+                "namespace": "Windows.ApplicationModel.AppService",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_RequestReceived",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppServiceConnection",
+                    "namespace": "Windows.ApplicationModel.AppService",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppServiceRequestReceivedEventArgs",
+                    "namespace": "Windows.ApplicationModel.AppService",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_RequestReceived",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ServiceClosed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppServiceConnection",
+                    "namespace": "Windows.ApplicationModel.AppService",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppServiceClosedEventArgs",
+                    "namespace": "Windows.ApplicationModel.AppService",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ServiceClosed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppServiceName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppServiceName",
+          "setter": "put_AppServiceName"
+        },
+        {
+          "name": "PackageFamilyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PackageFamilyName",
+          "setter": "put_PackageFamilyName"
+        }
+      ],
+      "events": [
+        {
+          "name": "RequestReceived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppServiceConnection",
+                "namespace": "Windows.ApplicationModel.AppService",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AppServiceRequestReceivedEventArgs",
+                "namespace": "Windows.ApplicationModel.AppService",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_RequestReceived",
+          "remove_method": "remove_RequestReceived"
+        },
+        {
+          "name": "ServiceClosed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppServiceConnection",
+                "namespace": "Windows.ApplicationModel.AppService",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AppServiceClosedEventArgs",
+                "namespace": "Windows.ApplicationModel.AppService",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ServiceClosed",
+          "remove_method": "remove_ServiceClosed"
+        }
+      ]
+    },
+    "IAppServiceConnection2": {
+      "guid": "8bdfcd5f-2302-4fbd-8061-52511c2f8bf9",
+      "exclusive_to": "Windows.ApplicationModel.AppService.AppServiceConnection",
+      "methods": [
+        {
+          "name": "OpenRemoteAsync",
+          "params": [
+            {
+              "name": "remoteSystemConnectionRequest",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RemoteSystemConnectionRequest",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppServiceConnectionStatus",
+                "namespace": "Windows.ApplicationModel.AppService",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_User",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User",
+          "setter": "put_User"
+        }
+      ]
+    },
+    "IAppServiceConnectionStatics": {
+      "guid": "adc56ce9-d408-5673-8637-827a4b274168",
+      "exclusive_to": "Windows.ApplicationModel.AppService.AppServiceConnection",
+      "methods": [
+        {
+          "name": "SendStatelessMessageAsync",
+          "params": [
+            {
+              "name": "connection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppServiceConnection",
+                "namespace": "Windows.ApplicationModel.AppService",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "connectionRequest",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RemoteSystemConnectionRequest",
+                "namespace": "Windows.System.RemoteSystems",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "message",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ValueSet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StatelessAppServiceResponse",
+                "namespace": "Windows.ApplicationModel.AppService",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IAppServiceDeferral": {
+      "guid": "7e1b5322-eab0-4248-ae04-fdf93838e472",
+      "exclusive_to": "Windows.ApplicationModel.AppService.AppServiceDeferral",
+      "methods": [
+        {
+          "name": "Complete"
+        }
+      ]
+    },
+    "IAppServiceRequest": {
+      "guid": "20e58d9d-18de-4b01-80ba-90a76204e3c8",
+      "exclusive_to": "Windows.ApplicationModel.AppService.AppServiceRequest",
+      "methods": [
+        {
+          "name": "get_Message",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SendResponseAsync",
+          "params": [
+            {
+              "name": "message",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ValueSet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppServiceResponseStatus",
+                "namespace": "Windows.ApplicationModel.AppService",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Message",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          },
+          "getter": "get_Message"
+        }
+      ]
+    },
+    "IAppServiceRequestReceivedEventArgs": {
+      "guid": "6e122360-ff65-44ae-9e45-857fe4180681",
+      "exclusive_to": "Windows.ApplicationModel.AppService.AppServiceRequestReceivedEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppServiceRequest",
+            "namespace": "Windows.ApplicationModel.AppService",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppServiceDeferral",
+            "namespace": "Windows.ApplicationModel.AppService",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppServiceRequest",
+            "namespace": "Windows.ApplicationModel.AppService",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IAppServiceResponse": {
+      "guid": "8d503cec-9aa3-4e68-9559-9de63e372ce4",
+      "exclusive_to": "Windows.ApplicationModel.AppService.AppServiceResponse",
+      "methods": [
+        {
+          "name": "get_Message",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppServiceResponseStatus",
+            "namespace": "Windows.ApplicationModel.AppService",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Message",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          },
+          "getter": "get_Message"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppServiceResponseStatus",
+            "namespace": "Windows.ApplicationModel.AppService",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IAppServiceTriggerDetails": {
+      "guid": "88a2dcac-ad28-41b8-80bb-bdf1b2169e19",
+      "exclusive_to": "Windows.ApplicationModel.AppService.AppServiceTriggerDetails",
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CallerPackageFamilyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AppServiceConnection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppServiceConnection",
+            "namespace": "Windows.ApplicationModel.AppService",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppServiceConnection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppServiceConnection",
+            "namespace": "Windows.ApplicationModel.AppService",
+            "target_kind": "Class"
+          },
+          "getter": "get_AppServiceConnection"
+        },
+        {
+          "name": "CallerPackageFamilyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CallerPackageFamilyName"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        }
+      ]
+    },
+    "IAppServiceTriggerDetails2": {
+      "guid": "e83d54b2-28cc-43f2-b465-c0482e59e2dc",
+      "exclusive_to": "Windows.ApplicationModel.AppService.AppServiceTriggerDetails",
+      "methods": [
+        {
+          "name": "get_IsRemoteSystemConnection",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsRemoteSystemConnection",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsRemoteSystemConnection"
+        }
+      ]
+    },
+    "IAppServiceTriggerDetails3": {
+      "guid": "fbd71e21-7939-4e68-9e3c-7780147aabb6",
+      "exclusive_to": "Windows.ApplicationModel.AppService.AppServiceTriggerDetails",
+      "methods": [
+        {
+          "name": "CheckCallerForCapabilityAsync",
+          "params": [
+            {
+              "name": "capabilityName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IAppServiceTriggerDetails4": {
+      "guid": "1185b180-8861-5e30-ab55-1cf4d08bbf6d",
+      "exclusive_to": "Windows.ApplicationModel.AppService.AppServiceTriggerDetails",
+      "methods": [
+        {
+          "name": "get_CallerRemoteConnectionToken",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CallerRemoteConnectionToken",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CallerRemoteConnectionToken"
+        }
+      ]
+    },
+    "IStatelessAppServiceResponse": {
+      "guid": "43754af7-a9ec-52fe-82e7-939b68dc9388",
+      "exclusive_to": "Windows.ApplicationModel.AppService.StatelessAppServiceResponse",
+      "methods": [
+        {
+          "name": "get_Message",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StatelessAppServiceResponseStatus",
+            "namespace": "Windows.ApplicationModel.AppService",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Message",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          },
+          "getter": "get_Message"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StatelessAppServiceResponseStatus",
+            "namespace": "Windows.ApplicationModel.AppService",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AppServiceCatalog": {
+      "static_interfaces": [
+        "Windows.ApplicationModel.AppService.IAppServiceCatalogStatics"
+      ]
+    },
+    "AppServiceClosedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppServiceClosedEventArgs",
+        "namespace": "Windows.ApplicationModel.AppService",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppServiceClosedEventArgs",
+          "namespace": "Windows.ApplicationModel.AppService",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppServiceConnection": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppServiceConnection",
+        "namespace": "Windows.ApplicationModel.AppService",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppServiceConnection",
+          "namespace": "Windows.ApplicationModel.AppService",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppServiceConnection2",
+          "namespace": "Windows.ApplicationModel.AppService",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.ApplicationModel.AppService.IAppServiceConnectionStatics"
+      ]
+    },
+    "AppServiceDeferral": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppServiceDeferral",
+        "namespace": "Windows.ApplicationModel.AppService",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppServiceDeferral",
+          "namespace": "Windows.ApplicationModel.AppService",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppServiceRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppServiceRequest",
+        "namespace": "Windows.ApplicationModel.AppService",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppServiceRequest",
+          "namespace": "Windows.ApplicationModel.AppService",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppServiceRequestReceivedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppServiceRequestReceivedEventArgs",
+        "namespace": "Windows.ApplicationModel.AppService",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppServiceRequestReceivedEventArgs",
+          "namespace": "Windows.ApplicationModel.AppService",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppServiceResponse": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppServiceResponse",
+        "namespace": "Windows.ApplicationModel.AppService",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppServiceResponse",
+          "namespace": "Windows.ApplicationModel.AppService",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppServiceTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppServiceTriggerDetails",
+        "namespace": "Windows.ApplicationModel.AppService",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppServiceTriggerDetails",
+          "namespace": "Windows.ApplicationModel.AppService",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppServiceTriggerDetails2",
+          "namespace": "Windows.ApplicationModel.AppService",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppServiceTriggerDetails3",
+          "namespace": "Windows.ApplicationModel.AppService",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppServiceTriggerDetails4",
+          "namespace": "Windows.ApplicationModel.AppService",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "StatelessAppServiceResponse": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStatelessAppServiceResponse",
+        "namespace": "Windows.ApplicationModel.AppService",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStatelessAppServiceResponse",
+          "namespace": "Windows.ApplicationModel.AppService",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

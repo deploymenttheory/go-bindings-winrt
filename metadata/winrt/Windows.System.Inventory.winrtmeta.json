@@ -1,0 +1,133 @@
+{
+  "namespace": "Windows.System.Inventory",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IInstalledDesktopApp": {
+      "guid": "75eab8ed-c0bc-5364-4c28-166e0545167a",
+      "exclusive_to": "Windows.System.Inventory.InstalledDesktopApp",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Publisher",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayVersion",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "DisplayVersion",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayVersion"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "Publisher",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Publisher"
+        }
+      ]
+    },
+    "IInstalledDesktopAppStatics": {
+      "guid": "264cf74e-21cd-5f9b-6056-7866ad72489a",
+      "exclusive_to": "Windows.System.Inventory.InstalledDesktopApp",
+      "methods": [
+        {
+          "name": "GetInventoryAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InstalledDesktopApp",
+                    "namespace": "Windows.System.Inventory",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "InstalledDesktopApp": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInstalledDesktopApp",
+        "namespace": "Windows.System.Inventory",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInstalledDesktopApp",
+          "namespace": "Windows.System.Inventory",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.System.Inventory.IInstalledDesktopAppStatics"
+      ]
+    }
+  }
+}

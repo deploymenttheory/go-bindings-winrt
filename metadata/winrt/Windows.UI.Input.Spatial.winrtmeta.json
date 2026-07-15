@@ -1,0 +1,4430 @@
+{
+  "namespace": "Windows.UI.Input.Spatial",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "SpatialGestureSettings": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Tap",
+          "value": "1"
+        },
+        {
+          "name": "DoubleTap",
+          "value": "2"
+        },
+        {
+          "name": "Hold",
+          "value": "4"
+        },
+        {
+          "name": "ManipulationTranslate",
+          "value": "8"
+        },
+        {
+          "name": "NavigationX",
+          "value": "16"
+        },
+        {
+          "name": "NavigationY",
+          "value": "32"
+        },
+        {
+          "name": "NavigationZ",
+          "value": "64"
+        },
+        {
+          "name": "NavigationRailsX",
+          "value": "128"
+        },
+        {
+          "name": "NavigationRailsY",
+          "value": "256"
+        },
+        {
+          "name": "NavigationRailsZ",
+          "value": "512"
+        }
+      ]
+    },
+    "SpatialInteractionPressKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Select",
+          "value": "1"
+        },
+        {
+          "name": "Menu",
+          "value": "2"
+        },
+        {
+          "name": "Grasp",
+          "value": "3"
+        },
+        {
+          "name": "Touchpad",
+          "value": "4"
+        },
+        {
+          "name": "Thumbstick",
+          "value": "5"
+        }
+      ]
+    },
+    "SpatialInteractionSourceHandedness": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unspecified",
+          "value": "0"
+        },
+        {
+          "name": "Left",
+          "value": "1"
+        },
+        {
+          "name": "Right",
+          "value": "2"
+        }
+      ]
+    },
+    "SpatialInteractionSourceKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Other",
+          "value": "0"
+        },
+        {
+          "name": "Hand",
+          "value": "1"
+        },
+        {
+          "name": "Voice",
+          "value": "2"
+        },
+        {
+          "name": "Controller",
+          "value": "3"
+        }
+      ]
+    },
+    "SpatialInteractionSourcePositionAccuracy": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "High",
+          "value": "0"
+        },
+        {
+          "name": "Approximate",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ISpatialGestureRecognizer": {
+      "guid": "71605bcc-0c35-4673-adbd-cc04caa6ef45",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialGestureRecognizer",
+      "methods": [
+        {
+          "name": "add_RecognitionStarted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialGestureRecognizer",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialRecognitionStartedEventArgs",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_RecognitionStarted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_RecognitionEnded",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialGestureRecognizer",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialRecognitionEndedEventArgs",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_RecognitionEnded",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Tapped",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialGestureRecognizer",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialTappedEventArgs",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Tapped",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_HoldStarted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialGestureRecognizer",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialHoldStartedEventArgs",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_HoldStarted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_HoldCompleted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialGestureRecognizer",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialHoldCompletedEventArgs",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_HoldCompleted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_HoldCanceled",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialGestureRecognizer",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialHoldCanceledEventArgs",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_HoldCanceled",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ManipulationStarted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialGestureRecognizer",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialManipulationStartedEventArgs",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ManipulationStarted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ManipulationUpdated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialGestureRecognizer",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialManipulationUpdatedEventArgs",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ManipulationUpdated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ManipulationCompleted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialGestureRecognizer",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialManipulationCompletedEventArgs",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ManipulationCompleted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ManipulationCanceled",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialGestureRecognizer",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialManipulationCanceledEventArgs",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ManipulationCanceled",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_NavigationStarted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialGestureRecognizer",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialNavigationStartedEventArgs",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_NavigationStarted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_NavigationUpdated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialGestureRecognizer",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialNavigationUpdatedEventArgs",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_NavigationUpdated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_NavigationCompleted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialGestureRecognizer",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialNavigationCompletedEventArgs",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_NavigationCompleted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_NavigationCanceled",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialGestureRecognizer",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialNavigationCanceledEventArgs",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_NavigationCanceled",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CaptureInteraction",
+          "params": [
+            {
+              "name": "interaction",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialInteraction",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CancelPendingGestures"
+        },
+        {
+          "name": "TrySetGestureSettings",
+          "params": [
+            {
+              "name": "settings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialGestureSettings",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_GestureSettings",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialGestureSettings",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "GestureSettings",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialGestureSettings",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_GestureSettings"
+        }
+      ],
+      "events": [
+        {
+          "name": "HoldCanceled",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialGestureRecognizer",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialHoldCanceledEventArgs",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_HoldCanceled",
+          "remove_method": "remove_HoldCanceled"
+        },
+        {
+          "name": "HoldCompleted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialGestureRecognizer",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialHoldCompletedEventArgs",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_HoldCompleted",
+          "remove_method": "remove_HoldCompleted"
+        },
+        {
+          "name": "HoldStarted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialGestureRecognizer",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialHoldStartedEventArgs",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_HoldStarted",
+          "remove_method": "remove_HoldStarted"
+        },
+        {
+          "name": "ManipulationCanceled",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialGestureRecognizer",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialManipulationCanceledEventArgs",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ManipulationCanceled",
+          "remove_method": "remove_ManipulationCanceled"
+        },
+        {
+          "name": "ManipulationCompleted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialGestureRecognizer",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialManipulationCompletedEventArgs",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ManipulationCompleted",
+          "remove_method": "remove_ManipulationCompleted"
+        },
+        {
+          "name": "ManipulationStarted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialGestureRecognizer",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialManipulationStartedEventArgs",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ManipulationStarted",
+          "remove_method": "remove_ManipulationStarted"
+        },
+        {
+          "name": "ManipulationUpdated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialGestureRecognizer",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialManipulationUpdatedEventArgs",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ManipulationUpdated",
+          "remove_method": "remove_ManipulationUpdated"
+        },
+        {
+          "name": "NavigationCanceled",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialGestureRecognizer",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialNavigationCanceledEventArgs",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_NavigationCanceled",
+          "remove_method": "remove_NavigationCanceled"
+        },
+        {
+          "name": "NavigationCompleted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialGestureRecognizer",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialNavigationCompletedEventArgs",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_NavigationCompleted",
+          "remove_method": "remove_NavigationCompleted"
+        },
+        {
+          "name": "NavigationStarted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialGestureRecognizer",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialNavigationStartedEventArgs",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_NavigationStarted",
+          "remove_method": "remove_NavigationStarted"
+        },
+        {
+          "name": "NavigationUpdated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialGestureRecognizer",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialNavigationUpdatedEventArgs",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_NavigationUpdated",
+          "remove_method": "remove_NavigationUpdated"
+        },
+        {
+          "name": "RecognitionEnded",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialGestureRecognizer",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialRecognitionEndedEventArgs",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_RecognitionEnded",
+          "remove_method": "remove_RecognitionEnded"
+        },
+        {
+          "name": "RecognitionStarted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialGestureRecognizer",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialRecognitionStartedEventArgs",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_RecognitionStarted",
+          "remove_method": "remove_RecognitionStarted"
+        },
+        {
+          "name": "Tapped",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialGestureRecognizer",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialTappedEventArgs",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Tapped",
+          "remove_method": "remove_Tapped"
+        }
+      ]
+    },
+    "ISpatialGestureRecognizerFactory": {
+      "guid": "77214186-57b9-3150-8382-698b24e264d0",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialGestureRecognizer",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "settings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialGestureSettings",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialGestureRecognizer",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISpatialHoldCanceledEventArgs": {
+      "guid": "5dfcb667-4caa-4093-8c35-b601a839f31b",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialHoldCanceledEventArgs",
+      "methods": [
+        {
+          "name": "get_InteractionSourceKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InteractionSourceKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InteractionSourceKind"
+        }
+      ]
+    },
+    "ISpatialHoldCompletedEventArgs": {
+      "guid": "3f64470b-4cfd-43da-8dc4-e64552173971",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialHoldCompletedEventArgs",
+      "methods": [
+        {
+          "name": "get_InteractionSourceKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InteractionSourceKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InteractionSourceKind"
+        }
+      ]
+    },
+    "ISpatialHoldStartedEventArgs": {
+      "guid": "8e343d79-acb6-4144-8615-2cfba8a3cb3f",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialHoldStartedEventArgs",
+      "methods": [
+        {
+          "name": "get_InteractionSourceKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "TryGetPointerPose",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialPointerPose",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InteractionSourceKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InteractionSourceKind"
+        }
+      ]
+    },
+    "ISpatialInteraction": {
+      "guid": "fc967639-88e6-4646-9112-4344aaec9dfa",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialInteraction",
+      "methods": [
+        {
+          "name": "get_SourceState",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceState",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SourceState",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceState",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_SourceState"
+        }
+      ]
+    },
+    "ISpatialInteractionController": {
+      "guid": "5f0e5ba3-0954-4e97-86c5-e7f30b114dfd",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialInteractionController",
+      "methods": [
+        {
+          "name": "get_HasTouchpad",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_HasThumbstick",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SimpleHapticsController",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SimpleHapticsController",
+            "namespace": "Windows.Devices.Haptics",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_VendorId",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_ProductId",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Version",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HasThumbstick",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasThumbstick"
+        },
+        {
+          "name": "HasTouchpad",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasTouchpad"
+        },
+        {
+          "name": "ProductId",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_ProductId"
+        },
+        {
+          "name": "SimpleHapticsController",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SimpleHapticsController",
+            "namespace": "Windows.Devices.Haptics",
+            "target_kind": "Class"
+          },
+          "getter": "get_SimpleHapticsController"
+        },
+        {
+          "name": "VendorId",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_VendorId"
+        },
+        {
+          "name": "Version",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Version"
+        }
+      ]
+    },
+    "ISpatialInteractionController2": {
+      "guid": "35b6d924-c7a2-49b7-b72e-5436b2fb8f9c",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialInteractionController",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionController",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "TryGetRenderableModelAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStreamWithContentType",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ISpatialInteractionController3": {
+      "guid": "628466a0-9d91-4a0b-888d-165e670a8cd5",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialInteractionController",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionController2",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionController",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "TryGetBatteryReport",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BatteryReport",
+            "namespace": "Windows.Devices.Power",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISpatialInteractionControllerProperties": {
+      "guid": "61056fb1-7ba9-4e35-b93f-9272cba9b28b",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialInteractionControllerProperties",
+      "methods": [
+        {
+          "name": "get_IsTouchpadTouched",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsTouchpadPressed",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsThumbstickPressed",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_ThumbstickX",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_ThumbstickY",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_TouchpadX",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_TouchpadY",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsThumbstickPressed",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsThumbstickPressed"
+        },
+        {
+          "name": "IsTouchpadPressed",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsTouchpadPressed"
+        },
+        {
+          "name": "IsTouchpadTouched",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsTouchpadTouched"
+        },
+        {
+          "name": "ThumbstickX",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_ThumbstickX"
+        },
+        {
+          "name": "ThumbstickY",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_ThumbstickY"
+        },
+        {
+          "name": "TouchpadX",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_TouchpadX"
+        },
+        {
+          "name": "TouchpadY",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_TouchpadY"
+        }
+      ]
+    },
+    "ISpatialInteractionDetectedEventArgs": {
+      "guid": "075878e4-5961-3b41-9dfb-cea5d89cc38a",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialInteractionDetectedEventArgs",
+      "methods": [
+        {
+          "name": "get_InteractionSourceKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "TryGetPointerPose",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialPointerPose",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Interaction",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteraction",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Interaction",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteraction",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_Interaction"
+        },
+        {
+          "name": "InteractionSourceKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InteractionSourceKind"
+        }
+      ]
+    },
+    "ISpatialInteractionDetectedEventArgs2": {
+      "guid": "7b263e93-5f13-419c-97d5-834678266aa6",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialInteractionDetectedEventArgs",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionDetectedEventArgs",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_InteractionSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSource",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InteractionSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSource",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_InteractionSource"
+        }
+      ]
+    },
+    "ISpatialInteractionManager": {
+      "guid": "32a64ea8-a15a-3995-b8bd-80513cb5adef",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialInteractionManager",
+      "methods": [
+        {
+          "name": "add_SourceDetected",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialInteractionManager",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialInteractionSourceEventArgs",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SourceDetected",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_SourceLost",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialInteractionManager",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialInteractionSourceEventArgs",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SourceLost",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_SourceUpdated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialInteractionManager",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialInteractionSourceEventArgs",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SourceUpdated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_SourcePressed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialInteractionManager",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialInteractionSourceEventArgs",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SourcePressed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_SourceReleased",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialInteractionManager",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialInteractionSourceEventArgs",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SourceReleased",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_InteractionDetected",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialInteractionManager",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialInteractionDetectedEventArgs",
+                    "namespace": "Windows.UI.Input.Spatial",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_InteractionDetected",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetDetectedSourcesAtTimestamp",
+          "params": [
+            {
+              "name": "timeStamp",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionTimestamp",
+                "namespace": "Windows.Perception",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialInteractionSourceState",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "events": [
+        {
+          "name": "InteractionDetected",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialInteractionManager",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialInteractionDetectedEventArgs",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_InteractionDetected",
+          "remove_method": "remove_InteractionDetected"
+        },
+        {
+          "name": "SourceDetected",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialInteractionManager",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialInteractionSourceEventArgs",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SourceDetected",
+          "remove_method": "remove_SourceDetected"
+        },
+        {
+          "name": "SourceLost",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialInteractionManager",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialInteractionSourceEventArgs",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SourceLost",
+          "remove_method": "remove_SourceLost"
+        },
+        {
+          "name": "SourcePressed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialInteractionManager",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialInteractionSourceEventArgs",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SourcePressed",
+          "remove_method": "remove_SourcePressed"
+        },
+        {
+          "name": "SourceReleased",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialInteractionManager",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialInteractionSourceEventArgs",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SourceReleased",
+          "remove_method": "remove_SourceReleased"
+        },
+        {
+          "name": "SourceUpdated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialInteractionManager",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SpatialInteractionSourceEventArgs",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SourceUpdated",
+          "remove_method": "remove_SourceUpdated"
+        }
+      ]
+    },
+    "ISpatialInteractionManagerStatics": {
+      "guid": "00e31fa6-8ca2-30bf-91fe-d9cb4a008990",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialInteractionManager",
+      "methods": [
+        {
+          "name": "GetForCurrentView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionManager",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISpatialInteractionManagerStatics2": {
+      "guid": "93f16c52-b88a-5929-8d7c-48cb948b081c",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialInteractionManager",
+      "methods": [
+        {
+          "name": "IsSourceKindSupported",
+          "params": [
+            {
+              "name": "kind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialInteractionSourceKind",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "ISpatialInteractionSource": {
+      "guid": "fb5433ba-b0b3-3148-9f3b-e9f5de568f5d",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialInteractionSource",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        }
+      ]
+    },
+    "ISpatialInteractionSource2": {
+      "guid": "e4c5b70c-0470-4028-88c0-a0eb44d34efe",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialInteractionSource",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionSource",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_IsPointingSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsMenuSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsGraspSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Controller",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionController",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryGetStateAtTimestamp",
+          "params": [
+            {
+              "name": "timestamp",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionTimestamp",
+                "namespace": "Windows.Perception",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceState",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Controller",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionController",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_Controller"
+        },
+        {
+          "name": "IsGraspSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsGraspSupported"
+        },
+        {
+          "name": "IsMenuSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsMenuSupported"
+        },
+        {
+          "name": "IsPointingSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPointingSupported"
+        }
+      ]
+    },
+    "ISpatialInteractionSource3": {
+      "guid": "0406d9f9-9afd-44f9-85dc-700023a962e3",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialInteractionSource",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionSource2",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionSource",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Handedness",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceHandedness",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Handedness",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceHandedness",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Handedness"
+        }
+      ]
+    },
+    "ISpatialInteractionSource4": {
+      "guid": "0073bc4d-df66-5a91-a2ba-cea3e5c58a19",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialInteractionSource",
+      "methods": [
+        {
+          "name": "TryCreateHandMeshObserver",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HandMeshObserver",
+            "namespace": "Windows.Perception.People",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryCreateHandMeshObserverAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HandMeshObserver",
+                "namespace": "Windows.Perception.People",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ISpatialInteractionSourceEventArgs": {
+      "guid": "23b786cf-ec23-3979-b27c-eb0e12feb7c7",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialInteractionSourceEventArgs",
+      "methods": [
+        {
+          "name": "get_State",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceState",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "State",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceState",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_State"
+        }
+      ]
+    },
+    "ISpatialInteractionSourceEventArgs2": {
+      "guid": "d8b4b467-e648-4d52-ab49-e0d227199f63",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialInteractionSourceEventArgs",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionSourceEventArgs",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_PressKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionPressKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PressKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionPressKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PressKind"
+        }
+      ]
+    },
+    "ISpatialInteractionSourceLocation": {
+      "guid": "ea4696c4-7e8b-30ca-bcc5-c77189cea30a",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialInteractionSourceLocation",
+      "methods": [
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Velocity",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Position",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_Position"
+        },
+        {
+          "name": "Velocity",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_Velocity"
+        }
+      ]
+    },
+    "ISpatialInteractionSourceLocation2": {
+      "guid": "4c671045-3917-40fc-a9ac-31c9cf5ff91b",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialInteractionSourceLocation",
+      "methods": [
+        {
+          "name": "get_Orientation",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Quaternion",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Orientation",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Quaternion",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_Orientation"
+        }
+      ]
+    },
+    "ISpatialInteractionSourceLocation3": {
+      "guid": "6702e65e-e915-4cfb-9c1b-0538efc86687",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialInteractionSourceLocation",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionSourceLocation2",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_PositionAccuracy",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourcePositionAccuracy",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_AngularVelocity",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SourcePointerPose",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialPointerInteractionSourcePose",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AngularVelocity",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_AngularVelocity"
+        },
+        {
+          "name": "PositionAccuracy",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourcePositionAccuracy",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PositionAccuracy"
+        },
+        {
+          "name": "SourcePointerPose",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialPointerInteractionSourcePose",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_SourcePointerPose"
+        }
+      ]
+    },
+    "ISpatialInteractionSourceProperties": {
+      "guid": "05604542-3ef7-3222-9f53-63c9cb7e3bc7",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialInteractionSourceProperties",
+      "methods": [
+        {
+          "name": "TryGetSourceLossMitigationDirection",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Vector3",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SourceLossRisk",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "TryGetLocation",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceLocation",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SourceLossRisk",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_SourceLossRisk"
+        }
+      ]
+    },
+    "ISpatialInteractionSourceState": {
+      "guid": "d5c475ef-4b63-37ec-98b9-9fc652b9d2f2",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialInteractionSourceState",
+      "methods": [
+        {
+          "name": "get_Source",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSource",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceProperties",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IsPressed",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Timestamp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionTimestamp",
+            "namespace": "Windows.Perception",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryGetPointerPose",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialPointerPose",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsPressed",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPressed"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceProperties",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "Source",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSource",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_Source"
+        },
+        {
+          "name": "Timestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PerceptionTimestamp",
+            "namespace": "Windows.Perception",
+            "target_kind": "Class"
+          },
+          "getter": "get_Timestamp"
+        }
+      ]
+    },
+    "ISpatialInteractionSourceState2": {
+      "guid": "45f6d0bd-1773-492e-9ba3-8ac1cbe77c08",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialInteractionSourceState",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionSourceState",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_IsSelectPressed",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsMenuPressed",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsGrasped",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SelectPressedValue",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_ControllerProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionControllerProperties",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ControllerProperties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionControllerProperties",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          },
+          "getter": "get_ControllerProperties"
+        },
+        {
+          "name": "IsGrasped",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsGrasped"
+        },
+        {
+          "name": "IsMenuPressed",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsMenuPressed"
+        },
+        {
+          "name": "IsSelectPressed",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSelectPressed"
+        },
+        {
+          "name": "SelectPressedValue",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_SelectPressedValue"
+        }
+      ]
+    },
+    "ISpatialInteractionSourceState3": {
+      "guid": "f2f00bc2-bd2b-4a01-a8fb-323e0158527c",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialInteractionSourceState",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionSourceState2",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionSourceState",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "TryGetHandPose",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HandPose",
+            "namespace": "Windows.Perception.People",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISpatialManipulationCanceledEventArgs": {
+      "guid": "2d40d1cb-e7da-4220-b0bf-819301674780",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialManipulationCanceledEventArgs",
+      "methods": [
+        {
+          "name": "get_InteractionSourceKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InteractionSourceKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InteractionSourceKind"
+        }
+      ]
+    },
+    "ISpatialManipulationCompletedEventArgs": {
+      "guid": "05086802-f301-4343-9250-2fbaa5f87a37",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialManipulationCompletedEventArgs",
+      "methods": [
+        {
+          "name": "get_InteractionSourceKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "TryGetCumulativeDelta",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialManipulationDelta",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InteractionSourceKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InteractionSourceKind"
+        }
+      ]
+    },
+    "ISpatialManipulationDelta": {
+      "guid": "a7ec967a-d123-3a81-a15b-992923dcbe91",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialManipulationDelta",
+      "methods": [
+        {
+          "name": "get_Translation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Translation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Translation"
+        }
+      ]
+    },
+    "ISpatialManipulationStartedEventArgs": {
+      "guid": "a1d6bbce-42a5-377b-ada6-d28e3d384737",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialManipulationStartedEventArgs",
+      "methods": [
+        {
+          "name": "get_InteractionSourceKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "TryGetPointerPose",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialPointerPose",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InteractionSourceKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InteractionSourceKind"
+        }
+      ]
+    },
+    "ISpatialManipulationUpdatedEventArgs": {
+      "guid": "5f230b9b-60c6-4dc6-bdc9-9f4a6f15fe49",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialManipulationUpdatedEventArgs",
+      "methods": [
+        {
+          "name": "get_InteractionSourceKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "TryGetCumulativeDelta",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialManipulationDelta",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InteractionSourceKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InteractionSourceKind"
+        }
+      ]
+    },
+    "ISpatialNavigationCanceledEventArgs": {
+      "guid": "ce503edc-e8a5-46f0-92d4-3c122b35112a",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialNavigationCanceledEventArgs",
+      "methods": [
+        {
+          "name": "get_InteractionSourceKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InteractionSourceKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InteractionSourceKind"
+        }
+      ]
+    },
+    "ISpatialNavigationCompletedEventArgs": {
+      "guid": "012e80b7-af3b-42c2-9e41-baaa0e721f3a",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialNavigationCompletedEventArgs",
+      "methods": [
+        {
+          "name": "get_InteractionSourceKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_NormalizedOffset",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InteractionSourceKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InteractionSourceKind"
+        },
+        {
+          "name": "NormalizedOffset",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_NormalizedOffset"
+        }
+      ]
+    },
+    "ISpatialNavigationStartedEventArgs": {
+      "guid": "754a348a-fb64-4656-8ebd-9deecaafe475",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialNavigationStartedEventArgs",
+      "methods": [
+        {
+          "name": "get_InteractionSourceKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "TryGetPointerPose",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialPointerPose",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IsNavigatingX",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsNavigatingY",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsNavigatingZ",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InteractionSourceKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InteractionSourceKind"
+        },
+        {
+          "name": "IsNavigatingX",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsNavigatingX"
+        },
+        {
+          "name": "IsNavigatingY",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsNavigatingY"
+        },
+        {
+          "name": "IsNavigatingZ",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsNavigatingZ"
+        }
+      ]
+    },
+    "ISpatialNavigationUpdatedEventArgs": {
+      "guid": "9b713fd7-839d-4a74-8732-45466fc044b5",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialNavigationUpdatedEventArgs",
+      "methods": [
+        {
+          "name": "get_InteractionSourceKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_NormalizedOffset",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InteractionSourceKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InteractionSourceKind"
+        },
+        {
+          "name": "NormalizedOffset",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_NormalizedOffset"
+        }
+      ]
+    },
+    "ISpatialPointerInteractionSourcePose": {
+      "guid": "a7104307-2c2b-4d3a-92a7-80ced7c4a0d0",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialPointerInteractionSourcePose",
+      "methods": [
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_ForwardDirection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_UpDirection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ForwardDirection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ForwardDirection"
+        },
+        {
+          "name": "Position",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Position"
+        },
+        {
+          "name": "UpDirection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_UpDirection"
+        }
+      ]
+    },
+    "ISpatialPointerInteractionSourcePose2": {
+      "guid": "eccd86b8-52db-469f-9e3f-80c47f74bce9",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialPointerInteractionSourcePose",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialPointerInteractionSourcePose",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Orientation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Quaternion",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_PositionAccuracy",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourcePositionAccuracy",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Orientation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Quaternion",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Orientation"
+        },
+        {
+          "name": "PositionAccuracy",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourcePositionAccuracy",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PositionAccuracy"
+        }
+      ]
+    },
+    "ISpatialPointerPose": {
+      "guid": "6953a42e-c17e-357d-97a1-7269d0ed2d10",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialPointerPose",
+      "methods": [
+        {
+          "name": "get_Timestamp",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionTimestamp",
+            "namespace": "Windows.Perception",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Head",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HeadPose",
+            "namespace": "Windows.Perception.People",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Head",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HeadPose",
+            "namespace": "Windows.Perception.People",
+            "target_kind": "Class"
+          },
+          "getter": "get_Head"
+        },
+        {
+          "name": "Timestamp",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PerceptionTimestamp",
+            "namespace": "Windows.Perception",
+            "target_kind": "Class"
+          },
+          "getter": "get_Timestamp"
+        }
+      ]
+    },
+    "ISpatialPointerPose2": {
+      "guid": "9d202b17-954e-4e0c-96d1-b6790b6fc2fd",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialPointerPose",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialPointerPose",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "TryGetInteractionSourcePose",
+          "params": [
+            {
+              "name": "source",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialInteractionSource",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialPointerInteractionSourcePose",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISpatialPointerPose3": {
+      "guid": "6342f3f0-ec49-5b4b-b8d1-d16cbb16be84",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialPointerPose",
+      "methods": [
+        {
+          "name": "get_Eyes",
+          "return": {
+            "kind": "ApiRef",
+            "name": "EyesPose",
+            "namespace": "Windows.Perception.People",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IsHeadCapturedBySystem",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Eyes",
+          "type": {
+            "kind": "ApiRef",
+            "name": "EyesPose",
+            "namespace": "Windows.Perception.People",
+            "target_kind": "Class"
+          },
+          "getter": "get_Eyes"
+        },
+        {
+          "name": "IsHeadCapturedBySystem",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsHeadCapturedBySystem"
+        }
+      ]
+    },
+    "ISpatialPointerPoseStatics": {
+      "guid": "a25591a9-aca1-3ee0-9816-785cfb2e3fb8",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialPointerPose",
+      "methods": [
+        {
+          "name": "TryGetAtTimestamp",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "timestamp",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PerceptionTimestamp",
+                "namespace": "Windows.Perception",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialPointerPose",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISpatialRecognitionEndedEventArgs": {
+      "guid": "0e35f5cb-3f75-43f3-ac81-d1dc2df9b1fb",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialRecognitionEndedEventArgs",
+      "methods": [
+        {
+          "name": "get_InteractionSourceKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InteractionSourceKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InteractionSourceKind"
+        }
+      ]
+    },
+    "ISpatialRecognitionStartedEventArgs": {
+      "guid": "24da128f-0008-4a6d-aa50-2a76f9cfb264",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialRecognitionStartedEventArgs",
+      "methods": [
+        {
+          "name": "get_InteractionSourceKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "TryGetPointerPose",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialPointerPose",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "IsGesturePossible",
+          "params": [
+            {
+              "name": "gesture",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialGestureSettings",
+                "namespace": "Windows.UI.Input.Spatial",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InteractionSourceKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InteractionSourceKind"
+        }
+      ]
+    },
+    "ISpatialTappedEventArgs": {
+      "guid": "296d83de-f444-4aa1-b2bf-9dc88d567da6",
+      "exclusive_to": "Windows.UI.Input.Spatial.SpatialTappedEventArgs",
+      "methods": [
+        {
+          "name": "get_InteractionSourceKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "TryGetPointerPose",
+          "params": [
+            {
+              "name": "coordinateSystem",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SpatialCoordinateSystem",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpatialPointerPose",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_TapCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InteractionSourceKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpatialInteractionSourceKind",
+            "namespace": "Windows.UI.Input.Spatial",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InteractionSourceKind"
+        },
+        {
+          "name": "TapCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_TapCount"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "SpatialGestureRecognizer": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialGestureRecognizer",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialGestureRecognizer",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.UI.Input.Spatial.ISpatialGestureRecognizerFactory"
+      ]
+    },
+    "SpatialHoldCanceledEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialHoldCanceledEventArgs",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialHoldCanceledEventArgs",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialHoldCompletedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialHoldCompletedEventArgs",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialHoldCompletedEventArgs",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialHoldStartedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialHoldStartedEventArgs",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialHoldStartedEventArgs",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialInteraction": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialInteraction",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteraction",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialInteractionController": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialInteractionController",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionController",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionController2",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionController3",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialInteractionControllerProperties": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialInteractionControllerProperties",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionControllerProperties",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialInteractionDetectedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialInteractionDetectedEventArgs",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionDetectedEventArgs",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionDetectedEventArgs2",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialInteractionManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialInteractionManager",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionManager",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Input.Spatial.ISpatialInteractionManagerStatics2",
+        "Windows.UI.Input.Spatial.ISpatialInteractionManagerStatics"
+      ]
+    },
+    "SpatialInteractionSource": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialInteractionSource",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionSource",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionSource2",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionSource3",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionSource4",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialInteractionSourceEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialInteractionSourceEventArgs",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionSourceEventArgs",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionSourceEventArgs2",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialInteractionSourceLocation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialInteractionSourceLocation",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionSourceLocation",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionSourceLocation2",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionSourceLocation3",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialInteractionSourceProperties": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialInteractionSourceProperties",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionSourceProperties",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialInteractionSourceState": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialInteractionSourceState",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionSourceState",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionSourceState2",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialInteractionSourceState3",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialManipulationCanceledEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialManipulationCanceledEventArgs",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialManipulationCanceledEventArgs",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialManipulationCompletedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialManipulationCompletedEventArgs",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialManipulationCompletedEventArgs",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialManipulationDelta": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialManipulationDelta",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialManipulationDelta",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialManipulationStartedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialManipulationStartedEventArgs",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialManipulationStartedEventArgs",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialManipulationUpdatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialManipulationUpdatedEventArgs",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialManipulationUpdatedEventArgs",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialNavigationCanceledEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialNavigationCanceledEventArgs",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialNavigationCanceledEventArgs",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialNavigationCompletedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialNavigationCompletedEventArgs",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialNavigationCompletedEventArgs",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialNavigationStartedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialNavigationStartedEventArgs",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialNavigationStartedEventArgs",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialNavigationUpdatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialNavigationUpdatedEventArgs",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialNavigationUpdatedEventArgs",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialPointerInteractionSourcePose": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialPointerInteractionSourcePose",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialPointerInteractionSourcePose",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialPointerInteractionSourcePose2",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialPointerPose": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialPointerPose",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialPointerPose",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialPointerPose2",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialPointerPose3",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Input.Spatial.ISpatialPointerPoseStatics"
+      ]
+    },
+    "SpatialRecognitionEndedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialRecognitionEndedEventArgs",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialRecognitionEndedEventArgs",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialRecognitionStartedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialRecognitionStartedEventArgs",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialRecognitionStartedEventArgs",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SpatialTappedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISpatialTappedEventArgs",
+        "namespace": "Windows.UI.Input.Spatial",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISpatialTappedEventArgs",
+          "namespace": "Windows.UI.Input.Spatial",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

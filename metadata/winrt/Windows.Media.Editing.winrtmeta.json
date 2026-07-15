@@ -1,0 +1,1869 @@
+{
+  "namespace": "Windows.Media.Editing",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "MediaTrimmingPreference": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Fast",
+          "value": "0"
+        },
+        {
+          "name": "Precise",
+          "value": "1"
+        }
+      ]
+    },
+    "VideoFramePrecision": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "NearestFrame",
+          "value": "0"
+        },
+        {
+          "name": "NearestKeyFrame",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IBackgroundAudioTrack": {
+      "guid": "4b91b3bd-9e21-4266-a9c2-67dd011a2357",
+      "exclusive_to": "Windows.Media.Editing.BackgroundAudioTrack",
+      "methods": [
+        {
+          "name": "get_TrimTimeFromStart",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_TrimTimeFromStart",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TrimTimeFromEnd",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_TrimTimeFromEnd",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OriginalDuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_TrimmedDuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_UserData",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Delay",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Delay",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Volume",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Volume",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "Clone",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundAudioTrack",
+            "namespace": "Windows.Media.Editing",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetAudioEncodingProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_AudioEffectDefinitions",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IAudioEffectDefinition",
+                "namespace": "Windows.Media.Effects",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AudioEffectDefinitions",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IAudioEffectDefinition",
+                "namespace": "Windows.Media.Effects",
+                "target_kind": "Interface"
+              }
+            ]
+          },
+          "getter": "get_AudioEffectDefinitions"
+        },
+        {
+          "name": "Delay",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Delay",
+          "setter": "put_Delay"
+        },
+        {
+          "name": "OriginalDuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_OriginalDuration"
+        },
+        {
+          "name": "TrimTimeFromEnd",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_TrimTimeFromEnd",
+          "setter": "put_TrimTimeFromEnd"
+        },
+        {
+          "name": "TrimTimeFromStart",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_TrimTimeFromStart",
+          "setter": "put_TrimTimeFromStart"
+        },
+        {
+          "name": "TrimmedDuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_TrimmedDuration"
+        },
+        {
+          "name": "UserData",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_UserData"
+        },
+        {
+          "name": "Volume",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Volume",
+          "setter": "put_Volume"
+        }
+      ]
+    },
+    "IBackgroundAudioTrackStatics": {
+      "guid": "d9b1c0d7-d018-42a8-a559-cb4d9e97e664",
+      "exclusive_to": "Windows.Media.Editing.BackgroundAudioTrack",
+      "methods": [
+        {
+          "name": "CreateFromEmbeddedAudioTrack",
+          "params": [
+            {
+              "name": "embeddedAudioTrack",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EmbeddedAudioTrack",
+                "namespace": "Windows.Media.Editing",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BackgroundAudioTrack",
+            "namespace": "Windows.Media.Editing",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFromFileAsync",
+          "params": [
+            {
+              "name": "file",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BackgroundAudioTrack",
+                "namespace": "Windows.Media.Editing",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IEmbeddedAudioTrack": {
+      "guid": "55ee5a7a-2d30-3fba-a190-4f1a6454f88f",
+      "exclusive_to": "Windows.Media.Editing.EmbeddedAudioTrack",
+      "methods": [
+        {
+          "name": "GetAudioEncodingProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMediaClip": {
+      "guid": "53f25366-5fba-3ea4-8693-24761811140a",
+      "exclusive_to": "Windows.Media.Editing.MediaClip",
+      "methods": [
+        {
+          "name": "get_TrimTimeFromStart",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_TrimTimeFromStart",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TrimTimeFromEnd",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_TrimTimeFromEnd",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OriginalDuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_TrimmedDuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_UserData",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Clone",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaClip",
+            "namespace": "Windows.Media.Editing",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_StartTimeInComposition",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_EndTimeInComposition",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_EmbeddedAudioTracks",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "EmbeddedAudioTrack",
+                "namespace": "Windows.Media.Editing",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SelectedEmbeddedAudioTrackIndex",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_SelectedEmbeddedAudioTrackIndex",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "put_Volume",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Volume",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "GetVideoEncodingProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_AudioEffectDefinitions",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IAudioEffectDefinition",
+                "namespace": "Windows.Media.Effects",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_VideoEffectDefinitions",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IVideoEffectDefinition",
+                "namespace": "Windows.Media.Effects",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AudioEffectDefinitions",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IAudioEffectDefinition",
+                "namespace": "Windows.Media.Effects",
+                "target_kind": "Interface"
+              }
+            ]
+          },
+          "getter": "get_AudioEffectDefinitions"
+        },
+        {
+          "name": "EmbeddedAudioTracks",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "EmbeddedAudioTrack",
+                "namespace": "Windows.Media.Editing",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_EmbeddedAudioTracks"
+        },
+        {
+          "name": "EndTimeInComposition",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_EndTimeInComposition"
+        },
+        {
+          "name": "OriginalDuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_OriginalDuration"
+        },
+        {
+          "name": "SelectedEmbeddedAudioTrackIndex",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SelectedEmbeddedAudioTrackIndex",
+          "setter": "put_SelectedEmbeddedAudioTrackIndex"
+        },
+        {
+          "name": "StartTimeInComposition",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_StartTimeInComposition"
+        },
+        {
+          "name": "TrimTimeFromEnd",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_TrimTimeFromEnd",
+          "setter": "put_TrimTimeFromEnd"
+        },
+        {
+          "name": "TrimTimeFromStart",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_TrimTimeFromStart",
+          "setter": "put_TrimTimeFromStart"
+        },
+        {
+          "name": "TrimmedDuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_TrimmedDuration"
+        },
+        {
+          "name": "UserData",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_UserData"
+        },
+        {
+          "name": "VideoEffectDefinitions",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IVideoEffectDefinition",
+                "namespace": "Windows.Media.Effects",
+                "target_kind": "Interface"
+              }
+            ]
+          },
+          "getter": "get_VideoEffectDefinitions"
+        },
+        {
+          "name": "Volume",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Volume",
+          "setter": "put_Volume"
+        }
+      ]
+    },
+    "IMediaClipStatics": {
+      "guid": "fa402b68-928f-43c4-bc6e-783a1a359656",
+      "exclusive_to": "Windows.Media.Editing.MediaClip",
+      "methods": [
+        {
+          "name": "CreateFromColor",
+          "params": [
+            {
+              "name": "color",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "originalDuration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaClip",
+            "namespace": "Windows.Media.Editing",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFromFileAsync",
+          "params": [
+            {
+              "name": "file",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaClip",
+                "namespace": "Windows.Media.Editing",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateFromImageFileAsync",
+          "params": [
+            {
+              "name": "file",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "originalDuration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaClip",
+                "namespace": "Windows.Media.Editing",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IMediaClipStatics2": {
+      "guid": "5b1dd7b3-854e-4d9b-877d-4774a556cd12",
+      "exclusive_to": "Windows.Media.Editing.MediaClip",
+      "methods": [
+        {
+          "name": "CreateFromSurface",
+          "params": [
+            {
+              "name": "surface",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IDirect3DSurface",
+                "namespace": "Windows.Graphics.DirectX.Direct3D11",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "originalDuration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaClip",
+            "namespace": "Windows.Media.Editing",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMediaComposition": {
+      "guid": "2e06e605-dc71-41d6-b837-2d2bc14a2947",
+      "exclusive_to": "Windows.Media.Editing.MediaComposition",
+      "methods": [
+        {
+          "name": "get_Duration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Clips",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaClip",
+                "namespace": "Windows.Media.Editing",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_BackgroundAudioTracks",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BackgroundAudioTrack",
+                "namespace": "Windows.Media.Editing",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_UserData",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Clone",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaComposition",
+            "namespace": "Windows.Media.Editing",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SaveAsync",
+          "params": [
+            {
+              "name": "file",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetThumbnailAsync",
+          "params": [
+            {
+              "name": "timeFromStart",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "scaledWidth",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "scaledHeight",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "framePrecision",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VideoFramePrecision",
+                "namespace": "Windows.Media.Editing",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ImageStream",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetThumbnailsAsync",
+          "params": [
+            {
+              "name": "timesFromStart",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "TimeSpan",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "scaledWidth",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "scaledHeight",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "framePrecision",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VideoFramePrecision",
+                "namespace": "Windows.Media.Editing",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ImageStream",
+                    "namespace": "Windows.Graphics.Imaging",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "RenderToFileAsync",
+          "overload": "RenderToFileAsync",
+          "params": [
+            {
+              "name": "destination",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TranscodeFailureReason",
+                "namespace": "Windows.Media.Transcoding",
+                "target_kind": "Enum"
+              },
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RenderToFileAsync",
+          "overload": "RenderToFileWithTrimmingPreferenceAsync",
+          "params": [
+            {
+              "name": "destination",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "trimmingPreference",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaTrimmingPreference",
+                "namespace": "Windows.Media.Editing",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TranscodeFailureReason",
+                "namespace": "Windows.Media.Transcoding",
+                "target_kind": "Enum"
+              },
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RenderToFileAsync",
+          "overload": "RenderToFileWithProfileAsync",
+          "params": [
+            {
+              "name": "destination",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "trimmingPreference",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaTrimmingPreference",
+                "namespace": "Windows.Media.Editing",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "encodingProfile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaEncodingProfile",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TranscodeFailureReason",
+                "namespace": "Windows.Media.Transcoding",
+                "target_kind": "Enum"
+              },
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateDefaultEncodingProfile",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaEncodingProfile",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GenerateMediaStreamSource",
+          "overload": "GenerateMediaStreamSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaStreamSource",
+            "namespace": "Windows.Media.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GenerateMediaStreamSource",
+          "overload": "GenerateMediaStreamSourceWithProfile",
+          "params": [
+            {
+              "name": "encodingProfile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaEncodingProfile",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaStreamSource",
+            "namespace": "Windows.Media.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GeneratePreviewMediaStreamSource",
+          "params": [
+            {
+              "name": "scaledWidth",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "scaledHeight",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaStreamSource",
+            "namespace": "Windows.Media.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BackgroundAudioTracks",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BackgroundAudioTrack",
+                "namespace": "Windows.Media.Editing",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_BackgroundAudioTracks"
+        },
+        {
+          "name": "Clips",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaClip",
+                "namespace": "Windows.Media.Editing",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Clips"
+        },
+        {
+          "name": "Duration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Duration"
+        },
+        {
+          "name": "UserData",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_UserData"
+        }
+      ]
+    },
+    "IMediaComposition2": {
+      "guid": "a59e5372-2366-492c-bec8-e6dfba6d0281",
+      "exclusive_to": "Windows.Media.Editing.MediaComposition",
+      "methods": [
+        {
+          "name": "get_OverlayLayers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaOverlayLayer",
+                "namespace": "Windows.Media.Editing",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "OverlayLayers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaOverlayLayer",
+                "namespace": "Windows.Media.Editing",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_OverlayLayers"
+        }
+      ]
+    },
+    "IMediaCompositionStatics": {
+      "guid": "87a08f04-e32a-45ce-8f66-a30df0766224",
+      "exclusive_to": "Windows.Media.Editing.MediaComposition",
+      "methods": [
+        {
+          "name": "LoadAsync",
+          "params": [
+            {
+              "name": "file",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaComposition",
+                "namespace": "Windows.Media.Editing",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IMediaOverlay": {
+      "guid": "a902ae5d-7869-4830-8ab1-94dc01c05fa4",
+      "exclusive_to": "Windows.Media.Editing.MediaOverlay",
+      "methods": [
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Position",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "put_Delay",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Delay",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Opacity",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_Opacity",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Clone",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaOverlay",
+            "namespace": "Windows.Media.Editing",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Clip",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaClip",
+            "namespace": "Windows.Media.Editing",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_AudioEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AudioEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AudioEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AudioEnabled",
+          "setter": "put_AudioEnabled"
+        },
+        {
+          "name": "Clip",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaClip",
+            "namespace": "Windows.Media.Editing",
+            "target_kind": "Class"
+          },
+          "getter": "get_Clip"
+        },
+        {
+          "name": "Delay",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Delay",
+          "setter": "put_Delay"
+        },
+        {
+          "name": "Opacity",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Opacity",
+          "setter": "put_Opacity"
+        },
+        {
+          "name": "Position",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Position",
+          "setter": "put_Position"
+        }
+      ]
+    },
+    "IMediaOverlayFactory": {
+      "guid": "b584828a-6188-4f8f-a2e0-aa552d598e18",
+      "exclusive_to": "Windows.Media.Editing.MediaOverlay",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "clip",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaClip",
+                "namespace": "Windows.Media.Editing",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaOverlay",
+            "namespace": "Windows.Media.Editing",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithPositionAndOpacity",
+          "params": [
+            {
+              "name": "clip",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaClip",
+                "namespace": "Windows.Media.Editing",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "position",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "opacity",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaOverlay",
+            "namespace": "Windows.Media.Editing",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMediaOverlayLayer": {
+      "guid": "a6d9ba57-eeda-46c6-bbe5-e398c84168ac",
+      "exclusive_to": "Windows.Media.Editing.MediaOverlayLayer",
+      "methods": [
+        {
+          "name": "Clone",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaOverlayLayer",
+            "namespace": "Windows.Media.Editing",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Overlays",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaOverlay",
+                "namespace": "Windows.Media.Editing",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_CustomCompositorDefinition",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IVideoCompositorDefinition",
+            "namespace": "Windows.Media.Effects",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CustomCompositorDefinition",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IVideoCompositorDefinition",
+            "namespace": "Windows.Media.Effects",
+            "target_kind": "Interface"
+          },
+          "getter": "get_CustomCompositorDefinition"
+        },
+        {
+          "name": "Overlays",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaOverlay",
+                "namespace": "Windows.Media.Editing",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Overlays"
+        }
+      ]
+    },
+    "IMediaOverlayLayerFactory": {
+      "guid": "947cb473-a39e-4362-abbf-9f8b5070a062",
+      "exclusive_to": "Windows.Media.Editing.MediaOverlayLayer",
+      "methods": [
+        {
+          "name": "CreateWithCompositorDefinition",
+          "params": [
+            {
+              "name": "compositorDefinition",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IVideoCompositorDefinition",
+                "namespace": "Windows.Media.Effects",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaOverlayLayer",
+            "namespace": "Windows.Media.Editing",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "BackgroundAudioTrack": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundAudioTrack",
+        "namespace": "Windows.Media.Editing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundAudioTrack",
+          "namespace": "Windows.Media.Editing",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Media.Editing.IBackgroundAudioTrackStatics"
+      ]
+    },
+    "EmbeddedAudioTrack": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEmbeddedAudioTrack",
+        "namespace": "Windows.Media.Editing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEmbeddedAudioTrack",
+          "namespace": "Windows.Media.Editing",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MediaClip": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaClip",
+        "namespace": "Windows.Media.Editing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaClip",
+          "namespace": "Windows.Media.Editing",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Media.Editing.IMediaClipStatics2",
+        "Windows.Media.Editing.IMediaClipStatics"
+      ]
+    },
+    "MediaComposition": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaComposition",
+        "namespace": "Windows.Media.Editing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaComposition",
+          "namespace": "Windows.Media.Editing",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaComposition2",
+          "namespace": "Windows.Media.Editing",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Media.Editing.IMediaCompositionStatics"
+      ]
+    },
+    "MediaOverlay": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaOverlay",
+        "namespace": "Windows.Media.Editing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaOverlay",
+          "namespace": "Windows.Media.Editing",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Media.Editing.IMediaOverlayFactory"
+      ]
+    },
+    "MediaOverlayLayer": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaOverlayLayer",
+        "namespace": "Windows.Media.Editing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaOverlayLayer",
+          "namespace": "Windows.Media.Editing",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Media.Editing.IMediaOverlayLayerFactory"
+      ]
+    }
+  }
+}

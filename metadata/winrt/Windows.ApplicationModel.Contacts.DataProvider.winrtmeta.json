@@ -1,0 +1,946 @@
+{
+  "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IContactDataProviderConnection": {
+      "guid": "1a398a52-8c9d-4d6f-a4e0-111e9a125a30",
+      "exclusive_to": "Windows.ApplicationModel.Contacts.DataProvider.ContactDataProviderConnection",
+      "methods": [
+        {
+          "name": "add_SyncRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ContactDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "ContactListSyncManagerSyncRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SyncRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ServerSearchReadBatchRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ContactDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "ContactListServerSearchReadBatchRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ServerSearchReadBatchRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Start"
+        }
+      ],
+      "events": [
+        {
+          "name": "ServerSearchReadBatchRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ContactDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "ContactListServerSearchReadBatchRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ServerSearchReadBatchRequested",
+          "remove_method": "remove_ServerSearchReadBatchRequested"
+        },
+        {
+          "name": "SyncRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ContactDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "ContactListSyncManagerSyncRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SyncRequested",
+          "remove_method": "remove_SyncRequested"
+        }
+      ]
+    },
+    "IContactDataProviderConnection2": {
+      "guid": "a1d327b0-196c-4bfd-8f0f-c68d67f249d3",
+      "exclusive_to": "Windows.ApplicationModel.Contacts.DataProvider.ContactDataProviderConnection",
+      "methods": [
+        {
+          "name": "add_CreateOrUpdateContactRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ContactDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "ContactListCreateOrUpdateContactRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CreateOrUpdateContactRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_DeleteContactRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ContactDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "ContactListDeleteContactRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DeleteContactRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "CreateOrUpdateContactRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ContactDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "ContactListCreateOrUpdateContactRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_CreateOrUpdateContactRequested",
+          "remove_method": "remove_CreateOrUpdateContactRequested"
+        },
+        {
+          "name": "DeleteContactRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ContactDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "ContactListDeleteContactRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_DeleteContactRequested",
+          "remove_method": "remove_DeleteContactRequested"
+        }
+      ]
+    },
+    "IContactDataProviderTriggerDetails": {
+      "guid": "527104be-3c62-43c8-9ae7-db531685cd99",
+      "exclusive_to": "Windows.ApplicationModel.Contacts.DataProvider.ContactDataProviderTriggerDetails",
+      "methods": [
+        {
+          "name": "get_Connection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ContactDataProviderConnection",
+            "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Connection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ContactDataProviderConnection",
+            "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Connection"
+        }
+      ]
+    },
+    "IContactListCreateOrUpdateContactRequest": {
+      "guid": "b4af411f-c849-47d0-b119-91cf605b2f2a",
+      "exclusive_to": "Windows.ApplicationModel.Contacts.DataProvider.ContactListCreateOrUpdateContactRequest",
+      "methods": [
+        {
+          "name": "get_ContactListId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Contact",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Contact",
+            "namespace": "Windows.ApplicationModel.Contacts",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "params": [
+            {
+              "name": "createdOrUpdatedContact",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Contact",
+                "namespace": "Windows.ApplicationModel.Contacts",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Contact",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Contact",
+            "namespace": "Windows.ApplicationModel.Contacts",
+            "target_kind": "Class"
+          },
+          "getter": "get_Contact"
+        },
+        {
+          "name": "ContactListId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ContactListId"
+        }
+      ]
+    },
+    "IContactListCreateOrUpdateContactRequestEventArgs": {
+      "guid": "851c1690-1a51-4b0c-aeef-1240ac5bed75",
+      "exclusive_to": "Windows.ApplicationModel.Contacts.DataProvider.ContactListCreateOrUpdateContactRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ContactListCreateOrUpdateContactRequest",
+            "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ContactListCreateOrUpdateContactRequest",
+            "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IContactListDeleteContactRequest": {
+      "guid": "5e114687-ce03-4de5-8557-9ccf552d472a",
+      "exclusive_to": "Windows.ApplicationModel.Contacts.DataProvider.ContactListDeleteContactRequest",
+      "methods": [
+        {
+          "name": "get_ContactListId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ContactId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContactId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ContactId"
+        },
+        {
+          "name": "ContactListId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ContactListId"
+        }
+      ]
+    },
+    "IContactListDeleteContactRequestEventArgs": {
+      "guid": "b22054a1-e8fa-4db5-9389-2d12ee7d15ee",
+      "exclusive_to": "Windows.ApplicationModel.Contacts.DataProvider.ContactListDeleteContactRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ContactListDeleteContactRequest",
+            "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ContactListDeleteContactRequest",
+            "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IContactListServerSearchReadBatchRequest": {
+      "guid": "ba776a97-4030-4925-9fb4-143b295e653b",
+      "exclusive_to": "Windows.ApplicationModel.Contacts.DataProvider.ContactListServerSearchReadBatchRequest",
+      "methods": [
+        {
+          "name": "get_SessionId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ContactListId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Options",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ContactQueryOptions",
+            "namespace": "Windows.ApplicationModel.Contacts",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_SuggestedBatchSize",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "SaveContactAsync",
+          "params": [
+            {
+              "name": "contact",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Contact",
+                "namespace": "Windows.ApplicationModel.Contacts",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "params": [
+            {
+              "name": "batchStatus",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ContactBatchStatus",
+                "namespace": "Windows.ApplicationModel.Contacts",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContactListId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ContactListId"
+        },
+        {
+          "name": "Options",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ContactQueryOptions",
+            "namespace": "Windows.ApplicationModel.Contacts",
+            "target_kind": "Class"
+          },
+          "getter": "get_Options"
+        },
+        {
+          "name": "SessionId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SessionId"
+        },
+        {
+          "name": "SuggestedBatchSize",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SuggestedBatchSize"
+        }
+      ]
+    },
+    "IContactListServerSearchReadBatchRequestEventArgs": {
+      "guid": "1a27e87b-69d7-4e4e-8042-861cba61471e",
+      "exclusive_to": "Windows.ApplicationModel.Contacts.DataProvider.ContactListServerSearchReadBatchRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ContactListServerSearchReadBatchRequest",
+            "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ContactListServerSearchReadBatchRequest",
+            "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IContactListSyncManagerSyncRequest": {
+      "guid": "3c0e57a4-c4e7-4970-9a8f-9a66a2bb6c1a",
+      "exclusive_to": "Windows.ApplicationModel.Contacts.DataProvider.ContactListSyncManagerSyncRequest",
+      "methods": [
+        {
+          "name": "get_ContactListId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContactListId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ContactListId"
+        }
+      ]
+    },
+    "IContactListSyncManagerSyncRequestEventArgs": {
+      "guid": "158e4dac-446d-4f10-afc2-02683ec533a6",
+      "exclusive_to": "Windows.ApplicationModel.Contacts.DataProvider.ContactListSyncManagerSyncRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ContactListSyncManagerSyncRequest",
+            "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ContactListSyncManagerSyncRequest",
+            "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "ContactDataProviderConnection": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IContactDataProviderConnection",
+        "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IContactDataProviderConnection",
+          "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IContactDataProviderConnection2",
+          "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ContactDataProviderTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IContactDataProviderTriggerDetails",
+        "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IContactDataProviderTriggerDetails",
+          "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ContactListCreateOrUpdateContactRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IContactListCreateOrUpdateContactRequest",
+        "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IContactListCreateOrUpdateContactRequest",
+          "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ContactListCreateOrUpdateContactRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IContactListCreateOrUpdateContactRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IContactListCreateOrUpdateContactRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ContactListDeleteContactRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IContactListDeleteContactRequest",
+        "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IContactListDeleteContactRequest",
+          "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ContactListDeleteContactRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IContactListDeleteContactRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IContactListDeleteContactRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ContactListServerSearchReadBatchRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IContactListServerSearchReadBatchRequest",
+        "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IContactListServerSearchReadBatchRequest",
+          "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ContactListServerSearchReadBatchRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IContactListServerSearchReadBatchRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IContactListServerSearchReadBatchRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ContactListSyncManagerSyncRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IContactListSyncManagerSyncRequest",
+        "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IContactListSyncManagerSyncRequest",
+          "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ContactListSyncManagerSyncRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IContactListSyncManagerSyncRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IContactListSyncManagerSyncRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.Contacts.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

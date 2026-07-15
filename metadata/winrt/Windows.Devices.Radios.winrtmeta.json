@@ -1,0 +1,339 @@
+{
+  "namespace": "Windows.Devices.Radios",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "RadioAccessStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unspecified",
+          "value": "0"
+        },
+        {
+          "name": "Allowed",
+          "value": "1"
+        },
+        {
+          "name": "DeniedByUser",
+          "value": "2"
+        },
+        {
+          "name": "DeniedBySystem",
+          "value": "3"
+        }
+      ]
+    },
+    "RadioKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Other",
+          "value": "0"
+        },
+        {
+          "name": "WiFi",
+          "value": "1"
+        },
+        {
+          "name": "MobileBroadband",
+          "value": "2"
+        },
+        {
+          "name": "Bluetooth",
+          "value": "3"
+        },
+        {
+          "name": "FM",
+          "value": "4"
+        }
+      ]
+    },
+    "RadioState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "On",
+          "value": "1"
+        },
+        {
+          "name": "Off",
+          "value": "2"
+        },
+        {
+          "name": "Disabled",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IRadio": {
+      "guid": "252118df-b33e-416a-875f-1cf38ae2d83e",
+      "exclusive_to": "Windows.Devices.Radios.Radio",
+      "methods": [
+        {
+          "name": "SetStateAsync",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RadioState",
+                "namespace": "Windows.Devices.Radios",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RadioAccessStatus",
+                "namespace": "Windows.Devices.Radios",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_StateChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Radio",
+                    "namespace": "Windows.Devices.Radios",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_StateChanged",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_State",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RadioState",
+            "namespace": "Windows.Devices.Radios",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RadioKind",
+            "namespace": "Windows.Devices.Radios",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RadioKind",
+            "namespace": "Windows.Devices.Radios",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        },
+        {
+          "name": "State",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RadioState",
+            "namespace": "Windows.Devices.Radios",
+            "target_kind": "Enum"
+          },
+          "getter": "get_State"
+        }
+      ],
+      "events": [
+        {
+          "name": "StateChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Radio",
+                "namespace": "Windows.Devices.Radios",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_StateChanged",
+          "remove_method": "remove_StateChanged"
+        }
+      ]
+    },
+    "IRadioStatics": {
+      "guid": "5fb6a12e-67cb-46ae-aae9-65919f86eff4",
+      "exclusive_to": "Windows.Devices.Radios.Radio",
+      "methods": [
+        {
+          "name": "GetRadiosAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Radio",
+                    "namespace": "Windows.Devices.Radios",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDeviceSelector",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FromIdAsync",
+          "overload": "FromIdAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Radio",
+                "namespace": "Windows.Devices.Radios",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestAccessAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RadioAccessStatus",
+                "namespace": "Windows.Devices.Radios",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "Radio": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRadio",
+        "namespace": "Windows.Devices.Radios",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRadio",
+          "namespace": "Windows.Devices.Radios",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Radios.IRadioStatics"
+      ]
+    }
+  }
+}

@@ -1,0 +1,7396 @@
+{
+  "namespace": "Windows.Media.Devices",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "AdvancedPhotoMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Auto",
+          "value": "0"
+        },
+        {
+          "name": "Standard",
+          "value": "1"
+        },
+        {
+          "name": "Hdr",
+          "value": "2"
+        },
+        {
+          "name": "LowLight",
+          "value": "3"
+        }
+      ]
+    },
+    "AudioDeviceRole": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "Communications",
+          "value": "1"
+        }
+      ]
+    },
+    "AutoFocusRange": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "FullRange",
+          "value": "0"
+        },
+        {
+          "name": "Macro",
+          "value": "1"
+        },
+        {
+          "name": "Normal",
+          "value": "2"
+        }
+      ]
+    },
+    "CameraOcclusionKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Lid",
+          "value": "0"
+        },
+        {
+          "name": "CameraHardware",
+          "value": "1"
+        }
+      ]
+    },
+    "CameraStreamState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "NotStreaming",
+          "value": "0"
+        },
+        {
+          "name": "Streaming",
+          "value": "1"
+        },
+        {
+          "name": "BlockedForPrivacy",
+          "value": "2"
+        },
+        {
+          "name": "Shutdown",
+          "value": "3"
+        }
+      ]
+    },
+    "CaptureSceneMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Auto",
+          "value": "0"
+        },
+        {
+          "name": "Manual",
+          "value": "1"
+        },
+        {
+          "name": "Macro",
+          "value": "2"
+        },
+        {
+          "name": "Portrait",
+          "value": "3"
+        },
+        {
+          "name": "Sport",
+          "value": "4"
+        },
+        {
+          "name": "Snow",
+          "value": "5"
+        },
+        {
+          "name": "Night",
+          "value": "6"
+        },
+        {
+          "name": "Beach",
+          "value": "7"
+        },
+        {
+          "name": "Sunset",
+          "value": "8"
+        },
+        {
+          "name": "Candlelight",
+          "value": "9"
+        },
+        {
+          "name": "Landscape",
+          "value": "10"
+        },
+        {
+          "name": "NightPortrait",
+          "value": "11"
+        },
+        {
+          "name": "Backlit",
+          "value": "12"
+        }
+      ]
+    },
+    "CaptureUse": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Photo",
+          "value": "1"
+        },
+        {
+          "name": "Video",
+          "value": "2"
+        }
+      ]
+    },
+    "ColorTemperaturePreset": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Auto",
+          "value": "0"
+        },
+        {
+          "name": "Manual",
+          "value": "1"
+        },
+        {
+          "name": "Cloudy",
+          "value": "2"
+        },
+        {
+          "name": "Daylight",
+          "value": "3"
+        },
+        {
+          "name": "Flash",
+          "value": "4"
+        },
+        {
+          "name": "Fluorescent",
+          "value": "5"
+        },
+        {
+          "name": "Tungsten",
+          "value": "6"
+        },
+        {
+          "name": "Candlelight",
+          "value": "7"
+        }
+      ]
+    },
+    "DigitalWindowMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Off",
+          "value": "0"
+        },
+        {
+          "name": "On",
+          "value": "1"
+        },
+        {
+          "name": "Auto",
+          "value": "2"
+        }
+      ]
+    },
+    "FocusMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Auto",
+          "value": "0"
+        },
+        {
+          "name": "Single",
+          "value": "1"
+        },
+        {
+          "name": "Continuous",
+          "value": "2"
+        },
+        {
+          "name": "Manual",
+          "value": "3"
+        }
+      ]
+    },
+    "FocusPreset": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Auto",
+          "value": "0"
+        },
+        {
+          "name": "Manual",
+          "value": "1"
+        },
+        {
+          "name": "AutoMacro",
+          "value": "2"
+        },
+        {
+          "name": "AutoNormal",
+          "value": "3"
+        },
+        {
+          "name": "AutoInfinity",
+          "value": "4"
+        },
+        {
+          "name": "AutoHyperfocal",
+          "value": "5"
+        }
+      ]
+    },
+    "HdrVideoMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Off",
+          "value": "0"
+        },
+        {
+          "name": "On",
+          "value": "1"
+        },
+        {
+          "name": "Auto",
+          "value": "2"
+        }
+      ]
+    },
+    "InfraredTorchMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Off",
+          "value": "0"
+        },
+        {
+          "name": "On",
+          "value": "1"
+        },
+        {
+          "name": "AlternatingFrameIllumination",
+          "value": "2"
+        }
+      ]
+    },
+    "IsoSpeedPreset": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Auto",
+          "value": "0"
+        },
+        {
+          "name": "Iso50",
+          "value": "1"
+        },
+        {
+          "name": "Iso80",
+          "value": "2"
+        },
+        {
+          "name": "Iso100",
+          "value": "3"
+        },
+        {
+          "name": "Iso200",
+          "value": "4"
+        },
+        {
+          "name": "Iso400",
+          "value": "5"
+        },
+        {
+          "name": "Iso800",
+          "value": "6"
+        },
+        {
+          "name": "Iso1600",
+          "value": "7"
+        },
+        {
+          "name": "Iso3200",
+          "value": "8"
+        },
+        {
+          "name": "Iso6400",
+          "value": "9"
+        },
+        {
+          "name": "Iso12800",
+          "value": "10"
+        },
+        {
+          "name": "Iso25600",
+          "value": "11"
+        }
+      ]
+    },
+    "ManualFocusDistance": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Infinity",
+          "value": "0"
+        },
+        {
+          "name": "Hyperfocal",
+          "value": "1"
+        },
+        {
+          "name": "Nearest",
+          "value": "2"
+        }
+      ]
+    },
+    "MediaCaptureFocusState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Uninitialized",
+          "value": "0"
+        },
+        {
+          "name": "Lost",
+          "value": "1"
+        },
+        {
+          "name": "Searching",
+          "value": "2"
+        },
+        {
+          "name": "Focused",
+          "value": "3"
+        },
+        {
+          "name": "Failed",
+          "value": "4"
+        }
+      ]
+    },
+    "MediaCaptureOptimization": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "Quality",
+          "value": "1"
+        },
+        {
+          "name": "Latency",
+          "value": "2"
+        },
+        {
+          "name": "Power",
+          "value": "3"
+        },
+        {
+          "name": "LatencyThenQuality",
+          "value": "4"
+        },
+        {
+          "name": "LatencyThenPower",
+          "value": "5"
+        },
+        {
+          "name": "PowerAndQuality",
+          "value": "6"
+        }
+      ]
+    },
+    "MediaCapturePauseBehavior": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "RetainHardwareResources",
+          "value": "0"
+        },
+        {
+          "name": "ReleaseHardwareResources",
+          "value": "1"
+        }
+      ]
+    },
+    "OpticalImageStabilizationMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Off",
+          "value": "0"
+        },
+        {
+          "name": "On",
+          "value": "1"
+        },
+        {
+          "name": "Auto",
+          "value": "2"
+        }
+      ]
+    },
+    "RegionOfInterestType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "Face",
+          "value": "1"
+        }
+      ]
+    },
+    "SendCommandStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "DeviceNotAvailable",
+          "value": "1"
+        }
+      ]
+    },
+    "VideoDeviceControllerGetDevicePropertyStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "UnknownFailure",
+          "value": "1"
+        },
+        {
+          "name": "BufferTooSmall",
+          "value": "2"
+        },
+        {
+          "name": "NotSupported",
+          "value": "3"
+        },
+        {
+          "name": "DeviceNotAvailable",
+          "value": "4"
+        },
+        {
+          "name": "MaxPropertyValueSizeTooSmall",
+          "value": "5"
+        },
+        {
+          "name": "MaxPropertyValueSizeRequired",
+          "value": "6"
+        }
+      ]
+    },
+    "VideoDeviceControllerSetDevicePropertyStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "UnknownFailure",
+          "value": "1"
+        },
+        {
+          "name": "NotSupported",
+          "value": "2"
+        },
+        {
+          "name": "InvalidValue",
+          "value": "3"
+        },
+        {
+          "name": "DeviceNotAvailable",
+          "value": "4"
+        },
+        {
+          "name": "NotInControl",
+          "value": "5"
+        }
+      ]
+    },
+    "VideoTemporalDenoisingMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Off",
+          "value": "0"
+        },
+        {
+          "name": "On",
+          "value": "1"
+        },
+        {
+          "name": "Auto",
+          "value": "2"
+        }
+      ]
+    },
+    "ZoomTransitionMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Auto",
+          "value": "0"
+        },
+        {
+          "name": "Direct",
+          "value": "1"
+        },
+        {
+          "name": "Smooth",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IAdvancedPhotoCaptureSettings": {
+      "guid": "08f3863a-0018-445b-93d2-646d1c5ed05c",
+      "exclusive_to": "Windows.Media.Devices.AdvancedPhotoCaptureSettings",
+      "methods": [
+        {
+          "name": "get_Mode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AdvancedPhotoMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Mode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AdvancedPhotoMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Mode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AdvancedPhotoMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Mode",
+          "setter": "put_Mode"
+        }
+      ]
+    },
+    "IAdvancedPhotoControl": {
+      "guid": "c5b15486-9001-4682-9309-68eae0080eec",
+      "exclusive_to": "Windows.Media.Devices.AdvancedPhotoControl",
+      "methods": [
+        {
+          "name": "get_Supported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SupportedModes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AdvancedPhotoMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Mode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AdvancedPhotoMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Configure",
+          "params": [
+            {
+              "name": "settings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AdvancedPhotoCaptureSettings",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Mode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AdvancedPhotoMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Mode"
+        },
+        {
+          "name": "Supported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Supported"
+        },
+        {
+          "name": "SupportedModes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AdvancedPhotoMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SupportedModes"
+        }
+      ]
+    },
+    "IAdvancedVideoCaptureDeviceController": {
+      "guid": "de6ff4d3-2b96-4583-80ab-b5b01dc6a8d7",
+      "exclusive_to": "Windows.Media.Devices.VideoDeviceController",
+      "methods": [
+        {
+          "name": "SetDeviceProperty",
+          "params": [
+            {
+              "name": "propertyId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "propertyValue",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetDeviceProperty",
+          "params": [
+            {
+              "name": "propertyId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        }
+      ]
+    },
+    "IAdvancedVideoCaptureDeviceController10": {
+      "guid": "c621b82d-d6f0-5c1b-a388-a6e938407146",
+      "exclusive_to": "Windows.Media.Devices.VideoDeviceController",
+      "methods": [
+        {
+          "name": "get_CameraOcclusionInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CameraOcclusionInfo",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CameraOcclusionInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CameraOcclusionInfo",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_CameraOcclusionInfo"
+        }
+      ]
+    },
+    "IAdvancedVideoCaptureDeviceController11": {
+      "guid": "d5b65ae2-3772-580c-a630-e75de9106904",
+      "exclusive_to": "Windows.Media.Devices.VideoDeviceController",
+      "methods": [
+        {
+          "name": "TryAcquireExclusiveControl",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "mode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaCaptureDeviceExclusiveControlReleaseMode",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IAdvancedVideoCaptureDeviceController2": {
+      "guid": "8bb94f8f-f11a-43db-b402-11930b80ae56",
+      "exclusive_to": "Windows.Media.Devices.VideoDeviceController",
+      "methods": [
+        {
+          "name": "get_LowLagPhotoSequence",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LowLagPhotoSequenceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_LowLagPhoto",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LowLagPhotoControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_SceneModeControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SceneModeControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_TorchControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TorchControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_FlashControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FlashControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_WhiteBalanceControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WhiteBalanceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ExposureControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ExposureControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_FocusControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FocusControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ExposureCompensationControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ExposureCompensationControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IsoSpeedControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IsoSpeedControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_RegionsOfInterestControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RegionsOfInterestControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PrimaryUse",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CaptureUse",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_PrimaryUse",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CaptureUse",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExposureCompensationControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ExposureCompensationControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_ExposureCompensationControl"
+        },
+        {
+          "name": "ExposureControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ExposureControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_ExposureControl"
+        },
+        {
+          "name": "FlashControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FlashControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_FlashControl"
+        },
+        {
+          "name": "FocusControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FocusControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_FocusControl"
+        },
+        {
+          "name": "IsoSpeedControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IsoSpeedControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_IsoSpeedControl"
+        },
+        {
+          "name": "LowLagPhoto",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LowLagPhotoControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_LowLagPhoto"
+        },
+        {
+          "name": "LowLagPhotoSequence",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LowLagPhotoSequenceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_LowLagPhotoSequence"
+        },
+        {
+          "name": "PrimaryUse",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CaptureUse",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PrimaryUse",
+          "setter": "put_PrimaryUse"
+        },
+        {
+          "name": "RegionsOfInterestControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RegionsOfInterestControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_RegionsOfInterestControl"
+        },
+        {
+          "name": "SceneModeControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SceneModeControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_SceneModeControl"
+        },
+        {
+          "name": "TorchControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TorchControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_TorchControl"
+        },
+        {
+          "name": "WhiteBalanceControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WhiteBalanceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_WhiteBalanceControl"
+        }
+      ]
+    },
+    "IAdvancedVideoCaptureDeviceController3": {
+      "guid": "a98b8f34-ee0d-470c-b9f0-4229c4bbd089",
+      "exclusive_to": "Windows.Media.Devices.VideoDeviceController",
+      "methods": [
+        {
+          "name": "get_VariablePhotoSequenceController",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VariablePhotoSequenceController",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PhotoConfirmationControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhotoConfirmationControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ZoomControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ZoomControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PhotoConfirmationControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhotoConfirmationControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_PhotoConfirmationControl"
+        },
+        {
+          "name": "VariablePhotoSequenceController",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VariablePhotoSequenceController",
+            "namespace": "Windows.Media.Devices.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_VariablePhotoSequenceController"
+        },
+        {
+          "name": "ZoomControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ZoomControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_ZoomControl"
+        }
+      ]
+    },
+    "IAdvancedVideoCaptureDeviceController4": {
+      "guid": "ea9fbfaf-d371-41c3-9a17-824a87ebdfd2",
+      "exclusive_to": "Windows.Media.Devices.VideoDeviceController",
+      "methods": [
+        {
+          "name": "get_ExposurePriorityVideoControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ExposurePriorityVideoControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DesiredOptimization",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureOptimization",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_DesiredOptimization",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaCaptureOptimization",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_HdrVideoControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HdrVideoControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_OpticalImageStabilizationControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "OpticalImageStabilizationControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_AdvancedPhotoControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AdvancedPhotoControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AdvancedPhotoControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AdvancedPhotoControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_AdvancedPhotoControl"
+        },
+        {
+          "name": "DesiredOptimization",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureOptimization",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DesiredOptimization",
+          "setter": "put_DesiredOptimization"
+        },
+        {
+          "name": "ExposurePriorityVideoControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ExposurePriorityVideoControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_ExposurePriorityVideoControl"
+        },
+        {
+          "name": "HdrVideoControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HdrVideoControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_HdrVideoControl"
+        },
+        {
+          "name": "OpticalImageStabilizationControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "OpticalImageStabilizationControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_OpticalImageStabilizationControl"
+        }
+      ]
+    },
+    "IAdvancedVideoCaptureDeviceController5": {
+      "guid": "33512b17-b9cb-4a23-b875-f9eaab535492",
+      "exclusive_to": "Windows.Media.Devices.VideoDeviceController",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDevicePropertyById",
+          "params": [
+            {
+              "name": "propertyId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "maxPropertyValueSize",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "U4"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoDeviceControllerGetDevicePropertyResult",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetDevicePropertyById",
+          "params": [
+            {
+              "name": "propertyId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "propertyValue",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoDeviceControllerSetDevicePropertyStatus",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetDevicePropertyByExtendedId",
+          "params": [
+            {
+              "name": "extendedPropertyId",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            },
+            {
+              "name": "maxPropertyValueSize",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "U4"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoDeviceControllerGetDevicePropertyResult",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetDevicePropertyByExtendedId",
+          "params": [
+            {
+              "name": "extendedPropertyId",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            },
+            {
+              "name": "propertyValue",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoDeviceControllerSetDevicePropertyStatus",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        }
+      ]
+    },
+    "IAdvancedVideoCaptureDeviceController6": {
+      "guid": "b6563a53-68a1-44b7-9f89-b5fa97ac0cbe",
+      "exclusive_to": "Windows.Media.Devices.VideoDeviceController",
+      "methods": [
+        {
+          "name": "get_VideoTemporalDenoisingControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoTemporalDenoisingControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "VideoTemporalDenoisingControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoTemporalDenoisingControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_VideoTemporalDenoisingControl"
+        }
+      ]
+    },
+    "IAdvancedVideoCaptureDeviceController7": {
+      "guid": "8d2927f0-a054-50e7-b7df-7c04234d10f0",
+      "exclusive_to": "Windows.Media.Devices.VideoDeviceController",
+      "methods": [
+        {
+          "name": "get_InfraredTorchControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InfraredTorchControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InfraredTorchControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InfraredTorchControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_InfraredTorchControl"
+        }
+      ]
+    },
+    "IAdvancedVideoCaptureDeviceController8": {
+      "guid": "d843f010-e7fb-595b-9a78-0e54c4532b43",
+      "exclusive_to": "Windows.Media.Devices.VideoDeviceController",
+      "methods": [
+        {
+          "name": "get_PanelBasedOptimizationControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PanelBasedOptimizationControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PanelBasedOptimizationControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PanelBasedOptimizationControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_PanelBasedOptimizationControl"
+        }
+      ]
+    },
+    "IAdvancedVideoCaptureDeviceController9": {
+      "guid": "8bdca95d-0255-51bc-a10d-5a169ec1625a",
+      "exclusive_to": "Windows.Media.Devices.VideoDeviceController",
+      "methods": [
+        {
+          "name": "get_DigitalWindowControl",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DigitalWindowControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DigitalWindowControl",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DigitalWindowControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_DigitalWindowControl"
+        }
+      ]
+    },
+    "IAudioDeviceController": {
+      "guid": "edd4a388-79c7-4f7c-90e8-ef934b21580a",
+      "exclusive_to": "Windows.Media.Devices.AudioDeviceController",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaDeviceController",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "put_Muted",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Muted",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_VolumePercent",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_VolumePercent",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Muted",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Muted",
+          "setter": "put_Muted"
+        },
+        {
+          "name": "VolumePercent",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_VolumePercent",
+          "setter": "put_VolumePercent"
+        }
+      ]
+    },
+    "IAudioDeviceController2": {
+      "guid": "85326599-4c24-48b0-81dd-0c5cc79ddf05",
+      "exclusive_to": "Windows.Media.Devices.AudioDeviceController",
+      "methods": [
+        {
+          "name": "get_AudioCaptureEffectsManager",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioCaptureEffectsManager",
+            "namespace": "Windows.Media.Effects",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AudioCaptureEffectsManager",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AudioCaptureEffectsManager",
+            "namespace": "Windows.Media.Effects",
+            "target_kind": "Class"
+          },
+          "getter": "get_AudioCaptureEffectsManager"
+        }
+      ]
+    },
+    "IAudioDeviceModule": {
+      "guid": "86cfac36-47c1-4b33-9852-8773ec4be123",
+      "exclusive_to": "Windows.Media.Devices.AudioDeviceModule",
+      "methods": [
+        {
+          "name": "get_ClassId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_InstanceId",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_MajorVersion",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_MinorVersion",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "SendCommandAsync",
+          "params": [
+            {
+              "name": "Command",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ModuleCommandResult",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ClassId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ClassId"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "InstanceId",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_InstanceId"
+        },
+        {
+          "name": "MajorVersion",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MajorVersion"
+        },
+        {
+          "name": "MinorVersion",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MinorVersion"
+        }
+      ]
+    },
+    "IAudioDeviceModuleNotificationEventArgs": {
+      "guid": "e3e3ccaf-224c-48be-956b-9a13134e96e8",
+      "exclusive_to": "Windows.Media.Devices.AudioDeviceModuleNotificationEventArgs",
+      "methods": [
+        {
+          "name": "get_Module",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioDeviceModule",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_NotificationData",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Module",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AudioDeviceModule",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_Module"
+        },
+        {
+          "name": "NotificationData",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_NotificationData"
+        }
+      ]
+    },
+    "IAudioDeviceModulesManager": {
+      "guid": "6aa40c4d-960a-4d1c-b318-0022604547ed",
+      "exclusive_to": "Windows.Media.Devices.AudioDeviceModulesManager",
+      "methods": [
+        {
+          "name": "add_ModuleNotificationReceived",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AudioDeviceModulesManager",
+                    "namespace": "Windows.Media.Devices",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AudioDeviceModuleNotificationEventArgs",
+                    "namespace": "Windows.Media.Devices",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ModuleNotificationReceived",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "FindAllById",
+          "params": [
+            {
+              "name": "moduleId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AudioDeviceModule",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAll",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AudioDeviceModule",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "events": [
+        {
+          "name": "ModuleNotificationReceived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AudioDeviceModulesManager",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AudioDeviceModuleNotificationEventArgs",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ModuleNotificationReceived",
+          "remove_method": "remove_ModuleNotificationReceived"
+        }
+      ]
+    },
+    "IAudioDeviceModulesManagerFactory": {
+      "guid": "8db03670-e64d-4773-96c0-bc7ebf0e063f",
+      "exclusive_to": "Windows.Media.Devices.AudioDeviceModulesManager",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioDeviceModulesManager",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ICameraOcclusionInfo": {
+      "guid": "af6c4ad0-a84d-5db6-be58-a5da21cfe011",
+      "exclusive_to": "Windows.Media.Devices.CameraOcclusionInfo",
+      "methods": [
+        {
+          "name": "GetState",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CameraOcclusionState",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "IsOcclusionKindSupported",
+          "params": [
+            {
+              "name": "occlusionKind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CameraOcclusionKind",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "add_StateChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CameraOcclusionInfo",
+                    "namespace": "Windows.Media.Devices",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CameraOcclusionStateChangedEventArgs",
+                    "namespace": "Windows.Media.Devices",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_StateChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "StateChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CameraOcclusionInfo",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CameraOcclusionStateChangedEventArgs",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_StateChanged",
+          "remove_method": "remove_StateChanged"
+        }
+      ]
+    },
+    "ICameraOcclusionState": {
+      "guid": "430adeb8-6842-5e55-9bde-04b4ef3a8a57",
+      "exclusive_to": "Windows.Media.Devices.CameraOcclusionState",
+      "methods": [
+        {
+          "name": "get_IsOccluded",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsOcclusionKind",
+          "params": [
+            {
+              "name": "occlusionKind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CameraOcclusionKind",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsOccluded",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsOccluded"
+        }
+      ]
+    },
+    "ICameraOcclusionStateChangedEventArgs": {
+      "guid": "8512d848-c0de-57ca-a1ca-fb2c3d23df55",
+      "exclusive_to": "Windows.Media.Devices.CameraOcclusionStateChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_State",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CameraOcclusionState",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "State",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CameraOcclusionState",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_State"
+        }
+      ]
+    },
+    "IDefaultAudioDeviceChangedEventArgs": {
+      "guid": "110f882f-1c05-4657-a18e-47c9b69f07ab",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Role",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioDeviceRole",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "Role",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AudioDeviceRole",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Role"
+        }
+      ]
+    },
+    "IDigitalWindowBounds": {
+      "guid": "dd4f21dd-d173-5c6b-8c25-bdd26d5122b1",
+      "exclusive_to": "Windows.Media.Devices.DigitalWindowBounds",
+      "methods": [
+        {
+          "name": "get_NormalizedOriginTop",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_NormalizedOriginTop",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_NormalizedOriginLeft",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_NormalizedOriginLeft",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Scale",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_Scale",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "NormalizedOriginLeft",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_NormalizedOriginLeft",
+          "setter": "put_NormalizedOriginLeft"
+        },
+        {
+          "name": "NormalizedOriginTop",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_NormalizedOriginTop",
+          "setter": "put_NormalizedOriginTop"
+        },
+        {
+          "name": "Scale",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Scale",
+          "setter": "put_Scale"
+        }
+      ]
+    },
+    "IDigitalWindowCapability": {
+      "guid": "d78bad2c-f721-5244-a196-b56ccbec606c",
+      "exclusive_to": "Windows.Media.Devices.DigitalWindowCapability",
+      "methods": [
+        {
+          "name": "get_Width",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Height",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MinScaleValue",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_MaxScaleValue",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_MinScaleValueWithoutUpsampling",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_NormalizedFieldOfViewLimit",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Height",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Height"
+        },
+        {
+          "name": "MaxScaleValue",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_MaxScaleValue"
+        },
+        {
+          "name": "MinScaleValue",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_MinScaleValue"
+        },
+        {
+          "name": "MinScaleValueWithoutUpsampling",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_MinScaleValueWithoutUpsampling"
+        },
+        {
+          "name": "NormalizedFieldOfViewLimit",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_NormalizedFieldOfViewLimit"
+        },
+        {
+          "name": "Width",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Width"
+        }
+      ]
+    },
+    "IDigitalWindowControl": {
+      "guid": "23b69eff-65d2-53ea-8780-de582b48b544",
+      "exclusive_to": "Windows.Media.Devices.DigitalWindowControl",
+      "methods": [
+        {
+          "name": "get_IsSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SupportedModes",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "ApiRef",
+              "name": "DigitalWindowMode",
+              "namespace": "Windows.Media.Devices",
+              "target_kind": "Enum"
+            }
+          }
+        },
+        {
+          "name": "get_CurrentMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DigitalWindowMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetBounds",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DigitalWindowBounds",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "Configure",
+          "overload": "Configure",
+          "params": [
+            {
+              "name": "digitalWindowMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DigitalWindowMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Configure",
+          "overload": "ConfigureWithBounds",
+          "params": [
+            {
+              "name": "digitalWindowMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DigitalWindowMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "digitalWindowBounds",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DigitalWindowBounds",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SupportedCapabilities",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DigitalWindowCapability",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetCapabilityForSize",
+          "params": [
+            {
+              "name": "width",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "height",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DigitalWindowCapability",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CurrentMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DigitalWindowMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CurrentMode"
+        },
+        {
+          "name": "IsSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSupported"
+        },
+        {
+          "name": "SupportedCapabilities",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DigitalWindowCapability",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_SupportedCapabilities"
+        },
+        {
+          "name": "SupportedModes",
+          "type": {
+            "kind": "Array",
+            "elem": {
+              "kind": "ApiRef",
+              "name": "DigitalWindowMode",
+              "namespace": "Windows.Media.Devices",
+              "target_kind": "Enum"
+            }
+          },
+          "getter": "get_SupportedModes"
+        }
+      ]
+    },
+    "IExposureCompensationControl": {
+      "guid": "81c8e834-dcec-4011-a610-1f3847e64aca",
+      "exclusive_to": "Windows.Media.Devices.ExposureCompensationControl",
+      "methods": [
+        {
+          "name": "get_Supported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Min",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_Max",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_Step",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "SetValueAsync",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Max",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_Max"
+        },
+        {
+          "name": "Min",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_Min"
+        },
+        {
+          "name": "Step",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_Step"
+        },
+        {
+          "name": "Supported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Supported"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "IExposureControl": {
+      "guid": "09e8cbe2-ad96-4f28-a0e0-96ed7e1b5fd2",
+      "exclusive_to": "Windows.Media.Devices.ExposureControl",
+      "methods": [
+        {
+          "name": "get_Supported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Auto",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "SetAutoAsync",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Min",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Max",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Step",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "SetValueAsync",
+          "params": [
+            {
+              "name": "shutterDuration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Auto",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Auto"
+        },
+        {
+          "name": "Max",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Max"
+        },
+        {
+          "name": "Min",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Min"
+        },
+        {
+          "name": "Step",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Step"
+        },
+        {
+          "name": "Supported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Supported"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "IExposurePriorityVideoControl": {
+      "guid": "2cb240a3-5168-4271-9ea5-47621a98a352",
+      "exclusive_to": "Windows.Media.Devices.ExposurePriorityVideoControl",
+      "methods": [
+        {
+          "name": "get_Supported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Enabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Enabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Enabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Enabled",
+          "setter": "put_Enabled"
+        },
+        {
+          "name": "Supported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Supported"
+        }
+      ]
+    },
+    "IFlashControl": {
+      "guid": "def41dbe-7d68-45e3-8c0f-be7bb32837d0",
+      "exclusive_to": "Windows.Media.Devices.FlashControl",
+      "methods": [
+        {
+          "name": "get_Supported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_PowerSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_RedEyeReductionSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Enabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Enabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Auto",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Auto",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RedEyeReduction",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_RedEyeReduction",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PowerPercent",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_PowerPercent",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Auto",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Auto",
+          "setter": "put_Auto"
+        },
+        {
+          "name": "Enabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Enabled",
+          "setter": "put_Enabled"
+        },
+        {
+          "name": "PowerPercent",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_PowerPercent",
+          "setter": "put_PowerPercent"
+        },
+        {
+          "name": "PowerSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_PowerSupported"
+        },
+        {
+          "name": "RedEyeReduction",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_RedEyeReduction",
+          "setter": "put_RedEyeReduction"
+        },
+        {
+          "name": "RedEyeReductionSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_RedEyeReductionSupported"
+        },
+        {
+          "name": "Supported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Supported"
+        }
+      ]
+    },
+    "IFlashControl2": {
+      "guid": "7d29cc9e-75e1-4af7-bd7d-4e38e1c06cd6",
+      "exclusive_to": "Windows.Media.Devices.FlashControl",
+      "methods": [
+        {
+          "name": "get_AssistantLightSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_AssistantLightEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AssistantLightEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AssistantLightEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AssistantLightEnabled",
+          "setter": "put_AssistantLightEnabled"
+        },
+        {
+          "name": "AssistantLightSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AssistantLightSupported"
+        }
+      ]
+    },
+    "IFocusControl": {
+      "guid": "c0d889f6-5228-4453-b153-85606592b238",
+      "exclusive_to": "Windows.Media.Devices.FocusControl",
+      "methods": [
+        {
+          "name": "get_Supported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SupportedPresets",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "FocusPreset",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Preset",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FocusPreset",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "SetPresetAsync",
+          "overload": "SetPresetAsync",
+          "params": [
+            {
+              "name": "preset",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FocusPreset",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SetPresetAsync",
+          "overload": "SetPresetWithCompletionOptionAsync",
+          "params": [
+            {
+              "name": "preset",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FocusPreset",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "completeBeforeFocus",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Min",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Max",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Step",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "SetValueAsync",
+          "params": [
+            {
+              "name": "focus",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "FocusAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Max",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Max"
+        },
+        {
+          "name": "Min",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Min"
+        },
+        {
+          "name": "Preset",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FocusPreset",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Preset"
+        },
+        {
+          "name": "Step",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Step"
+        },
+        {
+          "name": "Supported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Supported"
+        },
+        {
+          "name": "SupportedPresets",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "FocusPreset",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SupportedPresets"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "IFocusControl2": {
+      "guid": "3f7cff48-c534-4e9e-94c3-52ef2afd5d07",
+      "exclusive_to": "Windows.Media.Devices.FocusControl",
+      "methods": [
+        {
+          "name": "get_FocusChangedSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_WaitForFocusSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SupportedFocusModes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "FocusMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SupportedFocusDistances",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ManualFocusDistance",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SupportedFocusRanges",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AutoFocusRange",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Mode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FocusMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_FocusState",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureFocusState",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "UnlockAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "LockAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "Configure",
+          "params": [
+            {
+              "name": "settings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FocusSettings",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "FocusChangedSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_FocusChangedSupported"
+        },
+        {
+          "name": "FocusState",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureFocusState",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_FocusState"
+        },
+        {
+          "name": "Mode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FocusMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Mode"
+        },
+        {
+          "name": "SupportedFocusDistances",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ManualFocusDistance",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SupportedFocusDistances"
+        },
+        {
+          "name": "SupportedFocusModes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "FocusMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SupportedFocusModes"
+        },
+        {
+          "name": "SupportedFocusRanges",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AutoFocusRange",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SupportedFocusRanges"
+        },
+        {
+          "name": "WaitForFocusSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_WaitForFocusSupported"
+        }
+      ]
+    },
+    "IFocusSettings": {
+      "guid": "79958f6b-3263-4275-85d6-aeae891c96ee",
+      "exclusive_to": "Windows.Media.Devices.FocusSettings",
+      "methods": [
+        {
+          "name": "get_Mode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FocusMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Mode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FocusMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AutoFocusRange",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AutoFocusRange",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_AutoFocusRange",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AutoFocusRange",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Value",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "U4"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Distance",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ManualFocusDistance",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Distance",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ManualFocusDistance",
+                    "namespace": "Windows.Media.Devices",
+                    "target_kind": "Enum"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_WaitForFocus",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_WaitForFocus",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DisableDriverFallback",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_DisableDriverFallback",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AutoFocusRange",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AutoFocusRange",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AutoFocusRange",
+          "setter": "put_AutoFocusRange"
+        },
+        {
+          "name": "DisableDriverFallback",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_DisableDriverFallback",
+          "setter": "put_DisableDriverFallback"
+        },
+        {
+          "name": "Distance",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ManualFocusDistance",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_Distance",
+          "setter": "put_Distance"
+        },
+        {
+          "name": "Mode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FocusMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Mode",
+          "setter": "put_Mode"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_Value",
+          "setter": "put_Value"
+        },
+        {
+          "name": "WaitForFocus",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_WaitForFocus",
+          "setter": "put_WaitForFocus"
+        }
+      ]
+    },
+    "IHdrVideoControl": {
+      "guid": "55d8e2d0-30c0-43bf-9b9a-9799d70ced94",
+      "exclusive_to": "Windows.Media.Devices.HdrVideoControl",
+      "methods": [
+        {
+          "name": "get_Supported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SupportedModes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HdrVideoMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Mode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HdrVideoMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Mode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HdrVideoMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Mode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HdrVideoMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Mode",
+          "setter": "put_Mode"
+        },
+        {
+          "name": "Supported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Supported"
+        },
+        {
+          "name": "SupportedModes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HdrVideoMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SupportedModes"
+        }
+      ]
+    },
+    "IInfraredTorchControl": {
+      "guid": "1cba2c83-6cb6-5a04-a6fc-3be7b33ff056",
+      "exclusive_to": "Windows.Media.Devices.InfraredTorchControl",
+      "methods": [
+        {
+          "name": "get_IsSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SupportedModes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InfraredTorchMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_CurrentMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InfraredTorchMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_CurrentMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "InfraredTorchMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MinPower",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_MaxPower",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_PowerStep",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Power",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_Power",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CurrentMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "InfraredTorchMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CurrentMode",
+          "setter": "put_CurrentMode"
+        },
+        {
+          "name": "IsSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSupported"
+        },
+        {
+          "name": "MaxPower",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MaxPower"
+        },
+        {
+          "name": "MinPower",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_MinPower"
+        },
+        {
+          "name": "Power",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Power",
+          "setter": "put_Power"
+        },
+        {
+          "name": "PowerStep",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_PowerStep"
+        },
+        {
+          "name": "SupportedModes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InfraredTorchMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SupportedModes"
+        }
+      ]
+    },
+    "IIsoSpeedControl": {
+      "guid": "27b6c322-25ad-4f1b-aaab-524ab376ca33",
+      "exclusive_to": "Windows.Media.Devices.IsoSpeedControl",
+      "methods": [
+        {
+          "name": "get_Supported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SupportedPresets",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IsoSpeedPreset",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Preset",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IsoSpeedPreset",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "SetPresetAsync",
+          "params": [
+            {
+              "name": "preset",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IsoSpeedPreset",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Preset",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IsoSpeedPreset",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Preset"
+        },
+        {
+          "name": "Supported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Supported"
+        },
+        {
+          "name": "SupportedPresets",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IsoSpeedPreset",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SupportedPresets"
+        }
+      ]
+    },
+    "IIsoSpeedControl2": {
+      "guid": "6f1578f2-6d77-4f8a-8c2f-6130b6395053",
+      "exclusive_to": "Windows.Media.Devices.IsoSpeedControl",
+      "methods": [
+        {
+          "name": "get_Min",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Max",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Step",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "SetValueAsync",
+          "params": [
+            {
+              "name": "isoSpeed",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Auto",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "SetAutoAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Auto",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Auto"
+        },
+        {
+          "name": "Max",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Max"
+        },
+        {
+          "name": "Min",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Min"
+        },
+        {
+          "name": "Step",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Step"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "ILowLagPhotoControl": {
+      "guid": "6d5c4dd0-fadf-415d-aee6-3baa529300c9",
+      "exclusive_to": "Windows.Media.Devices.LowLagPhotoControl",
+      "methods": [
+        {
+          "name": "GetHighestConcurrentFrameRate",
+          "params": [
+            {
+              "name": "captureProperties",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IMediaEncodingProperties",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaRatio",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetCurrentFrameRate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaRatio",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ThumbnailEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_ThumbnailEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ThumbnailFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaThumbnailFormat",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_ThumbnailFormat",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaThumbnailFormat",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DesiredThumbnailSize",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_DesiredThumbnailSize",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_HardwareAcceleratedThumbnailSupported",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DesiredThumbnailSize",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_DesiredThumbnailSize",
+          "setter": "put_DesiredThumbnailSize"
+        },
+        {
+          "name": "HardwareAcceleratedThumbnailSupported",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_HardwareAcceleratedThumbnailSupported"
+        },
+        {
+          "name": "ThumbnailEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ThumbnailEnabled",
+          "setter": "put_ThumbnailEnabled"
+        },
+        {
+          "name": "ThumbnailFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaThumbnailFormat",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ThumbnailFormat",
+          "setter": "put_ThumbnailFormat"
+        }
+      ]
+    },
+    "ILowLagPhotoSequenceControl": {
+      "guid": "3dcf909d-6d16-409c-bafe-b9a594c6fde6",
+      "exclusive_to": "Windows.Media.Devices.LowLagPhotoSequenceControl",
+      "methods": [
+        {
+          "name": "get_Supported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_MaxPastPhotos",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_MaxPhotosPerSecond",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_PastPhotoLimit",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_PastPhotoLimit",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PhotosPerSecondLimit",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_PhotosPerSecondLimit",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetHighestConcurrentFrameRate",
+          "params": [
+            {
+              "name": "captureProperties",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IMediaEncodingProperties",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaRatio",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetCurrentFrameRate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaRatio",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ThumbnailEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_ThumbnailEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ThumbnailFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaThumbnailFormat",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_ThumbnailFormat",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaThumbnailFormat",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DesiredThumbnailSize",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_DesiredThumbnailSize",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_HardwareAcceleratedThumbnailSupported",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DesiredThumbnailSize",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_DesiredThumbnailSize",
+          "setter": "put_DesiredThumbnailSize"
+        },
+        {
+          "name": "HardwareAcceleratedThumbnailSupported",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_HardwareAcceleratedThumbnailSupported"
+        },
+        {
+          "name": "MaxPastPhotos",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxPastPhotos"
+        },
+        {
+          "name": "MaxPhotosPerSecond",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_MaxPhotosPerSecond"
+        },
+        {
+          "name": "PastPhotoLimit",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_PastPhotoLimit",
+          "setter": "put_PastPhotoLimit"
+        },
+        {
+          "name": "PhotosPerSecondLimit",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_PhotosPerSecondLimit",
+          "setter": "put_PhotosPerSecondLimit"
+        },
+        {
+          "name": "Supported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Supported"
+        },
+        {
+          "name": "ThumbnailEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ThumbnailEnabled",
+          "setter": "put_ThumbnailEnabled"
+        },
+        {
+          "name": "ThumbnailFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaThumbnailFormat",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ThumbnailFormat",
+          "setter": "put_ThumbnailFormat"
+        }
+      ]
+    },
+    "IMediaDeviceControl": {
+      "guid": "efa8dfa9-6f75-4863-ba0b-583f3036b4de",
+      "exclusive_to": "Windows.Media.Devices.MediaDeviceControl",
+      "methods": [
+        {
+          "name": "get_Capabilities",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaDeviceControlCapabilities",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryGetValue",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TrySetValue",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TryGetAuto",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TrySetAuto",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Capabilities",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaDeviceControlCapabilities",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_Capabilities"
+        }
+      ]
+    },
+    "IMediaDeviceControlCapabilities": {
+      "guid": "23005816-eb85-43e2-b92b-8240d5ee70ec",
+      "exclusive_to": "Windows.Media.Devices.MediaDeviceControlCapabilities",
+      "methods": [
+        {
+          "name": "get_Supported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Min",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_Max",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_Step",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_Default",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_AutoModeSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AutoModeSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AutoModeSupported"
+        },
+        {
+          "name": "Default",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Default"
+        },
+        {
+          "name": "Max",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Max"
+        },
+        {
+          "name": "Min",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Min"
+        },
+        {
+          "name": "Step",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Step"
+        },
+        {
+          "name": "Supported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Supported"
+        }
+      ]
+    },
+    "IMediaDeviceController": {
+      "guid": "f6f8f5ce-209a-48fb-86fc-d44578f317e6",
+      "methods": [
+        {
+          "name": "GetAvailableMediaStreamProperties",
+          "params": [
+            {
+              "name": "mediaStreamType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaStreamType",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IMediaEncodingProperties",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetMediaStreamProperties",
+          "params": [
+            {
+              "name": "mediaStreamType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaStreamType",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IMediaEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SetMediaStreamPropertiesAsync",
+          "params": [
+            {
+              "name": "mediaStreamType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaStreamType",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "mediaEncodingProperties",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IMediaEncodingProperties",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IMediaDeviceStatics": {
+      "guid": "aa2d9a40-909f-4bba-bf8b-0c0d296f14f0",
+      "exclusive_to": "Windows.Media.Devices.MediaDevice",
+      "methods": [
+        {
+          "name": "GetAudioCaptureSelector",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetAudioRenderSelector",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetVideoCaptureSelector",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDefaultAudioCaptureId",
+          "params": [
+            {
+              "name": "role",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AudioDeviceRole",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDefaultAudioRenderId",
+          "params": [
+            {
+              "name": "role",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AudioDeviceRole",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "add_DefaultAudioCaptureDeviceChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "DefaultAudioCaptureDeviceChangedEventArgs",
+                    "namespace": "Windows.Media.Devices",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DefaultAudioCaptureDeviceChanged",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_DefaultAudioRenderDeviceChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "DefaultAudioRenderDeviceChangedEventArgs",
+                    "namespace": "Windows.Media.Devices",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DefaultAudioRenderDeviceChanged",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "DefaultAudioCaptureDeviceChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DefaultAudioCaptureDeviceChangedEventArgs",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_DefaultAudioCaptureDeviceChanged",
+          "remove_method": "remove_DefaultAudioCaptureDeviceChanged"
+        },
+        {
+          "name": "DefaultAudioRenderDeviceChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DefaultAudioRenderDeviceChangedEventArgs",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_DefaultAudioRenderDeviceChanged",
+          "remove_method": "remove_DefaultAudioRenderDeviceChanged"
+        }
+      ]
+    },
+    "IModuleCommandResult": {
+      "guid": "520d1eb4-1374-4c7d-b1e4-39dcdf3eae4e",
+      "exclusive_to": "Windows.Media.Devices.ModuleCommandResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SendCommandStatus",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Result",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Result",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Result"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SendCommandStatus",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IOpticalImageStabilizationControl": {
+      "guid": "bfad9c1d-00bc-423b-8eb2-a0178ca94247",
+      "exclusive_to": "Windows.Media.Devices.OpticalImageStabilizationControl",
+      "methods": [
+        {
+          "name": "get_Supported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SupportedModes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "OpticalImageStabilizationMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Mode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "OpticalImageStabilizationMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Mode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "OpticalImageStabilizationMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Mode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "OpticalImageStabilizationMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Mode",
+          "setter": "put_Mode"
+        },
+        {
+          "name": "Supported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Supported"
+        },
+        {
+          "name": "SupportedModes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "OpticalImageStabilizationMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SupportedModes"
+        }
+      ]
+    },
+    "IPanelBasedOptimizationControl": {
+      "guid": "33323223-6247-5419-a5a4-3d808645d917",
+      "exclusive_to": "Windows.Media.Devices.PanelBasedOptimizationControl",
+      "methods": [
+        {
+          "name": "get_IsSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Panel",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Panel",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Panel",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Panel",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSupported"
+        },
+        {
+          "name": "Panel",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Panel",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Panel",
+          "setter": "put_Panel"
+        }
+      ]
+    },
+    "IPhotoConfirmationControl": {
+      "guid": "c8f3f363-ff5e-4582-a9a8-0550f85a4a76",
+      "exclusive_to": "Windows.Media.Devices.PhotoConfirmationControl",
+      "methods": [
+        {
+          "name": "get_Supported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Enabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Enabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PixelFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaPixelFormat",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_PixelFormat",
+          "params": [
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaPixelFormat",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Enabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Enabled",
+          "setter": "put_Enabled"
+        },
+        {
+          "name": "PixelFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaPixelFormat",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PixelFormat",
+          "setter": "put_PixelFormat"
+        },
+        {
+          "name": "Supported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Supported"
+        }
+      ]
+    },
+    "IRegionOfInterest": {
+      "guid": "e5ecc834-ce66-4e05-a78f-cf391a5ec2d1",
+      "exclusive_to": "Windows.Media.Devices.RegionOfInterest",
+      "methods": [
+        {
+          "name": "get_AutoFocusEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AutoFocusEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AutoWhiteBalanceEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AutoWhiteBalanceEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AutoExposureEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AutoExposureEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Bounds",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Bounds",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AutoExposureEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AutoExposureEnabled",
+          "setter": "put_AutoExposureEnabled"
+        },
+        {
+          "name": "AutoFocusEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AutoFocusEnabled",
+          "setter": "put_AutoFocusEnabled"
+        },
+        {
+          "name": "AutoWhiteBalanceEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AutoWhiteBalanceEnabled",
+          "setter": "put_AutoWhiteBalanceEnabled"
+        },
+        {
+          "name": "Bounds",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Bounds",
+          "setter": "put_Bounds"
+        }
+      ]
+    },
+    "IRegionOfInterest2": {
+      "guid": "19fe2a91-73aa-4d51-8a9d-56ccf7db7f54",
+      "exclusive_to": "Windows.Media.Devices.RegionOfInterest",
+      "methods": [
+        {
+          "name": "get_Type",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RegionOfInterestType",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Type",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RegionOfInterestType",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BoundsNormalized",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_BoundsNormalized",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Weight",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_Weight",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "BoundsNormalized",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_BoundsNormalized",
+          "setter": "put_BoundsNormalized"
+        },
+        {
+          "name": "Type",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RegionOfInterestType",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Type",
+          "setter": "put_Type"
+        },
+        {
+          "name": "Weight",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Weight",
+          "setter": "put_Weight"
+        }
+      ]
+    },
+    "IRegionsOfInterestControl": {
+      "guid": "c323f527-ab0b-4558-8b5b-df5693db0378",
+      "exclusive_to": "Windows.Media.Devices.RegionsOfInterestControl",
+      "methods": [
+        {
+          "name": "get_MaxRegions",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "SetRegionsAsync",
+          "overload": "SetRegionsAsync",
+          "params": [
+            {
+              "name": "regions",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RegionOfInterest",
+                    "namespace": "Windows.Media.Devices",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SetRegionsAsync",
+          "overload": "SetRegionsWithLockAsync",
+          "params": [
+            {
+              "name": "regions",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "RegionOfInterest",
+                    "namespace": "Windows.Media.Devices",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "lockValues",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ClearRegionsAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_AutoFocusSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_AutoWhiteBalanceSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_AutoExposureSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AutoExposureSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AutoExposureSupported"
+        },
+        {
+          "name": "AutoFocusSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AutoFocusSupported"
+        },
+        {
+          "name": "AutoWhiteBalanceSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AutoWhiteBalanceSupported"
+        },
+        {
+          "name": "MaxRegions",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxRegions"
+        }
+      ]
+    },
+    "ISceneModeControl": {
+      "guid": "d48e5af7-8d59-4854-8c62-12c70ba89b7c",
+      "exclusive_to": "Windows.Media.Devices.SceneModeControl",
+      "methods": [
+        {
+          "name": "get_SupportedModes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CaptureSceneMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CaptureSceneMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "SetValueAsync",
+          "params": [
+            {
+              "name": "sceneMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CaptureSceneMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SupportedModes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CaptureSceneMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SupportedModes"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CaptureSceneMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "ITorchControl": {
+      "guid": "a6053665-8250-416c-919a-724296afa306",
+      "exclusive_to": "Windows.Media.Devices.TorchControl",
+      "methods": [
+        {
+          "name": "get_Supported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_PowerSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Enabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Enabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PowerPercent",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_PowerPercent",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Enabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Enabled",
+          "setter": "put_Enabled"
+        },
+        {
+          "name": "PowerPercent",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_PowerPercent",
+          "setter": "put_PowerPercent"
+        },
+        {
+          "name": "PowerSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_PowerSupported"
+        },
+        {
+          "name": "Supported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Supported"
+        }
+      ]
+    },
+    "IVideoDeviceController": {
+      "guid": "99555575-2e2e-40b8-b6c7-f82d10013210",
+      "exclusive_to": "Windows.Media.Devices.VideoDeviceController",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaDeviceController",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Brightness",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaDeviceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Contrast",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaDeviceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Hue",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaDeviceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_WhiteBalance",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaDeviceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_BacklightCompensation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaDeviceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Pan",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaDeviceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Tilt",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaDeviceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Zoom",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaDeviceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Roll",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaDeviceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Exposure",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaDeviceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Focus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaDeviceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TrySetPowerlineFrequency",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PowerlineFrequency",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TryGetPowerlineFrequency",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PowerlineFrequency",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BacklightCompensation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaDeviceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_BacklightCompensation"
+        },
+        {
+          "name": "Brightness",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaDeviceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_Brightness"
+        },
+        {
+          "name": "Contrast",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaDeviceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_Contrast"
+        },
+        {
+          "name": "Exposure",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaDeviceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_Exposure"
+        },
+        {
+          "name": "Focus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaDeviceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_Focus"
+        },
+        {
+          "name": "Hue",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaDeviceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_Hue"
+        },
+        {
+          "name": "Pan",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaDeviceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_Pan"
+        },
+        {
+          "name": "Roll",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaDeviceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_Roll"
+        },
+        {
+          "name": "Tilt",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaDeviceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_Tilt"
+        },
+        {
+          "name": "WhiteBalance",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaDeviceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_WhiteBalance"
+        },
+        {
+          "name": "Zoom",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaDeviceControl",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_Zoom"
+        }
+      ]
+    },
+    "IVideoDeviceControllerGetDevicePropertyResult": {
+      "guid": "c5d88395-6ed5-4790-8b5d-0ef13935d0f8",
+      "exclusive_to": "Windows.Media.Devices.VideoDeviceControllerGetDevicePropertyResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoDeviceControllerGetDevicePropertyStatus",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoDeviceControllerGetDevicePropertyStatus",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "IVideoTemporalDenoisingControl": {
+      "guid": "7ab34735-3e2a-4a32-baff-4358c4fbdd57",
+      "exclusive_to": "Windows.Media.Devices.VideoTemporalDenoisingControl",
+      "methods": [
+        {
+          "name": "get_Supported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SupportedModes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VideoTemporalDenoisingMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Mode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoTemporalDenoisingMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Mode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VideoTemporalDenoisingMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Mode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoTemporalDenoisingMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Mode",
+          "setter": "put_Mode"
+        },
+        {
+          "name": "Supported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Supported"
+        },
+        {
+          "name": "SupportedModes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VideoTemporalDenoisingMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SupportedModes"
+        }
+      ]
+    },
+    "IWhiteBalanceControl": {
+      "guid": "781f047e-7162-49c8-a8f9-9481c565363e",
+      "exclusive_to": "Windows.Media.Devices.WhiteBalanceControl",
+      "methods": [
+        {
+          "name": "get_Supported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Preset",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ColorTemperaturePreset",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "SetPresetAsync",
+          "params": [
+            {
+              "name": "preset",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ColorTemperaturePreset",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Min",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Max",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Step",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "SetValueAsync",
+          "params": [
+            {
+              "name": "temperature",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Max",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Max"
+        },
+        {
+          "name": "Min",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Min"
+        },
+        {
+          "name": "Preset",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ColorTemperaturePreset",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Preset"
+        },
+        {
+          "name": "Step",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Step"
+        },
+        {
+          "name": "Supported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Supported"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "IZoomControl": {
+      "guid": "3a1e0b12-32da-4c17-bfd7-8d0c73c8f5a5",
+      "exclusive_to": "Windows.Media.Devices.ZoomControl",
+      "methods": [
+        {
+          "name": "get_Supported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Min",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_Max",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_Step",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_Value",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Max",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_Max"
+        },
+        {
+          "name": "Min",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_Min"
+        },
+        {
+          "name": "Step",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_Step"
+        },
+        {
+          "name": "Supported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Supported"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_Value",
+          "setter": "put_Value"
+        }
+      ]
+    },
+    "IZoomControl2": {
+      "guid": "69843db0-2e99-4641-8529-184f319d1671",
+      "exclusive_to": "Windows.Media.Devices.ZoomControl",
+      "methods": [
+        {
+          "name": "get_SupportedModes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ZoomTransitionMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Mode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ZoomTransitionMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Configure",
+          "params": [
+            {
+              "name": "settings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ZoomSettings",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Mode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ZoomTransitionMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Mode"
+        },
+        {
+          "name": "SupportedModes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ZoomTransitionMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SupportedModes"
+        }
+      ]
+    },
+    "IZoomSettings": {
+      "guid": "6ad66b24-14b4-4bfd-b18f-88fe24463b52",
+      "exclusive_to": "Windows.Media.Devices.ZoomSettings",
+      "methods": [
+        {
+          "name": "get_Mode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ZoomTransitionMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Mode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ZoomTransitionMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_Value",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Mode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ZoomTransitionMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Mode",
+          "setter": "put_Mode"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_Value",
+          "setter": "put_Value"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AdvancedPhotoCaptureSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAdvancedPhotoCaptureSettings",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAdvancedPhotoCaptureSettings",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "AdvancedPhotoControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAdvancedPhotoControl",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAdvancedPhotoControl",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AudioDeviceController": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAudioDeviceController",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAudioDeviceController",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaDeviceController",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAudioDeviceController2",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AudioDeviceModule": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAudioDeviceModule",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAudioDeviceModule",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AudioDeviceModuleNotificationEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAudioDeviceModuleNotificationEventArgs",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAudioDeviceModuleNotificationEventArgs",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AudioDeviceModulesManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAudioDeviceModulesManager",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAudioDeviceModulesManager",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Media.Devices.IAudioDeviceModulesManagerFactory"
+      ]
+    },
+    "CameraOcclusionInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICameraOcclusionInfo",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICameraOcclusionInfo",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CameraOcclusionState": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICameraOcclusionState",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICameraOcclusionState",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CameraOcclusionStateChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICameraOcclusionStateChangedEventArgs",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICameraOcclusionStateChangedEventArgs",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DefaultAudioCaptureDeviceChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDefaultAudioDeviceChangedEventArgs",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDefaultAudioDeviceChangedEventArgs",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DefaultAudioRenderDeviceChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDefaultAudioDeviceChangedEventArgs",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDefaultAudioDeviceChangedEventArgs",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DigitalWindowBounds": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDigitalWindowBounds",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDigitalWindowBounds",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "DigitalWindowCapability": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDigitalWindowCapability",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDigitalWindowCapability",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DigitalWindowControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDigitalWindowControl",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDigitalWindowControl",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ExposureCompensationControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IExposureCompensationControl",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IExposureCompensationControl",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ExposureControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IExposureControl",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IExposureControl",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ExposurePriorityVideoControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IExposurePriorityVideoControl",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IExposurePriorityVideoControl",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FlashControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFlashControl",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFlashControl",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IFlashControl2",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FocusControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFocusControl",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFocusControl",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IFocusControl2",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FocusSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFocusSettings",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFocusSettings",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "HdrVideoControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHdrVideoControl",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHdrVideoControl",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "InfraredTorchControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInfraredTorchControl",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInfraredTorchControl",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "IsoSpeedControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IIsoSpeedControl",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IIsoSpeedControl",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IIsoSpeedControl2",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "LowLagPhotoControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILowLagPhotoControl",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILowLagPhotoControl",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "LowLagPhotoSequenceControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILowLagPhotoSequenceControl",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILowLagPhotoSequenceControl",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MediaDevice": {
+      "static_interfaces": [
+        "Windows.Media.Devices.IMediaDeviceStatics"
+      ]
+    },
+    "MediaDeviceControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaDeviceControl",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaDeviceControl",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MediaDeviceControlCapabilities": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaDeviceControlCapabilities",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaDeviceControlCapabilities",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ModuleCommandResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IModuleCommandResult",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IModuleCommandResult",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "OpticalImageStabilizationControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IOpticalImageStabilizationControl",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IOpticalImageStabilizationControl",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PanelBasedOptimizationControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPanelBasedOptimizationControl",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPanelBasedOptimizationControl",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PhotoConfirmationControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhotoConfirmationControl",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhotoConfirmationControl",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RegionOfInterest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRegionOfInterest",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRegionOfInterest",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRegionOfInterest2",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "RegionsOfInterestControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRegionsOfInterestControl",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRegionsOfInterestControl",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SceneModeControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISceneModeControl",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISceneModeControl",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "TorchControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITorchControl",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITorchControl",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VideoDeviceController": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVideoDeviceController",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVideoDeviceController",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaDeviceController",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdvancedVideoCaptureDeviceController",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdvancedVideoCaptureDeviceController2",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdvancedVideoCaptureDeviceController3",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdvancedVideoCaptureDeviceController4",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdvancedVideoCaptureDeviceController5",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdvancedVideoCaptureDeviceController6",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdvancedVideoCaptureDeviceController7",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdvancedVideoCaptureDeviceController8",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdvancedVideoCaptureDeviceController9",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdvancedVideoCaptureDeviceController10",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdvancedVideoCaptureDeviceController11",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VideoDeviceControllerGetDevicePropertyResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVideoDeviceControllerGetDevicePropertyResult",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVideoDeviceControllerGetDevicePropertyResult",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VideoTemporalDenoisingControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVideoTemporalDenoisingControl",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVideoTemporalDenoisingControl",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WhiteBalanceControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWhiteBalanceControl",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWhiteBalanceControl",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ZoomControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IZoomControl",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IZoomControl",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IZoomControl2",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ZoomSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IZoomSettings",
+        "namespace": "Windows.Media.Devices",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IZoomSettings",
+          "namespace": "Windows.Media.Devices",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  }
+}

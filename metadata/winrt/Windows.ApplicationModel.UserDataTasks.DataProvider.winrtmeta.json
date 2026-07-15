@@ -1,0 +1,1073 @@
+{
+  "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IUserDataTaskDataProviderConnection": {
+      "guid": "9ff39d1d-a447-428b-afe9-e5402bdeb041",
+      "exclusive_to": "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskDataProviderConnection",
+      "methods": [
+        {
+          "name": "add_CreateOrUpdateTaskRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserDataTaskDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserDataTaskListCreateOrUpdateTaskRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CreateOrUpdateTaskRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_SyncRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserDataTaskDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserDataTaskListSyncManagerSyncRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SyncRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_SkipOccurrenceRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserDataTaskDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserDataTaskListSkipOccurrenceRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SkipOccurrenceRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_CompleteTaskRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserDataTaskDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserDataTaskListCompleteTaskRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CompleteTaskRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_DeleteTaskRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserDataTaskDataProviderConnection",
+                    "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserDataTaskListDeleteTaskRequestEventArgs",
+                    "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DeleteTaskRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Start"
+        }
+      ],
+      "events": [
+        {
+          "name": "CompleteTaskRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataTaskDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "UserDataTaskListCompleteTaskRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_CompleteTaskRequested",
+          "remove_method": "remove_CompleteTaskRequested"
+        },
+        {
+          "name": "CreateOrUpdateTaskRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataTaskDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "UserDataTaskListCreateOrUpdateTaskRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_CreateOrUpdateTaskRequested",
+          "remove_method": "remove_CreateOrUpdateTaskRequested"
+        },
+        {
+          "name": "DeleteTaskRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataTaskDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "UserDataTaskListDeleteTaskRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_DeleteTaskRequested",
+          "remove_method": "remove_DeleteTaskRequested"
+        },
+        {
+          "name": "SkipOccurrenceRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataTaskDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "UserDataTaskListSkipOccurrenceRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SkipOccurrenceRequested",
+          "remove_method": "remove_SkipOccurrenceRequested"
+        },
+        {
+          "name": "SyncRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataTaskDataProviderConnection",
+                "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "UserDataTaskListSyncManagerSyncRequestEventArgs",
+                "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SyncRequested",
+          "remove_method": "remove_SyncRequested"
+        }
+      ]
+    },
+    "IUserDataTaskDataProviderTriggerDetails": {
+      "guid": "ae273202-b1c9-453e-afc5-b30af3bd217d",
+      "exclusive_to": "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskDataProviderTriggerDetails",
+      "methods": [
+        {
+          "name": "get_Connection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskDataProviderConnection",
+            "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Connection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskDataProviderConnection",
+            "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Connection"
+        }
+      ]
+    },
+    "IUserDataTaskListCompleteTaskRequest": {
+      "guid": "f65e14a3-1a42-49da-8552-2873e52c55eb",
+      "exclusive_to": "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCompleteTaskRequest",
+      "methods": [
+        {
+          "name": "get_TaskListId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TaskId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "params": [
+            {
+              "name": "completedTaskId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "TaskId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TaskId"
+        },
+        {
+          "name": "TaskListId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TaskListId"
+        }
+      ]
+    },
+    "IUserDataTaskListCompleteTaskRequestEventArgs": {
+      "guid": "d77c393d-4cf2-48ad-87fd-963f0eaa7a95",
+      "exclusive_to": "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCompleteTaskRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskListCompleteTaskRequest",
+            "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskListCompleteTaskRequest",
+            "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IUserDataTaskListCreateOrUpdateTaskRequest": {
+      "guid": "2133772c-55c2-4300-8279-04326e07cce4",
+      "exclusive_to": "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCreateOrUpdateTaskRequest",
+      "methods": [
+        {
+          "name": "get_TaskListId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Task",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTask",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "params": [
+            {
+              "name": "createdOrUpdatedUserDataTask",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserDataTask",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Task",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataTask",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Class"
+          },
+          "getter": "get_Task"
+        },
+        {
+          "name": "TaskListId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TaskListId"
+        }
+      ]
+    },
+    "IUserDataTaskListCreateOrUpdateTaskRequestEventArgs": {
+      "guid": "12c55a52-e378-419b-ae38-a5e9e604476e",
+      "exclusive_to": "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListCreateOrUpdateTaskRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskListCreateOrUpdateTaskRequest",
+            "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskListCreateOrUpdateTaskRequest",
+            "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IUserDataTaskListDeleteTaskRequest": {
+      "guid": "4b863c68-7657-4f3d-b074-d47ec8df07e7",
+      "exclusive_to": "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListDeleteTaskRequest",
+      "methods": [
+        {
+          "name": "get_TaskListId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TaskId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "TaskId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TaskId"
+        },
+        {
+          "name": "TaskListId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TaskListId"
+        }
+      ]
+    },
+    "IUserDataTaskListDeleteTaskRequestEventArgs": {
+      "guid": "6063dad9-f562-4145-8efe-d50078c92b7f",
+      "exclusive_to": "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListDeleteTaskRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskListDeleteTaskRequest",
+            "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskListDeleteTaskRequest",
+            "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IUserDataTaskListSkipOccurrenceRequest": {
+      "guid": "ab87e34d-1cd3-431c-9f58-089aa4338d85",
+      "exclusive_to": "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSkipOccurrenceRequest",
+      "methods": [
+        {
+          "name": "get_TaskListId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TaskId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "TaskId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TaskId"
+        },
+        {
+          "name": "TaskListId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TaskListId"
+        }
+      ]
+    },
+    "IUserDataTaskListSkipOccurrenceRequestEventArgs": {
+      "guid": "7a3b924a-cc2f-4e7b-aacd-a5b9d29cfa4e",
+      "exclusive_to": "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSkipOccurrenceRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskListSkipOccurrenceRequest",
+            "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskListSkipOccurrenceRequest",
+            "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IUserDataTaskListSyncManagerSyncRequest": {
+      "guid": "40a73807-7590-4149-ae19-b211431a9f48",
+      "exclusive_to": "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSyncManagerSyncRequest",
+      "methods": [
+        {
+          "name": "get_TaskListId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ReportCompletedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailedAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "TaskListId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TaskListId"
+        }
+      ]
+    },
+    "IUserDataTaskListSyncManagerSyncRequestEventArgs": {
+      "guid": "8ead1c12-768e-43bd-8385-5cdc351ffdea",
+      "exclusive_to": "Windows.ApplicationModel.UserDataTasks.DataProvider.UserDataTaskListSyncManagerSyncRequestEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskListSyncManagerSyncRequest",
+            "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskListSyncManagerSyncRequest",
+            "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "UserDataTaskDataProviderConnection": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataTaskDataProviderConnection",
+        "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataTaskDataProviderConnection",
+          "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataTaskDataProviderTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataTaskDataProviderTriggerDetails",
+        "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataTaskDataProviderTriggerDetails",
+          "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataTaskListCompleteTaskRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataTaskListCompleteTaskRequest",
+        "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataTaskListCompleteTaskRequest",
+          "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataTaskListCompleteTaskRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataTaskListCompleteTaskRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataTaskListCompleteTaskRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataTaskListCreateOrUpdateTaskRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataTaskListCreateOrUpdateTaskRequest",
+        "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataTaskListCreateOrUpdateTaskRequest",
+          "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataTaskListCreateOrUpdateTaskRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataTaskListCreateOrUpdateTaskRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataTaskListCreateOrUpdateTaskRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataTaskListDeleteTaskRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataTaskListDeleteTaskRequest",
+        "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataTaskListDeleteTaskRequest",
+          "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataTaskListDeleteTaskRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataTaskListDeleteTaskRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataTaskListDeleteTaskRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataTaskListSkipOccurrenceRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataTaskListSkipOccurrenceRequest",
+        "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataTaskListSkipOccurrenceRequest",
+          "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataTaskListSkipOccurrenceRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataTaskListSkipOccurrenceRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataTaskListSkipOccurrenceRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataTaskListSyncManagerSyncRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataTaskListSyncManagerSyncRequest",
+        "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataTaskListSyncManagerSyncRequest",
+          "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataTaskListSyncManagerSyncRequestEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataTaskListSyncManagerSyncRequestEventArgs",
+        "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataTaskListSyncManagerSyncRequestEventArgs",
+          "namespace": "Windows.ApplicationModel.UserDataTasks.DataProvider",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,3351 @@
+{
+  "namespace": "Windows.ApplicationModel.ConversationalAgent",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "ActivationSignalDetectionConfigurationCreationStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "SignalIdNotAvailable",
+          "value": "1"
+        },
+        {
+          "name": "ModelIdNotSupported",
+          "value": "2"
+        },
+        {
+          "name": "InvalidSignalId",
+          "value": "3"
+        },
+        {
+          "name": "InvalidModelId",
+          "value": "4"
+        },
+        {
+          "name": "InvalidDisplayName",
+          "value": "5"
+        },
+        {
+          "name": "ConfigurationAlreadyExists",
+          "value": "6"
+        },
+        {
+          "name": "CreationNotSupported",
+          "value": "7"
+        }
+      ]
+    },
+    "ActivationSignalDetectionConfigurationRemovalResult": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "NotFound",
+          "value": "1"
+        },
+        {
+          "name": "CurrentlyEnabled",
+          "value": "2"
+        },
+        {
+          "name": "RemovalNotSupported",
+          "value": "3"
+        }
+      ]
+    },
+    "ActivationSignalDetectionConfigurationSetModelDataResult": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "EmptyModelData",
+          "value": "1"
+        },
+        {
+          "name": "UnsupportedFormat",
+          "value": "2"
+        },
+        {
+          "name": "ConfigurationCurrentlyEnabled",
+          "value": "3"
+        },
+        {
+          "name": "InvalidData",
+          "value": "4"
+        },
+        {
+          "name": "SetModelDataNotSupported",
+          "value": "5"
+        },
+        {
+          "name": "ConfigurationNotFound",
+          "value": "6"
+        },
+        {
+          "name": "UnknownError",
+          "value": "7"
+        }
+      ]
+    },
+    "ActivationSignalDetectionConfigurationStateChangeResult": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "NoModelData",
+          "value": "1"
+        },
+        {
+          "name": "ConfigurationNotFound",
+          "value": "2"
+        }
+      ]
+    },
+    "ActivationSignalDetectionTrainingDataFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Voice8kHz8BitMono",
+          "value": "0"
+        },
+        {
+          "name": "Voice8kHz16BitMono",
+          "value": "1"
+        },
+        {
+          "name": "Voice16kHz8BitMono",
+          "value": "2"
+        },
+        {
+          "name": "Voice16kHz16BitMono",
+          "value": "3"
+        },
+        {
+          "name": "VoiceOEMDefined",
+          "value": "4"
+        },
+        {
+          "name": "Audio44kHz8BitMono",
+          "value": "5"
+        },
+        {
+          "name": "Audio44kHz16BitMono",
+          "value": "6"
+        },
+        {
+          "name": "Audio48kHz8BitMono",
+          "value": "7"
+        },
+        {
+          "name": "Audio48kHz16BitMono",
+          "value": "8"
+        },
+        {
+          "name": "AudioOEMDefined",
+          "value": "9"
+        },
+        {
+          "name": "OtherOEMDefined",
+          "value": "10"
+        }
+      ]
+    },
+    "ActivationSignalDetectorKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "AudioPattern",
+          "value": "0"
+        },
+        {
+          "name": "AudioImpulse",
+          "value": "1"
+        },
+        {
+          "name": "HardwareEvent",
+          "value": "2"
+        }
+      ]
+    },
+    "ActivationSignalDetectorPowerState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "HighPower",
+          "value": "0"
+        },
+        {
+          "name": "ConnectedLowPower",
+          "value": "1"
+        },
+        {
+          "name": "DisconnectedLowPower",
+          "value": "2"
+        }
+      ]
+    },
+    "ConversationalAgentActivationKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "VoiceActivationPreview",
+          "value": "0"
+        },
+        {
+          "name": "Foreground",
+          "value": "1"
+        }
+      ]
+    },
+    "ConversationalAgentActivationResult": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "AgentInactive",
+          "value": "1"
+        },
+        {
+          "name": "ScreenNotAvailable",
+          "value": "2"
+        },
+        {
+          "name": "AgentInterrupted",
+          "value": "3"
+        }
+      ]
+    },
+    "ConversationalAgentSessionUpdateResponse": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "Failed",
+          "value": "1"
+        }
+      ]
+    },
+    "ConversationalAgentState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Inactive",
+          "value": "0"
+        },
+        {
+          "name": "Detecting",
+          "value": "1"
+        },
+        {
+          "name": "Listening",
+          "value": "2"
+        },
+        {
+          "name": "Working",
+          "value": "3"
+        },
+        {
+          "name": "Speaking",
+          "value": "4"
+        },
+        {
+          "name": "ListeningAndSpeaking",
+          "value": "5"
+        }
+      ]
+    },
+    "ConversationalAgentSystemStateChangeType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "UserAuthentication",
+          "value": "0"
+        },
+        {
+          "name": "ScreenAvailability",
+          "value": "1"
+        },
+        {
+          "name": "IndicatorLightAvailability",
+          "value": "2"
+        },
+        {
+          "name": "VoiceActivationAvailability",
+          "value": "3"
+        }
+      ]
+    },
+    "ConversationalAgentVoiceActivationPrerequisiteKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "MicrophonePermission",
+          "value": "0"
+        },
+        {
+          "name": "KnownAgents",
+          "value": "1"
+        },
+        {
+          "name": "AgentAllowed",
+          "value": "2"
+        },
+        {
+          "name": "AppCapability",
+          "value": "3"
+        },
+        {
+          "name": "BackgroundTaskRegistration",
+          "value": "4"
+        },
+        {
+          "name": "PolicyPermission",
+          "value": "5"
+        }
+      ]
+    },
+    "DetectionConfigurationAvailabilityChangeKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "SystemResourceAccess",
+          "value": "0"
+        },
+        {
+          "name": "Permission",
+          "value": "1"
+        },
+        {
+          "name": "LockScreenPermission",
+          "value": "2"
+        }
+      ]
+    },
+    "DetectionConfigurationTrainingStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "FormatNotSupported",
+          "value": "1"
+        },
+        {
+          "name": "VoiceTooQuiet",
+          "value": "2"
+        },
+        {
+          "name": "VoiceTooLoud",
+          "value": "3"
+        },
+        {
+          "name": "VoiceTooFast",
+          "value": "4"
+        },
+        {
+          "name": "VoiceTooSlow",
+          "value": "5"
+        },
+        {
+          "name": "VoiceQualityProblem",
+          "value": "6"
+        },
+        {
+          "name": "TrainingSystemInternalError",
+          "value": "7"
+        },
+        {
+          "name": "TrainingTimedOut",
+          "value": "8"
+        },
+        {
+          "name": "ConfigurationNotFound",
+          "value": "9"
+        }
+      ]
+    },
+    "SignalDetectorResourceKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "ParallelModelSupport",
+          "value": "0"
+        },
+        {
+          "name": "ParallelModelSupportForAgent",
+          "value": "1"
+        },
+        {
+          "name": "ParallelSignalSupport",
+          "value": "2"
+        },
+        {
+          "name": "ParallelSignalSupportForAgent",
+          "value": "3"
+        },
+        {
+          "name": "DisplayOffSupport",
+          "value": "4"
+        },
+        {
+          "name": "PluggedInPower",
+          "value": "5"
+        },
+        {
+          "name": "Detector",
+          "value": "6"
+        },
+        {
+          "name": "SupportedSleepState",
+          "value": "7"
+        },
+        {
+          "name": "SupportedBatterySaverState",
+          "value": "8"
+        },
+        {
+          "name": "ScreenAvailability",
+          "value": "9"
+        },
+        {
+          "name": "InputHardware",
+          "value": "10"
+        },
+        {
+          "name": "AcousticEchoCancellation",
+          "value": "11"
+        },
+        {
+          "name": "ModelIdSupport",
+          "value": "12"
+        },
+        {
+          "name": "DataChannel",
+          "value": "13"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IActivationSignalDetectionConfiguration": {
+      "guid": "40d8be16-5217-581c-9ab2-ce9b2f2e8e00",
+      "exclusive_to": "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration",
+      "methods": [
+        {
+          "name": "get_SignalId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ModelId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IsActive",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "SetEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetEnabledAsync",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_AvailabilityInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DetectionConfigurationAvailabilityInfo",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_AvailabilityChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ActivationSignalDetectionConfiguration",
+                    "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "DetectionConfigurationAvailabilityChangedEventArgs",
+                    "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_AvailabilityChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetModelData",
+          "params": [
+            {
+              "name": "dataType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetModelDataAsync",
+          "params": [
+            {
+              "name": "dataType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetModelDataType",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetModelDataTypeAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetModelData",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IInputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetModelDataAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ClearModelData"
+        },
+        {
+          "name": "ClearModelDataAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_TrainingStepsCompleted",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_TrainingStepsRemaining",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_TrainingDataFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ActivationSignalDetectionTrainingDataFormat",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "ApplyTrainingData",
+          "params": [
+            {
+              "name": "trainingDataFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ActivationSignalDetectionTrainingDataFormat",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "trainingData",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DetectionConfigurationTrainingStatus",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "ApplyTrainingDataAsync",
+          "params": [
+            {
+              "name": "trainingDataFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ActivationSignalDetectionTrainingDataFormat",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "trainingData",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DetectionConfigurationTrainingStatus",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ClearTrainingData"
+        },
+        {
+          "name": "ClearTrainingDataAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AvailabilityInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DetectionConfigurationAvailabilityInfo",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Class"
+          },
+          "getter": "get_AvailabilityInfo"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "IsActive",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsActive"
+        },
+        {
+          "name": "ModelId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ModelId"
+        },
+        {
+          "name": "SignalId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SignalId"
+        },
+        {
+          "name": "TrainingDataFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ActivationSignalDetectionTrainingDataFormat",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Enum"
+          },
+          "getter": "get_TrainingDataFormat"
+        },
+        {
+          "name": "TrainingStepsCompleted",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_TrainingStepsCompleted"
+        },
+        {
+          "name": "TrainingStepsRemaining",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_TrainingStepsRemaining"
+        }
+      ],
+      "events": [
+        {
+          "name": "AvailabilityChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ActivationSignalDetectionConfiguration",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DetectionConfigurationAvailabilityChangedEventArgs",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_AvailabilityChanged",
+          "remove_method": "remove_AvailabilityChanged"
+        }
+      ]
+    },
+    "IActivationSignalDetectionConfiguration2": {
+      "guid": "71d9b022-562c-57ce-a78b-8b4ff0145bab",
+      "exclusive_to": "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration",
+      "methods": [
+        {
+          "name": "SetModelDataWithResult",
+          "params": [
+            {
+              "name": "dataType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ActivationSignalDetectionConfigurationSetModelDataResult",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "SetModelDataWithResultAsync",
+          "params": [
+            {
+              "name": "dataType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ActivationSignalDetectionConfigurationSetModelDataResult",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SetEnabledWithResultAsync",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ActivationSignalDetectionConfigurationStateChangeResult",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SetEnabledWithResult",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ActivationSignalDetectionConfigurationStateChangeResult",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_TrainingStepCompletionMaxAllowedTime",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "TrainingStepCompletionMaxAllowedTime",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_TrainingStepCompletionMaxAllowedTime"
+        }
+      ]
+    },
+    "IActivationSignalDetectionConfigurationCreationResult": {
+      "guid": "4c89bc1b-8d12-5e48-a71c-7f6bc1cd66e0",
+      "exclusive_to": "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ActivationSignalDetectionConfigurationCreationStatus",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Configuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ActivationSignalDetectionConfiguration",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Configuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ActivationSignalDetectionConfiguration",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Class"
+          },
+          "getter": "get_Configuration"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ActivationSignalDetectionConfigurationCreationStatus",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IActivationSignalDetector": {
+      "guid": "b5bf345f-a4d0-5b2b-8e65-b3c55ee756ff",
+      "exclusive_to": "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector",
+      "methods": [
+        {
+          "name": "get_ProviderId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ActivationSignalDetectorKind",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_CanCreateConfigurations",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SupportedModelDataTypes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SupportedTrainingDataFormats",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ActivationSignalDetectionTrainingDataFormat",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SupportedPowerStates",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ActivationSignalDetectorPowerState",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetSupportedModelIdsForSignalId",
+          "params": [
+            {
+              "name": "signalId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetSupportedModelIdsForSignalIdAsync",
+          "params": [
+            {
+              "name": "signalId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateConfiguration",
+          "params": [
+            {
+              "name": "signalId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "modelId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "displayName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CreateConfigurationAsync",
+          "params": [
+            {
+              "name": "signalId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "modelId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "displayName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetConfigurations",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ActivationSignalDetectionConfiguration",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetConfigurationsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ActivationSignalDetectionConfiguration",
+                    "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetConfiguration",
+          "params": [
+            {
+              "name": "signalId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "modelId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ActivationSignalDetectionConfiguration",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetConfigurationAsync",
+          "params": [
+            {
+              "name": "signalId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "modelId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ActivationSignalDetectionConfiguration",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RemoveConfiguration",
+          "params": [
+            {
+              "name": "signalId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "modelId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RemoveConfigurationAsync",
+          "params": [
+            {
+              "name": "signalId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "modelId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CanCreateConfigurations",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanCreateConfigurations"
+        },
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ActivationSignalDetectorKind",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        },
+        {
+          "name": "ProviderId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ProviderId"
+        },
+        {
+          "name": "SupportedModelDataTypes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_SupportedModelDataTypes"
+        },
+        {
+          "name": "SupportedPowerStates",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ActivationSignalDetectorPowerState",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SupportedPowerStates"
+        },
+        {
+          "name": "SupportedTrainingDataFormats",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ActivationSignalDetectionTrainingDataFormat",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SupportedTrainingDataFormats"
+        }
+      ]
+    },
+    "IActivationSignalDetector2": {
+      "guid": "c7e2490a-baa5-59d2-85d1-ba42f7cf78c9",
+      "exclusive_to": "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector",
+      "methods": [
+        {
+          "name": "GetAvailableModelIdsForSignalIdAsync",
+          "params": [
+            {
+              "name": "signalId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVector`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetAvailableModelIdsForSignalId",
+          "params": [
+            {
+              "name": "signalId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateConfigurationWithResultAsync",
+          "params": [
+            {
+              "name": "signalId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "modelId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "displayName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ActivationSignalDetectionConfigurationCreationResult",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateConfigurationWithResult",
+          "params": [
+            {
+              "name": "signalId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "modelId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "displayName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ActivationSignalDetectionConfigurationCreationResult",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "RemoveConfigurationWithResultAsync",
+          "params": [
+            {
+              "name": "signalId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "modelId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ActivationSignalDetectionConfigurationRemovalResult",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RemoveConfigurationWithResult",
+          "params": [
+            {
+              "name": "signalId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "modelId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ActivationSignalDetectionConfigurationRemovalResult",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_DetectorId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DetectorId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DetectorId"
+        }
+      ]
+    },
+    "IConversationalAgentDetectorManager": {
+      "guid": "de94fbb0-597a-5df8-8cfb-9dbb583ba3ff",
+      "exclusive_to": "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentDetectorManager",
+      "methods": [
+        {
+          "name": "GetAllActivationSignalDetectors",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ActivationSignalDetector",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetAllActivationSignalDetectorsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ActivationSignalDetector",
+                    "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetActivationSignalDetectors",
+          "params": [
+            {
+              "name": "kind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ActivationSignalDetectorKind",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ActivationSignalDetector",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetActivationSignalDetectorsAsync",
+          "params": [
+            {
+              "name": "kind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ActivationSignalDetectorKind",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ActivationSignalDetector",
+                    "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IConversationalAgentDetectorManager2": {
+      "guid": "84610f31-d7f3-52fe-9311-c9eb4e3eb30a",
+      "exclusive_to": "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentDetectorManager",
+      "methods": [
+        {
+          "name": "GetActivationSignalDetectorFromId",
+          "params": [
+            {
+              "name": "detectorId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ActivationSignalDetector",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetActivationSignalDetectorFromIdAsync",
+          "params": [
+            {
+              "name": "detectorId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ActivationSignalDetector",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IConversationalAgentDetectorManagerStatics": {
+      "guid": "36a8d283-fa0e-5693-8489-0fb2f0ab40d3",
+      "exclusive_to": "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentDetectorManager",
+      "methods": [
+        {
+          "name": "get_Default",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ConversationalAgentDetectorManager",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Default",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ConversationalAgentDetectorManager",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Class"
+          },
+          "getter": "get_Default"
+        }
+      ]
+    },
+    "IConversationalAgentSession": {
+      "guid": "daaae09a-b7ba-57e5-ad13-df520f9b6fa7",
+      "exclusive_to": "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSession",
+      "methods": [
+        {
+          "name": "add_SessionInterrupted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ConversationalAgentSession",
+                    "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "ConversationalAgentSessionInterruptedEventArgs",
+                    "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SessionInterrupted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_SignalDetected",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ConversationalAgentSession",
+                    "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "ConversationalAgentSignalDetectedEventArgs",
+                    "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SignalDetected",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_SystemStateChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ConversationalAgentSession",
+                    "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "ConversationalAgentSystemStateChangedEventArgs",
+                    "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SystemStateChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AgentState",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ConversationalAgentState",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Signal",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ConversationalAgentSignal",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IsIndicatorLightAvailable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsScreenAvailable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsUserAuthenticated",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsVoiceActivationAvailable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsInterruptible",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsInterrupted",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "RequestInterruptibleAsync",
+          "params": [
+            {
+              "name": "interruptible",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ConversationalAgentSessionUpdateResponse",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestInterruptible",
+          "params": [
+            {
+              "name": "interruptible",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ConversationalAgentSessionUpdateResponse",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "RequestAgentStateChangeAsync",
+          "params": [
+            {
+              "name": "state",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ConversationalAgentState",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ConversationalAgentSessionUpdateResponse",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestAgentStateChange",
+          "params": [
+            {
+              "name": "state",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ConversationalAgentState",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ConversationalAgentSessionUpdateResponse",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "RequestForegroundActivationAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ConversationalAgentSessionUpdateResponse",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestForegroundActivation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ConversationalAgentSessionUpdateResponse",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetAudioClientAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetAudioClient",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "CreateAudioDeviceInputNodeAsync",
+          "params": [
+            {
+              "name": "graph",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AudioGraph",
+                "namespace": "Windows.Media.Audio",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AudioDeviceInputNode",
+                "namespace": "Windows.Media.Audio",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateAudioDeviceInputNode",
+          "params": [
+            {
+              "name": "graph",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AudioGraph",
+                "namespace": "Windows.Media.Audio",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioDeviceInputNode",
+            "namespace": "Windows.Media.Audio",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetAudioCaptureDeviceIdAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetAudioCaptureDeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetAudioRenderDeviceIdAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetAudioRenderDeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetSignalModelIdAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetSignalModelId",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "SetSignalModelIdAsync",
+          "params": [
+            {
+              "name": "signalModelId",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SetSignalModelId",
+          "params": [
+            {
+              "name": "signalModelId",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetSupportedSignalModelIdsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "U4"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetSupportedSignalModelIds",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AgentState",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ConversationalAgentState",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AgentState"
+        },
+        {
+          "name": "IsIndicatorLightAvailable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsIndicatorLightAvailable"
+        },
+        {
+          "name": "IsInterrupted",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsInterrupted"
+        },
+        {
+          "name": "IsInterruptible",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsInterruptible"
+        },
+        {
+          "name": "IsScreenAvailable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsScreenAvailable"
+        },
+        {
+          "name": "IsUserAuthenticated",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsUserAuthenticated"
+        },
+        {
+          "name": "IsVoiceActivationAvailable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsVoiceActivationAvailable"
+        },
+        {
+          "name": "Signal",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ConversationalAgentSignal",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Class"
+          },
+          "getter": "get_Signal"
+        }
+      ],
+      "events": [
+        {
+          "name": "SessionInterrupted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ConversationalAgentSession",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "ConversationalAgentSessionInterruptedEventArgs",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SessionInterrupted",
+          "remove_method": "remove_SessionInterrupted"
+        },
+        {
+          "name": "SignalDetected",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ConversationalAgentSession",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "ConversationalAgentSignalDetectedEventArgs",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SignalDetected",
+          "remove_method": "remove_SignalDetected"
+        },
+        {
+          "name": "SystemStateChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ConversationalAgentSession",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "ConversationalAgentSystemStateChangedEventArgs",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SystemStateChanged",
+          "remove_method": "remove_SystemStateChanged"
+        }
+      ]
+    },
+    "IConversationalAgentSession2": {
+      "guid": "a7a9fbf9-ac78-57ff-9596-acc7a1c9a607",
+      "exclusive_to": "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSession",
+      "methods": [
+        {
+          "name": "RequestActivationAsync",
+          "params": [
+            {
+              "name": "activationKind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ConversationalAgentActivationKind",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ConversationalAgentActivationResult",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestActivation",
+          "params": [
+            {
+              "name": "activationKind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ConversationalAgentActivationKind",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ConversationalAgentActivationResult",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "SetSupportLockScreenActivationAsync",
+          "params": [
+            {
+              "name": "lockScreenActivationSupported",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SetSupportLockScreenActivation",
+          "params": [
+            {
+              "name": "lockScreenActivationSupported",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetMissingPrerequisites",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ConversationalAgentVoiceActivationPrerequisiteKind",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetMissingPrerequisitesAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ConversationalAgentVoiceActivationPrerequisiteKind",
+                    "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                    "target_kind": "Enum"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IConversationalAgentSessionInterruptedEventArgs": {
+      "guid": "9766591f-f63d-5d3e-9bf2-bd0760552686",
+      "exclusive_to": "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionInterruptedEventArgs"
+    },
+    "IConversationalAgentSessionStatics": {
+      "guid": "a005166e-e954-576e-be04-11b8ed10f37b",
+      "exclusive_to": "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSession",
+      "methods": [
+        {
+          "name": "GetCurrentSessionAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ConversationalAgentSession",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetCurrentSessionSync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ConversationalAgentSession",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IConversationalAgentSignal": {
+      "guid": "20ed25f7-b120-51f2-8603-265d6a47f232",
+      "exclusive_to": "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignal",
+      "methods": [
+        {
+          "name": "get_IsSignalVerificationRequired",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsSignalVerificationRequired",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SignalId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_SignalId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SignalName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_SignalName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SignalContext",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "put_SignalContext",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SignalStart",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_SignalStart",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SignalEnd",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_SignalEnd",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsSignalVerificationRequired",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSignalVerificationRequired",
+          "setter": "put_IsSignalVerificationRequired"
+        },
+        {
+          "name": "SignalContext",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_SignalContext",
+          "setter": "put_SignalContext"
+        },
+        {
+          "name": "SignalEnd",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SignalEnd",
+          "setter": "put_SignalEnd"
+        },
+        {
+          "name": "SignalId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SignalId",
+          "setter": "put_SignalId"
+        },
+        {
+          "name": "SignalName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SignalName",
+          "setter": "put_SignalName"
+        },
+        {
+          "name": "SignalStart",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SignalStart",
+          "setter": "put_SignalStart"
+        }
+      ]
+    },
+    "IConversationalAgentSignal2": {
+      "guid": "d0cc7ba9-9a7b-5c34-880e-b6146c904ecb",
+      "exclusive_to": "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignal",
+      "methods": [
+        {
+          "name": "get_DetectorId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DetectorKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ActivationSignalDetectorKind",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DetectorId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DetectorId"
+        },
+        {
+          "name": "DetectorKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ActivationSignalDetectorKind",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DetectorKind"
+        }
+      ]
+    },
+    "IConversationalAgentSignalDetectedEventArgs": {
+      "guid": "4d57eb8f-f88a-599b-91d3-d604876708bc",
+      "exclusive_to": "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignalDetectedEventArgs"
+    },
+    "IConversationalAgentSystemStateChangedEventArgs": {
+      "guid": "1c2c6e3e-2785-59a7-8e71-38adeef79928",
+      "exclusive_to": "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_SystemStateChangeType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ConversationalAgentSystemStateChangeType",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SystemStateChangeType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ConversationalAgentSystemStateChangeType",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SystemStateChangeType"
+        }
+      ]
+    },
+    "IDetectionConfigurationAvailabilityChangedEventArgs": {
+      "guid": "5129c9fb-4be8-5f14-af2b-88d62b1b4462",
+      "exclusive_to": "Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DetectionConfigurationAvailabilityChangeKind",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DetectionConfigurationAvailabilityChangeKind",
+            "namespace": "Windows.ApplicationModel.ConversationalAgent",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        }
+      ]
+    },
+    "IDetectionConfigurationAvailabilityInfo": {
+      "guid": "b5affeb0-40f0-5398-b838-91979c2c6208",
+      "exclusive_to": "Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityInfo",
+      "methods": [
+        {
+          "name": "get_IsEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_HasSystemResourceAccess",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_HasPermission",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_HasLockScreenPermission",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HasLockScreenPermission",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasLockScreenPermission"
+        },
+        {
+          "name": "HasPermission",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasPermission"
+        },
+        {
+          "name": "HasSystemResourceAccess",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasSystemResourceAccess"
+        },
+        {
+          "name": "IsEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsEnabled"
+        }
+      ]
+    },
+    "IDetectionConfigurationAvailabilityInfo2": {
+      "guid": "30e06433-38b3-5c4b-84c3-62b6e685b2ff",
+      "exclusive_to": "Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityInfo",
+      "methods": [
+        {
+          "name": "get_UnavailableSystemResources",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SignalDetectorResourceKind",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "UnavailableSystemResources",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SignalDetectorResourceKind",
+                "namespace": "Windows.ApplicationModel.ConversationalAgent",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_UnavailableSystemResources"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "ActivationSignalDetectionConfiguration": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IActivationSignalDetectionConfiguration",
+        "namespace": "Windows.ApplicationModel.ConversationalAgent",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivationSignalDetectionConfiguration",
+          "namespace": "Windows.ApplicationModel.ConversationalAgent",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivationSignalDetectionConfiguration2",
+          "namespace": "Windows.ApplicationModel.ConversationalAgent",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ActivationSignalDetectionConfigurationCreationResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IActivationSignalDetectionConfigurationCreationResult",
+        "namespace": "Windows.ApplicationModel.ConversationalAgent",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivationSignalDetectionConfigurationCreationResult",
+          "namespace": "Windows.ApplicationModel.ConversationalAgent",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ActivationSignalDetector": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IActivationSignalDetector",
+        "namespace": "Windows.ApplicationModel.ConversationalAgent",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivationSignalDetector",
+          "namespace": "Windows.ApplicationModel.ConversationalAgent",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IActivationSignalDetector2",
+          "namespace": "Windows.ApplicationModel.ConversationalAgent",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ConversationalAgentDetectorManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IConversationalAgentDetectorManager",
+        "namespace": "Windows.ApplicationModel.ConversationalAgent",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IConversationalAgentDetectorManager",
+          "namespace": "Windows.ApplicationModel.ConversationalAgent",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IConversationalAgentDetectorManager2",
+          "namespace": "Windows.ApplicationModel.ConversationalAgent",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.ApplicationModel.ConversationalAgent.IConversationalAgentDetectorManagerStatics"
+      ]
+    },
+    "ConversationalAgentSession": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IConversationalAgentSession",
+        "namespace": "Windows.ApplicationModel.ConversationalAgent",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IConversationalAgentSession",
+          "namespace": "Windows.ApplicationModel.ConversationalAgent",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IConversationalAgentSession2",
+          "namespace": "Windows.ApplicationModel.ConversationalAgent",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.ApplicationModel.ConversationalAgent.IConversationalAgentSessionStatics"
+      ]
+    },
+    "ConversationalAgentSessionInterruptedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IConversationalAgentSessionInterruptedEventArgs",
+        "namespace": "Windows.ApplicationModel.ConversationalAgent",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IConversationalAgentSessionInterruptedEventArgs",
+          "namespace": "Windows.ApplicationModel.ConversationalAgent",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ConversationalAgentSignal": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IConversationalAgentSignal",
+        "namespace": "Windows.ApplicationModel.ConversationalAgent",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IConversationalAgentSignal",
+          "namespace": "Windows.ApplicationModel.ConversationalAgent",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IConversationalAgentSignal2",
+          "namespace": "Windows.ApplicationModel.ConversationalAgent",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ConversationalAgentSignalDetectedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IConversationalAgentSignalDetectedEventArgs",
+        "namespace": "Windows.ApplicationModel.ConversationalAgent",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IConversationalAgentSignalDetectedEventArgs",
+          "namespace": "Windows.ApplicationModel.ConversationalAgent",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ConversationalAgentSystemStateChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IConversationalAgentSystemStateChangedEventArgs",
+        "namespace": "Windows.ApplicationModel.ConversationalAgent",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IConversationalAgentSystemStateChangedEventArgs",
+          "namespace": "Windows.ApplicationModel.ConversationalAgent",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DetectionConfigurationAvailabilityChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDetectionConfigurationAvailabilityChangedEventArgs",
+        "namespace": "Windows.ApplicationModel.ConversationalAgent",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDetectionConfigurationAvailabilityChangedEventArgs",
+          "namespace": "Windows.ApplicationModel.ConversationalAgent",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DetectionConfigurationAvailabilityInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDetectionConfigurationAvailabilityInfo",
+        "namespace": "Windows.ApplicationModel.ConversationalAgent",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDetectionConfigurationAvailabilityInfo",
+          "namespace": "Windows.ApplicationModel.ConversationalAgent",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDetectionConfigurationAvailabilityInfo2",
+          "namespace": "Windows.ApplicationModel.ConversationalAgent",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

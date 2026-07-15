@@ -1,0 +1,1565 @@
+{
+  "namespace": "Windows.Globalization.NumberFormatting",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "CurrencyFormatterMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "UseSymbol",
+          "value": "0"
+        },
+        {
+          "name": "UseCurrencyCode",
+          "value": "1"
+        }
+      ]
+    },
+    "RoundingAlgorithm": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "RoundDown",
+          "value": "1"
+        },
+        {
+          "name": "RoundUp",
+          "value": "2"
+        },
+        {
+          "name": "RoundTowardsZero",
+          "value": "3"
+        },
+        {
+          "name": "RoundAwayFromZero",
+          "value": "4"
+        },
+        {
+          "name": "RoundHalfDown",
+          "value": "5"
+        },
+        {
+          "name": "RoundHalfUp",
+          "value": "6"
+        },
+        {
+          "name": "RoundHalfTowardsZero",
+          "value": "7"
+        },
+        {
+          "name": "RoundHalfAwayFromZero",
+          "value": "8"
+        },
+        {
+          "name": "RoundHalfToEven",
+          "value": "9"
+        },
+        {
+          "name": "RoundHalfToOdd",
+          "value": "10"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ICurrencyFormatter": {
+      "guid": "11730ca5-4b00-41b2-b332-73b12a497d54",
+      "exclusive_to": "Windows.Globalization.NumberFormatting.CurrencyFormatter",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "INumberFormatterOptions",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "INumberFormatter",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "INumberFormatter2",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "INumberParser",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Currency",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Currency",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Currency",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Currency",
+          "setter": "put_Currency"
+        }
+      ]
+    },
+    "ICurrencyFormatter2": {
+      "guid": "072c2f1d-e7ba-4197-920e-247c92f7dea6",
+      "exclusive_to": "Windows.Globalization.NumberFormatting.CurrencyFormatter",
+      "methods": [
+        {
+          "name": "get_Mode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CurrencyFormatterMode",
+            "namespace": "Windows.Globalization.NumberFormatting",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Mode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CurrencyFormatterMode",
+                "namespace": "Windows.Globalization.NumberFormatting",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ApplyRoundingForCurrency",
+          "params": [
+            {
+              "name": "roundingAlgorithm",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RoundingAlgorithm",
+                "namespace": "Windows.Globalization.NumberFormatting",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Mode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CurrencyFormatterMode",
+            "namespace": "Windows.Globalization.NumberFormatting",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Mode",
+          "setter": "put_Mode"
+        }
+      ]
+    },
+    "ICurrencyFormatterFactory": {
+      "guid": "86c7537e-b938-4aa2-84b0-2c33dc5b1450",
+      "exclusive_to": "Windows.Globalization.NumberFormatting.CurrencyFormatter",
+      "methods": [
+        {
+          "name": "CreateCurrencyFormatterCode",
+          "params": [
+            {
+              "name": "currencyCode",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CurrencyFormatter",
+            "namespace": "Windows.Globalization.NumberFormatting",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateCurrencyFormatterCodeContext",
+          "params": [
+            {
+              "name": "currencyCode",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "languages",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "geographicRegion",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CurrencyFormatter",
+            "namespace": "Windows.Globalization.NumberFormatting",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDecimalFormatterFactory": {
+      "guid": "0d018c9a-e393-46b8-b830-7a69c8f89fbb",
+      "exclusive_to": "Windows.Globalization.NumberFormatting.DecimalFormatter",
+      "methods": [
+        {
+          "name": "CreateDecimalFormatter",
+          "params": [
+            {
+              "name": "languages",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "geographicRegion",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DecimalFormatter",
+            "namespace": "Windows.Globalization.NumberFormatting",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IIncrementNumberRounder": {
+      "guid": "70a64ff8-66ab-4155-9da1-739e46764543",
+      "exclusive_to": "Windows.Globalization.NumberFormatting.IncrementNumberRounder",
+      "methods": [
+        {
+          "name": "get_RoundingAlgorithm",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RoundingAlgorithm",
+            "namespace": "Windows.Globalization.NumberFormatting",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_RoundingAlgorithm",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RoundingAlgorithm",
+                "namespace": "Windows.Globalization.NumberFormatting",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Increment",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_Increment",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Increment",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Increment",
+          "setter": "put_Increment"
+        },
+        {
+          "name": "RoundingAlgorithm",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RoundingAlgorithm",
+            "namespace": "Windows.Globalization.NumberFormatting",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RoundingAlgorithm",
+          "setter": "put_RoundingAlgorithm"
+        }
+      ]
+    },
+    "INumberFormatter": {
+      "guid": "a5007c49-7676-4db7-8631-1b6ff265caa9",
+      "methods": [
+        {
+          "name": "Format",
+          "overload": "FormatInt",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I8"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "Format",
+          "overload": "FormatUInt",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "Format",
+          "overload": "FormatDouble",
+          "is_default_overload": true,
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "INumberFormatter2": {
+      "guid": "d4a8c1f0-80d0-4b0d-a89e-882c1e8f8310",
+      "methods": [
+        {
+          "name": "FormatInt",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I8"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FormatUInt",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FormatDouble",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "INumberFormatterOptions": {
+      "guid": "80332d21-aee1-4a39-baa2-07ed8c96daf6",
+      "methods": [
+        {
+          "name": "get_Languages",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_GeographicRegion",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IntegerDigits",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_IntegerDigits",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FractionDigits",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_FractionDigits",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsGrouped",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsGrouped",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsDecimalPointAlwaysDisplayed",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsDecimalPointAlwaysDisplayed",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_NumeralSystem",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_NumeralSystem",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ResolvedLanguage",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ResolvedGeographicRegion",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FractionDigits",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_FractionDigits",
+          "setter": "put_FractionDigits"
+        },
+        {
+          "name": "GeographicRegion",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_GeographicRegion"
+        },
+        {
+          "name": "IntegerDigits",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_IntegerDigits",
+          "setter": "put_IntegerDigits"
+        },
+        {
+          "name": "IsDecimalPointAlwaysDisplayed",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsDecimalPointAlwaysDisplayed",
+          "setter": "put_IsDecimalPointAlwaysDisplayed"
+        },
+        {
+          "name": "IsGrouped",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsGrouped",
+          "setter": "put_IsGrouped"
+        },
+        {
+          "name": "Languages",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Languages"
+        },
+        {
+          "name": "NumeralSystem",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NumeralSystem",
+          "setter": "put_NumeralSystem"
+        },
+        {
+          "name": "ResolvedGeographicRegion",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ResolvedGeographicRegion"
+        },
+        {
+          "name": "ResolvedLanguage",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ResolvedLanguage"
+        }
+      ]
+    },
+    "INumberParser": {
+      "guid": "e6659412-4a13-4a53-83a1-392fbe4cff9f",
+      "methods": [
+        {
+          "name": "ParseInt",
+          "params": [
+            {
+              "name": "text",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ParseUInt",
+          "params": [
+            {
+              "name": "text",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ParseDouble",
+          "params": [
+            {
+              "name": "text",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "INumberRounder": {
+      "guid": "5473c375-38ed-4631-b80c-ef34fc48b7f5",
+      "methods": [
+        {
+          "name": "RoundInt32",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "RoundUInt32",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "RoundInt64",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I8"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        },
+        {
+          "name": "RoundUInt64",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "RoundSingle",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "RoundDouble",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        }
+      ]
+    },
+    "INumberRounderOption": {
+      "guid": "3b088433-646f-4efe-8d48-66eb2e49e736",
+      "methods": [
+        {
+          "name": "get_NumberRounder",
+          "return": {
+            "kind": "ApiRef",
+            "name": "INumberRounder",
+            "namespace": "Windows.Globalization.NumberFormatting",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_NumberRounder",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "INumberRounder",
+                "namespace": "Windows.Globalization.NumberFormatting",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "NumberRounder",
+          "type": {
+            "kind": "ApiRef",
+            "name": "INumberRounder",
+            "namespace": "Windows.Globalization.NumberFormatting",
+            "target_kind": "Interface"
+          },
+          "getter": "get_NumberRounder",
+          "setter": "put_NumberRounder"
+        }
+      ]
+    },
+    "INumeralSystemTranslator": {
+      "guid": "28f5bc2c-8c23-4234-ad2e-fa5a3a426e9b",
+      "exclusive_to": "Windows.Globalization.NumberFormatting.NumeralSystemTranslator",
+      "methods": [
+        {
+          "name": "get_Languages",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ResolvedLanguage",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NumeralSystem",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_NumeralSystem",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TranslateNumerals",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Languages",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Languages"
+        },
+        {
+          "name": "NumeralSystem",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NumeralSystem",
+          "setter": "put_NumeralSystem"
+        },
+        {
+          "name": "ResolvedLanguage",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ResolvedLanguage"
+        }
+      ]
+    },
+    "INumeralSystemTranslatorFactory": {
+      "guid": "9630c8da-36ef-4d88-a85c-6f0d98d620a6",
+      "exclusive_to": "Windows.Globalization.NumberFormatting.NumeralSystemTranslator",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "languages",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "NumeralSystemTranslator",
+            "namespace": "Windows.Globalization.NumberFormatting",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPercentFormatterFactory": {
+      "guid": "b7828aef-fed4-4018-a6e2-e09961e03765",
+      "exclusive_to": "Windows.Globalization.NumberFormatting.PercentFormatter",
+      "methods": [
+        {
+          "name": "CreatePercentFormatter",
+          "params": [
+            {
+              "name": "languages",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "geographicRegion",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PercentFormatter",
+            "namespace": "Windows.Globalization.NumberFormatting",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPermilleFormatterFactory": {
+      "guid": "2b37b4ac-e638-4ed5-a998-62f6b06a49ae",
+      "exclusive_to": "Windows.Globalization.NumberFormatting.PermilleFormatter",
+      "methods": [
+        {
+          "name": "CreatePermilleFormatter",
+          "params": [
+            {
+              "name": "languages",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "geographicRegion",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PermilleFormatter",
+            "namespace": "Windows.Globalization.NumberFormatting",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISignedZeroOption": {
+      "guid": "fd1cdd31-0a3c-49c4-a642-96a1564f4f30",
+      "methods": [
+        {
+          "name": "get_IsZeroSigned",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsZeroSigned",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsZeroSigned",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsZeroSigned",
+          "setter": "put_IsZeroSigned"
+        }
+      ]
+    },
+    "ISignificantDigitsNumberRounder": {
+      "guid": "f5941bca-6646-4913-8c76-1b191ff94dfd",
+      "exclusive_to": "Windows.Globalization.NumberFormatting.SignificantDigitsNumberRounder",
+      "methods": [
+        {
+          "name": "get_RoundingAlgorithm",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RoundingAlgorithm",
+            "namespace": "Windows.Globalization.NumberFormatting",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_RoundingAlgorithm",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RoundingAlgorithm",
+                "namespace": "Windows.Globalization.NumberFormatting",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SignificantDigits",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_SignificantDigits",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "RoundingAlgorithm",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RoundingAlgorithm",
+            "namespace": "Windows.Globalization.NumberFormatting",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RoundingAlgorithm",
+          "setter": "put_RoundingAlgorithm"
+        },
+        {
+          "name": "SignificantDigits",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SignificantDigits",
+          "setter": "put_SignificantDigits"
+        }
+      ]
+    },
+    "ISignificantDigitsOption": {
+      "guid": "1d4dfcdd-2d43-4ee8-bbf1-c1b26a711a58",
+      "methods": [
+        {
+          "name": "get_SignificantDigits",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_SignificantDigits",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "SignificantDigits",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_SignificantDigits",
+          "setter": "put_SignificantDigits"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "CurrencyFormatter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICurrencyFormatter",
+        "namespace": "Windows.Globalization.NumberFormatting",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICurrencyFormatter",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "INumberParser",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "INumberFormatter2",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "INumberFormatter",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "INumberFormatterOptions",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICurrencyFormatter2",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISignificantDigitsOption",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "INumberRounderOption",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISignedZeroOption",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Globalization.NumberFormatting.ICurrencyFormatterFactory"
+      ]
+    },
+    "DecimalFormatter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INumberFormatter",
+        "namespace": "Windows.Globalization.NumberFormatting",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INumberFormatterOptions",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "INumberFormatter",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "INumberFormatter2",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "INumberParser",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISignificantDigitsOption",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "INumberRounderOption",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISignedZeroOption",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Globalization.NumberFormatting.IDecimalFormatterFactory"
+      ]
+    },
+    "IncrementNumberRounder": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INumberRounder",
+        "namespace": "Windows.Globalization.NumberFormatting",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INumberRounder",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IIncrementNumberRounder",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "NumeralSystemTranslator": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INumeralSystemTranslator",
+        "namespace": "Windows.Globalization.NumberFormatting",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INumeralSystemTranslator",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Globalization.NumberFormatting.INumeralSystemTranslatorFactory"
+      ]
+    },
+    "PercentFormatter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INumberFormatter",
+        "namespace": "Windows.Globalization.NumberFormatting",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INumberFormatterOptions",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "INumberFormatter",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "INumberFormatter2",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "INumberParser",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISignificantDigitsOption",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "INumberRounderOption",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISignedZeroOption",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Globalization.NumberFormatting.IPercentFormatterFactory"
+      ]
+    },
+    "PermilleFormatter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INumberFormatter",
+        "namespace": "Windows.Globalization.NumberFormatting",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INumberFormatterOptions",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "INumberFormatter",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "INumberFormatter2",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "INumberParser",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISignificantDigitsOption",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "INumberRounderOption",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISignedZeroOption",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Globalization.NumberFormatting.IPermilleFormatterFactory"
+      ]
+    },
+    "SignificantDigitsNumberRounder": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INumberRounder",
+        "namespace": "Windows.Globalization.NumberFormatting",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INumberRounder",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISignificantDigitsNumberRounder",
+          "namespace": "Windows.Globalization.NumberFormatting",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  }
+}

@@ -1,0 +1,879 @@
+{
+  "namespace": "Windows.Networking.PushNotifications",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "PushNotificationType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Toast",
+          "value": "0"
+        },
+        {
+          "name": "Tile",
+          "value": "1"
+        },
+        {
+          "name": "Badge",
+          "value": "2"
+        },
+        {
+          "name": "Raw",
+          "value": "3"
+        },
+        {
+          "name": "TileFlyout",
+          "value": "4"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IPushNotificationChannel": {
+      "guid": "2b28102e-ef0b-4f39-9b8a-a3c194de7081",
+      "exclusive_to": "Windows.Networking.PushNotifications.PushNotificationChannel",
+      "methods": [
+        {
+          "name": "get_Uri",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ExpirationTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "Close"
+        },
+        {
+          "name": "add_PushNotificationReceived",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PushNotificationChannel",
+                    "namespace": "Windows.Networking.PushNotifications",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PushNotificationReceivedEventArgs",
+                    "namespace": "Windows.Networking.PushNotifications",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PushNotificationReceived",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExpirationTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExpirationTime"
+        },
+        {
+          "name": "Uri",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Uri"
+        }
+      ],
+      "events": [
+        {
+          "name": "PushNotificationReceived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PushNotificationChannel",
+                "namespace": "Windows.Networking.PushNotifications",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PushNotificationReceivedEventArgs",
+                "namespace": "Windows.Networking.PushNotifications",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PushNotificationReceived",
+          "remove_method": "remove_PushNotificationReceived"
+        }
+      ]
+    },
+    "IPushNotificationChannelManagerForUser": {
+      "guid": "a4c45704-1182-42c7-8890-f563c4890dc4",
+      "exclusive_to": "Windows.Networking.PushNotifications.PushNotificationChannelManagerForUser",
+      "methods": [
+        {
+          "name": "CreatePushNotificationChannelForApplicationAsync",
+          "overload": "CreatePushNotificationChannelForApplicationAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PushNotificationChannel",
+                "namespace": "Windows.Networking.PushNotifications",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreatePushNotificationChannelForApplicationAsync",
+          "overload": "CreatePushNotificationChannelForApplicationAsyncWithId",
+          "params": [
+            {
+              "name": "applicationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PushNotificationChannel",
+                "namespace": "Windows.Networking.PushNotifications",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreatePushNotificationChannelForSecondaryTileAsync",
+          "params": [
+            {
+              "name": "tileId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PushNotificationChannel",
+                "namespace": "Windows.Networking.PushNotifications",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ]
+    },
+    "IPushNotificationChannelManagerForUser2": {
+      "guid": "c38b066a-7cc1-4dac-87fd-be6e920414a4",
+      "exclusive_to": "Windows.Networking.PushNotifications.PushNotificationChannelManagerForUser",
+      "methods": [
+        {
+          "name": "CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync",
+          "overload": "CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync",
+          "params": [
+            {
+              "name": "appServerKey",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "channelId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PushNotificationChannel",
+                "namespace": "Windows.Networking.PushNotifications",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync",
+          "overload": "CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsyncWithId",
+          "params": [
+            {
+              "name": "appServerKey",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "channelId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "appId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PushNotificationChannel",
+                "namespace": "Windows.Networking.PushNotifications",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPushNotificationChannelManagerStatics": {
+      "guid": "8baf9b65-77a1-4588-bd19-861529a9dcf0",
+      "exclusive_to": "Windows.Networking.PushNotifications.PushNotificationChannelManager",
+      "methods": [
+        {
+          "name": "CreatePushNotificationChannelForApplicationAsync",
+          "overload": "CreatePushNotificationChannelForApplicationAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PushNotificationChannel",
+                "namespace": "Windows.Networking.PushNotifications",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreatePushNotificationChannelForApplicationAsync",
+          "overload": "CreatePushNotificationChannelForApplicationAsyncWithId",
+          "params": [
+            {
+              "name": "applicationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PushNotificationChannel",
+                "namespace": "Windows.Networking.PushNotifications",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreatePushNotificationChannelForSecondaryTileAsync",
+          "params": [
+            {
+              "name": "tileId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PushNotificationChannel",
+                "namespace": "Windows.Networking.PushNotifications",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPushNotificationChannelManagerStatics2": {
+      "guid": "b444a65d-a7e9-4b28-950e-f375a907f9df",
+      "exclusive_to": "Windows.Networking.PushNotifications.PushNotificationChannelManager",
+      "methods": [
+        {
+          "name": "GetForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PushNotificationChannelManagerForUser",
+            "namespace": "Windows.Networking.PushNotifications",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPushNotificationChannelManagerStatics3": {
+      "guid": "4701fefe-0ede-4a3f-ae78-bfa471496925",
+      "exclusive_to": "Windows.Networking.PushNotifications.PushNotificationChannelManager",
+      "methods": [
+        {
+          "name": "GetDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PushNotificationChannelManagerForUser",
+            "namespace": "Windows.Networking.PushNotifications",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPushNotificationChannelManagerStatics4": {
+      "guid": "bc540efb-7820-5a5b-9c01-b4757f774025",
+      "exclusive_to": "Windows.Networking.PushNotifications.PushNotificationChannelManager",
+      "methods": [
+        {
+          "name": "add_ChannelsRevoked",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PushNotificationChannelsRevokedEventArgs",
+                    "namespace": "Windows.Networking.PushNotifications",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ChannelsRevoked",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "ChannelsRevoked",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PushNotificationChannelsRevokedEventArgs",
+                "namespace": "Windows.Networking.PushNotifications",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ChannelsRevoked",
+          "remove_method": "remove_ChannelsRevoked"
+        }
+      ]
+    },
+    "IPushNotificationChannelsRevokedEventArgs": {
+      "guid": "20e1a24c-1a34-5beb-aae2-40c232c8c140",
+      "exclusive_to": "Windows.Networking.PushNotifications.PushNotificationChannelsRevokedEventArgs"
+    },
+    "IPushNotificationReceivedEventArgs": {
+      "guid": "d1065e0c-36cd-484c-b935-0a99b753cf00",
+      "exclusive_to": "Windows.Networking.PushNotifications.PushNotificationReceivedEventArgs",
+      "methods": [
+        {
+          "name": "put_Cancel",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Cancel",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_NotificationType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PushNotificationType",
+            "namespace": "Windows.Networking.PushNotifications",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ToastNotification",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ToastNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_TileNotification",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TileNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_BadgeNotification",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BadgeNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_RawNotification",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RawNotification",
+            "namespace": "Windows.Networking.PushNotifications",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BadgeNotification",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BadgeNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          },
+          "getter": "get_BadgeNotification"
+        },
+        {
+          "name": "Cancel",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Cancel",
+          "setter": "put_Cancel"
+        },
+        {
+          "name": "NotificationType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PushNotificationType",
+            "namespace": "Windows.Networking.PushNotifications",
+            "target_kind": "Enum"
+          },
+          "getter": "get_NotificationType"
+        },
+        {
+          "name": "RawNotification",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RawNotification",
+            "namespace": "Windows.Networking.PushNotifications",
+            "target_kind": "Class"
+          },
+          "getter": "get_RawNotification"
+        },
+        {
+          "name": "TileNotification",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TileNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          },
+          "getter": "get_TileNotification"
+        },
+        {
+          "name": "ToastNotification",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ToastNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          },
+          "getter": "get_ToastNotification"
+        }
+      ]
+    },
+    "IRawNotification": {
+      "guid": "1a227281-3b79-42ac-9963-22ab00d4f0b7",
+      "exclusive_to": "Windows.Networking.PushNotifications.RawNotification",
+      "methods": [
+        {
+          "name": "get_Content",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Content",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Content"
+        }
+      ]
+    },
+    "IRawNotification2": {
+      "guid": "e6d0cf19-0c6f-4cdd-9424-eec5be014d26",
+      "exclusive_to": "Windows.Networking.PushNotifications.RawNotification",
+      "methods": [
+        {
+          "name": "get_Headers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ChannelId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ChannelId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ChannelId"
+        },
+        {
+          "name": "Headers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Headers"
+        }
+      ]
+    },
+    "IRawNotification3": {
+      "guid": "62737dde-8a73-424c-ab44-5635f40a96e5",
+      "exclusive_to": "Windows.Networking.PushNotifications.RawNotification",
+      "methods": [
+        {
+          "name": "get_ContentBytes",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContentBytes",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_ContentBytes"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "PushNotificationChannel": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPushNotificationChannel",
+        "namespace": "Windows.Networking.PushNotifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPushNotificationChannel",
+          "namespace": "Windows.Networking.PushNotifications",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PushNotificationChannelManager": {
+      "static_interfaces": [
+        "Windows.Networking.PushNotifications.IPushNotificationChannelManagerStatics4",
+        "Windows.Networking.PushNotifications.IPushNotificationChannelManagerStatics2",
+        "Windows.Networking.PushNotifications.IPushNotificationChannelManagerStatics",
+        "Windows.Networking.PushNotifications.IPushNotificationChannelManagerStatics3"
+      ]
+    },
+    "PushNotificationChannelManagerForUser": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPushNotificationChannelManagerForUser",
+        "namespace": "Windows.Networking.PushNotifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPushNotificationChannelManagerForUser",
+          "namespace": "Windows.Networking.PushNotifications",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPushNotificationChannelManagerForUser2",
+          "namespace": "Windows.Networking.PushNotifications",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PushNotificationChannelsRevokedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPushNotificationChannelsRevokedEventArgs",
+        "namespace": "Windows.Networking.PushNotifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPushNotificationChannelsRevokedEventArgs",
+          "namespace": "Windows.Networking.PushNotifications",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PushNotificationReceivedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPushNotificationReceivedEventArgs",
+        "namespace": "Windows.Networking.PushNotifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPushNotificationReceivedEventArgs",
+          "namespace": "Windows.Networking.PushNotifications",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RawNotification": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRawNotification",
+        "namespace": "Windows.Networking.PushNotifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRawNotification",
+          "namespace": "Windows.Networking.PushNotifications",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRawNotification2",
+          "namespace": "Windows.Networking.PushNotifications",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRawNotification3",
+          "namespace": "Windows.Networking.PushNotifications",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

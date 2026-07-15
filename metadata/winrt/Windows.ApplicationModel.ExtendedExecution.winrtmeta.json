@@ -1,0 +1,314 @@
+{
+  "namespace": "Windows.ApplicationModel.ExtendedExecution",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "ExtendedExecutionReason": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unspecified",
+          "value": "0"
+        },
+        {
+          "name": "LocationTracking",
+          "value": "1"
+        },
+        {
+          "name": "SavingData",
+          "value": "2"
+        }
+      ]
+    },
+    "ExtendedExecutionResult": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Allowed",
+          "value": "0"
+        },
+        {
+          "name": "Denied",
+          "value": "1"
+        }
+      ]
+    },
+    "ExtendedExecutionRevokedReason": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Resumed",
+          "value": "0"
+        },
+        {
+          "name": "SystemPolicy",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IExtendedExecutionRevokedEventArgs": {
+      "guid": "bfbc9f16-63b5-4c0b-aad6-828af5373ec3",
+      "exclusive_to": "Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedEventArgs",
+      "methods": [
+        {
+          "name": "get_Reason",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ExtendedExecutionRevokedReason",
+            "namespace": "Windows.ApplicationModel.ExtendedExecution",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Reason",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ExtendedExecutionRevokedReason",
+            "namespace": "Windows.ApplicationModel.ExtendedExecution",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Reason"
+        }
+      ]
+    },
+    "IExtendedExecutionSession": {
+      "guid": "af908a2d-118b-48f1-9308-0c4fc41e200f",
+      "exclusive_to": "Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionSession",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Reason",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ExtendedExecutionReason",
+            "namespace": "Windows.ApplicationModel.ExtendedExecution",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Reason",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ExtendedExecutionReason",
+                "namespace": "Windows.ApplicationModel.ExtendedExecution",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Description",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Description",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PercentProgress",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_PercentProgress",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Revoked",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "ExtendedExecutionRevokedEventArgs",
+                    "namespace": "Windows.ApplicationModel.ExtendedExecution",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Revoked",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RequestExtensionAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ExtendedExecutionResult",
+                "namespace": "Windows.ApplicationModel.ExtendedExecution",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Description",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Description",
+          "setter": "put_Description"
+        },
+        {
+          "name": "PercentProgress",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_PercentProgress",
+          "setter": "put_PercentProgress"
+        },
+        {
+          "name": "Reason",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ExtendedExecutionReason",
+            "namespace": "Windows.ApplicationModel.ExtendedExecution",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Reason",
+          "setter": "put_Reason"
+        }
+      ],
+      "events": [
+        {
+          "name": "Revoked",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "ExtendedExecutionRevokedEventArgs",
+                "namespace": "Windows.ApplicationModel.ExtendedExecution",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Revoked",
+          "remove_method": "remove_Revoked"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "ExtendedExecutionRevokedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IExtendedExecutionRevokedEventArgs",
+        "namespace": "Windows.ApplicationModel.ExtendedExecution",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IExtendedExecutionRevokedEventArgs",
+          "namespace": "Windows.ApplicationModel.ExtendedExecution",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ExtendedExecutionSession": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IExtendedExecutionSession",
+        "namespace": "Windows.ApplicationModel.ExtendedExecution",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IExtendedExecutionSession",
+          "namespace": "Windows.ApplicationModel.ExtendedExecution",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "namespace": "Windows.System.Diagnostics.Telemetry",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "PlatformTelemetryRegistrationStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "SettingsOutOfRange",
+          "value": "1"
+        },
+        {
+          "name": "UnknownFailure",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IPlatformTelemetryClientStatics": {
+      "guid": "9bf3f25d-d5c3-4eea-8dbe-9c8dbb0d9d8f",
+      "exclusive_to": "Windows.System.Diagnostics.Telemetry.PlatformTelemetryClient",
+      "methods": [
+        {
+          "name": "Register",
+          "overload": "Register",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlatformTelemetryRegistrationResult",
+            "namespace": "Windows.System.Diagnostics.Telemetry",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "Register",
+          "overload": "RegisterWithSettings",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "settings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PlatformTelemetryRegistrationSettings",
+                "namespace": "Windows.System.Diagnostics.Telemetry",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlatformTelemetryRegistrationResult",
+            "namespace": "Windows.System.Diagnostics.Telemetry",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPlatformTelemetryRegistrationResult": {
+      "guid": "4d8518ab-2292-49bd-a15a-3d71d2145112",
+      "exclusive_to": "Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlatformTelemetryRegistrationStatus",
+            "namespace": "Windows.System.Diagnostics.Telemetry",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PlatformTelemetryRegistrationStatus",
+            "namespace": "Windows.System.Diagnostics.Telemetry",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IPlatformTelemetryRegistrationSettings": {
+      "guid": "819a8582-ca19-415e-bb79-9c224bfa3a73",
+      "exclusive_to": "Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationSettings",
+      "methods": [
+        {
+          "name": "get_StorageSize",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_StorageSize",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_UploadQuotaSize",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_UploadQuotaSize",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "StorageSize",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_StorageSize",
+          "setter": "put_StorageSize"
+        },
+        {
+          "name": "UploadQuotaSize",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_UploadQuotaSize",
+          "setter": "put_UploadQuotaSize"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "PlatformTelemetryClient": {
+      "static_interfaces": [
+        "Windows.System.Diagnostics.Telemetry.IPlatformTelemetryClientStatics"
+      ]
+    },
+    "PlatformTelemetryRegistrationResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlatformTelemetryRegistrationResult",
+        "namespace": "Windows.System.Diagnostics.Telemetry",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlatformTelemetryRegistrationResult",
+          "namespace": "Windows.System.Diagnostics.Telemetry",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PlatformTelemetryRegistrationSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlatformTelemetryRegistrationSettings",
+        "namespace": "Windows.System.Diagnostics.Telemetry",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlatformTelemetryRegistrationSettings",
+          "namespace": "Windows.System.Diagnostics.Telemetry",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  }
+}

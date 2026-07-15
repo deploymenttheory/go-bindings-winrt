@@ -1,0 +1,2547 @@
+{
+  "namespace": "Windows.ApplicationModel.UserDataTasks",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "UserDataTaskDaysOfWeek": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Sunday",
+          "value": "1"
+        },
+        {
+          "name": "Monday",
+          "value": "2"
+        },
+        {
+          "name": "Tuesday",
+          "value": "4"
+        },
+        {
+          "name": "Wednesday",
+          "value": "8"
+        },
+        {
+          "name": "Thursday",
+          "value": "16"
+        },
+        {
+          "name": "Friday",
+          "value": "32"
+        },
+        {
+          "name": "Saturday",
+          "value": "64"
+        }
+      ]
+    },
+    "UserDataTaskDetailsKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "PlainText",
+          "value": "0"
+        },
+        {
+          "name": "Html",
+          "value": "1"
+        }
+      ]
+    },
+    "UserDataTaskKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Single",
+          "value": "0"
+        },
+        {
+          "name": "Recurring",
+          "value": "1"
+        },
+        {
+          "name": "Regenerating",
+          "value": "2"
+        }
+      ]
+    },
+    "UserDataTaskListOtherAppReadAccess": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Full",
+          "value": "0"
+        },
+        {
+          "name": "SystemOnly",
+          "value": "1"
+        },
+        {
+          "name": "None",
+          "value": "2"
+        }
+      ]
+    },
+    "UserDataTaskListOtherAppWriteAccess": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Limited",
+          "value": "0"
+        },
+        {
+          "name": "None",
+          "value": "1"
+        }
+      ]
+    },
+    "UserDataTaskListSyncStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Idle",
+          "value": "0"
+        },
+        {
+          "name": "Syncing",
+          "value": "1"
+        },
+        {
+          "name": "UpToDate",
+          "value": "2"
+        },
+        {
+          "name": "AuthenticationError",
+          "value": "3"
+        },
+        {
+          "name": "PolicyError",
+          "value": "4"
+        },
+        {
+          "name": "UnknownError",
+          "value": "5"
+        }
+      ]
+    },
+    "UserDataTaskPriority": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Normal",
+          "value": "0"
+        },
+        {
+          "name": "Low",
+          "value": "-1"
+        },
+        {
+          "name": "High",
+          "value": "1"
+        }
+      ]
+    },
+    "UserDataTaskQueryKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "All",
+          "value": "0"
+        },
+        {
+          "name": "Incomplete",
+          "value": "1"
+        },
+        {
+          "name": "Complete",
+          "value": "2"
+        }
+      ]
+    },
+    "UserDataTaskQuerySortProperty": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "DueDate",
+          "value": "0"
+        }
+      ]
+    },
+    "UserDataTaskRecurrenceUnit": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Daily",
+          "value": "0"
+        },
+        {
+          "name": "Weekly",
+          "value": "1"
+        },
+        {
+          "name": "Monthly",
+          "value": "2"
+        },
+        {
+          "name": "MonthlyOnDay",
+          "value": "3"
+        },
+        {
+          "name": "Yearly",
+          "value": "4"
+        },
+        {
+          "name": "YearlyOnDay",
+          "value": "5"
+        }
+      ]
+    },
+    "UserDataTaskRegenerationUnit": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Daily",
+          "value": "0"
+        },
+        {
+          "name": "Weekly",
+          "value": "1"
+        },
+        {
+          "name": "Monthly",
+          "value": "2"
+        },
+        {
+          "name": "Yearly",
+          "value": "4"
+        }
+      ]
+    },
+    "UserDataTaskSensitivity": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Public",
+          "value": "0"
+        },
+        {
+          "name": "Private",
+          "value": "1"
+        }
+      ]
+    },
+    "UserDataTaskStoreAccessType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "AppTasksReadWrite",
+          "value": "0"
+        },
+        {
+          "name": "AllTasksLimitedReadWrite",
+          "value": "1"
+        }
+      ]
+    },
+    "UserDataTaskWeekOfMonth": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "First",
+          "value": "0"
+        },
+        {
+          "name": "Second",
+          "value": "1"
+        },
+        {
+          "name": "Third",
+          "value": "2"
+        },
+        {
+          "name": "Fourth",
+          "value": "3"
+        },
+        {
+          "name": "Last",
+          "value": "4"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IUserDataTask": {
+      "guid": "7c6585d1-e0d4-4f99-aee2-bc2d5ddadf4c",
+      "exclusive_to": "Windows.ApplicationModel.UserDataTasks.UserDataTask",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ListId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RemoteId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_RemoteId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CompletedDate",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_CompletedDate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Details",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Details",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DetailsKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskDetailsKind",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_DetailsKind",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserDataTaskDetailsKind",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DueDate",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_DueDate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskKind",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Priority",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskPriority",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Priority",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserDataTaskPriority",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RecurrenceProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskRecurrenceProperties",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_RecurrenceProperties",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserDataTaskRecurrenceProperties",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RegenerationProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskRegenerationProperties",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_RegenerationProperties",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserDataTaskRegenerationProperties",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Reminder",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Reminder",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Sensitivity",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskSensitivity",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Sensitivity",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserDataTaskSensitivity",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Subject",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Subject",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_StartDate",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_StartDate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CompletedDate",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_CompletedDate",
+          "setter": "put_CompletedDate"
+        },
+        {
+          "name": "Details",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Details",
+          "setter": "put_Details"
+        },
+        {
+          "name": "DetailsKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskDetailsKind",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DetailsKind",
+          "setter": "put_DetailsKind"
+        },
+        {
+          "name": "DueDate",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_DueDate",
+          "setter": "put_DueDate"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskKind",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        },
+        {
+          "name": "ListId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ListId"
+        },
+        {
+          "name": "Priority",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskPriority",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Priority",
+          "setter": "put_Priority"
+        },
+        {
+          "name": "RecurrenceProperties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskRecurrenceProperties",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Class"
+          },
+          "getter": "get_RecurrenceProperties",
+          "setter": "put_RecurrenceProperties"
+        },
+        {
+          "name": "RegenerationProperties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskRegenerationProperties",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Class"
+          },
+          "getter": "get_RegenerationProperties",
+          "setter": "put_RegenerationProperties"
+        },
+        {
+          "name": "Reminder",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_Reminder",
+          "setter": "put_Reminder"
+        },
+        {
+          "name": "RemoteId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RemoteId",
+          "setter": "put_RemoteId"
+        },
+        {
+          "name": "Sensitivity",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskSensitivity",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Sensitivity",
+          "setter": "put_Sensitivity"
+        },
+        {
+          "name": "StartDate",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_StartDate",
+          "setter": "put_StartDate"
+        },
+        {
+          "name": "Subject",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Subject",
+          "setter": "put_Subject"
+        }
+      ]
+    },
+    "IUserDataTaskBatch": {
+      "guid": "382da5fe-20b5-431c-8f42-a5d292ec930c",
+      "exclusive_to": "Windows.ApplicationModel.UserDataTasks.UserDataTaskBatch",
+      "methods": [
+        {
+          "name": "get_Tasks",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataTask",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Tasks",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataTask",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Tasks"
+        }
+      ]
+    },
+    "IUserDataTaskList": {
+      "guid": "49412e39-7c1d-4df1-bed3-314b7cbf5e4e",
+      "exclusive_to": "Windows.ApplicationModel.UserDataTasks.UserDataTaskList",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_UserDataAccountId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DisplayName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SourceDisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_OtherAppReadAccess",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskListOtherAppReadAccess",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_OtherAppReadAccess",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserDataTaskListOtherAppReadAccess",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OtherAppWriteAccess",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskListOtherAppWriteAccess",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_OtherAppWriteAccess",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserDataTaskListOtherAppWriteAccess",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LimitedWriteOperations",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskListLimitedWriteOperations",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_SyncManager",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskListSyncManager",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "RegisterSyncManagerAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetTaskReader",
+          "overload": "GetTaskReader",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskReader",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetTaskReader",
+          "overload": "GetTaskReaderWithOptions",
+          "params": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserDataTaskQueryOptions",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskReader",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetTaskAsync",
+          "params": [
+            {
+              "name": "userDataTask",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataTask",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SaveTaskAsync",
+          "params": [
+            {
+              "name": "userDataTask",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserDataTask",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "DeleteTaskAsync",
+          "params": [
+            {
+              "name": "userDataTaskId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "DeleteAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SaveAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName",
+          "setter": "put_DisplayName"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "LimitedWriteOperations",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskListLimitedWriteOperations",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Class"
+          },
+          "getter": "get_LimitedWriteOperations"
+        },
+        {
+          "name": "OtherAppReadAccess",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskListOtherAppReadAccess",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Enum"
+          },
+          "getter": "get_OtherAppReadAccess",
+          "setter": "put_OtherAppReadAccess"
+        },
+        {
+          "name": "OtherAppWriteAccess",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskListOtherAppWriteAccess",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Enum"
+          },
+          "getter": "get_OtherAppWriteAccess",
+          "setter": "put_OtherAppWriteAccess"
+        },
+        {
+          "name": "SourceDisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SourceDisplayName"
+        },
+        {
+          "name": "SyncManager",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskListSyncManager",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Class"
+          },
+          "getter": "get_SyncManager"
+        },
+        {
+          "name": "UserDataAccountId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_UserDataAccountId"
+        }
+      ]
+    },
+    "IUserDataTaskListLimitedWriteOperations": {
+      "guid": "7aa267f2-6078-4183-919e-4f29f19cfae9",
+      "exclusive_to": "Windows.ApplicationModel.UserDataTasks.UserDataTaskListLimitedWriteOperations",
+      "methods": [
+        {
+          "name": "TryCompleteTaskAsync",
+          "params": [
+            {
+              "name": "userDataTaskId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryCreateOrUpdateTaskAsync",
+          "params": [
+            {
+              "name": "userDataTask",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserDataTask",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryDeleteTaskAsync",
+          "params": [
+            {
+              "name": "userDataTaskId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TrySkipOccurrenceAsync",
+          "params": [
+            {
+              "name": "userDataTaskId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IUserDataTaskListSyncManager": {
+      "guid": "8e591a95-1dcf-469f-93ec-ba48bb553c6b",
+      "exclusive_to": "Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncManager",
+      "methods": [
+        {
+          "name": "get_LastAttemptedSyncTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_LastAttemptedSyncTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LastSuccessfulSyncTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_LastSuccessfulSyncTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskListSyncStatus",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Status",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserDataTaskListSyncStatus",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SyncAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_SyncStatusChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserDataTaskListSyncManager",
+                    "namespace": "Windows.ApplicationModel.UserDataTasks",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SyncStatusChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "LastAttemptedSyncTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_LastAttemptedSyncTime",
+          "setter": "put_LastAttemptedSyncTime"
+        },
+        {
+          "name": "LastSuccessfulSyncTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_LastSuccessfulSyncTime",
+          "setter": "put_LastSuccessfulSyncTime"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskListSyncStatus",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status",
+          "setter": "put_Status"
+        }
+      ],
+      "events": [
+        {
+          "name": "SyncStatusChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataTaskListSyncManager",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_SyncStatusChanged",
+          "remove_method": "remove_SyncStatusChanged"
+        }
+      ]
+    },
+    "IUserDataTaskManager": {
+      "guid": "8451c914-e60b-48a9-9211-7fb8a56cb84c",
+      "exclusive_to": "Windows.ApplicationModel.UserDataTasks.UserDataTaskManager",
+      "methods": [
+        {
+          "name": "RequestStoreAsync",
+          "params": [
+            {
+              "name": "accessType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserDataTaskStoreAccessType",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataTaskStore",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ]
+    },
+    "IUserDataTaskManagerStatics": {
+      "guid": "b35539f8-c502-47fc-a81e-100883719d55",
+      "exclusive_to": "Windows.ApplicationModel.UserDataTasks.UserDataTaskManager",
+      "methods": [
+        {
+          "name": "GetDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskManager",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskManager",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IUserDataTaskQueryOptions": {
+      "guid": "959f27ed-909a-4d30-8c1b-331d8fe667e2",
+      "exclusive_to": "Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryOptions",
+      "methods": [
+        {
+          "name": "get_SortProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskQuerySortProperty",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_SortProperty",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserDataTaskQuerySortProperty",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskQueryKind",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Kind",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserDataTaskQueryKind",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskQueryKind",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind",
+          "setter": "put_Kind"
+        },
+        {
+          "name": "SortProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskQuerySortProperty",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SortProperty",
+          "setter": "put_SortProperty"
+        }
+      ]
+    },
+    "IUserDataTaskReader": {
+      "guid": "03e688b1-4ccf-4500-883b-e76290cfed63",
+      "exclusive_to": "Windows.ApplicationModel.UserDataTasks.UserDataTaskReader",
+      "methods": [
+        {
+          "name": "ReadBatchAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataTaskBatch",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IUserDataTaskRecurrenceProperties": {
+      "guid": "73df80b0-27c6-40ce-b149-9cd41485a69e",
+      "exclusive_to": "Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceProperties",
+      "methods": [
+        {
+          "name": "get_Unit",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskRecurrenceUnit",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Unit",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserDataTaskRecurrenceUnit",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Occurrences",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Occurrences",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "I4"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Until",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Until",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Interval",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_Interval",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DaysOfWeek",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataTaskDaysOfWeek",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_DaysOfWeek",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserDataTaskDaysOfWeek",
+                    "namespace": "Windows.ApplicationModel.UserDataTasks",
+                    "target_kind": "Enum"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_WeekOfMonth",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataTaskWeekOfMonth",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_WeekOfMonth",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserDataTaskWeekOfMonth",
+                    "namespace": "Windows.ApplicationModel.UserDataTasks",
+                    "target_kind": "Enum"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Month",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Month",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "I4"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Day",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Day",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "I4"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Day",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          },
+          "getter": "get_Day",
+          "setter": "put_Day"
+        },
+        {
+          "name": "DaysOfWeek",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataTaskDaysOfWeek",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_DaysOfWeek",
+          "setter": "put_DaysOfWeek"
+        },
+        {
+          "name": "Interval",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Interval",
+          "setter": "put_Interval"
+        },
+        {
+          "name": "Month",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          },
+          "getter": "get_Month",
+          "setter": "put_Month"
+        },
+        {
+          "name": "Occurrences",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          },
+          "getter": "get_Occurrences",
+          "setter": "put_Occurrences"
+        },
+        {
+          "name": "Unit",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskRecurrenceUnit",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Unit",
+          "setter": "put_Unit"
+        },
+        {
+          "name": "Until",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_Until",
+          "setter": "put_Until"
+        },
+        {
+          "name": "WeekOfMonth",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataTaskWeekOfMonth",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_WeekOfMonth",
+          "setter": "put_WeekOfMonth"
+        }
+      ]
+    },
+    "IUserDataTaskRegenerationProperties": {
+      "guid": "92ab0007-090e-4704-bb5c-84fc0b0d9c31",
+      "exclusive_to": "Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationProperties",
+      "methods": [
+        {
+          "name": "get_Unit",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskRegenerationUnit",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Unit",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserDataTaskRegenerationUnit",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Occurrences",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Occurrences",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "I4"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Until",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Until",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Interval",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_Interval",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Interval",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Interval",
+          "setter": "put_Interval"
+        },
+        {
+          "name": "Occurrences",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          },
+          "getter": "get_Occurrences",
+          "setter": "put_Occurrences"
+        },
+        {
+          "name": "Unit",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserDataTaskRegenerationUnit",
+            "namespace": "Windows.ApplicationModel.UserDataTasks",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Unit",
+          "setter": "put_Unit"
+        },
+        {
+          "name": "Until",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_Until",
+          "setter": "put_Until"
+        }
+      ]
+    },
+    "IUserDataTaskStore": {
+      "guid": "f06a9cb0-f1db-45ba-8a62-086004c0213d",
+      "exclusive_to": "Windows.ApplicationModel.UserDataTasks.UserDataTaskStore",
+      "methods": [
+        {
+          "name": "CreateListAsync",
+          "overload": "CreateListAsync",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataTaskList",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateListAsync",
+          "overload": "CreateListInAccountAsync",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "userDataAccountId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataTaskList",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindListsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserDataTaskList",
+                    "namespace": "Windows.ApplicationModel.UserDataTasks",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetListAsync",
+          "params": [
+            {
+              "name": "taskListId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserDataTaskList",
+                "namespace": "Windows.ApplicationModel.UserDataTasks",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "UserDataTask": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataTask",
+        "namespace": "Windows.ApplicationModel.UserDataTasks",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataTask",
+          "namespace": "Windows.ApplicationModel.UserDataTasks",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "UserDataTaskBatch": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataTaskBatch",
+        "namespace": "Windows.ApplicationModel.UserDataTasks",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataTaskBatch",
+          "namespace": "Windows.ApplicationModel.UserDataTasks",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataTaskList": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataTaskList",
+        "namespace": "Windows.ApplicationModel.UserDataTasks",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataTaskList",
+          "namespace": "Windows.ApplicationModel.UserDataTasks",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataTaskListLimitedWriteOperations": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataTaskListLimitedWriteOperations",
+        "namespace": "Windows.ApplicationModel.UserDataTasks",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataTaskListLimitedWriteOperations",
+          "namespace": "Windows.ApplicationModel.UserDataTasks",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataTaskListSyncManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataTaskListSyncManager",
+        "namespace": "Windows.ApplicationModel.UserDataTasks",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataTaskListSyncManager",
+          "namespace": "Windows.ApplicationModel.UserDataTasks",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataTaskManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataTaskManager",
+        "namespace": "Windows.ApplicationModel.UserDataTasks",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataTaskManager",
+          "namespace": "Windows.ApplicationModel.UserDataTasks",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.ApplicationModel.UserDataTasks.IUserDataTaskManagerStatics"
+      ]
+    },
+    "UserDataTaskQueryOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataTaskQueryOptions",
+        "namespace": "Windows.ApplicationModel.UserDataTasks",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataTaskQueryOptions",
+          "namespace": "Windows.ApplicationModel.UserDataTasks",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "UserDataTaskReader": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataTaskReader",
+        "namespace": "Windows.ApplicationModel.UserDataTasks",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataTaskReader",
+          "namespace": "Windows.ApplicationModel.UserDataTasks",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserDataTaskRecurrenceProperties": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataTaskRecurrenceProperties",
+        "namespace": "Windows.ApplicationModel.UserDataTasks",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataTaskRecurrenceProperties",
+          "namespace": "Windows.ApplicationModel.UserDataTasks",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "UserDataTaskRegenerationProperties": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataTaskRegenerationProperties",
+        "namespace": "Windows.ApplicationModel.UserDataTasks",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataTaskRegenerationProperties",
+          "namespace": "Windows.ApplicationModel.UserDataTasks",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "UserDataTaskStore": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserDataTaskStore",
+        "namespace": "Windows.ApplicationModel.UserDataTasks",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserDataTaskStore",
+          "namespace": "Windows.ApplicationModel.UserDataTasks",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

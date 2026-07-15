@@ -1,0 +1,3522 @@
+{
+  "namespace": "Windows.Services.Maps",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "ManeuverWarningKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Accident",
+          "value": "1"
+        },
+        {
+          "name": "AdministrativeDivisionChange",
+          "value": "2"
+        },
+        {
+          "name": "Alert",
+          "value": "3"
+        },
+        {
+          "name": "BlockedRoad",
+          "value": "4"
+        },
+        {
+          "name": "CheckTimetable",
+          "value": "5"
+        },
+        {
+          "name": "Congestion",
+          "value": "6"
+        },
+        {
+          "name": "Construction",
+          "value": "7"
+        },
+        {
+          "name": "CountryChange",
+          "value": "8"
+        },
+        {
+          "name": "DisabledVehicle",
+          "value": "9"
+        },
+        {
+          "name": "GateAccess",
+          "value": "10"
+        },
+        {
+          "name": "GetOffTransit",
+          "value": "11"
+        },
+        {
+          "name": "GetOnTransit",
+          "value": "12"
+        },
+        {
+          "name": "IllegalUTurn",
+          "value": "13"
+        },
+        {
+          "name": "MassTransit",
+          "value": "14"
+        },
+        {
+          "name": "Miscellaneous",
+          "value": "15"
+        },
+        {
+          "name": "NoIncident",
+          "value": "16"
+        },
+        {
+          "name": "Other",
+          "value": "17"
+        },
+        {
+          "name": "OtherNews",
+          "value": "18"
+        },
+        {
+          "name": "OtherTrafficIncidents",
+          "value": "19"
+        },
+        {
+          "name": "PlannedEvent",
+          "value": "20"
+        },
+        {
+          "name": "PrivateRoad",
+          "value": "21"
+        },
+        {
+          "name": "RestrictedTurn",
+          "value": "22"
+        },
+        {
+          "name": "RoadClosures",
+          "value": "23"
+        },
+        {
+          "name": "RoadHazard",
+          "value": "24"
+        },
+        {
+          "name": "ScheduledConstruction",
+          "value": "25"
+        },
+        {
+          "name": "SeasonalClosures",
+          "value": "26"
+        },
+        {
+          "name": "Tollbooth",
+          "value": "27"
+        },
+        {
+          "name": "TollRoad",
+          "value": "28"
+        },
+        {
+          "name": "TollZoneEnter",
+          "value": "29"
+        },
+        {
+          "name": "TollZoneExit",
+          "value": "30"
+        },
+        {
+          "name": "TrafficFlow",
+          "value": "31"
+        },
+        {
+          "name": "TransitLineChange",
+          "value": "32"
+        },
+        {
+          "name": "UnpavedRoad",
+          "value": "33"
+        },
+        {
+          "name": "UnscheduledConstruction",
+          "value": "34"
+        },
+        {
+          "name": "Weather",
+          "value": "35"
+        }
+      ]
+    },
+    "ManeuverWarningSeverity": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "LowImpact",
+          "value": "1"
+        },
+        {
+          "name": "Minor",
+          "value": "2"
+        },
+        {
+          "name": "Moderate",
+          "value": "3"
+        },
+        {
+          "name": "Serious",
+          "value": "4"
+        }
+      ]
+    },
+    "MapLocationDesiredAccuracy": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "High",
+          "value": "0"
+        },
+        {
+          "name": "Low",
+          "value": "1"
+        }
+      ]
+    },
+    "MapLocationFinderStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "UnknownError",
+          "value": "1"
+        },
+        {
+          "name": "InvalidCredentials",
+          "value": "2"
+        },
+        {
+          "name": "BadLocation",
+          "value": "3"
+        },
+        {
+          "name": "IndexFailure",
+          "value": "4"
+        },
+        {
+          "name": "NetworkFailure",
+          "value": "5"
+        },
+        {
+          "name": "NotSupported",
+          "value": "6"
+        }
+      ]
+    },
+    "MapManeuverNotices": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Toll",
+          "value": "1"
+        },
+        {
+          "name": "Unpaved",
+          "value": "2"
+        }
+      ]
+    },
+    "MapRouteFinderStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "UnknownError",
+          "value": "1"
+        },
+        {
+          "name": "InvalidCredentials",
+          "value": "2"
+        },
+        {
+          "name": "NoRouteFound",
+          "value": "3"
+        },
+        {
+          "name": "NoRouteFoundWithGivenOptions",
+          "value": "4"
+        },
+        {
+          "name": "StartPointNotFound",
+          "value": "5"
+        },
+        {
+          "name": "EndPointNotFound",
+          "value": "6"
+        },
+        {
+          "name": "NoPedestrianRouteFound",
+          "value": "7"
+        },
+        {
+          "name": "NetworkFailure",
+          "value": "8"
+        },
+        {
+          "name": "NotSupported",
+          "value": "9"
+        }
+      ]
+    },
+    "MapRouteManeuverKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Start",
+          "value": "1"
+        },
+        {
+          "name": "Stopover",
+          "value": "2"
+        },
+        {
+          "name": "StopoverResume",
+          "value": "3"
+        },
+        {
+          "name": "End",
+          "value": "4"
+        },
+        {
+          "name": "GoStraight",
+          "value": "5"
+        },
+        {
+          "name": "UTurnLeft",
+          "value": "6"
+        },
+        {
+          "name": "UTurnRight",
+          "value": "7"
+        },
+        {
+          "name": "TurnKeepLeft",
+          "value": "8"
+        },
+        {
+          "name": "TurnKeepRight",
+          "value": "9"
+        },
+        {
+          "name": "TurnLightLeft",
+          "value": "10"
+        },
+        {
+          "name": "TurnLightRight",
+          "value": "11"
+        },
+        {
+          "name": "TurnLeft",
+          "value": "12"
+        },
+        {
+          "name": "TurnRight",
+          "value": "13"
+        },
+        {
+          "name": "TurnHardLeft",
+          "value": "14"
+        },
+        {
+          "name": "TurnHardRight",
+          "value": "15"
+        },
+        {
+          "name": "FreewayEnterLeft",
+          "value": "16"
+        },
+        {
+          "name": "FreewayEnterRight",
+          "value": "17"
+        },
+        {
+          "name": "FreewayLeaveLeft",
+          "value": "18"
+        },
+        {
+          "name": "FreewayLeaveRight",
+          "value": "19"
+        },
+        {
+          "name": "FreewayContinueLeft",
+          "value": "20"
+        },
+        {
+          "name": "FreewayContinueRight",
+          "value": "21"
+        },
+        {
+          "name": "TrafficCircleLeft",
+          "value": "22"
+        },
+        {
+          "name": "TrafficCircleRight",
+          "value": "23"
+        },
+        {
+          "name": "TakeFerry",
+          "value": "24"
+        }
+      ]
+    },
+    "MapRouteOptimization": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Time",
+          "value": "0"
+        },
+        {
+          "name": "Distance",
+          "value": "1"
+        },
+        {
+          "name": "TimeWithTraffic",
+          "value": "2"
+        },
+        {
+          "name": "Scenic",
+          "value": "3"
+        }
+      ]
+    },
+    "MapRouteRestrictions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Highways",
+          "value": "1"
+        },
+        {
+          "name": "TollRoads",
+          "value": "2"
+        },
+        {
+          "name": "Ferries",
+          "value": "4"
+        },
+        {
+          "name": "Tunnels",
+          "value": "8"
+        },
+        {
+          "name": "DirtRoads",
+          "value": "16"
+        },
+        {
+          "name": "Motorail",
+          "value": "32"
+        }
+      ]
+    },
+    "MapServiceDataUsagePreference": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "OfflineMapDataOnly",
+          "value": "1"
+        }
+      ]
+    },
+    "TrafficCongestion": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "Light",
+          "value": "1"
+        },
+        {
+          "name": "Mild",
+          "value": "2"
+        },
+        {
+          "name": "Medium",
+          "value": "3"
+        },
+        {
+          "name": "Heavy",
+          "value": "4"
+        }
+      ]
+    },
+    "WaypointKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Stop",
+          "value": "0"
+        },
+        {
+          "name": "Via",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IEnhancedWaypoint": {
+      "guid": "ed268c74-5913-11e6-8b77-86f30ca893d3",
+      "exclusive_to": "Windows.Services.Maps.EnhancedWaypoint",
+      "methods": [
+        {
+          "name": "get_Point",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geopoint",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WaypointKind",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WaypointKind",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        },
+        {
+          "name": "Point",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Geopoint",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Point"
+        }
+      ]
+    },
+    "IEnhancedWaypointFactory": {
+      "guid": "af868477-a2aa-46dd-b645-23b31b8aa6c7",
+      "exclusive_to": "Windows.Services.Maps.EnhancedWaypoint",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "point",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Geopoint",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "kind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WaypointKind",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EnhancedWaypoint",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IManeuverWarning": {
+      "guid": "c1a36d8a-2630-4378-9e4a-6e44253dceba",
+      "exclusive_to": "Windows.Services.Maps.ManeuverWarning",
+      "methods": [
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ManeuverWarningKind",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Severity",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ManeuverWarningSeverity",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ManeuverWarningKind",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        },
+        {
+          "name": "Severity",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ManeuverWarningSeverity",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Severity"
+        }
+      ]
+    },
+    "IMapAddress": {
+      "guid": "cfa7a973-a3b4-4494-b3ff-cba94db69699",
+      "exclusive_to": "Windows.Services.Maps.MapAddress",
+      "methods": [
+        {
+          "name": "get_BuildingName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BuildingFloor",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BuildingRoom",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BuildingWing",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_StreetNumber",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Street",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Neighborhood",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_District",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Town",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Region",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RegionCode",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Country",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CountryCode",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_PostCode",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Continent",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BuildingFloor",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BuildingFloor"
+        },
+        {
+          "name": "BuildingName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BuildingName"
+        },
+        {
+          "name": "BuildingRoom",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BuildingRoom"
+        },
+        {
+          "name": "BuildingWing",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BuildingWing"
+        },
+        {
+          "name": "Continent",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Continent"
+        },
+        {
+          "name": "Country",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Country"
+        },
+        {
+          "name": "CountryCode",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CountryCode"
+        },
+        {
+          "name": "District",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_District"
+        },
+        {
+          "name": "Neighborhood",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Neighborhood"
+        },
+        {
+          "name": "PostCode",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PostCode"
+        },
+        {
+          "name": "Region",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Region"
+        },
+        {
+          "name": "RegionCode",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RegionCode"
+        },
+        {
+          "name": "Street",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Street"
+        },
+        {
+          "name": "StreetNumber",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_StreetNumber"
+        },
+        {
+          "name": "Town",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Town"
+        }
+      ]
+    },
+    "IMapAddress2": {
+      "guid": "75cd6df1-e5ad-45a9-bf40-6cf256c1dd13",
+      "exclusive_to": "Windows.Services.Maps.MapAddress",
+      "methods": [
+        {
+          "name": "get_FormattedAddress",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FormattedAddress",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_FormattedAddress"
+        }
+      ]
+    },
+    "IMapLocation": {
+      "guid": "3c073f57-0da4-42e8-9ee2-a96fcf2371dc",
+      "exclusive_to": "Windows.Services.Maps.MapLocation",
+      "methods": [
+        {
+          "name": "get_Point",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geopoint",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Description",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Address",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MapAddress",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Address",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MapAddress",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Class"
+          },
+          "getter": "get_Address"
+        },
+        {
+          "name": "Description",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Description"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "Point",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Geopoint",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Point"
+        }
+      ]
+    },
+    "IMapLocationFinderResult": {
+      "guid": "43f1f179-e8cc-45f6-bed2-54ccbf965d9a",
+      "exclusive_to": "Windows.Services.Maps.MapLocationFinderResult",
+      "methods": [
+        {
+          "name": "get_Locations",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapLocation",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MapLocationFinderStatus",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Locations",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapLocation",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Locations"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MapLocationFinderStatus",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IMapLocationFinderStatics": {
+      "guid": "318adb5d-1c5d-4f35-a2df-aaca94959517",
+      "exclusive_to": "Windows.Services.Maps.MapLocationFinder",
+      "methods": [
+        {
+          "name": "FindLocationsAtAsync",
+          "overload": "FindLocationsAtAsync",
+          "params": [
+            {
+              "name": "queryPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Geopoint",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapLocationFinderResult",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindLocationsAsync",
+          "overload": "FindLocationsAsync",
+          "params": [
+            {
+              "name": "searchText",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "referencePoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Geopoint",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapLocationFinderResult",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindLocationsAsync",
+          "overload": "FindLocationsWithMaxCountAsync",
+          "params": [
+            {
+              "name": "searchText",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "referencePoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Geopoint",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "maxCount",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapLocationFinderResult",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IMapLocationFinderStatics2": {
+      "guid": "959a8b96-6485-4dfd-851a-33ac317e3af6",
+      "exclusive_to": "Windows.Services.Maps.MapLocationFinder",
+      "methods": [
+        {
+          "name": "FindLocationsAtAsync",
+          "overload": "FindLocationsAtWithAccuracyAsync",
+          "params": [
+            {
+              "name": "queryPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Geopoint",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "accuracy",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MapLocationDesiredAccuracy",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapLocationFinderResult",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IMapManagerStatics": {
+      "guid": "37e3e515-82b4-4d54-8fd9-af2624b3011c",
+      "exclusive_to": "Windows.Services.Maps.MapManager",
+      "methods": [
+        {
+          "name": "ShowDownloadedMapsUI"
+        },
+        {
+          "name": "ShowMapsUpdateUI"
+        }
+      ]
+    },
+    "IMapRoute": {
+      "guid": "fb07b732-584d-4583-9c60-641fea274349",
+      "exclusive_to": "Windows.Services.Maps.MapRoute",
+      "methods": [
+        {
+          "name": "get_BoundingBox",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GeoboundingBox",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_LengthInMeters",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_EstimatedDuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Path",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geopath",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Legs",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapRouteLeg",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_IsTrafficBased",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BoundingBox",
+          "type": {
+            "kind": "ApiRef",
+            "name": "GeoboundingBox",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          },
+          "getter": "get_BoundingBox"
+        },
+        {
+          "name": "EstimatedDuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_EstimatedDuration"
+        },
+        {
+          "name": "IsTrafficBased",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsTrafficBased"
+        },
+        {
+          "name": "Legs",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapRouteLeg",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Legs"
+        },
+        {
+          "name": "LengthInMeters",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_LengthInMeters"
+        },
+        {
+          "name": "Path",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Geopath",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Path"
+        }
+      ]
+    },
+    "IMapRoute2": {
+      "guid": "d1c5d40c-2213-4ab0-a260-46b38169beac",
+      "exclusive_to": "Windows.Services.Maps.MapRoute",
+      "methods": [
+        {
+          "name": "get_ViolatedRestrictions",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MapRouteRestrictions",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_HasBlockedRoads",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HasBlockedRoads",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasBlockedRoads"
+        },
+        {
+          "name": "ViolatedRestrictions",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MapRouteRestrictions",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ViolatedRestrictions"
+        }
+      ]
+    },
+    "IMapRoute3": {
+      "guid": "858d1eae-f2ad-429f-bb37-cd21094ffc92",
+      "exclusive_to": "Windows.Services.Maps.MapRoute",
+      "methods": [
+        {
+          "name": "get_DurationWithoutTraffic",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_TrafficCongestion",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TrafficCongestion",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DurationWithoutTraffic",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_DurationWithoutTraffic"
+        },
+        {
+          "name": "TrafficCongestion",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TrafficCongestion",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          },
+          "getter": "get_TrafficCongestion"
+        }
+      ]
+    },
+    "IMapRoute4": {
+      "guid": "366c8ca5-3053-4fa1-80ff-d475f3ed1e6e",
+      "exclusive_to": "Windows.Services.Maps.MapRoute",
+      "methods": [
+        {
+          "name": "get_IsScenic",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsScenic",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsScenic"
+        }
+      ]
+    },
+    "IMapRouteDrivingOptions": {
+      "guid": "6815364d-c6dc-4697-a452-b18f8f0b67a1",
+      "exclusive_to": "Windows.Services.Maps.MapRouteDrivingOptions",
+      "methods": [
+        {
+          "name": "get_MaxAlternateRouteCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_MaxAlternateRouteCount",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_InitialHeading",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_InitialHeading",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "F64"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RouteOptimization",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MapRouteOptimization",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_RouteOptimization",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MapRouteOptimization",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RouteRestrictions",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MapRouteRestrictions",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_RouteRestrictions",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MapRouteRestrictions",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "InitialHeading",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          },
+          "getter": "get_InitialHeading",
+          "setter": "put_InitialHeading"
+        },
+        {
+          "name": "MaxAlternateRouteCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxAlternateRouteCount",
+          "setter": "put_MaxAlternateRouteCount"
+        },
+        {
+          "name": "RouteOptimization",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MapRouteOptimization",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RouteOptimization",
+          "setter": "put_RouteOptimization"
+        },
+        {
+          "name": "RouteRestrictions",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MapRouteRestrictions",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RouteRestrictions",
+          "setter": "put_RouteRestrictions"
+        }
+      ]
+    },
+    "IMapRouteDrivingOptions2": {
+      "guid": "35dc8670-c298-48d0-b5ad-825460645603",
+      "exclusive_to": "Windows.Services.Maps.MapRouteDrivingOptions",
+      "methods": [
+        {
+          "name": "get_DepartureTime",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_DepartureTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DepartureTime",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_DepartureTime",
+          "setter": "put_DepartureTime"
+        }
+      ]
+    },
+    "IMapRouteFinderResult": {
+      "guid": "a868a31a-9422-46ac-8ca1-b1614d4bfbe2",
+      "exclusive_to": "Windows.Services.Maps.MapRouteFinderResult",
+      "methods": [
+        {
+          "name": "get_Route",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MapRoute",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MapRouteFinderStatus",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Route",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MapRoute",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Class"
+          },
+          "getter": "get_Route"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MapRouteFinderStatus",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IMapRouteFinderResult2": {
+      "guid": "20709c6d-d90c-46c8-91c6-7d4be4efb215",
+      "exclusive_to": "Windows.Services.Maps.MapRouteFinderResult",
+      "methods": [
+        {
+          "name": "get_AlternateRoutes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapRoute",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AlternateRoutes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapRoute",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_AlternateRoutes"
+        }
+      ]
+    },
+    "IMapRouteFinderStatics": {
+      "guid": "b8a5c50f-1c64-4c3a-81eb-1f7c152afbbb",
+      "exclusive_to": "Windows.Services.Maps.MapRouteFinder",
+      "methods": [
+        {
+          "name": "GetDrivingRouteAsync",
+          "overload": "GetDrivingRouteAsync",
+          "params": [
+            {
+              "name": "startPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Geopoint",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "endPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Geopoint",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapRouteFinderResult",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDrivingRouteAsync",
+          "overload": "GetDrivingRouteWithOptimizationAsync",
+          "params": [
+            {
+              "name": "startPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Geopoint",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "endPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Geopoint",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "optimization",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MapRouteOptimization",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapRouteFinderResult",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDrivingRouteAsync",
+          "overload": "GetDrivingRouteWithOptimizationAndRestrictionsAsync",
+          "params": [
+            {
+              "name": "startPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Geopoint",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "endPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Geopoint",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "optimization",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MapRouteOptimization",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "restrictions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MapRouteRestrictions",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapRouteFinderResult",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDrivingRouteAsync",
+          "overload": "GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync",
+          "params": [
+            {
+              "name": "startPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Geopoint",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "endPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Geopoint",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "optimization",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MapRouteOptimization",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "restrictions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MapRouteRestrictions",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "headingInDegrees",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapRouteFinderResult",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDrivingRouteFromWaypointsAsync",
+          "overload": "GetDrivingRouteFromWaypointsAsync",
+          "params": [
+            {
+              "name": "wayPoints",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Geopoint",
+                    "namespace": "Windows.Devices.Geolocation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapRouteFinderResult",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDrivingRouteFromWaypointsAsync",
+          "overload": "GetDrivingRouteFromWaypointsAndOptimizationAsync",
+          "params": [
+            {
+              "name": "wayPoints",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Geopoint",
+                    "namespace": "Windows.Devices.Geolocation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "optimization",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MapRouteOptimization",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapRouteFinderResult",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDrivingRouteFromWaypointsAsync",
+          "overload": "GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync",
+          "params": [
+            {
+              "name": "wayPoints",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Geopoint",
+                    "namespace": "Windows.Devices.Geolocation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "optimization",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MapRouteOptimization",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "restrictions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MapRouteRestrictions",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapRouteFinderResult",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDrivingRouteFromWaypointsAsync",
+          "overload": "GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync",
+          "params": [
+            {
+              "name": "wayPoints",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Geopoint",
+                    "namespace": "Windows.Devices.Geolocation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "optimization",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MapRouteOptimization",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "restrictions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MapRouteRestrictions",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "headingInDegrees",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapRouteFinderResult",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetWalkingRouteAsync",
+          "params": [
+            {
+              "name": "startPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Geopoint",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "endPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Geopoint",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapRouteFinderResult",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetWalkingRouteFromWaypointsAsync",
+          "params": [
+            {
+              "name": "wayPoints",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Geopoint",
+                    "namespace": "Windows.Devices.Geolocation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapRouteFinderResult",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IMapRouteFinderStatics2": {
+      "guid": "afcc2c73-7760-49af-b3bd-baf135b703e1",
+      "exclusive_to": "Windows.Services.Maps.MapRouteFinder",
+      "methods": [
+        {
+          "name": "GetDrivingRouteAsync",
+          "overload": "GetDrivingRouteWithOptionsAsync",
+          "is_default_overload": true,
+          "params": [
+            {
+              "name": "startPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Geopoint",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "endPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Geopoint",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MapRouteDrivingOptions",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapRouteFinderResult",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IMapRouteFinderStatics3": {
+      "guid": "f6098134-5913-11e6-8b77-86f30ca893d3",
+      "exclusive_to": "Windows.Services.Maps.MapRouteFinder",
+      "methods": [
+        {
+          "name": "GetDrivingRouteFromEnhancedWaypointsAsync",
+          "overload": "GetDrivingRouteFromEnhancedWaypointsAsync",
+          "params": [
+            {
+              "name": "waypoints",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EnhancedWaypoint",
+                    "namespace": "Windows.Services.Maps",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapRouteFinderResult",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDrivingRouteFromEnhancedWaypointsAsync",
+          "overload": "GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync",
+          "params": [
+            {
+              "name": "waypoints",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EnhancedWaypoint",
+                    "namespace": "Windows.Services.Maps",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MapRouteDrivingOptions",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapRouteFinderResult",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IMapRouteLeg": {
+      "guid": "96f8b2f6-5bba-4d17-9db6-1a263fec7471",
+      "exclusive_to": "Windows.Services.Maps.MapRouteLeg",
+      "methods": [
+        {
+          "name": "get_BoundingBox",
+          "return": {
+            "kind": "ApiRef",
+            "name": "GeoboundingBox",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Path",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geopath",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_LengthInMeters",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_EstimatedDuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Maneuvers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapRouteManeuver",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BoundingBox",
+          "type": {
+            "kind": "ApiRef",
+            "name": "GeoboundingBox",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          },
+          "getter": "get_BoundingBox"
+        },
+        {
+          "name": "EstimatedDuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_EstimatedDuration"
+        },
+        {
+          "name": "LengthInMeters",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_LengthInMeters"
+        },
+        {
+          "name": "Maneuvers",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MapRouteManeuver",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Maneuvers"
+        },
+        {
+          "name": "Path",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Geopath",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Path"
+        }
+      ]
+    },
+    "IMapRouteLeg2": {
+      "guid": "02e2062d-c9c6-45b8-8e54-1a10b57a17e8",
+      "exclusive_to": "Windows.Services.Maps.MapRouteLeg",
+      "methods": [
+        {
+          "name": "get_DurationWithoutTraffic",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_TrafficCongestion",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TrafficCongestion",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DurationWithoutTraffic",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_DurationWithoutTraffic"
+        },
+        {
+          "name": "TrafficCongestion",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TrafficCongestion",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          },
+          "getter": "get_TrafficCongestion"
+        }
+      ]
+    },
+    "IMapRouteManeuver": {
+      "guid": "ed5c17f0-a6ab-4d65-a086-fa8a7e340df2",
+      "exclusive_to": "Windows.Services.Maps.MapRouteManeuver",
+      "methods": [
+        {
+          "name": "get_StartingPoint",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Geopoint",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_LengthInMeters",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_InstructionText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MapRouteManeuverKind",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ExitNumber",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ManeuverNotices",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MapManeuverNotices",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExitNumber",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ExitNumber"
+        },
+        {
+          "name": "InstructionText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_InstructionText"
+        },
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MapRouteManeuverKind",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        },
+        {
+          "name": "LengthInMeters",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_LengthInMeters"
+        },
+        {
+          "name": "ManeuverNotices",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MapManeuverNotices",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ManeuverNotices"
+        },
+        {
+          "name": "StartingPoint",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Geopoint",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Class"
+          },
+          "getter": "get_StartingPoint"
+        }
+      ]
+    },
+    "IMapRouteManeuver2": {
+      "guid": "5d7bcd9c-7c9b-41df-838b-eae21e4b05a9",
+      "exclusive_to": "Windows.Services.Maps.MapRouteManeuver",
+      "methods": [
+        {
+          "name": "get_StartHeading",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_EndHeading",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_StreetName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EndHeading",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_EndHeading"
+        },
+        {
+          "name": "StartHeading",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_StartHeading"
+        },
+        {
+          "name": "StreetName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_StreetName"
+        }
+      ]
+    },
+    "IMapRouteManeuver3": {
+      "guid": "a6a138df-0483-4166-85be-b99336c11875",
+      "exclusive_to": "Windows.Services.Maps.MapRouteManeuver",
+      "methods": [
+        {
+          "name": "get_Warnings",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ManeuverWarning",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Warnings",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ManeuverWarning",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Warnings"
+        }
+      ]
+    },
+    "IMapServiceStatics": {
+      "guid": "0144ad85-c04c-4cdd-871a-a0726d097cd4",
+      "exclusive_to": "Windows.Services.Maps.MapService",
+      "methods": [
+        {
+          "name": "put_ServiceToken",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ServiceToken",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ServiceToken",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ServiceToken",
+          "setter": "put_ServiceToken"
+        }
+      ]
+    },
+    "IMapServiceStatics2": {
+      "guid": "f8193eed-9c85-40a9-8896-0fc3fd2b7c2a",
+      "exclusive_to": "Windows.Services.Maps.MapService",
+      "methods": [
+        {
+          "name": "get_WorldViewRegionCode",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "WorldViewRegionCode",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_WorldViewRegionCode"
+        }
+      ]
+    },
+    "IMapServiceStatics3": {
+      "guid": "0a11ce20-63a7-4854-b355-d6dcda223d1b",
+      "exclusive_to": "Windows.Services.Maps.MapService",
+      "methods": [
+        {
+          "name": "get_DataAttributions",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DataAttributions",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DataAttributions"
+        }
+      ]
+    },
+    "IMapServiceStatics4": {
+      "guid": "088a2862-6abc-420e-945f-4cfd89c67356",
+      "exclusive_to": "Windows.Services.Maps.MapService",
+      "methods": [
+        {
+          "name": "put_DataUsagePreference",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MapServiceDataUsagePreference",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DataUsagePreference",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MapServiceDataUsagePreference",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DataUsagePreference",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MapServiceDataUsagePreference",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DataUsagePreference",
+          "setter": "put_DataUsagePreference"
+        }
+      ]
+    },
+    "IPlaceInfo": {
+      "guid": "9a0810b6-31c8-4f6a-9f18-950b4c38951a",
+      "exclusive_to": "Windows.Services.Maps.PlaceInfo",
+      "methods": [
+        {
+          "name": "Show",
+          "overload": "Show",
+          "params": [
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Show",
+          "overload": "ShowWithPreferredPlacement",
+          "params": [
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "preferredPlacement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Placement",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Identifier",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayAddress",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Geoshape",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IGeoshape",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayAddress",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayAddress"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "Geoshape",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IGeoshape",
+            "namespace": "Windows.Devices.Geolocation",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Geoshape"
+        },
+        {
+          "name": "Identifier",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Identifier"
+        }
+      ]
+    },
+    "IPlaceInfoCreateOptions": {
+      "guid": "cd33c125-67f1-4bb3-9907-ecce939b0399",
+      "exclusive_to": "Windows.Services.Maps.PlaceInfoCreateOptions",
+      "methods": [
+        {
+          "name": "put_DisplayName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DisplayAddress",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DisplayAddress",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayAddress",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayAddress",
+          "setter": "put_DisplayAddress"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName",
+          "setter": "put_DisplayName"
+        }
+      ]
+    },
+    "IPlaceInfoStatics": {
+      "guid": "82b9ff71-6cd0-48a4-afd9-5ed82097936b",
+      "exclusive_to": "Windows.Services.Maps.PlaceInfo",
+      "methods": [
+        {
+          "name": "Create",
+          "overload": "Create",
+          "params": [
+            {
+              "name": "referencePoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Geopoint",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlaceInfo",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "Create",
+          "overload": "CreateWithGeopointAndOptions",
+          "params": [
+            {
+              "name": "referencePoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Geopoint",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PlaceInfoCreateOptions",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlaceInfo",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFromIdentifier",
+          "overload": "CreateFromIdentifier",
+          "params": [
+            {
+              "name": "identifier",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlaceInfo",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFromIdentifier",
+          "overload": "CreateFromIdentifierWithOptions",
+          "params": [
+            {
+              "name": "identifier",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "defaultPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Geopoint",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PlaceInfoCreateOptions",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlaceInfo",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFromMapLocation",
+          "params": [
+            {
+              "name": "location",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MapLocation",
+                "namespace": "Windows.Services.Maps",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlaceInfo",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IsShowSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsShowSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsShowSupported"
+        }
+      ]
+    },
+    "IPlaceInfoStatics2": {
+      "guid": "730f0249-4047-44a3-8f81-2550a5216370",
+      "exclusive_to": "Windows.Services.Maps.PlaceInfo",
+      "methods": [
+        {
+          "name": "CreateFromAddress",
+          "overload": "CreateFromAddress",
+          "params": [
+            {
+              "name": "displayAddress",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlaceInfo",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFromAddress",
+          "overload": "CreateFromAddressWithName",
+          "params": [
+            {
+              "name": "displayAddress",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "displayName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlaceInfo",
+            "namespace": "Windows.Services.Maps",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "EnhancedWaypoint": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEnhancedWaypoint",
+        "namespace": "Windows.Services.Maps",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEnhancedWaypoint",
+          "namespace": "Windows.Services.Maps",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Services.Maps.IEnhancedWaypointFactory"
+      ]
+    },
+    "ManeuverWarning": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IManeuverWarning",
+        "namespace": "Windows.Services.Maps",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IManeuverWarning",
+          "namespace": "Windows.Services.Maps",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MapAddress": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMapAddress",
+        "namespace": "Windows.Services.Maps",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMapAddress",
+          "namespace": "Windows.Services.Maps",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMapAddress2",
+          "namespace": "Windows.Services.Maps",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MapLocation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMapLocation",
+        "namespace": "Windows.Services.Maps",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMapLocation",
+          "namespace": "Windows.Services.Maps",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MapLocationFinder": {
+      "static_interfaces": [
+        "Windows.Services.Maps.IMapLocationFinderStatics2",
+        "Windows.Services.Maps.IMapLocationFinderStatics"
+      ]
+    },
+    "MapLocationFinderResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMapLocationFinderResult",
+        "namespace": "Windows.Services.Maps",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMapLocationFinderResult",
+          "namespace": "Windows.Services.Maps",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MapManager": {
+      "static_interfaces": [
+        "Windows.Services.Maps.IMapManagerStatics"
+      ]
+    },
+    "MapRoute": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMapRoute",
+        "namespace": "Windows.Services.Maps",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMapRoute",
+          "namespace": "Windows.Services.Maps",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMapRoute2",
+          "namespace": "Windows.Services.Maps",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMapRoute3",
+          "namespace": "Windows.Services.Maps",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMapRoute4",
+          "namespace": "Windows.Services.Maps",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MapRouteDrivingOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMapRouteDrivingOptions",
+        "namespace": "Windows.Services.Maps",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMapRouteDrivingOptions",
+          "namespace": "Windows.Services.Maps",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMapRouteDrivingOptions2",
+          "namespace": "Windows.Services.Maps",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "MapRouteFinder": {
+      "static_interfaces": [
+        "Windows.Services.Maps.IMapRouteFinderStatics3",
+        "Windows.Services.Maps.IMapRouteFinderStatics",
+        "Windows.Services.Maps.IMapRouteFinderStatics2"
+      ]
+    },
+    "MapRouteFinderResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMapRouteFinderResult",
+        "namespace": "Windows.Services.Maps",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMapRouteFinderResult",
+          "namespace": "Windows.Services.Maps",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMapRouteFinderResult2",
+          "namespace": "Windows.Services.Maps",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MapRouteLeg": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMapRouteLeg",
+        "namespace": "Windows.Services.Maps",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMapRouteLeg",
+          "namespace": "Windows.Services.Maps",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMapRouteLeg2",
+          "namespace": "Windows.Services.Maps",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MapRouteManeuver": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMapRouteManeuver",
+        "namespace": "Windows.Services.Maps",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMapRouteManeuver",
+          "namespace": "Windows.Services.Maps",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMapRouteManeuver2",
+          "namespace": "Windows.Services.Maps",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMapRouteManeuver3",
+          "namespace": "Windows.Services.Maps",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MapService": {
+      "static_interfaces": [
+        "Windows.Services.Maps.IMapServiceStatics2",
+        "Windows.Services.Maps.IMapServiceStatics3",
+        "Windows.Services.Maps.IMapServiceStatics",
+        "Windows.Services.Maps.IMapServiceStatics4"
+      ]
+    },
+    "PlaceInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlaceInfo",
+        "namespace": "Windows.Services.Maps",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlaceInfo",
+          "namespace": "Windows.Services.Maps",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Services.Maps.IPlaceInfoStatics2",
+        "Windows.Services.Maps.IPlaceInfoStatics"
+      ]
+    },
+    "PlaceInfoCreateOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlaceInfoCreateOptions",
+        "namespace": "Windows.Services.Maps",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlaceInfoCreateOptions",
+          "namespace": "Windows.Services.Maps",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  }
+}

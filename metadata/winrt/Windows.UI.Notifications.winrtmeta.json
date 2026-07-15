@@ -1,0 +1,6415 @@
+{
+  "namespace": "Windows.UI.Notifications",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "AdaptiveNotificationContentKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Text",
+          "value": "0"
+        }
+      ]
+    },
+    "BadgeTemplateType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "BadgeGlyph",
+          "value": "0"
+        },
+        {
+          "name": "BadgeNumber",
+          "value": "1"
+        }
+      ]
+    },
+    "NotificationKinds": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "Toast",
+          "value": "1"
+        }
+      ]
+    },
+    "NotificationMirroring": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Allowed",
+          "value": "0"
+        },
+        {
+          "name": "Disabled",
+          "value": "1"
+        }
+      ]
+    },
+    "NotificationSetting": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Enabled",
+          "value": "0"
+        },
+        {
+          "name": "DisabledForApplication",
+          "value": "1"
+        },
+        {
+          "name": "DisabledForUser",
+          "value": "2"
+        },
+        {
+          "name": "DisabledByGroupPolicy",
+          "value": "3"
+        },
+        {
+          "name": "DisabledByManifest",
+          "value": "4"
+        }
+      ]
+    },
+    "NotificationUpdateResult": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Succeeded",
+          "value": "0"
+        },
+        {
+          "name": "Failed",
+          "value": "1"
+        },
+        {
+          "name": "NotificationNotFound",
+          "value": "2"
+        }
+      ]
+    },
+    "PeriodicUpdateRecurrence": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "HalfHour",
+          "value": "0"
+        },
+        {
+          "name": "Hour",
+          "value": "1"
+        },
+        {
+          "name": "SixHours",
+          "value": "2"
+        },
+        {
+          "name": "TwelveHours",
+          "value": "3"
+        },
+        {
+          "name": "Daily",
+          "value": "4"
+        }
+      ]
+    },
+    "TileFlyoutTemplateType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "TileFlyoutTemplate01",
+          "value": "0"
+        }
+      ]
+    },
+    "TileTemplateType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "TileSquareImage",
+          "value": "0"
+        },
+        {
+          "name": "TileSquareBlock",
+          "value": "1"
+        },
+        {
+          "name": "TileSquareText01",
+          "value": "2"
+        },
+        {
+          "name": "TileSquareText02",
+          "value": "3"
+        },
+        {
+          "name": "TileSquareText03",
+          "value": "4"
+        },
+        {
+          "name": "TileSquareText04",
+          "value": "5"
+        },
+        {
+          "name": "TileSquarePeekImageAndText01",
+          "value": "6"
+        },
+        {
+          "name": "TileSquarePeekImageAndText02",
+          "value": "7"
+        },
+        {
+          "name": "TileSquarePeekImageAndText03",
+          "value": "8"
+        },
+        {
+          "name": "TileSquarePeekImageAndText04",
+          "value": "9"
+        },
+        {
+          "name": "TileWideImage",
+          "value": "10"
+        },
+        {
+          "name": "TileWideImageCollection",
+          "value": "11"
+        },
+        {
+          "name": "TileWideImageAndText01",
+          "value": "12"
+        },
+        {
+          "name": "TileWideImageAndText02",
+          "value": "13"
+        },
+        {
+          "name": "TileWideBlockAndText01",
+          "value": "14"
+        },
+        {
+          "name": "TileWideBlockAndText02",
+          "value": "15"
+        },
+        {
+          "name": "TileWidePeekImageCollection01",
+          "value": "16"
+        },
+        {
+          "name": "TileWidePeekImageCollection02",
+          "value": "17"
+        },
+        {
+          "name": "TileWidePeekImageCollection03",
+          "value": "18"
+        },
+        {
+          "name": "TileWidePeekImageCollection04",
+          "value": "19"
+        },
+        {
+          "name": "TileWidePeekImageCollection05",
+          "value": "20"
+        },
+        {
+          "name": "TileWidePeekImageCollection06",
+          "value": "21"
+        },
+        {
+          "name": "TileWidePeekImageAndText01",
+          "value": "22"
+        },
+        {
+          "name": "TileWidePeekImageAndText02",
+          "value": "23"
+        },
+        {
+          "name": "TileWidePeekImage01",
+          "value": "24"
+        },
+        {
+          "name": "TileWidePeekImage02",
+          "value": "25"
+        },
+        {
+          "name": "TileWidePeekImage03",
+          "value": "26"
+        },
+        {
+          "name": "TileWidePeekImage04",
+          "value": "27"
+        },
+        {
+          "name": "TileWidePeekImage05",
+          "value": "28"
+        },
+        {
+          "name": "TileWidePeekImage06",
+          "value": "29"
+        },
+        {
+          "name": "TileWideSmallImageAndText01",
+          "value": "30"
+        },
+        {
+          "name": "TileWideSmallImageAndText02",
+          "value": "31"
+        },
+        {
+          "name": "TileWideSmallImageAndText03",
+          "value": "32"
+        },
+        {
+          "name": "TileWideSmallImageAndText04",
+          "value": "33"
+        },
+        {
+          "name": "TileWideSmallImageAndText05",
+          "value": "34"
+        },
+        {
+          "name": "TileWideText01",
+          "value": "35"
+        },
+        {
+          "name": "TileWideText02",
+          "value": "36"
+        },
+        {
+          "name": "TileWideText03",
+          "value": "37"
+        },
+        {
+          "name": "TileWideText04",
+          "value": "38"
+        },
+        {
+          "name": "TileWideText05",
+          "value": "39"
+        },
+        {
+          "name": "TileWideText06",
+          "value": "40"
+        },
+        {
+          "name": "TileWideText07",
+          "value": "41"
+        },
+        {
+          "name": "TileWideText08",
+          "value": "42"
+        },
+        {
+          "name": "TileWideText09",
+          "value": "43"
+        },
+        {
+          "name": "TileWideText10",
+          "value": "44"
+        },
+        {
+          "name": "TileWideText11",
+          "value": "45"
+        },
+        {
+          "name": "TileSquare150x150Image",
+          "value": "0"
+        },
+        {
+          "name": "TileSquare150x150Block",
+          "value": "1"
+        },
+        {
+          "name": "TileSquare150x150Text01",
+          "value": "2"
+        },
+        {
+          "name": "TileSquare150x150Text02",
+          "value": "3"
+        },
+        {
+          "name": "TileSquare150x150Text03",
+          "value": "4"
+        },
+        {
+          "name": "TileSquare150x150Text04",
+          "value": "5"
+        },
+        {
+          "name": "TileSquare150x150PeekImageAndText01",
+          "value": "6"
+        },
+        {
+          "name": "TileSquare150x150PeekImageAndText02",
+          "value": "7"
+        },
+        {
+          "name": "TileSquare150x150PeekImageAndText03",
+          "value": "8"
+        },
+        {
+          "name": "TileSquare150x150PeekImageAndText04",
+          "value": "9"
+        },
+        {
+          "name": "TileWide310x150Image",
+          "value": "10"
+        },
+        {
+          "name": "TileWide310x150ImageCollection",
+          "value": "11"
+        },
+        {
+          "name": "TileWide310x150ImageAndText01",
+          "value": "12"
+        },
+        {
+          "name": "TileWide310x150ImageAndText02",
+          "value": "13"
+        },
+        {
+          "name": "TileWide310x150BlockAndText01",
+          "value": "14"
+        },
+        {
+          "name": "TileWide310x150BlockAndText02",
+          "value": "15"
+        },
+        {
+          "name": "TileWide310x150PeekImageCollection01",
+          "value": "16"
+        },
+        {
+          "name": "TileWide310x150PeekImageCollection02",
+          "value": "17"
+        },
+        {
+          "name": "TileWide310x150PeekImageCollection03",
+          "value": "18"
+        },
+        {
+          "name": "TileWide310x150PeekImageCollection04",
+          "value": "19"
+        },
+        {
+          "name": "TileWide310x150PeekImageCollection05",
+          "value": "20"
+        },
+        {
+          "name": "TileWide310x150PeekImageCollection06",
+          "value": "21"
+        },
+        {
+          "name": "TileWide310x150PeekImageAndText01",
+          "value": "22"
+        },
+        {
+          "name": "TileWide310x150PeekImageAndText02",
+          "value": "23"
+        },
+        {
+          "name": "TileWide310x150PeekImage01",
+          "value": "24"
+        },
+        {
+          "name": "TileWide310x150PeekImage02",
+          "value": "25"
+        },
+        {
+          "name": "TileWide310x150PeekImage03",
+          "value": "26"
+        },
+        {
+          "name": "TileWide310x150PeekImage04",
+          "value": "27"
+        },
+        {
+          "name": "TileWide310x150PeekImage05",
+          "value": "28"
+        },
+        {
+          "name": "TileWide310x150PeekImage06",
+          "value": "29"
+        },
+        {
+          "name": "TileWide310x150SmallImageAndText01",
+          "value": "30"
+        },
+        {
+          "name": "TileWide310x150SmallImageAndText02",
+          "value": "31"
+        },
+        {
+          "name": "TileWide310x150SmallImageAndText03",
+          "value": "32"
+        },
+        {
+          "name": "TileWide310x150SmallImageAndText04",
+          "value": "33"
+        },
+        {
+          "name": "TileWide310x150SmallImageAndText05",
+          "value": "34"
+        },
+        {
+          "name": "TileWide310x150Text01",
+          "value": "35"
+        },
+        {
+          "name": "TileWide310x150Text02",
+          "value": "36"
+        },
+        {
+          "name": "TileWide310x150Text03",
+          "value": "37"
+        },
+        {
+          "name": "TileWide310x150Text04",
+          "value": "38"
+        },
+        {
+          "name": "TileWide310x150Text05",
+          "value": "39"
+        },
+        {
+          "name": "TileWide310x150Text06",
+          "value": "40"
+        },
+        {
+          "name": "TileWide310x150Text07",
+          "value": "41"
+        },
+        {
+          "name": "TileWide310x150Text08",
+          "value": "42"
+        },
+        {
+          "name": "TileWide310x150Text09",
+          "value": "43"
+        },
+        {
+          "name": "TileWide310x150Text10",
+          "value": "44"
+        },
+        {
+          "name": "TileWide310x150Text11",
+          "value": "45"
+        },
+        {
+          "name": "TileSquare310x310BlockAndText01",
+          "value": "46"
+        },
+        {
+          "name": "TileSquare310x310BlockAndText02",
+          "value": "47"
+        },
+        {
+          "name": "TileSquare310x310Image",
+          "value": "48"
+        },
+        {
+          "name": "TileSquare310x310ImageAndText01",
+          "value": "49"
+        },
+        {
+          "name": "TileSquare310x310ImageAndText02",
+          "value": "50"
+        },
+        {
+          "name": "TileSquare310x310ImageAndTextOverlay01",
+          "value": "51"
+        },
+        {
+          "name": "TileSquare310x310ImageAndTextOverlay02",
+          "value": "52"
+        },
+        {
+          "name": "TileSquare310x310ImageAndTextOverlay03",
+          "value": "53"
+        },
+        {
+          "name": "TileSquare310x310ImageCollectionAndText01",
+          "value": "54"
+        },
+        {
+          "name": "TileSquare310x310ImageCollectionAndText02",
+          "value": "55"
+        },
+        {
+          "name": "TileSquare310x310ImageCollection",
+          "value": "56"
+        },
+        {
+          "name": "TileSquare310x310SmallImagesAndTextList01",
+          "value": "57"
+        },
+        {
+          "name": "TileSquare310x310SmallImagesAndTextList02",
+          "value": "58"
+        },
+        {
+          "name": "TileSquare310x310SmallImagesAndTextList03",
+          "value": "59"
+        },
+        {
+          "name": "TileSquare310x310SmallImagesAndTextList04",
+          "value": "60"
+        },
+        {
+          "name": "TileSquare310x310Text01",
+          "value": "61"
+        },
+        {
+          "name": "TileSquare310x310Text02",
+          "value": "62"
+        },
+        {
+          "name": "TileSquare310x310Text03",
+          "value": "63"
+        },
+        {
+          "name": "TileSquare310x310Text04",
+          "value": "64"
+        },
+        {
+          "name": "TileSquare310x310Text05",
+          "value": "65"
+        },
+        {
+          "name": "TileSquare310x310Text06",
+          "value": "66"
+        },
+        {
+          "name": "TileSquare310x310Text07",
+          "value": "67"
+        },
+        {
+          "name": "TileSquare310x310Text08",
+          "value": "68"
+        },
+        {
+          "name": "TileSquare310x310TextList01",
+          "value": "69"
+        },
+        {
+          "name": "TileSquare310x310TextList02",
+          "value": "70"
+        },
+        {
+          "name": "TileSquare310x310TextList03",
+          "value": "71"
+        },
+        {
+          "name": "TileSquare310x310SmallImageAndText01",
+          "value": "72"
+        },
+        {
+          "name": "TileSquare310x310SmallImagesAndTextList05",
+          "value": "73"
+        },
+        {
+          "name": "TileSquare310x310Text09",
+          "value": "74"
+        },
+        {
+          "name": "TileSquare71x71IconWithBadge",
+          "value": "75"
+        },
+        {
+          "name": "TileSquare150x150IconWithBadge",
+          "value": "76"
+        },
+        {
+          "name": "TileWide310x150IconWithBadgeAndText",
+          "value": "77"
+        },
+        {
+          "name": "TileSquare71x71Image",
+          "value": "78"
+        },
+        {
+          "name": "TileTall150x310Image",
+          "value": "79"
+        }
+      ]
+    },
+    "ToastDismissalReason": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "UserCanceled",
+          "value": "0"
+        },
+        {
+          "name": "ApplicationHidden",
+          "value": "1"
+        },
+        {
+          "name": "TimedOut",
+          "value": "2"
+        }
+      ]
+    },
+    "ToastHistoryChangedType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Cleared",
+          "value": "0"
+        },
+        {
+          "name": "Removed",
+          "value": "1"
+        },
+        {
+          "name": "Expired",
+          "value": "2"
+        },
+        {
+          "name": "Added",
+          "value": "3"
+        }
+      ]
+    },
+    "ToastNotificationMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unrestricted",
+          "value": "0"
+        },
+        {
+          "name": "PriorityOnly",
+          "value": "1"
+        },
+        {
+          "name": "AlarmsOnly",
+          "value": "2"
+        }
+      ]
+    },
+    "ToastNotificationPriority": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "High",
+          "value": "1"
+        }
+      ]
+    },
+    "ToastTemplateType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "ToastImageAndText01",
+          "value": "0"
+        },
+        {
+          "name": "ToastImageAndText02",
+          "value": "1"
+        },
+        {
+          "name": "ToastImageAndText03",
+          "value": "2"
+        },
+        {
+          "name": "ToastImageAndText04",
+          "value": "3"
+        },
+        {
+          "name": "ToastText01",
+          "value": "4"
+        },
+        {
+          "name": "ToastText02",
+          "value": "5"
+        },
+        {
+          "name": "ToastText03",
+          "value": "6"
+        },
+        {
+          "name": "ToastText04",
+          "value": "7"
+        }
+      ]
+    },
+    "UserNotificationChangedKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Added",
+          "value": "0"
+        },
+        {
+          "name": "Removed",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IAdaptiveNotificationContent": {
+      "guid": "eb0dbe66-7448-448d-9db8-d78acd2abba9",
+      "methods": [
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AdaptiveNotificationContentKind",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Hints",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Hints",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Hints"
+        },
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AdaptiveNotificationContentKind",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        }
+      ]
+    },
+    "IAdaptiveNotificationText": {
+      "guid": "46d4a3be-609a-4326-a40b-bfde872034a3",
+      "exclusive_to": "Windows.UI.Notifications.AdaptiveNotificationText",
+      "methods": [
+        {
+          "name": "get_Text",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Text",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Language",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Language",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Language",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Language",
+          "setter": "put_Language"
+        },
+        {
+          "name": "Text",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Text",
+          "setter": "put_Text"
+        }
+      ]
+    },
+    "IBadgeNotification": {
+      "guid": "075cb4ca-d08a-4e2f-9233-7e289c1f7722",
+      "exclusive_to": "Windows.UI.Notifications.BadgeNotification",
+      "methods": [
+        {
+          "name": "get_Content",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlDocument",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ExpirationTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ExpirationTime",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Content",
+          "type": {
+            "kind": "ApiRef",
+            "name": "XmlDocument",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          },
+          "getter": "get_Content"
+        },
+        {
+          "name": "ExpirationTime",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ExpirationTime",
+          "setter": "put_ExpirationTime"
+        }
+      ]
+    },
+    "IBadgeNotificationFactory": {
+      "guid": "edf255ce-0618-4d59-948a-5a61040c52f9",
+      "exclusive_to": "Windows.UI.Notifications.BadgeNotification",
+      "methods": [
+        {
+          "name": "CreateBadgeNotification",
+          "params": [
+            {
+              "name": "content",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XmlDocument",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BadgeNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IBadgeUpdateManagerForUser": {
+      "guid": "996b21bc-0386-44e5-ba8d-0c1077a62e92",
+      "exclusive_to": "Windows.UI.Notifications.BadgeUpdateManagerForUser",
+      "methods": [
+        {
+          "name": "CreateBadgeUpdaterForApplication",
+          "overload": "CreateBadgeUpdaterForApplication",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BadgeUpdater",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateBadgeUpdaterForApplication",
+          "overload": "CreateBadgeUpdaterForApplicationWithId",
+          "params": [
+            {
+              "name": "applicationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BadgeUpdater",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateBadgeUpdaterForSecondaryTile",
+          "params": [
+            {
+              "name": "tileId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BadgeUpdater",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ]
+    },
+    "IBadgeUpdateManagerStatics": {
+      "guid": "33400faa-6dd5-4105-aebc-9b50fca492da",
+      "exclusive_to": "Windows.UI.Notifications.BadgeUpdateManager",
+      "methods": [
+        {
+          "name": "CreateBadgeUpdaterForApplication",
+          "overload": "CreateBadgeUpdaterForApplication",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BadgeUpdater",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateBadgeUpdaterForApplication",
+          "overload": "CreateBadgeUpdaterForApplicationWithId",
+          "params": [
+            {
+              "name": "applicationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BadgeUpdater",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateBadgeUpdaterForSecondaryTile",
+          "params": [
+            {
+              "name": "tileId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BadgeUpdater",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetTemplateContent",
+          "params": [
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BadgeTemplateType",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlDocument",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IBadgeUpdateManagerStatics2": {
+      "guid": "979a35ce-f940-48bf-94e8-ca244d400b41",
+      "exclusive_to": "Windows.UI.Notifications.BadgeUpdateManager",
+      "methods": [
+        {
+          "name": "GetForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BadgeUpdateManagerForUser",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IBadgeUpdater": {
+      "guid": "b5fa1fd4-7562-4f6c-bfa3-1b6ed2e57f2f",
+      "exclusive_to": "Windows.UI.Notifications.BadgeUpdater",
+      "methods": [
+        {
+          "name": "Update",
+          "params": [
+            {
+              "name": "notification",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BadgeNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Clear"
+        },
+        {
+          "name": "StartPeriodicUpdate",
+          "overload": "StartPeriodicUpdate",
+          "params": [
+            {
+              "name": "badgeContent",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "requestedInterval",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PeriodicUpdateRecurrence",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "StartPeriodicUpdate",
+          "overload": "StartPeriodicUpdateAtTime",
+          "params": [
+            {
+              "name": "badgeContent",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "startTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "requestedInterval",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PeriodicUpdateRecurrence",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "StopPeriodicUpdate"
+        }
+      ]
+    },
+    "IKnownAdaptiveNotificationHintsStatics": {
+      "guid": "06206598-d496-497d-8692-4f7d7c2770df",
+      "exclusive_to": "Windows.UI.Notifications.KnownAdaptiveNotificationHints",
+      "methods": [
+        {
+          "name": "get_Style",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Wrap",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MaxLines",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MinLines",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TextStacking",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Align",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Align",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Align"
+        },
+        {
+          "name": "MaxLines",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MaxLines"
+        },
+        {
+          "name": "MinLines",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MinLines"
+        },
+        {
+          "name": "Style",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Style"
+        },
+        {
+          "name": "TextStacking",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TextStacking"
+        },
+        {
+          "name": "Wrap",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Wrap"
+        }
+      ]
+    },
+    "IKnownAdaptiveNotificationTextStylesStatics": {
+      "guid": "202192d7-8996-45aa-8ba1-d461d72c2a1b",
+      "exclusive_to": "Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles",
+      "methods": [
+        {
+          "name": "get_Caption",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Body",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Base",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Subtitle",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Title",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Subheader",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Header",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TitleNumeral",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SubheaderNumeral",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_HeaderNumeral",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CaptionSubtle",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BodySubtle",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BaseSubtle",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SubtitleSubtle",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TitleSubtle",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SubheaderSubtle",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SubheaderNumeralSubtle",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_HeaderSubtle",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_HeaderNumeralSubtle",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Base",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Base"
+        },
+        {
+          "name": "BaseSubtle",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BaseSubtle"
+        },
+        {
+          "name": "Body",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Body"
+        },
+        {
+          "name": "BodySubtle",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BodySubtle"
+        },
+        {
+          "name": "Caption",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Caption"
+        },
+        {
+          "name": "CaptionSubtle",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CaptionSubtle"
+        },
+        {
+          "name": "Header",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Header"
+        },
+        {
+          "name": "HeaderNumeral",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HeaderNumeral"
+        },
+        {
+          "name": "HeaderNumeralSubtle",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HeaderNumeralSubtle"
+        },
+        {
+          "name": "HeaderSubtle",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HeaderSubtle"
+        },
+        {
+          "name": "Subheader",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Subheader"
+        },
+        {
+          "name": "SubheaderNumeral",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SubheaderNumeral"
+        },
+        {
+          "name": "SubheaderNumeralSubtle",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SubheaderNumeralSubtle"
+        },
+        {
+          "name": "SubheaderSubtle",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SubheaderSubtle"
+        },
+        {
+          "name": "Subtitle",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Subtitle"
+        },
+        {
+          "name": "SubtitleSubtle",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SubtitleSubtle"
+        },
+        {
+          "name": "Title",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Title"
+        },
+        {
+          "name": "TitleNumeral",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TitleNumeral"
+        },
+        {
+          "name": "TitleSubtle",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TitleSubtle"
+        }
+      ]
+    },
+    "IKnownNotificationBindingsStatics": {
+      "guid": "79427bae-a8b7-4d58-89ea-76a7b7bccded",
+      "exclusive_to": "Windows.UI.Notifications.KnownNotificationBindings",
+      "methods": [
+        {
+          "name": "get_ToastGeneric",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ToastGeneric",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ToastGeneric"
+        }
+      ]
+    },
+    "INotification": {
+      "guid": "108037fe-eb76-4f82-97bc-da07530a2e20",
+      "exclusive_to": "Windows.UI.Notifications.Notification",
+      "methods": [
+        {
+          "name": "get_ExpirationTime",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_ExpirationTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Visual",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NotificationVisual",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Visual",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NotificationVisual",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExpirationTime",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ExpirationTime",
+          "setter": "put_ExpirationTime"
+        },
+        {
+          "name": "Visual",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NotificationVisual",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          },
+          "getter": "get_Visual",
+          "setter": "put_Visual"
+        }
+      ]
+    },
+    "INotificationBinding": {
+      "guid": "f29e4b85-0370-4ad3-b4ea-da9e35e7eabf",
+      "exclusive_to": "Windows.UI.Notifications.NotificationBinding",
+      "methods": [
+        {
+          "name": "get_Template",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Template",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Language",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Language",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Hints",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetTextElements",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AdaptiveNotificationText",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Hints",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Hints"
+        },
+        {
+          "name": "Language",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Language",
+          "setter": "put_Language"
+        },
+        {
+          "name": "Template",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Template",
+          "setter": "put_Template"
+        }
+      ]
+    },
+    "INotificationData": {
+      "guid": "9ffd2312-9d6a-4aaf-b6ac-ff17f0c1f280",
+      "exclusive_to": "Windows.UI.Notifications.NotificationData",
+      "methods": [
+        {
+          "name": "get_Values",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SequenceNumber",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_SequenceNumber",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "SequenceNumber",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SequenceNumber",
+          "setter": "put_SequenceNumber"
+        },
+        {
+          "name": "Values",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_Values"
+        }
+      ]
+    },
+    "INotificationDataFactory": {
+      "guid": "23c1e33a-1c10-46fb-8040-dec384621cf8",
+      "exclusive_to": "Windows.UI.Notifications.NotificationData",
+      "methods": [
+        {
+          "name": "CreateNotificationData",
+          "overload": "CreateNotificationDataWithValuesAndSequenceNumber",
+          "params": [
+            {
+              "name": "initialValues",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "GenericInst",
+                    "name": "IKeyValuePair`2",
+                    "namespace": "Windows.Foundation.Collections",
+                    "target_kind": "Interface",
+                    "args": [
+                      {
+                        "kind": "Native",
+                        "name": "HString"
+                      },
+                      {
+                        "kind": "Native",
+                        "name": "HString"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "name": "sequenceNumber",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "NotificationData",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateNotificationData",
+          "overload": "CreateNotificationDataWithValues",
+          "params": [
+            {
+              "name": "initialValues",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "GenericInst",
+                    "name": "IKeyValuePair`2",
+                    "namespace": "Windows.Foundation.Collections",
+                    "target_kind": "Interface",
+                    "args": [
+                      {
+                        "kind": "Native",
+                        "name": "HString"
+                      },
+                      {
+                        "kind": "Native",
+                        "name": "HString"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "NotificationData",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "INotificationVisual": {
+      "guid": "68835b8e-aa56-4e11-86d3-5f9a6957bc5b",
+      "exclusive_to": "Windows.UI.Notifications.NotificationVisual",
+      "methods": [
+        {
+          "name": "get_Language",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Language",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Bindings",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "NotificationBinding",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetBinding",
+          "params": [
+            {
+              "name": "templateName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "NotificationBinding",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Bindings",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "NotificationBinding",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Bindings"
+        },
+        {
+          "name": "Language",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Language",
+          "setter": "put_Language"
+        }
+      ]
+    },
+    "IScheduledTileNotification": {
+      "guid": "0abca6d5-99dc-4c78-a11c-c9e7f86d7ef7",
+      "exclusive_to": "Windows.UI.Notifications.ScheduledTileNotification",
+      "methods": [
+        {
+          "name": "get_Content",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlDocument",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DeliveryTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_ExpirationTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ExpirationTime",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Tag",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Tag",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Id",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Content",
+          "type": {
+            "kind": "ApiRef",
+            "name": "XmlDocument",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          },
+          "getter": "get_Content"
+        },
+        {
+          "name": "DeliveryTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_DeliveryTime"
+        },
+        {
+          "name": "ExpirationTime",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ExpirationTime",
+          "setter": "put_ExpirationTime"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id",
+          "setter": "put_Id"
+        },
+        {
+          "name": "Tag",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Tag",
+          "setter": "put_Tag"
+        }
+      ]
+    },
+    "IScheduledTileNotificationFactory": {
+      "guid": "3383138a-98c0-4c3b-bbd6-4a633c7cfc29",
+      "exclusive_to": "Windows.UI.Notifications.ScheduledTileNotification",
+      "methods": [
+        {
+          "name": "CreateScheduledTileNotification",
+          "params": [
+            {
+              "name": "content",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XmlDocument",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "deliveryTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ScheduledTileNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IScheduledToastNotification": {
+      "guid": "79f577f8-0de7-48cd-9740-9b370490c838",
+      "exclusive_to": "Windows.UI.Notifications.ScheduledToastNotification",
+      "methods": [
+        {
+          "name": "get_Content",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlDocument",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DeliveryTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_SnoozeInterval",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_MaximumSnoozeCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_Id",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Content",
+          "type": {
+            "kind": "ApiRef",
+            "name": "XmlDocument",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          },
+          "getter": "get_Content"
+        },
+        {
+          "name": "DeliveryTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_DeliveryTime"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id",
+          "setter": "put_Id"
+        },
+        {
+          "name": "MaximumSnoozeCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaximumSnoozeCount"
+        },
+        {
+          "name": "SnoozeInterval",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_SnoozeInterval"
+        }
+      ]
+    },
+    "IScheduledToastNotification2": {
+      "guid": "a66ea09c-31b4-43b0-b5dd-7a40e85363b1",
+      "exclusive_to": "Windows.UI.Notifications.ScheduledToastNotification",
+      "methods": [
+        {
+          "name": "put_Tag",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Tag",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Group",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Group",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_SuppressPopup",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SuppressPopup",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Group",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Group",
+          "setter": "put_Group"
+        },
+        {
+          "name": "SuppressPopup",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SuppressPopup",
+          "setter": "put_SuppressPopup"
+        },
+        {
+          "name": "Tag",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Tag",
+          "setter": "put_Tag"
+        }
+      ]
+    },
+    "IScheduledToastNotification3": {
+      "guid": "98429e8b-bd32-4a3b-9d15-22aea49462a1",
+      "exclusive_to": "Windows.UI.Notifications.ScheduledToastNotification",
+      "methods": [
+        {
+          "name": "get_NotificationMirroring",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NotificationMirroring",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_NotificationMirroring",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NotificationMirroring",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RemoteId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_RemoteId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "NotificationMirroring",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NotificationMirroring",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Enum"
+          },
+          "getter": "get_NotificationMirroring",
+          "setter": "put_NotificationMirroring"
+        },
+        {
+          "name": "RemoteId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RemoteId",
+          "setter": "put_RemoteId"
+        }
+      ]
+    },
+    "IScheduledToastNotification4": {
+      "guid": "1d4761fd-bdef-4e4a-96be-0101369b58d2",
+      "exclusive_to": "Windows.UI.Notifications.ScheduledToastNotification",
+      "methods": [
+        {
+          "name": "get_ExpirationTime",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_ExpirationTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExpirationTime",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ExpirationTime",
+          "setter": "put_ExpirationTime"
+        }
+      ]
+    },
+    "IScheduledToastNotificationFactory": {
+      "guid": "e7bed191-0bb9-4189-8394-31761b476fd7",
+      "exclusive_to": "Windows.UI.Notifications.ScheduledToastNotification",
+      "methods": [
+        {
+          "name": "CreateScheduledToastNotification",
+          "params": [
+            {
+              "name": "content",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XmlDocument",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "deliveryTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ScheduledToastNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateScheduledToastNotificationRecurring",
+          "params": [
+            {
+              "name": "content",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XmlDocument",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "deliveryTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "snoozeInterval",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "maximumSnoozeCount",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ScheduledToastNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IScheduledToastNotificationShowingEventArgs": {
+      "guid": "6173f6b4-412a-5e2c-a6ed-a0209aef9a09",
+      "exclusive_to": "Windows.UI.Notifications.ScheduledToastNotificationShowingEventArgs",
+      "methods": [
+        {
+          "name": "get_Cancel",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Cancel",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ScheduledToastNotification",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ScheduledToastNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Cancel",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Cancel",
+          "setter": "put_Cancel"
+        },
+        {
+          "name": "ScheduledToastNotification",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ScheduledToastNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          },
+          "getter": "get_ScheduledToastNotification"
+        }
+      ]
+    },
+    "IShownTileNotification": {
+      "guid": "342d8988-5af2-481a-a6a3-f2fdc78de88e",
+      "exclusive_to": "Windows.UI.Notifications.ShownTileNotification",
+      "methods": [
+        {
+          "name": "get_Arguments",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Arguments",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Arguments"
+        }
+      ]
+    },
+    "ITileFlyoutNotification": {
+      "guid": "9a53b261-c70c-42be-b2f3-f42aa97d34e5",
+      "exclusive_to": "Windows.UI.Notifications.TileFlyoutNotification",
+      "methods": [
+        {
+          "name": "get_Content",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlDocument",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ExpirationTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ExpirationTime",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Content",
+          "type": {
+            "kind": "ApiRef",
+            "name": "XmlDocument",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          },
+          "getter": "get_Content"
+        },
+        {
+          "name": "ExpirationTime",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ExpirationTime",
+          "setter": "put_ExpirationTime"
+        }
+      ]
+    },
+    "ITileFlyoutNotificationFactory": {
+      "guid": "ef556ff5-5226-4f2b-b278-88a35dfe569f",
+      "exclusive_to": "Windows.UI.Notifications.TileFlyoutNotification",
+      "methods": [
+        {
+          "name": "CreateTileFlyoutNotification",
+          "params": [
+            {
+              "name": "content",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XmlDocument",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "TileFlyoutNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ITileFlyoutUpdateManagerStatics": {
+      "guid": "04363b0b-1ac0-4b99-88e7-ada83e953d48",
+      "exclusive_to": "Windows.UI.Notifications.TileFlyoutUpdateManager",
+      "methods": [
+        {
+          "name": "CreateTileFlyoutUpdaterForApplication",
+          "overload": "CreateTileFlyoutUpdaterForApplication",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TileFlyoutUpdater",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateTileFlyoutUpdaterForApplication",
+          "overload": "CreateTileFlyoutUpdaterForApplicationWithId",
+          "params": [
+            {
+              "name": "applicationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "TileFlyoutUpdater",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateTileFlyoutUpdaterForSecondaryTile",
+          "params": [
+            {
+              "name": "tileId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "TileFlyoutUpdater",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetTemplateContent",
+          "params": [
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TileFlyoutTemplateType",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlDocument",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ITileFlyoutUpdater": {
+      "guid": "8d40c76a-c465-4052-a740-5c2654c1a089",
+      "exclusive_to": "Windows.UI.Notifications.TileFlyoutUpdater",
+      "methods": [
+        {
+          "name": "Update",
+          "params": [
+            {
+              "name": "notification",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TileFlyoutNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Clear"
+        },
+        {
+          "name": "StartPeriodicUpdate",
+          "overload": "StartPeriodicUpdate",
+          "params": [
+            {
+              "name": "tileFlyoutContent",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "requestedInterval",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PeriodicUpdateRecurrence",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "StartPeriodicUpdate",
+          "overload": "StartPeriodicUpdateAtTime",
+          "params": [
+            {
+              "name": "tileFlyoutContent",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "startTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "requestedInterval",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PeriodicUpdateRecurrence",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "StopPeriodicUpdate"
+        },
+        {
+          "name": "get_Setting",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NotificationSetting",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Setting",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NotificationSetting",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Setting"
+        }
+      ]
+    },
+    "ITileNotification": {
+      "guid": "ebaec8fa-50ec-4c18-b4d0-3af02e5540ab",
+      "exclusive_to": "Windows.UI.Notifications.TileNotification",
+      "methods": [
+        {
+          "name": "get_Content",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlDocument",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ExpirationTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ExpirationTime",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Tag",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Tag",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Content",
+          "type": {
+            "kind": "ApiRef",
+            "name": "XmlDocument",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          },
+          "getter": "get_Content"
+        },
+        {
+          "name": "ExpirationTime",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ExpirationTime",
+          "setter": "put_ExpirationTime"
+        },
+        {
+          "name": "Tag",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Tag",
+          "setter": "put_Tag"
+        }
+      ]
+    },
+    "ITileNotificationFactory": {
+      "guid": "c6abdd6e-4928-46c8-bdbf-81a047dea0d4",
+      "exclusive_to": "Windows.UI.Notifications.TileNotification",
+      "methods": [
+        {
+          "name": "CreateTileNotification",
+          "params": [
+            {
+              "name": "content",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XmlDocument",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "TileNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ITileUpdateManagerForUser": {
+      "guid": "55141348-2ee2-4e2d-9cc1-216a20decc9f",
+      "exclusive_to": "Windows.UI.Notifications.TileUpdateManagerForUser",
+      "methods": [
+        {
+          "name": "CreateTileUpdaterForApplicationForUser",
+          "overload": "CreateTileUpdaterForApplication",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TileUpdater",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateTileUpdaterForApplication",
+          "overload": "CreateTileUpdaterForApplicationWithId",
+          "params": [
+            {
+              "name": "applicationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "TileUpdater",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateTileUpdaterForSecondaryTile",
+          "params": [
+            {
+              "name": "tileId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "TileUpdater",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ]
+    },
+    "ITileUpdateManagerStatics": {
+      "guid": "da159e5d-3ea9-4986-8d84-b09d5e12276d",
+      "exclusive_to": "Windows.UI.Notifications.TileUpdateManager",
+      "methods": [
+        {
+          "name": "CreateTileUpdaterForApplication",
+          "overload": "CreateTileUpdaterForApplication",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TileUpdater",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateTileUpdaterForApplication",
+          "overload": "CreateTileUpdaterForApplicationWithId",
+          "params": [
+            {
+              "name": "applicationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "TileUpdater",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateTileUpdaterForSecondaryTile",
+          "params": [
+            {
+              "name": "tileId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "TileUpdater",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetTemplateContent",
+          "params": [
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TileTemplateType",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlDocument",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ITileUpdateManagerStatics2": {
+      "guid": "731c1ddc-8e14-4b7c-a34b-9d22de76c84d",
+      "exclusive_to": "Windows.UI.Notifications.TileUpdateManager",
+      "methods": [
+        {
+          "name": "GetForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "TileUpdateManagerForUser",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ITileUpdater": {
+      "guid": "0942a48b-1d91-44ec-9243-c1e821c29a20",
+      "exclusive_to": "Windows.UI.Notifications.TileUpdater",
+      "methods": [
+        {
+          "name": "Update",
+          "params": [
+            {
+              "name": "notification",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TileNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Clear"
+        },
+        {
+          "name": "EnableNotificationQueue",
+          "params": [
+            {
+              "name": "enable",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Setting",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NotificationSetting",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "AddToSchedule",
+          "params": [
+            {
+              "name": "scheduledTile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ScheduledTileNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RemoveFromSchedule",
+          "params": [
+            {
+              "name": "scheduledTile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ScheduledTileNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetScheduledTileNotifications",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ScheduledTileNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "StartPeriodicUpdate",
+          "overload": "StartPeriodicUpdate",
+          "params": [
+            {
+              "name": "tileContent",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "requestedInterval",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PeriodicUpdateRecurrence",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "StartPeriodicUpdate",
+          "overload": "StartPeriodicUpdateAtTime",
+          "params": [
+            {
+              "name": "tileContent",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "startTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "requestedInterval",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PeriodicUpdateRecurrence",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "StopPeriodicUpdate"
+        },
+        {
+          "name": "StartPeriodicUpdateBatch",
+          "overload": "StartPeriodicUpdateBatch",
+          "params": [
+            {
+              "name": "tileContents",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "requestedInterval",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PeriodicUpdateRecurrence",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "StartPeriodicUpdateBatch",
+          "overload": "StartPeriodicUpdateBatchAtTime",
+          "params": [
+            {
+              "name": "tileContents",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Uri",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "startTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "requestedInterval",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PeriodicUpdateRecurrence",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Setting",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NotificationSetting",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Setting"
+        }
+      ]
+    },
+    "ITileUpdater2": {
+      "guid": "a2266e12-15ee-43ed-83f5-65b352bb1a84",
+      "exclusive_to": "Windows.UI.Notifications.TileUpdater",
+      "methods": [
+        {
+          "name": "EnableNotificationQueueForSquare150x150",
+          "params": [
+            {
+              "name": "enable",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "EnableNotificationQueueForWide310x150",
+          "params": [
+            {
+              "name": "enable",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "EnableNotificationQueueForSquare310x310",
+          "params": [
+            {
+              "name": "enable",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IToastActivatedEventArgs": {
+      "guid": "e3bf92f3-c197-436f-8265-0625824f8dac",
+      "exclusive_to": "Windows.UI.Notifications.ToastActivatedEventArgs",
+      "methods": [
+        {
+          "name": "get_Arguments",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Arguments",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Arguments"
+        }
+      ]
+    },
+    "IToastActivatedEventArgs2": {
+      "guid": "ab7da512-cc61-568e-81be-304ac31038fa",
+      "exclusive_to": "Windows.UI.Notifications.ToastActivatedEventArgs",
+      "methods": [
+        {
+          "name": "get_UserInput",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "UserInput",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          },
+          "getter": "get_UserInput"
+        }
+      ]
+    },
+    "IToastCollection": {
+      "guid": "0a8bc3b0-e0be-4858-bc2a-89dfe0b32863",
+      "exclusive_to": "Windows.UI.Notifications.ToastCollection",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DisplayName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LaunchArgs",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_LaunchArgs",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Icon",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Icon",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName",
+          "setter": "put_DisplayName"
+        },
+        {
+          "name": "Icon",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Icon",
+          "setter": "put_Icon"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "LaunchArgs",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LaunchArgs",
+          "setter": "put_LaunchArgs"
+        }
+      ]
+    },
+    "IToastCollectionFactory": {
+      "guid": "164dd3d7-73c4-44f7-b4ff-fb6d4bf1f4c6",
+      "exclusive_to": "Windows.UI.Notifications.ToastCollection",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "collectionId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "displayName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "launchArgs",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "iconUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ToastCollection",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IToastCollectionManager": {
+      "guid": "2a1821fe-179d-49bc-b79d-a527920d3665",
+      "exclusive_to": "Windows.UI.Notifications.ToastCollectionManager",
+      "methods": [
+        {
+          "name": "SaveToastCollectionAsync",
+          "params": [
+            {
+              "name": "collection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ToastCollection",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "FindAllToastCollectionsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ToastCollection",
+                    "namespace": "Windows.UI.Notifications",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetToastCollectionAsync",
+          "params": [
+            {
+              "name": "collectionId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ToastCollection",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RemoveToastCollectionAsync",
+          "params": [
+            {
+              "name": "collectionId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "RemoveAllToastCollectionsAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_AppId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppId"
+        },
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ]
+    },
+    "IToastDismissedEventArgs": {
+      "guid": "3f89d935-d9cb-4538-a0f0-ffe7659938f8",
+      "exclusive_to": "Windows.UI.Notifications.ToastDismissedEventArgs",
+      "methods": [
+        {
+          "name": "get_Reason",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ToastDismissalReason",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Reason",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ToastDismissalReason",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Reason"
+        }
+      ]
+    },
+    "IToastFailedEventArgs": {
+      "guid": "35176862-cfd4-44f8-ad64-f500fd896c3b",
+      "exclusive_to": "Windows.UI.Notifications.ToastFailedEventArgs",
+      "methods": [
+        {
+          "name": "get_ErrorCode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ErrorCode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ErrorCode"
+        }
+      ]
+    },
+    "IToastNotification": {
+      "guid": "997e2675-059e-4e60-8b06-1760917c8b80",
+      "exclusive_to": "Windows.UI.Notifications.ToastNotification",
+      "methods": [
+        {
+          "name": "get_Content",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlDocument",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ExpirationTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ExpirationTime",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_Dismissed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ToastNotification",
+                    "namespace": "Windows.UI.Notifications",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "ToastDismissedEventArgs",
+                    "namespace": "Windows.UI.Notifications",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Dismissed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Activated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ToastNotification",
+                    "namespace": "Windows.UI.Notifications",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Activated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Failed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ToastNotification",
+                    "namespace": "Windows.UI.Notifications",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "ToastFailedEventArgs",
+                    "namespace": "Windows.UI.Notifications",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Failed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Content",
+          "type": {
+            "kind": "ApiRef",
+            "name": "XmlDocument",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          },
+          "getter": "get_Content"
+        },
+        {
+          "name": "ExpirationTime",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ExpirationTime",
+          "setter": "put_ExpirationTime"
+        }
+      ],
+      "events": [
+        {
+          "name": "Activated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ToastNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_Activated",
+          "remove_method": "remove_Activated"
+        },
+        {
+          "name": "Dismissed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ToastNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "ToastDismissedEventArgs",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Dismissed",
+          "remove_method": "remove_Dismissed"
+        },
+        {
+          "name": "Failed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ToastNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "ToastFailedEventArgs",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Failed",
+          "remove_method": "remove_Failed"
+        }
+      ]
+    },
+    "IToastNotification2": {
+      "guid": "9dfb9fd1-143a-490e-90bf-b9fba7132de7",
+      "exclusive_to": "Windows.UI.Notifications.ToastNotification",
+      "methods": [
+        {
+          "name": "put_Tag",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Tag",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Group",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Group",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_SuppressPopup",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SuppressPopup",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Group",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Group",
+          "setter": "put_Group"
+        },
+        {
+          "name": "SuppressPopup",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SuppressPopup",
+          "setter": "put_SuppressPopup"
+        },
+        {
+          "name": "Tag",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Tag",
+          "setter": "put_Tag"
+        }
+      ]
+    },
+    "IToastNotification3": {
+      "guid": "31e8aed8-8141-4f99-bc0a-c4ed21297d77",
+      "exclusive_to": "Windows.UI.Notifications.ToastNotification",
+      "methods": [
+        {
+          "name": "get_NotificationMirroring",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NotificationMirroring",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_NotificationMirroring",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NotificationMirroring",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RemoteId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_RemoteId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "NotificationMirroring",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NotificationMirroring",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Enum"
+          },
+          "getter": "get_NotificationMirroring",
+          "setter": "put_NotificationMirroring"
+        },
+        {
+          "name": "RemoteId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RemoteId",
+          "setter": "put_RemoteId"
+        }
+      ]
+    },
+    "IToastNotification4": {
+      "guid": "15154935-28ea-4727-88e9-c58680e2d118",
+      "exclusive_to": "Windows.UI.Notifications.ToastNotification",
+      "methods": [
+        {
+          "name": "get_Data",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NotificationData",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Data",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NotificationData",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Priority",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ToastNotificationPriority",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Priority",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ToastNotificationPriority",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Data",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NotificationData",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          },
+          "getter": "get_Data",
+          "setter": "put_Data"
+        },
+        {
+          "name": "Priority",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ToastNotificationPriority",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Priority",
+          "setter": "put_Priority"
+        }
+      ]
+    },
+    "IToastNotification6": {
+      "guid": "43ebfe53-89ae-5c1e-a279-3aecfe9b6f54",
+      "exclusive_to": "Windows.UI.Notifications.ToastNotification",
+      "methods": [
+        {
+          "name": "get_ExpiresOnReboot",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_ExpiresOnReboot",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExpiresOnReboot",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ExpiresOnReboot",
+          "setter": "put_ExpiresOnReboot"
+        }
+      ]
+    },
+    "IToastNotificationActionTriggerDetail": {
+      "guid": "9445135a-38f3-42f6-96aa-7955b0f03da2",
+      "exclusive_to": "Windows.UI.Notifications.ToastNotificationActionTriggerDetail",
+      "methods": [
+        {
+          "name": "get_Argument",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_UserInput",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Argument",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Argument"
+        },
+        {
+          "name": "UserInput",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          },
+          "getter": "get_UserInput"
+        }
+      ]
+    },
+    "IToastNotificationFactory": {
+      "guid": "04124b20-82c6-4229-b109-fd9ed4662b53",
+      "exclusive_to": "Windows.UI.Notifications.ToastNotification",
+      "methods": [
+        {
+          "name": "CreateToastNotification",
+          "params": [
+            {
+              "name": "content",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XmlDocument",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ToastNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IToastNotificationHistory": {
+      "guid": "5caddc63-01d3-4c97-986f-0533483fee14",
+      "exclusive_to": "Windows.UI.Notifications.ToastNotificationHistory",
+      "methods": [
+        {
+          "name": "RemoveGroup",
+          "overload": "RemoveGroup",
+          "params": [
+            {
+              "name": "group",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RemoveGroup",
+          "overload": "RemoveGroupWithId",
+          "params": [
+            {
+              "name": "group",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "applicationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Remove",
+          "overload": "RemoveGroupedTagWithId",
+          "params": [
+            {
+              "name": "tag",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "group",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "applicationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Remove",
+          "overload": "RemoveGroupedTag",
+          "params": [
+            {
+              "name": "tag",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "group",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Remove",
+          "overload": "Remove",
+          "params": [
+            {
+              "name": "tag",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Clear",
+          "overload": "Clear"
+        },
+        {
+          "name": "Clear",
+          "overload": "ClearWithId",
+          "params": [
+            {
+              "name": "applicationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IToastNotificationHistory2": {
+      "guid": "3bc3d253-2f31-4092-9129-8ad5abf067da",
+      "exclusive_to": "Windows.UI.Notifications.ToastNotificationHistory",
+      "methods": [
+        {
+          "name": "GetHistory",
+          "overload": "GetHistory",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ToastNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetHistory",
+          "overload": "GetHistoryWithId",
+          "params": [
+            {
+              "name": "applicationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ToastNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IToastNotificationHistoryChangedTriggerDetail": {
+      "guid": "db037ffa-0068-412c-9c83-267c37f65670",
+      "exclusive_to": "Windows.UI.Notifications.ToastNotificationHistoryChangedTriggerDetail",
+      "methods": [
+        {
+          "name": "get_ChangeType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ToastHistoryChangedType",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ChangeType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ToastHistoryChangedType",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ChangeType"
+        }
+      ]
+    },
+    "IToastNotificationHistoryChangedTriggerDetail2": {
+      "guid": "0b36e982-c871-49fb-babb-25bdbc4cc45b",
+      "exclusive_to": "Windows.UI.Notifications.ToastNotificationHistoryChangedTriggerDetail",
+      "methods": [
+        {
+          "name": "get_CollectionId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CollectionId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CollectionId"
+        }
+      ]
+    },
+    "IToastNotificationManagerForUser": {
+      "guid": "79ab57f6-43fe-487b-8a7f-99567200ae94",
+      "exclusive_to": "Windows.UI.Notifications.ToastNotificationManagerForUser",
+      "methods": [
+        {
+          "name": "CreateToastNotifier",
+          "overload": "CreateToastNotifier",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ToastNotifier",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateToastNotifier",
+          "overload": "CreateToastNotifierWithId",
+          "params": [
+            {
+              "name": "applicationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ToastNotifier",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_History",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ToastNotificationHistory",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "History",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ToastNotificationHistory",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          },
+          "getter": "get_History"
+        },
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ]
+    },
+    "IToastNotificationManagerForUser2": {
+      "guid": "679c64b7-81ab-42c2-8819-c958767753f4",
+      "exclusive_to": "Windows.UI.Notifications.ToastNotificationManagerForUser",
+      "methods": [
+        {
+          "name": "GetToastNotifierForToastCollectionIdAsync",
+          "params": [
+            {
+              "name": "collectionId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ToastNotifier",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetHistoryForToastCollectionIdAsync",
+          "params": [
+            {
+              "name": "collectionId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ToastNotificationHistory",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetToastCollectionManager",
+          "overload": "GetToastCollectionManager",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ToastCollectionManager",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetToastCollectionManager",
+          "overload": "GetToastCollectionManagerWithAppId",
+          "params": [
+            {
+              "name": "appId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ToastCollectionManager",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IToastNotificationManagerForUser3": {
+      "guid": "3efcb176-6cc1-56dc-973b-251f7aacb1c5",
+      "exclusive_to": "Windows.UI.Notifications.ToastNotificationManagerForUser",
+      "methods": [
+        {
+          "name": "get_NotificationMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ToastNotificationMode",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_NotificationModeChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ToastNotificationManagerForUser",
+                    "namespace": "Windows.UI.Notifications",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_NotificationModeChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "NotificationMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ToastNotificationMode",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Enum"
+          },
+          "getter": "get_NotificationMode"
+        }
+      ],
+      "events": [
+        {
+          "name": "NotificationModeChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ToastNotificationManagerForUser",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_NotificationModeChanged",
+          "remove_method": "remove_NotificationModeChanged"
+        }
+      ]
+    },
+    "IToastNotificationManagerStatics": {
+      "guid": "50ac103f-d235-4598-bbef-98fe4d1a3ad4",
+      "exclusive_to": "Windows.UI.Notifications.ToastNotificationManager",
+      "methods": [
+        {
+          "name": "CreateToastNotifier",
+          "overload": "CreateToastNotifier",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ToastNotifier",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateToastNotifier",
+          "overload": "CreateToastNotifierWithId",
+          "params": [
+            {
+              "name": "applicationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ToastNotifier",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetTemplateContent",
+          "params": [
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ToastTemplateType",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlDocument",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IToastNotificationManagerStatics2": {
+      "guid": "7ab93c52-0e48-4750-ba9d-1a4113981847",
+      "exclusive_to": "Windows.UI.Notifications.ToastNotificationManager",
+      "methods": [
+        {
+          "name": "get_History",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ToastNotificationHistory",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "History",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ToastNotificationHistory",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          },
+          "getter": "get_History"
+        }
+      ]
+    },
+    "IToastNotificationManagerStatics4": {
+      "guid": "8f993fd3-e516-45fb-8130-398e93fa52c3",
+      "exclusive_to": "Windows.UI.Notifications.ToastNotificationManager",
+      "methods": [
+        {
+          "name": "GetForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ToastNotificationManagerForUser",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ConfigureNotificationMirroring",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NotificationMirroring",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IToastNotificationManagerStatics5": {
+      "guid": "d6f5f569-d40d-407c-8989-88cab42cfd14",
+      "exclusive_to": "Windows.UI.Notifications.ToastNotificationManager",
+      "methods": [
+        {
+          "name": "GetDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ToastNotificationManagerForUser",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IToastNotifier": {
+      "guid": "75927b93-03f3-41ec-91d3-6e5bac1b38e7",
+      "exclusive_to": "Windows.UI.Notifications.ToastNotifier",
+      "methods": [
+        {
+          "name": "Show",
+          "params": [
+            {
+              "name": "notification",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ToastNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Hide",
+          "params": [
+            {
+              "name": "notification",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ToastNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Setting",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NotificationSetting",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "AddToSchedule",
+          "params": [
+            {
+              "name": "scheduledToast",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ScheduledToastNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RemoveFromSchedule",
+          "params": [
+            {
+              "name": "scheduledToast",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ScheduledToastNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetScheduledToastNotifications",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ScheduledToastNotification",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Setting",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NotificationSetting",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Setting"
+        }
+      ]
+    },
+    "IToastNotifier2": {
+      "guid": "354389c6-7c01-4bd5-9c20-604340cd2b74",
+      "exclusive_to": "Windows.UI.Notifications.ToastNotifier",
+      "methods": [
+        {
+          "name": "Update",
+          "overload": "UpdateWithTagAndGroup",
+          "params": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NotificationData",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "tag",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "group",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "NotificationUpdateResult",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Update",
+          "overload": "UpdateWithTag",
+          "params": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NotificationData",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "tag",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "NotificationUpdateResult",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Enum"
+          }
+        }
+      ]
+    },
+    "IToastNotifier3": {
+      "guid": "ae75a04a-3b0c-51ad-b7e8-b08ab6052549",
+      "exclusive_to": "Windows.UI.Notifications.ToastNotifier",
+      "methods": [
+        {
+          "name": "add_ScheduledToastNotificationShowing",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ToastNotifier",
+                    "namespace": "Windows.UI.Notifications",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "ScheduledToastNotificationShowingEventArgs",
+                    "namespace": "Windows.UI.Notifications",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ScheduledToastNotificationShowing",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "ScheduledToastNotificationShowing",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ToastNotifier",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "ScheduledToastNotificationShowingEventArgs",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ScheduledToastNotificationShowing",
+          "remove_method": "remove_ScheduledToastNotificationShowing"
+        }
+      ]
+    },
+    "IUserNotification": {
+      "guid": "adf7e52f-4e53-42d5-9c33-eb5ea515b23e",
+      "exclusive_to": "Windows.UI.Notifications.UserNotification",
+      "methods": [
+        {
+          "name": "get_Notification",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Notification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_AppInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppInfo",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_CreationTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppInfo",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          },
+          "getter": "get_AppInfo"
+        },
+        {
+          "name": "CreationTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_CreationTime"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "Notification",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Notification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          },
+          "getter": "get_Notification"
+        }
+      ]
+    },
+    "IUserNotificationChangedEventArgs": {
+      "guid": "b6bd6839-79cf-4b25-82c0-0ce1eef81f8c",
+      "exclusive_to": "Windows.UI.Notifications.UserNotificationChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_ChangeKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserNotificationChangedKind",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_UserNotificationId",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ChangeKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserNotificationChangedKind",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ChangeKind"
+        },
+        {
+          "name": "UserNotificationId",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_UserNotificationId"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AdaptiveNotificationText": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAdaptiveNotificationText",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveNotificationText",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveNotificationContent",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "BadgeNotification": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBadgeNotification",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBadgeNotification",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.UI.Notifications.IBadgeNotificationFactory"
+      ]
+    },
+    "BadgeUpdateManager": {
+      "static_interfaces": [
+        "Windows.UI.Notifications.IBadgeUpdateManagerStatics",
+        "Windows.UI.Notifications.IBadgeUpdateManagerStatics2"
+      ]
+    },
+    "BadgeUpdateManagerForUser": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBadgeUpdateManagerForUser",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBadgeUpdateManagerForUser",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BadgeUpdater": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBadgeUpdater",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBadgeUpdater",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "KnownAdaptiveNotificationHints": {
+      "static_interfaces": [
+        "Windows.UI.Notifications.IKnownAdaptiveNotificationHintsStatics"
+      ]
+    },
+    "KnownAdaptiveNotificationTextStyles": {
+      "static_interfaces": [
+        "Windows.UI.Notifications.IKnownAdaptiveNotificationTextStylesStatics"
+      ]
+    },
+    "KnownNotificationBindings": {
+      "static_interfaces": [
+        "Windows.UI.Notifications.IKnownNotificationBindingsStatics"
+      ]
+    },
+    "Notification": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INotification",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INotification",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "NotificationBinding": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INotificationBinding",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INotificationBinding",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "NotificationData": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INotificationData",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INotificationData",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.UI.Notifications.INotificationDataFactory"
+      ]
+    },
+    "NotificationVisual": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INotificationVisual",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INotificationVisual",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ScheduledTileNotification": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IScheduledTileNotification",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IScheduledTileNotification",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.UI.Notifications.IScheduledTileNotificationFactory"
+      ]
+    },
+    "ScheduledToastNotification": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IScheduledToastNotification",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IScheduledToastNotification",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IScheduledToastNotification2",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IScheduledToastNotification3",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IScheduledToastNotification4",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.UI.Notifications.IScheduledToastNotificationFactory"
+      ]
+    },
+    "ScheduledToastNotificationShowingEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IScheduledToastNotificationShowingEventArgs",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IScheduledToastNotificationShowingEventArgs",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ShownTileNotification": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IShownTileNotification",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IShownTileNotification",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "TileFlyoutNotification": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITileFlyoutNotification",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITileFlyoutNotification",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.UI.Notifications.ITileFlyoutNotificationFactory"
+      ]
+    },
+    "TileFlyoutUpdateManager": {
+      "static_interfaces": [
+        "Windows.UI.Notifications.ITileFlyoutUpdateManagerStatics"
+      ]
+    },
+    "TileFlyoutUpdater": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITileFlyoutUpdater",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITileFlyoutUpdater",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "TileNotification": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITileNotification",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITileNotification",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.UI.Notifications.ITileNotificationFactory"
+      ]
+    },
+    "TileUpdateManager": {
+      "static_interfaces": [
+        "Windows.UI.Notifications.ITileUpdateManagerStatics2",
+        "Windows.UI.Notifications.ITileUpdateManagerStatics"
+      ]
+    },
+    "TileUpdateManagerForUser": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITileUpdateManagerForUser",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITileUpdateManagerForUser",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "TileUpdater": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITileUpdater",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITileUpdater",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ITileUpdater2",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ToastActivatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IToastActivatedEventArgs",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IToastActivatedEventArgs",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IToastActivatedEventArgs2",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ToastCollection": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IToastCollection",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IToastCollection",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.UI.Notifications.IToastCollectionFactory"
+      ]
+    },
+    "ToastCollectionManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IToastCollectionManager",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IToastCollectionManager",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ToastDismissedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IToastDismissedEventArgs",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IToastDismissedEventArgs",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ToastFailedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IToastFailedEventArgs",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IToastFailedEventArgs",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ToastNotification": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IToastNotification",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IToastNotification",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IToastNotification2",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IToastNotification3",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IToastNotification4",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IToastNotification6",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.UI.Notifications.IToastNotificationFactory"
+      ]
+    },
+    "ToastNotificationActionTriggerDetail": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IToastNotificationActionTriggerDetail",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IToastNotificationActionTriggerDetail",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ToastNotificationHistory": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IToastNotificationHistory",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IToastNotificationHistory2",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IToastNotificationHistory",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ToastNotificationHistoryChangedTriggerDetail": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IToastNotificationHistoryChangedTriggerDetail",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IToastNotificationHistoryChangedTriggerDetail",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IToastNotificationHistoryChangedTriggerDetail2",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ToastNotificationManager": {
+      "static_interfaces": [
+        "Windows.UI.Notifications.IToastNotificationManagerStatics5",
+        "Windows.UI.Notifications.IToastNotificationManagerStatics4",
+        "Windows.UI.Notifications.IToastNotificationManagerStatics2",
+        "Windows.UI.Notifications.IToastNotificationManagerStatics"
+      ]
+    },
+    "ToastNotificationManagerForUser": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IToastNotificationManagerForUser",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IToastNotificationManagerForUser",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IToastNotificationManagerForUser2",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IToastNotificationManagerForUser3",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ToastNotifier": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IToastNotifier",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IToastNotifier",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IToastNotifier2",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IToastNotifier3",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserNotification": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserNotification",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserNotification",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserNotificationChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserNotificationChangedEventArgs",
+        "namespace": "Windows.UI.Notifications",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserNotificationChangedEventArgs",
+          "namespace": "Windows.UI.Notifications",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

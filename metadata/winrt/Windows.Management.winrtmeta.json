@@ -1,0 +1,556 @@
+{
+  "namespace": "Windows.Management",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "MdmAlertDataType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "String",
+          "value": "0"
+        },
+        {
+          "name": "Base64",
+          "value": "1"
+        },
+        {
+          "name": "Boolean",
+          "value": "2"
+        },
+        {
+          "name": "Integer",
+          "value": "3"
+        }
+      ]
+    },
+    "MdmAlertMark": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Fatal",
+          "value": "1"
+        },
+        {
+          "name": "Critical",
+          "value": "2"
+        },
+        {
+          "name": "Warning",
+          "value": "3"
+        },
+        {
+          "name": "Informational",
+          "value": "4"
+        }
+      ]
+    },
+    "MdmSessionState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "NotStarted",
+          "value": "0"
+        },
+        {
+          "name": "Starting",
+          "value": "1"
+        },
+        {
+          "name": "Connecting",
+          "value": "2"
+        },
+        {
+          "name": "Communicating",
+          "value": "3"
+        },
+        {
+          "name": "AlertStatusAvailable",
+          "value": "4"
+        },
+        {
+          "name": "Retrying",
+          "value": "5"
+        },
+        {
+          "name": "Completed",
+          "value": "6"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IMdmAlert": {
+      "guid": "b0fbc327-28c1-4b52-a548-c5807caf70b6",
+      "exclusive_to": "Windows.Management.MdmAlert",
+      "methods": [
+        {
+          "name": "get_Data",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Data",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Format",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MdmAlertDataType",
+            "namespace": "Windows.Management",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Format",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MdmAlertDataType",
+                "namespace": "Windows.Management",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Mark",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MdmAlertMark",
+            "namespace": "Windows.Management",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Mark",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MdmAlertMark",
+                "namespace": "Windows.Management",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Source",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Source",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Target",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Target",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Type",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Type",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Data",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Data",
+          "setter": "put_Data"
+        },
+        {
+          "name": "Format",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MdmAlertDataType",
+            "namespace": "Windows.Management",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Format",
+          "setter": "put_Format"
+        },
+        {
+          "name": "Mark",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MdmAlertMark",
+            "namespace": "Windows.Management",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Mark",
+          "setter": "put_Mark"
+        },
+        {
+          "name": "Source",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Source",
+          "setter": "put_Source"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Status"
+        },
+        {
+          "name": "Target",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Target",
+          "setter": "put_Target"
+        },
+        {
+          "name": "Type",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Type",
+          "setter": "put_Type"
+        }
+      ]
+    },
+    "IMdmSession": {
+      "guid": "fe89314c-8f64-4797-a9d7-9d88f86ae166",
+      "exclusive_to": "Windows.Management.MdmSession",
+      "methods": [
+        {
+          "name": "get_Alerts",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MdmAlert",
+                "namespace": "Windows.Management",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ExtendedError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_State",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MdmSessionState",
+            "namespace": "Windows.Management",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "AttachAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "Delete"
+        },
+        {
+          "name": "StartAsync",
+          "overload": "StartAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "StartAsync",
+          "overload": "StartWithAlertsAsync",
+          "params": [
+            {
+              "name": "alerts",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "MdmAlert",
+                    "namespace": "Windows.Management",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Alerts",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MdmAlert",
+                "namespace": "Windows.Management",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Alerts"
+        },
+        {
+          "name": "ExtendedError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtendedError"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "State",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MdmSessionState",
+            "namespace": "Windows.Management",
+            "target_kind": "Enum"
+          },
+          "getter": "get_State"
+        }
+      ]
+    },
+    "IMdmSessionManagerStatics": {
+      "guid": "cf4ad959-f745-4b79-9b5c-de0bf8efe44b",
+      "exclusive_to": "Windows.Management.MdmSessionManager",
+      "methods": [
+        {
+          "name": "get_SessionIds",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryCreateSession",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MdmSession",
+            "namespace": "Windows.Management",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "DeleteSessionById",
+          "params": [
+            {
+              "name": "sessionId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetSessionById",
+          "params": [
+            {
+              "name": "sessionId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MdmSession",
+            "namespace": "Windows.Management",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SessionIds",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_SessionIds"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "MdmAlert": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMdmAlert",
+        "namespace": "Windows.Management",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMdmAlert",
+          "namespace": "Windows.Management",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "MdmSession": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMdmSession",
+        "namespace": "Windows.Management",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMdmSession",
+          "namespace": "Windows.Management",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MdmSessionManager": {
+      "static_interfaces": [
+        "Windows.Management.IMdmSessionManagerStatics"
+      ]
+    }
+  }
+}

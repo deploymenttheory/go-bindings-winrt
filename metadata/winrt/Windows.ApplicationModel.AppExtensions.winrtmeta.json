@@ -1,0 +1,1070 @@
+{
+  "namespace": "Windows.ApplicationModel.AppExtensions",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IAppExtension": {
+      "guid": "8450902c-15ed-4faf-93ea-2237bbf8cbd6",
+      "exclusive_to": "Windows.ApplicationModel.AppExtensions.AppExtension",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Description",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Package",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Package",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_AppInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppInfo",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetExtensionPropertiesAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IPropertySet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetPublicFolderAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StorageFolder",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppInfo",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          },
+          "getter": "get_AppInfo"
+        },
+        {
+          "name": "Description",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Description"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "Package",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Package",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          },
+          "getter": "get_Package"
+        }
+      ]
+    },
+    "IAppExtension2": {
+      "guid": "ab3b15f0-14f9-4b9f-9419-a349a242ef38",
+      "exclusive_to": "Windows.ApplicationModel.AppExtensions.AppExtension",
+      "methods": [
+        {
+          "name": "get_AppUserModelId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppUserModelId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppUserModelId"
+        }
+      ]
+    },
+    "IAppExtension3": {
+      "guid": "5923c101-aa38-4009-84d9-5b54a0df30ae",
+      "exclusive_to": "Windows.ApplicationModel.AppExtensions.AppExtension",
+      "methods": [
+        {
+          "name": "GetExtensionProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IPropertySet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetPublicPath",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetPublicFolder",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageFolder",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IAppExtensionCatalog": {
+      "guid": "97872032-8426-4ad1-9084-92e88c2da200",
+      "exclusive_to": "Windows.ApplicationModel.AppExtensions.AppExtensionCatalog",
+      "methods": [
+        {
+          "name": "FindAllAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppExtension",
+                    "namespace": "Windows.ApplicationModel.AppExtensions",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestRemovePackageAsync",
+          "params": [
+            {
+              "name": "packageFullName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_PackageInstalled",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppExtensionCatalog",
+                    "namespace": "Windows.ApplicationModel.AppExtensions",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppExtensionPackageInstalledEventArgs",
+                    "namespace": "Windows.ApplicationModel.AppExtensions",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PackageInstalled",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PackageUpdating",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppExtensionCatalog",
+                    "namespace": "Windows.ApplicationModel.AppExtensions",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppExtensionPackageUpdatingEventArgs",
+                    "namespace": "Windows.ApplicationModel.AppExtensions",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PackageUpdating",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PackageUpdated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppExtensionCatalog",
+                    "namespace": "Windows.ApplicationModel.AppExtensions",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppExtensionPackageUpdatedEventArgs",
+                    "namespace": "Windows.ApplicationModel.AppExtensions",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PackageUpdated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PackageUninstalling",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppExtensionCatalog",
+                    "namespace": "Windows.ApplicationModel.AppExtensions",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppExtensionPackageUninstallingEventArgs",
+                    "namespace": "Windows.ApplicationModel.AppExtensions",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PackageUninstalling",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PackageStatusChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppExtensionCatalog",
+                    "namespace": "Windows.ApplicationModel.AppExtensions",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppExtensionPackageStatusChangedEventArgs",
+                    "namespace": "Windows.ApplicationModel.AppExtensions",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PackageStatusChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "PackageInstalled",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppExtensionCatalog",
+                "namespace": "Windows.ApplicationModel.AppExtensions",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AppExtensionPackageInstalledEventArgs",
+                "namespace": "Windows.ApplicationModel.AppExtensions",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PackageInstalled",
+          "remove_method": "remove_PackageInstalled"
+        },
+        {
+          "name": "PackageStatusChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppExtensionCatalog",
+                "namespace": "Windows.ApplicationModel.AppExtensions",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AppExtensionPackageStatusChangedEventArgs",
+                "namespace": "Windows.ApplicationModel.AppExtensions",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PackageStatusChanged",
+          "remove_method": "remove_PackageStatusChanged"
+        },
+        {
+          "name": "PackageUninstalling",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppExtensionCatalog",
+                "namespace": "Windows.ApplicationModel.AppExtensions",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AppExtensionPackageUninstallingEventArgs",
+                "namespace": "Windows.ApplicationModel.AppExtensions",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PackageUninstalling",
+          "remove_method": "remove_PackageUninstalling"
+        },
+        {
+          "name": "PackageUpdated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppExtensionCatalog",
+                "namespace": "Windows.ApplicationModel.AppExtensions",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AppExtensionPackageUpdatedEventArgs",
+                "namespace": "Windows.ApplicationModel.AppExtensions",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PackageUpdated",
+          "remove_method": "remove_PackageUpdated"
+        },
+        {
+          "name": "PackageUpdating",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppExtensionCatalog",
+                "namespace": "Windows.ApplicationModel.AppExtensions",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AppExtensionPackageUpdatingEventArgs",
+                "namespace": "Windows.ApplicationModel.AppExtensions",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PackageUpdating",
+          "remove_method": "remove_PackageUpdating"
+        }
+      ]
+    },
+    "IAppExtensionCatalog2": {
+      "guid": "50056eba-58b6-4147-b5a5-8feca6dfb49d",
+      "exclusive_to": "Windows.ApplicationModel.AppExtensions.AppExtensionCatalog",
+      "methods": [
+        {
+          "name": "FindAll",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppExtension",
+                "namespace": "Windows.ApplicationModel.AppExtensions",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IAppExtensionCatalogStatics": {
+      "guid": "3c36668a-5f18-4f0b-9ce5-cab61d196f11",
+      "exclusive_to": "Windows.ApplicationModel.AppExtensions.AppExtensionCatalog",
+      "methods": [
+        {
+          "name": "Open",
+          "params": [
+            {
+              "name": "appExtensionName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppExtensionCatalog",
+            "namespace": "Windows.ApplicationModel.AppExtensions",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IAppExtensionPackageInstalledEventArgs": {
+      "guid": "39e59234-3351-4a8d-9745-e7d3dd45bc48",
+      "exclusive_to": "Windows.ApplicationModel.AppExtensions.AppExtensionPackageInstalledEventArgs",
+      "methods": [
+        {
+          "name": "get_AppExtensionName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Package",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Package",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Extensions",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppExtension",
+                "namespace": "Windows.ApplicationModel.AppExtensions",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppExtensionName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppExtensionName"
+        },
+        {
+          "name": "Extensions",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppExtension",
+                "namespace": "Windows.ApplicationModel.AppExtensions",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Extensions"
+        },
+        {
+          "name": "Package",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Package",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          },
+          "getter": "get_Package"
+        }
+      ]
+    },
+    "IAppExtensionPackageStatusChangedEventArgs": {
+      "guid": "1ce17433-1153-44fd-87b1-8ae1050303df",
+      "exclusive_to": "Windows.ApplicationModel.AppExtensions.AppExtensionPackageStatusChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_AppExtensionName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Package",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Package",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppExtensionName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppExtensionName"
+        },
+        {
+          "name": "Package",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Package",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          },
+          "getter": "get_Package"
+        }
+      ]
+    },
+    "IAppExtensionPackageUninstallingEventArgs": {
+      "guid": "60f160c5-171e-40ff-ae98-ab2c20dd4d75",
+      "exclusive_to": "Windows.ApplicationModel.AppExtensions.AppExtensionPackageUninstallingEventArgs",
+      "methods": [
+        {
+          "name": "get_AppExtensionName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Package",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Package",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppExtensionName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppExtensionName"
+        },
+        {
+          "name": "Package",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Package",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          },
+          "getter": "get_Package"
+        }
+      ]
+    },
+    "IAppExtensionPackageUpdatedEventArgs": {
+      "guid": "3a83c43f-797e-44b5-ba24-a4c8b5a543d7",
+      "exclusive_to": "Windows.ApplicationModel.AppExtensions.AppExtensionPackageUpdatedEventArgs",
+      "methods": [
+        {
+          "name": "get_AppExtensionName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Package",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Package",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Extensions",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppExtension",
+                "namespace": "Windows.ApplicationModel.AppExtensions",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppExtensionName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppExtensionName"
+        },
+        {
+          "name": "Extensions",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppExtension",
+                "namespace": "Windows.ApplicationModel.AppExtensions",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Extensions"
+        },
+        {
+          "name": "Package",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Package",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          },
+          "getter": "get_Package"
+        }
+      ]
+    },
+    "IAppExtensionPackageUpdatingEventArgs": {
+      "guid": "7ed59329-1a65-4800-a700-b321009e306a",
+      "exclusive_to": "Windows.ApplicationModel.AppExtensions.AppExtensionPackageUpdatingEventArgs",
+      "methods": [
+        {
+          "name": "get_AppExtensionName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Package",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Package",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppExtensionName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppExtensionName"
+        },
+        {
+          "name": "Package",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Package",
+            "namespace": "Windows.ApplicationModel",
+            "target_kind": "Class"
+          },
+          "getter": "get_Package"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AppExtension": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppExtension",
+        "namespace": "Windows.ApplicationModel.AppExtensions",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppExtension",
+          "namespace": "Windows.ApplicationModel.AppExtensions",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppExtension2",
+          "namespace": "Windows.ApplicationModel.AppExtensions",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppExtension3",
+          "namespace": "Windows.ApplicationModel.AppExtensions",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppExtensionCatalog": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppExtensionCatalog",
+        "namespace": "Windows.ApplicationModel.AppExtensions",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppExtensionCatalog",
+          "namespace": "Windows.ApplicationModel.AppExtensions",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppExtensionCatalog2",
+          "namespace": "Windows.ApplicationModel.AppExtensions",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.ApplicationModel.AppExtensions.IAppExtensionCatalogStatics"
+      ]
+    },
+    "AppExtensionPackageInstalledEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppExtensionPackageInstalledEventArgs",
+        "namespace": "Windows.ApplicationModel.AppExtensions",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppExtensionPackageInstalledEventArgs",
+          "namespace": "Windows.ApplicationModel.AppExtensions",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppExtensionPackageStatusChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppExtensionPackageStatusChangedEventArgs",
+        "namespace": "Windows.ApplicationModel.AppExtensions",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppExtensionPackageStatusChangedEventArgs",
+          "namespace": "Windows.ApplicationModel.AppExtensions",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppExtensionPackageUninstallingEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppExtensionPackageUninstallingEventArgs",
+        "namespace": "Windows.ApplicationModel.AppExtensions",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppExtensionPackageUninstallingEventArgs",
+          "namespace": "Windows.ApplicationModel.AppExtensions",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppExtensionPackageUpdatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppExtensionPackageUpdatedEventArgs",
+        "namespace": "Windows.ApplicationModel.AppExtensions",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppExtensionPackageUpdatedEventArgs",
+          "namespace": "Windows.ApplicationModel.AppExtensions",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppExtensionPackageUpdatingEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppExtensionPackageUpdatingEventArgs",
+        "namespace": "Windows.ApplicationModel.AppExtensions",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppExtensionPackageUpdatingEventArgs",
+          "namespace": "Windows.ApplicationModel.AppExtensions",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

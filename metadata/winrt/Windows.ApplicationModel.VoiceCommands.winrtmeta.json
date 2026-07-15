@@ -1,0 +1,1441 @@
+{
+  "namespace": "Windows.ApplicationModel.VoiceCommands",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "VoiceCommandCompletionReason": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "CommunicationFailed",
+          "value": "1"
+        },
+        {
+          "name": "ResourceLimitsExceeded",
+          "value": "2"
+        },
+        {
+          "name": "Canceled",
+          "value": "3"
+        },
+        {
+          "name": "TimeoutExceeded",
+          "value": "4"
+        },
+        {
+          "name": "AppLaunched",
+          "value": "5"
+        },
+        {
+          "name": "Completed",
+          "value": "6"
+        }
+      ]
+    },
+    "VoiceCommandContentTileType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "TitleOnly",
+          "value": "0"
+        },
+        {
+          "name": "TitleWithText",
+          "value": "1"
+        },
+        {
+          "name": "TitleWith68x68Icon",
+          "value": "2"
+        },
+        {
+          "name": "TitleWith68x68IconAndText",
+          "value": "3"
+        },
+        {
+          "name": "TitleWith68x92Icon",
+          "value": "4"
+        },
+        {
+          "name": "TitleWith68x92IconAndText",
+          "value": "5"
+        },
+        {
+          "name": "TitleWith280x140Icon",
+          "value": "6"
+        },
+        {
+          "name": "TitleWith280x140IconAndText",
+          "value": "7"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IVoiceCommand": {
+      "guid": "936f5273-ec82-42a6-a55c-d2d79ec6f920",
+      "exclusive_to": "Windows.ApplicationModel.VoiceCommands.VoiceCommand",
+      "methods": [
+        {
+          "name": "get_CommandName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SpeechRecognitionResult",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionResult",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CommandName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CommandName"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "SpeechRecognitionResult",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SpeechRecognitionResult",
+            "namespace": "Windows.Media.SpeechRecognition",
+            "target_kind": "Class"
+          },
+          "getter": "get_SpeechRecognitionResult"
+        }
+      ]
+    },
+    "IVoiceCommandCompletedEventArgs": {
+      "guid": "c85e675d-fe42-432c-9907-09df9fcf64e8",
+      "exclusive_to": "Windows.ApplicationModel.VoiceCommands.VoiceCommandCompletedEventArgs",
+      "methods": [
+        {
+          "name": "get_Reason",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VoiceCommandCompletionReason",
+            "namespace": "Windows.ApplicationModel.VoiceCommands",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Reason",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VoiceCommandCompletionReason",
+            "namespace": "Windows.ApplicationModel.VoiceCommands",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Reason"
+        }
+      ]
+    },
+    "IVoiceCommandConfirmationResult": {
+      "guid": "a022593e-8221-4526-b083-840972262247",
+      "exclusive_to": "Windows.ApplicationModel.VoiceCommands.VoiceCommandConfirmationResult",
+      "methods": [
+        {
+          "name": "get_Confirmed",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Confirmed",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Confirmed"
+        }
+      ]
+    },
+    "IVoiceCommandContentTile": {
+      "guid": "3eefe9f0-b8c7-4c76-a0de-1607895ee327",
+      "exclusive_to": "Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTile",
+      "methods": [
+        {
+          "name": "get_Title",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Title",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TextLine1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_TextLine1",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TextLine2",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_TextLine2",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TextLine3",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_TextLine3",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Image",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IStorageFile",
+            "namespace": "Windows.Storage",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_Image",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AppContext",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "put_AppContext",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AppLaunchArgument",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_AppLaunchArgument",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ContentTileType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VoiceCommandContentTileType",
+            "namespace": "Windows.ApplicationModel.VoiceCommands",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_ContentTileType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VoiceCommandContentTileType",
+                "namespace": "Windows.ApplicationModel.VoiceCommands",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppContext",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_AppContext",
+          "setter": "put_AppContext"
+        },
+        {
+          "name": "AppLaunchArgument",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppLaunchArgument",
+          "setter": "put_AppLaunchArgument"
+        },
+        {
+          "name": "ContentTileType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VoiceCommandContentTileType",
+            "namespace": "Windows.ApplicationModel.VoiceCommands",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ContentTileType",
+          "setter": "put_ContentTileType"
+        },
+        {
+          "name": "Image",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IStorageFile",
+            "namespace": "Windows.Storage",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Image",
+          "setter": "put_Image"
+        },
+        {
+          "name": "TextLine1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TextLine1",
+          "setter": "put_TextLine1"
+        },
+        {
+          "name": "TextLine2",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TextLine2",
+          "setter": "put_TextLine2"
+        },
+        {
+          "name": "TextLine3",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TextLine3",
+          "setter": "put_TextLine3"
+        },
+        {
+          "name": "Title",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Title",
+          "setter": "put_Title"
+        }
+      ]
+    },
+    "IVoiceCommandDefinition": {
+      "guid": "7972aad0-0974-4979-984b-cb8959cd61ae",
+      "exclusive_to": "Windows.ApplicationModel.VoiceCommands.VoiceCommandDefinition",
+      "methods": [
+        {
+          "name": "get_Language",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "SetPhraseListAsync",
+          "params": [
+            {
+              "name": "phraseListName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "phraseList",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Language",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Language"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        }
+      ]
+    },
+    "IVoiceCommandDefinitionManagerStatics": {
+      "guid": "8fe7a69e-067e-4f16-a18c-5b17e9499940",
+      "exclusive_to": "Windows.ApplicationModel.VoiceCommands.VoiceCommandDefinitionManager",
+      "methods": [
+        {
+          "name": "InstallCommandDefinitionsFromStorageFileAsync",
+          "params": [
+            {
+              "name": "file",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_InstalledCommandDefinitions",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "VoiceCommandDefinition",
+                "namespace": "Windows.ApplicationModel.VoiceCommands",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InstalledCommandDefinitions",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "VoiceCommandDefinition",
+                "namespace": "Windows.ApplicationModel.VoiceCommands",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_InstalledCommandDefinitions"
+        }
+      ]
+    },
+    "IVoiceCommandDisambiguationResult": {
+      "guid": "ecc68cfe-c9ac-45df-a8ea-feea08ef9c5e",
+      "exclusive_to": "Windows.ApplicationModel.VoiceCommands.VoiceCommandDisambiguationResult",
+      "methods": [
+        {
+          "name": "get_SelectedItem",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VoiceCommandContentTile",
+            "namespace": "Windows.ApplicationModel.VoiceCommands",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SelectedItem",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VoiceCommandContentTile",
+            "namespace": "Windows.ApplicationModel.VoiceCommands",
+            "target_kind": "Class"
+          },
+          "getter": "get_SelectedItem"
+        }
+      ]
+    },
+    "IVoiceCommandResponse": {
+      "guid": "0284b30e-8a3b-4cc4-a6a1-cad5be2716b5",
+      "exclusive_to": "Windows.ApplicationModel.VoiceCommands.VoiceCommandResponse",
+      "methods": [
+        {
+          "name": "get_Message",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VoiceCommandUserMessage",
+            "namespace": "Windows.ApplicationModel.VoiceCommands",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Message",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VoiceCommandUserMessage",
+                "namespace": "Windows.ApplicationModel.VoiceCommands",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RepeatMessage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VoiceCommandUserMessage",
+            "namespace": "Windows.ApplicationModel.VoiceCommands",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_RepeatMessage",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VoiceCommandUserMessage",
+                "namespace": "Windows.ApplicationModel.VoiceCommands",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AppLaunchArgument",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_AppLaunchArgument",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_VoiceCommandContentTiles",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VoiceCommandContentTile",
+                "namespace": "Windows.ApplicationModel.VoiceCommands",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppLaunchArgument",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AppLaunchArgument",
+          "setter": "put_AppLaunchArgument"
+        },
+        {
+          "name": "Message",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VoiceCommandUserMessage",
+            "namespace": "Windows.ApplicationModel.VoiceCommands",
+            "target_kind": "Class"
+          },
+          "getter": "get_Message",
+          "setter": "put_Message"
+        },
+        {
+          "name": "RepeatMessage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VoiceCommandUserMessage",
+            "namespace": "Windows.ApplicationModel.VoiceCommands",
+            "target_kind": "Class"
+          },
+          "getter": "get_RepeatMessage",
+          "setter": "put_RepeatMessage"
+        },
+        {
+          "name": "VoiceCommandContentTiles",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VoiceCommandContentTile",
+                "namespace": "Windows.ApplicationModel.VoiceCommands",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_VoiceCommandContentTiles"
+        }
+      ]
+    },
+    "IVoiceCommandResponseStatics": {
+      "guid": "2932f813-0d3b-49f2-96dd-625019bd3b5d",
+      "exclusive_to": "Windows.ApplicationModel.VoiceCommands.VoiceCommandResponse",
+      "methods": [
+        {
+          "name": "get_MaxSupportedVoiceCommandContentTiles",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "CreateResponse",
+          "overload": "CreateResponse",
+          "params": [
+            {
+              "name": "userMessage",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VoiceCommandUserMessage",
+                "namespace": "Windows.ApplicationModel.VoiceCommands",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VoiceCommandResponse",
+            "namespace": "Windows.ApplicationModel.VoiceCommands",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateResponse",
+          "overload": "CreateResponseWithTiles",
+          "params": [
+            {
+              "name": "message",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VoiceCommandUserMessage",
+                "namespace": "Windows.ApplicationModel.VoiceCommands",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "contentTiles",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "VoiceCommandContentTile",
+                    "namespace": "Windows.ApplicationModel.VoiceCommands",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VoiceCommandResponse",
+            "namespace": "Windows.ApplicationModel.VoiceCommands",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateResponseForPrompt",
+          "overload": "CreateResponseForPrompt",
+          "params": [
+            {
+              "name": "message",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VoiceCommandUserMessage",
+                "namespace": "Windows.ApplicationModel.VoiceCommands",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "repeatMessage",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VoiceCommandUserMessage",
+                "namespace": "Windows.ApplicationModel.VoiceCommands",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VoiceCommandResponse",
+            "namespace": "Windows.ApplicationModel.VoiceCommands",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateResponseForPrompt",
+          "overload": "CreateResponseForPromptWithTiles",
+          "params": [
+            {
+              "name": "message",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VoiceCommandUserMessage",
+                "namespace": "Windows.ApplicationModel.VoiceCommands",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "repeatMessage",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VoiceCommandUserMessage",
+                "namespace": "Windows.ApplicationModel.VoiceCommands",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "contentTiles",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "VoiceCommandContentTile",
+                    "namespace": "Windows.ApplicationModel.VoiceCommands",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VoiceCommandResponse",
+            "namespace": "Windows.ApplicationModel.VoiceCommands",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "MaxSupportedVoiceCommandContentTiles",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxSupportedVoiceCommandContentTiles"
+        }
+      ]
+    },
+    "IVoiceCommandServiceConnection": {
+      "guid": "d894bb9f-21da-44a4-98a2-fb131920a9cc",
+      "exclusive_to": "Windows.ApplicationModel.VoiceCommands.VoiceCommandServiceConnection",
+      "methods": [
+        {
+          "name": "GetVoiceCommandAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VoiceCommand",
+                "namespace": "Windows.ApplicationModel.VoiceCommands",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestConfirmationAsync",
+          "params": [
+            {
+              "name": "response",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VoiceCommandResponse",
+                "namespace": "Windows.ApplicationModel.VoiceCommands",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VoiceCommandConfirmationResult",
+                "namespace": "Windows.ApplicationModel.VoiceCommands",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestDisambiguationAsync",
+          "params": [
+            {
+              "name": "response",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VoiceCommandResponse",
+                "namespace": "Windows.ApplicationModel.VoiceCommands",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VoiceCommandDisambiguationResult",
+                "namespace": "Windows.ApplicationModel.VoiceCommands",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ReportProgressAsync",
+          "params": [
+            {
+              "name": "response",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VoiceCommandResponse",
+                "namespace": "Windows.ApplicationModel.VoiceCommands",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportSuccessAsync",
+          "params": [
+            {
+              "name": "response",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VoiceCommandResponse",
+                "namespace": "Windows.ApplicationModel.VoiceCommands",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReportFailureAsync",
+          "params": [
+            {
+              "name": "response",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VoiceCommandResponse",
+                "namespace": "Windows.ApplicationModel.VoiceCommands",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "RequestAppLaunchAsync",
+          "params": [
+            {
+              "name": "response",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VoiceCommandResponse",
+                "namespace": "Windows.ApplicationModel.VoiceCommands",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Language",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Language",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_VoiceCommandCompleted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "VoiceCommandServiceConnection",
+                    "namespace": "Windows.ApplicationModel.VoiceCommands",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "VoiceCommandCompletedEventArgs",
+                    "namespace": "Windows.ApplicationModel.VoiceCommands",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_VoiceCommandCompleted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Language",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Language",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Class"
+          },
+          "getter": "get_Language"
+        }
+      ],
+      "events": [
+        {
+          "name": "VoiceCommandCompleted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VoiceCommandServiceConnection",
+                "namespace": "Windows.ApplicationModel.VoiceCommands",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "VoiceCommandCompletedEventArgs",
+                "namespace": "Windows.ApplicationModel.VoiceCommands",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_VoiceCommandCompleted",
+          "remove_method": "remove_VoiceCommandCompleted"
+        }
+      ]
+    },
+    "IVoiceCommandServiceConnectionStatics": {
+      "guid": "370ebffb-2d34-42df-8770-074d0f334697",
+      "exclusive_to": "Windows.ApplicationModel.VoiceCommands.VoiceCommandServiceConnection",
+      "methods": [
+        {
+          "name": "FromAppServiceTriggerDetails",
+          "params": [
+            {
+              "name": "triggerDetails",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppServiceTriggerDetails",
+                "namespace": "Windows.ApplicationModel.AppService",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VoiceCommandServiceConnection",
+            "namespace": "Windows.ApplicationModel.VoiceCommands",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IVoiceCommandUserMessage": {
+      "guid": "674eb3c0-44f6-4f07-b979-4c723fc08597",
+      "exclusive_to": "Windows.ApplicationModel.VoiceCommands.VoiceCommandUserMessage",
+      "methods": [
+        {
+          "name": "get_DisplayMessage",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DisplayMessage",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SpokenMessage",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_SpokenMessage",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayMessage",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayMessage",
+          "setter": "put_DisplayMessage"
+        },
+        {
+          "name": "SpokenMessage",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SpokenMessage",
+          "setter": "put_SpokenMessage"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "VoiceCommand": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVoiceCommand",
+        "namespace": "Windows.ApplicationModel.VoiceCommands",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVoiceCommand",
+          "namespace": "Windows.ApplicationModel.VoiceCommands",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VoiceCommandCompletedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVoiceCommandCompletedEventArgs",
+        "namespace": "Windows.ApplicationModel.VoiceCommands",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVoiceCommandCompletedEventArgs",
+          "namespace": "Windows.ApplicationModel.VoiceCommands",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VoiceCommandConfirmationResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVoiceCommandConfirmationResult",
+        "namespace": "Windows.ApplicationModel.VoiceCommands",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVoiceCommandConfirmationResult",
+          "namespace": "Windows.ApplicationModel.VoiceCommands",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VoiceCommandContentTile": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVoiceCommandContentTile",
+        "namespace": "Windows.ApplicationModel.VoiceCommands",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVoiceCommandContentTile",
+          "namespace": "Windows.ApplicationModel.VoiceCommands",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "VoiceCommandDefinition": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVoiceCommandDefinition",
+        "namespace": "Windows.ApplicationModel.VoiceCommands",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVoiceCommandDefinition",
+          "namespace": "Windows.ApplicationModel.VoiceCommands",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VoiceCommandDefinitionManager": {
+      "static_interfaces": [
+        "Windows.ApplicationModel.VoiceCommands.IVoiceCommandDefinitionManagerStatics"
+      ]
+    },
+    "VoiceCommandDisambiguationResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVoiceCommandDisambiguationResult",
+        "namespace": "Windows.ApplicationModel.VoiceCommands",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVoiceCommandDisambiguationResult",
+          "namespace": "Windows.ApplicationModel.VoiceCommands",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VoiceCommandResponse": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVoiceCommandResponse",
+        "namespace": "Windows.ApplicationModel.VoiceCommands",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVoiceCommandResponse",
+          "namespace": "Windows.ApplicationModel.VoiceCommands",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.ApplicationModel.VoiceCommands.IVoiceCommandResponseStatics"
+      ]
+    },
+    "VoiceCommandServiceConnection": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVoiceCommandServiceConnection",
+        "namespace": "Windows.ApplicationModel.VoiceCommands",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVoiceCommandServiceConnection",
+          "namespace": "Windows.ApplicationModel.VoiceCommands",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.ApplicationModel.VoiceCommands.IVoiceCommandServiceConnectionStatics"
+      ]
+    },
+    "VoiceCommandUserMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVoiceCommandUserMessage",
+        "namespace": "Windows.ApplicationModel.VoiceCommands",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVoiceCommandUserMessage",
+          "namespace": "Windows.ApplicationModel.VoiceCommands",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  }
+}

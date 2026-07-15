@@ -1,0 +1,100 @@
+{
+  "namespace": "Windows.Media.Core.Preview",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "ISoundLevelBrokerStatics": {
+      "guid": "6a633961-dbed-464c-a09a-33412f5caa3f",
+      "exclusive_to": "Windows.Media.Core.Preview.SoundLevelBroker",
+      "methods": [
+        {
+          "name": "get_SoundLevel",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SoundLevel",
+            "namespace": "Windows.Media",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_SoundLevelChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SoundLevelChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "SoundLevel",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SoundLevel",
+            "namespace": "Windows.Media",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SoundLevel"
+        }
+      ],
+      "events": [
+        {
+          "name": "SoundLevelChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_SoundLevelChanged",
+          "remove_method": "remove_SoundLevelChanged"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "SoundLevelBroker": {
+      "static_interfaces": [
+        "Windows.Media.Core.Preview.ISoundLevelBrokerStatics"
+      ]
+    }
+  }
+}

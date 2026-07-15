@@ -1,0 +1,2710 @@
+{
+  "namespace": "Windows.UI.Text.Core",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "CoreTextFormatUpdatingReason": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "CompositionUnconverted",
+          "value": "1"
+        },
+        {
+          "name": "CompositionConverted",
+          "value": "2"
+        },
+        {
+          "name": "CompositionTargetUnconverted",
+          "value": "3"
+        },
+        {
+          "name": "CompositionTargetConverted",
+          "value": "4"
+        }
+      ]
+    },
+    "CoreTextFormatUpdatingResult": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Succeeded",
+          "value": "0"
+        },
+        {
+          "name": "Failed",
+          "value": "1"
+        }
+      ]
+    },
+    "CoreTextInputPaneDisplayPolicy": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Automatic",
+          "value": "0"
+        },
+        {
+          "name": "Manual",
+          "value": "1"
+        }
+      ]
+    },
+    "CoreTextInputScope": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "Url",
+          "value": "1"
+        },
+        {
+          "name": "FilePath",
+          "value": "2"
+        },
+        {
+          "name": "FileName",
+          "value": "3"
+        },
+        {
+          "name": "EmailUserName",
+          "value": "4"
+        },
+        {
+          "name": "EmailAddress",
+          "value": "5"
+        },
+        {
+          "name": "UserName",
+          "value": "6"
+        },
+        {
+          "name": "PersonalFullName",
+          "value": "7"
+        },
+        {
+          "name": "PersonalNamePrefix",
+          "value": "8"
+        },
+        {
+          "name": "PersonalGivenName",
+          "value": "9"
+        },
+        {
+          "name": "PersonalMiddleName",
+          "value": "10"
+        },
+        {
+          "name": "PersonalSurname",
+          "value": "11"
+        },
+        {
+          "name": "PersonalNameSuffix",
+          "value": "12"
+        },
+        {
+          "name": "Address",
+          "value": "13"
+        },
+        {
+          "name": "AddressPostalCode",
+          "value": "14"
+        },
+        {
+          "name": "AddressStreet",
+          "value": "15"
+        },
+        {
+          "name": "AddressStateOrProvince",
+          "value": "16"
+        },
+        {
+          "name": "AddressCity",
+          "value": "17"
+        },
+        {
+          "name": "AddressCountryName",
+          "value": "18"
+        },
+        {
+          "name": "AddressCountryShortName",
+          "value": "19"
+        },
+        {
+          "name": "CurrencyAmountAndSymbol",
+          "value": "20"
+        },
+        {
+          "name": "CurrencyAmount",
+          "value": "21"
+        },
+        {
+          "name": "Date",
+          "value": "22"
+        },
+        {
+          "name": "DateMonth",
+          "value": "23"
+        },
+        {
+          "name": "DateDay",
+          "value": "24"
+        },
+        {
+          "name": "DateYear",
+          "value": "25"
+        },
+        {
+          "name": "DateMonthName",
+          "value": "26"
+        },
+        {
+          "name": "DateDayName",
+          "value": "27"
+        },
+        {
+          "name": "Number",
+          "value": "29"
+        },
+        {
+          "name": "SingleCharacter",
+          "value": "30"
+        },
+        {
+          "name": "Password",
+          "value": "31"
+        },
+        {
+          "name": "TelephoneNumber",
+          "value": "32"
+        },
+        {
+          "name": "TelephoneCountryCode",
+          "value": "33"
+        },
+        {
+          "name": "TelephoneAreaCode",
+          "value": "34"
+        },
+        {
+          "name": "TelephoneLocalNumber",
+          "value": "35"
+        },
+        {
+          "name": "Time",
+          "value": "36"
+        },
+        {
+          "name": "TimeHour",
+          "value": "37"
+        },
+        {
+          "name": "TimeMinuteOrSecond",
+          "value": "38"
+        },
+        {
+          "name": "NumberFullWidth",
+          "value": "39"
+        },
+        {
+          "name": "AlphanumericHalfWidth",
+          "value": "40"
+        },
+        {
+          "name": "AlphanumericFullWidth",
+          "value": "41"
+        },
+        {
+          "name": "CurrencyChinese",
+          "value": "42"
+        },
+        {
+          "name": "Bopomofo",
+          "value": "43"
+        },
+        {
+          "name": "Hiragana",
+          "value": "44"
+        },
+        {
+          "name": "KatakanaHalfWidth",
+          "value": "45"
+        },
+        {
+          "name": "KatakanaFullWidth",
+          "value": "46"
+        },
+        {
+          "name": "Hanja",
+          "value": "47"
+        },
+        {
+          "name": "HangulHalfWidth",
+          "value": "48"
+        },
+        {
+          "name": "HangulFullWidth",
+          "value": "49"
+        },
+        {
+          "name": "Search",
+          "value": "50"
+        },
+        {
+          "name": "Formula",
+          "value": "51"
+        },
+        {
+          "name": "SearchIncremental",
+          "value": "52"
+        },
+        {
+          "name": "ChineseHalfWidth",
+          "value": "53"
+        },
+        {
+          "name": "ChineseFullWidth",
+          "value": "54"
+        },
+        {
+          "name": "NativeScript",
+          "value": "55"
+        },
+        {
+          "name": "Text",
+          "value": "57"
+        },
+        {
+          "name": "Chat",
+          "value": "58"
+        },
+        {
+          "name": "NameOrPhoneNumber",
+          "value": "59"
+        },
+        {
+          "name": "EmailUserNameOrAddress",
+          "value": "60"
+        },
+        {
+          "name": "Private",
+          "value": "61"
+        },
+        {
+          "name": "Maps",
+          "value": "62"
+        },
+        {
+          "name": "PasswordNumeric",
+          "value": "63"
+        },
+        {
+          "name": "FormulaNumber",
+          "value": "67"
+        },
+        {
+          "name": "ChatWithoutEmoji",
+          "value": "68"
+        },
+        {
+          "name": "Digits",
+          "value": "28"
+        },
+        {
+          "name": "PinNumeric",
+          "value": "64"
+        },
+        {
+          "name": "PinAlphanumeric",
+          "value": "65"
+        }
+      ]
+    },
+    "CoreTextSelectionUpdatingResult": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Succeeded",
+          "value": "0"
+        },
+        {
+          "name": "Failed",
+          "value": "1"
+        }
+      ]
+    },
+    "CoreTextTextUpdatingResult": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Succeeded",
+          "value": "0"
+        },
+        {
+          "name": "Failed",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "CoreTextRange": {
+      "fields": [
+        {
+          "name": "StartCaretPosition",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "EndCaretPosition",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ICoreTextCompositionCompletedEventArgs": {
+      "guid": "1f34ebb6-b79f-4121-a5e7-fda9b8616e30",
+      "exclusive_to": "Windows.UI.Text.Core.CoreTextCompositionCompletedEventArgs",
+      "methods": [
+        {
+          "name": "get_IsCanceled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_CompositionSegments",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreTextCompositionSegment",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CompositionSegments",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreTextCompositionSegment",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_CompositionSegments"
+        },
+        {
+          "name": "IsCanceled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsCanceled"
+        }
+      ]
+    },
+    "ICoreTextCompositionSegment": {
+      "guid": "776c6bd9-4ead-4da7-8f47-3a88b523cc34",
+      "exclusive_to": "Windows.UI.Text.Core.CoreTextCompositionSegment",
+      "methods": [
+        {
+          "name": "get_PreconversionString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Range",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreTextRange",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PreconversionString",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PreconversionString"
+        },
+        {
+          "name": "Range",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreTextRange",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Range"
+        }
+      ]
+    },
+    "ICoreTextCompositionStartedEventArgs": {
+      "guid": "276b16a9-64e7-4ab0-bc4b-a02d73835bfb",
+      "exclusive_to": "Windows.UI.Text.Core.CoreTextCompositionStartedEventArgs",
+      "methods": [
+        {
+          "name": "get_IsCanceled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsCanceled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsCanceled"
+        }
+      ]
+    },
+    "ICoreTextEditContext": {
+      "guid": "bf6608af-4041-47c3-b263-a918eb5eaef2",
+      "exclusive_to": "Windows.UI.Text.Core.CoreTextEditContext",
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Name",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_InputScope",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreTextInputScope",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_InputScope",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreTextInputScope",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsReadOnly",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsReadOnly",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_InputPaneDisplayPolicy",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreTextInputPaneDisplayPolicy",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_InputPaneDisplayPolicy",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreTextInputPaneDisplayPolicy",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_TextRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreTextEditContext",
+                    "namespace": "Windows.UI.Text.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreTextTextRequestedEventArgs",
+                    "namespace": "Windows.UI.Text.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_TextRequested",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_SelectionRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreTextEditContext",
+                    "namespace": "Windows.UI.Text.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreTextSelectionRequestedEventArgs",
+                    "namespace": "Windows.UI.Text.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SelectionRequested",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_LayoutRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreTextEditContext",
+                    "namespace": "Windows.UI.Text.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreTextLayoutRequestedEventArgs",
+                    "namespace": "Windows.UI.Text.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_LayoutRequested",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_TextUpdating",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreTextEditContext",
+                    "namespace": "Windows.UI.Text.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreTextTextUpdatingEventArgs",
+                    "namespace": "Windows.UI.Text.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_TextUpdating",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_SelectionUpdating",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreTextEditContext",
+                    "namespace": "Windows.UI.Text.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreTextSelectionUpdatingEventArgs",
+                    "namespace": "Windows.UI.Text.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SelectionUpdating",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_FormatUpdating",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreTextEditContext",
+                    "namespace": "Windows.UI.Text.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreTextFormatUpdatingEventArgs",
+                    "namespace": "Windows.UI.Text.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_FormatUpdating",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_CompositionStarted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreTextEditContext",
+                    "namespace": "Windows.UI.Text.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreTextCompositionStartedEventArgs",
+                    "namespace": "Windows.UI.Text.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CompositionStarted",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_CompositionCompleted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreTextEditContext",
+                    "namespace": "Windows.UI.Text.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreTextCompositionCompletedEventArgs",
+                    "namespace": "Windows.UI.Text.Core",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CompositionCompleted",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_FocusRemoved",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreTextEditContext",
+                    "namespace": "Windows.UI.Text.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_FocusRemoved",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "NotifyFocusEnter"
+        },
+        {
+          "name": "NotifyFocusLeave"
+        },
+        {
+          "name": "NotifyTextChanged",
+          "params": [
+            {
+              "name": "modifiedRange",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreTextRange",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "newLength",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "newSelection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreTextRange",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "NotifySelectionChanged",
+          "params": [
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreTextRange",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "NotifyLayoutChanged"
+        }
+      ],
+      "properties": [
+        {
+          "name": "InputPaneDisplayPolicy",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreTextInputPaneDisplayPolicy",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InputPaneDisplayPolicy",
+          "setter": "put_InputPaneDisplayPolicy"
+        },
+        {
+          "name": "InputScope",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreTextInputScope",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InputScope",
+          "setter": "put_InputScope"
+        },
+        {
+          "name": "IsReadOnly",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsReadOnly",
+          "setter": "put_IsReadOnly"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name",
+          "setter": "put_Name"
+        }
+      ],
+      "events": [
+        {
+          "name": "CompositionCompleted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreTextEditContext",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CoreTextCompositionCompletedEventArgs",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_CompositionCompleted",
+          "remove_method": "remove_CompositionCompleted"
+        },
+        {
+          "name": "CompositionStarted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreTextEditContext",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CoreTextCompositionStartedEventArgs",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_CompositionStarted",
+          "remove_method": "remove_CompositionStarted"
+        },
+        {
+          "name": "FocusRemoved",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreTextEditContext",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_FocusRemoved",
+          "remove_method": "remove_FocusRemoved"
+        },
+        {
+          "name": "FormatUpdating",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreTextEditContext",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CoreTextFormatUpdatingEventArgs",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_FormatUpdating",
+          "remove_method": "remove_FormatUpdating"
+        },
+        {
+          "name": "LayoutRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreTextEditContext",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CoreTextLayoutRequestedEventArgs",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_LayoutRequested",
+          "remove_method": "remove_LayoutRequested"
+        },
+        {
+          "name": "SelectionRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreTextEditContext",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CoreTextSelectionRequestedEventArgs",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SelectionRequested",
+          "remove_method": "remove_SelectionRequested"
+        },
+        {
+          "name": "SelectionUpdating",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreTextEditContext",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CoreTextSelectionUpdatingEventArgs",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SelectionUpdating",
+          "remove_method": "remove_SelectionUpdating"
+        },
+        {
+          "name": "TextRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreTextEditContext",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CoreTextTextRequestedEventArgs",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_TextRequested",
+          "remove_method": "remove_TextRequested"
+        },
+        {
+          "name": "TextUpdating",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreTextEditContext",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CoreTextTextUpdatingEventArgs",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_TextUpdating",
+          "remove_method": "remove_TextUpdating"
+        }
+      ]
+    },
+    "ICoreTextEditContext2": {
+      "guid": "b1867dbb-083b-49e1-b281-2b35d62bf466",
+      "exclusive_to": "Windows.UI.Text.Core.CoreTextEditContext",
+      "methods": [
+        {
+          "name": "add_NotifyFocusLeaveCompleted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreTextEditContext",
+                    "namespace": "Windows.UI.Text.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_NotifyFocusLeaveCompleted",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "NotifyFocusLeaveCompleted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreTextEditContext",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_NotifyFocusLeaveCompleted",
+          "remove_method": "remove_NotifyFocusLeaveCompleted"
+        }
+      ]
+    },
+    "ICoreTextFormatUpdatingEventArgs": {
+      "guid": "7310bd33-b4a8-43b1-b37b-0724d4aca7ab",
+      "exclusive_to": "Windows.UI.Text.Core.CoreTextFormatUpdatingEventArgs",
+      "methods": [
+        {
+          "name": "get_Range",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreTextRange",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_TextColor",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UIElementType",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_BackgroundColor",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UIElementType",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_UnderlineColor",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UIElementType",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_UnderlineType",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UnderlineType",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Reason",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreTextFormatUpdatingReason",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Result",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreTextFormatUpdatingResult",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Result",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreTextFormatUpdatingResult",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsCanceled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BackgroundColor",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UIElementType",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_BackgroundColor"
+        },
+        {
+          "name": "IsCanceled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsCanceled"
+        },
+        {
+          "name": "Range",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreTextRange",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Range"
+        },
+        {
+          "name": "Reason",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreTextFormatUpdatingReason",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Reason"
+        },
+        {
+          "name": "Result",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreTextFormatUpdatingResult",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Result",
+          "setter": "put_Result"
+        },
+        {
+          "name": "TextColor",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UIElementType",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_TextColor"
+        },
+        {
+          "name": "UnderlineColor",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UIElementType",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_UnderlineColor"
+        },
+        {
+          "name": "UnderlineType",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UnderlineType",
+                "namespace": "Windows.UI.Text",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_UnderlineType"
+        }
+      ]
+    },
+    "ICoreTextLayoutBounds": {
+      "guid": "e972c974-4436-4917-80d0-a525e4ca6780",
+      "exclusive_to": "Windows.UI.Text.Core.CoreTextLayoutBounds",
+      "methods": [
+        {
+          "name": "get_TextBounds",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_TextBounds",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ControlBounds",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_ControlBounds",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ControlBounds",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ControlBounds",
+          "setter": "put_ControlBounds"
+        },
+        {
+          "name": "TextBounds",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_TextBounds",
+          "setter": "put_TextBounds"
+        }
+      ]
+    },
+    "ICoreTextLayoutRequest": {
+      "guid": "2555a8cc-51fd-4f03-98bf-ac78174d68e0",
+      "exclusive_to": "Windows.UI.Text.Core.CoreTextLayoutRequest",
+      "methods": [
+        {
+          "name": "get_Range",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreTextRange",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_LayoutBounds",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreTextLayoutBounds",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IsCanceled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsCanceled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsCanceled"
+        },
+        {
+          "name": "LayoutBounds",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreTextLayoutBounds",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_LayoutBounds"
+        },
+        {
+          "name": "Range",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreTextRange",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Range"
+        }
+      ]
+    },
+    "ICoreTextLayoutRequest2": {
+      "guid": "676de624-cd3d-4bcd-bf01-7f7110954511",
+      "exclusive_to": "Windows.UI.Text.Core.CoreTextLayoutRequest",
+      "methods": [
+        {
+          "name": "get_LayoutBoundsVisualPixels",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreTextLayoutBounds",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "LayoutBoundsVisualPixels",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreTextLayoutBounds",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_LayoutBoundsVisualPixels"
+        }
+      ]
+    },
+    "ICoreTextLayoutRequestedEventArgs": {
+      "guid": "b1dc6ae0-9a7b-4e9e-a566-4a6b5f8ad676",
+      "exclusive_to": "Windows.UI.Text.Core.CoreTextLayoutRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreTextLayoutRequest",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreTextLayoutRequest",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "ICoreTextSelectionRequest": {
+      "guid": "f0a70403-208b-4301-883c-74ca7485fd8d",
+      "exclusive_to": "Windows.UI.Text.Core.CoreTextSelectionRequest",
+      "methods": [
+        {
+          "name": "get_Selection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreTextRange",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Selection",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreTextRange",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsCanceled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsCanceled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsCanceled"
+        },
+        {
+          "name": "Selection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreTextRange",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Selection",
+          "setter": "put_Selection"
+        }
+      ]
+    },
+    "ICoreTextSelectionRequestedEventArgs": {
+      "guid": "13c6682b-f614-421a-8f4b-9ec8a5a37fcd",
+      "exclusive_to": "Windows.UI.Text.Core.CoreTextSelectionRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreTextSelectionRequest",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreTextSelectionRequest",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "ICoreTextSelectionUpdatingEventArgs": {
+      "guid": "d445839f-fe7f-4bd5-8a26-0922c1b3e639",
+      "exclusive_to": "Windows.UI.Text.Core.CoreTextSelectionUpdatingEventArgs",
+      "methods": [
+        {
+          "name": "get_Selection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreTextRange",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Result",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreTextSelectionUpdatingResult",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Result",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreTextSelectionUpdatingResult",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsCanceled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsCanceled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsCanceled"
+        },
+        {
+          "name": "Result",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreTextSelectionUpdatingResult",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Result",
+          "setter": "put_Result"
+        },
+        {
+          "name": "Selection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreTextRange",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Selection"
+        }
+      ]
+    },
+    "ICoreTextServicesManager": {
+      "guid": "c2507d83-6e0a-4a8a-bdf8-1948874854ba",
+      "exclusive_to": "Windows.UI.Text.Core.CoreTextServicesManager",
+      "methods": [
+        {
+          "name": "get_InputLanguage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Language",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_InputLanguageChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "CoreTextServicesManager",
+                    "namespace": "Windows.UI.Text.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_InputLanguageChanged",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CreateEditContext",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreTextEditContext",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InputLanguage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Language",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Class"
+          },
+          "getter": "get_InputLanguage"
+        }
+      ],
+      "events": [
+        {
+          "name": "InputLanguageChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CoreTextServicesManager",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_InputLanguageChanged",
+          "remove_method": "remove_InputLanguageChanged"
+        }
+      ]
+    },
+    "ICoreTextServicesManagerStatics": {
+      "guid": "1520a388-e2cf-4d65-aeb9-b32d86fe39b9",
+      "exclusive_to": "Windows.UI.Text.Core.CoreTextServicesManager",
+      "methods": [
+        {
+          "name": "GetForCurrentView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreTextServicesManager",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ICoreTextServicesStatics": {
+      "guid": "91859a46-eccf-47a4-8ae7-098a9c6fbb15",
+      "exclusive_to": "Windows.UI.Text.Core.CoreTextServicesConstants",
+      "methods": [
+        {
+          "name": "get_HiddenCharacter",
+          "return": {
+            "kind": "Native",
+            "name": "Char16"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HiddenCharacter",
+          "type": {
+            "kind": "Native",
+            "name": "Char16"
+          },
+          "getter": "get_HiddenCharacter"
+        }
+      ]
+    },
+    "ICoreTextTextRequest": {
+      "guid": "50d950a9-f51e-4cc1-8ca1-e6346d1a61be",
+      "exclusive_to": "Windows.UI.Text.Core.CoreTextTextRequest",
+      "methods": [
+        {
+          "name": "get_Range",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreTextRange",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Text",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Text",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsCanceled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsCanceled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsCanceled"
+        },
+        {
+          "name": "Range",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreTextRange",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Range"
+        },
+        {
+          "name": "Text",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Text",
+          "setter": "put_Text"
+        }
+      ]
+    },
+    "ICoreTextTextRequestedEventArgs": {
+      "guid": "f096a2d0-41c6-4c02-8b1a-d953b00cabb3",
+      "exclusive_to": "Windows.UI.Text.Core.CoreTextTextRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreTextTextRequest",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreTextTextRequest",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "ICoreTextTextUpdatingEventArgs": {
+      "guid": "eea7918d-cc2b-4f03-8ff6-02fd217db450",
+      "exclusive_to": "Windows.UI.Text.Core.CoreTextTextUpdatingEventArgs",
+      "methods": [
+        {
+          "name": "get_Range",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreTextRange",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Text",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NewSelection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreTextRange",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_InputLanguage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Language",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Result",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreTextTextUpdatingResult",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Result",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreTextTextUpdatingResult",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsCanceled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InputLanguage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Language",
+            "namespace": "Windows.Globalization",
+            "target_kind": "Class"
+          },
+          "getter": "get_InputLanguage"
+        },
+        {
+          "name": "IsCanceled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsCanceled"
+        },
+        {
+          "name": "NewSelection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreTextRange",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Struct"
+          },
+          "getter": "get_NewSelection"
+        },
+        {
+          "name": "Range",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreTextRange",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Range"
+        },
+        {
+          "name": "Result",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreTextTextUpdatingResult",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Result",
+          "setter": "put_Result"
+        },
+        {
+          "name": "Text",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Text"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "CoreTextCompositionCompletedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreTextCompositionCompletedEventArgs",
+        "namespace": "Windows.UI.Text.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreTextCompositionCompletedEventArgs",
+          "namespace": "Windows.UI.Text.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreTextCompositionSegment": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreTextCompositionSegment",
+        "namespace": "Windows.UI.Text.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreTextCompositionSegment",
+          "namespace": "Windows.UI.Text.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreTextCompositionStartedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreTextCompositionStartedEventArgs",
+        "namespace": "Windows.UI.Text.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreTextCompositionStartedEventArgs",
+          "namespace": "Windows.UI.Text.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreTextEditContext": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreTextEditContext",
+        "namespace": "Windows.UI.Text.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreTextEditContext",
+          "namespace": "Windows.UI.Text.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreTextEditContext2",
+          "namespace": "Windows.UI.Text.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreTextFormatUpdatingEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreTextFormatUpdatingEventArgs",
+        "namespace": "Windows.UI.Text.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreTextFormatUpdatingEventArgs",
+          "namespace": "Windows.UI.Text.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreTextLayoutBounds": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreTextLayoutBounds",
+        "namespace": "Windows.UI.Text.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreTextLayoutBounds",
+          "namespace": "Windows.UI.Text.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreTextLayoutRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreTextLayoutRequest",
+        "namespace": "Windows.UI.Text.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreTextLayoutRequest",
+          "namespace": "Windows.UI.Text.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICoreTextLayoutRequest2",
+          "namespace": "Windows.UI.Text.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreTextLayoutRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreTextLayoutRequestedEventArgs",
+        "namespace": "Windows.UI.Text.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreTextLayoutRequestedEventArgs",
+          "namespace": "Windows.UI.Text.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreTextSelectionRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreTextSelectionRequest",
+        "namespace": "Windows.UI.Text.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreTextSelectionRequest",
+          "namespace": "Windows.UI.Text.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreTextSelectionRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreTextSelectionRequestedEventArgs",
+        "namespace": "Windows.UI.Text.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreTextSelectionRequestedEventArgs",
+          "namespace": "Windows.UI.Text.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreTextSelectionUpdatingEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreTextSelectionUpdatingEventArgs",
+        "namespace": "Windows.UI.Text.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreTextSelectionUpdatingEventArgs",
+          "namespace": "Windows.UI.Text.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreTextServicesConstants": {
+      "static_interfaces": [
+        "Windows.UI.Text.Core.ICoreTextServicesStatics"
+      ]
+    },
+    "CoreTextServicesManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreTextServicesManager",
+        "namespace": "Windows.UI.Text.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreTextServicesManager",
+          "namespace": "Windows.UI.Text.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Text.Core.ICoreTextServicesManagerStatics"
+      ]
+    },
+    "CoreTextTextRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreTextTextRequest",
+        "namespace": "Windows.UI.Text.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreTextTextRequest",
+          "namespace": "Windows.UI.Text.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreTextTextRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreTextTextRequestedEventArgs",
+        "namespace": "Windows.UI.Text.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreTextTextRequestedEventArgs",
+          "namespace": "Windows.UI.Text.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CoreTextTextUpdatingEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICoreTextTextUpdatingEventArgs",
+        "namespace": "Windows.UI.Text.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICoreTextTextUpdatingEventArgs",
+          "namespace": "Windows.UI.Text.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

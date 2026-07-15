@@ -1,0 +1,1458 @@
+{
+  "namespace": "Windows.ApplicationModel.UserActivities",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "UserActivityState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "New",
+          "value": "0"
+        },
+        {
+          "name": "Published",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IUserActivity": {
+      "guid": "fc103e9e-2cab-4d36-aea2-b4bb556cef0f",
+      "exclusive_to": "Windows.ApplicationModel.UserActivities.UserActivity",
+      "methods": [
+        {
+          "name": "get_State",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserActivityState",
+            "namespace": "Windows.ApplicationModel.UserActivities",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ActivityId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_VisualElements",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserActivityVisualElements",
+            "namespace": "Windows.ApplicationModel.UserActivities",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ContentUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ContentUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ContentType",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_ContentType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FallbackUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_FallbackUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ActivationUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ActivationUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ContentInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IUserActivityContentInfo",
+            "namespace": "Windows.ApplicationModel.UserActivities",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_ContentInfo",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IUserActivityContentInfo",
+                "namespace": "Windows.ApplicationModel.UserActivities",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SaveAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "CreateSession",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserActivitySession",
+            "namespace": "Windows.ApplicationModel.UserActivities",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ActivationUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_ActivationUri",
+          "setter": "put_ActivationUri"
+        },
+        {
+          "name": "ActivityId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ActivityId"
+        },
+        {
+          "name": "ContentInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IUserActivityContentInfo",
+            "namespace": "Windows.ApplicationModel.UserActivities",
+            "target_kind": "Interface"
+          },
+          "getter": "get_ContentInfo",
+          "setter": "put_ContentInfo"
+        },
+        {
+          "name": "ContentType",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ContentType",
+          "setter": "put_ContentType"
+        },
+        {
+          "name": "ContentUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_ContentUri",
+          "setter": "put_ContentUri"
+        },
+        {
+          "name": "FallbackUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_FallbackUri",
+          "setter": "put_FallbackUri"
+        },
+        {
+          "name": "State",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserActivityState",
+            "namespace": "Windows.ApplicationModel.UserActivities",
+            "target_kind": "Enum"
+          },
+          "getter": "get_State"
+        },
+        {
+          "name": "VisualElements",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserActivityVisualElements",
+            "namespace": "Windows.ApplicationModel.UserActivities",
+            "target_kind": "Class"
+          },
+          "getter": "get_VisualElements"
+        }
+      ]
+    },
+    "IUserActivity2": {
+      "guid": "9dc40c62-08c4-47ac-aa9c-2bb2221c55fd",
+      "exclusive_to": "Windows.ApplicationModel.UserActivities.UserActivity",
+      "methods": [
+        {
+          "name": "ToJson",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "IUserActivity3": {
+      "guid": "e7697744-e1a2-5147-8e06-55f1eeef271c",
+      "exclusive_to": "Windows.ApplicationModel.UserActivities.UserActivity",
+      "methods": [
+        {
+          "name": "get_IsRoamable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsRoamable",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsRoamable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsRoamable",
+          "setter": "put_IsRoamable"
+        }
+      ]
+    },
+    "IUserActivityAttribution": {
+      "guid": "34a5c8b5-86dd-4aec-a491-6a4faea5d22e",
+      "exclusive_to": "Windows.ApplicationModel.UserActivities.UserActivityAttribution",
+      "methods": [
+        {
+          "name": "get_IconUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_IconUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AlternateText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_AlternateText",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AddImageQuery",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AddImageQuery",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AddImageQuery",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AddImageQuery",
+          "setter": "put_AddImageQuery"
+        },
+        {
+          "name": "AlternateText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AlternateText",
+          "setter": "put_AlternateText"
+        },
+        {
+          "name": "IconUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_IconUri",
+          "setter": "put_IconUri"
+        }
+      ]
+    },
+    "IUserActivityAttributionFactory": {
+      "guid": "e62bd252-c566-4f42-9974-916c4d76377e",
+      "exclusive_to": "Windows.ApplicationModel.UserActivities.UserActivityAttribution",
+      "methods": [
+        {
+          "name": "CreateWithUri",
+          "params": [
+            {
+              "name": "iconUri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserActivityAttribution",
+            "namespace": "Windows.ApplicationModel.UserActivities",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IUserActivityChannel": {
+      "guid": "bac0f8b8-a0e4-483b-b948-9cbabd06070c",
+      "exclusive_to": "Windows.ApplicationModel.UserActivities.UserActivityChannel",
+      "methods": [
+        {
+          "name": "GetOrCreateUserActivityAsync",
+          "overload": "GetOrCreateUserActivityAsync",
+          "params": [
+            {
+              "name": "activityId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserActivity",
+                "namespace": "Windows.ApplicationModel.UserActivities",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "DeleteActivityAsync",
+          "params": [
+            {
+              "name": "activityId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "DeleteAllActivitiesAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IUserActivityChannel2": {
+      "guid": "1698e35b-eb7e-4ea0-bf17-a459e8be706c",
+      "exclusive_to": "Windows.ApplicationModel.UserActivities.UserActivityChannel",
+      "methods": [
+        {
+          "name": "GetRecentUserActivitiesAsync",
+          "params": [
+            {
+              "name": "maxUniqueActivities",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVector`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserActivitySessionHistoryItem",
+                    "namespace": "Windows.ApplicationModel.UserActivities",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetSessionHistoryItemsForUserActivityAsync",
+          "params": [
+            {
+              "name": "activityId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "startTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVector`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserActivitySessionHistoryItem",
+                    "namespace": "Windows.ApplicationModel.UserActivities",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IUserActivityChannelStatics": {
+      "guid": "c8c005ab-198d-4d80-abb2-c9775ec4a729",
+      "exclusive_to": "Windows.ApplicationModel.UserActivities.UserActivityChannel",
+      "methods": [
+        {
+          "name": "GetDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserActivityChannel",
+            "namespace": "Windows.ApplicationModel.UserActivities",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IUserActivityChannelStatics2": {
+      "guid": "8e87de30-aa4f-4624-9ad0-d40f3ba0317c",
+      "exclusive_to": "Windows.ApplicationModel.UserActivities.UserActivityChannel",
+      "methods": [
+        {
+          "name": "DisableAutoSessionCreation"
+        },
+        {
+          "name": "TryGetForWebAccount",
+          "params": [
+            {
+              "name": "account",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAccount",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserActivityChannel",
+            "namespace": "Windows.ApplicationModel.UserActivities",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IUserActivityChannelStatics3": {
+      "guid": "53bc4ddb-bbdf-5984-802a-5305874e205c",
+      "exclusive_to": "Windows.ApplicationModel.UserActivities.UserActivityChannel",
+      "methods": [
+        {
+          "name": "GetForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserActivityChannel",
+            "namespace": "Windows.ApplicationModel.UserActivities",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IUserActivityContentInfo": {
+      "guid": "b399e5ad-137f-409d-822d-e1af27ce08dc",
+      "methods": [
+        {
+          "name": "ToJson",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "IUserActivityContentInfoStatics": {
+      "guid": "9988c34b-0386-4bc9-968a-8200b004144f",
+      "exclusive_to": "Windows.ApplicationModel.UserActivities.UserActivityContentInfo",
+      "methods": [
+        {
+          "name": "FromJson",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserActivityContentInfo",
+            "namespace": "Windows.ApplicationModel.UserActivities",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IUserActivityFactory": {
+      "guid": "7c385758-361d-4a67-8a3b-34ca2978f9a3",
+      "exclusive_to": "Windows.ApplicationModel.UserActivities.UserActivity",
+      "methods": [
+        {
+          "name": "CreateWithActivityId",
+          "params": [
+            {
+              "name": "activityId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserActivity",
+            "namespace": "Windows.ApplicationModel.UserActivities",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IUserActivityRequest": {
+      "guid": "a0ef6355-cf35-4ff0-8833-50cb4b72e06d",
+      "exclusive_to": "Windows.ApplicationModel.UserActivities.UserActivityRequest",
+      "methods": [
+        {
+          "name": "SetUserActivity",
+          "params": [
+            {
+              "name": "activity",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserActivity",
+                "namespace": "Windows.ApplicationModel.UserActivities",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IUserActivityRequestManager": {
+      "guid": "0c30be4e-903d-48d6-82d4-4043ed57791b",
+      "exclusive_to": "Windows.ApplicationModel.UserActivities.UserActivityRequestManager",
+      "methods": [
+        {
+          "name": "add_UserActivityRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserActivityRequestManager",
+                    "namespace": "Windows.ApplicationModel.UserActivities",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserActivityRequestedEventArgs",
+                    "namespace": "Windows.ApplicationModel.UserActivities",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_UserActivityRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "UserActivityRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserActivityRequestManager",
+                "namespace": "Windows.ApplicationModel.UserActivities",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "UserActivityRequestedEventArgs",
+                "namespace": "Windows.ApplicationModel.UserActivities",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_UserActivityRequested",
+          "remove_method": "remove_UserActivityRequested"
+        }
+      ]
+    },
+    "IUserActivityRequestManagerStatics": {
+      "guid": "c0392df1-224a-432c-81e5-0c76b4c4cefa",
+      "exclusive_to": "Windows.ApplicationModel.UserActivities.UserActivityRequestManager",
+      "methods": [
+        {
+          "name": "GetForCurrentView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserActivityRequestManager",
+            "namespace": "Windows.ApplicationModel.UserActivities",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IUserActivityRequestedEventArgs": {
+      "guid": "a4cc7a4c-8229-4cfd-a3bc-c61d318575a4",
+      "exclusive_to": "Windows.ApplicationModel.UserActivities.UserActivityRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserActivityRequest",
+            "namespace": "Windows.ApplicationModel.UserActivities",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserActivityRequest",
+            "namespace": "Windows.ApplicationModel.UserActivities",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IUserActivitySession": {
+      "guid": "ae434d78-24fa-44a3-ad48-6eda61aa1924",
+      "exclusive_to": "Windows.ApplicationModel.UserActivities.UserActivitySession",
+      "methods": [
+        {
+          "name": "get_ActivityId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ActivityId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ActivityId"
+        }
+      ]
+    },
+    "IUserActivitySessionHistoryItem": {
+      "guid": "e8d59bd3-3e5d-49fd-98d7-6da97521e255",
+      "exclusive_to": "Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem",
+      "methods": [
+        {
+          "name": "get_UserActivity",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserActivity",
+            "namespace": "Windows.ApplicationModel.UserActivities",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_StartTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_EndTime",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EndTime",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_EndTime"
+        },
+        {
+          "name": "StartTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_StartTime"
+        },
+        {
+          "name": "UserActivity",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserActivity",
+            "namespace": "Windows.ApplicationModel.UserActivities",
+            "target_kind": "Class"
+          },
+          "getter": "get_UserActivity"
+        }
+      ]
+    },
+    "IUserActivityStatics": {
+      "guid": "8c8fd333-0e09-47f6-9ac7-95cf5c39367b",
+      "exclusive_to": "Windows.ApplicationModel.UserActivities.UserActivity",
+      "methods": [
+        {
+          "name": "TryParseFromJson",
+          "params": [
+            {
+              "name": "json",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserActivity",
+            "namespace": "Windows.ApplicationModel.UserActivities",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryParseFromJsonArray",
+          "params": [
+            {
+              "name": "json",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserActivity",
+                "namespace": "Windows.ApplicationModel.UserActivities",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ToJsonArray",
+          "params": [
+            {
+              "name": "activities",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserActivity",
+                    "namespace": "Windows.ApplicationModel.UserActivities",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "IUserActivityVisualElements": {
+      "guid": "94757513-262f-49ef-bbbf-9b75d2e85250",
+      "exclusive_to": "Windows.ApplicationModel.UserActivities.UserActivityVisualElements",
+      "methods": [
+        {
+          "name": "get_DisplayText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DisplayText",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Description",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Description",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BackgroundColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_BackgroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Attribution",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserActivityAttribution",
+            "namespace": "Windows.ApplicationModel.UserActivities",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Attribution",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UserActivityAttribution",
+                "namespace": "Windows.ApplicationModel.UserActivities",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "put_Content",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IAdaptiveCard",
+                "namespace": "Windows.UI.Shell",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Content",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAdaptiveCard",
+            "namespace": "Windows.UI.Shell",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Attribution",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserActivityAttribution",
+            "namespace": "Windows.ApplicationModel.UserActivities",
+            "target_kind": "Class"
+          },
+          "getter": "get_Attribution",
+          "setter": "put_Attribution"
+        },
+        {
+          "name": "BackgroundColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BackgroundColor",
+          "setter": "put_BackgroundColor"
+        },
+        {
+          "name": "Content",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IAdaptiveCard",
+            "namespace": "Windows.UI.Shell",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Content",
+          "setter": "put_Content"
+        },
+        {
+          "name": "Description",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Description",
+          "setter": "put_Description"
+        },
+        {
+          "name": "DisplayText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayText",
+          "setter": "put_DisplayText"
+        }
+      ]
+    },
+    "IUserActivityVisualElements2": {
+      "guid": "caae7fc7-3eef-4359-825c-9d51b9220de3",
+      "exclusive_to": "Windows.ApplicationModel.UserActivities.UserActivityVisualElements",
+      "methods": [
+        {
+          "name": "get_AttributionDisplayText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_AttributionDisplayText",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AttributionDisplayText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AttributionDisplayText",
+          "setter": "put_AttributionDisplayText"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "UserActivity": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserActivity",
+        "namespace": "Windows.ApplicationModel.UserActivities",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserActivity",
+          "namespace": "Windows.ApplicationModel.UserActivities",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IUserActivity2",
+          "namespace": "Windows.ApplicationModel.UserActivities",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IUserActivity3",
+          "namespace": "Windows.ApplicationModel.UserActivities",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.ApplicationModel.UserActivities.IUserActivityFactory"
+      ],
+      "static_interfaces": [
+        "Windows.ApplicationModel.UserActivities.IUserActivityStatics"
+      ]
+    },
+    "UserActivityAttribution": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserActivityAttribution",
+        "namespace": "Windows.ApplicationModel.UserActivities",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserActivityAttribution",
+          "namespace": "Windows.ApplicationModel.UserActivities",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.ApplicationModel.UserActivities.IUserActivityAttributionFactory"
+      ]
+    },
+    "UserActivityChannel": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserActivityChannel",
+        "namespace": "Windows.ApplicationModel.UserActivities",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserActivityChannel",
+          "namespace": "Windows.ApplicationModel.UserActivities",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IUserActivityChannel2",
+          "namespace": "Windows.ApplicationModel.UserActivities",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.ApplicationModel.UserActivities.IUserActivityChannelStatics2",
+        "Windows.ApplicationModel.UserActivities.IUserActivityChannelStatics",
+        "Windows.ApplicationModel.UserActivities.IUserActivityChannelStatics3"
+      ]
+    },
+    "UserActivityContentInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserActivityContentInfo",
+        "namespace": "Windows.ApplicationModel.UserActivities",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserActivityContentInfo",
+          "namespace": "Windows.ApplicationModel.UserActivities",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.ApplicationModel.UserActivities.IUserActivityContentInfoStatics"
+      ]
+    },
+    "UserActivityRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserActivityRequest",
+        "namespace": "Windows.ApplicationModel.UserActivities",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserActivityRequest",
+          "namespace": "Windows.ApplicationModel.UserActivities",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserActivityRequestManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserActivityRequestManager",
+        "namespace": "Windows.ApplicationModel.UserActivities",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserActivityRequestManager",
+          "namespace": "Windows.ApplicationModel.UserActivities",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.ApplicationModel.UserActivities.IUserActivityRequestManagerStatics"
+      ]
+    },
+    "UserActivityRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserActivityRequestedEventArgs",
+        "namespace": "Windows.ApplicationModel.UserActivities",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserActivityRequestedEventArgs",
+          "namespace": "Windows.ApplicationModel.UserActivities",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserActivitySession": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserActivitySession",
+        "namespace": "Windows.ApplicationModel.UserActivities",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserActivitySession",
+          "namespace": "Windows.ApplicationModel.UserActivities",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserActivitySessionHistoryItem": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserActivitySessionHistoryItem",
+        "namespace": "Windows.ApplicationModel.UserActivities",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserActivitySessionHistoryItem",
+          "namespace": "Windows.ApplicationModel.UserActivities",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UserActivityVisualElements": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserActivityVisualElements",
+        "namespace": "Windows.ApplicationModel.UserActivities",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserActivityVisualElements",
+          "namespace": "Windows.ApplicationModel.UserActivities",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IUserActivityVisualElements2",
+          "namespace": "Windows.ApplicationModel.UserActivities",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

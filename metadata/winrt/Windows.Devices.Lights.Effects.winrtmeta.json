@@ -1,0 +1,1752 @@
+{
+  "namespace": "Windows.Devices.Lights.Effects",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "LampArrayEffectCompletionBehavior": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "ClearState",
+          "value": "0"
+        },
+        {
+          "name": "KeepState",
+          "value": "1"
+        }
+      ]
+    },
+    "LampArrayEffectStartMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Sequential",
+          "value": "0"
+        },
+        {
+          "name": "Simultaneous",
+          "value": "1"
+        }
+      ]
+    },
+    "LampArrayRepetitionMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Occurrences",
+          "value": "0"
+        },
+        {
+          "name": "Forever",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ILampArrayBitmapEffect": {
+      "guid": "3238e065-d877-4627-89e5-2a88f7052fa6",
+      "exclusive_to": "Windows.Devices.Lights.Effects.LampArrayBitmapEffect",
+      "methods": [
+        {
+          "name": "get_Duration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Duration",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_StartDelay",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_StartDelay",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_UpdateInterval",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_UpdateInterval",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SuggestedBitmapSize",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "add_BitmapRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "LampArrayBitmapEffect",
+                    "namespace": "Windows.Devices.Lights.Effects",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "LampArrayBitmapRequestedEventArgs",
+                    "namespace": "Windows.Devices.Lights.Effects",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_BitmapRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Duration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Duration",
+          "setter": "put_Duration"
+        },
+        {
+          "name": "StartDelay",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_StartDelay",
+          "setter": "put_StartDelay"
+        },
+        {
+          "name": "SuggestedBitmapSize",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SuggestedBitmapSize"
+        },
+        {
+          "name": "UpdateInterval",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_UpdateInterval",
+          "setter": "put_UpdateInterval"
+        }
+      ],
+      "events": [
+        {
+          "name": "BitmapRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "LampArrayBitmapEffect",
+                "namespace": "Windows.Devices.Lights.Effects",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "LampArrayBitmapRequestedEventArgs",
+                "namespace": "Windows.Devices.Lights.Effects",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_BitmapRequested",
+          "remove_method": "remove_BitmapRequested"
+        }
+      ]
+    },
+    "ILampArrayBitmapEffectFactory": {
+      "guid": "13608090-e336-4c8f-9053-a92407ca7b1d",
+      "exclusive_to": "Windows.Devices.Lights.Effects.LampArrayBitmapEffect",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "lampArray",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LampArray",
+                "namespace": "Windows.Devices.Lights",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "lampIndexes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "I4"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "LampArrayBitmapEffect",
+            "namespace": "Windows.Devices.Lights.Effects",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ILampArrayBitmapRequestedEventArgs": {
+      "guid": "c8b4af9e-fe63-4d51-babd-619defb454ba",
+      "exclusive_to": "Windows.Devices.Lights.Effects.LampArrayBitmapRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_SinceStarted",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "UpdateBitmap",
+          "params": [
+            {
+              "name": "bitmap",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SoftwareBitmap",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "SinceStarted",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SinceStarted"
+        }
+      ]
+    },
+    "ILampArrayBlinkEffect": {
+      "guid": "ebbf35f6-2fc5-4bb3-b3c3-6221a7680d13",
+      "exclusive_to": "Windows.Devices.Lights.Effects.LampArrayBlinkEffect",
+      "methods": [
+        {
+          "name": "get_Color",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Color",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AttackDuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_AttackDuration",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SustainDuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_SustainDuration",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DecayDuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_DecayDuration",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RepetitionDelay",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_RepetitionDelay",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_StartDelay",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_StartDelay",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Occurrences",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_Occurrences",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RepetitionMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LampArrayRepetitionMode",
+            "namespace": "Windows.Devices.Lights.Effects",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_RepetitionMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LampArrayRepetitionMode",
+                "namespace": "Windows.Devices.Lights.Effects",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AttackDuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_AttackDuration",
+          "setter": "put_AttackDuration"
+        },
+        {
+          "name": "Color",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Color",
+          "setter": "put_Color"
+        },
+        {
+          "name": "DecayDuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_DecayDuration",
+          "setter": "put_DecayDuration"
+        },
+        {
+          "name": "Occurrences",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Occurrences",
+          "setter": "put_Occurrences"
+        },
+        {
+          "name": "RepetitionDelay",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_RepetitionDelay",
+          "setter": "put_RepetitionDelay"
+        },
+        {
+          "name": "RepetitionMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LampArrayRepetitionMode",
+            "namespace": "Windows.Devices.Lights.Effects",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RepetitionMode",
+          "setter": "put_RepetitionMode"
+        },
+        {
+          "name": "StartDelay",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_StartDelay",
+          "setter": "put_StartDelay"
+        },
+        {
+          "name": "SustainDuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SustainDuration",
+          "setter": "put_SustainDuration"
+        }
+      ]
+    },
+    "ILampArrayBlinkEffectFactory": {
+      "guid": "879f1d97-9f50-49b2-a56f-013aa08d55e0",
+      "exclusive_to": "Windows.Devices.Lights.Effects.LampArrayBlinkEffect",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "lampArray",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LampArray",
+                "namespace": "Windows.Devices.Lights",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "lampIndexes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "I4"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "LampArrayBlinkEffect",
+            "namespace": "Windows.Devices.Lights.Effects",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ILampArrayColorRampEffect": {
+      "guid": "2b004437-40a7-432e-a0b9-0d570c2153ff",
+      "exclusive_to": "Windows.Devices.Lights.Effects.LampArrayColorRampEffect",
+      "methods": [
+        {
+          "name": "get_Color",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Color",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RampDuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_RampDuration",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_StartDelay",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_StartDelay",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CompletionBehavior",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LampArrayEffectCompletionBehavior",
+            "namespace": "Windows.Devices.Lights.Effects",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_CompletionBehavior",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LampArrayEffectCompletionBehavior",
+                "namespace": "Windows.Devices.Lights.Effects",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Color",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Color",
+          "setter": "put_Color"
+        },
+        {
+          "name": "CompletionBehavior",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LampArrayEffectCompletionBehavior",
+            "namespace": "Windows.Devices.Lights.Effects",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CompletionBehavior",
+          "setter": "put_CompletionBehavior"
+        },
+        {
+          "name": "RampDuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_RampDuration",
+          "setter": "put_RampDuration"
+        },
+        {
+          "name": "StartDelay",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_StartDelay",
+          "setter": "put_StartDelay"
+        }
+      ]
+    },
+    "ILampArrayColorRampEffectFactory": {
+      "guid": "520bd133-0c74-4df5-bea7-4899e0266b0f",
+      "exclusive_to": "Windows.Devices.Lights.Effects.LampArrayColorRampEffect",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "lampArray",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LampArray",
+                "namespace": "Windows.Devices.Lights",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "lampIndexes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "I4"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "LampArrayColorRampEffect",
+            "namespace": "Windows.Devices.Lights.Effects",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ILampArrayCustomEffect": {
+      "guid": "ec579170-3c34-4876-818b-5765f78b0ee4",
+      "exclusive_to": "Windows.Devices.Lights.Effects.LampArrayCustomEffect",
+      "methods": [
+        {
+          "name": "get_Duration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Duration",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_UpdateInterval",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_UpdateInterval",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_UpdateRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "LampArrayCustomEffect",
+                    "namespace": "Windows.Devices.Lights.Effects",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "LampArrayUpdateRequestedEventArgs",
+                    "namespace": "Windows.Devices.Lights.Effects",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_UpdateRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Duration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Duration",
+          "setter": "put_Duration"
+        },
+        {
+          "name": "UpdateInterval",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_UpdateInterval",
+          "setter": "put_UpdateInterval"
+        }
+      ],
+      "events": [
+        {
+          "name": "UpdateRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "LampArrayCustomEffect",
+                "namespace": "Windows.Devices.Lights.Effects",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "LampArrayUpdateRequestedEventArgs",
+                "namespace": "Windows.Devices.Lights.Effects",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_UpdateRequested",
+          "remove_method": "remove_UpdateRequested"
+        }
+      ]
+    },
+    "ILampArrayCustomEffectFactory": {
+      "guid": "68b4774d-63e5-4af0-a58b-3e535b94e8c9",
+      "exclusive_to": "Windows.Devices.Lights.Effects.LampArrayCustomEffect",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "lampArray",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LampArray",
+                "namespace": "Windows.Devices.Lights",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "lampIndexes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "I4"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "LampArrayCustomEffect",
+            "namespace": "Windows.Devices.Lights.Effects",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ILampArrayEffect": {
+      "guid": "11d45590-57fb-4546-b1ce-863107f740df",
+      "methods": [
+        {
+          "name": "get_ZIndex",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_ZIndex",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ZIndex",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_ZIndex",
+          "setter": "put_ZIndex"
+        }
+      ]
+    },
+    "ILampArrayEffectPlaylist": {
+      "guid": "7de58bfe-6f61-4103-98c7-d6632f7b9169",
+      "exclusive_to": "Windows.Devices.Lights.Effects.LampArrayEffectPlaylist",
+      "methods": [
+        {
+          "name": "Append",
+          "params": [
+            {
+              "name": "effect",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ILampArrayEffect",
+                "namespace": "Windows.Devices.Lights.Effects",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "OverrideZIndex",
+          "params": [
+            {
+              "name": "zIndex",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Start"
+        },
+        {
+          "name": "Stop"
+        },
+        {
+          "name": "Pause"
+        },
+        {
+          "name": "get_EffectStartMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LampArrayEffectStartMode",
+            "namespace": "Windows.Devices.Lights.Effects",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_EffectStartMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LampArrayEffectStartMode",
+                "namespace": "Windows.Devices.Lights.Effects",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Occurrences",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_Occurrences",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RepetitionMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LampArrayRepetitionMode",
+            "namespace": "Windows.Devices.Lights.Effects",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_RepetitionMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LampArrayRepetitionMode",
+                "namespace": "Windows.Devices.Lights.Effects",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "EffectStartMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LampArrayEffectStartMode",
+            "namespace": "Windows.Devices.Lights.Effects",
+            "target_kind": "Enum"
+          },
+          "getter": "get_EffectStartMode",
+          "setter": "put_EffectStartMode"
+        },
+        {
+          "name": "Occurrences",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Occurrences",
+          "setter": "put_Occurrences"
+        },
+        {
+          "name": "RepetitionMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LampArrayRepetitionMode",
+            "namespace": "Windows.Devices.Lights.Effects",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RepetitionMode",
+          "setter": "put_RepetitionMode"
+        }
+      ]
+    },
+    "ILampArrayEffectPlaylistStatics": {
+      "guid": "fb15235c-ea35-4c7f-a016-f3bfc6a6c47d",
+      "exclusive_to": "Windows.Devices.Lights.Effects.LampArrayEffectPlaylist",
+      "methods": [
+        {
+          "name": "StartAll",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "LampArrayEffectPlaylist",
+                    "namespace": "Windows.Devices.Lights.Effects",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "StopAll",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "LampArrayEffectPlaylist",
+                    "namespace": "Windows.Devices.Lights.Effects",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "PauseAll",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "LampArrayEffectPlaylist",
+                    "namespace": "Windows.Devices.Lights.Effects",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "ILampArraySolidEffect": {
+      "guid": "441f8213-43cc-4b33-80eb-c6ddde7dc8ed",
+      "exclusive_to": "Windows.Devices.Lights.Effects.LampArraySolidEffect",
+      "methods": [
+        {
+          "name": "get_Color",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Color",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Duration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Duration",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_StartDelay",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_StartDelay",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CompletionBehavior",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LampArrayEffectCompletionBehavior",
+            "namespace": "Windows.Devices.Lights.Effects",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_CompletionBehavior",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LampArrayEffectCompletionBehavior",
+                "namespace": "Windows.Devices.Lights.Effects",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Color",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Color",
+          "setter": "put_Color"
+        },
+        {
+          "name": "CompletionBehavior",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LampArrayEffectCompletionBehavior",
+            "namespace": "Windows.Devices.Lights.Effects",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CompletionBehavior",
+          "setter": "put_CompletionBehavior"
+        },
+        {
+          "name": "Duration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Duration",
+          "setter": "put_Duration"
+        },
+        {
+          "name": "StartDelay",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_StartDelay",
+          "setter": "put_StartDelay"
+        }
+      ]
+    },
+    "ILampArraySolidEffectFactory": {
+      "guid": "f862a32c-5576-4341-961b-aee1f13cf9dd",
+      "exclusive_to": "Windows.Devices.Lights.Effects.LampArraySolidEffect",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "lampArray",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LampArray",
+                "namespace": "Windows.Devices.Lights",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "lampIndexes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "I4"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "LampArraySolidEffect",
+            "namespace": "Windows.Devices.Lights.Effects",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ILampArrayUpdateRequestedEventArgs": {
+      "guid": "73560d6a-576a-48af-8539-67ffa0ab3516",
+      "exclusive_to": "Windows.Devices.Lights.Effects.LampArrayUpdateRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_SinceStarted",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "SetColor",
+          "params": [
+            {
+              "name": "desiredColor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetColorForIndex",
+          "params": [
+            {
+              "name": "lampIndex",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "desiredColor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetSingleColorForIndices",
+          "params": [
+            {
+              "name": "desiredColor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "lampIndexes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "I4"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetColorsForIndices",
+          "params": [
+            {
+              "name": "desiredColors",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "Color",
+                  "namespace": "Windows.UI",
+                  "target_kind": "Struct"
+                }
+              }
+            },
+            {
+              "name": "lampIndexes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "I4"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "SinceStarted",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SinceStarted"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "LampArrayBitmapEffect": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILampArrayBitmapEffect",
+        "namespace": "Windows.Devices.Lights.Effects",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILampArrayBitmapEffect",
+          "namespace": "Windows.Devices.Lights.Effects",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ILampArrayEffect",
+          "namespace": "Windows.Devices.Lights.Effects",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Lights.Effects.ILampArrayBitmapEffectFactory"
+      ]
+    },
+    "LampArrayBitmapRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILampArrayBitmapRequestedEventArgs",
+        "namespace": "Windows.Devices.Lights.Effects",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILampArrayBitmapRequestedEventArgs",
+          "namespace": "Windows.Devices.Lights.Effects",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "LampArrayBlinkEffect": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILampArrayBlinkEffect",
+        "namespace": "Windows.Devices.Lights.Effects",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILampArrayBlinkEffect",
+          "namespace": "Windows.Devices.Lights.Effects",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ILampArrayEffect",
+          "namespace": "Windows.Devices.Lights.Effects",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Lights.Effects.ILampArrayBlinkEffectFactory"
+      ]
+    },
+    "LampArrayColorRampEffect": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILampArrayColorRampEffect",
+        "namespace": "Windows.Devices.Lights.Effects",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILampArrayColorRampEffect",
+          "namespace": "Windows.Devices.Lights.Effects",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ILampArrayEffect",
+          "namespace": "Windows.Devices.Lights.Effects",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Lights.Effects.ILampArrayColorRampEffectFactory"
+      ]
+    },
+    "LampArrayCustomEffect": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILampArrayCustomEffect",
+        "namespace": "Windows.Devices.Lights.Effects",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILampArrayCustomEffect",
+          "namespace": "Windows.Devices.Lights.Effects",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ILampArrayEffect",
+          "namespace": "Windows.Devices.Lights.Effects",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Lights.Effects.ILampArrayCustomEffectFactory"
+      ]
+    },
+    "LampArrayEffectPlaylist": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILampArrayEffectPlaylist",
+        "namespace": "Windows.Devices.Lights.Effects",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILampArrayEffectPlaylist",
+          "namespace": "Windows.Devices.Lights.Effects",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IVectorView`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "ILampArrayEffect",
+              "namespace": "Windows.Devices.Lights.Effects",
+              "target_kind": "Interface"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "ILampArrayEffect",
+              "namespace": "Windows.Devices.Lights.Effects",
+              "target_kind": "Interface"
+            }
+          ]
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Devices.Lights.Effects.ILampArrayEffectPlaylistStatics"
+      ]
+    },
+    "LampArraySolidEffect": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILampArraySolidEffect",
+        "namespace": "Windows.Devices.Lights.Effects",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILampArraySolidEffect",
+          "namespace": "Windows.Devices.Lights.Effects",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ILampArrayEffect",
+          "namespace": "Windows.Devices.Lights.Effects",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Devices.Lights.Effects.ILampArraySolidEffectFactory"
+      ]
+    },
+    "LampArrayUpdateRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILampArrayUpdateRequestedEventArgs",
+        "namespace": "Windows.Devices.Lights.Effects",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILampArrayUpdateRequestedEventArgs",
+          "namespace": "Windows.Devices.Lights.Effects",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,1336 @@
+{
+  "namespace": "Windows.Storage.Pickers",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "PickerLocationId": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "DocumentsLibrary",
+          "value": "0"
+        },
+        {
+          "name": "ComputerFolder",
+          "value": "1"
+        },
+        {
+          "name": "Desktop",
+          "value": "2"
+        },
+        {
+          "name": "Downloads",
+          "value": "3"
+        },
+        {
+          "name": "HomeGroup",
+          "value": "4"
+        },
+        {
+          "name": "MusicLibrary",
+          "value": "5"
+        },
+        {
+          "name": "PicturesLibrary",
+          "value": "6"
+        },
+        {
+          "name": "VideosLibrary",
+          "value": "7"
+        },
+        {
+          "name": "Objects3D",
+          "value": "8"
+        },
+        {
+          "name": "Unspecified",
+          "value": "9"
+        }
+      ]
+    },
+    "PickerViewMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "List",
+          "value": "0"
+        },
+        {
+          "name": "Thumbnail",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IFileOpenPicker": {
+      "guid": "2ca8278a-12c5-4c5f-8977-94547793c241",
+      "exclusive_to": "Windows.Storage.Pickers.FileOpenPicker",
+      "methods": [
+        {
+          "name": "get_ViewMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PickerViewMode",
+            "namespace": "Windows.Storage.Pickers",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_ViewMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PickerViewMode",
+                "namespace": "Windows.Storage.Pickers",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SettingsIdentifier",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_SettingsIdentifier",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SuggestedStartLocation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PickerLocationId",
+            "namespace": "Windows.Storage.Pickers",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_SuggestedStartLocation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PickerLocationId",
+                "namespace": "Windows.Storage.Pickers",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CommitButtonText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_CommitButtonText",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FileTypeFilter",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "PickSingleFileAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "PickMultipleFilesAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "StorageFile",
+                    "namespace": "Windows.Storage",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CommitButtonText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CommitButtonText",
+          "setter": "put_CommitButtonText"
+        },
+        {
+          "name": "FileTypeFilter",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_FileTypeFilter"
+        },
+        {
+          "name": "SettingsIdentifier",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SettingsIdentifier",
+          "setter": "put_SettingsIdentifier"
+        },
+        {
+          "name": "SuggestedStartLocation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PickerLocationId",
+            "namespace": "Windows.Storage.Pickers",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SuggestedStartLocation",
+          "setter": "put_SuggestedStartLocation"
+        },
+        {
+          "name": "ViewMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PickerViewMode",
+            "namespace": "Windows.Storage.Pickers",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ViewMode",
+          "setter": "put_ViewMode"
+        }
+      ]
+    },
+    "IFileOpenPicker2": {
+      "guid": "8ceb6cd2-b446-46f7-b265-90f8e55ad650",
+      "exclusive_to": "Windows.Storage.Pickers.FileOpenPicker",
+      "methods": [
+        {
+          "name": "get_ContinuationData",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "PickSingleFileAndContinue"
+        },
+        {
+          "name": "PickMultipleFilesAndContinue"
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContinuationData",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          },
+          "getter": "get_ContinuationData"
+        }
+      ]
+    },
+    "IFileOpenPicker3": {
+      "guid": "d9a5c5b3-c5dc-5b98-bd80-a8d0ca0584d8",
+      "exclusive_to": "Windows.Storage.Pickers.FileOpenPicker",
+      "methods": [
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ]
+    },
+    "IFileOpenPickerStatics": {
+      "guid": "6821573b-2f02-4833-96d4-abbfad72b67b",
+      "exclusive_to": "Windows.Storage.Pickers.FileOpenPicker",
+      "methods": [
+        {
+          "name": "ResumePickSingleFileAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IFileOpenPickerStatics2": {
+      "guid": "e8917415-eddd-5c98-b6f3-366fdfcad392",
+      "exclusive_to": "Windows.Storage.Pickers.FileOpenPicker",
+      "methods": [
+        {
+          "name": "CreateForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "FileOpenPicker",
+            "namespace": "Windows.Storage.Pickers",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IFileOpenPickerWithOperationId": {
+      "guid": "3f57b569-2522-4ca5-aa73-a15509f1fcbf",
+      "exclusive_to": "Windows.Storage.Pickers.FileOpenPicker",
+      "methods": [
+        {
+          "name": "PickSingleFileAsync",
+          "params": [
+            {
+              "name": "pickerOperationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IFileSavePicker": {
+      "guid": "3286ffcb-617f-4cc5-af6a-b3fdf29ad145",
+      "exclusive_to": "Windows.Storage.Pickers.FileSavePicker",
+      "methods": [
+        {
+          "name": "get_SettingsIdentifier",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_SettingsIdentifier",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SuggestedStartLocation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PickerLocationId",
+            "namespace": "Windows.Storage.Pickers",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_SuggestedStartLocation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PickerLocationId",
+                "namespace": "Windows.Storage.Pickers",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CommitButtonText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_CommitButtonText",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FileTypeChoices",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "GenericInst",
+                "name": "IVector`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_DefaultFileExtension",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DefaultFileExtension",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SuggestedSaveFile",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StorageFile",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_SuggestedSaveFile",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SuggestedFileName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_SuggestedFileName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "PickSaveFileAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CommitButtonText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CommitButtonText",
+          "setter": "put_CommitButtonText"
+        },
+        {
+          "name": "DefaultFileExtension",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DefaultFileExtension",
+          "setter": "put_DefaultFileExtension"
+        },
+        {
+          "name": "FileTypeChoices",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "GenericInst",
+                "name": "IVector`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            ]
+          },
+          "getter": "get_FileTypeChoices"
+        },
+        {
+          "name": "SettingsIdentifier",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SettingsIdentifier",
+          "setter": "put_SettingsIdentifier"
+        },
+        {
+          "name": "SuggestedFileName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SuggestedFileName",
+          "setter": "put_SuggestedFileName"
+        },
+        {
+          "name": "SuggestedSaveFile",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StorageFile",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          },
+          "getter": "get_SuggestedSaveFile",
+          "setter": "put_SuggestedSaveFile"
+        },
+        {
+          "name": "SuggestedStartLocation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PickerLocationId",
+            "namespace": "Windows.Storage.Pickers",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SuggestedStartLocation",
+          "setter": "put_SuggestedStartLocation"
+        }
+      ]
+    },
+    "IFileSavePicker2": {
+      "guid": "0ec313a2-d24b-449a-8197-e89104fd42cc",
+      "exclusive_to": "Windows.Storage.Pickers.FileSavePicker",
+      "methods": [
+        {
+          "name": "get_ContinuationData",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "PickSaveFileAndContinue"
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContinuationData",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          },
+          "getter": "get_ContinuationData"
+        }
+      ]
+    },
+    "IFileSavePicker3": {
+      "guid": "698aec69-ba3c-4e51-bd90-4abcbbf4cfaf",
+      "exclusive_to": "Windows.Storage.Pickers.FileSavePicker",
+      "methods": [
+        {
+          "name": "get_EnterpriseId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_EnterpriseId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "EnterpriseId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EnterpriseId",
+          "setter": "put_EnterpriseId"
+        }
+      ]
+    },
+    "IFileSavePicker4": {
+      "guid": "e7d83a5a-ddfa-5de0-8b70-c842c21988ec",
+      "exclusive_to": "Windows.Storage.Pickers.FileSavePicker",
+      "methods": [
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ]
+    },
+    "IFileSavePickerStatics": {
+      "guid": "28e3cf9e-961c-5e2c-aed7-e64737f4ce37",
+      "exclusive_to": "Windows.Storage.Pickers.FileSavePicker",
+      "methods": [
+        {
+          "name": "CreateForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "FileSavePicker",
+            "namespace": "Windows.Storage.Pickers",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IFolderPicker": {
+      "guid": "084f7799-f3fb-400a-99b1-7b4a772fd60d",
+      "exclusive_to": "Windows.Storage.Pickers.FolderPicker",
+      "methods": [
+        {
+          "name": "get_ViewMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PickerViewMode",
+            "namespace": "Windows.Storage.Pickers",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_ViewMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PickerViewMode",
+                "namespace": "Windows.Storage.Pickers",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SettingsIdentifier",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_SettingsIdentifier",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SuggestedStartLocation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PickerLocationId",
+            "namespace": "Windows.Storage.Pickers",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_SuggestedStartLocation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PickerLocationId",
+                "namespace": "Windows.Storage.Pickers",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CommitButtonText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_CommitButtonText",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FileTypeFilter",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "PickSingleFolderAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StorageFolder",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CommitButtonText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CommitButtonText",
+          "setter": "put_CommitButtonText"
+        },
+        {
+          "name": "FileTypeFilter",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_FileTypeFilter"
+        },
+        {
+          "name": "SettingsIdentifier",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SettingsIdentifier",
+          "setter": "put_SettingsIdentifier"
+        },
+        {
+          "name": "SuggestedStartLocation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PickerLocationId",
+            "namespace": "Windows.Storage.Pickers",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SuggestedStartLocation",
+          "setter": "put_SuggestedStartLocation"
+        },
+        {
+          "name": "ViewMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PickerViewMode",
+            "namespace": "Windows.Storage.Pickers",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ViewMode",
+          "setter": "put_ViewMode"
+        }
+      ]
+    },
+    "IFolderPicker2": {
+      "guid": "8eb3ba97-dc85-4616-be94-9660881f2f5d",
+      "exclusive_to": "Windows.Storage.Pickers.FolderPicker",
+      "methods": [
+        {
+          "name": "get_ContinuationData",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "PickFolderAndContinue"
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContinuationData",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ValueSet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Class"
+          },
+          "getter": "get_ContinuationData"
+        }
+      ]
+    },
+    "IFolderPicker3": {
+      "guid": "673b1e29-d326-53c0-bd24-a25c714cee36",
+      "exclusive_to": "Windows.Storage.Pickers.FolderPicker",
+      "methods": [
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ]
+    },
+    "IFolderPickerStatics": {
+      "guid": "9be34740-7ca1-5942-a3c8-46f2551ecff3",
+      "exclusive_to": "Windows.Storage.Pickers.FolderPicker",
+      "methods": [
+        {
+          "name": "CreateForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "FolderPicker",
+            "namespace": "Windows.Storage.Pickers",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "FileExtensionVector": {
+      "default_interface": {
+        "kind": "GenericInst",
+        "name": "IVector`1",
+        "namespace": "Windows.Foundation.Collections",
+        "target_kind": "Interface",
+        "args": [
+          {
+            "kind": "Native",
+            "name": "HString"
+          }
+        ]
+      },
+      "interfaces": [
+        {
+          "kind": "GenericInst",
+          "name": "IVector`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "Native",
+              "name": "HString"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "Native",
+              "name": "HString"
+            }
+          ]
+        }
+      ]
+    },
+    "FileOpenPicker": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFileOpenPicker",
+        "namespace": "Windows.Storage.Pickers",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFileOpenPicker2",
+          "namespace": "Windows.Storage.Pickers",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IFileOpenPickerWithOperationId",
+          "namespace": "Windows.Storage.Pickers",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IFileOpenPicker",
+          "namespace": "Windows.Storage.Pickers",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IFileOpenPicker3",
+          "namespace": "Windows.Storage.Pickers",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Storage.Pickers.IFileOpenPickerStatics2",
+        "Windows.Storage.Pickers.IFileOpenPickerStatics"
+      ]
+    },
+    "FilePickerFileTypesOrderedMap": {
+      "default_interface": {
+        "kind": "GenericInst",
+        "name": "IMap`2",
+        "namespace": "Windows.Foundation.Collections",
+        "target_kind": "Interface",
+        "args": [
+          {
+            "kind": "Native",
+            "name": "HString"
+          },
+          {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        ]
+      },
+      "interfaces": [
+        {
+          "kind": "GenericInst",
+          "name": "IMap`2",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "Native",
+              "name": "HString"
+            },
+            {
+              "kind": "GenericInst",
+              "name": "IVector`1",
+              "namespace": "Windows.Foundation.Collections",
+              "target_kind": "Interface",
+              "args": [
+                {
+                  "kind": "Native",
+                  "name": "HString"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "GenericInst",
+              "name": "IKeyValuePair`2",
+              "namespace": "Windows.Foundation.Collections",
+              "target_kind": "Interface",
+              "args": [
+                {
+                  "kind": "Native",
+                  "name": "HString"
+                },
+                {
+                  "kind": "GenericInst",
+                  "name": "IVector`1",
+                  "namespace": "Windows.Foundation.Collections",
+                  "target_kind": "Interface",
+                  "args": [
+                    {
+                      "kind": "Native",
+                      "name": "HString"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "FilePickerSelectedFilesArray": {
+      "default_interface": {
+        "kind": "GenericInst",
+        "name": "IVectorView`1",
+        "namespace": "Windows.Foundation.Collections",
+        "target_kind": "Interface",
+        "args": [
+          {
+            "kind": "ApiRef",
+            "name": "StorageFile",
+            "namespace": "Windows.Storage",
+            "target_kind": "Class"
+          }
+        ]
+      },
+      "interfaces": [
+        {
+          "kind": "GenericInst",
+          "name": "IVectorView`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "StorageFile",
+              "namespace": "Windows.Storage",
+              "target_kind": "Class"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "StorageFile",
+              "namespace": "Windows.Storage",
+              "target_kind": "Class"
+            }
+          ]
+        }
+      ]
+    },
+    "FileSavePicker": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFileSavePicker",
+        "namespace": "Windows.Storage.Pickers",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFileSavePicker2",
+          "namespace": "Windows.Storage.Pickers",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IFileSavePicker3",
+          "namespace": "Windows.Storage.Pickers",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IFileSavePicker",
+          "namespace": "Windows.Storage.Pickers",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IFileSavePicker4",
+          "namespace": "Windows.Storage.Pickers",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Storage.Pickers.IFileSavePickerStatics"
+      ]
+    },
+    "FolderPicker": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFolderPicker",
+        "namespace": "Windows.Storage.Pickers",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFolderPicker2",
+          "namespace": "Windows.Storage.Pickers",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IFolderPicker",
+          "namespace": "Windows.Storage.Pickers",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IFolderPicker3",
+          "namespace": "Windows.Storage.Pickers",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Storage.Pickers.IFolderPickerStatics"
+      ]
+    }
+  }
+}

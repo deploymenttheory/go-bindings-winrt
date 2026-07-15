@@ -1,0 +1,408 @@
+{
+  "namespace": "Windows.System.Threading",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "WorkItemOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "TimeSliced",
+          "value": "1"
+        }
+      ]
+    },
+    "WorkItemPriority": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Low",
+          "value": "-1"
+        },
+        {
+          "name": "Normal",
+          "value": "0"
+        },
+        {
+          "name": "High",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IThreadPoolStatics": {
+      "guid": "b6bf67dd-84bd-44f8-ac1c-93ebcb9dba91",
+      "exclusive_to": "Windows.System.Threading.ThreadPool",
+      "methods": [
+        {
+          "name": "RunAsync",
+          "overload": "RunAsync",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WorkItemHandler",
+                "namespace": "Windows.System.Threading",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "RunAsync",
+          "overload": "RunWithPriorityAsync",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WorkItemHandler",
+                "namespace": "Windows.System.Threading",
+                "target_kind": "Delegate"
+              }
+            },
+            {
+              "name": "priority",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WorkItemPriority",
+                "namespace": "Windows.System.Threading",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "RunAsync",
+          "overload": "RunWithPriorityAndOptionsAsync",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WorkItemHandler",
+                "namespace": "Windows.System.Threading",
+                "target_kind": "Delegate"
+              }
+            },
+            {
+              "name": "priority",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WorkItemPriority",
+                "namespace": "Windows.System.Threading",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WorkItemOptions",
+                "namespace": "Windows.System.Threading",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IThreadPoolTimer": {
+      "guid": "594ebe78-55ea-4a88-a50d-3402ae1f9cf2",
+      "exclusive_to": "Windows.System.Threading.ThreadPoolTimer",
+      "methods": [
+        {
+          "name": "get_Period",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Delay",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "Cancel"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Delay",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Delay"
+        },
+        {
+          "name": "Period",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Period"
+        }
+      ]
+    },
+    "IThreadPoolTimerStatics": {
+      "guid": "1a8a9d02-e482-461b-b8c7-8efad1cce590",
+      "exclusive_to": "Windows.System.Threading.ThreadPoolTimer",
+      "methods": [
+        {
+          "name": "CreatePeriodicTimer",
+          "overload": "CreatePeriodicTimer",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimerElapsedHandler",
+                "namespace": "Windows.System.Threading",
+                "target_kind": "Delegate"
+              }
+            },
+            {
+              "name": "period",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ThreadPoolTimer",
+            "namespace": "Windows.System.Threading",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateTimer",
+          "overload": "CreateTimer",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimerElapsedHandler",
+                "namespace": "Windows.System.Threading",
+                "target_kind": "Delegate"
+              }
+            },
+            {
+              "name": "delay",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ThreadPoolTimer",
+            "namespace": "Windows.System.Threading",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreatePeriodicTimer",
+          "overload": "CreatePeriodicTimerWithCompletion",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimerElapsedHandler",
+                "namespace": "Windows.System.Threading",
+                "target_kind": "Delegate"
+              }
+            },
+            {
+              "name": "period",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "destroyed",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimerDestroyedHandler",
+                "namespace": "Windows.System.Threading",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ThreadPoolTimer",
+            "namespace": "Windows.System.Threading",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateTimer",
+          "overload": "CreateTimerWithCompletion",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimerElapsedHandler",
+                "namespace": "Windows.System.Threading",
+                "target_kind": "Delegate"
+              }
+            },
+            {
+              "name": "delay",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "destroyed",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimerDestroyedHandler",
+                "namespace": "Windows.System.Threading",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ThreadPoolTimer",
+            "namespace": "Windows.System.Threading",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "ThreadPool": {
+      "static_interfaces": [
+        "Windows.System.Threading.IThreadPoolStatics"
+      ]
+    },
+    "ThreadPoolTimer": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IThreadPoolTimer",
+        "namespace": "Windows.System.Threading",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IThreadPoolTimer",
+          "namespace": "Windows.System.Threading",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.System.Threading.IThreadPoolTimerStatics"
+      ]
+    }
+  },
+  "delegates": {
+    "TimerDestroyedHandler": {
+      "guid": "34ed19fa-8384-4eb9-8209-fb5094eeec35",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "timer",
+            "type": {
+              "kind": "ApiRef",
+              "name": "ThreadPoolTimer",
+              "namespace": "Windows.System.Threading",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "TimerElapsedHandler": {
+      "guid": "faaea667-fbeb-49cb-adb2-71184c556e43",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "timer",
+            "type": {
+              "kind": "ApiRef",
+              "name": "ThreadPoolTimer",
+              "namespace": "Windows.System.Threading",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "WorkItemHandler": {
+      "guid": "1d1a8b8b-fa66-414f-9cbd-b65fc99d17fa",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "operation",
+            "type": {
+              "kind": "ApiRef",
+              "name": "IAsyncAction",
+              "namespace": "Windows.Foundation",
+              "target_kind": "Interface"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

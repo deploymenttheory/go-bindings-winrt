@@ -1,0 +1,3215 @@
+{
+  "namespace": "Windows.Data.Xml.Dom",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "NodeType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Invalid",
+          "value": "0"
+        },
+        {
+          "name": "ElementNode",
+          "value": "1"
+        },
+        {
+          "name": "AttributeNode",
+          "value": "2"
+        },
+        {
+          "name": "TextNode",
+          "value": "3"
+        },
+        {
+          "name": "DataSectionNode",
+          "value": "4"
+        },
+        {
+          "name": "EntityReferenceNode",
+          "value": "5"
+        },
+        {
+          "name": "EntityNode",
+          "value": "6"
+        },
+        {
+          "name": "ProcessingInstructionNode",
+          "value": "7"
+        },
+        {
+          "name": "CommentNode",
+          "value": "8"
+        },
+        {
+          "name": "DocumentNode",
+          "value": "9"
+        },
+        {
+          "name": "DocumentTypeNode",
+          "value": "10"
+        },
+        {
+          "name": "DocumentFragmentNode",
+          "value": "11"
+        },
+        {
+          "name": "NotationNode",
+          "value": "12"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IDtdEntity": {
+      "guid": "6a0b5ffc-63b4-480f-9e6a-8a92816aade4",
+      "exclusive_to": "Windows.Data.Xml.Dom.DtdEntity",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_PublicId",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "get_SystemId",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "get_NotationName",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "NotationName",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_NotationName"
+        },
+        {
+          "name": "PublicId",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_PublicId"
+        },
+        {
+          "name": "SystemId",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_SystemId"
+        }
+      ]
+    },
+    "IDtdNotation": {
+      "guid": "8cb4e04d-6d46-4edb-ab73-df83c51ad397",
+      "exclusive_to": "Windows.Data.Xml.Dom.DtdNotation",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_PublicId",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "get_SystemId",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PublicId",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_PublicId"
+        },
+        {
+          "name": "SystemId",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_SystemId"
+        }
+      ]
+    },
+    "IXmlAttribute": {
+      "guid": "ac144aa4-b4f1-4db6-b206-8a22c308db0a",
+      "exclusive_to": "Windows.Data.Xml.Dom.XmlAttribute",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Specified",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Value",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        },
+        {
+          "name": "Specified",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Specified"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Value",
+          "setter": "put_Value"
+        }
+      ]
+    },
+    "IXmlCDataSection": {
+      "guid": "4d04b46f-c8bd-45b4-8899-0400d7c2c60f",
+      "exclusive_to": "Windows.Data.Xml.Dom.XmlCDataSection",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlText",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlCharacterData",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "IXmlCharacterData": {
+      "guid": "132e42ab-4e36-4df6-b1c8-0ce62fd88b26",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Data",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Data",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Length",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "SubstringData",
+          "params": [
+            {
+              "name": "offset",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "count",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "AppendData",
+          "params": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "InsertData",
+          "params": [
+            {
+              "name": "offset",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "data",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "DeleteData",
+          "params": [
+            {
+              "name": "offset",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "count",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ReplaceData",
+          "params": [
+            {
+              "name": "offset",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "count",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "data",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Data",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Data",
+          "setter": "put_Data"
+        },
+        {
+          "name": "Length",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Length"
+        }
+      ]
+    },
+    "IXmlComment": {
+      "guid": "bca474d5-b61f-4611-9cac-2e92e3476d47",
+      "exclusive_to": "Windows.Data.Xml.Dom.XmlComment",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlCharacterData",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "IXmlDocument": {
+      "guid": "f7f3a506-1e87-42d6-bcfb-b8c809fa5494",
+      "exclusive_to": "Windows.Data.Xml.Dom.XmlDocument",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Doctype",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlDocumentType",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Implementation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlDomImplementation",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DocumentElement",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlElement",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateElement",
+          "params": [
+            {
+              "name": "tagName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlElement",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateDocumentFragment",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlDocumentFragment",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateTextNode",
+          "params": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlText",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateComment",
+          "params": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlComment",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateProcessingInstruction",
+          "params": [
+            {
+              "name": "target",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "data",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlProcessingInstruction",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateAttribute",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlAttribute",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateEntityReference",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlEntityReference",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetElementsByTagName",
+          "params": [
+            {
+              "name": "tagName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlNodeList",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateCDataSection",
+          "params": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlCDataSection",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DocumentUri",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "CreateAttributeNS",
+          "params": [
+            {
+              "name": "namespaceUri",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "qualifiedName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlAttribute",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateElementNS",
+          "params": [
+            {
+              "name": "namespaceUri",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "qualifiedName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlElement",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetElementById",
+          "params": [
+            {
+              "name": "elementId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlElement",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ImportNode",
+          "params": [
+            {
+              "name": "node",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IXmlNode",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "deep",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Doctype",
+          "type": {
+            "kind": "ApiRef",
+            "name": "XmlDocumentType",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          },
+          "getter": "get_Doctype"
+        },
+        {
+          "name": "DocumentElement",
+          "type": {
+            "kind": "ApiRef",
+            "name": "XmlElement",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          },
+          "getter": "get_DocumentElement"
+        },
+        {
+          "name": "DocumentUri",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DocumentUri"
+        },
+        {
+          "name": "Implementation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "XmlDomImplementation",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          },
+          "getter": "get_Implementation"
+        }
+      ]
+    },
+    "IXmlDocumentFragment": {
+      "guid": "e2ea6a96-0c21-44a5-8bc9-9e4a262708ec",
+      "exclusive_to": "Windows.Data.Xml.Dom.XmlDocumentFragment",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "IXmlDocumentIO": {
+      "guid": "6cd0e74e-ee65-4489-9ebf-ca43e87ba637",
+      "exclusive_to": "Windows.Data.Xml.Dom.XmlDocument",
+      "methods": [
+        {
+          "name": "LoadXml",
+          "overload": "LoadXml",
+          "params": [
+            {
+              "name": "xml",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "LoadXml",
+          "overload": "LoadXmlWithSettings",
+          "params": [
+            {
+              "name": "xml",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "loadSettings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XmlLoadSettings",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SaveToFileAsync",
+          "params": [
+            {
+              "name": "file",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IXmlDocumentIO2": {
+      "guid": "5d034661-7bd8-4ad5-9ebf-81e6347263b1",
+      "exclusive_to": "Windows.Data.Xml.Dom.XmlDocument",
+      "methods": [
+        {
+          "name": "LoadXmlFromBuffer",
+          "overload": "LoadXmlFromBuffer",
+          "params": [
+            {
+              "name": "buffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "LoadXmlFromBuffer",
+          "overload": "LoadXmlFromBufferWithSettings",
+          "params": [
+            {
+              "name": "buffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "loadSettings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XmlLoadSettings",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IXmlDocumentStatics": {
+      "guid": "5543d254-d757-4b79-9539-232b18f50bf1",
+      "exclusive_to": "Windows.Data.Xml.Dom.XmlDocument",
+      "methods": [
+        {
+          "name": "LoadFromUriAsync",
+          "overload": "LoadFromUriAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "XmlDocument",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "LoadFromUriAsync",
+          "overload": "LoadFromUriWithSettingsAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "loadSettings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XmlLoadSettings",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "XmlDocument",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "LoadFromFileAsync",
+          "overload": "LoadFromFileAsync",
+          "params": [
+            {
+              "name": "file",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "XmlDocument",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "LoadFromFileAsync",
+          "overload": "LoadFromFileWithSettingsAsync",
+          "params": [
+            {
+              "name": "file",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "loadSettings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XmlLoadSettings",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "XmlDocument",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IXmlDocumentType": {
+      "guid": "f7342425-9781-4964-8e94-9b1c6dfc9bc7",
+      "exclusive_to": "Windows.Data.Xml.Dom.XmlDocumentType",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Entities",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlNamedNodeMap",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Notations",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlNamedNodeMap",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Entities",
+          "type": {
+            "kind": "ApiRef",
+            "name": "XmlNamedNodeMap",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          },
+          "getter": "get_Entities"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        },
+        {
+          "name": "Notations",
+          "type": {
+            "kind": "ApiRef",
+            "name": "XmlNamedNodeMap",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          },
+          "getter": "get_Notations"
+        }
+      ]
+    },
+    "IXmlDomImplementation": {
+      "guid": "6de58132-f11d-4fbb-8cc6-583cba93112f",
+      "exclusive_to": "Windows.Data.Xml.Dom.XmlDomImplementation",
+      "methods": [
+        {
+          "name": "HasFeature",
+          "params": [
+            {
+              "name": "feature",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "version",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IXmlElement": {
+      "guid": "2dfb8a1f-6b10-4ef8-9f83-efcce8faec37",
+      "exclusive_to": "Windows.Data.Xml.Dom.XmlElement",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_TagName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetAttribute",
+          "params": [
+            {
+              "name": "attributeName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "SetAttribute",
+          "params": [
+            {
+              "name": "attributeName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "attributeValue",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RemoveAttribute",
+          "params": [
+            {
+              "name": "attributeName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetAttributeNode",
+          "params": [
+            {
+              "name": "attributeName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlAttribute",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetAttributeNode",
+          "params": [
+            {
+              "name": "newAttribute",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XmlAttribute",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlAttribute",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "RemoveAttributeNode",
+          "params": [
+            {
+              "name": "attributeNode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XmlAttribute",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlAttribute",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetElementsByTagName",
+          "params": [
+            {
+              "name": "tagName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlNodeList",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetAttributeNS",
+          "params": [
+            {
+              "name": "namespaceUri",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "qualifiedName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetAttributeNS",
+          "params": [
+            {
+              "name": "namespaceUri",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "localName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "RemoveAttributeNS",
+          "params": [
+            {
+              "name": "namespaceUri",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "localName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetAttributeNodeNS",
+          "params": [
+            {
+              "name": "newAttribute",
+              "type": {
+                "kind": "ApiRef",
+                "name": "XmlAttribute",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlAttribute",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetAttributeNodeNS",
+          "params": [
+            {
+              "name": "namespaceUri",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "localName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlAttribute",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "TagName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TagName"
+        }
+      ]
+    },
+    "IXmlEntityReference": {
+      "guid": "2e2f47bc-c3d0-4ccf-bb86-0ab8c36a61cf",
+      "exclusive_to": "Windows.Data.Xml.Dom.XmlEntityReference",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "IXmlLoadSettings": {
+      "guid": "58aa07a8-fed6-46f7-b4c5-fb1ba72108d6",
+      "exclusive_to": "Windows.Data.Xml.Dom.XmlLoadSettings",
+      "methods": [
+        {
+          "name": "get_MaxElementDepth",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_MaxElementDepth",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ProhibitDtd",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_ProhibitDtd",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ResolveExternals",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_ResolveExternals",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ValidateOnParse",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_ValidateOnParse",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ElementContentWhiteSpace",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_ElementContentWhiteSpace",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ElementContentWhiteSpace",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ElementContentWhiteSpace",
+          "setter": "put_ElementContentWhiteSpace"
+        },
+        {
+          "name": "MaxElementDepth",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxElementDepth",
+          "setter": "put_MaxElementDepth"
+        },
+        {
+          "name": "ProhibitDtd",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ProhibitDtd",
+          "setter": "put_ProhibitDtd"
+        },
+        {
+          "name": "ResolveExternals",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ResolveExternals",
+          "setter": "put_ResolveExternals"
+        },
+        {
+          "name": "ValidateOnParse",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ValidateOnParse",
+          "setter": "put_ValidateOnParse"
+        }
+      ]
+    },
+    "IXmlNamedNodeMap": {
+      "guid": "b3a69eb0-aab0-4b82-a6fa-b1453f7c021b",
+      "exclusive_to": "Windows.Data.Xml.Dom.XmlNamedNodeMap",
+      "requires": [
+        {
+          "kind": "GenericInst",
+          "name": "IVectorView`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "IXmlNode",
+              "namespace": "Windows.Data.Xml.Dom",
+              "target_kind": "Interface"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "IXmlNode",
+              "namespace": "Windows.Data.Xml.Dom",
+              "target_kind": "Interface"
+            }
+          ]
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Length",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "Item",
+          "params": [
+            {
+              "name": "index",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetNamedItem",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SetNamedItem",
+          "params": [
+            {
+              "name": "node",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IXmlNode",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "RemoveNamedItem",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetNamedItemNS",
+          "params": [
+            {
+              "name": "namespaceUri",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "RemoveNamedItemNS",
+          "params": [
+            {
+              "name": "namespaceUri",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SetNamedItemNS",
+          "params": [
+            {
+              "name": "node",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IXmlNode",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Length",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Length"
+        }
+      ]
+    },
+    "IXmlNode": {
+      "guid": "1c741d59-2122-47d5-a856-83f3d4214875",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_NodeValue",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "put_NodeValue",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_NodeType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NodeType",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_NodeName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ParentNode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_ChildNodes",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlNodeList",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_FirstChild",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_LastChild",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_PreviousSibling",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_NextSibling",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Attributes",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlNamedNodeMap",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "HasChildNodes",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_OwnerDocument",
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlDocument",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "InsertBefore",
+          "params": [
+            {
+              "name": "newChild",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IXmlNode",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "referenceChild",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IXmlNode",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ReplaceChild",
+          "params": [
+            {
+              "name": "newChild",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IXmlNode",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "referenceChild",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IXmlNode",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "RemoveChild",
+          "params": [
+            {
+              "name": "childNode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IXmlNode",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "AppendChild",
+          "params": [
+            {
+              "name": "newChild",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IXmlNode",
+                "namespace": "Windows.Data.Xml.Dom",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "CloneNode",
+          "params": [
+            {
+              "name": "deep",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_NamespaceUri",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "get_LocalName",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "get_Prefix",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "Normalize"
+        },
+        {
+          "name": "put_Prefix",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Attributes",
+          "type": {
+            "kind": "ApiRef",
+            "name": "XmlNamedNodeMap",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          },
+          "getter": "get_Attributes"
+        },
+        {
+          "name": "ChildNodes",
+          "type": {
+            "kind": "ApiRef",
+            "name": "XmlNodeList",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          },
+          "getter": "get_ChildNodes"
+        },
+        {
+          "name": "FirstChild",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          },
+          "getter": "get_FirstChild"
+        },
+        {
+          "name": "LastChild",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          },
+          "getter": "get_LastChild"
+        },
+        {
+          "name": "LocalName",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_LocalName"
+        },
+        {
+          "name": "NamespaceUri",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_NamespaceUri"
+        },
+        {
+          "name": "NextSibling",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          },
+          "getter": "get_NextSibling"
+        },
+        {
+          "name": "NodeName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NodeName"
+        },
+        {
+          "name": "NodeType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NodeType",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Enum"
+          },
+          "getter": "get_NodeType"
+        },
+        {
+          "name": "NodeValue",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_NodeValue",
+          "setter": "put_NodeValue"
+        },
+        {
+          "name": "OwnerDocument",
+          "type": {
+            "kind": "ApiRef",
+            "name": "XmlDocument",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          },
+          "getter": "get_OwnerDocument"
+        },
+        {
+          "name": "ParentNode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          },
+          "getter": "get_ParentNode"
+        },
+        {
+          "name": "Prefix",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_Prefix",
+          "setter": "put_Prefix"
+        },
+        {
+          "name": "PreviousSibling",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          },
+          "getter": "get_PreviousSibling"
+        }
+      ]
+    },
+    "IXmlNodeList": {
+      "guid": "8c60ad77-83a4-4ec1-9c54-7ba429e13da6",
+      "exclusive_to": "Windows.Data.Xml.Dom.XmlNodeList",
+      "requires": [
+        {
+          "kind": "GenericInst",
+          "name": "IVectorView`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "IXmlNode",
+              "namespace": "Windows.Data.Xml.Dom",
+              "target_kind": "Interface"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "IXmlNode",
+              "namespace": "Windows.Data.Xml.Dom",
+              "target_kind": "Interface"
+            }
+          ]
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Length",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "Item",
+          "params": [
+            {
+              "name": "index",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Length",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Length"
+        }
+      ]
+    },
+    "IXmlNodeSelector": {
+      "guid": "63dbba8b-d0db-4fe1-b745-f9433afdc25b",
+      "methods": [
+        {
+          "name": "SelectSingleNode",
+          "params": [
+            {
+              "name": "xpath",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SelectNodes",
+          "params": [
+            {
+              "name": "xpath",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlNodeList",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SelectSingleNodeNS",
+          "params": [
+            {
+              "name": "xpath",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "namespaces",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlNode",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SelectNodesNS",
+          "params": [
+            {
+              "name": "xpath",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "namespaces",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XmlNodeList",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IXmlNodeSerializer": {
+      "guid": "5cc5b382-e6dd-4991-abef-06d8d2e7bd0c",
+      "methods": [
+        {
+          "name": "GetXml",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_InnerText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_InnerText",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "InnerText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_InnerText",
+          "setter": "put_InnerText"
+        }
+      ]
+    },
+    "IXmlProcessingInstruction": {
+      "guid": "2707fd1e-1e92-4ece-b6f4-26f069078ddc",
+      "exclusive_to": "Windows.Data.Xml.Dom.XmlProcessingInstruction",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Target",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Data",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Data",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Data",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Data",
+          "setter": "put_Data"
+        },
+        {
+          "name": "Target",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Target"
+        }
+      ]
+    },
+    "IXmlText": {
+      "guid": "f931a4cb-308d-4760-a1d5-43b67450ac7e",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlCharacterData",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "SplitText",
+          "params": [
+            {
+              "name": "offset",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IXmlText",
+            "namespace": "Windows.Data.Xml.Dom",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "DtdEntity": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDtdEntity",
+        "namespace": "Windows.Data.Xml.Dom",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDtdEntity",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DtdNotation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDtdNotation",
+        "namespace": "Windows.Data.Xml.Dom",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDtdNotation",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "XmlAttribute": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IXmlAttribute",
+        "namespace": "Windows.Data.Xml.Dom",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlAttribute",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "XmlCDataSection": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IXmlCDataSection",
+        "namespace": "Windows.Data.Xml.Dom",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlCDataSection",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlText",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlCharacterData",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "XmlComment": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IXmlComment",
+        "namespace": "Windows.Data.Xml.Dom",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlComment",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlCharacterData",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "XmlDocument": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IXmlDocument",
+        "namespace": "Windows.Data.Xml.Dom",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlDocument",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlDocumentIO",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlDocumentIO2",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Data.Xml.Dom.IXmlDocumentStatics"
+      ]
+    },
+    "XmlDocumentFragment": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IXmlDocumentFragment",
+        "namespace": "Windows.Data.Xml.Dom",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlDocumentFragment",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "XmlDocumentType": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IXmlDocumentType",
+        "namespace": "Windows.Data.Xml.Dom",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlDocumentType",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "XmlDomImplementation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IXmlDomImplementation",
+        "namespace": "Windows.Data.Xml.Dom",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlDomImplementation",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "XmlElement": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IXmlElement",
+        "namespace": "Windows.Data.Xml.Dom",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlElement",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "XmlEntityReference": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IXmlEntityReference",
+        "namespace": "Windows.Data.Xml.Dom",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlEntityReference",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "XmlLoadSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IXmlLoadSettings",
+        "namespace": "Windows.Data.Xml.Dom",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlLoadSettings",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "XmlNamedNodeMap": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IXmlNamedNodeMap",
+        "namespace": "Windows.Data.Xml.Dom",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNamedNodeMap",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IVectorView`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "IXmlNode",
+              "namespace": "Windows.Data.Xml.Dom",
+              "target_kind": "Interface"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "IXmlNode",
+              "namespace": "Windows.Data.Xml.Dom",
+              "target_kind": "Interface"
+            }
+          ]
+        }
+      ]
+    },
+    "XmlNodeList": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IXmlNodeList",
+        "namespace": "Windows.Data.Xml.Dom",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeList",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IVectorView`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "IXmlNode",
+              "namespace": "Windows.Data.Xml.Dom",
+              "target_kind": "Interface"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "IXmlNode",
+              "namespace": "Windows.Data.Xml.Dom",
+              "target_kind": "Interface"
+            }
+          ]
+        }
+      ]
+    },
+    "XmlProcessingInstruction": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IXmlProcessingInstruction",
+        "namespace": "Windows.Data.Xml.Dom",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlProcessingInstruction",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "XmlText": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IXmlText",
+        "namespace": "Windows.Data.Xml.Dom",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IXmlText",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlCharacterData",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNode",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSerializer",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXmlNodeSelector",
+          "namespace": "Windows.Data.Xml.Dom",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

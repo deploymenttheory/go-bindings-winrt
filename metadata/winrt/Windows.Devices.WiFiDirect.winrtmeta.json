@@ -1,0 +1,1463 @@
+{
+  "namespace": "Windows.Devices.WiFiDirect",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "WiFiDirectAdvertisementListenStateDiscoverability": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Normal",
+          "value": "1"
+        },
+        {
+          "name": "Intensive",
+          "value": "2"
+        }
+      ]
+    },
+    "WiFiDirectAdvertisementPublisherStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Created",
+          "value": "0"
+        },
+        {
+          "name": "Started",
+          "value": "1"
+        },
+        {
+          "name": "Stopped",
+          "value": "2"
+        },
+        {
+          "name": "Aborted",
+          "value": "3"
+        }
+      ]
+    },
+    "WiFiDirectConfigurationMethod": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "ProvidePin",
+          "value": "0"
+        },
+        {
+          "name": "DisplayPin",
+          "value": "1"
+        },
+        {
+          "name": "PushButton",
+          "value": "2"
+        }
+      ]
+    },
+    "WiFiDirectConnectionStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Disconnected",
+          "value": "0"
+        },
+        {
+          "name": "Connected",
+          "value": "1"
+        }
+      ]
+    },
+    "WiFiDirectDeviceSelectorType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "DeviceInterface",
+          "value": "0"
+        },
+        {
+          "name": "AssociationEndpoint",
+          "value": "1"
+        }
+      ]
+    },
+    "WiFiDirectError": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "RadioNotAvailable",
+          "value": "1"
+        },
+        {
+          "name": "ResourceInUse",
+          "value": "2"
+        }
+      ]
+    },
+    "WiFiDirectPairingProcedure": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "GroupOwnerNegotiation",
+          "value": "0"
+        },
+        {
+          "name": "Invitation",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IWiFiDirectAdvertisement": {
+      "guid": "ab511a2d-2a06-49a1-a584-61435c7905a6",
+      "exclusive_to": "Windows.Devices.WiFiDirect.WiFiDirectAdvertisement",
+      "methods": [
+        {
+          "name": "get_InformationElements",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiDirectInformationElement",
+                "namespace": "Windows.Devices.WiFiDirect",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_InformationElements",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IVector`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "WiFiDirectInformationElement",
+                    "namespace": "Windows.Devices.WiFiDirect",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ListenStateDiscoverability",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WiFiDirectAdvertisementListenStateDiscoverability",
+            "namespace": "Windows.Devices.WiFiDirect",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_ListenStateDiscoverability",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WiFiDirectAdvertisementListenStateDiscoverability",
+                "namespace": "Windows.Devices.WiFiDirect",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsAutonomousGroupOwnerEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsAutonomousGroupOwnerEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LegacySettings",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WiFiDirectLegacySettings",
+            "namespace": "Windows.Devices.WiFiDirect",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InformationElements",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiDirectInformationElement",
+                "namespace": "Windows.Devices.WiFiDirect",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_InformationElements",
+          "setter": "put_InformationElements"
+        },
+        {
+          "name": "IsAutonomousGroupOwnerEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAutonomousGroupOwnerEnabled",
+          "setter": "put_IsAutonomousGroupOwnerEnabled"
+        },
+        {
+          "name": "LegacySettings",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WiFiDirectLegacySettings",
+            "namespace": "Windows.Devices.WiFiDirect",
+            "target_kind": "Class"
+          },
+          "getter": "get_LegacySettings"
+        },
+        {
+          "name": "ListenStateDiscoverability",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WiFiDirectAdvertisementListenStateDiscoverability",
+            "namespace": "Windows.Devices.WiFiDirect",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ListenStateDiscoverability",
+          "setter": "put_ListenStateDiscoverability"
+        }
+      ]
+    },
+    "IWiFiDirectAdvertisement2": {
+      "guid": "b759aa46-d816-491b-917a-b40d7dc403a2",
+      "exclusive_to": "Windows.Devices.WiFiDirect.WiFiDirectAdvertisement",
+      "methods": [
+        {
+          "name": "get_SupportedConfigurationMethods",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiDirectConfigurationMethod",
+                "namespace": "Windows.Devices.WiFiDirect",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SupportedConfigurationMethods",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiDirectConfigurationMethod",
+                "namespace": "Windows.Devices.WiFiDirect",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SupportedConfigurationMethods"
+        }
+      ]
+    },
+    "IWiFiDirectAdvertisementPublisher": {
+      "guid": "b35a2d1a-9b1f-45d9-925a-694d66df68ef",
+      "exclusive_to": "Windows.Devices.WiFiDirect.WiFiDirectAdvertisementPublisher",
+      "methods": [
+        {
+          "name": "get_Advertisement",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WiFiDirectAdvertisement",
+            "namespace": "Windows.Devices.WiFiDirect",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WiFiDirectAdvertisementPublisherStatus",
+            "namespace": "Windows.Devices.WiFiDirect",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_StatusChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "WiFiDirectAdvertisementPublisher",
+                    "namespace": "Windows.Devices.WiFiDirect",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WiFiDirectAdvertisementPublisherStatusChangedEventArgs",
+                    "namespace": "Windows.Devices.WiFiDirect",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_StatusChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Start"
+        },
+        {
+          "name": "Stop"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Advertisement",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WiFiDirectAdvertisement",
+            "namespace": "Windows.Devices.WiFiDirect",
+            "target_kind": "Class"
+          },
+          "getter": "get_Advertisement"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WiFiDirectAdvertisementPublisherStatus",
+            "namespace": "Windows.Devices.WiFiDirect",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ],
+      "events": [
+        {
+          "name": "StatusChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiDirectAdvertisementPublisher",
+                "namespace": "Windows.Devices.WiFiDirect",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WiFiDirectAdvertisementPublisherStatusChangedEventArgs",
+                "namespace": "Windows.Devices.WiFiDirect",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_StatusChanged",
+          "remove_method": "remove_StatusChanged"
+        }
+      ]
+    },
+    "IWiFiDirectAdvertisementPublisherStatusChangedEventArgs": {
+      "guid": "aafde53c-5481-46e6-90dd-32116518f192",
+      "exclusive_to": "Windows.Devices.WiFiDirect.WiFiDirectAdvertisementPublisherStatusChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WiFiDirectAdvertisementPublisherStatus",
+            "namespace": "Windows.Devices.WiFiDirect",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Error",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WiFiDirectError",
+            "namespace": "Windows.Devices.WiFiDirect",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Error",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WiFiDirectError",
+            "namespace": "Windows.Devices.WiFiDirect",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Error"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WiFiDirectAdvertisementPublisherStatus",
+            "namespace": "Windows.Devices.WiFiDirect",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IWiFiDirectConnectionListener": {
+      "guid": "699c1b0d-8d13-4ee9-b9ec-9c72f8251f7d",
+      "exclusive_to": "Windows.Devices.WiFiDirect.WiFiDirectConnectionListener",
+      "methods": [
+        {
+          "name": "add_ConnectionRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "WiFiDirectConnectionListener",
+                    "namespace": "Windows.Devices.WiFiDirect",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WiFiDirectConnectionRequestedEventArgs",
+                    "namespace": "Windows.Devices.WiFiDirect",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ConnectionRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "ConnectionRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiDirectConnectionListener",
+                "namespace": "Windows.Devices.WiFiDirect",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WiFiDirectConnectionRequestedEventArgs",
+                "namespace": "Windows.Devices.WiFiDirect",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ConnectionRequested",
+          "remove_method": "remove_ConnectionRequested"
+        }
+      ]
+    },
+    "IWiFiDirectConnectionParameters": {
+      "guid": "b2e55405-5702-4b16-a02c-bbcd21ef6098",
+      "exclusive_to": "Windows.Devices.WiFiDirect.WiFiDirectConnectionParameters",
+      "methods": [
+        {
+          "name": "get_GroupOwnerIntent",
+          "return": {
+            "kind": "Native",
+            "name": "I2"
+          }
+        },
+        {
+          "name": "put_GroupOwnerIntent",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I2"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "GroupOwnerIntent",
+          "type": {
+            "kind": "Native",
+            "name": "I2"
+          },
+          "getter": "get_GroupOwnerIntent",
+          "setter": "put_GroupOwnerIntent"
+        }
+      ]
+    },
+    "IWiFiDirectConnectionParameters2": {
+      "guid": "ab3b0fbe-aa82-44b4-88c8-e3056b89801d",
+      "exclusive_to": "Windows.Devices.WiFiDirect.WiFiDirectConnectionParameters",
+      "methods": [
+        {
+          "name": "get_PreferenceOrderedConfigurationMethods",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiDirectConfigurationMethod",
+                "namespace": "Windows.Devices.WiFiDirect",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_PreferredPairingProcedure",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WiFiDirectPairingProcedure",
+            "namespace": "Windows.Devices.WiFiDirect",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_PreferredPairingProcedure",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WiFiDirectPairingProcedure",
+                "namespace": "Windows.Devices.WiFiDirect",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "PreferenceOrderedConfigurationMethods",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiDirectConfigurationMethod",
+                "namespace": "Windows.Devices.WiFiDirect",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_PreferenceOrderedConfigurationMethods"
+        },
+        {
+          "name": "PreferredPairingProcedure",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WiFiDirectPairingProcedure",
+            "namespace": "Windows.Devices.WiFiDirect",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PreferredPairingProcedure",
+          "setter": "put_PreferredPairingProcedure"
+        }
+      ]
+    },
+    "IWiFiDirectConnectionParametersStatics": {
+      "guid": "598af493-7642-456f-b9d8-e8a9eb1f401a",
+      "exclusive_to": "Windows.Devices.WiFiDirect.WiFiDirectConnectionParameters",
+      "methods": [
+        {
+          "name": "GetDevicePairingKinds",
+          "params": [
+            {
+              "name": "configurationMethod",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WiFiDirectConfigurationMethod",
+                "namespace": "Windows.Devices.WiFiDirect",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DevicePairingKinds",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          }
+        }
+      ]
+    },
+    "IWiFiDirectConnectionRequest": {
+      "guid": "8eb99605-914f-49c3-a614-d18dc5b19b43",
+      "exclusive_to": "Windows.Devices.WiFiDirect.WiFiDirectConnectionRequest",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_DeviceInformation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceInformation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          },
+          "getter": "get_DeviceInformation"
+        }
+      ]
+    },
+    "IWiFiDirectConnectionRequestedEventArgs": {
+      "guid": "f99d20be-d38d-484f-8215-e7b65abf244c",
+      "exclusive_to": "Windows.Devices.WiFiDirect.WiFiDirectConnectionRequestedEventArgs",
+      "methods": [
+        {
+          "name": "GetConnectionRequest",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WiFiDirectConnectionRequest",
+            "namespace": "Windows.Devices.WiFiDirect",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IWiFiDirectDevice": {
+      "guid": "72deaaa8-72eb-4dae-8a28-8513355d2777",
+      "exclusive_to": "Windows.Devices.WiFiDirect.WiFiDirectDevice",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_ConnectionStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WiFiDirectConnectionStatus",
+            "namespace": "Windows.Devices.WiFiDirect",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "add_ConnectionStatusChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "WiFiDirectDevice",
+                    "namespace": "Windows.Devices.WiFiDirect",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ConnectionStatusChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetConnectionEndpointPairs",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "EndpointPair",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ConnectionStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WiFiDirectConnectionStatus",
+            "namespace": "Windows.Devices.WiFiDirect",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ConnectionStatus"
+        },
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        }
+      ],
+      "events": [
+        {
+          "name": "ConnectionStatusChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiDirectDevice",
+                "namespace": "Windows.Devices.WiFiDirect",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ConnectionStatusChanged",
+          "remove_method": "remove_ConnectionStatusChanged"
+        }
+      ]
+    },
+    "IWiFiDirectDeviceStatics": {
+      "guid": "e86cb57c-3aac-4851-a792-482aaf931b04",
+      "exclusive_to": "Windows.Devices.WiFiDirect.WiFiDirectDevice",
+      "methods": [
+        {
+          "name": "GetDeviceSelector",
+          "overload": "GetDeviceSelector",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FromIdAsync",
+          "overload": "FromIdAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiDirectDevice",
+                "namespace": "Windows.Devices.WiFiDirect",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IWiFiDirectDeviceStatics2": {
+      "guid": "1a953e49-b103-437e-9226-ab67971342f9",
+      "exclusive_to": "Windows.Devices.WiFiDirect.WiFiDirectDevice",
+      "methods": [
+        {
+          "name": "GetDeviceSelector",
+          "overload": "GetDeviceSelector",
+          "params": [
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WiFiDirectDeviceSelectorType",
+                "namespace": "Windows.Devices.WiFiDirect",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FromIdAsync",
+          "overload": "FromIdAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "connectionParameters",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WiFiDirectConnectionParameters",
+                "namespace": "Windows.Devices.WiFiDirect",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiDirectDevice",
+                "namespace": "Windows.Devices.WiFiDirect",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IWiFiDirectInformationElement": {
+      "guid": "affb72d6-76bb-497e-ac8b-dc72838bc309",
+      "exclusive_to": "Windows.Devices.WiFiDirect.WiFiDirectInformationElement",
+      "methods": [
+        {
+          "name": "get_Oui",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_Oui",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OuiType",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "put_OuiType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_Value",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Oui",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Oui",
+          "setter": "put_Oui"
+        },
+        {
+          "name": "OuiType",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_OuiType",
+          "setter": "put_OuiType"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Value",
+          "setter": "put_Value"
+        }
+      ]
+    },
+    "IWiFiDirectInformationElementStatics": {
+      "guid": "dbd02f16-11a5-4e60-8caa-34772148378a",
+      "exclusive_to": "Windows.Devices.WiFiDirect.WiFiDirectInformationElement",
+      "methods": [
+        {
+          "name": "CreateFromBuffer",
+          "params": [
+            {
+              "name": "buffer",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiDirectInformationElement",
+                "namespace": "Windows.Devices.WiFiDirect",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateFromDeviceInformation",
+          "params": [
+            {
+              "name": "deviceInformation",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceInformation",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WiFiDirectInformationElement",
+                "namespace": "Windows.Devices.WiFiDirect",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IWiFiDirectLegacySettings": {
+      "guid": "a64fdbba-f2fd-4567-a91b-f5c2f5321057",
+      "exclusive_to": "Windows.Devices.WiFiDirect.WiFiDirectLegacySettings",
+      "methods": [
+        {
+          "name": "get_IsEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Ssid",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Ssid",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Passphrase",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Passphrase",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PasswordCredential",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsEnabled",
+          "setter": "put_IsEnabled"
+        },
+        {
+          "name": "Passphrase",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          },
+          "getter": "get_Passphrase",
+          "setter": "put_Passphrase"
+        },
+        {
+          "name": "Ssid",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Ssid",
+          "setter": "put_Ssid"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "WiFiDirectAdvertisement": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWiFiDirectAdvertisement",
+        "namespace": "Windows.Devices.WiFiDirect",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWiFiDirectAdvertisement",
+          "namespace": "Windows.Devices.WiFiDirect",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IWiFiDirectAdvertisement2",
+          "namespace": "Windows.Devices.WiFiDirect",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WiFiDirectAdvertisementPublisher": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWiFiDirectAdvertisementPublisher",
+        "namespace": "Windows.Devices.WiFiDirect",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWiFiDirectAdvertisementPublisher",
+          "namespace": "Windows.Devices.WiFiDirect",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "WiFiDirectAdvertisementPublisherStatusChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWiFiDirectAdvertisementPublisherStatusChangedEventArgs",
+        "namespace": "Windows.Devices.WiFiDirect",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWiFiDirectAdvertisementPublisherStatusChangedEventArgs",
+          "namespace": "Windows.Devices.WiFiDirect",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WiFiDirectConnectionListener": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWiFiDirectConnectionListener",
+        "namespace": "Windows.Devices.WiFiDirect",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWiFiDirectConnectionListener",
+          "namespace": "Windows.Devices.WiFiDirect",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "WiFiDirectConnectionParameters": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWiFiDirectConnectionParameters",
+        "namespace": "Windows.Devices.WiFiDirect",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWiFiDirectConnectionParameters",
+          "namespace": "Windows.Devices.WiFiDirect",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IWiFiDirectConnectionParameters2",
+          "namespace": "Windows.Devices.WiFiDirect",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDevicePairingSettings",
+          "namespace": "Windows.Devices.Enumeration",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Devices.WiFiDirect.IWiFiDirectConnectionParametersStatics"
+      ]
+    },
+    "WiFiDirectConnectionRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWiFiDirectConnectionRequest",
+        "namespace": "Windows.Devices.WiFiDirect",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWiFiDirectConnectionRequest",
+          "namespace": "Windows.Devices.WiFiDirect",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WiFiDirectConnectionRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWiFiDirectConnectionRequestedEventArgs",
+        "namespace": "Windows.Devices.WiFiDirect",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWiFiDirectConnectionRequestedEventArgs",
+          "namespace": "Windows.Devices.WiFiDirect",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WiFiDirectDevice": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWiFiDirectDevice",
+        "namespace": "Windows.Devices.WiFiDirect",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWiFiDirectDevice",
+          "namespace": "Windows.Devices.WiFiDirect",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.WiFiDirect.IWiFiDirectDeviceStatics",
+        "Windows.Devices.WiFiDirect.IWiFiDirectDeviceStatics2"
+      ]
+    },
+    "WiFiDirectInformationElement": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWiFiDirectInformationElement",
+        "namespace": "Windows.Devices.WiFiDirect",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWiFiDirectInformationElement",
+          "namespace": "Windows.Devices.WiFiDirect",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Devices.WiFiDirect.IWiFiDirectInformationElementStatics"
+      ]
+    },
+    "WiFiDirectLegacySettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWiFiDirectLegacySettings",
+        "namespace": "Windows.Devices.WiFiDirect",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWiFiDirectLegacySettings",
+          "namespace": "Windows.Devices.WiFiDirect",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "namespace": "Windows.Perception",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IPerceptionTimestamp": {
+      "guid": "87c24804-a22e-4adb-ba26-d78ef639bcf4",
+      "exclusive_to": "Windows.Perception.PerceptionTimestamp",
+      "methods": [
+        {
+          "name": "get_TargetTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_PredictionAmount",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PredictionAmount",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_PredictionAmount"
+        },
+        {
+          "name": "TargetTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_TargetTime"
+        }
+      ]
+    },
+    "IPerceptionTimestamp2": {
+      "guid": "e354b7ed-2bd1-41b7-9ed0-74a15c354537",
+      "exclusive_to": "Windows.Perception.PerceptionTimestamp",
+      "methods": [
+        {
+          "name": "get_SystemRelativeTargetTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SystemRelativeTargetTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SystemRelativeTargetTime"
+        }
+      ]
+    },
+    "IPerceptionTimestampHelperStatics": {
+      "guid": "47a611d4-a9df-4edc-855d-f4d339d967ac",
+      "exclusive_to": "Windows.Perception.PerceptionTimestampHelper",
+      "methods": [
+        {
+          "name": "FromHistoricalTargetTime",
+          "params": [
+            {
+              "name": "targetTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionTimestamp",
+            "namespace": "Windows.Perception",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPerceptionTimestampHelperStatics2": {
+      "guid": "73d1a7fe-3fb9-4571-87d4-3c920a5e86eb",
+      "exclusive_to": "Windows.Perception.PerceptionTimestampHelper",
+      "methods": [
+        {
+          "name": "FromSystemRelativeTargetTime",
+          "params": [
+            {
+              "name": "targetTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PerceptionTimestamp",
+            "namespace": "Windows.Perception",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "PerceptionTimestamp": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPerceptionTimestamp",
+        "namespace": "Windows.Perception",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionTimestamp",
+          "namespace": "Windows.Perception",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPerceptionTimestamp2",
+          "namespace": "Windows.Perception",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PerceptionTimestampHelper": {
+      "static_interfaces": [
+        "Windows.Perception.IPerceptionTimestampHelperStatics",
+        "Windows.Perception.IPerceptionTimestampHelperStatics2"
+      ]
+    }
+  }
+}

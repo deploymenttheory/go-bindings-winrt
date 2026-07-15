@@ -1,0 +1,932 @@
+{
+  "namespace": "Windows.Devices.SerialCommunication",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "SerialError": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Frame",
+          "value": "0"
+        },
+        {
+          "name": "BufferOverrun",
+          "value": "1"
+        },
+        {
+          "name": "ReceiveFull",
+          "value": "2"
+        },
+        {
+          "name": "ReceiveParity",
+          "value": "3"
+        },
+        {
+          "name": "TransmitFull",
+          "value": "4"
+        }
+      ]
+    },
+    "SerialHandshake": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "RequestToSend",
+          "value": "1"
+        },
+        {
+          "name": "XOnXOff",
+          "value": "2"
+        },
+        {
+          "name": "RequestToSendXOnXOff",
+          "value": "3"
+        }
+      ]
+    },
+    "SerialParity": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Odd",
+          "value": "1"
+        },
+        {
+          "name": "Even",
+          "value": "2"
+        },
+        {
+          "name": "Mark",
+          "value": "3"
+        },
+        {
+          "name": "Space",
+          "value": "4"
+        }
+      ]
+    },
+    "SerialPinChange": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "BreakSignal",
+          "value": "0"
+        },
+        {
+          "name": "CarrierDetect",
+          "value": "1"
+        },
+        {
+          "name": "ClearToSend",
+          "value": "2"
+        },
+        {
+          "name": "DataSetReady",
+          "value": "3"
+        },
+        {
+          "name": "RingIndicator",
+          "value": "4"
+        }
+      ]
+    },
+    "SerialStopBitCount": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "One",
+          "value": "0"
+        },
+        {
+          "name": "OnePointFive",
+          "value": "1"
+        },
+        {
+          "name": "Two",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IErrorReceivedEventArgs": {
+      "guid": "fcc6bf59-1283-4d8a-bfdf-566b33ddb28f",
+      "exclusive_to": "Windows.Devices.SerialCommunication.ErrorReceivedEventArgs",
+      "methods": [
+        {
+          "name": "get_Error",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SerialError",
+            "namespace": "Windows.Devices.SerialCommunication",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Error",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SerialError",
+            "namespace": "Windows.Devices.SerialCommunication",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Error"
+        }
+      ]
+    },
+    "IPinChangedEventArgs": {
+      "guid": "a2bf1db0-fc9c-4607-93d0-fa5e8343ee22",
+      "exclusive_to": "Windows.Devices.SerialCommunication.PinChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_PinChange",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SerialPinChange",
+            "namespace": "Windows.Devices.SerialCommunication",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PinChange",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SerialPinChange",
+            "namespace": "Windows.Devices.SerialCommunication",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PinChange"
+        }
+      ]
+    },
+    "ISerialDevice": {
+      "guid": "e187ccc6-2210-414f-b65a-f5553a03372a",
+      "exclusive_to": "Windows.Devices.SerialCommunication.SerialDevice",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_BaudRate",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_BaudRate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BreakSignalState",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_BreakSignalState",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BytesReceived",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_CarrierDetectState",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_ClearToSendState",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_DataBits",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "put_DataBits",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DataSetReadyState",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Handshake",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SerialHandshake",
+            "namespace": "Windows.Devices.SerialCommunication",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Handshake",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SerialHandshake",
+                "namespace": "Windows.Devices.SerialCommunication",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsDataTerminalReadyEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsDataTerminalReadyEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsRequestToSendEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsRequestToSendEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Parity",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SerialParity",
+            "namespace": "Windows.Devices.SerialCommunication",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Parity",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SerialParity",
+                "namespace": "Windows.Devices.SerialCommunication",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PortName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ReadTimeout",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_ReadTimeout",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_StopBits",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SerialStopBitCount",
+            "namespace": "Windows.Devices.SerialCommunication",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_StopBits",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SerialStopBitCount",
+                "namespace": "Windows.Devices.SerialCommunication",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_UsbVendorId",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_UsbProductId",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_WriteTimeout",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_WriteTimeout",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_InputStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IInputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_OutputStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IOutputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "add_ErrorReceived",
+          "params": [
+            {
+              "name": "reportHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SerialDevice",
+                    "namespace": "Windows.Devices.SerialCommunication",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "ErrorReceivedEventArgs",
+                    "namespace": "Windows.Devices.SerialCommunication",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ErrorReceived",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PinChanged",
+          "params": [
+            {
+              "name": "reportHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SerialDevice",
+                    "namespace": "Windows.Devices.SerialCommunication",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PinChangedEventArgs",
+                    "namespace": "Windows.Devices.SerialCommunication",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PinChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "BaudRate",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_BaudRate",
+          "setter": "put_BaudRate"
+        },
+        {
+          "name": "BreakSignalState",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_BreakSignalState",
+          "setter": "put_BreakSignalState"
+        },
+        {
+          "name": "BytesReceived",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_BytesReceived"
+        },
+        {
+          "name": "CarrierDetectState",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CarrierDetectState"
+        },
+        {
+          "name": "ClearToSendState",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ClearToSendState"
+        },
+        {
+          "name": "DataBits",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_DataBits",
+          "setter": "put_DataBits"
+        },
+        {
+          "name": "DataSetReadyState",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_DataSetReadyState"
+        },
+        {
+          "name": "Handshake",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SerialHandshake",
+            "namespace": "Windows.Devices.SerialCommunication",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Handshake",
+          "setter": "put_Handshake"
+        },
+        {
+          "name": "InputStream",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IInputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_InputStream"
+        },
+        {
+          "name": "IsDataTerminalReadyEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsDataTerminalReadyEnabled",
+          "setter": "put_IsDataTerminalReadyEnabled"
+        },
+        {
+          "name": "IsRequestToSendEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsRequestToSendEnabled",
+          "setter": "put_IsRequestToSendEnabled"
+        },
+        {
+          "name": "OutputStream",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IOutputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_OutputStream"
+        },
+        {
+          "name": "Parity",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SerialParity",
+            "namespace": "Windows.Devices.SerialCommunication",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Parity",
+          "setter": "put_Parity"
+        },
+        {
+          "name": "PortName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PortName"
+        },
+        {
+          "name": "ReadTimeout",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ReadTimeout",
+          "setter": "put_ReadTimeout"
+        },
+        {
+          "name": "StopBits",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SerialStopBitCount",
+            "namespace": "Windows.Devices.SerialCommunication",
+            "target_kind": "Enum"
+          },
+          "getter": "get_StopBits",
+          "setter": "put_StopBits"
+        },
+        {
+          "name": "UsbProductId",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_UsbProductId"
+        },
+        {
+          "name": "UsbVendorId",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_UsbVendorId"
+        },
+        {
+          "name": "WriteTimeout",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_WriteTimeout",
+          "setter": "put_WriteTimeout"
+        }
+      ],
+      "events": [
+        {
+          "name": "ErrorReceived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SerialDevice",
+                "namespace": "Windows.Devices.SerialCommunication",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "ErrorReceivedEventArgs",
+                "namespace": "Windows.Devices.SerialCommunication",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ErrorReceived",
+          "remove_method": "remove_ErrorReceived"
+        },
+        {
+          "name": "PinChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SerialDevice",
+                "namespace": "Windows.Devices.SerialCommunication",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PinChangedEventArgs",
+                "namespace": "Windows.Devices.SerialCommunication",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PinChanged",
+          "remove_method": "remove_PinChanged"
+        }
+      ]
+    },
+    "ISerialDeviceStatics": {
+      "guid": "058c4a70-0836-4993-ae1a-b61ae3be056b",
+      "exclusive_to": "Windows.Devices.SerialCommunication.SerialDevice",
+      "methods": [
+        {
+          "name": "GetDeviceSelector",
+          "overload": "GetDeviceSelector",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDeviceSelector",
+          "overload": "GetDeviceSelectorFromPortName",
+          "params": [
+            {
+              "name": "portName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDeviceSelectorFromUsbVidPid",
+          "params": [
+            {
+              "name": "vendorId",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "productId",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SerialDevice",
+                "namespace": "Windows.Devices.SerialCommunication",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "ErrorReceivedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IErrorReceivedEventArgs",
+        "namespace": "Windows.Devices.SerialCommunication",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IErrorReceivedEventArgs",
+          "namespace": "Windows.Devices.SerialCommunication",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PinChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPinChangedEventArgs",
+        "namespace": "Windows.Devices.SerialCommunication",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPinChangedEventArgs",
+          "namespace": "Windows.Devices.SerialCommunication",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SerialDevice": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISerialDevice",
+        "namespace": "Windows.Devices.SerialCommunication",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISerialDevice",
+          "namespace": "Windows.Devices.SerialCommunication",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.SerialCommunication.ISerialDeviceStatics"
+      ]
+    }
+  }
+}

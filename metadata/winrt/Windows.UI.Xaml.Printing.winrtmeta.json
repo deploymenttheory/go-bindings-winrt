@@ -1,0 +1,549 @@
+{
+  "namespace": "Windows.UI.Xaml.Printing",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "PreviewPageCountType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Final",
+          "value": "0"
+        },
+        {
+          "name": "Intermediate",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IAddPagesEventArgs": {
+      "guid": "e2e52be5-056c-4420-9795-cb3526ce0c20",
+      "exclusive_to": "Windows.UI.Xaml.Printing.AddPagesEventArgs",
+      "methods": [
+        {
+          "name": "get_PrintTaskOptions",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTaskOptions",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PrintTaskOptions",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTaskOptions",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Class"
+          },
+          "getter": "get_PrintTaskOptions"
+        }
+      ]
+    },
+    "IGetPreviewPageEventArgs": {
+      "guid": "a43d703d-dea9-4df6-a7ed-35049cd485c7",
+      "exclusive_to": "Windows.UI.Xaml.Printing.GetPreviewPageEventArgs",
+      "methods": [
+        {
+          "name": "get_PageNumber",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PageNumber",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_PageNumber"
+        }
+      ]
+    },
+    "IPaginateEventArgs": {
+      "guid": "ed945fd6-79ab-42b7-930a-3d6e09011d21",
+      "exclusive_to": "Windows.UI.Xaml.Printing.PaginateEventArgs",
+      "methods": [
+        {
+          "name": "get_PrintTaskOptions",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTaskOptions",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CurrentPreviewPageNumber",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CurrentPreviewPageNumber",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_CurrentPreviewPageNumber"
+        },
+        {
+          "name": "PrintTaskOptions",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTaskOptions",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Class"
+          },
+          "getter": "get_PrintTaskOptions"
+        }
+      ]
+    },
+    "IPrintDocument": {
+      "guid": "e44327c3-a999-485b-b1d8-72dc517821e6",
+      "exclusive_to": "Windows.UI.Xaml.Printing.PrintDocument",
+      "methods": [
+        {
+          "name": "get_DocumentSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IPrintDocumentSource",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "add_Paginate",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PaginateEventHandler",
+                "namespace": "Windows.UI.Xaml.Printing",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Paginate",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_GetPreviewPage",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "GetPreviewPageEventHandler",
+                "namespace": "Windows.UI.Xaml.Printing",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_GetPreviewPage",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_AddPages",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AddPagesEventHandler",
+                "namespace": "Windows.UI.Xaml.Printing",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_AddPages",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddPage",
+          "params": [
+            {
+              "name": "pageVisual",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElement",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "AddPagesComplete"
+        },
+        {
+          "name": "SetPreviewPageCount",
+          "params": [
+            {
+              "name": "count",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PreviewPageCountType",
+                "namespace": "Windows.UI.Xaml.Printing",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetPreviewPage",
+          "params": [
+            {
+              "name": "pageNumber",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "pageVisual",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElement",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "InvalidatePreview"
+        }
+      ],
+      "properties": [
+        {
+          "name": "DocumentSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IPrintDocumentSource",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Interface"
+          },
+          "getter": "get_DocumentSource"
+        }
+      ],
+      "events": [
+        {
+          "name": "AddPages",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AddPagesEventHandler",
+            "namespace": "Windows.UI.Xaml.Printing",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_AddPages",
+          "remove_method": "remove_AddPages"
+        },
+        {
+          "name": "GetPreviewPage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "GetPreviewPageEventHandler",
+            "namespace": "Windows.UI.Xaml.Printing",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_GetPreviewPage",
+          "remove_method": "remove_GetPreviewPage"
+        },
+        {
+          "name": "Paginate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PaginateEventHandler",
+            "namespace": "Windows.UI.Xaml.Printing",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_Paginate",
+          "remove_method": "remove_Paginate"
+        }
+      ]
+    },
+    "IPrintDocumentFactory": {
+      "guid": "fb87b18f-2606-4a2f-99d4-a7cdbc35d7c7",
+      "exclusive_to": "Windows.UI.Xaml.Printing.PrintDocument",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "baseInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "innerInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintDocument",
+            "namespace": "Windows.UI.Xaml.Printing",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPrintDocumentStatics": {
+      "guid": "fd970a3c-b152-49e0-a6bd-6aa6477e43c7",
+      "exclusive_to": "Windows.UI.Xaml.Printing.PrintDocument",
+      "methods": [
+        {
+          "name": "get_DocumentSourceProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DocumentSourceProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_DocumentSourceProperty"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AddPagesEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAddPagesEventArgs",
+        "namespace": "Windows.UI.Xaml.Printing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAddPagesEventArgs",
+          "namespace": "Windows.UI.Xaml.Printing",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "GetPreviewPageEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IGetPreviewPageEventArgs",
+        "namespace": "Windows.UI.Xaml.Printing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IGetPreviewPageEventArgs",
+          "namespace": "Windows.UI.Xaml.Printing",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "PaginateEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPaginateEventArgs",
+        "namespace": "Windows.UI.Xaml.Printing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPaginateEventArgs",
+          "namespace": "Windows.UI.Xaml.Printing",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "PrintDocument": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintDocument",
+        "namespace": "Windows.UI.Xaml.Printing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintDocument",
+          "namespace": "Windows.UI.Xaml.Printing",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Xaml.Printing.IPrintDocumentStatics"
+      ],
+      "composable_factories": [
+        "Windows.UI.Xaml.Printing.IPrintDocumentFactory"
+      ],
+      "composable": true
+    }
+  },
+  "delegates": {
+    "AddPagesEventHandler": {
+      "guid": "d4b57970-57a0-4209-847c-c093b54bc729",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "AddPagesEventArgs",
+              "namespace": "Windows.UI.Xaml.Printing",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "GetPreviewPageEventHandler": {
+      "guid": "ccb3e9ed-9c11-4e50-ab49-e98086bbfdef",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "GetPreviewPageEventArgs",
+              "namespace": "Windows.UI.Xaml.Printing",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "PaginateEventHandler": {
+      "guid": "0cc05b61-811b-4a32-9965-13eb78dbb01b",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "PaginateEventArgs",
+              "namespace": "Windows.UI.Xaml.Printing",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

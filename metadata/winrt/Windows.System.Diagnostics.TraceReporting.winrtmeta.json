@@ -1,0 +1,547 @@
+{
+  "namespace": "Windows.System.Diagnostics.TraceReporting",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "PlatformDiagnosticActionState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "FreeNetworkNotAvailable",
+          "value": "1"
+        },
+        {
+          "name": "ACPowerNotAvailable",
+          "value": "2"
+        }
+      ]
+    },
+    "PlatformDiagnosticEscalationType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "OnCompletion",
+          "value": "0"
+        },
+        {
+          "name": "OnFailure",
+          "value": "1"
+        }
+      ]
+    },
+    "PlatformDiagnosticEventBufferLatencies": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "Normal",
+          "value": "1"
+        },
+        {
+          "name": "CostDeferred",
+          "value": "2"
+        },
+        {
+          "name": "Realtime",
+          "value": "4"
+        }
+      ]
+    },
+    "PlatformDiagnosticTracePriority": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Normal",
+          "value": "0"
+        },
+        {
+          "name": "UserElevated",
+          "value": "1"
+        }
+      ]
+    },
+    "PlatformDiagnosticTraceSlotState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "NotRunning",
+          "value": "0"
+        },
+        {
+          "name": "Running",
+          "value": "1"
+        },
+        {
+          "name": "Throttled",
+          "value": "2"
+        }
+      ]
+    },
+    "PlatformDiagnosticTraceSlotType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Alternative",
+          "value": "0"
+        },
+        {
+          "name": "AlwaysOn",
+          "value": "1"
+        },
+        {
+          "name": "Mini",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IPlatformDiagnosticActionsStatics": {
+      "guid": "c1145cfa-9292-4267-890a-9ea3ed072312",
+      "exclusive_to": "Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticActions",
+      "methods": [
+        {
+          "name": "IsScenarioEnabled",
+          "params": [
+            {
+              "name": "scenarioId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TryEscalateScenario",
+          "params": [
+            {
+              "name": "scenarioId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "escalationType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PlatformDiagnosticEscalationType",
+                "namespace": "Windows.System.Diagnostics.TraceReporting",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "outputDirectory",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "timestampOutputDirectory",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "forceEscalationUpload",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "triggers",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IMapView`2",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "DownloadLatestSettingsForNamespace",
+          "params": [
+            {
+              "name": "partner",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "feature",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "isScenarioNamespace",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "downloadOverCostedNetwork",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "downloadOverBattery",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlatformDiagnosticActionState",
+            "namespace": "Windows.System.Diagnostics.TraceReporting",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetActiveScenarioList",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ForceUpload",
+          "params": [
+            {
+              "name": "latency",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PlatformDiagnosticEventBufferLatencies",
+                "namespace": "Windows.System.Diagnostics.TraceReporting",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "uploadOverCostedNetwork",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "uploadOverBattery",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlatformDiagnosticActionState",
+            "namespace": "Windows.System.Diagnostics.TraceReporting",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "IsTraceRunning",
+          "params": [
+            {
+              "name": "slotType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PlatformDiagnosticTraceSlotType",
+                "namespace": "Windows.System.Diagnostics.TraceReporting",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "scenarioId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "traceProfileHash",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlatformDiagnosticTraceSlotState",
+            "namespace": "Windows.System.Diagnostics.TraceReporting",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetActiveTraceRuntime",
+          "params": [
+            {
+              "name": "slotType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PlatformDiagnosticTraceSlotType",
+                "namespace": "Windows.System.Diagnostics.TraceReporting",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlatformDiagnosticTraceRuntimeInfo",
+            "namespace": "Windows.System.Diagnostics.TraceReporting",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetKnownTraceList",
+          "params": [
+            {
+              "name": "slotType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PlatformDiagnosticTraceSlotType",
+                "namespace": "Windows.System.Diagnostics.TraceReporting",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PlatformDiagnosticTraceInfo",
+                "namespace": "Windows.System.Diagnostics.TraceReporting",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPlatformDiagnosticTraceInfo": {
+      "guid": "f870ed97-d597-4bf7-88dc-cf5c7dc2a1d2",
+      "exclusive_to": "Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceInfo",
+      "methods": [
+        {
+          "name": "get_ScenarioId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_ProfileHash",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_IsExclusive",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsAutoLogger",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_MaxTraceDurationFileTime",
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        },
+        {
+          "name": "get_Priority",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlatformDiagnosticTracePriority",
+            "namespace": "Windows.System.Diagnostics.TraceReporting",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsAutoLogger",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAutoLogger"
+        },
+        {
+          "name": "IsExclusive",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsExclusive"
+        },
+        {
+          "name": "MaxTraceDurationFileTime",
+          "type": {
+            "kind": "Native",
+            "name": "I8"
+          },
+          "getter": "get_MaxTraceDurationFileTime"
+        },
+        {
+          "name": "Priority",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PlatformDiagnosticTracePriority",
+            "namespace": "Windows.System.Diagnostics.TraceReporting",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Priority"
+        },
+        {
+          "name": "ProfileHash",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_ProfileHash"
+        },
+        {
+          "name": "ScenarioId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_ScenarioId"
+        }
+      ]
+    },
+    "IPlatformDiagnosticTraceRuntimeInfo": {
+      "guid": "3d4d5e2d-01d8-4768-8554-1eb1ca610986",
+      "exclusive_to": "Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceRuntimeInfo",
+      "methods": [
+        {
+          "name": "get_RuntimeFileTime",
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        },
+        {
+          "name": "get_EtwRuntimeFileTime",
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EtwRuntimeFileTime",
+          "type": {
+            "kind": "Native",
+            "name": "I8"
+          },
+          "getter": "get_EtwRuntimeFileTime"
+        },
+        {
+          "name": "RuntimeFileTime",
+          "type": {
+            "kind": "Native",
+            "name": "I8"
+          },
+          "getter": "get_RuntimeFileTime"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "PlatformDiagnosticActions": {
+      "static_interfaces": [
+        "Windows.System.Diagnostics.TraceReporting.IPlatformDiagnosticActionsStatics"
+      ]
+    },
+    "PlatformDiagnosticTraceInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlatformDiagnosticTraceInfo",
+        "namespace": "Windows.System.Diagnostics.TraceReporting",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlatformDiagnosticTraceInfo",
+          "namespace": "Windows.System.Diagnostics.TraceReporting",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PlatformDiagnosticTraceRuntimeInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlatformDiagnosticTraceRuntimeInfo",
+        "namespace": "Windows.System.Diagnostics.TraceReporting",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlatformDiagnosticTraceRuntimeInfo",
+          "namespace": "Windows.System.Diagnostics.TraceReporting",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

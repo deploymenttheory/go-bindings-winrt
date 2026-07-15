@@ -1,0 +1,53 @@
+{
+  "namespace": "Windows.UI.Xaml.Automation.Text",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "TextPatternRangeEndpoint": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Start",
+          "value": "0"
+        },
+        {
+          "name": "End",
+          "value": "1"
+        }
+      ]
+    },
+    "TextUnit": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Character",
+          "value": "0"
+        },
+        {
+          "name": "Format",
+          "value": "1"
+        },
+        {
+          "name": "Word",
+          "value": "2"
+        },
+        {
+          "name": "Line",
+          "value": "3"
+        },
+        {
+          "name": "Paragraph",
+          "value": "4"
+        },
+        {
+          "name": "Page",
+          "value": "5"
+        },
+        {
+          "name": "Document",
+          "value": "6"
+        }
+      ]
+    }
+  }
+}

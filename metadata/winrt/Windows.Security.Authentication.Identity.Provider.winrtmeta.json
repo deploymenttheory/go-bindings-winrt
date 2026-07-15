@@ -1,0 +1,1423 @@
+{
+  "namespace": "Windows.Security.Authentication.Identity.Provider",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "SecondaryAuthenticationFactorAuthenticationMessage": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Invalid",
+          "value": "0"
+        },
+        {
+          "name": "SwipeUpWelcome",
+          "value": "1"
+        },
+        {
+          "name": "TapWelcome",
+          "value": "2"
+        },
+        {
+          "name": "DeviceNeedsAttention",
+          "value": "3"
+        },
+        {
+          "name": "LookingForDevice",
+          "value": "4"
+        },
+        {
+          "name": "LookingForDevicePluggedin",
+          "value": "5"
+        },
+        {
+          "name": "BluetoothIsDisabled",
+          "value": "6"
+        },
+        {
+          "name": "NfcIsDisabled",
+          "value": "7"
+        },
+        {
+          "name": "WiFiIsDisabled",
+          "value": "8"
+        },
+        {
+          "name": "ExtraTapIsRequired",
+          "value": "9"
+        },
+        {
+          "name": "DisabledByPolicy",
+          "value": "10"
+        },
+        {
+          "name": "TapOnDeviceRequired",
+          "value": "11"
+        },
+        {
+          "name": "HoldFinger",
+          "value": "12"
+        },
+        {
+          "name": "ScanFinger",
+          "value": "13"
+        },
+        {
+          "name": "UnauthorizedUser",
+          "value": "14"
+        },
+        {
+          "name": "ReregisterRequired",
+          "value": "15"
+        },
+        {
+          "name": "TryAgain",
+          "value": "16"
+        },
+        {
+          "name": "SayPassphrase",
+          "value": "17"
+        },
+        {
+          "name": "ReadyToSignIn",
+          "value": "18"
+        },
+        {
+          "name": "UseAnotherSignInOption",
+          "value": "19"
+        },
+        {
+          "name": "ConnectionRequired",
+          "value": "20"
+        },
+        {
+          "name": "TimeLimitExceeded",
+          "value": "21"
+        },
+        {
+          "name": "CanceledByUser",
+          "value": "22"
+        },
+        {
+          "name": "CenterHand",
+          "value": "23"
+        },
+        {
+          "name": "MoveHandCloser",
+          "value": "24"
+        },
+        {
+          "name": "MoveHandFarther",
+          "value": "25"
+        },
+        {
+          "name": "PlaceHandAbove",
+          "value": "26"
+        },
+        {
+          "name": "RecognitionFailed",
+          "value": "27"
+        },
+        {
+          "name": "DeviceUnavailable",
+          "value": "28"
+        }
+      ]
+    },
+    "SecondaryAuthenticationFactorAuthenticationScenario": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "SignIn",
+          "value": "0"
+        },
+        {
+          "name": "CredentialPrompt",
+          "value": "1"
+        }
+      ]
+    },
+    "SecondaryAuthenticationFactorAuthenticationStage": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "NotStarted",
+          "value": "0"
+        },
+        {
+          "name": "WaitingForUserConfirmation",
+          "value": "1"
+        },
+        {
+          "name": "CollectingCredential",
+          "value": "2"
+        },
+        {
+          "name": "SuspendingAuthentication",
+          "value": "3"
+        },
+        {
+          "name": "CredentialCollected",
+          "value": "4"
+        },
+        {
+          "name": "CredentialAuthenticated",
+          "value": "5"
+        },
+        {
+          "name": "StoppingAuthentication",
+          "value": "6"
+        },
+        {
+          "name": "ReadyForLock",
+          "value": "7"
+        },
+        {
+          "name": "CheckingDevicePresence",
+          "value": "8"
+        }
+      ]
+    },
+    "SecondaryAuthenticationFactorAuthenticationStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Failed",
+          "value": "0"
+        },
+        {
+          "name": "Started",
+          "value": "1"
+        },
+        {
+          "name": "UnknownDevice",
+          "value": "2"
+        },
+        {
+          "name": "DisabledByPolicy",
+          "value": "3"
+        },
+        {
+          "name": "InvalidAuthenticationStage",
+          "value": "4"
+        }
+      ]
+    },
+    "SecondaryAuthenticationFactorDeviceCapabilities": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "SecureStorage",
+          "value": "1"
+        },
+        {
+          "name": "StoreKeys",
+          "value": "2"
+        },
+        {
+          "name": "ConfirmUserIntentToAuthenticate",
+          "value": "4"
+        },
+        {
+          "name": "SupportSecureUserPresenceCheck",
+          "value": "8"
+        },
+        {
+          "name": "TransmittedDataIsEncrypted",
+          "value": "16"
+        },
+        {
+          "name": "HMacSha256",
+          "value": "32"
+        },
+        {
+          "name": "CloseRangeDataTransmission",
+          "value": "64"
+        }
+      ]
+    },
+    "SecondaryAuthenticationFactorDeviceFindScope": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "User",
+          "value": "0"
+        },
+        {
+          "name": "AllUsers",
+          "value": "1"
+        }
+      ]
+    },
+    "SecondaryAuthenticationFactorDevicePresence": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Absent",
+          "value": "0"
+        },
+        {
+          "name": "Present",
+          "value": "1"
+        }
+      ]
+    },
+    "SecondaryAuthenticationFactorDevicePresenceMonitoringMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unsupported",
+          "value": "0"
+        },
+        {
+          "name": "AppManaged",
+          "value": "1"
+        },
+        {
+          "name": "SystemManaged",
+          "value": "2"
+        }
+      ]
+    },
+    "SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unsupported",
+          "value": "0"
+        },
+        {
+          "name": "Succeeded",
+          "value": "1"
+        },
+        {
+          "name": "DisabledByPolicy",
+          "value": "2"
+        }
+      ]
+    },
+    "SecondaryAuthenticationFactorFinishAuthenticationStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Failed",
+          "value": "0"
+        },
+        {
+          "name": "Completed",
+          "value": "1"
+        },
+        {
+          "name": "NonceExpired",
+          "value": "2"
+        }
+      ]
+    },
+    "SecondaryAuthenticationFactorRegistrationStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Failed",
+          "value": "0"
+        },
+        {
+          "name": "Started",
+          "value": "1"
+        },
+        {
+          "name": "CanceledByUser",
+          "value": "2"
+        },
+        {
+          "name": "PinSetupRequired",
+          "value": "3"
+        },
+        {
+          "name": "DisabledByPolicy",
+          "value": "4"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ISecondaryAuthenticationFactorAuthentication": {
+      "guid": "020a16e5-6a25-40a3-8c00-50a023f619d1",
+      "exclusive_to": "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthentication",
+      "methods": [
+        {
+          "name": "get_ServiceAuthenticationHmac",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_SessionNonce",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_DeviceNonce",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_DeviceConfigurationData",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "FinishAuthenticationAsync",
+          "params": [
+            {
+              "name": "deviceHmac",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "sessionHmac",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SecondaryAuthenticationFactorFinishAuthenticationStatus",
+                "namespace": "Windows.Security.Authentication.Identity.Provider",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "AbortAuthenticationAsync",
+          "params": [
+            {
+              "name": "errorLogMessage",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceConfigurationData",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_DeviceConfigurationData"
+        },
+        {
+          "name": "DeviceNonce",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_DeviceNonce"
+        },
+        {
+          "name": "ServiceAuthenticationHmac",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_ServiceAuthenticationHmac"
+        },
+        {
+          "name": "SessionNonce",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_SessionNonce"
+        }
+      ]
+    },
+    "ISecondaryAuthenticationFactorAuthenticationResult": {
+      "guid": "9cbb5987-ef6d-4bc2-bf49-4617515a0f9a",
+      "exclusive_to": "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SecondaryAuthenticationFactorAuthenticationStatus",
+            "namespace": "Windows.Security.Authentication.Identity.Provider",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Authentication",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SecondaryAuthenticationFactorAuthentication",
+            "namespace": "Windows.Security.Authentication.Identity.Provider",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Authentication",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SecondaryAuthenticationFactorAuthentication",
+            "namespace": "Windows.Security.Authentication.Identity.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Authentication"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SecondaryAuthenticationFactorAuthenticationStatus",
+            "namespace": "Windows.Security.Authentication.Identity.Provider",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs": {
+      "guid": "d4a5ee56-7291-4073-bc1f-ccb8f5afdf96",
+      "exclusive_to": "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_StageInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SecondaryAuthenticationFactorAuthenticationStageInfo",
+            "namespace": "Windows.Security.Authentication.Identity.Provider",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "StageInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SecondaryAuthenticationFactorAuthenticationStageInfo",
+            "namespace": "Windows.Security.Authentication.Identity.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_StageInfo"
+        }
+      ]
+    },
+    "ISecondaryAuthenticationFactorAuthenticationStageInfo": {
+      "guid": "56fec28b-e8aa-4c0f-8e4c-a559e73add88",
+      "exclusive_to": "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStageInfo",
+      "methods": [
+        {
+          "name": "get_Stage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SecondaryAuthenticationFactorAuthenticationStage",
+            "namespace": "Windows.Security.Authentication.Identity.Provider",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Scenario",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SecondaryAuthenticationFactorAuthenticationScenario",
+            "namespace": "Windows.Security.Authentication.Identity.Provider",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        },
+        {
+          "name": "Scenario",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SecondaryAuthenticationFactorAuthenticationScenario",
+            "namespace": "Windows.Security.Authentication.Identity.Provider",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Scenario"
+        },
+        {
+          "name": "Stage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SecondaryAuthenticationFactorAuthenticationStage",
+            "namespace": "Windows.Security.Authentication.Identity.Provider",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Stage"
+        }
+      ]
+    },
+    "ISecondaryAuthenticationFactorAuthenticationStatics": {
+      "guid": "3f582656-28f8-4e0f-ae8c-5898b9ae2469",
+      "exclusive_to": "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthentication",
+      "methods": [
+        {
+          "name": "ShowNotificationMessageAsync",
+          "params": [
+            {
+              "name": "deviceName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "message",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SecondaryAuthenticationFactorAuthenticationMessage",
+                "namespace": "Windows.Security.Authentication.Identity.Provider",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "StartAuthenticationAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "serviceAuthenticationNonce",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SecondaryAuthenticationFactorAuthenticationResult",
+                "namespace": "Windows.Security.Authentication.Identity.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_AuthenticationStageChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs",
+                    "namespace": "Windows.Security.Authentication.Identity.Provider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_AuthenticationStageChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetAuthenticationStageInfoAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SecondaryAuthenticationFactorAuthenticationStageInfo",
+                "namespace": "Windows.Security.Authentication.Identity.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "events": [
+        {
+          "name": "AuthenticationStageChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs",
+                "namespace": "Windows.Security.Authentication.Identity.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_AuthenticationStageChanged",
+          "remove_method": "remove_AuthenticationStageChanged"
+        }
+      ]
+    },
+    "ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics": {
+      "guid": "90499a19-7ef2-4523-951c-a417a24acf93",
+      "exclusive_to": "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistration",
+      "methods": [
+        {
+          "name": "RegisterDevicePresenceMonitoringAsync",
+          "overload": "RegisterDevicePresenceMonitoringAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "deviceInstancePath",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "monitoringMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SecondaryAuthenticationFactorDevicePresenceMonitoringMode",
+                "namespace": "Windows.Security.Authentication.Identity.Provider",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus",
+                "namespace": "Windows.Security.Authentication.Identity.Provider",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RegisterDevicePresenceMonitoringAsync",
+          "overload": "RegisterDevicePresenceMonitoringWithNewDeviceAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "deviceInstancePath",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "monitoringMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SecondaryAuthenticationFactorDevicePresenceMonitoringMode",
+                "namespace": "Windows.Security.Authentication.Identity.Provider",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "deviceFriendlyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "deviceModelNumber",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "deviceConfigurationData",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus",
+                "namespace": "Windows.Security.Authentication.Identity.Provider",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "UnregisterDevicePresenceMonitoringAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "IsDevicePresenceMonitoringSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "ISecondaryAuthenticationFactorInfo": {
+      "guid": "1e2ba861-8533-4fce-839b-ecb72410ac14",
+      "exclusive_to": "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorInfo",
+      "methods": [
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DeviceFriendlyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DeviceModelNumber",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DeviceConfigurationData",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceConfigurationData",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_DeviceConfigurationData"
+        },
+        {
+          "name": "DeviceFriendlyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceFriendlyName"
+        },
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        },
+        {
+          "name": "DeviceModelNumber",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceModelNumber"
+        }
+      ]
+    },
+    "ISecondaryAuthenticationFactorInfo2": {
+      "guid": "14d981a3-fc26-4ff7-abc3-48e82a512a0a",
+      "exclusive_to": "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorInfo",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISecondaryAuthenticationFactorInfo",
+          "namespace": "Windows.Security.Authentication.Identity.Provider",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_PresenceMonitoringMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SecondaryAuthenticationFactorDevicePresenceMonitoringMode",
+            "namespace": "Windows.Security.Authentication.Identity.Provider",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "UpdateDevicePresenceAsync",
+          "params": [
+            {
+              "name": "presenceState",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SecondaryAuthenticationFactorDevicePresence",
+                "namespace": "Windows.Security.Authentication.Identity.Provider",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_IsAuthenticationSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsAuthenticationSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAuthenticationSupported"
+        },
+        {
+          "name": "PresenceMonitoringMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SecondaryAuthenticationFactorDevicePresenceMonitoringMode",
+            "namespace": "Windows.Security.Authentication.Identity.Provider",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PresenceMonitoringMode"
+        }
+      ]
+    },
+    "ISecondaryAuthenticationFactorRegistration": {
+      "guid": "9f4cbbb4-8cba-48b0-840d-dbb22a54c678",
+      "exclusive_to": "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistration",
+      "methods": [
+        {
+          "name": "FinishRegisteringDeviceAsync",
+          "params": [
+            {
+              "name": "deviceConfigurationData",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "AbortRegisteringDeviceAsync",
+          "params": [
+            {
+              "name": "errorLogMessage",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "ISecondaryAuthenticationFactorRegistrationResult": {
+      "guid": "a4fe35f0-ade3-4981-af6b-ec195921682a",
+      "exclusive_to": "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistrationResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SecondaryAuthenticationFactorRegistrationStatus",
+            "namespace": "Windows.Security.Authentication.Identity.Provider",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Registration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SecondaryAuthenticationFactorRegistration",
+            "namespace": "Windows.Security.Authentication.Identity.Provider",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Registration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SecondaryAuthenticationFactorRegistration",
+            "namespace": "Windows.Security.Authentication.Identity.Provider",
+            "target_kind": "Class"
+          },
+          "getter": "get_Registration"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SecondaryAuthenticationFactorRegistrationStatus",
+            "namespace": "Windows.Security.Authentication.Identity.Provider",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "ISecondaryAuthenticationFactorRegistrationStatics": {
+      "guid": "1adf0f65-e3b7-4155-997f-b756ef65beba",
+      "exclusive_to": "Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistration",
+      "methods": [
+        {
+          "name": "RequestStartRegisteringDeviceAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "capabilities",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SecondaryAuthenticationFactorDeviceCapabilities",
+                "namespace": "Windows.Security.Authentication.Identity.Provider",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "deviceFriendlyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "deviceModelNumber",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "deviceKey",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "mutualAuthenticationKey",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SecondaryAuthenticationFactorRegistrationResult",
+                "namespace": "Windows.Security.Authentication.Identity.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAllRegisteredDeviceInfoAsync",
+          "params": [
+            {
+              "name": "queryType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SecondaryAuthenticationFactorDeviceFindScope",
+                "namespace": "Windows.Security.Authentication.Identity.Provider",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SecondaryAuthenticationFactorInfo",
+                    "namespace": "Windows.Security.Authentication.Identity.Provider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "UnregisterDeviceAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "UpdateDeviceConfigurationDataAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "deviceConfigurationData",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "SecondaryAuthenticationFactorAuthentication": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISecondaryAuthenticationFactorAuthentication",
+        "namespace": "Windows.Security.Authentication.Identity.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISecondaryAuthenticationFactorAuthentication",
+          "namespace": "Windows.Security.Authentication.Identity.Provider",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorAuthenticationStatics"
+      ]
+    },
+    "SecondaryAuthenticationFactorAuthenticationResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISecondaryAuthenticationFactorAuthenticationResult",
+        "namespace": "Windows.Security.Authentication.Identity.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISecondaryAuthenticationFactorAuthenticationResult",
+          "namespace": "Windows.Security.Authentication.Identity.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs",
+        "namespace": "Windows.Security.Authentication.Identity.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs",
+          "namespace": "Windows.Security.Authentication.Identity.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SecondaryAuthenticationFactorAuthenticationStageInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISecondaryAuthenticationFactorAuthenticationStageInfo",
+        "namespace": "Windows.Security.Authentication.Identity.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISecondaryAuthenticationFactorAuthenticationStageInfo",
+          "namespace": "Windows.Security.Authentication.Identity.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SecondaryAuthenticationFactorInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISecondaryAuthenticationFactorInfo",
+        "namespace": "Windows.Security.Authentication.Identity.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISecondaryAuthenticationFactorInfo",
+          "namespace": "Windows.Security.Authentication.Identity.Provider",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISecondaryAuthenticationFactorInfo2",
+          "namespace": "Windows.Security.Authentication.Identity.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SecondaryAuthenticationFactorRegistration": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISecondaryAuthenticationFactorRegistration",
+        "namespace": "Windows.Security.Authentication.Identity.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISecondaryAuthenticationFactorRegistration",
+          "namespace": "Windows.Security.Authentication.Identity.Provider",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatics",
+        "Windows.Security.Authentication.Identity.Provider.ISecondaryAuthenticationFactorRegistrationStatics"
+      ]
+    },
+    "SecondaryAuthenticationFactorRegistrationResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISecondaryAuthenticationFactorRegistrationResult",
+        "namespace": "Windows.Security.Authentication.Identity.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISecondaryAuthenticationFactorRegistrationResult",
+          "namespace": "Windows.Security.Authentication.Identity.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

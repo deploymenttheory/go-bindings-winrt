@@ -1,0 +1,53 @@
+{
+  "namespace": "Windows.Graphics.Effects",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IGraphicsEffect": {
+      "guid": "cb51c0ce-8fe6-4636-b202-861faa07d8f3",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IGraphicsEffectSource",
+          "namespace": "Windows.Graphics.Effects",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Name",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name",
+          "setter": "put_Name"
+        }
+      ]
+    },
+    "IGraphicsEffectSource": {
+      "guid": "2d8f9ddc-4339-4eb9-9216-f9deb75658a2"
+    }
+  }
+}

@@ -1,0 +1,2399 @@
+{
+  "namespace": "Windows.Media.PlayTo",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "PlayToConnectionError": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "DeviceNotResponding",
+          "value": "1"
+        },
+        {
+          "name": "DeviceError",
+          "value": "2"
+        },
+        {
+          "name": "DeviceLocked",
+          "value": "3"
+        },
+        {
+          "name": "ProtectedPlaybackFailed",
+          "value": "4"
+        }
+      ]
+    },
+    "PlayToConnectionState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Disconnected",
+          "value": "0"
+        },
+        {
+          "name": "Connected",
+          "value": "1"
+        },
+        {
+          "name": "Rendering",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ICurrentTimeChangeRequestedEventArgs": {
+      "guid": "99711324-edc7-4bf5-91f6-3c8627db59e5",
+      "exclusive_to": "Windows.Media.PlayTo.CurrentTimeChangeRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_Time",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Time",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Time"
+        }
+      ]
+    },
+    "IMuteChangeRequestedEventArgs": {
+      "guid": "e4b4f5f6-af1f-4f1e-b437-7da32400e1d4",
+      "exclusive_to": "Windows.Media.PlayTo.MuteChangeRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_Mute",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Mute",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Mute"
+        }
+      ]
+    },
+    "IPlayToConnection": {
+      "guid": "112fbfc8-f235-4fde-8d41-9bf27c9e9a40",
+      "exclusive_to": "Windows.Media.PlayTo.PlayToConnection",
+      "methods": [
+        {
+          "name": "get_State",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayToConnectionState",
+            "namespace": "Windows.Media.PlayTo",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_StateChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PlayToConnection",
+                    "namespace": "Windows.Media.PlayTo",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PlayToConnectionStateChangedEventArgs",
+                    "namespace": "Windows.Media.PlayTo",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_StateChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Transferred",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PlayToConnection",
+                    "namespace": "Windows.Media.PlayTo",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PlayToConnectionTransferredEventArgs",
+                    "namespace": "Windows.Media.PlayTo",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Transferred",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Error",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PlayToConnection",
+                    "namespace": "Windows.Media.PlayTo",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PlayToConnectionErrorEventArgs",
+                    "namespace": "Windows.Media.PlayTo",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Error",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "State",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PlayToConnectionState",
+            "namespace": "Windows.Media.PlayTo",
+            "target_kind": "Enum"
+          },
+          "getter": "get_State"
+        }
+      ],
+      "events": [
+        {
+          "name": "Error",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PlayToConnection",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PlayToConnectionErrorEventArgs",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Error",
+          "remove_method": "remove_Error"
+        },
+        {
+          "name": "StateChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PlayToConnection",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PlayToConnectionStateChangedEventArgs",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_StateChanged",
+          "remove_method": "remove_StateChanged"
+        },
+        {
+          "name": "Transferred",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PlayToConnection",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PlayToConnectionTransferredEventArgs",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Transferred",
+          "remove_method": "remove_Transferred"
+        }
+      ]
+    },
+    "IPlayToConnectionErrorEventArgs": {
+      "guid": "bf5eada6-88e6-445f-9d40-d9b9f8939896",
+      "exclusive_to": "Windows.Media.PlayTo.PlayToConnectionErrorEventArgs",
+      "methods": [
+        {
+          "name": "get_Code",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayToConnectionError",
+            "namespace": "Windows.Media.PlayTo",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Message",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Code",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PlayToConnectionError",
+            "namespace": "Windows.Media.PlayTo",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Code"
+        },
+        {
+          "name": "Message",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Message"
+        }
+      ]
+    },
+    "IPlayToConnectionStateChangedEventArgs": {
+      "guid": "68c4b50f-0c20-4980-8602-58c62238d423",
+      "exclusive_to": "Windows.Media.PlayTo.PlayToConnectionStateChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_PreviousState",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayToConnectionState",
+            "namespace": "Windows.Media.PlayTo",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_CurrentState",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayToConnectionState",
+            "namespace": "Windows.Media.PlayTo",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CurrentState",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PlayToConnectionState",
+            "namespace": "Windows.Media.PlayTo",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CurrentState"
+        },
+        {
+          "name": "PreviousState",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PlayToConnectionState",
+            "namespace": "Windows.Media.PlayTo",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PreviousState"
+        }
+      ]
+    },
+    "IPlayToConnectionTransferredEventArgs": {
+      "guid": "fae3193a-0683-47d9-8df0-18cbb48984d8",
+      "exclusive_to": "Windows.Media.PlayTo.PlayToConnectionTransferredEventArgs",
+      "methods": [
+        {
+          "name": "get_PreviousSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayToSource",
+            "namespace": "Windows.Media.PlayTo",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CurrentSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayToSource",
+            "namespace": "Windows.Media.PlayTo",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CurrentSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PlayToSource",
+            "namespace": "Windows.Media.PlayTo",
+            "target_kind": "Class"
+          },
+          "getter": "get_CurrentSource"
+        },
+        {
+          "name": "PreviousSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PlayToSource",
+            "namespace": "Windows.Media.PlayTo",
+            "target_kind": "Class"
+          },
+          "getter": "get_PreviousSource"
+        }
+      ]
+    },
+    "IPlayToManager": {
+      "guid": "f56a206e-1b77-42ef-8f0d-b949f8d9b260",
+      "exclusive_to": "Windows.Media.PlayTo.PlayToManager",
+      "methods": [
+        {
+          "name": "add_SourceRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PlayToManager",
+                    "namespace": "Windows.Media.PlayTo",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PlayToSourceRequestedEventArgs",
+                    "namespace": "Windows.Media.PlayTo",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SourceRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_SourceSelected",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PlayToManager",
+                    "namespace": "Windows.Media.PlayTo",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PlayToSourceSelectedEventArgs",
+                    "namespace": "Windows.Media.PlayTo",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SourceSelected",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "put_DefaultSourceSelection",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DefaultSourceSelection",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DefaultSourceSelection",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_DefaultSourceSelection",
+          "setter": "put_DefaultSourceSelection"
+        }
+      ],
+      "events": [
+        {
+          "name": "SourceRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PlayToManager",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PlayToSourceRequestedEventArgs",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SourceRequested",
+          "remove_method": "remove_SourceRequested"
+        },
+        {
+          "name": "SourceSelected",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PlayToManager",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PlayToSourceSelectedEventArgs",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SourceSelected",
+          "remove_method": "remove_SourceSelected"
+        }
+      ]
+    },
+    "IPlayToManagerStatics": {
+      "guid": "64e6a887-3982-4f3b-ba20-6155e435325b",
+      "exclusive_to": "Windows.Media.PlayTo.PlayToManager",
+      "methods": [
+        {
+          "name": "GetForCurrentView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayToManager",
+            "namespace": "Windows.Media.PlayTo",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ShowPlayToUI"
+        }
+      ]
+    },
+    "IPlayToReceiver": {
+      "guid": "ac15cf47-a162-4aa6-af1b-3aa35f3b9069",
+      "exclusive_to": "Windows.Media.PlayTo.PlayToReceiver",
+      "methods": [
+        {
+          "name": "add_PlayRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PlayToReceiver",
+                    "namespace": "Windows.Media.PlayTo",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PlayRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PauseRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PlayToReceiver",
+                    "namespace": "Windows.Media.PlayTo",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PauseRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_SourceChangeRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PlayToReceiver",
+                    "namespace": "Windows.Media.PlayTo",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SourceChangeRequestedEventArgs",
+                    "namespace": "Windows.Media.PlayTo",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SourceChangeRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PlaybackRateChangeRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PlayToReceiver",
+                    "namespace": "Windows.Media.PlayTo",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PlaybackRateChangeRequestedEventArgs",
+                    "namespace": "Windows.Media.PlayTo",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PlaybackRateChangeRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_CurrentTimeChangeRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PlayToReceiver",
+                    "namespace": "Windows.Media.PlayTo",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CurrentTimeChangeRequestedEventArgs",
+                    "namespace": "Windows.Media.PlayTo",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CurrentTimeChangeRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_MuteChangeRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PlayToReceiver",
+                    "namespace": "Windows.Media.PlayTo",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "MuteChangeRequestedEventArgs",
+                    "namespace": "Windows.Media.PlayTo",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_MuteChangeRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_VolumeChangeRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PlayToReceiver",
+                    "namespace": "Windows.Media.PlayTo",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "VolumeChangeRequestedEventArgs",
+                    "namespace": "Windows.Media.PlayTo",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_VolumeChangeRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_TimeUpdateRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PlayToReceiver",
+                    "namespace": "Windows.Media.PlayTo",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_TimeUpdateRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_StopRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PlayToReceiver",
+                    "namespace": "Windows.Media.PlayTo",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_StopRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "NotifyVolumeChange",
+          "params": [
+            {
+              "name": "volume",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "mute",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "NotifyRateChange",
+          "params": [
+            {
+              "name": "rate",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "NotifyLoadedMetadata"
+        },
+        {
+          "name": "NotifyTimeUpdate",
+          "params": [
+            {
+              "name": "currentTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "NotifyDurationChange",
+          "params": [
+            {
+              "name": "duration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "NotifySeeking"
+        },
+        {
+          "name": "NotifySeeked"
+        },
+        {
+          "name": "NotifyPaused"
+        },
+        {
+          "name": "NotifyPlaying"
+        },
+        {
+          "name": "NotifyEnded"
+        },
+        {
+          "name": "NotifyError"
+        },
+        {
+          "name": "NotifyStopped"
+        },
+        {
+          "name": "get_FriendlyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_FriendlyName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "put_SupportsImage",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SupportsImage",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_SupportsAudio",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SupportsAudio",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_SupportsVideo",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SupportsVideo",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IPropertySet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "StartAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "StopAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FriendlyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_FriendlyName",
+          "setter": "put_FriendlyName"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IPropertySet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "SupportsAudio",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SupportsAudio",
+          "setter": "put_SupportsAudio"
+        },
+        {
+          "name": "SupportsImage",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SupportsImage",
+          "setter": "put_SupportsImage"
+        },
+        {
+          "name": "SupportsVideo",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SupportsVideo",
+          "setter": "put_SupportsVideo"
+        }
+      ],
+      "events": [
+        {
+          "name": "CurrentTimeChangeRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PlayToReceiver",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CurrentTimeChangeRequestedEventArgs",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_CurrentTimeChangeRequested",
+          "remove_method": "remove_CurrentTimeChangeRequested"
+        },
+        {
+          "name": "MuteChangeRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PlayToReceiver",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "MuteChangeRequestedEventArgs",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_MuteChangeRequested",
+          "remove_method": "remove_MuteChangeRequested"
+        },
+        {
+          "name": "PauseRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PlayToReceiver",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_PauseRequested",
+          "remove_method": "remove_PauseRequested"
+        },
+        {
+          "name": "PlayRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PlayToReceiver",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_PlayRequested",
+          "remove_method": "remove_PlayRequested"
+        },
+        {
+          "name": "PlaybackRateChangeRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PlayToReceiver",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PlaybackRateChangeRequestedEventArgs",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PlaybackRateChangeRequested",
+          "remove_method": "remove_PlaybackRateChangeRequested"
+        },
+        {
+          "name": "SourceChangeRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PlayToReceiver",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SourceChangeRequestedEventArgs",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SourceChangeRequested",
+          "remove_method": "remove_SourceChangeRequested"
+        },
+        {
+          "name": "StopRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PlayToReceiver",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_StopRequested",
+          "remove_method": "remove_StopRequested"
+        },
+        {
+          "name": "TimeUpdateRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PlayToReceiver",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_TimeUpdateRequested",
+          "remove_method": "remove_TimeUpdateRequested"
+        },
+        {
+          "name": "VolumeChangeRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PlayToReceiver",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "VolumeChangeRequestedEventArgs",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_VolumeChangeRequested",
+          "remove_method": "remove_VolumeChangeRequested"
+        }
+      ]
+    },
+    "IPlayToSource": {
+      "guid": "7f138a08-fbb7-4b09-8356-aa5f4e335c31",
+      "exclusive_to": "Windows.Media.PlayTo.PlayToSource",
+      "methods": [
+        {
+          "name": "get_Connection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayToConnection",
+            "namespace": "Windows.Media.PlayTo",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Next",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayToSource",
+            "namespace": "Windows.Media.PlayTo",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Next",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PlayToSource",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "PlayNext"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Connection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PlayToConnection",
+            "namespace": "Windows.Media.PlayTo",
+            "target_kind": "Class"
+          },
+          "getter": "get_Connection"
+        },
+        {
+          "name": "Next",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PlayToSource",
+            "namespace": "Windows.Media.PlayTo",
+            "target_kind": "Class"
+          },
+          "getter": "get_Next",
+          "setter": "put_Next"
+        }
+      ]
+    },
+    "IPlayToSourceDeferral": {
+      "guid": "4100891d-278e-4f29-859b-a9e501053e7d",
+      "exclusive_to": "Windows.Media.PlayTo.PlayToSourceDeferral",
+      "methods": [
+        {
+          "name": "Complete"
+        }
+      ]
+    },
+    "IPlayToSourceRequest": {
+      "guid": "f8584665-64f4-44a0-ac0d-468d2b8fda83",
+      "exclusive_to": "Windows.Media.PlayTo.PlayToSourceRequest",
+      "methods": [
+        {
+          "name": "get_Deadline",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "DisplayErrorString",
+          "params": [
+            {
+              "name": "errorString",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayToSourceDeferral",
+            "namespace": "Windows.Media.PlayTo",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetSource",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PlayToSource",
+                "namespace": "Windows.Media.PlayTo",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Deadline",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Deadline"
+        }
+      ]
+    },
+    "IPlayToSourceRequestedEventArgs": {
+      "guid": "c5cdc330-29df-4ec6-9da9-9fbdfcfc1b3e",
+      "exclusive_to": "Windows.Media.PlayTo.PlayToSourceRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_SourceRequest",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PlayToSourceRequest",
+            "namespace": "Windows.Media.PlayTo",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SourceRequest",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PlayToSourceRequest",
+            "namespace": "Windows.Media.PlayTo",
+            "target_kind": "Class"
+          },
+          "getter": "get_SourceRequest"
+        }
+      ]
+    },
+    "IPlayToSourceSelectedEventArgs": {
+      "guid": "0c9d8511-5202-4dcb-8c67-abda12bb3c12",
+      "exclusive_to": "Windows.Media.PlayTo.PlayToSourceSelectedEventArgs",
+      "methods": [
+        {
+          "name": "get_FriendlyName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Icon",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamWithContentType",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_SupportsImage",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SupportsAudio",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SupportsVideo",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FriendlyName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_FriendlyName"
+        },
+        {
+          "name": "Icon",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamWithContentType",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Icon"
+        },
+        {
+          "name": "SupportsAudio",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SupportsAudio"
+        },
+        {
+          "name": "SupportsImage",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SupportsImage"
+        },
+        {
+          "name": "SupportsVideo",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SupportsVideo"
+        }
+      ]
+    },
+    "IPlayToSourceWithPreferredSourceUri": {
+      "guid": "aab253eb-3301-4dc4-afba-b2f2ed9635a0",
+      "exclusive_to": "Windows.Media.PlayTo.PlayToSource",
+      "methods": [
+        {
+          "name": "get_PreferredSourceUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_PreferredSourceUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "PreferredSourceUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_PreferredSourceUri",
+          "setter": "put_PreferredSourceUri"
+        }
+      ]
+    },
+    "IPlaybackRateChangeRequestedEventArgs": {
+      "guid": "0f5661ae-2c88-4cca-8540-d586095d13a5",
+      "exclusive_to": "Windows.Media.PlayTo.PlaybackRateChangeRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_Rate",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Rate",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Rate"
+        }
+      ]
+    },
+    "ISourceChangeRequestedEventArgs": {
+      "guid": "fb3f3a96-7aa6-4a8b-86e7-54f6c6d34f64",
+      "exclusive_to": "Windows.Media.PlayTo.SourceChangeRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_Stream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamWithContentType",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Title",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Author",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Album",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Genre",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Description",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Date",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Thumbnail",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Rating",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Album",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Album"
+        },
+        {
+          "name": "Author",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Author"
+        },
+        {
+          "name": "Date",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_Date"
+        },
+        {
+          "name": "Description",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Description"
+        },
+        {
+          "name": "Genre",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Genre"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "Rating",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_Rating"
+        },
+        {
+          "name": "Stream",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamWithContentType",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Stream"
+        },
+        {
+          "name": "Thumbnail",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Thumbnail"
+        },
+        {
+          "name": "Title",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Title"
+        }
+      ]
+    },
+    "IVolumeChangeRequestedEventArgs": {
+      "guid": "6f026d5c-cf75-4c2b-913e-6d7c6c329179",
+      "exclusive_to": "Windows.Media.PlayTo.VolumeChangeRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_Volume",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Volume",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_Volume"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "CurrentTimeChangeRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICurrentTimeChangeRequestedEventArgs",
+        "namespace": "Windows.Media.PlayTo",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICurrentTimeChangeRequestedEventArgs",
+          "namespace": "Windows.Media.PlayTo",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MuteChangeRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMuteChangeRequestedEventArgs",
+        "namespace": "Windows.Media.PlayTo",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMuteChangeRequestedEventArgs",
+          "namespace": "Windows.Media.PlayTo",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PlayToConnection": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlayToConnection",
+        "namespace": "Windows.Media.PlayTo",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayToConnection",
+          "namespace": "Windows.Media.PlayTo",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PlayToConnectionErrorEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlayToConnectionErrorEventArgs",
+        "namespace": "Windows.Media.PlayTo",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayToConnectionErrorEventArgs",
+          "namespace": "Windows.Media.PlayTo",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PlayToConnectionStateChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlayToConnectionStateChangedEventArgs",
+        "namespace": "Windows.Media.PlayTo",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayToConnectionStateChangedEventArgs",
+          "namespace": "Windows.Media.PlayTo",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PlayToConnectionTransferredEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlayToConnectionTransferredEventArgs",
+        "namespace": "Windows.Media.PlayTo",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayToConnectionTransferredEventArgs",
+          "namespace": "Windows.Media.PlayTo",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PlayToManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlayToManager",
+        "namespace": "Windows.Media.PlayTo",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayToManager",
+          "namespace": "Windows.Media.PlayTo",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Media.PlayTo.IPlayToManagerStatics"
+      ]
+    },
+    "PlayToReceiver": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlayToReceiver",
+        "namespace": "Windows.Media.PlayTo",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayToReceiver",
+          "namespace": "Windows.Media.PlayTo",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "PlayToSource": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlayToSource",
+        "namespace": "Windows.Media.PlayTo",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayToSource",
+          "namespace": "Windows.Media.PlayTo",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPlayToSourceWithPreferredSourceUri",
+          "namespace": "Windows.Media.PlayTo",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PlayToSourceDeferral": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlayToSourceDeferral",
+        "namespace": "Windows.Media.PlayTo",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayToSourceDeferral",
+          "namespace": "Windows.Media.PlayTo",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PlayToSourceRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlayToSourceRequest",
+        "namespace": "Windows.Media.PlayTo",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayToSourceRequest",
+          "namespace": "Windows.Media.PlayTo",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PlayToSourceRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlayToSourceRequestedEventArgs",
+        "namespace": "Windows.Media.PlayTo",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayToSourceRequestedEventArgs",
+          "namespace": "Windows.Media.PlayTo",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PlayToSourceSelectedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlayToSourceSelectedEventArgs",
+        "namespace": "Windows.Media.PlayTo",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlayToSourceSelectedEventArgs",
+          "namespace": "Windows.Media.PlayTo",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PlaybackRateChangeRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPlaybackRateChangeRequestedEventArgs",
+        "namespace": "Windows.Media.PlayTo",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPlaybackRateChangeRequestedEventArgs",
+          "namespace": "Windows.Media.PlayTo",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SourceChangeRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISourceChangeRequestedEventArgs",
+        "namespace": "Windows.Media.PlayTo",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISourceChangeRequestedEventArgs",
+          "namespace": "Windows.Media.PlayTo",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VolumeChangeRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVolumeChangeRequestedEventArgs",
+        "namespace": "Windows.Media.PlayTo",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVolumeChangeRequestedEventArgs",
+          "namespace": "Windows.Media.PlayTo",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

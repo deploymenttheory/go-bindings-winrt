@@ -1,0 +1,989 @@
+{
+  "namespace": "Windows.Security.Authentication.Identity.Core",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "MicrosoftAccountMultiFactorAuthenticationType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "User",
+          "value": "0"
+        },
+        {
+          "name": "Device",
+          "value": "1"
+        }
+      ]
+    },
+    "MicrosoftAccountMultiFactorServiceResponse": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "Error",
+          "value": "1"
+        },
+        {
+          "name": "NoNetworkConnection",
+          "value": "2"
+        },
+        {
+          "name": "ServiceUnavailable",
+          "value": "3"
+        },
+        {
+          "name": "TotpSetupDenied",
+          "value": "4"
+        },
+        {
+          "name": "NgcNotSetup",
+          "value": "5"
+        },
+        {
+          "name": "SessionAlreadyDenied",
+          "value": "6"
+        },
+        {
+          "name": "SessionAlreadyApproved",
+          "value": "7"
+        },
+        {
+          "name": "SessionExpired",
+          "value": "8"
+        },
+        {
+          "name": "NgcNonceExpired",
+          "value": "9"
+        },
+        {
+          "name": "InvalidSessionId",
+          "value": "10"
+        },
+        {
+          "name": "InvalidSessionType",
+          "value": "11"
+        },
+        {
+          "name": "InvalidOperation",
+          "value": "12"
+        },
+        {
+          "name": "InvalidStateTransition",
+          "value": "13"
+        },
+        {
+          "name": "DeviceNotFound",
+          "value": "14"
+        },
+        {
+          "name": "FlowDisabled",
+          "value": "15"
+        },
+        {
+          "name": "SessionNotApproved",
+          "value": "16"
+        },
+        {
+          "name": "OperationCanceledByUser",
+          "value": "17"
+        },
+        {
+          "name": "NgcDisabledByServer",
+          "value": "18"
+        },
+        {
+          "name": "NgcKeyNotFoundOnServer",
+          "value": "19"
+        },
+        {
+          "name": "UIRequired",
+          "value": "20"
+        },
+        {
+          "name": "DeviceIdChanged",
+          "value": "21"
+        }
+      ]
+    },
+    "MicrosoftAccountMultiFactorSessionApprovalStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Pending",
+          "value": "0"
+        },
+        {
+          "name": "Approved",
+          "value": "1"
+        },
+        {
+          "name": "Denied",
+          "value": "2"
+        }
+      ]
+    },
+    "MicrosoftAccountMultiFactorSessionAuthenticationStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Authenticated",
+          "value": "0"
+        },
+        {
+          "name": "Unauthenticated",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IMicrosoftAccountMultiFactorAuthenticationManager": {
+      "guid": "0fd340a5-f574-4320-a08e-0a19a82322aa",
+      "exclusive_to": "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorAuthenticationManager",
+      "methods": [
+        {
+          "name": "GetOneTimePassCodeAsync",
+          "params": [
+            {
+              "name": "userAccountId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "codeLength",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MicrosoftAccountMultiFactorOneTimeCodedInfo",
+                "namespace": "Windows.Security.Authentication.Identity.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "AddDeviceAsync",
+          "params": [
+            {
+              "name": "userAccountId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "authenticationToken",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "wnsChannelId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MicrosoftAccountMultiFactorServiceResponse",
+                "namespace": "Windows.Security.Authentication.Identity.Core",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RemoveDeviceAsync",
+          "params": [
+            {
+              "name": "userAccountId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MicrosoftAccountMultiFactorServiceResponse",
+                "namespace": "Windows.Security.Authentication.Identity.Core",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "UpdateWnsChannelAsync",
+          "params": [
+            {
+              "name": "userAccountId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "channelUri",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MicrosoftAccountMultiFactorServiceResponse",
+                "namespace": "Windows.Security.Authentication.Identity.Core",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetSessionsAsync",
+          "params": [
+            {
+              "name": "userAccountIdList",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MicrosoftAccountMultiFactorGetSessionsResult",
+                "namespace": "Windows.Security.Authentication.Identity.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetSessionsAndUnregisteredAccountsAsync",
+          "params": [
+            {
+              "name": "userAccountIdList",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo",
+                "namespace": "Windows.Security.Authentication.Identity.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ApproveSessionAsync",
+          "overload": "ApproveSessionUsingAuthSessionInfoAsync",
+          "params": [
+            {
+              "name": "sessionAuthentictionStatus",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MicrosoftAccountMultiFactorSessionAuthenticationStatus",
+                "namespace": "Windows.Security.Authentication.Identity.Core",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "authenticationSessionInfo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MicrosoftAccountMultiFactorSessionInfo",
+                "namespace": "Windows.Security.Authentication.Identity.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MicrosoftAccountMultiFactorServiceResponse",
+                "namespace": "Windows.Security.Authentication.Identity.Core",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ApproveSessionAsync",
+          "overload": "ApproveSessionAsync",
+          "params": [
+            {
+              "name": "sessionAuthentictionStatus",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MicrosoftAccountMultiFactorSessionAuthenticationStatus",
+                "namespace": "Windows.Security.Authentication.Identity.Core",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "userAccountId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "sessionId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "sessionAuthenticationType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MicrosoftAccountMultiFactorAuthenticationType",
+                "namespace": "Windows.Security.Authentication.Identity.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MicrosoftAccountMultiFactorServiceResponse",
+                "namespace": "Windows.Security.Authentication.Identity.Core",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "DenySessionAsync",
+          "overload": "DenySessionUsingAuthSessionInfoAsync",
+          "params": [
+            {
+              "name": "authenticationSessionInfo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MicrosoftAccountMultiFactorSessionInfo",
+                "namespace": "Windows.Security.Authentication.Identity.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MicrosoftAccountMultiFactorServiceResponse",
+                "namespace": "Windows.Security.Authentication.Identity.Core",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "DenySessionAsync",
+          "overload": "DenySessionAsync",
+          "params": [
+            {
+              "name": "userAccountId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "sessionId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "sessionAuthenticationType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MicrosoftAccountMultiFactorAuthenticationType",
+                "namespace": "Windows.Security.Authentication.Identity.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MicrosoftAccountMultiFactorServiceResponse",
+                "namespace": "Windows.Security.Authentication.Identity.Core",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IMicrosoftAccountMultiFactorAuthenticatorStatics": {
+      "guid": "d964c2e6-f446-4c71-8b79-6ea4024aa9b8",
+      "exclusive_to": "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorAuthenticationManager",
+      "methods": [
+        {
+          "name": "get_Current",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MicrosoftAccountMultiFactorAuthenticationManager",
+            "namespace": "Windows.Security.Authentication.Identity.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Current",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MicrosoftAccountMultiFactorAuthenticationManager",
+            "namespace": "Windows.Security.Authentication.Identity.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_Current"
+        }
+      ]
+    },
+    "IMicrosoftAccountMultiFactorGetSessionsResult": {
+      "guid": "4e23a9a0-e9fa-497a-95de-6d5747bf974c",
+      "exclusive_to": "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorGetSessionsResult",
+      "methods": [
+        {
+          "name": "get_Sessions",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MicrosoftAccountMultiFactorSessionInfo",
+                "namespace": "Windows.Security.Authentication.Identity.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ServiceResponse",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MicrosoftAccountMultiFactorServiceResponse",
+            "namespace": "Windows.Security.Authentication.Identity.Core",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ServiceResponse",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MicrosoftAccountMultiFactorServiceResponse",
+            "namespace": "Windows.Security.Authentication.Identity.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ServiceResponse"
+        },
+        {
+          "name": "Sessions",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MicrosoftAccountMultiFactorSessionInfo",
+                "namespace": "Windows.Security.Authentication.Identity.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Sessions"
+        }
+      ]
+    },
+    "IMicrosoftAccountMultiFactorOneTimeCodedInfo": {
+      "guid": "82ba264b-d87c-4668-a976-40cfae547d08",
+      "exclusive_to": "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorOneTimeCodedInfo",
+      "methods": [
+        {
+          "name": "get_Code",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TimeInterval",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_TimeToLive",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_ServiceResponse",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MicrosoftAccountMultiFactorServiceResponse",
+            "namespace": "Windows.Security.Authentication.Identity.Core",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Code",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Code"
+        },
+        {
+          "name": "ServiceResponse",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MicrosoftAccountMultiFactorServiceResponse",
+            "namespace": "Windows.Security.Authentication.Identity.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ServiceResponse"
+        },
+        {
+          "name": "TimeInterval",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_TimeInterval"
+        },
+        {
+          "name": "TimeToLive",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_TimeToLive"
+        }
+      ]
+    },
+    "IMicrosoftAccountMultiFactorSessionInfo": {
+      "guid": "5f7eabb4-a278-4635-b765-b494eb260af4",
+      "exclusive_to": "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionInfo",
+      "methods": [
+        {
+          "name": "get_UserAccountId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SessionId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplaySessionId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ApprovalStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MicrosoftAccountMultiFactorSessionApprovalStatus",
+            "namespace": "Windows.Security.Authentication.Identity.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_AuthenticationType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MicrosoftAccountMultiFactorAuthenticationType",
+            "namespace": "Windows.Security.Authentication.Identity.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_RequestTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_ExpirationTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ApprovalStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MicrosoftAccountMultiFactorSessionApprovalStatus",
+            "namespace": "Windows.Security.Authentication.Identity.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ApprovalStatus"
+        },
+        {
+          "name": "AuthenticationType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MicrosoftAccountMultiFactorAuthenticationType",
+            "namespace": "Windows.Security.Authentication.Identity.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AuthenticationType"
+        },
+        {
+          "name": "DisplaySessionId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplaySessionId"
+        },
+        {
+          "name": "ExpirationTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExpirationTime"
+        },
+        {
+          "name": "RequestTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_RequestTime"
+        },
+        {
+          "name": "SessionId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SessionId"
+        },
+        {
+          "name": "UserAccountId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_UserAccountId"
+        }
+      ]
+    },
+    "IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo": {
+      "guid": "aa7ec5fb-da3f-4088-a20d-5618afadb2e5",
+      "exclusive_to": "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo",
+      "methods": [
+        {
+          "name": "get_Sessions",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MicrosoftAccountMultiFactorSessionInfo",
+                "namespace": "Windows.Security.Authentication.Identity.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_UnregisteredAccounts",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ServiceResponse",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MicrosoftAccountMultiFactorServiceResponse",
+            "namespace": "Windows.Security.Authentication.Identity.Core",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ServiceResponse",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MicrosoftAccountMultiFactorServiceResponse",
+            "namespace": "Windows.Security.Authentication.Identity.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ServiceResponse"
+        },
+        {
+          "name": "Sessions",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MicrosoftAccountMultiFactorSessionInfo",
+                "namespace": "Windows.Security.Authentication.Identity.Core",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Sessions"
+        },
+        {
+          "name": "UnregisteredAccounts",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_UnregisteredAccounts"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "MicrosoftAccountMultiFactorAuthenticationManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMicrosoftAccountMultiFactorAuthenticationManager",
+        "namespace": "Windows.Security.Authentication.Identity.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMicrosoftAccountMultiFactorAuthenticationManager",
+          "namespace": "Windows.Security.Authentication.Identity.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Security.Authentication.Identity.Core.IMicrosoftAccountMultiFactorAuthenticatorStatics"
+      ]
+    },
+    "MicrosoftAccountMultiFactorGetSessionsResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMicrosoftAccountMultiFactorGetSessionsResult",
+        "namespace": "Windows.Security.Authentication.Identity.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMicrosoftAccountMultiFactorGetSessionsResult",
+          "namespace": "Windows.Security.Authentication.Identity.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MicrosoftAccountMultiFactorOneTimeCodedInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMicrosoftAccountMultiFactorOneTimeCodedInfo",
+        "namespace": "Windows.Security.Authentication.Identity.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMicrosoftAccountMultiFactorOneTimeCodedInfo",
+          "namespace": "Windows.Security.Authentication.Identity.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MicrosoftAccountMultiFactorSessionInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMicrosoftAccountMultiFactorSessionInfo",
+        "namespace": "Windows.Security.Authentication.Identity.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMicrosoftAccountMultiFactorSessionInfo",
+          "namespace": "Windows.Security.Authentication.Identity.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo",
+        "namespace": "Windows.Security.Authentication.Identity.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo",
+          "namespace": "Windows.Security.Authentication.Identity.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

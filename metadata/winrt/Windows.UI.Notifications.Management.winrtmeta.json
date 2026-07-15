@@ -1,0 +1,250 @@
+{
+  "namespace": "Windows.UI.Notifications.Management",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "UserNotificationListenerAccessStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unspecified",
+          "value": "0"
+        },
+        {
+          "name": "Allowed",
+          "value": "1"
+        },
+        {
+          "name": "Denied",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IUserNotificationListener": {
+      "guid": "62553e41-8a06-4cef-8215-6033a5be4b03",
+      "exclusive_to": "Windows.UI.Notifications.Management.UserNotificationListener",
+      "methods": [
+        {
+          "name": "RequestAccessAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserNotificationListenerAccessStatus",
+                "namespace": "Windows.UI.Notifications.Management",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetAccessStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserNotificationListenerAccessStatus",
+            "namespace": "Windows.UI.Notifications.Management",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_NotificationChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserNotificationListener",
+                    "namespace": "Windows.UI.Notifications.Management",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserNotificationChangedEventArgs",
+                    "namespace": "Windows.UI.Notifications",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_NotificationChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetNotificationsAsync",
+          "params": [
+            {
+              "name": "kinds",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NotificationKinds",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UserNotification",
+                    "namespace": "Windows.UI.Notifications",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetNotification",
+          "params": [
+            {
+              "name": "notificationId",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserNotification",
+            "namespace": "Windows.UI.Notifications",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ClearNotifications"
+        },
+        {
+          "name": "RemoveNotification",
+          "params": [
+            {
+              "name": "notificationId",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "NotificationChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UserNotificationListener",
+                "namespace": "Windows.UI.Notifications.Management",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "UserNotificationChangedEventArgs",
+                "namespace": "Windows.UI.Notifications",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_NotificationChanged",
+          "remove_method": "remove_NotificationChanged"
+        }
+      ]
+    },
+    "IUserNotificationListenerStatics": {
+      "guid": "ff6123cf-4386-4aa3-b73d-b804e5b63b23",
+      "exclusive_to": "Windows.UI.Notifications.Management.UserNotificationListener",
+      "methods": [
+        {
+          "name": "get_Current",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserNotificationListener",
+            "namespace": "Windows.UI.Notifications.Management",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Current",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserNotificationListener",
+            "namespace": "Windows.UI.Notifications.Management",
+            "target_kind": "Class"
+          },
+          "getter": "get_Current"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "UserNotificationListener": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUserNotificationListener",
+        "namespace": "Windows.UI.Notifications.Management",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUserNotificationListener",
+          "namespace": "Windows.UI.Notifications.Management",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Notifications.Management.IUserNotificationListenerStatics"
+      ]
+    }
+  }
+}

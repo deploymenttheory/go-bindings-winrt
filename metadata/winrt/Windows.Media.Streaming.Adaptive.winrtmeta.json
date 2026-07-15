@@ -1,0 +1,3642 @@
+{
+  "namespace": "Windows.Media.Streaming.Adaptive",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "AdaptiveMediaSourceCreationStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "ManifestDownloadFailure",
+          "value": "1"
+        },
+        {
+          "name": "ManifestParseFailure",
+          "value": "2"
+        },
+        {
+          "name": "UnsupportedManifestContentType",
+          "value": "3"
+        },
+        {
+          "name": "UnsupportedManifestVersion",
+          "value": "4"
+        },
+        {
+          "name": "UnsupportedManifestProfile",
+          "value": "5"
+        },
+        {
+          "name": "UnknownFailure",
+          "value": "6"
+        }
+      ]
+    },
+    "AdaptiveMediaSourceDiagnosticType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "ManifestUnchangedUponReload",
+          "value": "0"
+        },
+        {
+          "name": "ManifestMismatchUponReload",
+          "value": "1"
+        },
+        {
+          "name": "ManifestSignaledEndOfLiveEventUponReload",
+          "value": "2"
+        },
+        {
+          "name": "MediaSegmentSkipped",
+          "value": "3"
+        },
+        {
+          "name": "ResourceNotFound",
+          "value": "4"
+        },
+        {
+          "name": "ResourceTimedOut",
+          "value": "5"
+        },
+        {
+          "name": "ResourceParsingError",
+          "value": "6"
+        },
+        {
+          "name": "BitrateDisabled",
+          "value": "7"
+        },
+        {
+          "name": "FatalMediaSourceError",
+          "value": "8"
+        }
+      ]
+    },
+    "AdaptiveMediaSourceDownloadBitrateChangedReason": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "SufficientInboundBitsPerSecond",
+          "value": "0"
+        },
+        {
+          "name": "InsufficientInboundBitsPerSecond",
+          "value": "1"
+        },
+        {
+          "name": "LowBufferLevel",
+          "value": "2"
+        },
+        {
+          "name": "PositionChanged",
+          "value": "3"
+        },
+        {
+          "name": "TrackSelectionChanged",
+          "value": "4"
+        },
+        {
+          "name": "DesiredBitratesChanged",
+          "value": "5"
+        },
+        {
+          "name": "ErrorInPreviousBitrate",
+          "value": "6"
+        }
+      ]
+    },
+    "AdaptiveMediaSourceResourceType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Manifest",
+          "value": "0"
+        },
+        {
+          "name": "InitializationSegment",
+          "value": "1"
+        },
+        {
+          "name": "MediaSegment",
+          "value": "2"
+        },
+        {
+          "name": "Key",
+          "value": "3"
+        },
+        {
+          "name": "InitializationVector",
+          "value": "4"
+        },
+        {
+          "name": "MediaSegmentIndex",
+          "value": "5"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IAdaptiveMediaSource": {
+      "guid": "4c7332ef-d39f-4396-b4d9-043957a7c964",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSource",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaSource",
+          "namespace": "Windows.Media.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_IsLive",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_DesiredLiveOffset",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_DesiredLiveOffset",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_InitialBitrate",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_InitialBitrate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CurrentDownloadBitrate",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_CurrentPlaybackBitrate",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_AvailableBitrates",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_DesiredMinBitrate",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_DesiredMinBitrate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "U4"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DesiredMaxBitrate",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_DesiredMaxBitrate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "U4"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AudioOnlyPlayback",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_InboundBitsPerSecond",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_InboundBitsPerSecondWindow",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_InboundBitsPerSecondWindow",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_DownloadBitrateChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AdaptiveMediaSource",
+                    "namespace": "Windows.Media.Streaming.Adaptive",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AdaptiveMediaSourceDownloadBitrateChangedEventArgs",
+                    "namespace": "Windows.Media.Streaming.Adaptive",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DownloadBitrateChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PlaybackBitrateChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AdaptiveMediaSource",
+                    "namespace": "Windows.Media.Streaming.Adaptive",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AdaptiveMediaSourcePlaybackBitrateChangedEventArgs",
+                    "namespace": "Windows.Media.Streaming.Adaptive",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PlaybackBitrateChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_DownloadRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AdaptiveMediaSource",
+                    "namespace": "Windows.Media.Streaming.Adaptive",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AdaptiveMediaSourceDownloadRequestedEventArgs",
+                    "namespace": "Windows.Media.Streaming.Adaptive",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DownloadRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_DownloadCompleted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AdaptiveMediaSource",
+                    "namespace": "Windows.Media.Streaming.Adaptive",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AdaptiveMediaSourceDownloadCompletedEventArgs",
+                    "namespace": "Windows.Media.Streaming.Adaptive",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DownloadCompleted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_DownloadFailed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AdaptiveMediaSource",
+                    "namespace": "Windows.Media.Streaming.Adaptive",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AdaptiveMediaSourceDownloadFailedEventArgs",
+                    "namespace": "Windows.Media.Streaming.Adaptive",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DownloadFailed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AudioOnlyPlayback",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AudioOnlyPlayback"
+        },
+        {
+          "name": "AvailableBitrates",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_AvailableBitrates"
+        },
+        {
+          "name": "CurrentDownloadBitrate",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_CurrentDownloadBitrate"
+        },
+        {
+          "name": "CurrentPlaybackBitrate",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_CurrentPlaybackBitrate"
+        },
+        {
+          "name": "DesiredLiveOffset",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_DesiredLiveOffset",
+          "setter": "put_DesiredLiveOffset"
+        },
+        {
+          "name": "DesiredMaxBitrate",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_DesiredMaxBitrate",
+          "setter": "put_DesiredMaxBitrate"
+        },
+        {
+          "name": "DesiredMinBitrate",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_DesiredMinBitrate",
+          "setter": "put_DesiredMinBitrate"
+        },
+        {
+          "name": "InboundBitsPerSecond",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_InboundBitsPerSecond"
+        },
+        {
+          "name": "InboundBitsPerSecondWindow",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_InboundBitsPerSecondWindow",
+          "setter": "put_InboundBitsPerSecondWindow"
+        },
+        {
+          "name": "InitialBitrate",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_InitialBitrate",
+          "setter": "put_InitialBitrate"
+        },
+        {
+          "name": "IsLive",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsLive"
+        }
+      ],
+      "events": [
+        {
+          "name": "DownloadBitrateChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AdaptiveMediaSource",
+                "namespace": "Windows.Media.Streaming.Adaptive",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AdaptiveMediaSourceDownloadBitrateChangedEventArgs",
+                "namespace": "Windows.Media.Streaming.Adaptive",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_DownloadBitrateChanged",
+          "remove_method": "remove_DownloadBitrateChanged"
+        },
+        {
+          "name": "DownloadCompleted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AdaptiveMediaSource",
+                "namespace": "Windows.Media.Streaming.Adaptive",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AdaptiveMediaSourceDownloadCompletedEventArgs",
+                "namespace": "Windows.Media.Streaming.Adaptive",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_DownloadCompleted",
+          "remove_method": "remove_DownloadCompleted"
+        },
+        {
+          "name": "DownloadFailed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AdaptiveMediaSource",
+                "namespace": "Windows.Media.Streaming.Adaptive",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AdaptiveMediaSourceDownloadFailedEventArgs",
+                "namespace": "Windows.Media.Streaming.Adaptive",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_DownloadFailed",
+          "remove_method": "remove_DownloadFailed"
+        },
+        {
+          "name": "DownloadRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AdaptiveMediaSource",
+                "namespace": "Windows.Media.Streaming.Adaptive",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AdaptiveMediaSourceDownloadRequestedEventArgs",
+                "namespace": "Windows.Media.Streaming.Adaptive",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_DownloadRequested",
+          "remove_method": "remove_DownloadRequested"
+        },
+        {
+          "name": "PlaybackBitrateChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AdaptiveMediaSource",
+                "namespace": "Windows.Media.Streaming.Adaptive",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AdaptiveMediaSourcePlaybackBitrateChangedEventArgs",
+                "namespace": "Windows.Media.Streaming.Adaptive",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PlaybackBitrateChanged",
+          "remove_method": "remove_PlaybackBitrateChanged"
+        }
+      ]
+    },
+    "IAdaptiveMediaSource2": {
+      "guid": "17890342-6760-4bb9-a58a-f7aa98b08c0e",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSource",
+      "methods": [
+        {
+          "name": "get_AdvancedSettings",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSourceAdvancedSettings",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AdvancedSettings",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSourceAdvancedSettings",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Class"
+          },
+          "getter": "get_AdvancedSettings"
+        }
+      ]
+    },
+    "IAdaptiveMediaSource3": {
+      "guid": "ba7023fd-c334-461b-a36e-c99f54f7174a",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSource",
+      "methods": [
+        {
+          "name": "get_MinLiveOffset",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_MaxSeekableWindowSize",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_DesiredSeekableWindowSize",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_DesiredSeekableWindowSize",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "TimeSpan",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Diagnostics",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSourceDiagnostics",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetCorrelatedTimes",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSourceCorrelatedTimes",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DesiredSeekableWindowSize",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_DesiredSeekableWindowSize",
+          "setter": "put_DesiredSeekableWindowSize"
+        },
+        {
+          "name": "Diagnostics",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSourceDiagnostics",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Class"
+          },
+          "getter": "get_Diagnostics"
+        },
+        {
+          "name": "MaxSeekableWindowSize",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_MaxSeekableWindowSize"
+        },
+        {
+          "name": "MinLiveOffset",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_MinLiveOffset"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourceAdvancedSettings": {
+      "guid": "55db1680-1aeb-47dc-aa08-9a11610ba45a",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceAdvancedSettings",
+      "methods": [
+        {
+          "name": "get_AllSegmentsIndependent",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AllSegmentsIndependent",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DesiredBitrateHeadroomRatio",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_DesiredBitrateHeadroomRatio",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "F64"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BitrateDowngradeTriggerRatio",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_BitrateDowngradeTriggerRatio",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "F64"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllSegmentsIndependent",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AllSegmentsIndependent",
+          "setter": "put_AllSegmentsIndependent"
+        },
+        {
+          "name": "BitrateDowngradeTriggerRatio",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          },
+          "getter": "get_BitrateDowngradeTriggerRatio",
+          "setter": "put_BitrateDowngradeTriggerRatio"
+        },
+        {
+          "name": "DesiredBitrateHeadroomRatio",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          },
+          "getter": "get_DesiredBitrateHeadroomRatio",
+          "setter": "put_DesiredBitrateHeadroomRatio"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourceCorrelatedTimes": {
+      "guid": "05108787-e032-48e1-ab8d-002b0b3051df",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCorrelatedTimes",
+      "methods": [
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_PresentationTimeStamp",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ProgramDateTime",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Position",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_Position"
+        },
+        {
+          "name": "PresentationTimeStamp",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_PresentationTimeStamp"
+        },
+        {
+          "name": "ProgramDateTime",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ProgramDateTime"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourceCreationResult": {
+      "guid": "4686b6b2-800f-4e31-9093-76d4782013e7",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSourceCreationStatus",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_MediaSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSource",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_HttpResponseMessage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpResponseMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HttpResponseMessage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpResponseMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_HttpResponseMessage"
+        },
+        {
+          "name": "MediaSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSource",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Class"
+          },
+          "getter": "get_MediaSource"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSourceCreationStatus",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourceCreationResult2": {
+      "guid": "1c3243bf-1c44-404b-a201-df45ac7898e8",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationResult",
+      "methods": [
+        {
+          "name": "get_ExtendedError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExtendedError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtendedError"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourceDiagnosticAvailableEventArgs": {
+      "guid": "3af64f06-6d9c-494a-b7a9-b3a5dee6ad68",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticAvailableEventArgs",
+      "methods": [
+        {
+          "name": "get_DiagnosticType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSourceDiagnosticType",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_RequestId",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SegmentId",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ResourceType",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AdaptiveMediaSourceResourceType",
+                "namespace": "Windows.Media.Streaming.Adaptive",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ResourceUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ResourceByteRangeOffset",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ResourceByteRangeLength",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Bitrate",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Bitrate",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_Bitrate"
+        },
+        {
+          "name": "DiagnosticType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSourceDiagnosticType",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DiagnosticType"
+        },
+        {
+          "name": "Position",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_Position"
+        },
+        {
+          "name": "RequestId",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          },
+          "getter": "get_RequestId"
+        },
+        {
+          "name": "ResourceByteRangeLength",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          },
+          "getter": "get_ResourceByteRangeLength"
+        },
+        {
+          "name": "ResourceByteRangeOffset",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          },
+          "getter": "get_ResourceByteRangeOffset"
+        },
+        {
+          "name": "ResourceType",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AdaptiveMediaSourceResourceType",
+                "namespace": "Windows.Media.Streaming.Adaptive",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_ResourceType"
+        },
+        {
+          "name": "ResourceUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_ResourceUri"
+        },
+        {
+          "name": "SegmentId",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          },
+          "getter": "get_SegmentId"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourceDiagnosticAvailableEventArgs2": {
+      "guid": "8c6dd857-16a5-4d9f-810e-00bd901b3ef9",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticAvailableEventArgs",
+      "methods": [
+        {
+          "name": "get_ExtendedError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExtendedError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtendedError"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourceDiagnosticAvailableEventArgs3": {
+      "guid": "c3650cd5-daeb-4103-84da-68769ad513ff",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticAvailableEventArgs",
+      "methods": [
+        {
+          "name": "get_ResourceDuration",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ResourceContentType",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ResourceContentType",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ResourceContentType"
+        },
+        {
+          "name": "ResourceDuration",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ResourceDuration"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourceDiagnostics": {
+      "guid": "9b24ee68-962e-448c-aebf-b29b56098e23",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnostics",
+      "methods": [
+        {
+          "name": "add_DiagnosticAvailable",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AdaptiveMediaSourceDiagnostics",
+                    "namespace": "Windows.Media.Streaming.Adaptive",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AdaptiveMediaSourceDiagnosticAvailableEventArgs",
+                    "namespace": "Windows.Media.Streaming.Adaptive",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DiagnosticAvailable",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "DiagnosticAvailable",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AdaptiveMediaSourceDiagnostics",
+                "namespace": "Windows.Media.Streaming.Adaptive",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AdaptiveMediaSourceDiagnosticAvailableEventArgs",
+                "namespace": "Windows.Media.Streaming.Adaptive",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_DiagnosticAvailable",
+          "remove_method": "remove_DiagnosticAvailable"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourceDownloadBitrateChangedEventArgs": {
+      "guid": "670c0a44-e04e-4eff-816a-17399f78f4ba",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadBitrateChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_OldValue",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_NewValue",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "NewValue",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_NewValue"
+        },
+        {
+          "name": "OldValue",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_OldValue"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2": {
+      "guid": "f3f1f444-96ae-4de0-b540-2b3246e6968c",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadBitrateChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_Reason",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSourceDownloadBitrateChangedReason",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Reason",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSourceDownloadBitrateChangedReason",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Reason"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourceDownloadCompletedEventArgs": {
+      "guid": "19240dc3-5b37-4a1a-8970-d621cb6ca83b",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadCompletedEventArgs",
+      "methods": [
+        {
+          "name": "get_ResourceType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSourceResourceType",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ResourceUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ResourceByteRangeOffset",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ResourceByteRangeLength",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_HttpResponseMessage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpResponseMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HttpResponseMessage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpResponseMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_HttpResponseMessage"
+        },
+        {
+          "name": "ResourceByteRangeLength",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          },
+          "getter": "get_ResourceByteRangeLength"
+        },
+        {
+          "name": "ResourceByteRangeOffset",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          },
+          "getter": "get_ResourceByteRangeOffset"
+        },
+        {
+          "name": "ResourceType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSourceResourceType",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ResourceType"
+        },
+        {
+          "name": "ResourceUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_ResourceUri"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourceDownloadCompletedEventArgs2": {
+      "guid": "704744c4-964a-40e4-af95-9177dd6dfa00",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadCompletedEventArgs",
+      "methods": [
+        {
+          "name": "get_RequestId",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Statistics",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSourceDownloadStatistics",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Position",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_Position"
+        },
+        {
+          "name": "RequestId",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_RequestId"
+        },
+        {
+          "name": "Statistics",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSourceDownloadStatistics",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Class"
+          },
+          "getter": "get_Statistics"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourceDownloadCompletedEventArgs3": {
+      "guid": "0f8a8bd1-93b2-47c6-badc-8be2c8f7f6e8",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadCompletedEventArgs",
+      "methods": [
+        {
+          "name": "get_ResourceDuration",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ResourceContentType",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ResourceContentType",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ResourceContentType"
+        },
+        {
+          "name": "ResourceDuration",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ResourceDuration"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourceDownloadFailedEventArgs": {
+      "guid": "37739048-f4ab-40a4-b135-c6dfd8bd7ff1",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadFailedEventArgs",
+      "methods": [
+        {
+          "name": "get_ResourceType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSourceResourceType",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ResourceUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ResourceByteRangeOffset",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ResourceByteRangeLength",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_HttpResponseMessage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpResponseMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HttpResponseMessage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpResponseMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_HttpResponseMessage"
+        },
+        {
+          "name": "ResourceByteRangeLength",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          },
+          "getter": "get_ResourceByteRangeLength"
+        },
+        {
+          "name": "ResourceByteRangeOffset",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          },
+          "getter": "get_ResourceByteRangeOffset"
+        },
+        {
+          "name": "ResourceType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSourceResourceType",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ResourceType"
+        },
+        {
+          "name": "ResourceUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_ResourceUri"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourceDownloadFailedEventArgs2": {
+      "guid": "70919568-967c-4986-90c5-c6fc4b31e2d8",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadFailedEventArgs",
+      "methods": [
+        {
+          "name": "get_RequestId",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_ExtendedError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Statistics",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSourceDownloadStatistics",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExtendedError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtendedError"
+        },
+        {
+          "name": "Position",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_Position"
+        },
+        {
+          "name": "RequestId",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_RequestId"
+        },
+        {
+          "name": "Statistics",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSourceDownloadStatistics",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Class"
+          },
+          "getter": "get_Statistics"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourceDownloadFailedEventArgs3": {
+      "guid": "d0354549-1132-4a10-915a-c2211b5b9409",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadFailedEventArgs",
+      "methods": [
+        {
+          "name": "get_ResourceDuration",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ResourceContentType",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ResourceContentType",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ResourceContentType"
+        },
+        {
+          "name": "ResourceDuration",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ResourceDuration"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourceDownloadRequestedDeferral": {
+      "guid": "05c68f64-fa20-4dbd-9821-4bf4c9bf77ab",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadRequestedDeferral",
+      "methods": [
+        {
+          "name": "Complete"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourceDownloadRequestedEventArgs": {
+      "guid": "c83fdffd-44a9-47a2-bf96-03398b4bfaaf",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_ResourceType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSourceResourceType",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ResourceUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ResourceByteRangeOffset",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ResourceByteRangeLength",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Result",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSourceDownloadResult",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSourceDownloadRequestedDeferral",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ResourceByteRangeLength",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          },
+          "getter": "get_ResourceByteRangeLength"
+        },
+        {
+          "name": "ResourceByteRangeOffset",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          },
+          "getter": "get_ResourceByteRangeOffset"
+        },
+        {
+          "name": "ResourceType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSourceResourceType",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ResourceType"
+        },
+        {
+          "name": "ResourceUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_ResourceUri"
+        },
+        {
+          "name": "Result",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AdaptiveMediaSourceDownloadResult",
+            "namespace": "Windows.Media.Streaming.Adaptive",
+            "target_kind": "Class"
+          },
+          "getter": "get_Result"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourceDownloadRequestedEventArgs2": {
+      "guid": "b37d8bfe-aa44-4d82-825b-611de3bcfecb",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_RequestId",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_Position",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Position",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_Position"
+        },
+        {
+          "name": "RequestId",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_RequestId"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourceDownloadRequestedEventArgs3": {
+      "guid": "333c50fd-4f62-4481-ab44-1e47b0574225",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_ResourceDuration",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ResourceContentType",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ResourceContentType",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ResourceContentType"
+        },
+        {
+          "name": "ResourceDuration",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ResourceDuration"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourceDownloadResult": {
+      "guid": "f4afdc73-bcee-4a6a-9f0a-fec41e2339b0",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadResult",
+      "methods": [
+        {
+          "name": "get_ResourceUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ResourceUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_InputStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IInputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_InputStream",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Buffer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_Buffer",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ContentType",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_ContentType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ExtendedStatus",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_ExtendedStatus",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Buffer",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Buffer",
+          "setter": "put_Buffer"
+        },
+        {
+          "name": "ContentType",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ContentType",
+          "setter": "put_ContentType"
+        },
+        {
+          "name": "ExtendedStatus",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ExtendedStatus",
+          "setter": "put_ExtendedStatus"
+        },
+        {
+          "name": "InputStream",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IInputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_InputStream",
+          "setter": "put_InputStream"
+        },
+        {
+          "name": "ResourceUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_ResourceUri",
+          "setter": "put_ResourceUri"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourceDownloadResult2": {
+      "guid": "15552cb7-7b80-4ac4-8660-a4b97f7c70f0",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadResult",
+      "methods": [
+        {
+          "name": "get_ResourceByteRangeOffset",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_ResourceByteRangeOffset",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "U8"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ResourceByteRangeLength",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_ResourceByteRangeLength",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "U8"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ResourceByteRangeLength",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          },
+          "getter": "get_ResourceByteRangeLength",
+          "setter": "put_ResourceByteRangeLength"
+        },
+        {
+          "name": "ResourceByteRangeOffset",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          },
+          "getter": "get_ResourceByteRangeOffset",
+          "setter": "put_ResourceByteRangeOffset"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourceDownloadStatistics": {
+      "guid": "a306cefb-e96a-4dff-a9b8-1ae08c01ae98",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadStatistics",
+      "methods": [
+        {
+          "name": "get_ContentBytesReceivedCount",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_TimeToHeadersReceived",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_TimeToFirstByteReceived",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_TimeToLastByteReceived",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContentBytesReceivedCount",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_ContentBytesReceivedCount"
+        },
+        {
+          "name": "TimeToFirstByteReceived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_TimeToFirstByteReceived"
+        },
+        {
+          "name": "TimeToHeadersReceived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_TimeToHeadersReceived"
+        },
+        {
+          "name": "TimeToLastByteReceived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_TimeToLastByteReceived"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs": {
+      "guid": "23a29f6d-7dda-4a51-87a9-6fa8c5b292be",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourcePlaybackBitrateChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_OldValue",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_NewValue",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_AudioOnly",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AudioOnly",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AudioOnly"
+        },
+        {
+          "name": "NewValue",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_NewValue"
+        },
+        {
+          "name": "OldValue",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_OldValue"
+        }
+      ]
+    },
+    "IAdaptiveMediaSourceStatics": {
+      "guid": "50a6bd5d-66ef-4cd3-9579-9e660507dc3f",
+      "exclusive_to": "Windows.Media.Streaming.Adaptive.AdaptiveMediaSource",
+      "methods": [
+        {
+          "name": "IsContentTypeSupported",
+          "params": [
+            {
+              "name": "contentType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "CreateFromUriAsync",
+          "overload": "CreateFromUriAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AdaptiveMediaSourceCreationResult",
+                "namespace": "Windows.Media.Streaming.Adaptive",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateFromUriAsync",
+          "overload": "CreateFromUriWithDownloaderAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "httpClient",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpClient",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AdaptiveMediaSourceCreationResult",
+                "namespace": "Windows.Media.Streaming.Adaptive",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateFromStreamAsync",
+          "overload": "CreateFromStreamAsync",
+          "params": [
+            {
+              "name": "stream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "contentType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AdaptiveMediaSourceCreationResult",
+                "namespace": "Windows.Media.Streaming.Adaptive",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateFromStreamAsync",
+          "overload": "CreateFromStreamWithDownloaderAsync",
+          "params": [
+            {
+              "name": "stream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IInputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "contentType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "httpClient",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpClient",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AdaptiveMediaSourceCreationResult",
+                "namespace": "Windows.Media.Streaming.Adaptive",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AdaptiveMediaSource": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAdaptiveMediaSource",
+        "namespace": "Windows.Media.Streaming.Adaptive",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSource",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaSource",
+          "namespace": "Windows.Media.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSource2",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSource3",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Media.Streaming.Adaptive.IAdaptiveMediaSourceStatics"
+      ]
+    },
+    "AdaptiveMediaSourceAdvancedSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAdaptiveMediaSourceAdvancedSettings",
+        "namespace": "Windows.Media.Streaming.Adaptive",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSourceAdvancedSettings",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AdaptiveMediaSourceCorrelatedTimes": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAdaptiveMediaSourceCorrelatedTimes",
+        "namespace": "Windows.Media.Streaming.Adaptive",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSourceCorrelatedTimes",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AdaptiveMediaSourceCreationResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAdaptiveMediaSourceCreationResult",
+        "namespace": "Windows.Media.Streaming.Adaptive",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSourceCreationResult",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSourceCreationResult2",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AdaptiveMediaSourceDiagnosticAvailableEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAdaptiveMediaSourceDiagnosticAvailableEventArgs",
+        "namespace": "Windows.Media.Streaming.Adaptive",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSourceDiagnosticAvailableEventArgs",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSourceDiagnosticAvailableEventArgs2",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSourceDiagnosticAvailableEventArgs3",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AdaptiveMediaSourceDiagnostics": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAdaptiveMediaSourceDiagnostics",
+        "namespace": "Windows.Media.Streaming.Adaptive",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSourceDiagnostics",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AdaptiveMediaSourceDownloadBitrateChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAdaptiveMediaSourceDownloadBitrateChangedEventArgs",
+        "namespace": "Windows.Media.Streaming.Adaptive",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSourceDownloadBitrateChangedEventArgs",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AdaptiveMediaSourceDownloadCompletedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAdaptiveMediaSourceDownloadCompletedEventArgs",
+        "namespace": "Windows.Media.Streaming.Adaptive",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSourceDownloadCompletedEventArgs",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSourceDownloadCompletedEventArgs2",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSourceDownloadCompletedEventArgs3",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AdaptiveMediaSourceDownloadFailedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAdaptiveMediaSourceDownloadFailedEventArgs",
+        "namespace": "Windows.Media.Streaming.Adaptive",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSourceDownloadFailedEventArgs",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSourceDownloadFailedEventArgs2",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSourceDownloadFailedEventArgs3",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AdaptiveMediaSourceDownloadRequestedDeferral": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAdaptiveMediaSourceDownloadRequestedDeferral",
+        "namespace": "Windows.Media.Streaming.Adaptive",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSourceDownloadRequestedDeferral",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AdaptiveMediaSourceDownloadRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAdaptiveMediaSourceDownloadRequestedEventArgs",
+        "namespace": "Windows.Media.Streaming.Adaptive",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSourceDownloadRequestedEventArgs",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSourceDownloadRequestedEventArgs2",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSourceDownloadRequestedEventArgs3",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AdaptiveMediaSourceDownloadResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAdaptiveMediaSourceDownloadResult",
+        "namespace": "Windows.Media.Streaming.Adaptive",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSourceDownloadResult",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSourceDownloadResult2",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AdaptiveMediaSourceDownloadStatistics": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAdaptiveMediaSourceDownloadStatistics",
+        "namespace": "Windows.Media.Streaming.Adaptive",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSourceDownloadStatistics",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AdaptiveMediaSourcePlaybackBitrateChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs",
+        "namespace": "Windows.Media.Streaming.Adaptive",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs",
+          "namespace": "Windows.Media.Streaming.Adaptive",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

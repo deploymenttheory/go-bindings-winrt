@@ -1,0 +1,2787 @@
+{
+  "namespace": "Windows.Web.UI",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "WebViewControlPermissionState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "Defer",
+          "value": "1"
+        },
+        {
+          "name": "Allow",
+          "value": "2"
+        },
+        {
+          "name": "Deny",
+          "value": "3"
+        }
+      ]
+    },
+    "WebViewControlPermissionType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Geolocation",
+          "value": "0"
+        },
+        {
+          "name": "UnlimitedIndexedDBQuota",
+          "value": "1"
+        },
+        {
+          "name": "Media",
+          "value": "2"
+        },
+        {
+          "name": "PointerLock",
+          "value": "3"
+        },
+        {
+          "name": "WebNotifications",
+          "value": "4"
+        },
+        {
+          "name": "Screen",
+          "value": "5"
+        },
+        {
+          "name": "ImmersiveView",
+          "value": "6"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IWebViewControl": {
+      "guid": "3f921316-bc70-4bda-9136-c94370899fab",
+      "methods": [
+        {
+          "name": "get_Source",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Source",
+          "params": [
+            {
+              "name": "source",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DocumentTitle",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CanGoBack",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_CanGoForward",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_DefaultBackgroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DefaultBackgroundColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_ContainsFullScreenElement",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Settings",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebViewControlSettings",
+            "namespace": "Windows.Web.UI",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DeferredPermissionRequests",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControlDeferredPermissionRequest",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GoForward"
+        },
+        {
+          "name": "GoBack"
+        },
+        {
+          "name": "Refresh"
+        },
+        {
+          "name": "Stop"
+        },
+        {
+          "name": "Navigate",
+          "params": [
+            {
+              "name": "source",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "NavigateToString",
+          "params": [
+            {
+              "name": "text",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "NavigateToLocalStreamUri",
+          "params": [
+            {
+              "name": "source",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "streamResolver",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IUriToStreamResolver",
+                "namespace": "Windows.Web",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "NavigateWithHttpRequestMessage",
+          "params": [
+            {
+              "name": "requestMessage",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpRequestMessage",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "InvokeScriptAsync",
+          "params": [
+            {
+              "name": "scriptName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "arguments",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CapturePreviewToStreamAsync",
+          "params": [
+            {
+              "name": "stream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "CaptureSelectedContentToDataPackageAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DataPackage",
+                "namespace": "Windows.ApplicationModel.DataTransfer",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "BuildLocalStreamUri",
+          "params": [
+            {
+              "name": "contentIdentifier",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "relativePath",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferredPermissionRequestById",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "result",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebViewControlDeferredPermissionRequest",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Class"
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "add_NavigationStarting",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IWebViewControl",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebViewControlNavigationStartingEventArgs",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_NavigationStarting",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ContentLoading",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IWebViewControl",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebViewControlContentLoadingEventArgs",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ContentLoading",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_DOMContentLoaded",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IWebViewControl",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebViewControlDOMContentLoadedEventArgs",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DOMContentLoaded",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_NavigationCompleted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IWebViewControl",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebViewControlNavigationCompletedEventArgs",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_NavigationCompleted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_FrameNavigationStarting",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IWebViewControl",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebViewControlNavigationStartingEventArgs",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_FrameNavigationStarting",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_FrameContentLoading",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IWebViewControl",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebViewControlContentLoadingEventArgs",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_FrameContentLoading",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_FrameDOMContentLoaded",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IWebViewControl",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebViewControlDOMContentLoadedEventArgs",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_FrameDOMContentLoaded",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_FrameNavigationCompleted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IWebViewControl",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebViewControlNavigationCompletedEventArgs",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_FrameNavigationCompleted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ScriptNotify",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IWebViewControl",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebViewControlScriptNotifyEventArgs",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ScriptNotify",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_LongRunningScriptDetected",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IWebViewControl",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebViewControlLongRunningScriptDetectedEventArgs",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_LongRunningScriptDetected",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_UnsafeContentWarningDisplaying",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IWebViewControl",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_UnsafeContentWarningDisplaying",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_UnviewableContentIdentified",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IWebViewControl",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebViewControlUnviewableContentIdentifiedEventArgs",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_UnviewableContentIdentified",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PermissionRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IWebViewControl",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebViewControlPermissionRequestedEventArgs",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PermissionRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_UnsupportedUriSchemeIdentified",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IWebViewControl",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebViewControlUnsupportedUriSchemeIdentifiedEventArgs",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_UnsupportedUriSchemeIdentified",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_NewWindowRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IWebViewControl",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebViewControlNewWindowRequestedEventArgs",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_NewWindowRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ContainsFullScreenElementChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IWebViewControl",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ContainsFullScreenElementChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_WebResourceRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IWebViewControl",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebViewControlWebResourceRequestedEventArgs",
+                    "namespace": "Windows.Web.UI",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_WebResourceRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CanGoBack",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanGoBack"
+        },
+        {
+          "name": "CanGoForward",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanGoForward"
+        },
+        {
+          "name": "ContainsFullScreenElement",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ContainsFullScreenElement"
+        },
+        {
+          "name": "DefaultBackgroundColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_DefaultBackgroundColor",
+          "setter": "put_DefaultBackgroundColor"
+        },
+        {
+          "name": "DeferredPermissionRequests",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControlDeferredPermissionRequest",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_DeferredPermissionRequests"
+        },
+        {
+          "name": "DocumentTitle",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DocumentTitle"
+        },
+        {
+          "name": "Settings",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebViewControlSettings",
+            "namespace": "Windows.Web.UI",
+            "target_kind": "Class"
+          },
+          "getter": "get_Settings"
+        },
+        {
+          "name": "Source",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Source",
+          "setter": "put_Source"
+        }
+      ],
+      "events": [
+        {
+          "name": "ContainsFullScreenElementChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IWebViewControl",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ContainsFullScreenElementChanged",
+          "remove_method": "remove_ContainsFullScreenElementChanged"
+        },
+        {
+          "name": "ContentLoading",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IWebViewControl",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControlContentLoadingEventArgs",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ContentLoading",
+          "remove_method": "remove_ContentLoading"
+        },
+        {
+          "name": "DOMContentLoaded",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IWebViewControl",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControlDOMContentLoadedEventArgs",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_DOMContentLoaded",
+          "remove_method": "remove_DOMContentLoaded"
+        },
+        {
+          "name": "FrameContentLoading",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IWebViewControl",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControlContentLoadingEventArgs",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_FrameContentLoading",
+          "remove_method": "remove_FrameContentLoading"
+        },
+        {
+          "name": "FrameDOMContentLoaded",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IWebViewControl",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControlDOMContentLoadedEventArgs",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_FrameDOMContentLoaded",
+          "remove_method": "remove_FrameDOMContentLoaded"
+        },
+        {
+          "name": "FrameNavigationCompleted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IWebViewControl",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControlNavigationCompletedEventArgs",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_FrameNavigationCompleted",
+          "remove_method": "remove_FrameNavigationCompleted"
+        },
+        {
+          "name": "FrameNavigationStarting",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IWebViewControl",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControlNavigationStartingEventArgs",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_FrameNavigationStarting",
+          "remove_method": "remove_FrameNavigationStarting"
+        },
+        {
+          "name": "LongRunningScriptDetected",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IWebViewControl",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControlLongRunningScriptDetectedEventArgs",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_LongRunningScriptDetected",
+          "remove_method": "remove_LongRunningScriptDetected"
+        },
+        {
+          "name": "NavigationCompleted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IWebViewControl",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControlNavigationCompletedEventArgs",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_NavigationCompleted",
+          "remove_method": "remove_NavigationCompleted"
+        },
+        {
+          "name": "NavigationStarting",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IWebViewControl",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControlNavigationStartingEventArgs",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_NavigationStarting",
+          "remove_method": "remove_NavigationStarting"
+        },
+        {
+          "name": "NewWindowRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IWebViewControl",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControlNewWindowRequestedEventArgs",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_NewWindowRequested",
+          "remove_method": "remove_NewWindowRequested"
+        },
+        {
+          "name": "PermissionRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IWebViewControl",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControlPermissionRequestedEventArgs",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PermissionRequested",
+          "remove_method": "remove_PermissionRequested"
+        },
+        {
+          "name": "ScriptNotify",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IWebViewControl",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControlScriptNotifyEventArgs",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ScriptNotify",
+          "remove_method": "remove_ScriptNotify"
+        },
+        {
+          "name": "UnsafeContentWarningDisplaying",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IWebViewControl",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_UnsafeContentWarningDisplaying",
+          "remove_method": "remove_UnsafeContentWarningDisplaying"
+        },
+        {
+          "name": "UnsupportedUriSchemeIdentified",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IWebViewControl",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControlUnsupportedUriSchemeIdentifiedEventArgs",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_UnsupportedUriSchemeIdentified",
+          "remove_method": "remove_UnsupportedUriSchemeIdentified"
+        },
+        {
+          "name": "UnviewableContentIdentified",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IWebViewControl",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControlUnviewableContentIdentifiedEventArgs",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_UnviewableContentIdentified",
+          "remove_method": "remove_UnviewableContentIdentified"
+        },
+        {
+          "name": "WebResourceRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IWebViewControl",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebViewControlWebResourceRequestedEventArgs",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_WebResourceRequested",
+          "remove_method": "remove_WebResourceRequested"
+        }
+      ]
+    },
+    "IWebViewControl2": {
+      "guid": "4d3c06f9-c8df-41cc-8bd5-2a947b204503",
+      "methods": [
+        {
+          "name": "AddInitializeScript",
+          "params": [
+            {
+              "name": "script",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IWebViewControlContentLoadingEventArgs": {
+      "guid": "9a3fccb2-b9bb-404b-a22b-66dccd1250c6",
+      "exclusive_to": "Windows.Web.UI.WebViewControlContentLoadingEventArgs",
+      "methods": [
+        {
+          "name": "get_Uri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Uri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Uri"
+        }
+      ]
+    },
+    "IWebViewControlDOMContentLoadedEventArgs": {
+      "guid": "be8bc008-9541-4545-9ff2-2df585b29f7d",
+      "exclusive_to": "Windows.Web.UI.WebViewControlDOMContentLoadedEventArgs",
+      "methods": [
+        {
+          "name": "get_Uri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Uri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Uri"
+        }
+      ]
+    },
+    "IWebViewControlDeferredPermissionRequest": {
+      "guid": "2ce349e0-d759-445c-9926-8995298f152b",
+      "exclusive_to": "Windows.Web.UI.WebViewControlDeferredPermissionRequest",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Uri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PermissionType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebViewControlPermissionType",
+            "namespace": "Windows.Web.UI",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Allow"
+        },
+        {
+          "name": "Deny"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "PermissionType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebViewControlPermissionType",
+            "namespace": "Windows.Web.UI",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PermissionType"
+        },
+        {
+          "name": "Uri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Uri"
+        }
+      ]
+    },
+    "IWebViewControlLongRunningScriptDetectedEventArgs": {
+      "guid": "2a6e5bba-98b4-45bc-bbeb-0f69ce49c599",
+      "exclusive_to": "Windows.Web.UI.WebViewControlLongRunningScriptDetectedEventArgs",
+      "methods": [
+        {
+          "name": "get_ExecutionTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_StopPageScriptExecution",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_StopPageScriptExecution",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExecutionTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExecutionTime"
+        },
+        {
+          "name": "StopPageScriptExecution",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_StopPageScriptExecution",
+          "setter": "put_StopPageScriptExecution"
+        }
+      ]
+    },
+    "IWebViewControlNavigationCompletedEventArgs": {
+      "guid": "20409918-4a15-4c46-a55d-f79edb0bde8b",
+      "exclusive_to": "Windows.Web.UI.WebViewControlNavigationCompletedEventArgs",
+      "methods": [
+        {
+          "name": "get_Uri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IsSuccess",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_WebErrorStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebErrorStatus",
+            "namespace": "Windows.Web",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsSuccess",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSuccess"
+        },
+        {
+          "name": "Uri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Uri"
+        },
+        {
+          "name": "WebErrorStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebErrorStatus",
+            "namespace": "Windows.Web",
+            "target_kind": "Enum"
+          },
+          "getter": "get_WebErrorStatus"
+        }
+      ]
+    },
+    "IWebViewControlNavigationStartingEventArgs": {
+      "guid": "0c9057c5-0a08-41c7-863b-71e3a9549137",
+      "exclusive_to": "Windows.Web.UI.WebViewControlNavigationStartingEventArgs",
+      "methods": [
+        {
+          "name": "get_Uri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Cancel",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Cancel",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Cancel",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Cancel",
+          "setter": "put_Cancel"
+        },
+        {
+          "name": "Uri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Uri"
+        }
+      ]
+    },
+    "IWebViewControlNewWindowRequestedEventArgs": {
+      "guid": "3df44bbb-a124-46d5-a083-d02cacdff5ad",
+      "exclusive_to": "Windows.Web.UI.WebViewControlNewWindowRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_Uri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Referrer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        },
+        {
+          "name": "Referrer",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Referrer"
+        },
+        {
+          "name": "Uri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Uri"
+        }
+      ]
+    },
+    "IWebViewControlNewWindowRequestedEventArgs2": {
+      "guid": "b53c5ca6-2aae-4bfc-92b9-c30e92b48098",
+      "exclusive_to": "Windows.Web.UI.WebViewControlNewWindowRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_NewWindow",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IWebViewControl",
+            "namespace": "Windows.Web.UI",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_NewWindow",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IWebViewControl",
+                "namespace": "Windows.Web.UI",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "NewWindow",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IWebViewControl",
+            "namespace": "Windows.Web.UI",
+            "target_kind": "Interface"
+          },
+          "getter": "get_NewWindow",
+          "setter": "put_NewWindow"
+        }
+      ]
+    },
+    "IWebViewControlPermissionRequest": {
+      "guid": "e5bc836c-f22f-40e2-95b2-7729f840eb7f",
+      "exclusive_to": "Windows.Web.UI.WebViewControlPermissionRequest",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Uri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PermissionType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebViewControlPermissionType",
+            "namespace": "Windows.Web.UI",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_State",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebViewControlPermissionState",
+            "namespace": "Windows.Web.UI",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Defer"
+        },
+        {
+          "name": "Allow"
+        },
+        {
+          "name": "Deny"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "PermissionType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebViewControlPermissionType",
+            "namespace": "Windows.Web.UI",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PermissionType"
+        },
+        {
+          "name": "State",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebViewControlPermissionState",
+            "namespace": "Windows.Web.UI",
+            "target_kind": "Enum"
+          },
+          "getter": "get_State"
+        },
+        {
+          "name": "Uri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Uri"
+        }
+      ]
+    },
+    "IWebViewControlPermissionRequestedEventArgs": {
+      "guid": "27204d51-2488-4cc5-968e-0a771e59c147",
+      "exclusive_to": "Windows.Web.UI.WebViewControlPermissionRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_PermissionRequest",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebViewControlPermissionRequest",
+            "namespace": "Windows.Web.UI",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PermissionRequest",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebViewControlPermissionRequest",
+            "namespace": "Windows.Web.UI",
+            "target_kind": "Class"
+          },
+          "getter": "get_PermissionRequest"
+        }
+      ]
+    },
+    "IWebViewControlScriptNotifyEventArgs": {
+      "guid": "491de57b-6f49-41bb-b591-51b85b817037",
+      "exclusive_to": "Windows.Web.UI.WebViewControlScriptNotifyEventArgs",
+      "methods": [
+        {
+          "name": "get_Uri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Uri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Uri"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "IWebViewControlSettings": {
+      "guid": "c9967fbf-5e98-4cfd-8cce-27b0911e3de8",
+      "exclusive_to": "Windows.Web.UI.WebViewControlSettings",
+      "methods": [
+        {
+          "name": "put_IsJavaScriptEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsJavaScriptEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsIndexedDBEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsIndexedDBEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsScriptNotifyAllowed",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsScriptNotifyAllowed",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsIndexedDBEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsIndexedDBEnabled",
+          "setter": "put_IsIndexedDBEnabled"
+        },
+        {
+          "name": "IsJavaScriptEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsJavaScriptEnabled",
+          "setter": "put_IsJavaScriptEnabled"
+        },
+        {
+          "name": "IsScriptNotifyAllowed",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsScriptNotifyAllowed",
+          "setter": "put_IsScriptNotifyAllowed"
+        }
+      ]
+    },
+    "IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs": {
+      "guid": "e3b81944-e4fc-43dc-94ca-f980f30bc51d",
+      "exclusive_to": "Windows.Web.UI.WebViewControlUnsupportedUriSchemeIdentifiedEventArgs",
+      "methods": [
+        {
+          "name": "get_Uri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Handled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Handled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Handled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Handled",
+          "setter": "put_Handled"
+        },
+        {
+          "name": "Uri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Uri"
+        }
+      ]
+    },
+    "IWebViewControlUnviewableContentIdentifiedEventArgs": {
+      "guid": "4a9680db-88f2-4e20-b693-b4e2df4aa581",
+      "exclusive_to": "Windows.Web.UI.WebViewControlUnviewableContentIdentifiedEventArgs",
+      "methods": [
+        {
+          "name": "get_Uri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Referrer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_MediaType",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "MediaType",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MediaType"
+        },
+        {
+          "name": "Referrer",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Referrer"
+        },
+        {
+          "name": "Uri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Uri"
+        }
+      ]
+    },
+    "IWebViewControlWebResourceRequestedEventArgs": {
+      "guid": "44d6524d-55a4-4d8b-891c-931d8e25d42e",
+      "exclusive_to": "Windows.Web.UI.WebViewControlWebResourceRequestedEventArgs",
+      "methods": [
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpRequestMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Response",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HttpResponseMessage",
+                "namespace": "Windows.Web.Http",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Response",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HttpResponseMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpRequestMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        },
+        {
+          "name": "Response",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HttpResponseMessage",
+            "namespace": "Windows.Web.Http",
+            "target_kind": "Class"
+          },
+          "getter": "get_Response",
+          "setter": "put_Response"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "WebViewControlContentLoadingEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebViewControlContentLoadingEventArgs",
+        "namespace": "Windows.Web.UI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControlContentLoadingEventArgs",
+          "namespace": "Windows.Web.UI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebViewControlDOMContentLoadedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebViewControlDOMContentLoadedEventArgs",
+        "namespace": "Windows.Web.UI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControlDOMContentLoadedEventArgs",
+          "namespace": "Windows.Web.UI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebViewControlDeferredPermissionRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebViewControlDeferredPermissionRequest",
+        "namespace": "Windows.Web.UI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControlDeferredPermissionRequest",
+          "namespace": "Windows.Web.UI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebViewControlLongRunningScriptDetectedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebViewControlLongRunningScriptDetectedEventArgs",
+        "namespace": "Windows.Web.UI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControlLongRunningScriptDetectedEventArgs",
+          "namespace": "Windows.Web.UI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebViewControlNavigationCompletedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebViewControlNavigationCompletedEventArgs",
+        "namespace": "Windows.Web.UI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControlNavigationCompletedEventArgs",
+          "namespace": "Windows.Web.UI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebViewControlNavigationStartingEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebViewControlNavigationStartingEventArgs",
+        "namespace": "Windows.Web.UI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControlNavigationStartingEventArgs",
+          "namespace": "Windows.Web.UI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebViewControlNewWindowRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebViewControlNewWindowRequestedEventArgs",
+        "namespace": "Windows.Web.UI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControlNewWindowRequestedEventArgs",
+          "namespace": "Windows.Web.UI",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControlNewWindowRequestedEventArgs2",
+          "namespace": "Windows.Web.UI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebViewControlPermissionRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebViewControlPermissionRequest",
+        "namespace": "Windows.Web.UI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControlPermissionRequest",
+          "namespace": "Windows.Web.UI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebViewControlPermissionRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebViewControlPermissionRequestedEventArgs",
+        "namespace": "Windows.Web.UI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControlPermissionRequestedEventArgs",
+          "namespace": "Windows.Web.UI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebViewControlScriptNotifyEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebViewControlScriptNotifyEventArgs",
+        "namespace": "Windows.Web.UI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControlScriptNotifyEventArgs",
+          "namespace": "Windows.Web.UI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebViewControlSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebViewControlSettings",
+        "namespace": "Windows.Web.UI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControlSettings",
+          "namespace": "Windows.Web.UI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebViewControlUnsupportedUriSchemeIdentifiedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs",
+        "namespace": "Windows.Web.UI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControlUnsupportedUriSchemeIdentifiedEventArgs",
+          "namespace": "Windows.Web.UI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebViewControlUnviewableContentIdentifiedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebViewControlUnviewableContentIdentifiedEventArgs",
+        "namespace": "Windows.Web.UI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControlUnviewableContentIdentifiedEventArgs",
+          "namespace": "Windows.Web.UI",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebViewControlWebResourceRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebViewControlWebResourceRequestedEventArgs",
+        "namespace": "Windows.Web.UI",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebViewControlWebResourceRequestedEventArgs",
+          "namespace": "Windows.Web.UI",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

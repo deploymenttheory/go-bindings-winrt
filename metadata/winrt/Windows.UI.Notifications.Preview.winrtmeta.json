@@ -1,0 +1,41 @@
+{
+  "namespace": "Windows.UI.Notifications.Preview",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IToastOcclusionManagerPreviewStatics": {
+      "guid": "507e5c83-50f9-5412-8953-b65c18cfab12",
+      "exclusive_to": "Windows.UI.Notifications.Preview.ToastOcclusionManagerPreview",
+      "methods": [
+        {
+          "name": "SetToastWindowMargin",
+          "params": [
+            {
+              "name": "appWindowId",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WindowId",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "margin",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "classes": {
+    "ToastOcclusionManagerPreview": {
+      "static_interfaces": [
+        "Windows.UI.Notifications.Preview.IToastOcclusionManagerPreviewStatics"
+      ]
+    }
+  }
+}

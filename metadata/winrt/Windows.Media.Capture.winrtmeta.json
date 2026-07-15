@@ -1,0 +1,6610 @@
+{
+  "namespace": "Windows.Media.Capture",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "CameraCaptureUIMaxPhotoResolution": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "HighestAvailable",
+          "value": "0"
+        },
+        {
+          "name": "VerySmallQvga",
+          "value": "1"
+        },
+        {
+          "name": "SmallVga",
+          "value": "2"
+        },
+        {
+          "name": "MediumXga",
+          "value": "3"
+        },
+        {
+          "name": "Large3M",
+          "value": "4"
+        },
+        {
+          "name": "VeryLarge5M",
+          "value": "5"
+        }
+      ]
+    },
+    "CameraCaptureUIMaxVideoResolution": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "HighestAvailable",
+          "value": "0"
+        },
+        {
+          "name": "LowDefinition",
+          "value": "1"
+        },
+        {
+          "name": "StandardDefinition",
+          "value": "2"
+        },
+        {
+          "name": "HighDefinition",
+          "value": "3"
+        }
+      ]
+    },
+    "CameraCaptureUIMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "PhotoOrVideo",
+          "value": "0"
+        },
+        {
+          "name": "Photo",
+          "value": "1"
+        },
+        {
+          "name": "Video",
+          "value": "2"
+        }
+      ]
+    },
+    "CameraCaptureUIPhotoFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Jpeg",
+          "value": "0"
+        },
+        {
+          "name": "Png",
+          "value": "1"
+        },
+        {
+          "name": "JpegXR",
+          "value": "2"
+        }
+      ]
+    },
+    "CameraCaptureUIVideoFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Mp4",
+          "value": "0"
+        },
+        {
+          "name": "Wmv",
+          "value": "1"
+        }
+      ]
+    },
+    "KnownVideoProfile": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "VideoRecording",
+          "value": "0"
+        },
+        {
+          "name": "HighQualityPhoto",
+          "value": "1"
+        },
+        {
+          "name": "BalancedVideoAndPhoto",
+          "value": "2"
+        },
+        {
+          "name": "VideoConferencing",
+          "value": "3"
+        },
+        {
+          "name": "PhotoSequence",
+          "value": "4"
+        },
+        {
+          "name": "HighFrameRate",
+          "value": "5"
+        },
+        {
+          "name": "VariablePhotoSequence",
+          "value": "6"
+        },
+        {
+          "name": "HdrWithWcgVideo",
+          "value": "7"
+        },
+        {
+          "name": "HdrWithWcgPhoto",
+          "value": "8"
+        },
+        {
+          "name": "VideoHdr8",
+          "value": "9"
+        },
+        {
+          "name": "CompressedCamera",
+          "value": "10"
+        }
+      ]
+    },
+    "MediaCaptureDeviceExclusiveControlReleaseMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "OnDispose",
+          "value": "0"
+        },
+        {
+          "name": "OnAllStreamsStopped",
+          "value": "1"
+        }
+      ]
+    },
+    "MediaCaptureDeviceExclusiveControlStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "ExclusiveControlAvailable",
+          "value": "0"
+        },
+        {
+          "name": "SharedReadOnlyAvailable",
+          "value": "1"
+        }
+      ]
+    },
+    "MediaCaptureMemoryPreference": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Auto",
+          "value": "0"
+        },
+        {
+          "name": "Cpu",
+          "value": "1"
+        }
+      ]
+    },
+    "MediaCaptureSharingMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "ExclusiveControl",
+          "value": "0"
+        },
+        {
+          "name": "SharedReadOnly",
+          "value": "1"
+        }
+      ]
+    },
+    "MediaCaptureThermalStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Normal",
+          "value": "0"
+        },
+        {
+          "name": "Overheated",
+          "value": "1"
+        }
+      ]
+    },
+    "MediaCategory": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Other",
+          "value": "0"
+        },
+        {
+          "name": "Communications",
+          "value": "1"
+        },
+        {
+          "name": "Media",
+          "value": "2"
+        },
+        {
+          "name": "GameChat",
+          "value": "3"
+        },
+        {
+          "name": "Speech",
+          "value": "4"
+        },
+        {
+          "name": "FarFieldSpeech",
+          "value": "5"
+        },
+        {
+          "name": "UniformSpeech",
+          "value": "6"
+        },
+        {
+          "name": "VoiceTyping",
+          "value": "7"
+        }
+      ]
+    },
+    "MediaStreamType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "VideoPreview",
+          "value": "0"
+        },
+        {
+          "name": "VideoRecord",
+          "value": "1"
+        },
+        {
+          "name": "Audio",
+          "value": "2"
+        },
+        {
+          "name": "Photo",
+          "value": "3"
+        },
+        {
+          "name": "Metadata",
+          "value": "4"
+        }
+      ]
+    },
+    "PhotoCaptureSource": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Auto",
+          "value": "0"
+        },
+        {
+          "name": "VideoPreview",
+          "value": "1"
+        },
+        {
+          "name": "Photo",
+          "value": "2"
+        }
+      ]
+    },
+    "PowerlineFrequency": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Disabled",
+          "value": "0"
+        },
+        {
+          "name": "FiftyHertz",
+          "value": "1"
+        },
+        {
+          "name": "SixtyHertz",
+          "value": "2"
+        },
+        {
+          "name": "Auto",
+          "value": "3"
+        }
+      ]
+    },
+    "StreamingCaptureMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "AudioAndVideo",
+          "value": "0"
+        },
+        {
+          "name": "Audio",
+          "value": "1"
+        },
+        {
+          "name": "Video",
+          "value": "2"
+        }
+      ]
+    },
+    "VideoDeviceCharacteristic": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "AllStreamsIndependent",
+          "value": "0"
+        },
+        {
+          "name": "PreviewRecordStreamsIdentical",
+          "value": "1"
+        },
+        {
+          "name": "PreviewPhotoStreamsIdentical",
+          "value": "2"
+        },
+        {
+          "name": "RecordPhotoStreamsIdentical",
+          "value": "3"
+        },
+        {
+          "name": "AllStreamsIdentical",
+          "value": "4"
+        }
+      ]
+    },
+    "VideoRotation": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Clockwise90Degrees",
+          "value": "1"
+        },
+        {
+          "name": "Clockwise180Degrees",
+          "value": "2"
+        },
+        {
+          "name": "Clockwise270Degrees",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "WhiteBalanceGain": {
+      "fields": [
+        {
+          "name": "R",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "G",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "B",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IAdvancedCapturedPhoto": {
+      "guid": "f072728b-b292-4491-9d41-99807a550bbf",
+      "exclusive_to": "Windows.Media.Capture.AdvancedCapturedPhoto",
+      "methods": [
+        {
+          "name": "get_Frame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CapturedFrame",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Mode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AdvancedPhotoMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Context",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Context",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_Context"
+        },
+        {
+          "name": "Frame",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CapturedFrame",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          },
+          "getter": "get_Frame"
+        },
+        {
+          "name": "Mode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AdvancedPhotoMode",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Mode"
+        }
+      ]
+    },
+    "IAdvancedCapturedPhoto2": {
+      "guid": "18cf6cd8-cffe-42d8-8104-017bb318f4a1",
+      "exclusive_to": "Windows.Media.Capture.AdvancedCapturedPhoto",
+      "methods": [
+        {
+          "name": "get_FrameBoundsRelativeToReferencePhoto",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FrameBoundsRelativeToReferencePhoto",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_FrameBoundsRelativeToReferencePhoto"
+        }
+      ]
+    },
+    "IAdvancedPhotoCapture": {
+      "guid": "83ffaafa-6667-44dc-973c-a6bce596aa0f",
+      "exclusive_to": "Windows.Media.Capture.AdvancedPhotoCapture",
+      "methods": [
+        {
+          "name": "CaptureAsync",
+          "overload": "CaptureAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AdvancedCapturedPhoto",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CaptureAsync",
+          "overload": "CaptureWithContextAsync",
+          "params": [
+            {
+              "name": "context",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AdvancedCapturedPhoto",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_OptionalReferencePhotoCaptured",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AdvancedPhotoCapture",
+                    "namespace": "Windows.Media.Capture",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "OptionalReferencePhotoCapturedEventArgs",
+                    "namespace": "Windows.Media.Capture",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_OptionalReferencePhotoCaptured",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_AllPhotosCaptured",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AdvancedPhotoCapture",
+                    "namespace": "Windows.Media.Capture",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_AllPhotosCaptured",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "FinishAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "events": [
+        {
+          "name": "AllPhotosCaptured",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AdvancedPhotoCapture",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_AllPhotosCaptured",
+          "remove_method": "remove_AllPhotosCaptured"
+        },
+        {
+          "name": "OptionalReferencePhotoCaptured",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AdvancedPhotoCapture",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "OptionalReferencePhotoCapturedEventArgs",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_OptionalReferencePhotoCaptured",
+          "remove_method": "remove_OptionalReferencePhotoCaptured"
+        }
+      ]
+    },
+    "IAppCapture": {
+      "guid": "9749d453-a29a-45ed-8f29-22d09942cff7",
+      "exclusive_to": "Windows.Media.Capture.AppCapture",
+      "methods": [
+        {
+          "name": "get_IsCapturingAudio",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsCapturingVideo",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "add_CapturingChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppCapture",
+                    "namespace": "Windows.Media.Capture",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CapturingChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsCapturingAudio",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsCapturingAudio"
+        },
+        {
+          "name": "IsCapturingVideo",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsCapturingVideo"
+        }
+      ],
+      "events": [
+        {
+          "name": "CapturingChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppCapture",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_CapturingChanged",
+          "remove_method": "remove_CapturingChanged"
+        }
+      ]
+    },
+    "IAppCaptureStatics": {
+      "guid": "f922dd6c-0a7e-4e74-8b20-9c1f902d08a1",
+      "exclusive_to": "Windows.Media.Capture.AppCapture",
+      "methods": [
+        {
+          "name": "GetForCurrentView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppCapture",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IAppCaptureStatics2": {
+      "guid": "b2d881d4-836c-4da4-afd7-facc041e1cf3",
+      "exclusive_to": "Windows.Media.Capture.AppCapture",
+      "methods": [
+        {
+          "name": "SetAllowedAsync",
+          "params": [
+            {
+              "name": "allowed",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "ICameraCaptureUI": {
+      "guid": "48587540-6f93-4bb4-b8f3-e89e48948c91",
+      "exclusive_to": "Windows.Media.Capture.CameraCaptureUI",
+      "methods": [
+        {
+          "name": "get_PhotoSettings",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CameraCaptureUIPhotoCaptureSettings",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_VideoSettings",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CameraCaptureUIVideoCaptureSettings",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CaptureFileAsync",
+          "params": [
+            {
+              "name": "mode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CameraCaptureUIMode",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PhotoSettings",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CameraCaptureUIPhotoCaptureSettings",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          },
+          "getter": "get_PhotoSettings"
+        },
+        {
+          "name": "VideoSettings",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CameraCaptureUIVideoCaptureSettings",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          },
+          "getter": "get_VideoSettings"
+        }
+      ]
+    },
+    "ICameraCaptureUIPhotoCaptureSettings": {
+      "guid": "b9f5be97-3472-46a8-8a9e-04ce42ccc97d",
+      "exclusive_to": "Windows.Media.Capture.CameraCaptureUIPhotoCaptureSettings",
+      "methods": [
+        {
+          "name": "get_Format",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CameraCaptureUIPhotoFormat",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Format",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CameraCaptureUIPhotoFormat",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MaxResolution",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CameraCaptureUIMaxPhotoResolution",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_MaxResolution",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CameraCaptureUIMaxPhotoResolution",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CroppedSizeInPixels",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_CroppedSizeInPixels",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Size",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CroppedAspectRatio",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_CroppedAspectRatio",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Size",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AllowCropping",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AllowCropping",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllowCropping",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AllowCropping",
+          "setter": "put_AllowCropping"
+        },
+        {
+          "name": "CroppedAspectRatio",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_CroppedAspectRatio",
+          "setter": "put_CroppedAspectRatio"
+        },
+        {
+          "name": "CroppedSizeInPixels",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_CroppedSizeInPixels",
+          "setter": "put_CroppedSizeInPixels"
+        },
+        {
+          "name": "Format",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CameraCaptureUIPhotoFormat",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Format",
+          "setter": "put_Format"
+        },
+        {
+          "name": "MaxResolution",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CameraCaptureUIMaxPhotoResolution",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MaxResolution",
+          "setter": "put_MaxResolution"
+        }
+      ]
+    },
+    "ICameraCaptureUIVideoCaptureSettings": {
+      "guid": "64e92d1f-a28d-425a-b84f-e568335ff24e",
+      "exclusive_to": "Windows.Media.Capture.CameraCaptureUIVideoCaptureSettings",
+      "methods": [
+        {
+          "name": "get_Format",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CameraCaptureUIVideoFormat",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Format",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CameraCaptureUIVideoFormat",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MaxResolution",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CameraCaptureUIMaxVideoResolution",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_MaxResolution",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CameraCaptureUIMaxVideoResolution",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MaxDurationInSeconds",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "put_MaxDurationInSeconds",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AllowTrimming",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AllowTrimming",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllowTrimming",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AllowTrimming",
+          "setter": "put_AllowTrimming"
+        },
+        {
+          "name": "Format",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CameraCaptureUIVideoFormat",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Format",
+          "setter": "put_Format"
+        },
+        {
+          "name": "MaxDurationInSeconds",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_MaxDurationInSeconds",
+          "setter": "put_MaxDurationInSeconds"
+        },
+        {
+          "name": "MaxResolution",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CameraCaptureUIMaxVideoResolution",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MaxResolution",
+          "setter": "put_MaxResolution"
+        }
+      ]
+    },
+    "ICapturedFrame": {
+      "guid": "1dd2de1f-571b-44d8-8e80-a08a1578766e",
+      "exclusive_to": "Windows.Media.Capture.CapturedFrame",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IRandomAccessStreamWithContentType",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRandomAccessStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IOutputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IContentTypeProvider",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Width",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Height",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Height",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Height"
+        },
+        {
+          "name": "Width",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Width"
+        }
+      ]
+    },
+    "ICapturedFrame2": {
+      "guid": "543fa6d1-bd78-4866-adda-24314bc65dea",
+      "exclusive_to": "Windows.Media.Capture.CapturedFrame",
+      "methods": [
+        {
+          "name": "get_ControlValues",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CapturedFrameControlValues",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_BitmapProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapPropertySet",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BitmapProperties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapPropertySet",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          },
+          "getter": "get_BitmapProperties"
+        },
+        {
+          "name": "ControlValues",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CapturedFrameControlValues",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          },
+          "getter": "get_ControlValues"
+        }
+      ]
+    },
+    "ICapturedFrameControlValues": {
+      "guid": "90c65b7f-4e0d-4ca4-882d-7a144fed0a90",
+      "exclusive_to": "Windows.Media.Capture.CapturedFrameControlValues",
+      "methods": [
+        {
+          "name": "get_Exposure",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ExposureCompensation",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F32"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_IsoSpeed",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Focus",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SceneMode",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CaptureSceneMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Flashed",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_FlashPowerPercent",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F32"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_WhiteBalance",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ZoomFactor",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F32"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Exposure",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_Exposure"
+        },
+        {
+          "name": "ExposureCompensation",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F32"
+              }
+            ]
+          },
+          "getter": "get_ExposureCompensation"
+        },
+        {
+          "name": "FlashPowerPercent",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F32"
+              }
+            ]
+          },
+          "getter": "get_FlashPowerPercent"
+        },
+        {
+          "name": "Flashed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          },
+          "getter": "get_Flashed"
+        },
+        {
+          "name": "Focus",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_Focus"
+        },
+        {
+          "name": "IsoSpeed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_IsoSpeed"
+        },
+        {
+          "name": "SceneMode",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CaptureSceneMode",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_SceneMode"
+        },
+        {
+          "name": "WhiteBalance",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_WhiteBalance"
+        },
+        {
+          "name": "ZoomFactor",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F32"
+              }
+            ]
+          },
+          "getter": "get_ZoomFactor"
+        }
+      ]
+    },
+    "ICapturedFrameControlValues2": {
+      "guid": "500b2b88-06d2-4aa7-a7db-d37af73321d8",
+      "exclusive_to": "Windows.Media.Capture.CapturedFrameControlValues",
+      "methods": [
+        {
+          "name": "get_FocusState",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaCaptureFocusState",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_IsoDigitalGain",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_IsoAnalogGain",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SensorFrameRate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaRatio",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_WhiteBalanceGain",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WhiteBalanceGain",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FocusState",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaCaptureFocusState",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_FocusState"
+        },
+        {
+          "name": "IsoAnalogGain",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          },
+          "getter": "get_IsoAnalogGain"
+        },
+        {
+          "name": "IsoDigitalGain",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          },
+          "getter": "get_IsoDigitalGain"
+        },
+        {
+          "name": "SensorFrameRate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaRatio",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          },
+          "getter": "get_SensorFrameRate"
+        },
+        {
+          "name": "WhiteBalanceGain",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WhiteBalanceGain",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_WhiteBalanceGain"
+        }
+      ]
+    },
+    "ICapturedFrameWithSoftwareBitmap": {
+      "guid": "b58e8b6e-8503-49b5-9e86-897d26a3ff3d",
+      "exclusive_to": "Windows.Media.Capture.CapturedFrame",
+      "methods": [
+        {
+          "name": "get_SoftwareBitmap",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SoftwareBitmap",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SoftwareBitmap",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SoftwareBitmap",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Class"
+          },
+          "getter": "get_SoftwareBitmap"
+        }
+      ]
+    },
+    "ICapturedPhoto": {
+      "guid": "b0ce7e5a-cfcc-4d6c-8ad1-0869208aca16",
+      "exclusive_to": "Windows.Media.Capture.CapturedPhoto",
+      "methods": [
+        {
+          "name": "get_Frame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CapturedFrame",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Thumbnail",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CapturedFrame",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Frame",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CapturedFrame",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          },
+          "getter": "get_Frame"
+        },
+        {
+          "name": "Thumbnail",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CapturedFrame",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          },
+          "getter": "get_Thumbnail"
+        }
+      ]
+    },
+    "ILowLagMediaRecording": {
+      "guid": "41c8baf7-ff3f-49f0-a477-f195e3ce5108",
+      "exclusive_to": "Windows.Media.Capture.LowLagMediaRecording",
+      "methods": [
+        {
+          "name": "StartAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "StopAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "FinishAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "ILowLagMediaRecording2": {
+      "guid": "6369c758-5644-41e2-97af-8ef56a25e225",
+      "exclusive_to": "Windows.Media.Capture.LowLagMediaRecording",
+      "methods": [
+        {
+          "name": "PauseAsync",
+          "params": [
+            {
+              "name": "behavior",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaCapturePauseBehavior",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ResumeAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "ILowLagMediaRecording3": {
+      "guid": "5c33ab12-48f7-47da-b41e-90880a5fe0ec",
+      "exclusive_to": "Windows.Media.Capture.LowLagMediaRecording",
+      "methods": [
+        {
+          "name": "PauseWithResultAsync",
+          "params": [
+            {
+              "name": "behavior",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaCapturePauseBehavior",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaCapturePauseResult",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "StopWithResultAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaCaptureStopResult",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ILowLagPhotoCapture": {
+      "guid": "a37251b7-6b44-473d-8f24-f703d6c0ec44",
+      "exclusive_to": "Windows.Media.Capture.LowLagPhotoCapture",
+      "methods": [
+        {
+          "name": "CaptureAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CapturedPhoto",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FinishAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "ILowLagPhotoSequenceCapture": {
+      "guid": "7cc346bb-b9a9-4c91-8ffa-287e9c668669",
+      "exclusive_to": "Windows.Media.Capture.LowLagPhotoSequenceCapture",
+      "methods": [
+        {
+          "name": "StartAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "StopAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "FinishAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "add_PhotoCaptured",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "LowLagPhotoSequenceCapture",
+                    "namespace": "Windows.Media.Capture",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PhotoCapturedEventArgs",
+                    "namespace": "Windows.Media.Capture",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PhotoCaptured",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "PhotoCaptured",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "LowLagPhotoSequenceCapture",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PhotoCapturedEventArgs",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PhotoCaptured",
+          "remove_method": "remove_PhotoCaptured"
+        }
+      ]
+    },
+    "IMediaCapture": {
+      "guid": "c61afbb4-fb10-4a34-ac18-ca80d9c8e7ee",
+      "exclusive_to": "Windows.Media.Capture.MediaCapture",
+      "methods": [
+        {
+          "name": "InitializeAsync",
+          "overload": "InitializeAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "InitializeAsync",
+          "overload": "InitializeWithSettingsAsync",
+          "params": [
+            {
+              "name": "mediaCaptureInitializationSettings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaCaptureInitializationSettings",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "StartRecordToStorageFileAsync",
+          "params": [
+            {
+              "name": "encodingProfile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaEncodingProfile",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "file",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "StartRecordToStreamAsync",
+          "params": [
+            {
+              "name": "encodingProfile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaEncodingProfile",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "stream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "StartRecordToCustomSinkAsync",
+          "overload": "StartRecordToCustomSinkAsync",
+          "params": [
+            {
+              "name": "encodingProfile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaEncodingProfile",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "customMediaSink",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IMediaExtension",
+                "namespace": "Windows.Media",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "StartRecordToCustomSinkAsync",
+          "overload": "StartRecordToCustomSinkIdAsync",
+          "params": [
+            {
+              "name": "encodingProfile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaEncodingProfile",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "customSinkActivationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "customSinkSettings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPropertySet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "StopRecordAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "CapturePhotoToStorageFileAsync",
+          "params": [
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ImageEncodingProperties",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "file",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "CapturePhotoToStreamAsync",
+          "params": [
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ImageEncodingProperties",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "stream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "AddEffectAsync",
+          "params": [
+            {
+              "name": "mediaStreamType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaStreamType",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "effectActivationID",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "effectSettings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPropertySet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ClearEffectsAsync",
+          "params": [
+            {
+              "name": "mediaStreamType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaStreamType",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SetEncoderProperty",
+          "params": [
+            {
+              "name": "mediaStreamType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaStreamType",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "propertyId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "propertyValue",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetEncoderProperty",
+          "params": [
+            {
+              "name": "mediaStreamType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaStreamType",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "propertyId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        },
+        {
+          "name": "add_Failed",
+          "params": [
+            {
+              "name": "errorEventHandler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaCaptureFailedEventHandler",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Failed",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_RecordLimitationExceeded",
+          "params": [
+            {
+              "name": "recordLimitationExceededEventHandler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RecordLimitationExceededEventHandler",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_RecordLimitationExceeded",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MediaCaptureSettings",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureSettings",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_AudioDeviceController",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioDeviceController",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_VideoDeviceController",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoDeviceController",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetPreviewMirroring",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetPreviewMirroring",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "SetPreviewRotation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VideoRotation",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetPreviewRotation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoRotation",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "SetRecordRotation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VideoRotation",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetRecordRotation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoRotation",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AudioDeviceController",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AudioDeviceController",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_AudioDeviceController"
+        },
+        {
+          "name": "MediaCaptureSettings",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureSettings",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          },
+          "getter": "get_MediaCaptureSettings"
+        },
+        {
+          "name": "VideoDeviceController",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoDeviceController",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Class"
+          },
+          "getter": "get_VideoDeviceController"
+        }
+      ],
+      "events": [
+        {
+          "name": "Failed",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureFailedEventHandler",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_Failed",
+          "remove_method": "remove_Failed"
+        },
+        {
+          "name": "RecordLimitationExceeded",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RecordLimitationExceededEventHandler",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_RecordLimitationExceeded",
+          "remove_method": "remove_RecordLimitationExceeded"
+        }
+      ]
+    },
+    "IMediaCapture2": {
+      "guid": "9cc68260-7da1-4043-b652-21b8878daff9",
+      "exclusive_to": "Windows.Media.Capture.MediaCapture",
+      "methods": [
+        {
+          "name": "PrepareLowLagRecordToStorageFileAsync",
+          "params": [
+            {
+              "name": "encodingProfile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaEncodingProfile",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "file",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFile",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "LowLagMediaRecording",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "PrepareLowLagRecordToStreamAsync",
+          "params": [
+            {
+              "name": "encodingProfile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaEncodingProfile",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "stream",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "LowLagMediaRecording",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "PrepareLowLagRecordToCustomSinkAsync",
+          "overload": "PrepareLowLagRecordToCustomSinkAsync",
+          "params": [
+            {
+              "name": "encodingProfile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaEncodingProfile",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "customMediaSink",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IMediaExtension",
+                "namespace": "Windows.Media",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "LowLagMediaRecording",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "PrepareLowLagRecordToCustomSinkAsync",
+          "overload": "PrepareLowLagRecordToCustomSinkIdAsync",
+          "params": [
+            {
+              "name": "encodingProfile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaEncodingProfile",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "customSinkActivationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "customSinkSettings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPropertySet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "LowLagMediaRecording",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "PrepareLowLagPhotoCaptureAsync",
+          "params": [
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ImageEncodingProperties",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "LowLagPhotoCapture",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "PrepareLowLagPhotoSequenceCaptureAsync",
+          "params": [
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ImageEncodingProperties",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "LowLagPhotoSequenceCapture",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SetEncodingPropertiesAsync",
+          "params": [
+            {
+              "name": "mediaStreamType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaStreamType",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "mediaEncodingProperties",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IMediaEncodingProperties",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "encoderProperties",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaPropertySet",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IMediaCapture3": {
+      "guid": "d4136f30-1564-466e-bc0a-af94e02ab016",
+      "exclusive_to": "Windows.Media.Capture.MediaCapture",
+      "methods": [
+        {
+          "name": "PrepareVariablePhotoSequenceCaptureAsync",
+          "params": [
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ImageEncodingProperties",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VariablePhotoSequenceCapture",
+                "namespace": "Windows.Media.Capture.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_FocusChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "MediaCapture",
+                    "namespace": "Windows.Media.Capture",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "MediaCaptureFocusChangedEventArgs",
+                    "namespace": "Windows.Media.Capture",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_FocusChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_PhotoConfirmationCaptured",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "MediaCapture",
+                    "namespace": "Windows.Media.Capture",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PhotoConfirmationCapturedEventArgs",
+                    "namespace": "Windows.Media.Capture",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PhotoConfirmationCaptured",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "FocusChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaCapture",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "MediaCaptureFocusChangedEventArgs",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_FocusChanged",
+          "remove_method": "remove_FocusChanged"
+        },
+        {
+          "name": "PhotoConfirmationCaptured",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaCapture",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PhotoConfirmationCapturedEventArgs",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PhotoConfirmationCaptured",
+          "remove_method": "remove_PhotoConfirmationCaptured"
+        }
+      ]
+    },
+    "IMediaCapture4": {
+      "guid": "bacd6fd6-fb08-4947-aea2-ce14eff0ce13",
+      "exclusive_to": "Windows.Media.Capture.MediaCapture",
+      "methods": [
+        {
+          "name": "AddAudioEffectAsync",
+          "params": [
+            {
+              "name": "definition",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IAudioEffectDefinition",
+                "namespace": "Windows.Media.Effects",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IMediaExtension",
+                "namespace": "Windows.Media",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "AddVideoEffectAsync",
+          "params": [
+            {
+              "name": "definition",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IVideoEffectDefinition",
+                "namespace": "Windows.Media.Effects",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "mediaStreamType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaStreamType",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IMediaExtension",
+                "namespace": "Windows.Media",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "PauseRecordAsync",
+          "params": [
+            {
+              "name": "behavior",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaCapturePauseBehavior",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ResumeRecordAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "add_CameraStreamStateChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "MediaCapture",
+                    "namespace": "Windows.Media.Capture",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CameraStreamStateChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CameraStreamState",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CameraStreamState",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetPreviewFrameAsync",
+          "overload": "GetPreviewFrameAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VideoFrame",
+                "namespace": "Windows.Media",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetPreviewFrameAsync",
+          "overload": "GetPreviewFrameCopyAsync",
+          "params": [
+            {
+              "name": "destination",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VideoFrame",
+                "namespace": "Windows.Media",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VideoFrame",
+                "namespace": "Windows.Media",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_ThermalStatusChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "MediaCapture",
+                    "namespace": "Windows.Media.Capture",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ThermalStatusChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ThermalStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureThermalStatus",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "PrepareAdvancedPhotoCaptureAsync",
+          "params": [
+            {
+              "name": "encodingProperties",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ImageEncodingProperties",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AdvancedPhotoCapture",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CameraStreamState",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CameraStreamState",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CameraStreamState"
+        },
+        {
+          "name": "ThermalStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureThermalStatus",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ThermalStatus"
+        }
+      ],
+      "events": [
+        {
+          "name": "CameraStreamStateChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaCapture",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_CameraStreamStateChanged",
+          "remove_method": "remove_CameraStreamStateChanged"
+        },
+        {
+          "name": "ThermalStatusChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaCapture",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ThermalStatusChanged",
+          "remove_method": "remove_ThermalStatusChanged"
+        }
+      ]
+    },
+    "IMediaCapture5": {
+      "guid": "da787c22-3a9b-4720-a71e-97900a316e5a",
+      "exclusive_to": "Windows.Media.Capture.MediaCapture",
+      "methods": [
+        {
+          "name": "RemoveEffectAsync",
+          "params": [
+            {
+              "name": "effect",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IMediaExtension",
+                "namespace": "Windows.Media",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "PauseRecordWithResultAsync",
+          "params": [
+            {
+              "name": "behavior",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaCapturePauseBehavior",
+                "namespace": "Windows.Media.Devices",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaCapturePauseResult",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "StopRecordWithResultAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaCaptureStopResult",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_FrameSources",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "MediaFrameSource",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateFrameReaderAsync",
+          "overload": "CreateFrameReaderAsync",
+          "params": [
+            {
+              "name": "inputSource",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaFrameSource",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaFrameReader",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateFrameReaderAsync",
+          "overload": "CreateFrameReaderWithSubtypeAsync",
+          "params": [
+            {
+              "name": "inputSource",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaFrameSource",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "outputSubtype",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaFrameReader",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "CreateFrameReaderAsync",
+          "overload": "CreateFrameReaderWithSubtypeAndSizeAsync",
+          "params": [
+            {
+              "name": "inputSource",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaFrameSource",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "outputSubtype",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "outputSize",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapSize",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaFrameReader",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FrameSources",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "MediaFrameSource",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_FrameSources"
+        }
+      ]
+    },
+    "IMediaCapture6": {
+      "guid": "228948bd-4b20-4bb1-9fd6-a583212a1012",
+      "exclusive_to": "Windows.Media.Capture.MediaCapture",
+      "methods": [
+        {
+          "name": "add_CaptureDeviceExclusiveControlStatusChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "MediaCapture",
+                    "namespace": "Windows.Media.Capture",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "MediaCaptureDeviceExclusiveControlStatusChangedEventArgs",
+                    "namespace": "Windows.Media.Capture",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CaptureDeviceExclusiveControlStatusChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CreateMultiSourceFrameReaderAsync",
+          "params": [
+            {
+              "name": "inputSources",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "MediaFrameSource",
+                    "namespace": "Windows.Media.Capture.Frames",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MultiSourceMediaFrameReader",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "events": [
+        {
+          "name": "CaptureDeviceExclusiveControlStatusChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaCapture",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "MediaCaptureDeviceExclusiveControlStatusChangedEventArgs",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_CaptureDeviceExclusiveControlStatusChanged",
+          "remove_method": "remove_CaptureDeviceExclusiveControlStatusChanged"
+        }
+      ]
+    },
+    "IMediaCapture7": {
+      "guid": "9169f102-8888-541a-95bc-24e4d462542a",
+      "exclusive_to": "Windows.Media.Capture.MediaCapture",
+      "methods": [
+        {
+          "name": "CreateRelativePanelWatcher",
+          "params": [
+            {
+              "name": "captureMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StreamingCaptureMode",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "displayRegion",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayRegion",
+                "namespace": "Windows.UI.WindowManagement",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureRelativePanelWatcher",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs": {
+      "guid": "9d2f920d-a588-43c6-89d6-5ad322af006a",
+      "exclusive_to": "Windows.Media.Capture.MediaCaptureDeviceExclusiveControlStatusChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureDeviceExclusiveControlStatus",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureDeviceExclusiveControlStatus",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IMediaCaptureFailedEventArgs": {
+      "guid": "80fde3f4-54c4-42c0-8d19-cea1a87ca18b",
+      "exclusive_to": "Windows.Media.Capture.MediaCaptureFailedEventArgs",
+      "methods": [
+        {
+          "name": "get_Message",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Code",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Code",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Code"
+        },
+        {
+          "name": "Message",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Message"
+        }
+      ]
+    },
+    "IMediaCaptureFocusChangedEventArgs": {
+      "guid": "81e1bc7f-2277-493e-abee-d3f44ff98c04",
+      "exclusive_to": "Windows.Media.Capture.MediaCaptureFocusChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_FocusState",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureFocusState",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FocusState",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureFocusState",
+            "namespace": "Windows.Media.Devices",
+            "target_kind": "Enum"
+          },
+          "getter": "get_FocusState"
+        }
+      ]
+    },
+    "IMediaCaptureInitializationSettings": {
+      "guid": "9782ba70-ea65-4900-9356-8ca887726884",
+      "exclusive_to": "Windows.Media.Capture.MediaCaptureInitializationSettings",
+      "methods": [
+        {
+          "name": "put_AudioDeviceId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AudioDeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_VideoDeviceId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_VideoDeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_StreamingCaptureMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "StreamingCaptureMode",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_StreamingCaptureMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StreamingCaptureMode",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_PhotoCaptureSource",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhotoCaptureSource",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PhotoCaptureSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhotoCaptureSource",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AudioDeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AudioDeviceId",
+          "setter": "put_AudioDeviceId"
+        },
+        {
+          "name": "PhotoCaptureSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhotoCaptureSource",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PhotoCaptureSource",
+          "setter": "put_PhotoCaptureSource"
+        },
+        {
+          "name": "StreamingCaptureMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StreamingCaptureMode",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          },
+          "getter": "get_StreamingCaptureMode",
+          "setter": "put_StreamingCaptureMode"
+        },
+        {
+          "name": "VideoDeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_VideoDeviceId",
+          "setter": "put_VideoDeviceId"
+        }
+      ]
+    },
+    "IMediaCaptureInitializationSettings2": {
+      "guid": "404e0626-c9dc-43e9-aee4-e6bf1b57b44c",
+      "exclusive_to": "Windows.Media.Capture.MediaCaptureInitializationSettings",
+      "methods": [
+        {
+          "name": "put_MediaCategory",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaCategory",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MediaCategory",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaCategory",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_AudioProcessing",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AudioProcessing",
+                "namespace": "Windows.Media",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AudioProcessing",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioProcessing",
+            "namespace": "Windows.Media",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AudioProcessing",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AudioProcessing",
+            "namespace": "Windows.Media",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AudioProcessing",
+          "setter": "put_AudioProcessing"
+        },
+        {
+          "name": "MediaCategory",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaCategory",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MediaCategory",
+          "setter": "put_MediaCategory"
+        }
+      ]
+    },
+    "IMediaCaptureInitializationSettings3": {
+      "guid": "4160519d-be48-4730-8104-0cf6e9e97948",
+      "exclusive_to": "Windows.Media.Capture.MediaCaptureInitializationSettings",
+      "methods": [
+        {
+          "name": "put_AudioSource",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IMediaSource",
+                "namespace": "Windows.Media.Core",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AudioSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IMediaSource",
+            "namespace": "Windows.Media.Core",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_VideoSource",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IMediaSource",
+                "namespace": "Windows.Media.Core",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_VideoSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IMediaSource",
+            "namespace": "Windows.Media.Core",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AudioSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IMediaSource",
+            "namespace": "Windows.Media.Core",
+            "target_kind": "Interface"
+          },
+          "getter": "get_AudioSource",
+          "setter": "put_AudioSource"
+        },
+        {
+          "name": "VideoSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IMediaSource",
+            "namespace": "Windows.Media.Core",
+            "target_kind": "Interface"
+          },
+          "getter": "get_VideoSource",
+          "setter": "put_VideoSource"
+        }
+      ]
+    },
+    "IMediaCaptureInitializationSettings4": {
+      "guid": "f502a537-4cb7-4d28-95ed-4f9f012e0518",
+      "exclusive_to": "Windows.Media.Capture.MediaCaptureInitializationSettings",
+      "methods": [
+        {
+          "name": "get_VideoProfile",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureVideoProfile",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_VideoProfile",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaCaptureVideoProfile",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PreviewMediaDescription",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureVideoProfileMediaDescription",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_PreviewMediaDescription",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaCaptureVideoProfileMediaDescription",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RecordMediaDescription",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureVideoProfileMediaDescription",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_RecordMediaDescription",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaCaptureVideoProfileMediaDescription",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PhotoMediaDescription",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureVideoProfileMediaDescription",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_PhotoMediaDescription",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaCaptureVideoProfileMediaDescription",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "PhotoMediaDescription",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureVideoProfileMediaDescription",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          },
+          "getter": "get_PhotoMediaDescription",
+          "setter": "put_PhotoMediaDescription"
+        },
+        {
+          "name": "PreviewMediaDescription",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureVideoProfileMediaDescription",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          },
+          "getter": "get_PreviewMediaDescription",
+          "setter": "put_PreviewMediaDescription"
+        },
+        {
+          "name": "RecordMediaDescription",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureVideoProfileMediaDescription",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          },
+          "getter": "get_RecordMediaDescription",
+          "setter": "put_RecordMediaDescription"
+        },
+        {
+          "name": "VideoProfile",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureVideoProfile",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          },
+          "getter": "get_VideoProfile",
+          "setter": "put_VideoProfile"
+        }
+      ]
+    },
+    "IMediaCaptureInitializationSettings5": {
+      "guid": "d5a2e3b8-2626-4e94-b7b3-5308a0f64b1a",
+      "exclusive_to": "Windows.Media.Capture.MediaCaptureInitializationSettings",
+      "methods": [
+        {
+          "name": "get_SourceGroup",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaFrameSourceGroup",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_SourceGroup",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaFrameSourceGroup",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SharingMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureSharingMode",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_SharingMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaCaptureSharingMode",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MemoryPreference",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureMemoryPreference",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_MemoryPreference",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaCaptureMemoryPreference",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "MemoryPreference",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureMemoryPreference",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MemoryPreference",
+          "setter": "put_MemoryPreference"
+        },
+        {
+          "name": "SharingMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaCaptureSharingMode",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SharingMode",
+          "setter": "put_SharingMode"
+        },
+        {
+          "name": "SourceGroup",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaFrameSourceGroup",
+            "namespace": "Windows.Media.Capture.Frames",
+            "target_kind": "Class"
+          },
+          "getter": "get_SourceGroup",
+          "setter": "put_SourceGroup"
+        }
+      ]
+    },
+    "IMediaCaptureInitializationSettings6": {
+      "guid": "b2e26b47-3db1-4d33-ab63-0ffa09056585",
+      "exclusive_to": "Windows.Media.Capture.MediaCaptureInitializationSettings",
+      "methods": [
+        {
+          "name": "get_AlwaysPlaySystemShutterSound",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AlwaysPlaySystemShutterSound",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AlwaysPlaySystemShutterSound",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AlwaysPlaySystemShutterSound",
+          "setter": "put_AlwaysPlaySystemShutterSound"
+        }
+      ]
+    },
+    "IMediaCaptureInitializationSettings7": {
+      "guid": "41546967-f58a-5d82-9ef4-ed572fb5e34e",
+      "exclusive_to": "Windows.Media.Capture.MediaCaptureInitializationSettings",
+      "methods": [
+        {
+          "name": "get_DeviceUriPasswordCredential",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_DeviceUriPasswordCredential",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PasswordCredential",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DeviceUri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_DeviceUri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceUri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_DeviceUri",
+          "setter": "put_DeviceUri"
+        },
+        {
+          "name": "DeviceUriPasswordCredential",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          },
+          "getter": "get_DeviceUriPasswordCredential",
+          "setter": "put_DeviceUriPasswordCredential"
+        }
+      ]
+    },
+    "IMediaCapturePauseResult": {
+      "guid": "aec47ca3-4477-4b04-a06f-2c1c5182fe9d",
+      "exclusive_to": "Windows.Media.Capture.MediaCapturePauseResult",
+      "methods": [
+        {
+          "name": "get_LastFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoFrame",
+            "namespace": "Windows.Media",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_RecordDuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "LastFrame",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoFrame",
+            "namespace": "Windows.Media",
+            "target_kind": "Class"
+          },
+          "getter": "get_LastFrame"
+        },
+        {
+          "name": "RecordDuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_RecordDuration"
+        }
+      ]
+    },
+    "IMediaCaptureRelativePanelWatcher": {
+      "guid": "7d896566-04be-5b89-b30e-bd34a9f12db0",
+      "exclusive_to": "Windows.Media.Capture.MediaCaptureRelativePanelWatcher",
+      "methods": [
+        {
+          "name": "get_RelativePanel",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Panel",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_Changed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "MediaCaptureRelativePanelWatcher",
+                    "namespace": "Windows.Media.Capture",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Changed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Start"
+        },
+        {
+          "name": "Stop"
+        }
+      ],
+      "properties": [
+        {
+          "name": "RelativePanel",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Panel",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RelativePanel"
+        }
+      ],
+      "events": [
+        {
+          "name": "Changed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaCaptureRelativePanelWatcher",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_Changed",
+          "remove_method": "remove_Changed"
+        }
+      ]
+    },
+    "IMediaCaptureSettings": {
+      "guid": "1d83aafe-6d45-4477-8dc4-ac5bc01c4091",
+      "exclusive_to": "Windows.Media.Capture.MediaCaptureSettings",
+      "methods": [
+        {
+          "name": "get_AudioDeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_VideoDeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_StreamingCaptureMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StreamingCaptureMode",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_PhotoCaptureSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhotoCaptureSource",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_VideoDeviceCharacteristic",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoDeviceCharacteristic",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AudioDeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AudioDeviceId"
+        },
+        {
+          "name": "PhotoCaptureSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhotoCaptureSource",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PhotoCaptureSource"
+        },
+        {
+          "name": "StreamingCaptureMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StreamingCaptureMode",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          },
+          "getter": "get_StreamingCaptureMode"
+        },
+        {
+          "name": "VideoDeviceCharacteristic",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoDeviceCharacteristic",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          },
+          "getter": "get_VideoDeviceCharacteristic"
+        },
+        {
+          "name": "VideoDeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_VideoDeviceId"
+        }
+      ]
+    },
+    "IMediaCaptureSettings2": {
+      "guid": "6f9e7cfb-fa9f-4b13-9cbe-5ab94f1f3493",
+      "exclusive_to": "Windows.Media.Capture.MediaCaptureSettings",
+      "methods": [
+        {
+          "name": "get_ConcurrentRecordAndPhotoSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_ConcurrentRecordAndPhotoSequenceSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_CameraSoundRequiredForRegion",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Horizontal35mmEquivalentFocalLength",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_PitchOffsetDegrees",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Vertical35mmEquivalentFocalLength",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_MediaCategory",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaCategory",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_AudioProcessing",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioProcessing",
+            "namespace": "Windows.Media",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AudioProcessing",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AudioProcessing",
+            "namespace": "Windows.Media",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AudioProcessing"
+        },
+        {
+          "name": "CameraSoundRequiredForRegion",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CameraSoundRequiredForRegion"
+        },
+        {
+          "name": "ConcurrentRecordAndPhotoSequenceSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ConcurrentRecordAndPhotoSequenceSupported"
+        },
+        {
+          "name": "ConcurrentRecordAndPhotoSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ConcurrentRecordAndPhotoSupported"
+        },
+        {
+          "name": "Horizontal35mmEquivalentFocalLength",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_Horizontal35mmEquivalentFocalLength"
+        },
+        {
+          "name": "MediaCategory",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaCategory",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MediaCategory"
+        },
+        {
+          "name": "PitchOffsetDegrees",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I4"
+              }
+            ]
+          },
+          "getter": "get_PitchOffsetDegrees"
+        },
+        {
+          "name": "Vertical35mmEquivalentFocalLength",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_Vertical35mmEquivalentFocalLength"
+        }
+      ]
+    },
+    "IMediaCaptureSettings3": {
+      "guid": "303c67c2-8058-4b1b-b877-8c2ef3528440",
+      "exclusive_to": "Windows.Media.Capture.MediaCaptureSettings",
+      "methods": [
+        {
+          "name": "get_Direct3D11Device",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IDirect3DDevice",
+            "namespace": "Windows.Graphics.DirectX.Direct3D11",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Direct3D11Device",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IDirect3DDevice",
+            "namespace": "Windows.Graphics.DirectX.Direct3D11",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Direct3D11Device"
+        }
+      ]
+    },
+    "IMediaCaptureStatics": {
+      "guid": "acef81ff-99ed-4645-965e-1925cfc63834",
+      "exclusive_to": "Windows.Media.Capture.MediaCapture",
+      "methods": [
+        {
+          "name": "IsVideoProfileSupported",
+          "params": [
+            {
+              "name": "videoDeviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "FindAllVideoProfiles",
+          "params": [
+            {
+              "name": "videoDeviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaCaptureVideoProfile",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindConcurrentProfiles",
+          "params": [
+            {
+              "name": "videoDeviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaCaptureVideoProfile",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindKnownVideoProfiles",
+          "params": [
+            {
+              "name": "videoDeviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "name",
+              "type": {
+                "kind": "ApiRef",
+                "name": "KnownVideoProfile",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaCaptureVideoProfile",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IMediaCaptureStopResult": {
+      "guid": "f9db6a2a-a092-4ad1-97d4-f201f9d082db",
+      "exclusive_to": "Windows.Media.Capture.MediaCaptureStopResult",
+      "methods": [
+        {
+          "name": "get_LastFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoFrame",
+            "namespace": "Windows.Media",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_RecordDuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "LastFrame",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoFrame",
+            "namespace": "Windows.Media",
+            "target_kind": "Class"
+          },
+          "getter": "get_LastFrame"
+        },
+        {
+          "name": "RecordDuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_RecordDuration"
+        }
+      ]
+    },
+    "IMediaCaptureVideoPreview": {
+      "guid": "27727073-549e-447f-a20a-4f03c479d8c0",
+      "exclusive_to": "Windows.Media.Capture.MediaCapture",
+      "methods": [
+        {
+          "name": "StartPreviewAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "StartPreviewToCustomSinkAsync",
+          "overload": "StartPreviewToCustomSinkAsync",
+          "params": [
+            {
+              "name": "encodingProfile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaEncodingProfile",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "customMediaSink",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IMediaExtension",
+                "namespace": "Windows.Media",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "StartPreviewToCustomSinkAsync",
+          "overload": "StartPreviewToCustomSinkIdAsync",
+          "params": [
+            {
+              "name": "encodingProfile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaEncodingProfile",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "customSinkActivationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "customSinkSettings",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPropertySet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "StopPreviewAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IMediaCaptureVideoProfile": {
+      "guid": "21a073bf-a3ee-4ecf-9ef6-50b0bc4e1305",
+      "exclusive_to": "Windows.Media.Capture.MediaCaptureVideoProfile",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_VideoDeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SupportedPreviewMediaDescription",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaCaptureVideoProfileMediaDescription",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SupportedRecordMediaDescription",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaCaptureVideoProfileMediaDescription",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SupportedPhotoMediaDescription",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaCaptureVideoProfileMediaDescription",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetConcurrency",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaCaptureVideoProfile",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "SupportedPhotoMediaDescription",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaCaptureVideoProfileMediaDescription",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_SupportedPhotoMediaDescription"
+        },
+        {
+          "name": "SupportedPreviewMediaDescription",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaCaptureVideoProfileMediaDescription",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_SupportedPreviewMediaDescription"
+        },
+        {
+          "name": "SupportedRecordMediaDescription",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaCaptureVideoProfileMediaDescription",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_SupportedRecordMediaDescription"
+        },
+        {
+          "name": "VideoDeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_VideoDeviceId"
+        }
+      ]
+    },
+    "IMediaCaptureVideoProfile2": {
+      "guid": "97ddc95f-94ce-468f-9316-fc5bc2638f6b",
+      "exclusive_to": "Windows.Media.Capture.MediaCaptureVideoProfile",
+      "methods": [
+        {
+          "name": "get_FrameSourceInfos",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaFrameSourceInfo",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FrameSourceInfos",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MediaFrameSourceInfo",
+                "namespace": "Windows.Media.Capture.Frames",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_FrameSourceInfos"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        }
+      ]
+    },
+    "IMediaCaptureVideoProfileMediaDescription": {
+      "guid": "8012afef-b691-49ff-83f2-c1e76eaaea1b",
+      "exclusive_to": "Windows.Media.Capture.MediaCaptureVideoProfileMediaDescription",
+      "methods": [
+        {
+          "name": "get_Width",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Height",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_FrameRate",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_IsVariablePhotoSequenceSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsHdrVideoSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FrameRate",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_FrameRate"
+        },
+        {
+          "name": "Height",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Height"
+        },
+        {
+          "name": "IsHdrVideoSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsHdrVideoSupported"
+        },
+        {
+          "name": "IsVariablePhotoSequenceSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsVariablePhotoSequenceSupported"
+        },
+        {
+          "name": "Width",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Width"
+        }
+      ]
+    },
+    "IMediaCaptureVideoProfileMediaDescription2": {
+      "guid": "c6a6ef13-322d-413a-b85a-68a88e02f4e9",
+      "exclusive_to": "Windows.Media.Capture.MediaCaptureVideoProfileMediaDescription",
+      "methods": [
+        {
+          "name": "get_Subtype",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "Subtype",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Subtype"
+        }
+      ]
+    },
+    "IOptionalReferencePhotoCapturedEventArgs": {
+      "guid": "470f88b3-1e6d-4051-9c8b-f1d85af047b7",
+      "exclusive_to": "Windows.Media.Capture.OptionalReferencePhotoCapturedEventArgs",
+      "methods": [
+        {
+          "name": "get_Frame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CapturedFrame",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Context",
+          "return": {
+            "kind": "Native",
+            "name": "Object"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Context",
+          "type": {
+            "kind": "Native",
+            "name": "Object"
+          },
+          "getter": "get_Context"
+        },
+        {
+          "name": "Frame",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CapturedFrame",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          },
+          "getter": "get_Frame"
+        }
+      ]
+    },
+    "IPhotoCapturedEventArgs": {
+      "guid": "373bfbc1-984e-4ff0-bf85-1c00aabc5a45",
+      "exclusive_to": "Windows.Media.Capture.PhotoCapturedEventArgs",
+      "methods": [
+        {
+          "name": "get_Frame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CapturedFrame",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Thumbnail",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CapturedFrame",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CaptureTimeOffset",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CaptureTimeOffset",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_CaptureTimeOffset"
+        },
+        {
+          "name": "Frame",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CapturedFrame",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          },
+          "getter": "get_Frame"
+        },
+        {
+          "name": "Thumbnail",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CapturedFrame",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          },
+          "getter": "get_Thumbnail"
+        }
+      ]
+    },
+    "IPhotoConfirmationCapturedEventArgs": {
+      "guid": "ab473672-c28a-4827-8f8d-3636d3beb51e",
+      "exclusive_to": "Windows.Media.Capture.PhotoConfirmationCapturedEventArgs",
+      "methods": [
+        {
+          "name": "get_Frame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CapturedFrame",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CaptureTimeOffset",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CaptureTimeOffset",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_CaptureTimeOffset"
+        },
+        {
+          "name": "Frame",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CapturedFrame",
+            "namespace": "Windows.Media.Capture",
+            "target_kind": "Class"
+          },
+          "getter": "get_Frame"
+        }
+      ]
+    },
+    "IVideoStreamConfiguration": {
+      "guid": "d8770a6f-4390-4b5e-ad3e-0f8af0963490",
+      "exclusive_to": "Windows.Media.Capture.VideoStreamConfiguration",
+      "methods": [
+        {
+          "name": "get_InputProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_OutputProperties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InputProperties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          },
+          "getter": "get_InputProperties"
+        },
+        {
+          "name": "OutputProperties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoEncodingProperties",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Class"
+          },
+          "getter": "get_OutputProperties"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AdvancedCapturedPhoto": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAdvancedCapturedPhoto",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAdvancedCapturedPhoto",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAdvancedCapturedPhoto2",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AdvancedPhotoCapture": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAdvancedPhotoCapture",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAdvancedPhotoCapture",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppCapture": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppCapture",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppCapture",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Media.Capture.IAppCaptureStatics2",
+        "Windows.Media.Capture.IAppCaptureStatics"
+      ]
+    },
+    "CameraCaptureUI": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICameraCaptureUI",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICameraCaptureUI",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "CameraCaptureUIPhotoCaptureSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICameraCaptureUIPhotoCaptureSettings",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICameraCaptureUIPhotoCaptureSettings",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CameraCaptureUIVideoCaptureSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICameraCaptureUIVideoCaptureSettings",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICameraCaptureUIVideoCaptureSettings",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CapturedFrame": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICapturedFrame",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICapturedFrame",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRandomAccessStreamWithContentType",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IContentTypeProvider",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRandomAccessStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IOutputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInputStream",
+          "namespace": "Windows.Storage.Streams",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICapturedFrameWithSoftwareBitmap",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICapturedFrame2",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CapturedFrameControlValues": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICapturedFrameControlValues",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICapturedFrameControlValues",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICapturedFrameControlValues2",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CapturedPhoto": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICapturedPhoto",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICapturedPhoto",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "LowLagMediaRecording": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILowLagMediaRecording",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILowLagMediaRecording",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ILowLagMediaRecording2",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ILowLagMediaRecording3",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "LowLagPhotoCapture": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILowLagPhotoCapture",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILowLagPhotoCapture",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "LowLagPhotoSequenceCapture": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILowLagPhotoSequenceCapture",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILowLagPhotoSequenceCapture",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MediaCapture": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaCapture",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCapture",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCaptureVideoPreview",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCapture2",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCapture3",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCapture4",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCapture5",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCapture6",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCapture7",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Media.Capture.IMediaCaptureStatics"
+      ]
+    },
+    "MediaCaptureDeviceExclusiveControlStatusChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MediaCaptureFailedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaCaptureFailedEventArgs",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCaptureFailedEventArgs",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MediaCaptureFocusChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaCaptureFocusChangedEventArgs",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCaptureFocusChangedEventArgs",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MediaCaptureInitializationSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaCaptureInitializationSettings",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCaptureInitializationSettings",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCaptureInitializationSettings2",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCaptureInitializationSettings3",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCaptureInitializationSettings4",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCaptureInitializationSettings5",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCaptureInitializationSettings6",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCaptureInitializationSettings7",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "MediaCapturePauseResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaCapturePauseResult",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCapturePauseResult",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MediaCaptureRelativePanelWatcher": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaCaptureRelativePanelWatcher",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCaptureRelativePanelWatcher",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MediaCaptureSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaCaptureSettings",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCaptureSettings",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCaptureSettings2",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCaptureSettings3",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MediaCaptureStopResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaCaptureStopResult",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCaptureStopResult",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MediaCaptureVideoProfile": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaCaptureVideoProfile",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCaptureVideoProfile",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCaptureVideoProfile2",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MediaCaptureVideoProfileMediaDescription": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMediaCaptureVideoProfileMediaDescription",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCaptureVideoProfileMediaDescription",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMediaCaptureVideoProfileMediaDescription2",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "OptionalReferencePhotoCapturedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IOptionalReferencePhotoCapturedEventArgs",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IOptionalReferencePhotoCapturedEventArgs",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PhotoCapturedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhotoCapturedEventArgs",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhotoCapturedEventArgs",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PhotoConfirmationCapturedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhotoConfirmationCapturedEventArgs",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhotoConfirmationCapturedEventArgs",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VideoStreamConfiguration": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVideoStreamConfiguration",
+        "namespace": "Windows.Media.Capture",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVideoStreamConfiguration",
+          "namespace": "Windows.Media.Capture",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  },
+  "delegates": {
+    "MediaCaptureFailedEventHandler": {
+      "guid": "2014effb-5cd8-4f08-a314-0d360da59f14",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "ApiRef",
+              "name": "MediaCapture",
+              "namespace": "Windows.Media.Capture",
+              "target_kind": "Class"
+            }
+          },
+          {
+            "name": "errorEventArgs",
+            "type": {
+              "kind": "ApiRef",
+              "name": "MediaCaptureFailedEventArgs",
+              "namespace": "Windows.Media.Capture",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "RecordLimitationExceededEventHandler": {
+      "guid": "3fae8f2e-4fe1-4ffd-aaba-e1f1337d4e53",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "ApiRef",
+              "name": "MediaCapture",
+              "namespace": "Windows.Media.Capture",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

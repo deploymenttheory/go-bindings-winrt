@@ -1,0 +1,6488 @@
+{
+  "namespace": "Windows.ApplicationModel.Appointments",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "AppointmentBusyStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Busy",
+          "value": "0"
+        },
+        {
+          "name": "Tentative",
+          "value": "1"
+        },
+        {
+          "name": "Free",
+          "value": "2"
+        },
+        {
+          "name": "OutOfOffice",
+          "value": "3"
+        },
+        {
+          "name": "WorkingElsewhere",
+          "value": "4"
+        }
+      ]
+    },
+    "AppointmentCalendarOtherAppReadAccess": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "SystemOnly",
+          "value": "0"
+        },
+        {
+          "name": "Limited",
+          "value": "1"
+        },
+        {
+          "name": "Full",
+          "value": "2"
+        },
+        {
+          "name": "None",
+          "value": "3"
+        }
+      ]
+    },
+    "AppointmentCalendarOtherAppWriteAccess": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "SystemOnly",
+          "value": "1"
+        },
+        {
+          "name": "Limited",
+          "value": "2"
+        }
+      ]
+    },
+    "AppointmentCalendarSyncStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Idle",
+          "value": "0"
+        },
+        {
+          "name": "Syncing",
+          "value": "1"
+        },
+        {
+          "name": "UpToDate",
+          "value": "2"
+        },
+        {
+          "name": "AuthenticationError",
+          "value": "3"
+        },
+        {
+          "name": "PolicyError",
+          "value": "4"
+        },
+        {
+          "name": "UnknownError",
+          "value": "5"
+        },
+        {
+          "name": "ManualAccountRemovalRequired",
+          "value": "6"
+        }
+      ]
+    },
+    "AppointmentConflictType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Adjacent",
+          "value": "1"
+        },
+        {
+          "name": "Overlap",
+          "value": "2"
+        }
+      ]
+    },
+    "AppointmentDaysOfWeek": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Sunday",
+          "value": "1"
+        },
+        {
+          "name": "Monday",
+          "value": "2"
+        },
+        {
+          "name": "Tuesday",
+          "value": "4"
+        },
+        {
+          "name": "Wednesday",
+          "value": "8"
+        },
+        {
+          "name": "Thursday",
+          "value": "16"
+        },
+        {
+          "name": "Friday",
+          "value": "32"
+        },
+        {
+          "name": "Saturday",
+          "value": "64"
+        }
+      ]
+    },
+    "AppointmentDetailsKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "PlainText",
+          "value": "0"
+        },
+        {
+          "name": "Html",
+          "value": "1"
+        }
+      ]
+    },
+    "AppointmentParticipantResponse": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Tentative",
+          "value": "1"
+        },
+        {
+          "name": "Accepted",
+          "value": "2"
+        },
+        {
+          "name": "Declined",
+          "value": "3"
+        },
+        {
+          "name": "Unknown",
+          "value": "4"
+        }
+      ]
+    },
+    "AppointmentParticipantRole": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "RequiredAttendee",
+          "value": "0"
+        },
+        {
+          "name": "OptionalAttendee",
+          "value": "1"
+        },
+        {
+          "name": "Resource",
+          "value": "2"
+        }
+      ]
+    },
+    "AppointmentRecurrenceUnit": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Daily",
+          "value": "0"
+        },
+        {
+          "name": "Weekly",
+          "value": "1"
+        },
+        {
+          "name": "Monthly",
+          "value": "2"
+        },
+        {
+          "name": "MonthlyOnDay",
+          "value": "3"
+        },
+        {
+          "name": "Yearly",
+          "value": "4"
+        },
+        {
+          "name": "YearlyOnDay",
+          "value": "5"
+        }
+      ]
+    },
+    "AppointmentSensitivity": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Public",
+          "value": "0"
+        },
+        {
+          "name": "Private",
+          "value": "1"
+        }
+      ]
+    },
+    "AppointmentStoreAccessType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "AppCalendarsReadWrite",
+          "value": "0"
+        },
+        {
+          "name": "AllCalendarsReadOnly",
+          "value": "1"
+        },
+        {
+          "name": "AllCalendarsReadWrite",
+          "value": "2"
+        }
+      ]
+    },
+    "AppointmentStoreChangeType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "AppointmentCreated",
+          "value": "0"
+        },
+        {
+          "name": "AppointmentModified",
+          "value": "1"
+        },
+        {
+          "name": "AppointmentDeleted",
+          "value": "2"
+        },
+        {
+          "name": "ChangeTrackingLost",
+          "value": "3"
+        },
+        {
+          "name": "CalendarCreated",
+          "value": "4"
+        },
+        {
+          "name": "CalendarModified",
+          "value": "5"
+        },
+        {
+          "name": "CalendarDeleted",
+          "value": "6"
+        }
+      ]
+    },
+    "AppointmentSummaryCardView": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "System",
+          "value": "0"
+        },
+        {
+          "name": "App",
+          "value": "1"
+        }
+      ]
+    },
+    "AppointmentWeekOfMonth": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "First",
+          "value": "0"
+        },
+        {
+          "name": "Second",
+          "value": "1"
+        },
+        {
+          "name": "Third",
+          "value": "2"
+        },
+        {
+          "name": "Fourth",
+          "value": "3"
+        },
+        {
+          "name": "Last",
+          "value": "4"
+        }
+      ]
+    },
+    "FindAppointmentCalendarsOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "IncludeHidden",
+          "value": "1"
+        }
+      ]
+    },
+    "RecurrenceType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Master",
+          "value": "0"
+        },
+        {
+          "name": "Instance",
+          "value": "1"
+        },
+        {
+          "name": "ExceptionInstance",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IAppointment": {
+      "guid": "dd002f2f-2bdd-4076-90a3-22c275312965",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.Appointment",
+      "methods": [
+        {
+          "name": "get_StartTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_StartTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Duration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_Duration",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Location",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Location",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Subject",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Subject",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Details",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Details",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Reminder",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Reminder",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "TimeSpan",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Organizer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentOrganizer",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Organizer",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppointmentOrganizer",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Invitees",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentInvitee",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Recurrence",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentRecurrence",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Recurrence",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppointmentRecurrence",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BusyStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentBusyStatus",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_BusyStatus",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppointmentBusyStatus",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AllDay",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AllDay",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Sensitivity",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentSensitivity",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Sensitivity",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppointmentSensitivity",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Uri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Uri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllDay",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AllDay",
+          "setter": "put_AllDay"
+        },
+        {
+          "name": "BusyStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentBusyStatus",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_BusyStatus",
+          "setter": "put_BusyStatus"
+        },
+        {
+          "name": "Details",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Details",
+          "setter": "put_Details"
+        },
+        {
+          "name": "Duration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Duration",
+          "setter": "put_Duration"
+        },
+        {
+          "name": "Invitees",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentInvitee",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Invitees"
+        },
+        {
+          "name": "Location",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Location",
+          "setter": "put_Location"
+        },
+        {
+          "name": "Organizer",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentOrganizer",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Class"
+          },
+          "getter": "get_Organizer",
+          "setter": "put_Organizer"
+        },
+        {
+          "name": "Recurrence",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentRecurrence",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Class"
+          },
+          "getter": "get_Recurrence",
+          "setter": "put_Recurrence"
+        },
+        {
+          "name": "Reminder",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_Reminder",
+          "setter": "put_Reminder"
+        },
+        {
+          "name": "Sensitivity",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentSensitivity",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Sensitivity",
+          "setter": "put_Sensitivity"
+        },
+        {
+          "name": "StartTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_StartTime",
+          "setter": "put_StartTime"
+        },
+        {
+          "name": "Subject",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Subject",
+          "setter": "put_Subject"
+        },
+        {
+          "name": "Uri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Uri",
+          "setter": "put_Uri"
+        }
+      ]
+    },
+    "IAppointment2": {
+      "guid": "5e85983c-540f-3452-9b5c-0dd7ad4c65a2",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.Appointment",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointment",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_LocalId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CalendarId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RoamingId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_RoamingId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OriginalStartTime",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_IsResponseRequested",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsResponseRequested",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AllowNewTimeProposal",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AllowNewTimeProposal",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OnlineMeetingLink",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_OnlineMeetingLink",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ReplyTime",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_ReplyTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_UserResponse",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentParticipantResponse",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_UserResponse",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppointmentParticipantResponse",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_HasInvitees",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsCanceledMeeting",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsCanceledMeeting",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsOrganizedByUser",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsOrganizedByUser",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllowNewTimeProposal",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AllowNewTimeProposal",
+          "setter": "put_AllowNewTimeProposal"
+        },
+        {
+          "name": "CalendarId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CalendarId"
+        },
+        {
+          "name": "HasInvitees",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasInvitees"
+        },
+        {
+          "name": "IsCanceledMeeting",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsCanceledMeeting",
+          "setter": "put_IsCanceledMeeting"
+        },
+        {
+          "name": "IsOrganizedByUser",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsOrganizedByUser",
+          "setter": "put_IsOrganizedByUser"
+        },
+        {
+          "name": "IsResponseRequested",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsResponseRequested",
+          "setter": "put_IsResponseRequested"
+        },
+        {
+          "name": "LocalId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LocalId"
+        },
+        {
+          "name": "OnlineMeetingLink",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_OnlineMeetingLink",
+          "setter": "put_OnlineMeetingLink"
+        },
+        {
+          "name": "OriginalStartTime",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_OriginalStartTime"
+        },
+        {
+          "name": "ReplyTime",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ReplyTime",
+          "setter": "put_ReplyTime"
+        },
+        {
+          "name": "RoamingId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RoamingId",
+          "setter": "put_RoamingId"
+        },
+        {
+          "name": "UserResponse",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentParticipantResponse",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_UserResponse",
+          "setter": "put_UserResponse"
+        }
+      ]
+    },
+    "IAppointment3": {
+      "guid": "bfcc45a9-8961-4991-934b-c48768e5a96c",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.Appointment",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointment2",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointment",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_ChangeNumber",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_RemoteChangeNumber",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "put_RemoteChangeNumber",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DetailsKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentDetailsKind",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_DetailsKind",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppointmentDetailsKind",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ChangeNumber",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_ChangeNumber"
+        },
+        {
+          "name": "DetailsKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentDetailsKind",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DetailsKind",
+          "setter": "put_DetailsKind"
+        },
+        {
+          "name": "RemoteChangeNumber",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_RemoteChangeNumber",
+          "setter": "put_RemoteChangeNumber"
+        }
+      ]
+    },
+    "IAppointmentCalendar": {
+      "guid": "5273819d-8339-3d4f-a02f-64084452bb5d",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentCalendar",
+      "methods": [
+        {
+          "name": "get_DisplayColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DisplayName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LocalId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IsHidden",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_OtherAppReadAccess",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentCalendarOtherAppReadAccess",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_OtherAppReadAccess",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppointmentCalendarOtherAppReadAccess",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OtherAppWriteAccess",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentCalendarOtherAppWriteAccess",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_OtherAppWriteAccess",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppointmentCalendarOtherAppWriteAccess",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SourceDisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SummaryCardView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentSummaryCardView",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_SummaryCardView",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppointmentSummaryCardView",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "FindAppointmentsAsync",
+          "overload": "FindAppointmentsAsync",
+          "params": [
+            {
+              "name": "rangeStart",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "rangeLength",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Appointment",
+                    "namespace": "Windows.ApplicationModel.Appointments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAppointmentsAsync",
+          "overload": "FindAppointmentsAsyncWithOptions",
+          "params": [
+            {
+              "name": "rangeStart",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "rangeLength",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FindAppointmentsOptions",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Appointment",
+                    "namespace": "Windows.ApplicationModel.Appointments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindExceptionsFromMasterAsync",
+          "params": [
+            {
+              "name": "masterLocalId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppointmentException",
+                    "namespace": "Windows.ApplicationModel.Appointments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAllInstancesAsync",
+          "overload": "FindAllInstancesAsync",
+          "params": [
+            {
+              "name": "masterLocalId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "rangeStart",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "rangeLength",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Appointment",
+                    "namespace": "Windows.ApplicationModel.Appointments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAllInstancesAsync",
+          "overload": "FindAllInstancesAsyncWithOptions",
+          "params": [
+            {
+              "name": "masterLocalId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "rangeStart",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "rangeLength",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "pOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FindAppointmentsOptions",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Appointment",
+                    "namespace": "Windows.ApplicationModel.Appointments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetAppointmentAsync",
+          "params": [
+            {
+              "name": "localId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetAppointmentInstanceAsync",
+          "params": [
+            {
+              "name": "localId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "instanceStartTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindUnexpandedAppointmentsAsync",
+          "overload": "FindUnexpandedAppointmentsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Appointment",
+                    "namespace": "Windows.ApplicationModel.Appointments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindUnexpandedAppointmentsAsync",
+          "overload": "FindUnexpandedAppointmentsAsyncWithOptions",
+          "params": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FindAppointmentsOptions",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Appointment",
+                    "namespace": "Windows.ApplicationModel.Appointments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "DeleteAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SaveAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "DeleteAppointmentAsync",
+          "params": [
+            {
+              "name": "localId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "DeleteAppointmentInstanceAsync",
+          "params": [
+            {
+              "name": "localId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "instanceStartTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SaveAppointmentAsync",
+          "params": [
+            {
+              "name": "pAppointment",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_DisplayColor"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName",
+          "setter": "put_DisplayName"
+        },
+        {
+          "name": "IsHidden",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsHidden"
+        },
+        {
+          "name": "LocalId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LocalId"
+        },
+        {
+          "name": "OtherAppReadAccess",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentCalendarOtherAppReadAccess",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_OtherAppReadAccess",
+          "setter": "put_OtherAppReadAccess"
+        },
+        {
+          "name": "OtherAppWriteAccess",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentCalendarOtherAppWriteAccess",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_OtherAppWriteAccess",
+          "setter": "put_OtherAppWriteAccess"
+        },
+        {
+          "name": "SourceDisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SourceDisplayName"
+        },
+        {
+          "name": "SummaryCardView",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentSummaryCardView",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SummaryCardView",
+          "setter": "put_SummaryCardView"
+        }
+      ]
+    },
+    "IAppointmentCalendar2": {
+      "guid": "18e7e422-2467-4e1c-a459-d8a29303d092",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentCalendar",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentCalendar",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_SyncManager",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentCalendarSyncManager",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_RemoteId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_RemoteId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "put_DisplayColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "put_IsHidden",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_UserDataAccountId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CanCreateOrUpdateAppointments",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_CanCreateOrUpdateAppointments",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CanCancelMeetings",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_CanCancelMeetings",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CanForwardMeetings",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_CanForwardMeetings",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CanProposeNewTimeForMeetings",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_CanProposeNewTimeForMeetings",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CanUpdateMeetingResponses",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_CanUpdateMeetingResponses",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CanNotifyInvitees",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_CanNotifyInvitees",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MustNofityInvitees",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_MustNofityInvitees",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TryCreateOrUpdateAppointmentAsync",
+          "params": [
+            {
+              "name": "appointment",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "notifyInvitees",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryCancelMeetingAsync",
+          "params": [
+            {
+              "name": "meeting",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "subject",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "comment",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "notifyInvitees",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryForwardMeetingAsync",
+          "params": [
+            {
+              "name": "meeting",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "invitees",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppointmentInvitee",
+                    "namespace": "Windows.ApplicationModel.Appointments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "subject",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "forwardHeader",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "comment",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryProposeNewTimeForMeetingAsync",
+          "params": [
+            {
+              "name": "meeting",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "newStartTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "newDuration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "subject",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "comment",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryUpdateMeetingResponseAsync",
+          "params": [
+            {
+              "name": "meeting",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "response",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppointmentParticipantResponse",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "subject",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "comment",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "sendUpdate",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CanCancelMeetings",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanCancelMeetings",
+          "setter": "put_CanCancelMeetings"
+        },
+        {
+          "name": "CanCreateOrUpdateAppointments",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanCreateOrUpdateAppointments",
+          "setter": "put_CanCreateOrUpdateAppointments"
+        },
+        {
+          "name": "CanForwardMeetings",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanForwardMeetings",
+          "setter": "put_CanForwardMeetings"
+        },
+        {
+          "name": "CanNotifyInvitees",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanNotifyInvitees",
+          "setter": "put_CanNotifyInvitees"
+        },
+        {
+          "name": "CanProposeNewTimeForMeetings",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanProposeNewTimeForMeetings",
+          "setter": "put_CanProposeNewTimeForMeetings"
+        },
+        {
+          "name": "CanUpdateMeetingResponses",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanUpdateMeetingResponses",
+          "setter": "put_CanUpdateMeetingResponses"
+        },
+        {
+          "name": "DisplayColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "setter": "put_DisplayColor"
+        },
+        {
+          "name": "IsHidden",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "setter": "put_IsHidden"
+        },
+        {
+          "name": "MustNofityInvitees",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_MustNofityInvitees",
+          "setter": "put_MustNofityInvitees"
+        },
+        {
+          "name": "RemoteId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RemoteId",
+          "setter": "put_RemoteId"
+        },
+        {
+          "name": "SyncManager",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentCalendarSyncManager",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Class"
+          },
+          "getter": "get_SyncManager"
+        },
+        {
+          "name": "UserDataAccountId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_UserDataAccountId"
+        }
+      ]
+    },
+    "IAppointmentCalendar3": {
+      "guid": "eb23d22b-a685-42ae-8495-b3119adb4167",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentCalendar",
+      "methods": [
+        {
+          "name": "RegisterSyncManagerAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IAppointmentCalendarSyncManager": {
+      "guid": "2b21b3a0-4aff-4392-bc5f-5645ffcffb17",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentCalendarSyncManager",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentCalendarSyncStatus",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_LastSuccessfulSyncTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_LastAttemptedSyncTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "SyncAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_SyncStatusChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppointmentCalendarSyncManager",
+                    "namespace": "Windows.ApplicationModel.Appointments",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SyncStatusChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "LastAttemptedSyncTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_LastAttemptedSyncTime"
+        },
+        {
+          "name": "LastSuccessfulSyncTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_LastSuccessfulSyncTime"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentCalendarSyncStatus",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ],
+      "events": [
+        {
+          "name": "SyncStatusChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentCalendarSyncManager",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_SyncStatusChanged",
+          "remove_method": "remove_SyncStatusChanged"
+        }
+      ]
+    },
+    "IAppointmentCalendarSyncManager2": {
+      "guid": "647528ad-0d29-4c7c-aaa7-bf996805537c",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentCalendarSyncManager",
+      "methods": [
+        {
+          "name": "put_Status",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppointmentCalendarSyncStatus",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "put_LastSuccessfulSyncTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "put_LastAttemptedSyncTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "LastAttemptedSyncTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "setter": "put_LastAttemptedSyncTime"
+        },
+        {
+          "name": "LastSuccessfulSyncTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "setter": "put_LastSuccessfulSyncTime"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentCalendarSyncStatus",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          },
+          "setter": "put_Status"
+        }
+      ]
+    },
+    "IAppointmentConflictResult": {
+      "guid": "d5cdf0be-2f2f-3b7d-af0a-a7e20f3a46e3",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentConflictResult",
+      "methods": [
+        {
+          "name": "get_Type",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentConflictType",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Date",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Date",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Date"
+        },
+        {
+          "name": "Type",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentConflictType",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Type"
+        }
+      ]
+    },
+    "IAppointmentException": {
+      "guid": "a2076767-16f6-4bce-9f5a-8600b8019fcb",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentException",
+      "methods": [
+        {
+          "name": "get_Appointment",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Appointment",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ExceptionProperties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_IsDeleted",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Appointment",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Appointment",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Class"
+          },
+          "getter": "get_Appointment"
+        },
+        {
+          "name": "ExceptionProperties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_ExceptionProperties"
+        },
+        {
+          "name": "IsDeleted",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsDeleted"
+        }
+      ]
+    },
+    "IAppointmentInvitee": {
+      "guid": "13bf0796-9842-495b-b0e7-ef8f79c0701d",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentInvitee",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentParticipant",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Role",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentParticipantRole",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Role",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppointmentParticipantRole",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Response",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentParticipantResponse",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Response",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppointmentParticipantResponse",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Response",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentParticipantResponse",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Response",
+          "setter": "put_Response"
+        },
+        {
+          "name": "Role",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentParticipantRole",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Role",
+          "setter": "put_Role"
+        }
+      ]
+    },
+    "IAppointmentManagerForUser": {
+      "guid": "70261423-73cc-4660-b318-b01365302a03",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentManagerForUser",
+      "methods": [
+        {
+          "name": "ShowAddAppointmentAsync",
+          "overload": "ShowAddAppointmentAsync",
+          "params": [
+            {
+              "name": "appointment",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowAddAppointmentAsync",
+          "overload": "ShowAddAppointmentWithPlacementAsync",
+          "params": [
+            {
+              "name": "appointment",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "preferredPlacement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Placement",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowReplaceAppointmentAsync",
+          "overload": "ShowReplaceAppointmentAsync",
+          "params": [
+            {
+              "name": "appointmentId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "appointment",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowReplaceAppointmentAsync",
+          "overload": "ShowReplaceAppointmentWithPlacementAsync",
+          "params": [
+            {
+              "name": "appointmentId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "appointment",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "preferredPlacement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Placement",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowReplaceAppointmentAsync",
+          "overload": "ShowReplaceAppointmentWithPlacementAndDateAsync",
+          "params": [
+            {
+              "name": "appointmentId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "appointment",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "preferredPlacement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Placement",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "instanceStartDate",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowRemoveAppointmentAsync",
+          "overload": "ShowRemoveAppointmentAsync",
+          "params": [
+            {
+              "name": "appointmentId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowRemoveAppointmentAsync",
+          "overload": "ShowRemoveAppointmentWithPlacementAsync",
+          "params": [
+            {
+              "name": "appointmentId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "preferredPlacement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Placement",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowRemoveAppointmentAsync",
+          "overload": "ShowRemoveAppointmentWithPlacementAndDateAsync",
+          "params": [
+            {
+              "name": "appointmentId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "preferredPlacement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Placement",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "instanceStartDate",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowTimeFrameAsync",
+          "params": [
+            {
+              "name": "timeToShow",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "duration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ShowAppointmentDetailsAsync",
+          "overload": "ShowAppointmentDetailsAsync",
+          "params": [
+            {
+              "name": "appointmentId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ShowAppointmentDetailsAsync",
+          "overload": "ShowAppointmentDetailsWithDateAsync",
+          "params": [
+            {
+              "name": "appointmentId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "instanceStartDate",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ShowEditNewAppointmentAsync",
+          "params": [
+            {
+              "name": "appointment",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestStoreAsync",
+          "params": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppointmentStoreAccessType",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentStore",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ]
+    },
+    "IAppointmentManagerStatics": {
+      "guid": "3a30fa01-5c40-499d-b33f-a43050f74fc4",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentManager",
+      "methods": [
+        {
+          "name": "ShowAddAppointmentAsync",
+          "overload": "ShowAddAppointmentAsync",
+          "params": [
+            {
+              "name": "appointment",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowAddAppointmentAsync",
+          "overload": "ShowAddAppointmentWithPlacementAsync",
+          "params": [
+            {
+              "name": "appointment",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "preferredPlacement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Placement",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowReplaceAppointmentAsync",
+          "overload": "ShowReplaceAppointmentAsync",
+          "params": [
+            {
+              "name": "appointmentId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "appointment",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowReplaceAppointmentAsync",
+          "overload": "ShowReplaceAppointmentWithPlacementAsync",
+          "params": [
+            {
+              "name": "appointmentId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "appointment",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "preferredPlacement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Placement",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowReplaceAppointmentAsync",
+          "overload": "ShowReplaceAppointmentWithPlacementAndDateAsync",
+          "params": [
+            {
+              "name": "appointmentId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "appointment",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "preferredPlacement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Placement",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "instanceStartDate",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowRemoveAppointmentAsync",
+          "overload": "ShowRemoveAppointmentAsync",
+          "params": [
+            {
+              "name": "appointmentId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowRemoveAppointmentAsync",
+          "overload": "ShowRemoveAppointmentWithPlacementAsync",
+          "params": [
+            {
+              "name": "appointmentId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "preferredPlacement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Placement",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowRemoveAppointmentAsync",
+          "overload": "ShowRemoveAppointmentWithPlacementAndDateAsync",
+          "params": [
+            {
+              "name": "appointmentId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "preferredPlacement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Placement",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "instanceStartDate",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowTimeFrameAsync",
+          "params": [
+            {
+              "name": "timeToShow",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "duration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IAppointmentManagerStatics2": {
+      "guid": "0a81f60d-d04f-4034-af72-a36573b45ff0",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentManager",
+      "methods": [
+        {
+          "name": "ShowAppointmentDetailsAsync",
+          "overload": "ShowAppointmentDetailsAsync",
+          "params": [
+            {
+              "name": "appointmentId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ShowAppointmentDetailsAsync",
+          "overload": "ShowAppointmentDetailsWithDateAsync",
+          "params": [
+            {
+              "name": "appointmentId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "instanceStartDate",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ShowEditNewAppointmentAsync",
+          "params": [
+            {
+              "name": "appointment",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestStoreAsync",
+          "params": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppointmentStoreAccessType",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentStore",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IAppointmentManagerStatics3": {
+      "guid": "2f9ae09c-b34c-4dc7-a35d-cafd88ae3ec6",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentManager",
+      "methods": [
+        {
+          "name": "GetForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentManagerForUser",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IAppointmentParticipant": {
+      "guid": "615e2902-9718-467b-83fb-b293a19121de",
+      "methods": [
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DisplayName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Address",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Address",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Address",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Address",
+          "setter": "put_Address"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName",
+          "setter": "put_DisplayName"
+        }
+      ]
+    },
+    "IAppointmentPropertiesStatics": {
+      "guid": "25141fe9-68ae-3aae-855f-bc4441caa234",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentProperties",
+      "methods": [
+        {
+          "name": "get_Subject",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Location",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_StartTime",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Duration",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Reminder",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BusyStatus",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Sensitivity",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_OriginalStartTime",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IsResponseRequested",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AllowNewTimeProposal",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AllDay",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Details",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_OnlineMeetingLink",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ReplyTime",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Organizer",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_UserResponse",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_HasInvitees",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IsCanceledMeeting",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IsOrganizedByUser",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Recurrence",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Uri",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Invitees",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DefaultProperties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllDay",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AllDay"
+        },
+        {
+          "name": "AllowNewTimeProposal",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AllowNewTimeProposal"
+        },
+        {
+          "name": "BusyStatus",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BusyStatus"
+        },
+        {
+          "name": "DefaultProperties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_DefaultProperties"
+        },
+        {
+          "name": "Details",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Details"
+        },
+        {
+          "name": "Duration",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Duration"
+        },
+        {
+          "name": "HasInvitees",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HasInvitees"
+        },
+        {
+          "name": "Invitees",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Invitees"
+        },
+        {
+          "name": "IsCanceledMeeting",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_IsCanceledMeeting"
+        },
+        {
+          "name": "IsOrganizedByUser",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_IsOrganizedByUser"
+        },
+        {
+          "name": "IsResponseRequested",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_IsResponseRequested"
+        },
+        {
+          "name": "Location",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Location"
+        },
+        {
+          "name": "OnlineMeetingLink",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_OnlineMeetingLink"
+        },
+        {
+          "name": "Organizer",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Organizer"
+        },
+        {
+          "name": "OriginalStartTime",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_OriginalStartTime"
+        },
+        {
+          "name": "Recurrence",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Recurrence"
+        },
+        {
+          "name": "Reminder",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Reminder"
+        },
+        {
+          "name": "ReplyTime",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ReplyTime"
+        },
+        {
+          "name": "Sensitivity",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Sensitivity"
+        },
+        {
+          "name": "StartTime",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_StartTime"
+        },
+        {
+          "name": "Subject",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Subject"
+        },
+        {
+          "name": "Uri",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Uri"
+        },
+        {
+          "name": "UserResponse",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_UserResponse"
+        }
+      ]
+    },
+    "IAppointmentPropertiesStatics2": {
+      "guid": "dffc434b-b017-45dd-8af5-d163d10801bb",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentProperties",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentPropertiesStatics",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_ChangeNumber",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RemoteChangeNumber",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DetailsKind",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ChangeNumber",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ChangeNumber"
+        },
+        {
+          "name": "DetailsKind",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DetailsKind"
+        },
+        {
+          "name": "RemoteChangeNumber",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RemoteChangeNumber"
+        }
+      ]
+    },
+    "IAppointmentRecurrence": {
+      "guid": "d87b3e83-15a6-487b-b959-0c361e60e954",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentRecurrence",
+      "methods": [
+        {
+          "name": "get_Unit",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentRecurrenceUnit",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Unit",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppointmentRecurrenceUnit",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Occurrences",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Occurrences",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "U4"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Until",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Until",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DateTime",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Interval",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_Interval",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DaysOfWeek",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentDaysOfWeek",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_DaysOfWeek",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppointmentDaysOfWeek",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_WeekOfMonth",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentWeekOfMonth",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_WeekOfMonth",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppointmentWeekOfMonth",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Month",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_Month",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Day",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_Day",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Day",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Day",
+          "setter": "put_Day"
+        },
+        {
+          "name": "DaysOfWeek",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentDaysOfWeek",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DaysOfWeek",
+          "setter": "put_DaysOfWeek"
+        },
+        {
+          "name": "Interval",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Interval",
+          "setter": "put_Interval"
+        },
+        {
+          "name": "Month",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Month",
+          "setter": "put_Month"
+        },
+        {
+          "name": "Occurrences",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_Occurrences",
+          "setter": "put_Occurrences"
+        },
+        {
+          "name": "Unit",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentRecurrenceUnit",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Unit",
+          "setter": "put_Unit"
+        },
+        {
+          "name": "Until",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_Until",
+          "setter": "put_Until"
+        },
+        {
+          "name": "WeekOfMonth",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentWeekOfMonth",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_WeekOfMonth",
+          "setter": "put_WeekOfMonth"
+        }
+      ]
+    },
+    "IAppointmentRecurrence2": {
+      "guid": "3df3a2e0-05a7-4f50-9f86-b03f9436254d",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentRecurrence",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentRecurrence",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_RecurrenceType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RecurrenceType",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_TimeZone",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_TimeZone",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "RecurrenceType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RecurrenceType",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RecurrenceType"
+        },
+        {
+          "name": "TimeZone",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TimeZone",
+          "setter": "put_TimeZone"
+        }
+      ]
+    },
+    "IAppointmentRecurrence3": {
+      "guid": "89ff96d9-da4d-4a17-8dd2-1cebc2b5ff9d",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentRecurrence",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentRecurrence2",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentRecurrence",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_CalendarIdentifier",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CalendarIdentifier",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CalendarIdentifier"
+        }
+      ]
+    },
+    "IAppointmentStore": {
+      "guid": "a461918c-7a47-4d96-96c9-15cd8a05a735",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentStore",
+      "methods": [
+        {
+          "name": "get_ChangeTracker",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentStoreChangeTracker",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateAppointmentCalendarAsync",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentCalendar",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetAppointmentCalendarAsync",
+          "params": [
+            {
+              "name": "calendarId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentCalendar",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetAppointmentAsync",
+          "params": [
+            {
+              "name": "localId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetAppointmentInstanceAsync",
+          "params": [
+            {
+              "name": "localId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "instanceStartTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAppointmentCalendarsAsync",
+          "overload": "FindAppointmentCalendarsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppointmentCalendar",
+                    "namespace": "Windows.ApplicationModel.Appointments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAppointmentCalendarsAsync",
+          "overload": "FindAppointmentCalendarsAsyncWithOptions",
+          "params": [
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FindAppointmentCalendarsOptions",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppointmentCalendar",
+                    "namespace": "Windows.ApplicationModel.Appointments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAppointmentsAsync",
+          "overload": "FindAppointmentsAsync",
+          "params": [
+            {
+              "name": "rangeStart",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "rangeLength",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Appointment",
+                    "namespace": "Windows.ApplicationModel.Appointments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAppointmentsAsync",
+          "overload": "FindAppointmentsAsyncWithOptions",
+          "params": [
+            {
+              "name": "rangeStart",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "rangeLength",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FindAppointmentsOptions",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Appointment",
+                    "namespace": "Windows.ApplicationModel.Appointments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindConflictAsync",
+          "overload": "FindConflictAsync",
+          "params": [
+            {
+              "name": "appointment",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentConflictResult",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindConflictAsync",
+          "overload": "FindConflictAsyncWithInstanceStart",
+          "params": [
+            {
+              "name": "appointment",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "instanceStartTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentConflictResult",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "MoveAppointmentAsync",
+          "params": [
+            {
+              "name": "appointment",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "destinationCalendar",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppointmentCalendar",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ShowAddAppointmentAsync",
+          "params": [
+            {
+              "name": "appointment",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowReplaceAppointmentAsync",
+          "overload": "ShowReplaceAppointmentAsync",
+          "params": [
+            {
+              "name": "localId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "appointment",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowReplaceAppointmentAsync",
+          "overload": "ShowReplaceAppointmentWithPlacementAndDateAsync",
+          "params": [
+            {
+              "name": "localId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "appointment",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "preferredPlacement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Placement",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "instanceStartDate",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowRemoveAppointmentAsync",
+          "overload": "ShowRemoveAppointmentAsync",
+          "params": [
+            {
+              "name": "localId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowRemoveAppointmentAsync",
+          "overload": "ShowRemoveAppointmentWithPlacementAndDateAsync",
+          "params": [
+            {
+              "name": "localId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "preferredPlacement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Placement",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "instanceStartDate",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ShowAppointmentDetailsAsync",
+          "overload": "ShowAppointmentDetailsAsync",
+          "params": [
+            {
+              "name": "localId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ShowAppointmentDetailsAsync",
+          "overload": "ShowAppointmentDetailsWithDateAsync",
+          "params": [
+            {
+              "name": "localId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "instanceStartDate",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ShowEditNewAppointmentAsync",
+          "params": [
+            {
+              "name": "appointment",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Appointment",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindLocalIdsFromRoamingIdAsync",
+          "params": [
+            {
+              "name": "roamingId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ChangeTracker",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentStoreChangeTracker",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Class"
+          },
+          "getter": "get_ChangeTracker"
+        }
+      ]
+    },
+    "IAppointmentStore2": {
+      "guid": "25c48c20-1c41-424f-8084-67c1cfe0a854",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentStore",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentStore",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "add_StoreChanged",
+          "params": [
+            {
+              "name": "pHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppointmentStore",
+                    "namespace": "Windows.ApplicationModel.Appointments",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppointmentStoreChangedEventArgs",
+                    "namespace": "Windows.ApplicationModel.Appointments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_StoreChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CreateAppointmentCalendarAsync",
+          "overload": "CreateAppointmentCalendarInAccountAsync",
+          "params": [
+            {
+              "name": "name",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "userDataAccountId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentCalendar",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "events": [
+        {
+          "name": "StoreChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentStore",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AppointmentStoreChangedEventArgs",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_StoreChanged",
+          "remove_method": "remove_StoreChanged"
+        }
+      ]
+    },
+    "IAppointmentStore3": {
+      "guid": "4251940b-b078-470a-9a40-c2e01761f72f",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentStore",
+      "methods": [
+        {
+          "name": "GetChangeTracker",
+          "params": [
+            {
+              "name": "identity",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentStoreChangeTracker",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IAppointmentStoreChange": {
+      "guid": "a5a6e035-0a33-3654-8463-b543e90c3b79",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentStoreChange",
+      "methods": [
+        {
+          "name": "get_Appointment",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Appointment",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ChangeType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentStoreChangeType",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Appointment",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Appointment",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Class"
+          },
+          "getter": "get_Appointment"
+        },
+        {
+          "name": "ChangeType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentStoreChangeType",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ChangeType"
+        }
+      ]
+    },
+    "IAppointmentStoreChange2": {
+      "guid": "b37d0dce-5211-4402-a608-a96fe70b8ee2",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentStoreChange",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentStoreChange",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_AppointmentCalendar",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentCalendar",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppointmentCalendar",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AppointmentCalendar",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Class"
+          },
+          "getter": "get_AppointmentCalendar"
+        }
+      ]
+    },
+    "IAppointmentStoreChangeReader": {
+      "guid": "8b2409f1-65f3-42a0-961d-4c209bf30370",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentStoreChangeReader",
+      "methods": [
+        {
+          "name": "ReadBatchAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AppointmentStoreChange",
+                    "namespace": "Windows.ApplicationModel.Appointments",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "AcceptChanges"
+        },
+        {
+          "name": "AcceptChangesThrough",
+          "params": [
+            {
+              "name": "lastChangeToAccept",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppointmentStoreChange",
+                "namespace": "Windows.ApplicationModel.Appointments",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IAppointmentStoreChangeTracker": {
+      "guid": "1b25f4b1-8ece-4f17-93c8-e6412458fd5c",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentStoreChangeTracker",
+      "methods": [
+        {
+          "name": "GetChangeReader",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentStoreChangeReader",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "Enable"
+        },
+        {
+          "name": "Reset"
+        }
+      ]
+    },
+    "IAppointmentStoreChangeTracker2": {
+      "guid": "b66aaf45-9542-4cf7-8550-eb370e0c08d3",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentStoreChangeTracker",
+      "methods": [
+        {
+          "name": "get_IsTracking",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsTracking",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsTracking"
+        }
+      ]
+    },
+    "IAppointmentStoreChangedDeferral": {
+      "guid": "4cb82026-fedb-4bc3-9662-95a9befdf4df",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentStoreChangedDeferral",
+      "methods": [
+        {
+          "name": "Complete"
+        }
+      ]
+    },
+    "IAppointmentStoreChangedEventArgs": {
+      "guid": "2285f8b9-0791-417e-bfea-cc6d41636c8c",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentStoreChangedEventArgs",
+      "methods": [
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AppointmentStoreChangedDeferral",
+            "namespace": "Windows.ApplicationModel.Appointments",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IAppointmentStoreNotificationTriggerDetails": {
+      "guid": "9b33cb11-c301-421e-afef-047ecfa76adb",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.AppointmentStoreNotificationTriggerDetails"
+    },
+    "IFindAppointmentsOptions": {
+      "guid": "55f7dc55-9942-3086-82b5-2cb29f64d5f5",
+      "exclusive_to": "Windows.ApplicationModel.Appointments.FindAppointmentsOptions",
+      "methods": [
+        {
+          "name": "get_CalendarIds",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_FetchProperties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_IncludeHidden",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IncludeHidden",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MaxCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_MaxCount",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CalendarIds",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_CalendarIds"
+        },
+        {
+          "name": "FetchProperties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_FetchProperties"
+        },
+        {
+          "name": "IncludeHidden",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IncludeHidden",
+          "setter": "put_IncludeHidden"
+        },
+        {
+          "name": "MaxCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxCount",
+          "setter": "put_MaxCount"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "Appointment": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointment",
+        "namespace": "Windows.ApplicationModel.Appointments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointment",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointment2",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointment3",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "AppointmentCalendar": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentCalendar",
+        "namespace": "Windows.ApplicationModel.Appointments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentCalendar",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentCalendar2",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentCalendar3",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentCalendarSyncManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentCalendarSyncManager",
+        "namespace": "Windows.ApplicationModel.Appointments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentCalendarSyncManager",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentCalendarSyncManager2",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentConflictResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentConflictResult",
+        "namespace": "Windows.ApplicationModel.Appointments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentConflictResult",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentException": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentException",
+        "namespace": "Windows.ApplicationModel.Appointments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentException",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentInvitee": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentInvitee",
+        "namespace": "Windows.ApplicationModel.Appointments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentInvitee",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentParticipant",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "AppointmentManager": {
+      "static_interfaces": [
+        "Windows.ApplicationModel.Appointments.IAppointmentManagerStatics2",
+        "Windows.ApplicationModel.Appointments.IAppointmentManagerStatics",
+        "Windows.ApplicationModel.Appointments.IAppointmentManagerStatics3"
+      ]
+    },
+    "AppointmentManagerForUser": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentManagerForUser",
+        "namespace": "Windows.ApplicationModel.Appointments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentManagerForUser",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentOrganizer": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentParticipant",
+        "namespace": "Windows.ApplicationModel.Appointments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentParticipant",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "AppointmentProperties": {
+      "static_interfaces": [
+        "Windows.ApplicationModel.Appointments.IAppointmentPropertiesStatics",
+        "Windows.ApplicationModel.Appointments.IAppointmentPropertiesStatics2"
+      ]
+    },
+    "AppointmentRecurrence": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentRecurrence",
+        "namespace": "Windows.ApplicationModel.Appointments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentRecurrence",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentRecurrence2",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentRecurrence3",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "AppointmentStore": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentStore",
+        "namespace": "Windows.ApplicationModel.Appointments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentStore",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentStore2",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentStore3",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentStoreChange": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentStoreChange",
+        "namespace": "Windows.ApplicationModel.Appointments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentStoreChange",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentStoreChange2",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentStoreChangeReader": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentStoreChangeReader",
+        "namespace": "Windows.ApplicationModel.Appointments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentStoreChangeReader",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentStoreChangeTracker": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentStoreChangeTracker",
+        "namespace": "Windows.ApplicationModel.Appointments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentStoreChangeTracker",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentStoreChangeTracker2",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentStoreChangedDeferral": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentStoreChangedDeferral",
+        "namespace": "Windows.ApplicationModel.Appointments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentStoreChangedDeferral",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentStoreChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentStoreChangedEventArgs",
+        "namespace": "Windows.ApplicationModel.Appointments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentStoreChangedEventArgs",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AppointmentStoreNotificationTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAppointmentStoreNotificationTriggerDetails",
+        "namespace": "Windows.ApplicationModel.Appointments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAppointmentStoreNotificationTriggerDetails",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FindAppointmentsOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFindAppointmentsOptions",
+        "namespace": "Windows.ApplicationModel.Appointments",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFindAppointmentsOptions",
+          "namespace": "Windows.ApplicationModel.Appointments",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  }
+}

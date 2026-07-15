@@ -1,0 +1,133 @@
+{
+  "namespace": "Windows.UI.Input.Core",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IRadialControllerIndependentInputSource": {
+      "guid": "3d577ef6-4cee-11e6-b535-001bdc06ab3b",
+      "exclusive_to": "Windows.UI.Input.Core.RadialControllerIndependentInputSource",
+      "methods": [
+        {
+          "name": "get_Controller",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RadialController",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Dispatcher",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreDispatcher",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Controller",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RadialController",
+            "namespace": "Windows.UI.Input",
+            "target_kind": "Class"
+          },
+          "getter": "get_Controller"
+        },
+        {
+          "name": "Dispatcher",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreDispatcher",
+            "namespace": "Windows.UI.Core",
+            "target_kind": "Class"
+          },
+          "getter": "get_Dispatcher"
+        }
+      ]
+    },
+    "IRadialControllerIndependentInputSource2": {
+      "guid": "7073aad8-35f3-4eeb-8751-be4d0a66faf4",
+      "exclusive_to": "Windows.UI.Input.Core.RadialControllerIndependentInputSource",
+      "methods": [
+        {
+          "name": "get_DispatcherQueue",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DispatcherQueue",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DispatcherQueue",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DispatcherQueue",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_DispatcherQueue"
+        }
+      ]
+    },
+    "IRadialControllerIndependentInputSourceStatics": {
+      "guid": "3d577ef5-4cee-11e6-b535-001bdc06ab3b",
+      "exclusive_to": "Windows.UI.Input.Core.RadialControllerIndependentInputSource",
+      "methods": [
+        {
+          "name": "CreateForView",
+          "params": [
+            {
+              "name": "view",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreApplicationView",
+                "namespace": "Windows.ApplicationModel.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RadialControllerIndependentInputSource",
+            "namespace": "Windows.UI.Input.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "RadialControllerIndependentInputSource": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRadialControllerIndependentInputSource",
+        "namespace": "Windows.UI.Input.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRadialControllerIndependentInputSource",
+          "namespace": "Windows.UI.Input.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IRadialControllerIndependentInputSource2",
+          "namespace": "Windows.UI.Input.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Input.Core.IRadialControllerIndependentInputSourceStatics"
+      ]
+    }
+  }
+}

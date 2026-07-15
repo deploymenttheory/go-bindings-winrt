@@ -1,0 +1,41 @@
+{
+  "namespace": "Windows.ApplicationModel.DataTransfer.DragDrop",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "DragDropModifiers": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Shift",
+          "value": "1"
+        },
+        {
+          "name": "Control",
+          "value": "2"
+        },
+        {
+          "name": "Alt",
+          "value": "4"
+        },
+        {
+          "name": "LeftButton",
+          "value": "8"
+        },
+        {
+          "name": "MiddleButton",
+          "value": "16"
+        },
+        {
+          "name": "RightButton",
+          "value": "32"
+        }
+      ]
+    }
+  }
+}

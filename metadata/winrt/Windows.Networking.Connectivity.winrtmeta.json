@@ -1,0 +1,3908 @@
+{
+  "namespace": "Windows.Networking.Connectivity",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "CellularApnAuthenticationType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Pap",
+          "value": "1"
+        },
+        {
+          "name": "Chap",
+          "value": "2"
+        },
+        {
+          "name": "Mschapv2",
+          "value": "3"
+        }
+      ]
+    },
+    "ConnectionProfileDeleteStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "DeniedByUser",
+          "value": "1"
+        },
+        {
+          "name": "DeniedBySystem",
+          "value": "2"
+        },
+        {
+          "name": "UnknownError",
+          "value": "3"
+        }
+      ]
+    },
+    "DataUsageGranularity": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "PerMinute",
+          "value": "0"
+        },
+        {
+          "name": "PerHour",
+          "value": "1"
+        },
+        {
+          "name": "PerDay",
+          "value": "2"
+        },
+        {
+          "name": "Total",
+          "value": "3"
+        }
+      ]
+    },
+    "DomainAuthenticationKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Ldap",
+          "value": "1"
+        },
+        {
+          "name": "Tls",
+          "value": "2"
+        }
+      ]
+    },
+    "DomainConnectivityLevel": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Unauthenticated",
+          "value": "1"
+        },
+        {
+          "name": "Authenticated",
+          "value": "2"
+        }
+      ]
+    },
+    "NetworkAuthenticationType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Unknown",
+          "value": "1"
+        },
+        {
+          "name": "Open80211",
+          "value": "2"
+        },
+        {
+          "name": "SharedKey80211",
+          "value": "3"
+        },
+        {
+          "name": "Wpa",
+          "value": "4"
+        },
+        {
+          "name": "WpaPsk",
+          "value": "5"
+        },
+        {
+          "name": "WpaNone",
+          "value": "6"
+        },
+        {
+          "name": "Rsna",
+          "value": "7"
+        },
+        {
+          "name": "RsnaPsk",
+          "value": "8"
+        },
+        {
+          "name": "Ihv",
+          "value": "9"
+        },
+        {
+          "name": "Wpa3",
+          "value": "10"
+        },
+        {
+          "name": "Wpa3Enterprise192Bits",
+          "value": "10"
+        },
+        {
+          "name": "Wpa3Sae",
+          "value": "11"
+        },
+        {
+          "name": "Owe",
+          "value": "12"
+        },
+        {
+          "name": "Wpa3Enterprise",
+          "value": "13"
+        }
+      ]
+    },
+    "NetworkConnectivityLevel": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "LocalAccess",
+          "value": "1"
+        },
+        {
+          "name": "ConstrainedInternetAccess",
+          "value": "2"
+        },
+        {
+          "name": "InternetAccess",
+          "value": "3"
+        }
+      ]
+    },
+    "NetworkCostType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "Unrestricted",
+          "value": "1"
+        },
+        {
+          "name": "Fixed",
+          "value": "2"
+        },
+        {
+          "name": "Variable",
+          "value": "3"
+        }
+      ]
+    },
+    "NetworkEncryptionType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Unknown",
+          "value": "1"
+        },
+        {
+          "name": "Wep",
+          "value": "2"
+        },
+        {
+          "name": "Wep40",
+          "value": "3"
+        },
+        {
+          "name": "Wep104",
+          "value": "4"
+        },
+        {
+          "name": "Tkip",
+          "value": "5"
+        },
+        {
+          "name": "Ccmp",
+          "value": "6"
+        },
+        {
+          "name": "WpaUseGroup",
+          "value": "7"
+        },
+        {
+          "name": "RsnUseGroup",
+          "value": "8"
+        },
+        {
+          "name": "Ihv",
+          "value": "9"
+        },
+        {
+          "name": "Gcmp",
+          "value": "10"
+        },
+        {
+          "name": "Gcmp256",
+          "value": "11"
+        }
+      ]
+    },
+    "NetworkTypes": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Internet",
+          "value": "1"
+        },
+        {
+          "name": "PrivateNetwork",
+          "value": "2"
+        }
+      ]
+    },
+    "RoamingStates": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "NotRoaming",
+          "value": "1"
+        },
+        {
+          "name": "Roaming",
+          "value": "2"
+        }
+      ]
+    },
+    "TriStates": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "DoNotCare",
+          "value": "0"
+        },
+        {
+          "name": "No",
+          "value": "1"
+        },
+        {
+          "name": "Yes",
+          "value": "2"
+        }
+      ]
+    },
+    "WwanDataClass": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Gprs",
+          "value": "1"
+        },
+        {
+          "name": "Edge",
+          "value": "2"
+        },
+        {
+          "name": "Umts",
+          "value": "4"
+        },
+        {
+          "name": "Hsdpa",
+          "value": "8"
+        },
+        {
+          "name": "Hsupa",
+          "value": "16"
+        },
+        {
+          "name": "LteAdvanced",
+          "value": "32"
+        },
+        {
+          "name": "NewRadioNonStandalone",
+          "value": "64"
+        },
+        {
+          "name": "NewRadioStandalone",
+          "value": "128"
+        },
+        {
+          "name": "Cdma1xRtt",
+          "value": "65536"
+        },
+        {
+          "name": "Cdma1xEvdo",
+          "value": "131072"
+        },
+        {
+          "name": "Cdma1xEvdoRevA",
+          "value": "262144"
+        },
+        {
+          "name": "Cdma1xEvdv",
+          "value": "524288"
+        },
+        {
+          "name": "Cdma3xRtt",
+          "value": "1048576"
+        },
+        {
+          "name": "Cdma1xEvdoRevB",
+          "value": "2097152"
+        },
+        {
+          "name": "CdmaUmb",
+          "value": "4194304"
+        },
+        {
+          "name": "Custom",
+          "value": "2147483648"
+        }
+      ]
+    },
+    "WwanNetworkIPKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Ipv4",
+          "value": "1"
+        },
+        {
+          "name": "Ipv6",
+          "value": "2"
+        },
+        {
+          "name": "Ipv4v6",
+          "value": "3"
+        },
+        {
+          "name": "Ipv4v6v4Xlat",
+          "value": "4"
+        }
+      ]
+    },
+    "WwanNetworkRegistrationState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Deregistered",
+          "value": "1"
+        },
+        {
+          "name": "Searching",
+          "value": "2"
+        },
+        {
+          "name": "Home",
+          "value": "3"
+        },
+        {
+          "name": "Roaming",
+          "value": "4"
+        },
+        {
+          "name": "Partner",
+          "value": "5"
+        },
+        {
+          "name": "Denied",
+          "value": "6"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "NetworkUsageStates": {
+      "fields": [
+        {
+          "name": "Roaming",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TriStates",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Shared",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TriStates",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Enum"
+          }
+        }
+      ]
+    },
+    "WwanContract": {}
+  },
+  "interfaces": {
+    "IAttributedNetworkUsage": {
+      "guid": "f769b039-eca2-45eb-ade1-b0368b756c49",
+      "exclusive_to": "Windows.Networking.Connectivity.AttributedNetworkUsage",
+      "methods": [
+        {
+          "name": "get_BytesSent",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_BytesReceived",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_AttributionId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AttributionName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AttributionThumbnail",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AttributionId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AttributionId"
+        },
+        {
+          "name": "AttributionName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AttributionName"
+        },
+        {
+          "name": "AttributionThumbnail",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_AttributionThumbnail"
+        },
+        {
+          "name": "BytesReceived",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_BytesReceived"
+        },
+        {
+          "name": "BytesSent",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_BytesSent"
+        }
+      ]
+    },
+    "ICellularApnContext": {
+      "guid": "6fa529f4-effd-4542-9ab2-705bbf94943a",
+      "exclusive_to": "Windows.Networking.Connectivity.CellularApnContext",
+      "methods": [
+        {
+          "name": "get_ProviderId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_ProviderId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AccessPointName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_AccessPointName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_UserName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_UserName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Password",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Password",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsCompressionEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsCompressionEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AuthenticationType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CellularApnAuthenticationType",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_AuthenticationType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CellularApnAuthenticationType",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AccessPointName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AccessPointName",
+          "setter": "put_AccessPointName"
+        },
+        {
+          "name": "AuthenticationType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CellularApnAuthenticationType",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AuthenticationType",
+          "setter": "put_AuthenticationType"
+        },
+        {
+          "name": "IsCompressionEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsCompressionEnabled",
+          "setter": "put_IsCompressionEnabled"
+        },
+        {
+          "name": "Password",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Password",
+          "setter": "put_Password"
+        },
+        {
+          "name": "ProviderId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ProviderId",
+          "setter": "put_ProviderId"
+        },
+        {
+          "name": "UserName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_UserName",
+          "setter": "put_UserName"
+        }
+      ]
+    },
+    "ICellularApnContext2": {
+      "guid": "76b0eb1a-ac49-4350-b1e5-dc4763bc69c7",
+      "exclusive_to": "Windows.Networking.Connectivity.CellularApnContext",
+      "methods": [
+        {
+          "name": "get_ProfileName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_ProfileName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ProfileName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ProfileName",
+          "setter": "put_ProfileName"
+        }
+      ]
+    },
+    "IConnectionCost": {
+      "guid": "bad7d829-3416-4b10-a202-bac0b075bdae",
+      "exclusive_to": "Windows.Networking.Connectivity.ConnectionCost",
+      "methods": [
+        {
+          "name": "get_NetworkCostType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NetworkCostType",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Roaming",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_OverDataLimit",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_ApproachingDataLimit",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ApproachingDataLimit",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ApproachingDataLimit"
+        },
+        {
+          "name": "NetworkCostType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NetworkCostType",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Enum"
+          },
+          "getter": "get_NetworkCostType"
+        },
+        {
+          "name": "OverDataLimit",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_OverDataLimit"
+        },
+        {
+          "name": "Roaming",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Roaming"
+        }
+      ]
+    },
+    "IConnectionCost2": {
+      "guid": "8e113a05-e209-4549-bb25-5e0db691cb05",
+      "exclusive_to": "Windows.Networking.Connectivity.ConnectionCost",
+      "methods": [
+        {
+          "name": "get_BackgroundDataUsageRestricted",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BackgroundDataUsageRestricted",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_BackgroundDataUsageRestricted"
+        }
+      ]
+    },
+    "IConnectionProfile": {
+      "guid": "71ba143c-598e-49d0-84eb-8febaedcc195",
+      "exclusive_to": "Windows.Networking.Connectivity.ConnectionProfile",
+      "methods": [
+        {
+          "name": "get_ProfileName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetNetworkConnectivityLevel",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NetworkConnectivityLevel",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetNetworkNames",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetConnectionCost",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ConnectionCost",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDataPlanStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DataPlanStatus",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_NetworkAdapter",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NetworkAdapter",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetLocalUsage",
+          "overload": "GetLocalUsage",
+          "params": [
+            {
+              "name": "StartTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "EndTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DataUsage",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetLocalUsage",
+          "overload": "GetLocalUsagePerRoamingStates",
+          "params": [
+            {
+              "name": "StartTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "EndTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "States",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RoamingStates",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "DataUsage",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_NetworkSecuritySettings",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NetworkSecuritySettings",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "NetworkAdapter",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NetworkAdapter",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          },
+          "getter": "get_NetworkAdapter"
+        },
+        {
+          "name": "NetworkSecuritySettings",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NetworkSecuritySettings",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          },
+          "getter": "get_NetworkSecuritySettings"
+        },
+        {
+          "name": "ProfileName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ProfileName"
+        }
+      ]
+    },
+    "IConnectionProfile2": {
+      "guid": "e2045145-4c9f-400c-9150-7ec7d6e2888a",
+      "exclusive_to": "Windows.Networking.Connectivity.ConnectionProfile",
+      "methods": [
+        {
+          "name": "get_IsWwanConnectionProfile",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsWlanConnectionProfile",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_WwanConnectionProfileDetails",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WwanConnectionProfileDetails",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_WlanConnectionProfileDetails",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WlanConnectionProfileDetails",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ServiceProviderGuid",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetSignalBars",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U1"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDomainConnectivityLevel",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DomainConnectivityLevel",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetNetworkUsageAsync",
+          "params": [
+            {
+              "name": "startTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "endTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "granularity",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DataUsageGranularity",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "states",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NetworkUsageStates",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "NetworkUsage",
+                    "namespace": "Windows.Networking.Connectivity",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetConnectivityIntervalsAsync",
+          "params": [
+            {
+              "name": "startTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "endTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "states",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NetworkUsageStates",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ConnectivityInterval",
+                    "namespace": "Windows.Networking.Connectivity",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsWlanConnectionProfile",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsWlanConnectionProfile"
+        },
+        {
+          "name": "IsWwanConnectionProfile",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsWwanConnectionProfile"
+        },
+        {
+          "name": "ServiceProviderGuid",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            ]
+          },
+          "getter": "get_ServiceProviderGuid"
+        },
+        {
+          "name": "WlanConnectionProfileDetails",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WlanConnectionProfileDetails",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          },
+          "getter": "get_WlanConnectionProfileDetails"
+        },
+        {
+          "name": "WwanConnectionProfileDetails",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WwanConnectionProfileDetails",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          },
+          "getter": "get_WwanConnectionProfileDetails"
+        }
+      ]
+    },
+    "IConnectionProfile3": {
+      "guid": "578c2528-4cd9-4161-8045-201cfd5b115c",
+      "exclusive_to": "Windows.Networking.Connectivity.ConnectionProfile",
+      "methods": [
+        {
+          "name": "GetAttributedNetworkUsageAsync",
+          "params": [
+            {
+              "name": "startTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "endTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "states",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NetworkUsageStates",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AttributedNetworkUsage",
+                    "namespace": "Windows.Networking.Connectivity",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IConnectionProfile4": {
+      "guid": "7a2d42cd-81e0-4ae6-abed-ab9ca13eb714",
+      "exclusive_to": "Windows.Networking.Connectivity.ConnectionProfile",
+      "methods": [
+        {
+          "name": "GetProviderNetworkUsageAsync",
+          "params": [
+            {
+              "name": "startTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "endTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "states",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NetworkUsageStates",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ProviderNetworkUsage",
+                    "namespace": "Windows.Networking.Connectivity",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IConnectionProfile5": {
+      "guid": "85361ec7-9c73-4be0-8f14-578eec71ee0e",
+      "exclusive_to": "Windows.Networking.Connectivity.ConnectionProfile",
+      "methods": [
+        {
+          "name": "get_CanDelete",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TryDeleteAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ConnectionProfileDeleteStatus",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CanDelete",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanDelete"
+        }
+      ]
+    },
+    "IConnectionProfile6": {
+      "guid": "dc27dfe2-7a6f-5d0e-9589-2fe2e5b6f9aa",
+      "exclusive_to": "Windows.Networking.Connectivity.ConnectionProfile",
+      "methods": [
+        {
+          "name": "IsDomainAuthenticatedBy",
+          "params": [
+            {
+              "name": "kind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DomainAuthenticationKind",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IConnectionProfileFilter": {
+      "guid": "204c7cc8-bd2d-4e8d-a4b3-455ec337388a",
+      "exclusive_to": "Windows.Networking.Connectivity.ConnectionProfileFilter",
+      "methods": [
+        {
+          "name": "put_IsConnected",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsConnected",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsWwanConnectionProfile",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsWwanConnectionProfile",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsWlanConnectionProfile",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsWlanConnectionProfile",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_NetworkCostType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NetworkCostType",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_NetworkCostType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NetworkCostType",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_ServiceProviderGuid",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Guid"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ServiceProviderGuid",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsConnected",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsConnected",
+          "setter": "put_IsConnected"
+        },
+        {
+          "name": "IsWlanConnectionProfile",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsWlanConnectionProfile",
+          "setter": "put_IsWlanConnectionProfile"
+        },
+        {
+          "name": "IsWwanConnectionProfile",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsWwanConnectionProfile",
+          "setter": "put_IsWwanConnectionProfile"
+        },
+        {
+          "name": "NetworkCostType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NetworkCostType",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Enum"
+          },
+          "getter": "get_NetworkCostType",
+          "setter": "put_NetworkCostType"
+        },
+        {
+          "name": "ServiceProviderGuid",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            ]
+          },
+          "getter": "get_ServiceProviderGuid",
+          "setter": "put_ServiceProviderGuid"
+        }
+      ]
+    },
+    "IConnectionProfileFilter2": {
+      "guid": "cd068ee1-c3fc-4fad-9ddc-593faa4b7885",
+      "exclusive_to": "Windows.Networking.Connectivity.ConnectionProfileFilter",
+      "methods": [
+        {
+          "name": "put_IsRoaming",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Bool"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsRoaming",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_IsOverDataLimit",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Bool"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsOverDataLimit",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_IsBackgroundDataUsageRestricted",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Bool"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsBackgroundDataUsageRestricted",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_RawData",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsBackgroundDataUsageRestricted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          },
+          "getter": "get_IsBackgroundDataUsageRestricted",
+          "setter": "put_IsBackgroundDataUsageRestricted"
+        },
+        {
+          "name": "IsOverDataLimit",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          },
+          "getter": "get_IsOverDataLimit",
+          "setter": "put_IsOverDataLimit"
+        },
+        {
+          "name": "IsRoaming",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          },
+          "getter": "get_IsRoaming",
+          "setter": "put_IsRoaming"
+        },
+        {
+          "name": "RawData",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_RawData"
+        }
+      ]
+    },
+    "IConnectionProfileFilter3": {
+      "guid": "0aaa09c0-5014-447c-8809-aee4cb0af94a",
+      "exclusive_to": "Windows.Networking.Connectivity.ConnectionProfileFilter",
+      "methods": [
+        {
+          "name": "put_PurposeGuid",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Guid"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PurposeGuid",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PurposeGuid",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            ]
+          },
+          "getter": "get_PurposeGuid",
+          "setter": "put_PurposeGuid"
+        }
+      ]
+    },
+    "IConnectionSession": {
+      "guid": "ff905d4c-f83b-41b0-8a0c-1462d9c56b73",
+      "exclusive_to": "Windows.Networking.Connectivity.ConnectionSession",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_ConnectionProfile",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ConnectionProfile",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ConnectionProfile",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ConnectionProfile",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          },
+          "getter": "get_ConnectionProfile"
+        }
+      ]
+    },
+    "IConnectivityInterval": {
+      "guid": "4faa3fff-6746-4824-a964-eed8e87f8709",
+      "exclusive_to": "Windows.Networking.Connectivity.ConnectivityInterval",
+      "methods": [
+        {
+          "name": "get_StartTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_ConnectionDuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ConnectionDuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ConnectionDuration"
+        },
+        {
+          "name": "StartTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_StartTime"
+        }
+      ]
+    },
+    "IConnectivityManagerStatics": {
+      "guid": "5120d4b1-4fb1-48b0-afc9-42e0092a8164",
+      "exclusive_to": "Windows.Networking.Connectivity.ConnectivityManager",
+      "methods": [
+        {
+          "name": "AcquireConnectionAsync",
+          "params": [
+            {
+              "name": "cellularApnContext",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CellularApnContext",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ConnectionSession",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "AddHttpRoutePolicy",
+          "params": [
+            {
+              "name": "routePolicy",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RoutePolicy",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "RemoveHttpRoutePolicy",
+          "params": [
+            {
+              "name": "routePolicy",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RoutePolicy",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IDataPlanStatus": {
+      "guid": "977a8b8c-3885-40f3-8851-42cd2bd568bb",
+      "exclusive_to": "Windows.Networking.Connectivity.DataPlanStatus",
+      "methods": [
+        {
+          "name": "get_DataPlanUsage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DataPlanUsage",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DataLimitInMegabytes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_InboundBitsPerSecond",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_OutboundBitsPerSecond",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_NextBillingCycle",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_MaxTransferSizeInMegabytes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DataLimitInMegabytes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_DataLimitInMegabytes"
+        },
+        {
+          "name": "DataPlanUsage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DataPlanUsage",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          },
+          "getter": "get_DataPlanUsage"
+        },
+        {
+          "name": "InboundBitsPerSecond",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          },
+          "getter": "get_InboundBitsPerSecond"
+        },
+        {
+          "name": "MaxTransferSizeInMegabytes",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_MaxTransferSizeInMegabytes"
+        },
+        {
+          "name": "NextBillingCycle",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_NextBillingCycle"
+        },
+        {
+          "name": "OutboundBitsPerSecond",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U8"
+              }
+            ]
+          },
+          "getter": "get_OutboundBitsPerSecond"
+        }
+      ]
+    },
+    "IDataPlanUsage": {
+      "guid": "b921492d-3b44-47ff-b361-be59e69ed1b0",
+      "exclusive_to": "Windows.Networking.Connectivity.DataPlanUsage",
+      "methods": [
+        {
+          "name": "get_MegabytesUsed",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_LastSyncTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "LastSyncTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_LastSyncTime"
+        },
+        {
+          "name": "MegabytesUsed",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MegabytesUsed"
+        }
+      ]
+    },
+    "IDataUsage": {
+      "guid": "c1431dd3-b146-4d39-b959-0c69b096c512",
+      "exclusive_to": "Windows.Networking.Connectivity.DataUsage",
+      "methods": [
+        {
+          "name": "get_BytesSent",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_BytesReceived",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BytesReceived",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_BytesReceived"
+        },
+        {
+          "name": "BytesSent",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_BytesSent"
+        }
+      ]
+    },
+    "IIPInformation": {
+      "guid": "d85145e0-138f-47d7-9b3a-36bb488cef33",
+      "exclusive_to": "Windows.Networking.Connectivity.IPInformation",
+      "methods": [
+        {
+          "name": "get_NetworkAdapter",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NetworkAdapter",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PrefixLength",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U1"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "NetworkAdapter",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NetworkAdapter",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          },
+          "getter": "get_NetworkAdapter"
+        },
+        {
+          "name": "PrefixLength",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U1"
+              }
+            ]
+          },
+          "getter": "get_PrefixLength"
+        }
+      ]
+    },
+    "ILanIdentifier": {
+      "guid": "48aa53aa-1108-4546-a6cb-9a74da4b7ba0",
+      "exclusive_to": "Windows.Networking.Connectivity.LanIdentifier",
+      "methods": [
+        {
+          "name": "get_InfrastructureId",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LanIdentifierData",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PortId",
+          "return": {
+            "kind": "ApiRef",
+            "name": "LanIdentifierData",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_NetworkAdapterId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InfrastructureId",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LanIdentifierData",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          },
+          "getter": "get_InfrastructureId"
+        },
+        {
+          "name": "NetworkAdapterId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_NetworkAdapterId"
+        },
+        {
+          "name": "PortId",
+          "type": {
+            "kind": "ApiRef",
+            "name": "LanIdentifierData",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          },
+          "getter": "get_PortId"
+        }
+      ]
+    },
+    "ILanIdentifierData": {
+      "guid": "a74e83c3-d639-45be-a36a-c4e4aeaf6d9b",
+      "exclusive_to": "Windows.Networking.Connectivity.LanIdentifierData",
+      "methods": [
+        {
+          "name": "get_Type",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U1"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Type",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Type"
+        },
+        {
+          "name": "Value",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U1"
+              }
+            ]
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "INetworkAdapter": {
+      "guid": "3b542e03-5388-496c-a8a3-affd39aec2e6",
+      "exclusive_to": "Windows.Networking.Connectivity.NetworkAdapter",
+      "methods": [
+        {
+          "name": "get_OutboundMaxBitsPerSecond",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_InboundMaxBitsPerSecond",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_IanaInterfaceType",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_NetworkItem",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NetworkItem",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_NetworkAdapterId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "GetConnectedProfileAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ConnectionProfile",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IanaInterfaceType",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_IanaInterfaceType"
+        },
+        {
+          "name": "InboundMaxBitsPerSecond",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_InboundMaxBitsPerSecond"
+        },
+        {
+          "name": "NetworkAdapterId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_NetworkAdapterId"
+        },
+        {
+          "name": "NetworkItem",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NetworkItem",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          },
+          "getter": "get_NetworkItem"
+        },
+        {
+          "name": "OutboundMaxBitsPerSecond",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_OutboundMaxBitsPerSecond"
+        }
+      ]
+    },
+    "INetworkInformationStatics": {
+      "guid": "5074f851-950d-4165-9c15-365619481eea",
+      "exclusive_to": "Windows.Networking.Connectivity.NetworkInformation",
+      "methods": [
+        {
+          "name": "GetConnectionProfiles",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ConnectionProfile",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetInternetConnectionProfile",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ConnectionProfile",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetLanIdentifiers",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "LanIdentifier",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetHostNames",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetProxyConfigurationAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ProxyConfiguration",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetSortedEndpointPairs",
+          "params": [
+            {
+              "name": "destinationList",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EndpointPair",
+                    "namespace": "Windows.Networking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "sortOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostNameSortOptions",
+                "namespace": "Windows.Networking",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "EndpointPair",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_NetworkStatusChanged",
+          "params": [
+            {
+              "name": "networkStatusHandler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NetworkStatusChangedEventHandler",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_NetworkStatusChanged",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "NetworkStatusChanged",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NetworkStatusChangedEventHandler",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_NetworkStatusChanged",
+          "remove_method": "remove_NetworkStatusChanged"
+        }
+      ]
+    },
+    "INetworkInformationStatics2": {
+      "guid": "459ced14-2832-49b6-ba6e-e265f04786a8",
+      "exclusive_to": "Windows.Networking.Connectivity.NetworkInformation",
+      "methods": [
+        {
+          "name": "FindConnectionProfilesAsync",
+          "params": [
+            {
+              "name": "pProfileFilter",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ConnectionProfileFilter",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ConnectionProfile",
+                    "namespace": "Windows.Networking.Connectivity",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "INetworkItem": {
+      "guid": "01bc4d39-f5e0-4567-a28c-42080c831b2b",
+      "exclusive_to": "Windows.Networking.Connectivity.NetworkItem",
+      "methods": [
+        {
+          "name": "get_NetworkId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "GetNetworkTypes",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NetworkTypes",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "NetworkId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_NetworkId"
+        }
+      ]
+    },
+    "INetworkSecuritySettings": {
+      "guid": "7ca07e8d-917b-4b5f-b84d-28f7a5ac5402",
+      "exclusive_to": "Windows.Networking.Connectivity.NetworkSecuritySettings",
+      "methods": [
+        {
+          "name": "get_NetworkAuthenticationType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NetworkAuthenticationType",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_NetworkEncryptionType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "NetworkEncryptionType",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "NetworkAuthenticationType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NetworkAuthenticationType",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Enum"
+          },
+          "getter": "get_NetworkAuthenticationType"
+        },
+        {
+          "name": "NetworkEncryptionType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "NetworkEncryptionType",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Enum"
+          },
+          "getter": "get_NetworkEncryptionType"
+        }
+      ]
+    },
+    "INetworkStateChangeEventDetails": {
+      "guid": "1f0cf333-d7a6-44dd-a4e9-687c476b903d",
+      "exclusive_to": "Windows.Networking.Connectivity.NetworkStateChangeEventDetails",
+      "methods": [
+        {
+          "name": "get_HasNewInternetConnectionProfile",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_HasNewConnectionCost",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_HasNewNetworkConnectivityLevel",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_HasNewDomainConnectivityLevel",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_HasNewHostNameList",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_HasNewWwanRegistrationState",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HasNewConnectionCost",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasNewConnectionCost"
+        },
+        {
+          "name": "HasNewDomainConnectivityLevel",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasNewDomainConnectivityLevel"
+        },
+        {
+          "name": "HasNewHostNameList",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasNewHostNameList"
+        },
+        {
+          "name": "HasNewInternetConnectionProfile",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasNewInternetConnectionProfile"
+        },
+        {
+          "name": "HasNewNetworkConnectivityLevel",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasNewNetworkConnectivityLevel"
+        },
+        {
+          "name": "HasNewWwanRegistrationState",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasNewWwanRegistrationState"
+        }
+      ]
+    },
+    "INetworkStateChangeEventDetails2": {
+      "guid": "d643c0e8-30d3-4f6a-ad47-6a1873ceb3c1",
+      "exclusive_to": "Windows.Networking.Connectivity.NetworkStateChangeEventDetails",
+      "methods": [
+        {
+          "name": "get_HasNewTetheringOperationalState",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_HasNewTetheringClientCount",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HasNewTetheringClientCount",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasNewTetheringClientCount"
+        },
+        {
+          "name": "HasNewTetheringOperationalState",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasNewTetheringOperationalState"
+        }
+      ]
+    },
+    "INetworkUsage": {
+      "guid": "49da8fce-9985-4927-bf5b-072b5c65f8d9",
+      "exclusive_to": "Windows.Networking.Connectivity.NetworkUsage",
+      "methods": [
+        {
+          "name": "get_BytesSent",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_BytesReceived",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_ConnectionDuration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BytesReceived",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_BytesReceived"
+        },
+        {
+          "name": "BytesSent",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_BytesSent"
+        },
+        {
+          "name": "ConnectionDuration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ConnectionDuration"
+        }
+      ]
+    },
+    "IProviderNetworkUsage": {
+      "guid": "5ec69e04-7931-48c8-b8f3-46300fa42728",
+      "exclusive_to": "Windows.Networking.Connectivity.ProviderNetworkUsage",
+      "methods": [
+        {
+          "name": "get_BytesSent",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_BytesReceived",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_ProviderId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BytesReceived",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_BytesReceived"
+        },
+        {
+          "name": "BytesSent",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_BytesSent"
+        },
+        {
+          "name": "ProviderId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ProviderId"
+        }
+      ]
+    },
+    "IProxyConfiguration": {
+      "guid": "ef3a60b4-9004-4dd6-b7d8-b3e502f4aad0",
+      "exclusive_to": "Windows.Networking.Connectivity.ProxyConfiguration",
+      "methods": [
+        {
+          "name": "get_ProxyUris",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_CanConnectDirectly",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CanConnectDirectly",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanConnectDirectly"
+        },
+        {
+          "name": "ProxyUris",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_ProxyUris"
+        }
+      ]
+    },
+    "IRoutePolicy": {
+      "guid": "11abc4ac-0fc7-42e4-8742-569923b1ca11",
+      "exclusive_to": "Windows.Networking.Connectivity.RoutePolicy",
+      "methods": [
+        {
+          "name": "get_ConnectionProfile",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ConnectionProfile",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_HostName",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_HostNameType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DomainNameType",
+            "namespace": "Windows.Networking",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ConnectionProfile",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ConnectionProfile",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          },
+          "getter": "get_ConnectionProfile"
+        },
+        {
+          "name": "HostName",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          },
+          "getter": "get_HostName"
+        },
+        {
+          "name": "HostNameType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DomainNameType",
+            "namespace": "Windows.Networking",
+            "target_kind": "Enum"
+          },
+          "getter": "get_HostNameType"
+        }
+      ]
+    },
+    "IRoutePolicyFactory": {
+      "guid": "36027933-a18e-4db5-a697-f58fa7364e44",
+      "exclusive_to": "Windows.Networking.Connectivity.RoutePolicy",
+      "methods": [
+        {
+          "name": "CreateRoutePolicy",
+          "params": [
+            {
+              "name": "connectionProfile",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ConnectionProfile",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "hostName",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "type",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DomainNameType",
+                "namespace": "Windows.Networking",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "RoutePolicy",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IWlanConnectionProfileDetails": {
+      "guid": "562098cb-b35a-4bf1-a884-b7557e88ff86",
+      "exclusive_to": "Windows.Networking.Connectivity.WlanConnectionProfileDetails",
+      "methods": [
+        {
+          "name": "GetConnectedSsid",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "IWwanConnectionProfileDetails": {
+      "guid": "0e4da8fe-835f-4df3-82fd-df556ebc09ef",
+      "exclusive_to": "Windows.Networking.Connectivity.WwanConnectionProfileDetails",
+      "methods": [
+        {
+          "name": "get_HomeProviderId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AccessPointName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetNetworkRegistrationState",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WwanNetworkRegistrationState",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetCurrentDataClass",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WwanDataClass",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AccessPointName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AccessPointName"
+        },
+        {
+          "name": "HomeProviderId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HomeProviderId"
+        }
+      ]
+    },
+    "IWwanConnectionProfileDetails2": {
+      "guid": "7a754ede-a1ed-48b2-8e92-b460033d52e2",
+      "exclusive_to": "Windows.Networking.Connectivity.WwanConnectionProfileDetails",
+      "methods": [
+        {
+          "name": "get_IPKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WwanNetworkIPKind",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_PurposeGuids",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IPKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WwanNetworkIPKind",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Enum"
+          },
+          "getter": "get_IPKind"
+        },
+        {
+          "name": "PurposeGuids",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            ]
+          },
+          "getter": "get_PurposeGuids"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AttributedNetworkUsage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAttributedNetworkUsage",
+        "namespace": "Windows.Networking.Connectivity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAttributedNetworkUsage",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CellularApnContext": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICellularApnContext",
+        "namespace": "Windows.Networking.Connectivity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICellularApnContext",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ICellularApnContext2",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "ConnectionCost": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IConnectionCost",
+        "namespace": "Windows.Networking.Connectivity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IConnectionCost",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IConnectionCost2",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ConnectionProfile": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IConnectionProfile",
+        "namespace": "Windows.Networking.Connectivity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IConnectionProfile",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IConnectionProfile2",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IConnectionProfile3",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IConnectionProfile4",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IConnectionProfile5",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IConnectionProfile6",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ConnectionProfileFilter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IConnectionProfileFilter",
+        "namespace": "Windows.Networking.Connectivity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IConnectionProfileFilter",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IConnectionProfileFilter2",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IConnectionProfileFilter3",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "ConnectionSession": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IConnectionSession",
+        "namespace": "Windows.Networking.Connectivity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IConnectionSession",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ConnectivityInterval": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IConnectivityInterval",
+        "namespace": "Windows.Networking.Connectivity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IConnectivityInterval",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ConnectivityManager": {
+      "static_interfaces": [
+        "Windows.Networking.Connectivity.IConnectivityManagerStatics"
+      ]
+    },
+    "DataPlanStatus": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDataPlanStatus",
+        "namespace": "Windows.Networking.Connectivity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDataPlanStatus",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DataPlanUsage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDataPlanUsage",
+        "namespace": "Windows.Networking.Connectivity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDataPlanUsage",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DataUsage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDataUsage",
+        "namespace": "Windows.Networking.Connectivity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDataUsage",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "IPInformation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IIPInformation",
+        "namespace": "Windows.Networking.Connectivity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IIPInformation",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "LanIdentifier": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILanIdentifier",
+        "namespace": "Windows.Networking.Connectivity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILanIdentifier",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "LanIdentifierData": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILanIdentifierData",
+        "namespace": "Windows.Networking.Connectivity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILanIdentifierData",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "NetworkAdapter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INetworkAdapter",
+        "namespace": "Windows.Networking.Connectivity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INetworkAdapter",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "NetworkInformation": {
+      "static_interfaces": [
+        "Windows.Networking.Connectivity.INetworkInformationStatics2",
+        "Windows.Networking.Connectivity.INetworkInformationStatics"
+      ]
+    },
+    "NetworkItem": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INetworkItem",
+        "namespace": "Windows.Networking.Connectivity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INetworkItem",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "NetworkSecuritySettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INetworkSecuritySettings",
+        "namespace": "Windows.Networking.Connectivity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INetworkSecuritySettings",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "NetworkStateChangeEventDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INetworkStateChangeEventDetails",
+        "namespace": "Windows.Networking.Connectivity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INetworkStateChangeEventDetails",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "INetworkStateChangeEventDetails2",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "NetworkUsage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "INetworkUsage",
+        "namespace": "Windows.Networking.Connectivity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "INetworkUsage",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ProviderNetworkUsage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IProviderNetworkUsage",
+        "namespace": "Windows.Networking.Connectivity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IProviderNetworkUsage",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ProxyConfiguration": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IProxyConfiguration",
+        "namespace": "Windows.Networking.Connectivity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IProxyConfiguration",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RoutePolicy": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRoutePolicy",
+        "namespace": "Windows.Networking.Connectivity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRoutePolicy",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Networking.Connectivity.IRoutePolicyFactory"
+      ]
+    },
+    "WlanConnectionProfileDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWlanConnectionProfileDetails",
+        "namespace": "Windows.Networking.Connectivity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWlanConnectionProfileDetails",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WwanConnectionProfileDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWwanConnectionProfileDetails",
+        "namespace": "Windows.Networking.Connectivity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWwanConnectionProfileDetails",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IWwanConnectionProfileDetails2",
+          "namespace": "Windows.Networking.Connectivity",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  },
+  "delegates": {
+    "NetworkStatusChangedEventHandler": {
+      "guid": "71ba143f-598e-49d0-84eb-8febaedcc195",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

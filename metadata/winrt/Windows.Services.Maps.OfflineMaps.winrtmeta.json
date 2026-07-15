@@ -1,0 +1,464 @@
+{
+  "namespace": "Windows.Services.Maps.OfflineMaps",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "OfflineMapPackageQueryStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "UnknownError",
+          "value": "1"
+        },
+        {
+          "name": "InvalidCredentials",
+          "value": "2"
+        },
+        {
+          "name": "NetworkFailure",
+          "value": "3"
+        }
+      ]
+    },
+    "OfflineMapPackageStartDownloadStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "UnknownError",
+          "value": "1"
+        },
+        {
+          "name": "InvalidCredentials",
+          "value": "2"
+        },
+        {
+          "name": "DeniedWithoutCapability",
+          "value": "3"
+        }
+      ]
+    },
+    "OfflineMapPackageStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "NotDownloaded",
+          "value": "0"
+        },
+        {
+          "name": "Downloading",
+          "value": "1"
+        },
+        {
+          "name": "Downloaded",
+          "value": "2"
+        },
+        {
+          "name": "Deleting",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IOfflineMapPackage": {
+      "guid": "a797673b-a5b5-4144-b525-e68c8862664b",
+      "exclusive_to": "Windows.Services.Maps.OfflineMaps.OfflineMapPackage",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "OfflineMapPackageStatus",
+            "namespace": "Windows.Services.Maps.OfflineMaps",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_EnclosingRegionName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_EstimatedSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "remove_StatusChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_StatusChanged",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "OfflineMapPackage",
+                    "namespace": "Windows.Services.Maps.OfflineMaps",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "RequestStartDownloadAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "OfflineMapPackageStartDownloadResult",
+                "namespace": "Windows.Services.Maps.OfflineMaps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "EnclosingRegionName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EnclosingRegionName"
+        },
+        {
+          "name": "EstimatedSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_EstimatedSizeInBytes"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "OfflineMapPackageStatus",
+            "namespace": "Windows.Services.Maps.OfflineMaps",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ],
+      "events": [
+        {
+          "name": "StatusChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "OfflineMapPackage",
+                "namespace": "Windows.Services.Maps.OfflineMaps",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_StatusChanged",
+          "remove_method": "remove_StatusChanged"
+        }
+      ]
+    },
+    "IOfflineMapPackageQueryResult": {
+      "guid": "55585411-39e1-4e41-a4e1-5f4872bee199",
+      "exclusive_to": "Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "OfflineMapPackageQueryStatus",
+            "namespace": "Windows.Services.Maps.OfflineMaps",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Packages",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "OfflineMapPackage",
+                "namespace": "Windows.Services.Maps.OfflineMaps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Packages",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "OfflineMapPackage",
+                "namespace": "Windows.Services.Maps.OfflineMaps",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Packages"
+        },
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "OfflineMapPackageQueryStatus",
+            "namespace": "Windows.Services.Maps.OfflineMaps",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IOfflineMapPackageStartDownloadResult": {
+      "guid": "d965b918-d4d6-4afe-9378-3ec71ef11c3d",
+      "exclusive_to": "Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadResult",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "OfflineMapPackageStartDownloadStatus",
+            "namespace": "Windows.Services.Maps.OfflineMaps",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "OfflineMapPackageStartDownloadStatus",
+            "namespace": "Windows.Services.Maps.OfflineMaps",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IOfflineMapPackageStatics": {
+      "guid": "185e7922-a831-4ab0-941f-6998fa929285",
+      "exclusive_to": "Windows.Services.Maps.OfflineMaps.OfflineMapPackage",
+      "methods": [
+        {
+          "name": "FindPackagesAsync",
+          "params": [
+            {
+              "name": "queryPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Geopoint",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "OfflineMapPackageQueryResult",
+                "namespace": "Windows.Services.Maps.OfflineMaps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackagesInBoundingBoxAsync",
+          "params": [
+            {
+              "name": "queryBoundingBox",
+              "type": {
+                "kind": "ApiRef",
+                "name": "GeoboundingBox",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "OfflineMapPackageQueryResult",
+                "namespace": "Windows.Services.Maps.OfflineMaps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindPackagesInGeocircleAsync",
+          "params": [
+            {
+              "name": "queryCircle",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Geocircle",
+                "namespace": "Windows.Devices.Geolocation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "OfflineMapPackageQueryResult",
+                "namespace": "Windows.Services.Maps.OfflineMaps",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "OfflineMapPackage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IOfflineMapPackage",
+        "namespace": "Windows.Services.Maps.OfflineMaps",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IOfflineMapPackage",
+          "namespace": "Windows.Services.Maps.OfflineMaps",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Services.Maps.OfflineMaps.IOfflineMapPackageStatics"
+      ]
+    },
+    "OfflineMapPackageQueryResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IOfflineMapPackageQueryResult",
+        "namespace": "Windows.Services.Maps.OfflineMaps",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IOfflineMapPackageQueryResult",
+          "namespace": "Windows.Services.Maps.OfflineMaps",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "OfflineMapPackageStartDownloadResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IOfflineMapPackageStartDownloadResult",
+        "namespace": "Windows.Services.Maps.OfflineMaps",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IOfflineMapPackageStartDownloadResult",
+          "namespace": "Windows.Services.Maps.OfflineMaps",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

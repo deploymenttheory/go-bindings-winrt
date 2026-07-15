@@ -1,0 +1,122 @@
+{
+  "namespace": "Windows.UI.Input.Inking.Preview",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IPalmRejectionDelayZonePreview": {
+      "guid": "62b496cb-539d-5343-a65f-41f5300ec70c",
+      "exclusive_to": "Windows.UI.Input.Inking.Preview.PalmRejectionDelayZonePreview"
+    },
+    "IPalmRejectionDelayZonePreviewStatics": {
+      "guid": "cdef5ee0-93d0-53a9-8f0e-9a379f8f7530",
+      "exclusive_to": "Windows.UI.Input.Inking.Preview.PalmRejectionDelayZonePreview",
+      "methods": [
+        {
+          "name": "CreateForVisual",
+          "overload": "CreateForVisual",
+          "params": [
+            {
+              "name": "inputPanelVisual",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Visual",
+                "namespace": "Windows.UI.Composition",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "inputPanelRect",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PalmRejectionDelayZonePreview",
+            "namespace": "Windows.UI.Input.Inking.Preview",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateForVisual",
+          "overload": "CreateForVisualWithViewportClip",
+          "params": [
+            {
+              "name": "inputPanelVisual",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Visual",
+                "namespace": "Windows.UI.Composition",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "inputPanelRect",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "viewportVisual",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Visual",
+                "namespace": "Windows.UI.Composition",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "viewportRect",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PalmRejectionDelayZonePreview",
+            "namespace": "Windows.UI.Input.Inking.Preview",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "PalmRejectionDelayZonePreview": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPalmRejectionDelayZonePreview",
+        "namespace": "Windows.UI.Input.Inking.Preview",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPalmRejectionDelayZonePreview",
+          "namespace": "Windows.UI.Input.Inking.Preview",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Input.Inking.Preview.IPalmRejectionDelayZonePreviewStatics"
+      ]
+    }
+  }
+}

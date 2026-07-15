@@ -1,0 +1,449 @@
+{
+  "namespace": "Windows.Networking",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "DomainNameType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Suffix",
+          "value": "0"
+        },
+        {
+          "name": "FullyQualified",
+          "value": "1"
+        }
+      ]
+    },
+    "HostNameSortOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "OptimizeForLongConnections",
+          "value": "2"
+        }
+      ]
+    },
+    "HostNameType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "DomainName",
+          "value": "0"
+        },
+        {
+          "name": "Ipv4",
+          "value": "1"
+        },
+        {
+          "name": "Ipv6",
+          "value": "2"
+        },
+        {
+          "name": "Bluetooth",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IEndpointPair": {
+      "guid": "33a0aa36-f8fa-4b30-b856-76517c3bd06d",
+      "exclusive_to": "Windows.Networking.EndpointPair",
+      "methods": [
+        {
+          "name": "get_LocalHostName",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_LocalHostName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LocalServiceName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_LocalServiceName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RemoteHostName",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_RemoteHostName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RemoteServiceName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_RemoteServiceName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "LocalHostName",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          },
+          "getter": "get_LocalHostName",
+          "setter": "put_LocalHostName"
+        },
+        {
+          "name": "LocalServiceName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LocalServiceName",
+          "setter": "put_LocalServiceName"
+        },
+        {
+          "name": "RemoteHostName",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          },
+          "getter": "get_RemoteHostName",
+          "setter": "put_RemoteHostName"
+        },
+        {
+          "name": "RemoteServiceName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RemoteServiceName",
+          "setter": "put_RemoteServiceName"
+        }
+      ]
+    },
+    "IEndpointPairFactory": {
+      "guid": "b609d971-64e0-442b-aa6f-cc8c8f181f78",
+      "exclusive_to": "Windows.Networking.EndpointPair",
+      "methods": [
+        {
+          "name": "CreateEndpointPair",
+          "params": [
+            {
+              "name": "localHostName",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "localServiceName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "remoteHostName",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "remoteServiceName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EndpointPair",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IHostName": {
+      "guid": "bf8ecaad-ed96-49a7-9084-d416cae88dcb",
+      "exclusive_to": "Windows.Networking.HostName",
+      "methods": [
+        {
+          "name": "get_IPInformation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IPInformation",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_RawName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CanonicalName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Type",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HostNameType",
+            "namespace": "Windows.Networking",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "IsEqual",
+          "params": [
+            {
+              "name": "hostName",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CanonicalName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CanonicalName"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "IPInformation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IPInformation",
+            "namespace": "Windows.Networking.Connectivity",
+            "target_kind": "Class"
+          },
+          "getter": "get_IPInformation"
+        },
+        {
+          "name": "RawName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RawName"
+        },
+        {
+          "name": "Type",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HostNameType",
+            "namespace": "Windows.Networking",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Type"
+        }
+      ]
+    },
+    "IHostNameFactory": {
+      "guid": "458c23ed-712f-4576-adf1-c20b2c643558",
+      "exclusive_to": "Windows.Networking.HostName",
+      "methods": [
+        {
+          "name": "CreateHostName",
+          "params": [
+            {
+              "name": "hostName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IHostNameStatics": {
+      "guid": "f68cd4bf-a388-4e8b-91ea-54dd6dd901c0",
+      "exclusive_to": "Windows.Networking.HostName",
+      "methods": [
+        {
+          "name": "Compare",
+          "params": [
+            {
+              "name": "value1",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "value2",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "EndpointPair": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEndpointPair",
+        "namespace": "Windows.Networking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEndpointPair",
+          "namespace": "Windows.Networking",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Networking.IEndpointPairFactory"
+      ]
+    },
+    "HostName": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHostName",
+        "namespace": "Windows.Networking",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHostName",
+          "namespace": "Windows.Networking",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStringable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Networking.IHostNameFactory"
+      ],
+      "static_interfaces": [
+        "Windows.Networking.IHostNameStatics"
+      ]
+    }
+  }
+}

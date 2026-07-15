@@ -1,0 +1,1841 @@
+{
+  "namespace": "Windows.Networking.Proximity",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "PeerDiscoveryTypes": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Browse",
+          "value": "1"
+        },
+        {
+          "name": "Triggered",
+          "value": "2"
+        }
+      ]
+    },
+    "PeerRole": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Peer",
+          "value": "0"
+        },
+        {
+          "name": "Host",
+          "value": "1"
+        },
+        {
+          "name": "Client",
+          "value": "2"
+        }
+      ]
+    },
+    "PeerWatcherStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Created",
+          "value": "0"
+        },
+        {
+          "name": "Started",
+          "value": "1"
+        },
+        {
+          "name": "EnumerationCompleted",
+          "value": "2"
+        },
+        {
+          "name": "Stopping",
+          "value": "3"
+        },
+        {
+          "name": "Stopped",
+          "value": "4"
+        },
+        {
+          "name": "Aborted",
+          "value": "5"
+        }
+      ]
+    },
+    "TriggeredConnectState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "PeerFound",
+          "value": "0"
+        },
+        {
+          "name": "Listening",
+          "value": "1"
+        },
+        {
+          "name": "Connecting",
+          "value": "2"
+        },
+        {
+          "name": "Completed",
+          "value": "3"
+        },
+        {
+          "name": "Canceled",
+          "value": "4"
+        },
+        {
+          "name": "Failed",
+          "value": "5"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IConnectionRequestedEventArgs": {
+      "guid": "eb6891ae-4f1e-4c66-bd0d-46924a942e08",
+      "exclusive_to": "Windows.Networking.Proximity.ConnectionRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_PeerInformation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PeerInformation",
+            "namespace": "Windows.Networking.Proximity",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PeerInformation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PeerInformation",
+            "namespace": "Windows.Networking.Proximity",
+            "target_kind": "Class"
+          },
+          "getter": "get_PeerInformation"
+        }
+      ]
+    },
+    "IPeerFinderStatics": {
+      "guid": "914b3b61-f6e1-47c4-a14c-148a1903d0c6",
+      "exclusive_to": "Windows.Networking.Proximity.PeerFinder",
+      "methods": [
+        {
+          "name": "get_AllowBluetooth",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AllowBluetooth",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AllowInfrastructure",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AllowInfrastructure",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AllowWiFiDirect",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AllowWiFiDirect",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DisplayName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SupportedDiscoveryTypes",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PeerDiscoveryTypes",
+            "namespace": "Windows.Networking.Proximity",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_AlternateIdentities",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Start",
+          "overload": "Start"
+        },
+        {
+          "name": "Start",
+          "overload": "StartWithMessage",
+          "params": [
+            {
+              "name": "peerMessage",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Stop"
+        },
+        {
+          "name": "add_TriggeredConnectionStateChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "TriggeredConnectionStateChangedEventArgs",
+                    "namespace": "Windows.Networking.Proximity",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_TriggeredConnectionStateChanged",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ConnectionRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "ConnectionRequestedEventArgs",
+                    "namespace": "Windows.Networking.Proximity",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ConnectionRequested",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "FindAllPeersAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PeerInformation",
+                    "namespace": "Windows.Networking.Proximity",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "ConnectAsync",
+          "params": [
+            {
+              "name": "peerInformation",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PeerInformation",
+                "namespace": "Windows.Networking.Proximity",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StreamSocket",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllowBluetooth",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AllowBluetooth",
+          "setter": "put_AllowBluetooth"
+        },
+        {
+          "name": "AllowInfrastructure",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AllowInfrastructure",
+          "setter": "put_AllowInfrastructure"
+        },
+        {
+          "name": "AllowWiFiDirect",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AllowWiFiDirect",
+          "setter": "put_AllowWiFiDirect"
+        },
+        {
+          "name": "AlternateIdentities",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMap`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_AlternateIdentities"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName",
+          "setter": "put_DisplayName"
+        },
+        {
+          "name": "SupportedDiscoveryTypes",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PeerDiscoveryTypes",
+            "namespace": "Windows.Networking.Proximity",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SupportedDiscoveryTypes"
+        }
+      ],
+      "events": [
+        {
+          "name": "ConnectionRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "ConnectionRequestedEventArgs",
+                "namespace": "Windows.Networking.Proximity",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ConnectionRequested",
+          "remove_method": "remove_ConnectionRequested"
+        },
+        {
+          "name": "TriggeredConnectionStateChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "TriggeredConnectionStateChangedEventArgs",
+                "namespace": "Windows.Networking.Proximity",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_TriggeredConnectionStateChanged",
+          "remove_method": "remove_TriggeredConnectionStateChanged"
+        }
+      ]
+    },
+    "IPeerFinderStatics2": {
+      "guid": "d6e73c65-fdd0-4b0b-9312-866408935d82",
+      "exclusive_to": "Windows.Networking.Proximity.PeerFinder",
+      "methods": [
+        {
+          "name": "get_Role",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PeerRole",
+            "namespace": "Windows.Networking.Proximity",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Role",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PeerRole",
+                "namespace": "Windows.Networking.Proximity",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DiscoveryData",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_DiscoveryData",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CreateWatcher",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PeerWatcher",
+            "namespace": "Windows.Networking.Proximity",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DiscoveryData",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_DiscoveryData",
+          "setter": "put_DiscoveryData"
+        },
+        {
+          "name": "Role",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PeerRole",
+            "namespace": "Windows.Networking.Proximity",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Role",
+          "setter": "put_Role"
+        }
+      ]
+    },
+    "IPeerInformation": {
+      "guid": "20024f08-9fff-45f4-b6e9-408b2ebef373",
+      "exclusive_to": "Windows.Networking.Proximity.PeerInformation",
+      "methods": [
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        }
+      ]
+    },
+    "IPeerInformation3": {
+      "guid": "b20f612a-dbd0-40f8-95bd-2d4209c7836f",
+      "exclusive_to": "Windows.Networking.Proximity.PeerInformation",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DiscoveryData",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DiscoveryData",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_DiscoveryData"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        }
+      ]
+    },
+    "IPeerInformationWithHostAndService": {
+      "guid": "ecc7ccad-1b70-4e8b-92db-bbe781419308",
+      "exclusive_to": "Windows.Networking.Proximity.PeerInformation",
+      "methods": [
+        {
+          "name": "get_HostName",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ServiceName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HostName",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          },
+          "getter": "get_HostName"
+        },
+        {
+          "name": "ServiceName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ServiceName"
+        }
+      ]
+    },
+    "IPeerWatcher": {
+      "guid": "3cee21f8-2fa6-4679-9691-03c94a420f34",
+      "exclusive_to": "Windows.Networking.Proximity.PeerWatcher",
+      "methods": [
+        {
+          "name": "add_Added",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PeerWatcher",
+                    "namespace": "Windows.Networking.Proximity",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PeerInformation",
+                    "namespace": "Windows.Networking.Proximity",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Added",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Removed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PeerWatcher",
+                    "namespace": "Windows.Networking.Proximity",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PeerInformation",
+                    "namespace": "Windows.Networking.Proximity",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Removed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Updated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PeerWatcher",
+                    "namespace": "Windows.Networking.Proximity",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PeerInformation",
+                    "namespace": "Windows.Networking.Proximity",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Updated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_EnumerationCompleted",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PeerWatcher",
+                    "namespace": "Windows.Networking.Proximity",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_EnumerationCompleted",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Stopped",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PeerWatcher",
+                    "namespace": "Windows.Networking.Proximity",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Stopped",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PeerWatcherStatus",
+            "namespace": "Windows.Networking.Proximity",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "Start"
+        },
+        {
+          "name": "Stop"
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PeerWatcherStatus",
+            "namespace": "Windows.Networking.Proximity",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ],
+      "events": [
+        {
+          "name": "Added",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PeerWatcher",
+                "namespace": "Windows.Networking.Proximity",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PeerInformation",
+                "namespace": "Windows.Networking.Proximity",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Added",
+          "remove_method": "remove_Added"
+        },
+        {
+          "name": "EnumerationCompleted",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PeerWatcher",
+                "namespace": "Windows.Networking.Proximity",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_EnumerationCompleted",
+          "remove_method": "remove_EnumerationCompleted"
+        },
+        {
+          "name": "Removed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PeerWatcher",
+                "namespace": "Windows.Networking.Proximity",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PeerInformation",
+                "namespace": "Windows.Networking.Proximity",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Removed",
+          "remove_method": "remove_Removed"
+        },
+        {
+          "name": "Stopped",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PeerWatcher",
+                "namespace": "Windows.Networking.Proximity",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_Stopped",
+          "remove_method": "remove_Stopped"
+        },
+        {
+          "name": "Updated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PeerWatcher",
+                "namespace": "Windows.Networking.Proximity",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PeerInformation",
+                "namespace": "Windows.Networking.Proximity",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Updated",
+          "remove_method": "remove_Updated"
+        }
+      ]
+    },
+    "IProximityDevice": {
+      "guid": "efa8a552-f6e1-4329-a0fc-ab6b0fd28262",
+      "exclusive_to": "Windows.Networking.Proximity.ProximityDevice",
+      "methods": [
+        {
+          "name": "SubscribeForMessage",
+          "params": [
+            {
+              "name": "messageType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "messageReceivedHandler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MessageReceivedHandler",
+                "namespace": "Windows.Networking.Proximity",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        },
+        {
+          "name": "PublishMessage",
+          "overload": "PublishMessage",
+          "params": [
+            {
+              "name": "messageType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "message",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        },
+        {
+          "name": "PublishMessage",
+          "overload": "PublishMessageWithCallback",
+          "params": [
+            {
+              "name": "messageType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "message",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "messageTransmittedHandler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MessageTransmittedHandler",
+                "namespace": "Windows.Networking.Proximity",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        },
+        {
+          "name": "PublishBinaryMessage",
+          "overload": "PublishBinaryMessage",
+          "params": [
+            {
+              "name": "messageType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "message",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        },
+        {
+          "name": "PublishBinaryMessage",
+          "overload": "PublishBinaryMessageWithCallback",
+          "params": [
+            {
+              "name": "messageType",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "message",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "messageTransmittedHandler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MessageTransmittedHandler",
+                "namespace": "Windows.Networking.Proximity",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        },
+        {
+          "name": "PublishUriMessage",
+          "overload": "PublishUriMessage",
+          "params": [
+            {
+              "name": "message",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        },
+        {
+          "name": "PublishUriMessage",
+          "overload": "PublishUriMessageWithCallback",
+          "params": [
+            {
+              "name": "message",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "messageTransmittedHandler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MessageTransmittedHandler",
+                "namespace": "Windows.Networking.Proximity",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        },
+        {
+          "name": "StopSubscribingForMessage",
+          "params": [
+            {
+              "name": "subscriptionId",
+              "type": {
+                "kind": "Native",
+                "name": "I8"
+              }
+            }
+          ]
+        },
+        {
+          "name": "StopPublishingMessage",
+          "params": [
+            {
+              "name": "messageId",
+              "type": {
+                "kind": "Native",
+                "name": "I8"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_DeviceArrived",
+          "params": [
+            {
+              "name": "arrivedHandler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceArrivedEventHandler",
+                "namespace": "Windows.Networking.Proximity",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DeviceArrived",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_DeviceDeparted",
+          "params": [
+            {
+              "name": "departedHandler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceDepartedEventHandler",
+                "namespace": "Windows.Networking.Proximity",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DeviceDeparted",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MaxMessageBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_BitsPerSecond",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BitsPerSecond",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_BitsPerSecond"
+        },
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        },
+        {
+          "name": "MaxMessageBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxMessageBytes"
+        }
+      ],
+      "events": [
+        {
+          "name": "DeviceArrived",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceArrivedEventHandler",
+            "namespace": "Windows.Networking.Proximity",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_DeviceArrived",
+          "remove_method": "remove_DeviceArrived"
+        },
+        {
+          "name": "DeviceDeparted",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceDepartedEventHandler",
+            "namespace": "Windows.Networking.Proximity",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_DeviceDeparted",
+          "remove_method": "remove_DeviceDeparted"
+        }
+      ]
+    },
+    "IProximityDeviceStatics": {
+      "guid": "914ba01d-f6e1-47c4-a14c-148a1903d0c6",
+      "exclusive_to": "Windows.Networking.Proximity.ProximityDevice",
+      "methods": [
+        {
+          "name": "GetDeviceSelector",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ProximityDevice",
+            "namespace": "Windows.Networking.Proximity",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "FromId",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ProximityDevice",
+            "namespace": "Windows.Networking.Proximity",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IProximityMessage": {
+      "guid": "efab0782-f6e1-4675-a045-d8e320c24808",
+      "exclusive_to": "Windows.Networking.Proximity.ProximityMessage",
+      "methods": [
+        {
+          "name": "get_MessageType",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SubscriptionId",
+          "return": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        },
+        {
+          "name": "get_Data",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_DataAsString",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Data",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Data"
+        },
+        {
+          "name": "DataAsString",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DataAsString"
+        },
+        {
+          "name": "MessageType",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MessageType"
+        },
+        {
+          "name": "SubscriptionId",
+          "type": {
+            "kind": "Native",
+            "name": "I8"
+          },
+          "getter": "get_SubscriptionId"
+        }
+      ]
+    },
+    "ITriggeredConnectionStateChangedEventArgs": {
+      "guid": "c6a780ad-f6e1-4d54-96e2-33f620bca88a",
+      "exclusive_to": "Windows.Networking.Proximity.TriggeredConnectionStateChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_State",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TriggeredConnectState",
+            "namespace": "Windows.Networking.Proximity",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_Socket",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StreamSocket",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "Socket",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StreamSocket",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          },
+          "getter": "get_Socket"
+        },
+        {
+          "name": "State",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TriggeredConnectState",
+            "namespace": "Windows.Networking.Proximity",
+            "target_kind": "Enum"
+          },
+          "getter": "get_State"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "ConnectionRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IConnectionRequestedEventArgs",
+        "namespace": "Windows.Networking.Proximity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IConnectionRequestedEventArgs",
+          "namespace": "Windows.Networking.Proximity",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PeerFinder": {
+      "static_interfaces": [
+        "Windows.Networking.Proximity.IPeerFinderStatics2",
+        "Windows.Networking.Proximity.IPeerFinderStatics"
+      ]
+    },
+    "PeerInformation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPeerInformation",
+        "namespace": "Windows.Networking.Proximity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPeerInformation",
+          "namespace": "Windows.Networking.Proximity",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPeerInformation3",
+          "namespace": "Windows.Networking.Proximity",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPeerInformationWithHostAndService",
+          "namespace": "Windows.Networking.Proximity",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PeerWatcher": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPeerWatcher",
+        "namespace": "Windows.Networking.Proximity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPeerWatcher",
+          "namespace": "Windows.Networking.Proximity",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ProximityDevice": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IProximityDevice",
+        "namespace": "Windows.Networking.Proximity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IProximityDevice",
+          "namespace": "Windows.Networking.Proximity",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Networking.Proximity.IProximityDeviceStatics"
+      ]
+    },
+    "ProximityMessage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IProximityMessage",
+        "namespace": "Windows.Networking.Proximity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IProximityMessage",
+          "namespace": "Windows.Networking.Proximity",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "TriggeredConnectionStateChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITriggeredConnectionStateChangedEventArgs",
+        "namespace": "Windows.Networking.Proximity",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITriggeredConnectionStateChangedEventArgs",
+          "namespace": "Windows.Networking.Proximity",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  },
+  "delegates": {
+    "DeviceArrivedEventHandler": {
+      "guid": "efa9da69-f6e1-49c9-a49e-8e0fc58fb911",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "ApiRef",
+              "name": "ProximityDevice",
+              "namespace": "Windows.Networking.Proximity",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "DeviceDepartedEventHandler": {
+      "guid": "efa9da69-f6e2-49c9-a49e-8e0fc58fb911",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "ApiRef",
+              "name": "ProximityDevice",
+              "namespace": "Windows.Networking.Proximity",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "MessageReceivedHandler": {
+      "guid": "efab0782-f6e2-4675-a045-d8e320c24808",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "ApiRef",
+              "name": "ProximityDevice",
+              "namespace": "Windows.Networking.Proximity",
+              "target_kind": "Class"
+            }
+          },
+          {
+            "name": "message",
+            "type": {
+              "kind": "ApiRef",
+              "name": "ProximityMessage",
+              "namespace": "Windows.Networking.Proximity",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "MessageTransmittedHandler": {
+      "guid": "efaa0b4a-f6e2-4d7d-856c-78fc8efc021e",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "ApiRef",
+              "name": "ProximityDevice",
+              "namespace": "Windows.Networking.Proximity",
+              "target_kind": "Class"
+            }
+          },
+          {
+            "name": "messageId",
+            "type": {
+              "kind": "Native",
+              "name": "I8"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

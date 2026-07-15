@@ -1,0 +1,187 @@
+{
+  "namespace": "Windows.Globalization.Collation",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "ICharacterGrouping": {
+      "guid": "fae761bb-805d-4bb0-95bb-c1f7c3e8eb8e",
+      "exclusive_to": "Windows.Globalization.Collation.CharacterGrouping",
+      "methods": [
+        {
+          "name": "get_First",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Label",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "First",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_First"
+        },
+        {
+          "name": "Label",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Label"
+        }
+      ]
+    },
+    "ICharacterGroupings": {
+      "guid": "b8d20a75-d4cf-4055-80e5-ce169c226496",
+      "exclusive_to": "Windows.Globalization.Collation.CharacterGroupings",
+      "requires": [
+        {
+          "kind": "GenericInst",
+          "name": "IVectorView`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "CharacterGrouping",
+              "namespace": "Windows.Globalization.Collation",
+              "target_kind": "Class"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "CharacterGrouping",
+              "namespace": "Windows.Globalization.Collation",
+              "target_kind": "Class"
+            }
+          ]
+        }
+      ],
+      "methods": [
+        {
+          "name": "Lookup",
+          "params": [
+            {
+              "name": "text",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "ICharacterGroupingsFactory": {
+      "guid": "99ea9fd9-886d-4401-9f98-69c82d4c2f78",
+      "exclusive_to": "Windows.Globalization.Collation.CharacterGroupings",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "language",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CharacterGroupings",
+            "namespace": "Windows.Globalization.Collation",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "CharacterGrouping": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICharacterGrouping",
+        "namespace": "Windows.Globalization.Collation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICharacterGrouping",
+          "namespace": "Windows.Globalization.Collation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CharacterGroupings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICharacterGroupings",
+        "namespace": "Windows.Globalization.Collation",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICharacterGroupings",
+          "namespace": "Windows.Globalization.Collation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IVectorView`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "CharacterGrouping",
+              "namespace": "Windows.Globalization.Collation",
+              "target_kind": "Class"
+            }
+          ]
+        },
+        {
+          "kind": "GenericInst",
+          "name": "IIterable`1",
+          "namespace": "Windows.Foundation.Collections",
+          "target_kind": "Interface",
+          "args": [
+            {
+              "kind": "ApiRef",
+              "name": "CharacterGrouping",
+              "namespace": "Windows.Globalization.Collation",
+              "target_kind": "Class"
+            }
+          ]
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.Globalization.Collation.ICharacterGroupingsFactory"
+      ]
+    }
+  }
+}

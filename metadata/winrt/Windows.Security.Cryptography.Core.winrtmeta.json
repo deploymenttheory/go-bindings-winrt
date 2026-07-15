@@ -1,0 +1,3680 @@
+{
+  "namespace": "Windows.Security.Cryptography.Core",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "Capi1KdfTargetAlgorithm": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "NotAes",
+          "value": "0"
+        },
+        {
+          "name": "Aes",
+          "value": "1"
+        }
+      ]
+    },
+    "CryptographicPadding": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "RsaOaep",
+          "value": "1"
+        },
+        {
+          "name": "RsaPkcs1V15",
+          "value": "2"
+        },
+        {
+          "name": "RsaPss",
+          "value": "3"
+        }
+      ]
+    },
+    "CryptographicPrivateKeyBlobType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Pkcs8RawPrivateKeyInfo",
+          "value": "0"
+        },
+        {
+          "name": "Pkcs1RsaPrivateKey",
+          "value": "1"
+        },
+        {
+          "name": "BCryptPrivateKey",
+          "value": "2"
+        },
+        {
+          "name": "Capi1PrivateKey",
+          "value": "3"
+        },
+        {
+          "name": "BCryptEccFullPrivateKey",
+          "value": "4"
+        }
+      ]
+    },
+    "CryptographicPublicKeyBlobType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "X509SubjectPublicKeyInfo",
+          "value": "0"
+        },
+        {
+          "name": "Pkcs1RsaPublicKey",
+          "value": "1"
+        },
+        {
+          "name": "BCryptPublicKey",
+          "value": "2"
+        },
+        {
+          "name": "Capi1PublicKey",
+          "value": "3"
+        },
+        {
+          "name": "BCryptEccFullPublicKey",
+          "value": "4"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IAsymmetricAlgorithmNamesStatics": {
+      "guid": "caf6fce4-67c0-46aa-84f9-752e77449f9b",
+      "exclusive_to": "Windows.Security.Cryptography.Core.AsymmetricAlgorithmNames",
+      "methods": [
+        {
+          "name": "get_RsaPkcs1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RsaOaepSha1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RsaOaepSha256",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RsaOaepSha384",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RsaOaepSha512",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_EcdsaP256Sha256",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_EcdsaP384Sha384",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_EcdsaP521Sha512",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DsaSha1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DsaSha256",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RsaSignPkcs1Sha1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RsaSignPkcs1Sha256",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RsaSignPkcs1Sha384",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RsaSignPkcs1Sha512",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RsaSignPssSha1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RsaSignPssSha256",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RsaSignPssSha384",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RsaSignPssSha512",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DsaSha1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DsaSha1"
+        },
+        {
+          "name": "DsaSha256",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DsaSha256"
+        },
+        {
+          "name": "EcdsaP256Sha256",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EcdsaP256Sha256"
+        },
+        {
+          "name": "EcdsaP384Sha384",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EcdsaP384Sha384"
+        },
+        {
+          "name": "EcdsaP521Sha512",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EcdsaP521Sha512"
+        },
+        {
+          "name": "RsaOaepSha1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RsaOaepSha1"
+        },
+        {
+          "name": "RsaOaepSha256",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RsaOaepSha256"
+        },
+        {
+          "name": "RsaOaepSha384",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RsaOaepSha384"
+        },
+        {
+          "name": "RsaOaepSha512",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RsaOaepSha512"
+        },
+        {
+          "name": "RsaPkcs1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RsaPkcs1"
+        },
+        {
+          "name": "RsaSignPkcs1Sha1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RsaSignPkcs1Sha1"
+        },
+        {
+          "name": "RsaSignPkcs1Sha256",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RsaSignPkcs1Sha256"
+        },
+        {
+          "name": "RsaSignPkcs1Sha384",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RsaSignPkcs1Sha384"
+        },
+        {
+          "name": "RsaSignPkcs1Sha512",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RsaSignPkcs1Sha512"
+        },
+        {
+          "name": "RsaSignPssSha1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RsaSignPssSha1"
+        },
+        {
+          "name": "RsaSignPssSha256",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RsaSignPssSha256"
+        },
+        {
+          "name": "RsaSignPssSha384",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RsaSignPssSha384"
+        },
+        {
+          "name": "RsaSignPssSha512",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RsaSignPssSha512"
+        }
+      ]
+    },
+    "IAsymmetricAlgorithmNamesStatics2": {
+      "guid": "f141c0d6-4bff-4f23-ba66-6045b137d5df",
+      "exclusive_to": "Windows.Security.Cryptography.Core.AsymmetricAlgorithmNames",
+      "methods": [
+        {
+          "name": "get_EcdsaSha256",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_EcdsaSha384",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_EcdsaSha512",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EcdsaSha256",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EcdsaSha256"
+        },
+        {
+          "name": "EcdsaSha384",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EcdsaSha384"
+        },
+        {
+          "name": "EcdsaSha512",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EcdsaSha512"
+        }
+      ]
+    },
+    "IAsymmetricKeyAlgorithmProvider": {
+      "guid": "e8d2ff37-6259-4e88-b7e0-94191fde699e",
+      "exclusive_to": "Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider",
+      "methods": [
+        {
+          "name": "get_AlgorithmName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "CreateKeyPair",
+          "params": [
+            {
+              "name": "keySize",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CryptographicKey",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ImportKeyPair",
+          "overload": "ImportDefaultPrivateKeyBlob",
+          "params": [
+            {
+              "name": "keyBlob",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CryptographicKey",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ImportKeyPair",
+          "overload": "ImportKeyPairWithBlobType",
+          "params": [
+            {
+              "name": "keyBlob",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "BlobType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CryptographicPrivateKeyBlobType",
+                "namespace": "Windows.Security.Cryptography.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CryptographicKey",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ImportPublicKey",
+          "overload": "ImportDefaultPublicKeyBlob",
+          "params": [
+            {
+              "name": "keyBlob",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CryptographicKey",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ImportPublicKey",
+          "overload": "ImportPublicKeyWithBlobType",
+          "params": [
+            {
+              "name": "keyBlob",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "BlobType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CryptographicPublicKeyBlobType",
+                "namespace": "Windows.Security.Cryptography.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CryptographicKey",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AlgorithmName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AlgorithmName"
+        }
+      ]
+    },
+    "IAsymmetricKeyAlgorithmProvider2": {
+      "guid": "4e322a7e-7c4d-4997-ac4f-1b848b36306e",
+      "exclusive_to": "Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider",
+      "methods": [
+        {
+          "name": "CreateKeyPairWithCurveName",
+          "params": [
+            {
+              "name": "curveName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CryptographicKey",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateKeyPairWithCurveParameters",
+          "params": [
+            {
+              "name": "parameters",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "Native",
+                  "name": "U1"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CryptographicKey",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IAsymmetricKeyAlgorithmProviderStatics": {
+      "guid": "425bde18-a7f3-47a6-a8d2-c48d6033a65c",
+      "exclusive_to": "Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider",
+      "methods": [
+        {
+          "name": "OpenAlgorithm",
+          "params": [
+            {
+              "name": "algorithm",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AsymmetricKeyAlgorithmProvider",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ICryptographicEngineStatics": {
+      "guid": "9fea0639-6ff7-4c85-a095-95eb31715eb9",
+      "exclusive_to": "Windows.Security.Cryptography.Core.CryptographicEngine",
+      "methods": [
+        {
+          "name": "Encrypt",
+          "params": [
+            {
+              "name": "key",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CryptographicKey",
+                "namespace": "Windows.Security.Cryptography.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "iv",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "Decrypt",
+          "params": [
+            {
+              "name": "key",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CryptographicKey",
+                "namespace": "Windows.Security.Cryptography.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "iv",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "EncryptAndAuthenticate",
+          "params": [
+            {
+              "name": "key",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CryptographicKey",
+                "namespace": "Windows.Security.Cryptography.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "nonce",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "authenticatedData",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EncryptedAndAuthenticatedData",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "DecryptAndAuthenticate",
+          "params": [
+            {
+              "name": "key",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CryptographicKey",
+                "namespace": "Windows.Security.Cryptography.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "nonce",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "authenticationTag",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "authenticatedData",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "Sign",
+          "params": [
+            {
+              "name": "key",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CryptographicKey",
+                "namespace": "Windows.Security.Cryptography.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "VerifySignature",
+          "params": [
+            {
+              "name": "key",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CryptographicKey",
+                "namespace": "Windows.Security.Cryptography.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "signature",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "DeriveKeyMaterial",
+          "params": [
+            {
+              "name": "key",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CryptographicKey",
+                "namespace": "Windows.Security.Cryptography.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "parameters",
+              "type": {
+                "kind": "ApiRef",
+                "name": "KeyDerivationParameters",
+                "namespace": "Windows.Security.Cryptography.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "desiredKeySize",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "ICryptographicEngineStatics2": {
+      "guid": "675948fe-df9f-4191-92c7-6ce6f58420e0",
+      "exclusive_to": "Windows.Security.Cryptography.Core.CryptographicEngine",
+      "methods": [
+        {
+          "name": "SignHashedData",
+          "params": [
+            {
+              "name": "key",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CryptographicKey",
+                "namespace": "Windows.Security.Cryptography.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "VerifySignatureWithHashInput",
+          "params": [
+            {
+              "name": "key",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CryptographicKey",
+                "namespace": "Windows.Security.Cryptography.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "signature",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "DecryptAsync",
+          "params": [
+            {
+              "name": "key",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CryptographicKey",
+                "namespace": "Windows.Security.Cryptography.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "iv",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SignAsync",
+          "params": [
+            {
+              "name": "key",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CryptographicKey",
+                "namespace": "Windows.Security.Cryptography.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SignHashedDataAsync",
+          "params": [
+            {
+              "name": "key",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CryptographicKey",
+                "namespace": "Windows.Security.Cryptography.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ICryptographicKey": {
+      "guid": "ed2a3b70-8e7b-4009-8401-ffd1a62eeb27",
+      "exclusive_to": "Windows.Security.Cryptography.Core.CryptographicKey",
+      "methods": [
+        {
+          "name": "get_KeySize",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "Export",
+          "overload": "ExportDefaultPrivateKeyBlobType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "Export",
+          "overload": "ExportPrivateKeyWithBlobType",
+          "params": [
+            {
+              "name": "BlobType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CryptographicPrivateKeyBlobType",
+                "namespace": "Windows.Security.Cryptography.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ExportPublicKey",
+          "overload": "ExportDefaultPublicKeyBlobType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ExportPublicKey",
+          "overload": "ExportPublicKeyWithBlobType",
+          "params": [
+            {
+              "name": "BlobType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CryptographicPublicKeyBlobType",
+                "namespace": "Windows.Security.Cryptography.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "KeySize",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_KeySize"
+        }
+      ]
+    },
+    "IEccCurveNamesStatics": {
+      "guid": "b3ff930c-aeeb-409e-b7d4-9b95295aaecf",
+      "exclusive_to": "Windows.Security.Cryptography.Core.EccCurveNames",
+      "methods": [
+        {
+          "name": "get_BrainpoolP160r1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BrainpoolP160t1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BrainpoolP192r1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BrainpoolP192t1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BrainpoolP224r1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BrainpoolP224t1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BrainpoolP256r1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BrainpoolP256t1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BrainpoolP320r1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BrainpoolP320t1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BrainpoolP384r1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BrainpoolP384t1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BrainpoolP512r1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BrainpoolP512t1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Curve25519",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Ec192wapi",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NistP192",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NistP224",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NistP256",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NistP384",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NistP521",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NumsP256t1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NumsP384t1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NumsP512t1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SecP160k1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SecP160r1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SecP160r2",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SecP192k1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SecP192r1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SecP224k1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SecP224r1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SecP256k1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SecP256r1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SecP384r1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SecP521r1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Wtls7",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Wtls9",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Wtls12",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_X962P192v1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_X962P192v2",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_X962P192v3",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_X962P239v1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_X962P239v2",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_X962P239v3",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_X962P256v1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AllEccCurveNames",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllEccCurveNames",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_AllEccCurveNames"
+        },
+        {
+          "name": "BrainpoolP160r1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BrainpoolP160r1"
+        },
+        {
+          "name": "BrainpoolP160t1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BrainpoolP160t1"
+        },
+        {
+          "name": "BrainpoolP192r1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BrainpoolP192r1"
+        },
+        {
+          "name": "BrainpoolP192t1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BrainpoolP192t1"
+        },
+        {
+          "name": "BrainpoolP224r1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BrainpoolP224r1"
+        },
+        {
+          "name": "BrainpoolP224t1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BrainpoolP224t1"
+        },
+        {
+          "name": "BrainpoolP256r1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BrainpoolP256r1"
+        },
+        {
+          "name": "BrainpoolP256t1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BrainpoolP256t1"
+        },
+        {
+          "name": "BrainpoolP320r1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BrainpoolP320r1"
+        },
+        {
+          "name": "BrainpoolP320t1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BrainpoolP320t1"
+        },
+        {
+          "name": "BrainpoolP384r1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BrainpoolP384r1"
+        },
+        {
+          "name": "BrainpoolP384t1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BrainpoolP384t1"
+        },
+        {
+          "name": "BrainpoolP512r1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BrainpoolP512r1"
+        },
+        {
+          "name": "BrainpoolP512t1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_BrainpoolP512t1"
+        },
+        {
+          "name": "Curve25519",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Curve25519"
+        },
+        {
+          "name": "Ec192wapi",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Ec192wapi"
+        },
+        {
+          "name": "NistP192",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NistP192"
+        },
+        {
+          "name": "NistP224",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NistP224"
+        },
+        {
+          "name": "NistP256",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NistP256"
+        },
+        {
+          "name": "NistP384",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NistP384"
+        },
+        {
+          "name": "NistP521",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NistP521"
+        },
+        {
+          "name": "NumsP256t1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NumsP256t1"
+        },
+        {
+          "name": "NumsP384t1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NumsP384t1"
+        },
+        {
+          "name": "NumsP512t1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NumsP512t1"
+        },
+        {
+          "name": "SecP160k1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SecP160k1"
+        },
+        {
+          "name": "SecP160r1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SecP160r1"
+        },
+        {
+          "name": "SecP160r2",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SecP160r2"
+        },
+        {
+          "name": "SecP192k1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SecP192k1"
+        },
+        {
+          "name": "SecP192r1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SecP192r1"
+        },
+        {
+          "name": "SecP224k1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SecP224k1"
+        },
+        {
+          "name": "SecP224r1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SecP224r1"
+        },
+        {
+          "name": "SecP256k1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SecP256k1"
+        },
+        {
+          "name": "SecP256r1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SecP256r1"
+        },
+        {
+          "name": "SecP384r1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SecP384r1"
+        },
+        {
+          "name": "SecP521r1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SecP521r1"
+        },
+        {
+          "name": "Wtls12",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Wtls12"
+        },
+        {
+          "name": "Wtls7",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Wtls7"
+        },
+        {
+          "name": "Wtls9",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Wtls9"
+        },
+        {
+          "name": "X962P192v1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_X962P192v1"
+        },
+        {
+          "name": "X962P192v2",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_X962P192v2"
+        },
+        {
+          "name": "X962P192v3",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_X962P192v3"
+        },
+        {
+          "name": "X962P239v1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_X962P239v1"
+        },
+        {
+          "name": "X962P239v2",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_X962P239v2"
+        },
+        {
+          "name": "X962P239v3",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_X962P239v3"
+        },
+        {
+          "name": "X962P256v1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_X962P256v1"
+        }
+      ]
+    },
+    "IEncryptedAndAuthenticatedData": {
+      "guid": "6fa42fe7-1ecb-4b00-bea5-60b83f862f17",
+      "exclusive_to": "Windows.Security.Cryptography.Core.EncryptedAndAuthenticatedData",
+      "methods": [
+        {
+          "name": "get_EncryptedData",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_AuthenticationTag",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AuthenticationTag",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_AuthenticationTag"
+        },
+        {
+          "name": "EncryptedData",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_EncryptedData"
+        }
+      ]
+    },
+    "IHashAlgorithmNamesStatics": {
+      "guid": "6b5e0516-de96-4f0a-8d57-dcc9dae36c76",
+      "exclusive_to": "Windows.Security.Cryptography.Core.HashAlgorithmNames",
+      "methods": [
+        {
+          "name": "get_Md5",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Sha1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Sha256",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Sha384",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Sha512",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Md5",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Md5"
+        },
+        {
+          "name": "Sha1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Sha1"
+        },
+        {
+          "name": "Sha256",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Sha256"
+        },
+        {
+          "name": "Sha384",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Sha384"
+        },
+        {
+          "name": "Sha512",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Sha512"
+        }
+      ]
+    },
+    "IHashAlgorithmProvider": {
+      "guid": "be9b3080-b2c3-422b-bce1-ec90efb5d7b5",
+      "exclusive_to": "Windows.Security.Cryptography.Core.HashAlgorithmProvider",
+      "methods": [
+        {
+          "name": "get_AlgorithmName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_HashLength",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "HashData",
+          "params": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "CreateHash",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CryptographicHash",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AlgorithmName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AlgorithmName"
+        },
+        {
+          "name": "HashLength",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_HashLength"
+        }
+      ]
+    },
+    "IHashAlgorithmProviderStatics": {
+      "guid": "9fac9741-5cc4-4336-ae38-6212b75a915a",
+      "exclusive_to": "Windows.Security.Cryptography.Core.HashAlgorithmProvider",
+      "methods": [
+        {
+          "name": "OpenAlgorithm",
+          "params": [
+            {
+              "name": "algorithm",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HashAlgorithmProvider",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IHashComputation": {
+      "guid": "5904d1b6-ad31-4603-a3a4-b1bda98e2562",
+      "exclusive_to": "Windows.Security.Cryptography.Core.CryptographicHash",
+      "methods": [
+        {
+          "name": "Append",
+          "params": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetValueAndReset",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IKeyDerivationAlgorithmNamesStatics": {
+      "guid": "7b6e363e-94d2-4739-a57b-022e0c3a402a",
+      "exclusive_to": "Windows.Security.Cryptography.Core.KeyDerivationAlgorithmNames",
+      "methods": [
+        {
+          "name": "get_Pbkdf2Md5",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Pbkdf2Sha1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Pbkdf2Sha256",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Pbkdf2Sha384",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Pbkdf2Sha512",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Sp800108CtrHmacMd5",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Sp800108CtrHmacSha1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Sp800108CtrHmacSha256",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Sp800108CtrHmacSha384",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Sp800108CtrHmacSha512",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Sp80056aConcatMd5",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Sp80056aConcatSha1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Sp80056aConcatSha256",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Sp80056aConcatSha384",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Sp80056aConcatSha512",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Pbkdf2Md5",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Pbkdf2Md5"
+        },
+        {
+          "name": "Pbkdf2Sha1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Pbkdf2Sha1"
+        },
+        {
+          "name": "Pbkdf2Sha256",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Pbkdf2Sha256"
+        },
+        {
+          "name": "Pbkdf2Sha384",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Pbkdf2Sha384"
+        },
+        {
+          "name": "Pbkdf2Sha512",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Pbkdf2Sha512"
+        },
+        {
+          "name": "Sp800108CtrHmacMd5",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Sp800108CtrHmacMd5"
+        },
+        {
+          "name": "Sp800108CtrHmacSha1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Sp800108CtrHmacSha1"
+        },
+        {
+          "name": "Sp800108CtrHmacSha256",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Sp800108CtrHmacSha256"
+        },
+        {
+          "name": "Sp800108CtrHmacSha384",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Sp800108CtrHmacSha384"
+        },
+        {
+          "name": "Sp800108CtrHmacSha512",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Sp800108CtrHmacSha512"
+        },
+        {
+          "name": "Sp80056aConcatMd5",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Sp80056aConcatMd5"
+        },
+        {
+          "name": "Sp80056aConcatSha1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Sp80056aConcatSha1"
+        },
+        {
+          "name": "Sp80056aConcatSha256",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Sp80056aConcatSha256"
+        },
+        {
+          "name": "Sp80056aConcatSha384",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Sp80056aConcatSha384"
+        },
+        {
+          "name": "Sp80056aConcatSha512",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Sp80056aConcatSha512"
+        }
+      ]
+    },
+    "IKeyDerivationAlgorithmNamesStatics2": {
+      "guid": "57953fab-6044-466f-97f4-337b7808384d",
+      "exclusive_to": "Windows.Security.Cryptography.Core.KeyDerivationAlgorithmNames",
+      "methods": [
+        {
+          "name": "get_CapiKdfMd5",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CapiKdfSha1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CapiKdfSha256",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CapiKdfSha384",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_CapiKdfSha512",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CapiKdfMd5",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CapiKdfMd5"
+        },
+        {
+          "name": "CapiKdfSha1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CapiKdfSha1"
+        },
+        {
+          "name": "CapiKdfSha256",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CapiKdfSha256"
+        },
+        {
+          "name": "CapiKdfSha384",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CapiKdfSha384"
+        },
+        {
+          "name": "CapiKdfSha512",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CapiKdfSha512"
+        }
+      ]
+    },
+    "IKeyDerivationAlgorithmProvider": {
+      "guid": "e1fba83b-4671-43b7-9158-763aaa98b6bf",
+      "exclusive_to": "Windows.Security.Cryptography.Core.KeyDerivationAlgorithmProvider",
+      "methods": [
+        {
+          "name": "get_AlgorithmName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "CreateKey",
+          "params": [
+            {
+              "name": "keyMaterial",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CryptographicKey",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AlgorithmName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AlgorithmName"
+        }
+      ]
+    },
+    "IKeyDerivationAlgorithmProviderStatics": {
+      "guid": "0a22097a-0a1c-443b-9418-b9498aeb1603",
+      "exclusive_to": "Windows.Security.Cryptography.Core.KeyDerivationAlgorithmProvider",
+      "methods": [
+        {
+          "name": "OpenAlgorithm",
+          "params": [
+            {
+              "name": "algorithm",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "KeyDerivationAlgorithmProvider",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IKeyDerivationParameters": {
+      "guid": "7bf05967-047b-4a8c-964a-469ffd5522e2",
+      "exclusive_to": "Windows.Security.Cryptography.Core.KeyDerivationParameters",
+      "methods": [
+        {
+          "name": "get_KdfGenericBinary",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_KdfGenericBinary",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IterationCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IterationCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_IterationCount"
+        },
+        {
+          "name": "KdfGenericBinary",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_KdfGenericBinary",
+          "setter": "put_KdfGenericBinary"
+        }
+      ]
+    },
+    "IKeyDerivationParameters2": {
+      "guid": "cd4166d1-417e-4f4c-b666-c0d879f3f8e0",
+      "exclusive_to": "Windows.Security.Cryptography.Core.KeyDerivationParameters",
+      "methods": [
+        {
+          "name": "get_Capi1KdfTargetAlgorithm",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Capi1KdfTargetAlgorithm",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Capi1KdfTargetAlgorithm",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Capi1KdfTargetAlgorithm",
+                "namespace": "Windows.Security.Cryptography.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Capi1KdfTargetAlgorithm",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Capi1KdfTargetAlgorithm",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Capi1KdfTargetAlgorithm",
+          "setter": "put_Capi1KdfTargetAlgorithm"
+        }
+      ]
+    },
+    "IKeyDerivationParametersStatics": {
+      "guid": "ea961fbe-f37f-4146-9dfe-a456f1735f4b",
+      "exclusive_to": "Windows.Security.Cryptography.Core.KeyDerivationParameters",
+      "methods": [
+        {
+          "name": "BuildForPbkdf2",
+          "params": [
+            {
+              "name": "pbkdf2Salt",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "iterationCount",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "KeyDerivationParameters",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "BuildForSP800108",
+          "params": [
+            {
+              "name": "label",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "context",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "KeyDerivationParameters",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "BuildForSP80056a",
+          "params": [
+            {
+              "name": "algorithmId",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "partyUInfo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "partyVInfo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "suppPubInfo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "suppPrivInfo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "KeyDerivationParameters",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IKeyDerivationParametersStatics2": {
+      "guid": "a5783dd5-58e3-4efb-b283-a1653126e1be",
+      "exclusive_to": "Windows.Security.Cryptography.Core.KeyDerivationParameters",
+      "methods": [
+        {
+          "name": "BuildForCapi1Kdf",
+          "params": [
+            {
+              "name": "capi1KdfTargetAlgorithm",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Capi1KdfTargetAlgorithm",
+                "namespace": "Windows.Security.Cryptography.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "KeyDerivationParameters",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMacAlgorithmNamesStatics": {
+      "guid": "41412678-fb1e-43a4-895e-a9026e4390a3",
+      "exclusive_to": "Windows.Security.Cryptography.Core.MacAlgorithmNames",
+      "methods": [
+        {
+          "name": "get_HmacMd5",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_HmacSha1",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_HmacSha256",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_HmacSha384",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_HmacSha512",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AesCmac",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AesCmac",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AesCmac"
+        },
+        {
+          "name": "HmacMd5",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HmacMd5"
+        },
+        {
+          "name": "HmacSha1",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HmacSha1"
+        },
+        {
+          "name": "HmacSha256",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HmacSha256"
+        },
+        {
+          "name": "HmacSha384",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HmacSha384"
+        },
+        {
+          "name": "HmacSha512",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HmacSha512"
+        }
+      ]
+    },
+    "IMacAlgorithmProvider": {
+      "guid": "4a3fc5c3-1cbd-41ce-a092-aa0bc5d2d2f5",
+      "exclusive_to": "Windows.Security.Cryptography.Core.MacAlgorithmProvider",
+      "methods": [
+        {
+          "name": "get_AlgorithmName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MacLength",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "CreateKey",
+          "params": [
+            {
+              "name": "keyMaterial",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CryptographicKey",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AlgorithmName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AlgorithmName"
+        },
+        {
+          "name": "MacLength",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MacLength"
+        }
+      ]
+    },
+    "IMacAlgorithmProvider2": {
+      "guid": "6da32a15-d931-42ed-8e7e-c301caee119c",
+      "exclusive_to": "Windows.Security.Cryptography.Core.MacAlgorithmProvider",
+      "methods": [
+        {
+          "name": "CreateHash",
+          "params": [
+            {
+              "name": "keyMaterial",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CryptographicHash",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IMacAlgorithmProviderStatics": {
+      "guid": "c9bdc147-cc77-4df0-9e4e-b921e080644c",
+      "exclusive_to": "Windows.Security.Cryptography.Core.MacAlgorithmProvider",
+      "methods": [
+        {
+          "name": "OpenAlgorithm",
+          "params": [
+            {
+              "name": "algorithm",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MacAlgorithmProvider",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPersistedKeyProviderStatics": {
+      "guid": "77274814-d9d4-4cf5-b668-e0457df30894",
+      "exclusive_to": "Windows.Security.Cryptography.Core.PersistedKeyProvider",
+      "methods": [
+        {
+          "name": "OpenKeyPairFromCertificateAsync",
+          "params": [
+            {
+              "name": "certificate",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "hashAlgorithmName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "padding",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CryptographicPadding",
+                "namespace": "Windows.Security.Cryptography.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CryptographicKey",
+                "namespace": "Windows.Security.Cryptography.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "OpenPublicKeyFromCertificate",
+          "params": [
+            {
+              "name": "certificate",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "hashAlgorithmName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "padding",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CryptographicPadding",
+                "namespace": "Windows.Security.Cryptography.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CryptographicKey",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISymmetricAlgorithmNamesStatics": {
+      "guid": "6870727b-c996-4eae-84d7-79b2aeb73b9c",
+      "exclusive_to": "Windows.Security.Cryptography.Core.SymmetricAlgorithmNames",
+      "methods": [
+        {
+          "name": "get_DesCbc",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DesEcb",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TripleDesCbc",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TripleDesEcb",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Rc2Cbc",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Rc2Ecb",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AesCbc",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AesEcb",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AesGcm",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AesCcm",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AesCbcPkcs7",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_AesEcbPkcs7",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DesCbcPkcs7",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DesEcbPkcs7",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TripleDesCbcPkcs7",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_TripleDesEcbPkcs7",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Rc2CbcPkcs7",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Rc2EcbPkcs7",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Rc4",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AesCbc",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AesCbc"
+        },
+        {
+          "name": "AesCbcPkcs7",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AesCbcPkcs7"
+        },
+        {
+          "name": "AesCcm",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AesCcm"
+        },
+        {
+          "name": "AesEcb",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AesEcb"
+        },
+        {
+          "name": "AesEcbPkcs7",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AesEcbPkcs7"
+        },
+        {
+          "name": "AesGcm",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AesGcm"
+        },
+        {
+          "name": "DesCbc",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DesCbc"
+        },
+        {
+          "name": "DesCbcPkcs7",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DesCbcPkcs7"
+        },
+        {
+          "name": "DesEcb",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DesEcb"
+        },
+        {
+          "name": "DesEcbPkcs7",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DesEcbPkcs7"
+        },
+        {
+          "name": "Rc2Cbc",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Rc2Cbc"
+        },
+        {
+          "name": "Rc2CbcPkcs7",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Rc2CbcPkcs7"
+        },
+        {
+          "name": "Rc2Ecb",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Rc2Ecb"
+        },
+        {
+          "name": "Rc2EcbPkcs7",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Rc2EcbPkcs7"
+        },
+        {
+          "name": "Rc4",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Rc4"
+        },
+        {
+          "name": "TripleDesCbc",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TripleDesCbc"
+        },
+        {
+          "name": "TripleDesCbcPkcs7",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TripleDesCbcPkcs7"
+        },
+        {
+          "name": "TripleDesEcb",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TripleDesEcb"
+        },
+        {
+          "name": "TripleDesEcbPkcs7",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TripleDesEcbPkcs7"
+        }
+      ]
+    },
+    "ISymmetricKeyAlgorithmProvider": {
+      "guid": "3d7e4a33-3bd0-4902-8ac8-470d50d21376",
+      "exclusive_to": "Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider",
+      "methods": [
+        {
+          "name": "get_AlgorithmName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BlockLength",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "CreateSymmetricKey",
+          "params": [
+            {
+              "name": "keyMaterial",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CryptographicKey",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AlgorithmName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AlgorithmName"
+        },
+        {
+          "name": "BlockLength",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_BlockLength"
+        }
+      ]
+    },
+    "ISymmetricKeyAlgorithmProviderStatics": {
+      "guid": "8d3b2326-1f37-491f-b60e-f5431b26b483",
+      "exclusive_to": "Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider",
+      "methods": [
+        {
+          "name": "OpenAlgorithm",
+          "params": [
+            {
+              "name": "algorithm",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SymmetricKeyAlgorithmProvider",
+            "namespace": "Windows.Security.Cryptography.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AsymmetricAlgorithmNames": {
+      "static_interfaces": [
+        "Windows.Security.Cryptography.Core.IAsymmetricAlgorithmNamesStatics2",
+        "Windows.Security.Cryptography.Core.IAsymmetricAlgorithmNamesStatics"
+      ]
+    },
+    "AsymmetricKeyAlgorithmProvider": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAsymmetricKeyAlgorithmProvider",
+        "namespace": "Windows.Security.Cryptography.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAsymmetricKeyAlgorithmProvider",
+          "namespace": "Windows.Security.Cryptography.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAsymmetricKeyAlgorithmProvider2",
+          "namespace": "Windows.Security.Cryptography.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Security.Cryptography.Core.IAsymmetricKeyAlgorithmProviderStatics"
+      ]
+    },
+    "CryptographicEngine": {
+      "static_interfaces": [
+        "Windows.Security.Cryptography.Core.ICryptographicEngineStatics",
+        "Windows.Security.Cryptography.Core.ICryptographicEngineStatics2"
+      ]
+    },
+    "CryptographicHash": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHashComputation",
+        "namespace": "Windows.Security.Cryptography.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHashComputation",
+          "namespace": "Windows.Security.Cryptography.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CryptographicKey": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICryptographicKey",
+        "namespace": "Windows.Security.Cryptography.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICryptographicKey",
+          "namespace": "Windows.Security.Cryptography.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "EccCurveNames": {
+      "static_interfaces": [
+        "Windows.Security.Cryptography.Core.IEccCurveNamesStatics"
+      ]
+    },
+    "EncryptedAndAuthenticatedData": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IEncryptedAndAuthenticatedData",
+        "namespace": "Windows.Security.Cryptography.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IEncryptedAndAuthenticatedData",
+          "namespace": "Windows.Security.Cryptography.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "HashAlgorithmNames": {
+      "static_interfaces": [
+        "Windows.Security.Cryptography.Core.IHashAlgorithmNamesStatics"
+      ]
+    },
+    "HashAlgorithmProvider": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHashAlgorithmProvider",
+        "namespace": "Windows.Security.Cryptography.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHashAlgorithmProvider",
+          "namespace": "Windows.Security.Cryptography.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Security.Cryptography.Core.IHashAlgorithmProviderStatics"
+      ]
+    },
+    "KeyDerivationAlgorithmNames": {
+      "static_interfaces": [
+        "Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmNamesStatics",
+        "Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmNamesStatics2"
+      ]
+    },
+    "KeyDerivationAlgorithmProvider": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IKeyDerivationAlgorithmProvider",
+        "namespace": "Windows.Security.Cryptography.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IKeyDerivationAlgorithmProvider",
+          "namespace": "Windows.Security.Cryptography.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Security.Cryptography.Core.IKeyDerivationAlgorithmProviderStatics"
+      ]
+    },
+    "KeyDerivationParameters": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IKeyDerivationParameters",
+        "namespace": "Windows.Security.Cryptography.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IKeyDerivationParameters",
+          "namespace": "Windows.Security.Cryptography.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IKeyDerivationParameters2",
+          "namespace": "Windows.Security.Cryptography.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Security.Cryptography.Core.IKeyDerivationParametersStatics2",
+        "Windows.Security.Cryptography.Core.IKeyDerivationParametersStatics"
+      ]
+    },
+    "MacAlgorithmNames": {
+      "static_interfaces": [
+        "Windows.Security.Cryptography.Core.IMacAlgorithmNamesStatics"
+      ]
+    },
+    "MacAlgorithmProvider": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMacAlgorithmProvider",
+        "namespace": "Windows.Security.Cryptography.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMacAlgorithmProvider",
+          "namespace": "Windows.Security.Cryptography.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMacAlgorithmProvider2",
+          "namespace": "Windows.Security.Cryptography.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Security.Cryptography.Core.IMacAlgorithmProviderStatics"
+      ]
+    },
+    "PersistedKeyProvider": {
+      "static_interfaces": [
+        "Windows.Security.Cryptography.Core.IPersistedKeyProviderStatics"
+      ]
+    },
+    "SymmetricAlgorithmNames": {
+      "static_interfaces": [
+        "Windows.Security.Cryptography.Core.ISymmetricAlgorithmNamesStatics"
+      ]
+    },
+    "SymmetricKeyAlgorithmProvider": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISymmetricKeyAlgorithmProvider",
+        "namespace": "Windows.Security.Cryptography.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISymmetricKeyAlgorithmProvider",
+          "namespace": "Windows.Security.Cryptography.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Security.Cryptography.Core.ISymmetricKeyAlgorithmProviderStatics"
+      ]
+    }
+  }
+}

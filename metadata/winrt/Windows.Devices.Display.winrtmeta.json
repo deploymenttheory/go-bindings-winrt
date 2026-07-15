@@ -1,0 +1,582 @@
+{
+  "namespace": "Windows.Devices.Display",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "DisplayMonitorConnectionKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Internal",
+          "value": "0"
+        },
+        {
+          "name": "Wired",
+          "value": "1"
+        },
+        {
+          "name": "Wireless",
+          "value": "2"
+        },
+        {
+          "name": "Virtual",
+          "value": "3"
+        }
+      ]
+    },
+    "DisplayMonitorDescriptorKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Edid",
+          "value": "0"
+        },
+        {
+          "name": "DisplayId",
+          "value": "1"
+        }
+      ]
+    },
+    "DisplayMonitorPhysicalConnectorKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "HD15",
+          "value": "1"
+        },
+        {
+          "name": "AnalogTV",
+          "value": "2"
+        },
+        {
+          "name": "Dvi",
+          "value": "3"
+        },
+        {
+          "name": "Hdmi",
+          "value": "4"
+        },
+        {
+          "name": "Lvds",
+          "value": "5"
+        },
+        {
+          "name": "Sdi",
+          "value": "6"
+        },
+        {
+          "name": "DisplayPort",
+          "value": "7"
+        }
+      ]
+    },
+    "DisplayMonitorUsageKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Standard",
+          "value": "0"
+        },
+        {
+          "name": "HeadMounted",
+          "value": "1"
+        },
+        {
+          "name": "SpecialPurpose",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IDisplayMonitor": {
+      "guid": "1f6b15d4-1d01-4c51-87e2-6f954a772b59",
+      "exclusive_to": "Windows.Devices.Display.DisplayMonitor",
+      "methods": [
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ConnectionKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayMonitorConnectionKind",
+            "namespace": "Windows.Devices.Display",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_PhysicalConnector",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayMonitorPhysicalConnectorKind",
+            "namespace": "Windows.Devices.Display",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_DisplayAdapterDeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayAdapterId",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayAdapterId",
+            "namespace": "Windows.Graphics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_DisplayAdapterTargetId",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_UsageKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayMonitorUsageKind",
+            "namespace": "Windows.Devices.Display",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_NativeResolutionInRawPixels",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SizeInt32",
+            "namespace": "Windows.Graphics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_PhysicalSizeInInches",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Size",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_RawDpiX",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_RawDpiY",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_RedPrimary",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_GreenPrimary",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_BluePrimary",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_WhitePoint",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_MaxLuminanceInNits",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_MinLuminanceInNits",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_MaxAverageFullFrameLuminanceInNits",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "GetDescriptor",
+          "params": [
+            {
+              "name": "descriptorKind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayMonitorDescriptorKind",
+                "namespace": "Windows.Devices.Display",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "Native",
+              "name": "U1"
+            }
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BluePrimary",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BluePrimary"
+        },
+        {
+          "name": "ConnectionKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayMonitorConnectionKind",
+            "namespace": "Windows.Devices.Display",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ConnectionKind"
+        },
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        },
+        {
+          "name": "DisplayAdapterDeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayAdapterDeviceId"
+        },
+        {
+          "name": "DisplayAdapterId",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayAdapterId",
+            "namespace": "Windows.Graphics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_DisplayAdapterId"
+        },
+        {
+          "name": "DisplayAdapterTargetId",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_DisplayAdapterTargetId"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "GreenPrimary",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_GreenPrimary"
+        },
+        {
+          "name": "MaxAverageFullFrameLuminanceInNits",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_MaxAverageFullFrameLuminanceInNits"
+        },
+        {
+          "name": "MaxLuminanceInNits",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_MaxLuminanceInNits"
+        },
+        {
+          "name": "MinLuminanceInNits",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_MinLuminanceInNits"
+        },
+        {
+          "name": "NativeResolutionInRawPixels",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SizeInt32",
+            "namespace": "Windows.Graphics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_NativeResolutionInRawPixels"
+        },
+        {
+          "name": "PhysicalConnector",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayMonitorPhysicalConnectorKind",
+            "namespace": "Windows.Devices.Display",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PhysicalConnector"
+        },
+        {
+          "name": "PhysicalSizeInInches",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Size",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_PhysicalSizeInInches"
+        },
+        {
+          "name": "RawDpiX",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_RawDpiX"
+        },
+        {
+          "name": "RawDpiY",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_RawDpiY"
+        },
+        {
+          "name": "RedPrimary",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_RedPrimary"
+        },
+        {
+          "name": "UsageKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayMonitorUsageKind",
+            "namespace": "Windows.Devices.Display",
+            "target_kind": "Enum"
+          },
+          "getter": "get_UsageKind"
+        },
+        {
+          "name": "WhitePoint",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_WhitePoint"
+        }
+      ]
+    },
+    "IDisplayMonitor2": {
+      "guid": "023018e6-cb23-5830-96df-a7bf6e602577",
+      "exclusive_to": "Windows.Devices.Display.DisplayMonitor",
+      "methods": [
+        {
+          "name": "get_IsDolbyVisionSupportedInHdrMode",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsDolbyVisionSupportedInHdrMode",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsDolbyVisionSupportedInHdrMode"
+        }
+      ]
+    },
+    "IDisplayMonitorStatics": {
+      "guid": "6eae698f-a228-4c05-821d-b695d667de8e",
+      "exclusive_to": "Windows.Devices.Display.DisplayMonitor",
+      "methods": [
+        {
+          "name": "GetDeviceSelector",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayMonitor",
+                "namespace": "Windows.Devices.Display",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FromInterfaceIdAsync",
+          "params": [
+            {
+              "name": "deviceInterfaceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayMonitor",
+                "namespace": "Windows.Devices.Display",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "DisplayMonitor": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayMonitor",
+        "namespace": "Windows.Devices.Display",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayMonitor",
+          "namespace": "Windows.Devices.Display",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayMonitor2",
+          "namespace": "Windows.Devices.Display",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Display.IDisplayMonitorStatics"
+      ]
+    }
+  }
+}

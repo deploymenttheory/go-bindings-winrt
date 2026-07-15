@@ -1,0 +1,37 @@
+{
+  "namespace": "Windows.Graphics.Printing.ProtectedPrint",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IWindowsProtectedPrintInfoStatics": {
+      "guid": "a7d212f3-4168-5485-98ab-d89d04603b40",
+      "exclusive_to": "Windows.Graphics.Printing.ProtectedPrint.WindowsProtectedPrintInfo",
+      "methods": [
+        {
+          "name": "get_IsProtectedPrintEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsProtectedPrintEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsProtectedPrintEnabled"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "WindowsProtectedPrintInfo": {
+      "static_interfaces": [
+        "Windows.Graphics.Printing.ProtectedPrint.IWindowsProtectedPrintInfoStatics"
+      ]
+    }
+  }
+}

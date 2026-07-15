@@ -1,0 +1,388 @@
+{
+  "namespace": "Windows.ApplicationModel.Contacts.Provider",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "AddContactResult": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Added",
+          "value": "0"
+        },
+        {
+          "name": "AlreadyAdded",
+          "value": "1"
+        },
+        {
+          "name": "Unavailable",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IContactPickerUI": {
+      "guid": "e2cc1366-cf66-43c4-a96a-a5a112db4746",
+      "exclusive_to": "Windows.ApplicationModel.Contacts.Provider.ContactPickerUI",
+      "methods": [
+        {
+          "name": "AddContact",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "contact",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Contact",
+                "namespace": "Windows.ApplicationModel.Contacts",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AddContactResult",
+            "namespace": "Windows.ApplicationModel.Contacts.Provider",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "RemoveContact",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ContainsContact",
+          "params": [
+            {
+              "name": "id",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_DesiredFields",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SelectionMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ContactSelectionMode",
+            "namespace": "Windows.ApplicationModel.Contacts",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_ContactRemoved",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ContactPickerUI",
+                    "namespace": "Windows.ApplicationModel.Contacts.Provider",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "ContactRemovedEventArgs",
+                    "namespace": "Windows.ApplicationModel.Contacts.Provider",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ContactRemoved",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DesiredFields",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_DesiredFields"
+        },
+        {
+          "name": "SelectionMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ContactSelectionMode",
+            "namespace": "Windows.ApplicationModel.Contacts",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SelectionMode"
+        }
+      ],
+      "events": [
+        {
+          "name": "ContactRemoved",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ContactPickerUI",
+                "namespace": "Windows.ApplicationModel.Contacts.Provider",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "ContactRemovedEventArgs",
+                "namespace": "Windows.ApplicationModel.Contacts.Provider",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ContactRemoved",
+          "remove_method": "remove_ContactRemoved"
+        }
+      ]
+    },
+    "IContactPickerUI2": {
+      "guid": "6e449e28-7b25-4999-9b0b-875400a1e8c8",
+      "exclusive_to": "Windows.ApplicationModel.Contacts.Provider.ContactPickerUI",
+      "methods": [
+        {
+          "name": "AddContact",
+          "params": [
+            {
+              "name": "contact",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Contact",
+                "namespace": "Windows.ApplicationModel.Contacts",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AddContactResult",
+            "namespace": "Windows.ApplicationModel.Contacts.Provider",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_DesiredFieldsWithContactFieldType",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ContactFieldType",
+                "namespace": "Windows.ApplicationModel.Contacts",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DesiredFieldsWithContactFieldType",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ContactFieldType",
+                "namespace": "Windows.ApplicationModel.Contacts",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_DesiredFieldsWithContactFieldType"
+        }
+      ]
+    },
+    "IContactProvider": {
+      "guid": "c44bb54b-732f-5004-8cd7-65d90cf25f42",
+      "methods": [
+        {
+          "name": "GetContactFromRemoteIdAsync",
+          "params": [
+            {
+              "name": "contactRemoteId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Contact",
+                "namespace": "Windows.ApplicationModel.Contacts",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ContactListId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContactListId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ContactListId"
+        }
+      ]
+    },
+    "IContactRemovedEventArgs": {
+      "guid": "6f354338-3302-4d13-ad8d-adcc0ff9e47c",
+      "exclusive_to": "Windows.ApplicationModel.Contacts.Provider.ContactRemovedEventArgs",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "ContactPickerUI": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IContactPickerUI",
+        "namespace": "Windows.ApplicationModel.Contacts.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IContactPickerUI",
+          "namespace": "Windows.ApplicationModel.Contacts.Provider",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IContactPickerUI2",
+          "namespace": "Windows.ApplicationModel.Contacts.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ContactRemovedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IContactRemovedEventArgs",
+        "namespace": "Windows.ApplicationModel.Contacts.Provider",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IContactRemovedEventArgs",
+          "namespace": "Windows.ApplicationModel.Contacts.Provider",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

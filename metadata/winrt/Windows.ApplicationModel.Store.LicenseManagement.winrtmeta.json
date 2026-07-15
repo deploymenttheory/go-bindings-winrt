@@ -1,0 +1,346 @@
+{
+  "namespace": "Windows.ApplicationModel.Store.LicenseManagement",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "LicenseRefreshOption": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "RunningLicenses",
+          "value": "0"
+        },
+        {
+          "name": "AllLicenses",
+          "value": "1"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ILicenseManagerStatics": {
+      "guid": "b5ac3ae0-da47-4f20-9a23-09182c9476ff",
+      "exclusive_to": "Windows.ApplicationModel.Store.LicenseManagement.LicenseManager",
+      "methods": [
+        {
+          "name": "AddLicenseAsync",
+          "params": [
+            {
+              "name": "license",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetSatisfactionInfosAsync",
+          "params": [
+            {
+              "name": "contentIds",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "keyIds",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "LicenseSatisfactionResult",
+                "namespace": "Windows.ApplicationModel.Store.LicenseManagement",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ILicenseManagerStatics2": {
+      "guid": "ab2ec47b-1f79-4480-b87e-2c499e601ba3",
+      "exclusive_to": "Windows.ApplicationModel.Store.LicenseManagement.LicenseManager",
+      "methods": [
+        {
+          "name": "RefreshLicensesAsync",
+          "params": [
+            {
+              "name": "refreshOption",
+              "type": {
+                "kind": "ApiRef",
+                "name": "LicenseRefreshOption",
+                "namespace": "Windows.ApplicationModel.Store.LicenseManagement",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "ILicenseSatisfactionInfo": {
+      "guid": "3ccbb08f-db31-48d5-8384-fa17c81474e2",
+      "exclusive_to": "Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionInfo",
+      "methods": [
+        {
+          "name": "get_SatisfiedByDevice",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SatisfiedByOpenLicense",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SatisfiedByTrial",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SatisfiedByPass",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SatisfiedByInstallMedia",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SatisfiedBySignedInUser",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsSatisfied",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsSatisfied",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSatisfied"
+        },
+        {
+          "name": "SatisfiedByDevice",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SatisfiedByDevice"
+        },
+        {
+          "name": "SatisfiedByInstallMedia",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SatisfiedByInstallMedia"
+        },
+        {
+          "name": "SatisfiedByOpenLicense",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SatisfiedByOpenLicense"
+        },
+        {
+          "name": "SatisfiedByPass",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SatisfiedByPass"
+        },
+        {
+          "name": "SatisfiedBySignedInUser",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SatisfiedBySignedInUser"
+        },
+        {
+          "name": "SatisfiedByTrial",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SatisfiedByTrial"
+        }
+      ]
+    },
+    "ILicenseSatisfactionResult": {
+      "guid": "3c674f73-3c87-4ee1-8201-f428359bd3af",
+      "exclusive_to": "Windows.ApplicationModel.Store.LicenseManagement.LicenseSatisfactionResult",
+      "methods": [
+        {
+          "name": "get_LicenseSatisfactionInfos",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "LicenseSatisfactionInfo",
+                "namespace": "Windows.ApplicationModel.Store.LicenseManagement",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ExtendedError",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ExtendedError",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HResult",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ExtendedError"
+        },
+        {
+          "name": "LicenseSatisfactionInfos",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "LicenseSatisfactionInfo",
+                "namespace": "Windows.ApplicationModel.Store.LicenseManagement",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_LicenseSatisfactionInfos"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "LicenseManager": {
+      "static_interfaces": [
+        "Windows.ApplicationModel.Store.LicenseManagement.ILicenseManagerStatics",
+        "Windows.ApplicationModel.Store.LicenseManagement.ILicenseManagerStatics2"
+      ]
+    },
+    "LicenseSatisfactionInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILicenseSatisfactionInfo",
+        "namespace": "Windows.ApplicationModel.Store.LicenseManagement",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILicenseSatisfactionInfo",
+          "namespace": "Windows.ApplicationModel.Store.LicenseManagement",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "LicenseSatisfactionResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ILicenseSatisfactionResult",
+        "namespace": "Windows.ApplicationModel.Store.LicenseManagement",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ILicenseSatisfactionResult",
+          "namespace": "Windows.ApplicationModel.Store.LicenseManagement",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

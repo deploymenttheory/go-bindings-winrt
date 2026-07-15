@@ -1,0 +1,2019 @@
+{
+  "namespace": "Windows.UI.Xaml.Media.Imaging",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "BitmapCreateOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "IgnoreImageCache",
+          "value": "8"
+        }
+      ]
+    },
+    "DecodePixelType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Physical",
+          "value": "0"
+        },
+        {
+          "name": "Logical",
+          "value": "1"
+        }
+      ]
+    },
+    "SvgImageSourceLoadStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "NetworkError",
+          "value": "1"
+        },
+        {
+          "name": "InvalidFormat",
+          "value": "2"
+        },
+        {
+          "name": "Other",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IBitmapImage": {
+      "guid": "31af3271-e3b4-442d-a341-4c0226b2725b",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.BitmapImage",
+      "methods": [
+        {
+          "name": "get_CreateOptions",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapCreateOptions",
+            "namespace": "Windows.UI.Xaml.Media.Imaging",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_CreateOptions",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapCreateOptions",
+                "namespace": "Windows.UI.Xaml.Media.Imaging",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_UriSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_UriSource",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DecodePixelWidth",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_DecodePixelWidth",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DecodePixelHeight",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_DecodePixelHeight",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_DownloadProgress",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DownloadProgressEventHandler",
+                "namespace": "Windows.UI.Xaml.Media.Imaging",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DownloadProgress",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ImageOpened",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RoutedEventHandler",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ImageOpened",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ImageFailed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ExceptionRoutedEventHandler",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ImageFailed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CreateOptions",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapCreateOptions",
+            "namespace": "Windows.UI.Xaml.Media.Imaging",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CreateOptions",
+          "setter": "put_CreateOptions"
+        },
+        {
+          "name": "DecodePixelHeight",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_DecodePixelHeight",
+          "setter": "put_DecodePixelHeight"
+        },
+        {
+          "name": "DecodePixelWidth",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_DecodePixelWidth",
+          "setter": "put_DecodePixelWidth"
+        },
+        {
+          "name": "UriSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_UriSource",
+          "setter": "put_UriSource"
+        }
+      ],
+      "events": [
+        {
+          "name": "DownloadProgress",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DownloadProgressEventHandler",
+            "namespace": "Windows.UI.Xaml.Media.Imaging",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_DownloadProgress",
+          "remove_method": "remove_DownloadProgress"
+        },
+        {
+          "name": "ImageFailed",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ExceptionRoutedEventHandler",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_ImageFailed",
+          "remove_method": "remove_ImageFailed"
+        },
+        {
+          "name": "ImageOpened",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RoutedEventHandler",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_ImageOpened",
+          "remove_method": "remove_ImageOpened"
+        }
+      ]
+    },
+    "IBitmapImage2": {
+      "guid": "1069c1b6-8c9b-4762-be3d-759f5698f2b3",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.BitmapImage",
+      "methods": [
+        {
+          "name": "get_DecodePixelType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DecodePixelType",
+            "namespace": "Windows.UI.Xaml.Media.Imaging",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_DecodePixelType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DecodePixelType",
+                "namespace": "Windows.UI.Xaml.Media.Imaging",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DecodePixelType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DecodePixelType",
+            "namespace": "Windows.UI.Xaml.Media.Imaging",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DecodePixelType",
+          "setter": "put_DecodePixelType"
+        }
+      ]
+    },
+    "IBitmapImage3": {
+      "guid": "f1de6f26-3c73-453f-a7ba-9b85c18b3733",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.BitmapImage",
+      "methods": [
+        {
+          "name": "get_IsAnimatedBitmap",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsPlaying",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_AutoPlay",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AutoPlay",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Play"
+        },
+        {
+          "name": "Stop"
+        }
+      ],
+      "properties": [
+        {
+          "name": "AutoPlay",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AutoPlay",
+          "setter": "put_AutoPlay"
+        },
+        {
+          "name": "IsAnimatedBitmap",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAnimatedBitmap"
+        },
+        {
+          "name": "IsPlaying",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPlaying"
+        }
+      ]
+    },
+    "IBitmapImageFactory": {
+      "guid": "c9132978-4810-4e5e-8087-03671ee60d85",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.BitmapImage",
+      "methods": [
+        {
+          "name": "CreateInstanceWithUriSource",
+          "params": [
+            {
+              "name": "uriSource",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapImage",
+            "namespace": "Windows.UI.Xaml.Media.Imaging",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IBitmapImageStatics": {
+      "guid": "9e282143-70e8-437c-9fa4-2cbf295cff84",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.BitmapImage",
+      "methods": [
+        {
+          "name": "get_CreateOptionsProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_UriSourceProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DecodePixelWidthProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DecodePixelHeightProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CreateOptionsProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_CreateOptionsProperty"
+        },
+        {
+          "name": "DecodePixelHeightProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_DecodePixelHeightProperty"
+        },
+        {
+          "name": "DecodePixelWidthProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_DecodePixelWidthProperty"
+        },
+        {
+          "name": "UriSourceProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_UriSourceProperty"
+        }
+      ]
+    },
+    "IBitmapImageStatics2": {
+      "guid": "c5f5576a-75af-41a4-b893-8fe91fee2882",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.BitmapImage",
+      "methods": [
+        {
+          "name": "get_DecodePixelTypeProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DecodePixelTypeProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_DecodePixelTypeProperty"
+        }
+      ]
+    },
+    "IBitmapImageStatics3": {
+      "guid": "2b44e30d-f6d5-4411-a8cd-bf7603c4faa0",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.BitmapImage",
+      "methods": [
+        {
+          "name": "get_IsAnimatedBitmapProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_IsPlayingProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_AutoPlayProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AutoPlayProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_AutoPlayProperty"
+        },
+        {
+          "name": "IsAnimatedBitmapProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_IsAnimatedBitmapProperty"
+        },
+        {
+          "name": "IsPlayingProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_IsPlayingProperty"
+        }
+      ]
+    },
+    "IBitmapSource": {
+      "guid": "23d86411-202f-41b2-8c5b-a8a3b333800b",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.BitmapSource",
+      "methods": [
+        {
+          "name": "get_PixelWidth",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_PixelHeight",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "SetSource",
+          "params": [
+            {
+              "name": "streamSource",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetSourceAsync",
+          "params": [
+            {
+              "name": "streamSource",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PixelHeight",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_PixelHeight"
+        },
+        {
+          "name": "PixelWidth",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_PixelWidth"
+        }
+      ]
+    },
+    "IBitmapSourceFactory": {
+      "guid": "e240420e-d4a7-49a4-a0b4-a59fdd77e508",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.BitmapSource",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "baseInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "innerInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapSource",
+            "namespace": "Windows.UI.Xaml.Media.Imaging",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IBitmapSourceStatics": {
+      "guid": "9a9c9981-827b-4e51-891b-8a15b511842d",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.BitmapSource",
+      "methods": [
+        {
+          "name": "get_PixelWidthProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PixelHeightProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PixelHeightProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_PixelHeightProperty"
+        },
+        {
+          "name": "PixelWidthProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_PixelWidthProperty"
+        }
+      ]
+    },
+    "IDownloadProgressEventArgs": {
+      "guid": "7311e0d4-fe94-4e70-9b90-cdd47ac23afb",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.DownloadProgressEventArgs",
+      "methods": [
+        {
+          "name": "get_Progress",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_Progress",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Progress",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Progress",
+          "setter": "put_Progress"
+        }
+      ]
+    },
+    "IRenderTargetBitmap": {
+      "guid": "500dee81-893c-4c0a-8fec-4678ac717589",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.RenderTargetBitmap",
+      "methods": [
+        {
+          "name": "get_PixelWidth",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_PixelHeight",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "RenderAsync",
+          "overload": "RenderAsync",
+          "params": [
+            {
+              "name": "element",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElement",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "RenderAsync",
+          "overload": "RenderToSizeAsync",
+          "params": [
+            {
+              "name": "element",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElement",
+                "namespace": "Windows.UI.Xaml",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "scaledWidth",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "scaledHeight",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetPixelsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PixelHeight",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_PixelHeight"
+        },
+        {
+          "name": "PixelWidth",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_PixelWidth"
+        }
+      ]
+    },
+    "IRenderTargetBitmapStatics": {
+      "guid": "f0a1efee-c131-4d40-9c47-f7d7cf2b077f",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.RenderTargetBitmap",
+      "methods": [
+        {
+          "name": "get_PixelWidthProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PixelHeightProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "PixelHeightProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_PixelHeightProperty"
+        },
+        {
+          "name": "PixelWidthProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_PixelWidthProperty"
+        }
+      ]
+    },
+    "ISoftwareBitmapSource": {
+      "guid": "d2dd9ed0-d3c5-4056-91b5-b7c1d1e8130e",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.SoftwareBitmapSource",
+      "methods": [
+        {
+          "name": "SetBitmapAsync",
+          "params": [
+            {
+              "name": "softwareBitmap",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SoftwareBitmap",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "ISurfaceImageSource": {
+      "guid": "62f7d416-c714-4c4c-8273-f839bc58135c",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.SurfaceImageSource"
+    },
+    "ISurfaceImageSourceFactory": {
+      "guid": "3ab2212a-ef65-4a5f-bfac-73993e8c12c9",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.SurfaceImageSource",
+      "methods": [
+        {
+          "name": "CreateInstanceWithDimensions",
+          "params": [
+            {
+              "name": "pixelWidth",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "pixelHeight",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "baseInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "innerInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SurfaceImageSource",
+            "namespace": "Windows.UI.Xaml.Media.Imaging",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateInstanceWithDimensionsAndOpacity",
+          "params": [
+            {
+              "name": "pixelWidth",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "pixelHeight",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "isOpaque",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "baseInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "innerInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SurfaceImageSource",
+            "namespace": "Windows.UI.Xaml.Media.Imaging",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISvgImageSource": {
+      "guid": "03e1cec3-0ca8-4a4e-8d7c-c808a0838586",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.SvgImageSource",
+      "methods": [
+        {
+          "name": "get_UriSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_UriSource",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RasterizePixelWidth",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_RasterizePixelWidth",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RasterizePixelHeight",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_RasterizePixelHeight",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Opened",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SvgImageSource",
+                    "namespace": "Windows.UI.Xaml.Media.Imaging",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SvgImageSourceOpenedEventArgs",
+                    "namespace": "Windows.UI.Xaml.Media.Imaging",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Opened",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_OpenFailed",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SvgImageSource",
+                    "namespace": "Windows.UI.Xaml.Media.Imaging",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "SvgImageSourceFailedEventArgs",
+                    "namespace": "Windows.UI.Xaml.Media.Imaging",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_OpenFailed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetSourceAsync",
+          "params": [
+            {
+              "name": "streamSource",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SvgImageSourceLoadStatus",
+                "namespace": "Windows.UI.Xaml.Media.Imaging",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RasterizePixelHeight",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_RasterizePixelHeight",
+          "setter": "put_RasterizePixelHeight"
+        },
+        {
+          "name": "RasterizePixelWidth",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_RasterizePixelWidth",
+          "setter": "put_RasterizePixelWidth"
+        },
+        {
+          "name": "UriSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_UriSource",
+          "setter": "put_UriSource"
+        }
+      ],
+      "events": [
+        {
+          "name": "OpenFailed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SvgImageSource",
+                "namespace": "Windows.UI.Xaml.Media.Imaging",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SvgImageSourceFailedEventArgs",
+                "namespace": "Windows.UI.Xaml.Media.Imaging",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_OpenFailed",
+          "remove_method": "remove_OpenFailed"
+        },
+        {
+          "name": "Opened",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SvgImageSource",
+                "namespace": "Windows.UI.Xaml.Media.Imaging",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SvgImageSourceOpenedEventArgs",
+                "namespace": "Windows.UI.Xaml.Media.Imaging",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Opened",
+          "remove_method": "remove_Opened"
+        }
+      ]
+    },
+    "ISvgImageSourceFactory": {
+      "guid": "c794e9e7-cf23-4d72-bf1a-dfaa16d8ea52",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.SvgImageSource",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "baseInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "innerInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SvgImageSource",
+            "namespace": "Windows.UI.Xaml.Media.Imaging",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateInstanceWithUriSource",
+          "params": [
+            {
+              "name": "uriSource",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "baseInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "innerInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SvgImageSource",
+            "namespace": "Windows.UI.Xaml.Media.Imaging",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISvgImageSourceFailedEventArgs": {
+      "guid": "68bb3170-3ccc-4035-ac01-9834543d744e",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.SvgImageSourceFailedEventArgs",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SvgImageSourceLoadStatus",
+            "namespace": "Windows.UI.Xaml.Media.Imaging",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SvgImageSourceLoadStatus",
+            "namespace": "Windows.UI.Xaml.Media.Imaging",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "ISvgImageSourceOpenedEventArgs": {
+      "guid": "85ef4c16-748e-4008-95c7-6a23dd7316db",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.SvgImageSourceOpenedEventArgs"
+    },
+    "ISvgImageSourceStatics": {
+      "guid": "9c6638ce-bed1-4aab-acbb-d3e2185d315a",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.SvgImageSource",
+      "methods": [
+        {
+          "name": "get_UriSourceProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_RasterizePixelWidthProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_RasterizePixelHeightProperty",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RasterizePixelHeightProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_RasterizePixelHeightProperty"
+        },
+        {
+          "name": "RasterizePixelWidthProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_RasterizePixelWidthProperty"
+        },
+        {
+          "name": "UriSourceProperty",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DependencyProperty",
+            "namespace": "Windows.UI.Xaml",
+            "target_kind": "Class"
+          },
+          "getter": "get_UriSourceProperty"
+        }
+      ]
+    },
+    "IVirtualSurfaceImageSource": {
+      "guid": "4a711fea-bfac-11e0-a06a-9de44724019b",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.VirtualSurfaceImageSource"
+    },
+    "IVirtualSurfaceImageSourceFactory": {
+      "guid": "3ab2212a-bfac-11e0-8a92-69e44724019b",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.VirtualSurfaceImageSource",
+      "methods": [
+        {
+          "name": "CreateInstanceWithDimensions",
+          "params": [
+            {
+              "name": "pixelWidth",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "pixelHeight",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VirtualSurfaceImageSource",
+            "namespace": "Windows.UI.Xaml.Media.Imaging",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateInstanceWithDimensionsAndOpacity",
+          "params": [
+            {
+              "name": "pixelWidth",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "pixelHeight",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "isOpaque",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VirtualSurfaceImageSource",
+            "namespace": "Windows.UI.Xaml.Media.Imaging",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IWriteableBitmap": {
+      "guid": "bf0b7e6f-df7c-4a85-8413-a1216285835c",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.WriteableBitmap",
+      "methods": [
+        {
+          "name": "get_PixelBuffer",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "Invalidate"
+        }
+      ],
+      "properties": [
+        {
+          "name": "PixelBuffer",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_PixelBuffer"
+        }
+      ]
+    },
+    "IWriteableBitmapFactory": {
+      "guid": "5563ebb1-3ef2-42c5-9c6d-1cf5dcc041ff",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.WriteableBitmap",
+      "methods": [
+        {
+          "name": "CreateInstanceWithDimensions",
+          "params": [
+            {
+              "name": "pixelWidth",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "pixelHeight",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WriteableBitmap",
+            "namespace": "Windows.UI.Xaml.Media.Imaging",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IXamlRenderingBackgroundTask": {
+      "guid": "5d5fe9aa-533e-44b8-a975-fc5f1e3bff52",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.XamlRenderingBackgroundTask"
+    },
+    "IXamlRenderingBackgroundTaskFactory": {
+      "guid": "a3d1bb63-38f8-4da3-9fca-fd8128a2cbf9",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.XamlRenderingBackgroundTask",
+      "methods": [
+        {
+          "name": "CreateInstance",
+          "params": [
+            {
+              "name": "baseInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "innerInterface",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              },
+              "out": true
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "XamlRenderingBackgroundTask",
+            "namespace": "Windows.UI.Xaml.Media.Imaging",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IXamlRenderingBackgroundTaskOverrides": {
+      "guid": "9c2a6997-a908-4711-b4b2-a960db3d8e5a",
+      "exclusive_to": "Windows.UI.Xaml.Media.Imaging.XamlRenderingBackgroundTask",
+      "methods": [
+        {
+          "name": "OnRun",
+          "params": [
+            {
+              "name": "taskInstance",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBackgroundTaskInstance",
+                "namespace": "Windows.ApplicationModel.Background",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "classes": {
+    "BitmapImage": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBitmapImage",
+        "namespace": "Windows.UI.Xaml.Media.Imaging",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBitmapImage",
+          "namespace": "Windows.UI.Xaml.Media.Imaging",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBitmapImage2",
+          "namespace": "Windows.UI.Xaml.Media.Imaging",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBitmapImage3",
+          "namespace": "Windows.UI.Xaml.Media.Imaging",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.UI.Xaml.Media.Imaging.IBitmapImageFactory"
+      ],
+      "static_interfaces": [
+        "Windows.UI.Xaml.Media.Imaging.IBitmapImageStatics",
+        "Windows.UI.Xaml.Media.Imaging.IBitmapImageStatics2",
+        "Windows.UI.Xaml.Media.Imaging.IBitmapImageStatics3"
+      ],
+      "composable": true
+    },
+    "BitmapSource": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBitmapSource",
+        "namespace": "Windows.UI.Xaml.Media.Imaging",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBitmapSource",
+          "namespace": "Windows.UI.Xaml.Media.Imaging",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Xaml.Media.Imaging.IBitmapSourceStatics"
+      ],
+      "composable_factories": [
+        "Windows.UI.Xaml.Media.Imaging.IBitmapSourceFactory"
+      ],
+      "composable": true
+    },
+    "DownloadProgressEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDownloadProgressEventArgs",
+        "namespace": "Windows.UI.Xaml.Media.Imaging",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDownloadProgressEventArgs",
+          "namespace": "Windows.UI.Xaml.Media.Imaging",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "RenderTargetBitmap": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IRenderTargetBitmap",
+        "namespace": "Windows.UI.Xaml.Media.Imaging",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IRenderTargetBitmap",
+          "namespace": "Windows.UI.Xaml.Media.Imaging",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.UI.Xaml.Media.Imaging.IRenderTargetBitmapStatics"
+      ],
+      "composable": true
+    },
+    "SoftwareBitmapSource": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISoftwareBitmapSource",
+        "namespace": "Windows.UI.Xaml.Media.Imaging",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISoftwareBitmapSource",
+          "namespace": "Windows.UI.Xaml.Media.Imaging",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "composable": true
+    },
+    "SurfaceImageSource": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISurfaceImageSource",
+        "namespace": "Windows.UI.Xaml.Media.Imaging",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISurfaceImageSource",
+          "namespace": "Windows.UI.Xaml.Media.Imaging",
+          "target_kind": "Interface"
+        }
+      ],
+      "composable_factories": [
+        "Windows.UI.Xaml.Media.Imaging.ISurfaceImageSourceFactory"
+      ],
+      "composable": true
+    },
+    "SvgImageSource": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISvgImageSource",
+        "namespace": "Windows.UI.Xaml.Media.Imaging",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISvgImageSource",
+          "namespace": "Windows.UI.Xaml.Media.Imaging",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.Xaml.Media.Imaging.ISvgImageSourceStatics"
+      ],
+      "composable_factories": [
+        "Windows.UI.Xaml.Media.Imaging.ISvgImageSourceFactory"
+      ],
+      "composable": true
+    },
+    "SvgImageSourceFailedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISvgImageSourceFailedEventArgs",
+        "namespace": "Windows.UI.Xaml.Media.Imaging",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISvgImageSourceFailedEventArgs",
+          "namespace": "Windows.UI.Xaml.Media.Imaging",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SvgImageSourceOpenedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISvgImageSourceOpenedEventArgs",
+        "namespace": "Windows.UI.Xaml.Media.Imaging",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISvgImageSourceOpenedEventArgs",
+          "namespace": "Windows.UI.Xaml.Media.Imaging",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VirtualSurfaceImageSource": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVirtualSurfaceImageSource",
+        "namespace": "Windows.UI.Xaml.Media.Imaging",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVirtualSurfaceImageSource",
+          "namespace": "Windows.UI.Xaml.Media.Imaging",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.UI.Xaml.Media.Imaging.IVirtualSurfaceImageSourceFactory"
+      ],
+      "composable": true
+    },
+    "WriteableBitmap": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWriteableBitmap",
+        "namespace": "Windows.UI.Xaml.Media.Imaging",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWriteableBitmap",
+          "namespace": "Windows.UI.Xaml.Media.Imaging",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.UI.Xaml.Media.Imaging.IWriteableBitmapFactory"
+      ],
+      "composable": true
+    },
+    "XamlRenderingBackgroundTask": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IXamlRenderingBackgroundTask",
+        "namespace": "Windows.UI.Xaml.Media.Imaging",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IXamlRenderingBackgroundTask",
+          "namespace": "Windows.UI.Xaml.Media.Imaging",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IXamlRenderingBackgroundTaskOverrides",
+          "namespace": "Windows.UI.Xaml.Media.Imaging",
+          "target_kind": "Interface"
+        }
+      ],
+      "composable_factories": [
+        "Windows.UI.Xaml.Media.Imaging.IXamlRenderingBackgroundTaskFactory"
+      ]
+    }
+  },
+  "delegates": {
+    "DownloadProgressEventHandler": {
+      "guid": "1abaee23-74ee-4cc7-99ba-b171e3cda61e",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          },
+          {
+            "name": "e",
+            "type": {
+              "kind": "ApiRef",
+              "name": "DownloadProgressEventArgs",
+              "namespace": "Windows.UI.Xaml.Media.Imaging",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

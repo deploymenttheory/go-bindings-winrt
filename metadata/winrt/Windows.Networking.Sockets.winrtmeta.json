@@ -1,0 +1,6207 @@
+{
+  "namespace": "Windows.Networking.Sockets",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "ControlChannelTriggerStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "HardwareSlotRequested",
+          "value": "0"
+        },
+        {
+          "name": "SoftwareSlotAllocated",
+          "value": "1"
+        },
+        {
+          "name": "HardwareSlotAllocated",
+          "value": "2"
+        },
+        {
+          "name": "PolicyError",
+          "value": "3"
+        },
+        {
+          "name": "SystemError",
+          "value": "4"
+        },
+        {
+          "name": "TransportDisconnected",
+          "value": "5"
+        },
+        {
+          "name": "ServiceUnavailable",
+          "value": "6"
+        }
+      ]
+    },
+    "MessageWebSocketReceiveMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "FullMessage",
+          "value": "0"
+        },
+        {
+          "name": "PartialMessage",
+          "value": "1"
+        }
+      ]
+    },
+    "SocketActivityConnectedStandbyAction": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "DoNotWake",
+          "value": "0"
+        },
+        {
+          "name": "Wake",
+          "value": "1"
+        }
+      ]
+    },
+    "SocketActivityKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "StreamSocketListener",
+          "value": "1"
+        },
+        {
+          "name": "DatagramSocket",
+          "value": "2"
+        },
+        {
+          "name": "StreamSocket",
+          "value": "3"
+        }
+      ]
+    },
+    "SocketActivityTriggerReason": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "SocketActivity",
+          "value": "1"
+        },
+        {
+          "name": "ConnectionAccepted",
+          "value": "2"
+        },
+        {
+          "name": "KeepAliveTimerExpired",
+          "value": "3"
+        },
+        {
+          "name": "SocketClosed",
+          "value": "4"
+        }
+      ]
+    },
+    "SocketErrorStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "OperationAborted",
+          "value": "1"
+        },
+        {
+          "name": "HttpInvalidServerResponse",
+          "value": "2"
+        },
+        {
+          "name": "ConnectionTimedOut",
+          "value": "3"
+        },
+        {
+          "name": "AddressFamilyNotSupported",
+          "value": "4"
+        },
+        {
+          "name": "SocketTypeNotSupported",
+          "value": "5"
+        },
+        {
+          "name": "HostNotFound",
+          "value": "6"
+        },
+        {
+          "name": "NoDataRecordOfRequestedType",
+          "value": "7"
+        },
+        {
+          "name": "NonAuthoritativeHostNotFound",
+          "value": "8"
+        },
+        {
+          "name": "ClassTypeNotFound",
+          "value": "9"
+        },
+        {
+          "name": "AddressAlreadyInUse",
+          "value": "10"
+        },
+        {
+          "name": "CannotAssignRequestedAddress",
+          "value": "11"
+        },
+        {
+          "name": "ConnectionRefused",
+          "value": "12"
+        },
+        {
+          "name": "NetworkIsUnreachable",
+          "value": "13"
+        },
+        {
+          "name": "UnreachableHost",
+          "value": "14"
+        },
+        {
+          "name": "NetworkIsDown",
+          "value": "15"
+        },
+        {
+          "name": "NetworkDroppedConnectionOnReset",
+          "value": "16"
+        },
+        {
+          "name": "SoftwareCausedConnectionAbort",
+          "value": "17"
+        },
+        {
+          "name": "ConnectionResetByPeer",
+          "value": "18"
+        },
+        {
+          "name": "HostIsDown",
+          "value": "19"
+        },
+        {
+          "name": "NoAddressesFound",
+          "value": "20"
+        },
+        {
+          "name": "TooManyOpenFiles",
+          "value": "21"
+        },
+        {
+          "name": "MessageTooLong",
+          "value": "22"
+        },
+        {
+          "name": "CertificateExpired",
+          "value": "23"
+        },
+        {
+          "name": "CertificateUntrustedRoot",
+          "value": "24"
+        },
+        {
+          "name": "CertificateCommonNameIsIncorrect",
+          "value": "25"
+        },
+        {
+          "name": "CertificateWrongUsage",
+          "value": "26"
+        },
+        {
+          "name": "CertificateRevoked",
+          "value": "27"
+        },
+        {
+          "name": "CertificateNoRevocationCheck",
+          "value": "28"
+        },
+        {
+          "name": "CertificateRevocationServerOffline",
+          "value": "29"
+        },
+        {
+          "name": "CertificateIsInvalid",
+          "value": "30"
+        }
+      ]
+    },
+    "SocketMessageType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Binary",
+          "value": "0"
+        },
+        {
+          "name": "Utf8",
+          "value": "1"
+        }
+      ]
+    },
+    "SocketProtectionLevel": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "PlainSocket",
+          "value": "0"
+        },
+        {
+          "name": "Ssl",
+          "value": "1"
+        },
+        {
+          "name": "SslAllowNullEncryption",
+          "value": "2"
+        },
+        {
+          "name": "BluetoothEncryptionAllowNullAuthentication",
+          "value": "3"
+        },
+        {
+          "name": "BluetoothEncryptionWithAuthentication",
+          "value": "4"
+        },
+        {
+          "name": "Ssl3AllowWeakEncryption",
+          "value": "5"
+        },
+        {
+          "name": "Tls10",
+          "value": "6"
+        },
+        {
+          "name": "Tls11",
+          "value": "7"
+        },
+        {
+          "name": "Tls12",
+          "value": "8"
+        },
+        {
+          "name": "Unspecified",
+          "value": "9"
+        },
+        {
+          "name": "Tls13",
+          "value": "10"
+        }
+      ]
+    },
+    "SocketQualityOfService": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Normal",
+          "value": "0"
+        },
+        {
+          "name": "LowLatency",
+          "value": "1"
+        }
+      ]
+    },
+    "SocketSslErrorSeverity": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Ignorable",
+          "value": "1"
+        },
+        {
+          "name": "Fatal",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "BandwidthStatistics": {
+      "fields": [
+        {
+          "name": "OutboundBitsPerSecond",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "InboundBitsPerSecond",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "OutboundBitsPerSecondInstability",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "InboundBitsPerSecondInstability",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "OutboundBandwidthPeaked",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "InboundBandwidthPeaked",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "RoundTripTimeStatistics": {
+      "fields": [
+        {
+          "name": "Variance",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "Max",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "Min",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "Sum",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IDatagramSocket": {
+      "guid": "7fe25bbb-c3bc-4677-8446-ca28a465a3af",
+      "exclusive_to": "Windows.Networking.Sockets.DatagramSocket",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Control",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DatagramSocketControl",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Information",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DatagramSocketInformation",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_OutputStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IOutputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ConnectAsync",
+          "overload": "ConnectAsync",
+          "params": [
+            {
+              "name": "remoteHostName",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "remoteServiceName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ConnectAsync",
+          "overload": "ConnectWithEndpointPairAsync",
+          "params": [
+            {
+              "name": "endpointPair",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EndpointPair",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "BindServiceNameAsync",
+          "params": [
+            {
+              "name": "localServiceName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "BindEndpointAsync",
+          "params": [
+            {
+              "name": "localHostName",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "localServiceName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "JoinMulticastGroup",
+          "params": [
+            {
+              "name": "host",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetOutputStreamAsync",
+          "overload": "GetOutputStreamAsync",
+          "params": [
+            {
+              "name": "remoteHostName",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "remoteServiceName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IOutputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetOutputStreamAsync",
+          "overload": "GetOutputStreamWithEndpointPairAsync",
+          "params": [
+            {
+              "name": "endpointPair",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EndpointPair",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IOutputStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_MessageReceived",
+          "params": [
+            {
+              "name": "eventHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DatagramSocket",
+                    "namespace": "Windows.Networking.Sockets",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "DatagramSocketMessageReceivedEventArgs",
+                    "namespace": "Windows.Networking.Sockets",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_MessageReceived",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Control",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DatagramSocketControl",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          },
+          "getter": "get_Control"
+        },
+        {
+          "name": "Information",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DatagramSocketInformation",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          },
+          "getter": "get_Information"
+        },
+        {
+          "name": "OutputStream",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IOutputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_OutputStream"
+        }
+      ],
+      "events": [
+        {
+          "name": "MessageReceived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DatagramSocket",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DatagramSocketMessageReceivedEventArgs",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_MessageReceived",
+          "remove_method": "remove_MessageReceived"
+        }
+      ]
+    },
+    "IDatagramSocket2": {
+      "guid": "d83ba354-9a9d-4185-a20a-1424c9c2a7cd",
+      "exclusive_to": "Windows.Networking.Sockets.DatagramSocket",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "BindServiceNameAsync",
+          "overload": "BindServiceNameAndAdapterAsync",
+          "params": [
+            {
+              "name": "localServiceName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "adapter",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NetworkAdapter",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IDatagramSocket3": {
+      "guid": "37544f09-ab92-4306-9ac1-0c381283d9c6",
+      "exclusive_to": "Windows.Networking.Sockets.DatagramSocket",
+      "methods": [
+        {
+          "name": "CancelIOAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "EnableTransferOwnership",
+          "overload": "EnableTransferOwnership",
+          "params": [
+            {
+              "name": "taskId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ]
+        },
+        {
+          "name": "EnableTransferOwnership",
+          "overload": "EnableTransferOwnershipWithConnectedStandbyAction",
+          "params": [
+            {
+              "name": "taskId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "connectedStandbyAction",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SocketActivityConnectedStandbyAction",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TransferOwnership",
+          "overload": "TransferOwnership",
+          "params": [
+            {
+              "name": "socketId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TransferOwnership",
+          "overload": "TransferOwnershipWithContext",
+          "params": [
+            {
+              "name": "socketId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SocketActivityContext",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TransferOwnership",
+          "overload": "TransferOwnershipWithContextAndKeepAliveTime",
+          "params": [
+            {
+              "name": "socketId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SocketActivityContext",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "keepAliveTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IDatagramSocketControl": {
+      "guid": "52ac3f2e-349a-4135-bb58-b79b2647d390",
+      "exclusive_to": "Windows.Networking.Sockets.DatagramSocketControl",
+      "methods": [
+        {
+          "name": "get_QualityOfService",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SocketQualityOfService",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_QualityOfService",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SocketQualityOfService",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OutboundUnicastHopLimit",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "put_OutboundUnicastHopLimit",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "OutboundUnicastHopLimit",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_OutboundUnicastHopLimit",
+          "setter": "put_OutboundUnicastHopLimit"
+        },
+        {
+          "name": "QualityOfService",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SocketQualityOfService",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          },
+          "getter": "get_QualityOfService",
+          "setter": "put_QualityOfService"
+        }
+      ]
+    },
+    "IDatagramSocketControl2": {
+      "guid": "33ead5c2-979c-4415-82a1-3cfaf646c192",
+      "exclusive_to": "Windows.Networking.Sockets.DatagramSocketControl",
+      "methods": [
+        {
+          "name": "get_InboundBufferSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_InboundBufferSizeInBytes",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DontFragment",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_DontFragment",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DontFragment",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_DontFragment",
+          "setter": "put_DontFragment"
+        },
+        {
+          "name": "InboundBufferSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_InboundBufferSizeInBytes",
+          "setter": "put_InboundBufferSizeInBytes"
+        }
+      ]
+    },
+    "IDatagramSocketControl3": {
+      "guid": "d4eb8256-1f6d-4598-9b57-d42a001df349",
+      "exclusive_to": "Windows.Networking.Sockets.DatagramSocketControl",
+      "methods": [
+        {
+          "name": "get_MulticastOnly",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_MulticastOnly",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "MulticastOnly",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_MulticastOnly",
+          "setter": "put_MulticastOnly"
+        }
+      ]
+    },
+    "IDatagramSocketInformation": {
+      "guid": "5f1a569a-55fb-48cd-9706-7a974f7b1585",
+      "exclusive_to": "Windows.Networking.Sockets.DatagramSocketInformation",
+      "methods": [
+        {
+          "name": "get_LocalAddress",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_LocalPort",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RemoteAddress",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_RemotePort",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "LocalAddress",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          },
+          "getter": "get_LocalAddress"
+        },
+        {
+          "name": "LocalPort",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LocalPort"
+        },
+        {
+          "name": "RemoteAddress",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          },
+          "getter": "get_RemoteAddress"
+        },
+        {
+          "name": "RemotePort",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RemotePort"
+        }
+      ]
+    },
+    "IDatagramSocketMessageReceivedEventArgs": {
+      "guid": "9e2ddca2-1712-4ce4-b179-8c652c6d107e",
+      "exclusive_to": "Windows.Networking.Sockets.DatagramSocketMessageReceivedEventArgs",
+      "methods": [
+        {
+          "name": "get_RemoteAddress",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_RemotePort",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_LocalAddress",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDataReader",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DataReader",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDataStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IInputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "LocalAddress",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          },
+          "getter": "get_LocalAddress"
+        },
+        {
+          "name": "RemoteAddress",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          },
+          "getter": "get_RemoteAddress"
+        },
+        {
+          "name": "RemotePort",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RemotePort"
+        }
+      ]
+    },
+    "IDatagramSocketStatics": {
+      "guid": "e9c62aee-1494-4a21-bb7e-8589fc751d9d",
+      "exclusive_to": "Windows.Networking.Sockets.DatagramSocket",
+      "methods": [
+        {
+          "name": "GetEndpointPairsAsync",
+          "overload": "GetEndpointPairsAsync",
+          "params": [
+            {
+              "name": "remoteHostName",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "remoteServiceName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EndpointPair",
+                    "namespace": "Windows.Networking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetEndpointPairsAsync",
+          "overload": "GetEndpointPairsWithSortOptionsAsync",
+          "params": [
+            {
+              "name": "remoteHostName",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "remoteServiceName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "sortOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostNameSortOptions",
+                "namespace": "Windows.Networking",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EndpointPair",
+                    "namespace": "Windows.Networking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IMessageWebSocket": {
+      "guid": "33727d08-34d5-4746-ad7b-8dde5bc2ef88",
+      "exclusive_to": "Windows.Networking.Sockets.MessageWebSocket",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebSocket",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Control",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MessageWebSocketControl",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Information",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MessageWebSocketInformation",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_MessageReceived",
+          "params": [
+            {
+              "name": "eventHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "MessageWebSocket",
+                    "namespace": "Windows.Networking.Sockets",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "MessageWebSocketMessageReceivedEventArgs",
+                    "namespace": "Windows.Networking.Sockets",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_MessageReceived",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Control",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MessageWebSocketControl",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          },
+          "getter": "get_Control"
+        },
+        {
+          "name": "Information",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MessageWebSocketInformation",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          },
+          "getter": "get_Information"
+        }
+      ],
+      "events": [
+        {
+          "name": "MessageReceived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MessageWebSocket",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "MessageWebSocketMessageReceivedEventArgs",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_MessageReceived",
+          "remove_method": "remove_MessageReceived"
+        }
+      ]
+    },
+    "IMessageWebSocket2": {
+      "guid": "bed0cee7-f9c8-440a-9ad5-737281d9742e",
+      "exclusive_to": "Windows.Networking.Sockets.MessageWebSocket",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMessageWebSocket",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IWebSocket",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "add_ServerCustomValidationRequested",
+          "params": [
+            {
+              "name": "eventHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "MessageWebSocket",
+                    "namespace": "Windows.Networking.Sockets",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebSocketServerCustomValidationRequestedEventArgs",
+                    "namespace": "Windows.Networking.Sockets",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ServerCustomValidationRequested",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "ServerCustomValidationRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "MessageWebSocket",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebSocketServerCustomValidationRequestedEventArgs",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ServerCustomValidationRequested",
+          "remove_method": "remove_ServerCustomValidationRequested"
+        }
+      ]
+    },
+    "IMessageWebSocket3": {
+      "guid": "59d9defb-71af-4349-8487-911fcf681597",
+      "exclusive_to": "Windows.Networking.Sockets.MessageWebSocket",
+      "methods": [
+        {
+          "name": "SendNonfinalFrameAsync",
+          "params": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              },
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SendFinalFrameAsync",
+          "params": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              },
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IMessageWebSocketControl": {
+      "guid": "8118388a-c629-4f0a-80fb-81fc05538862",
+      "exclusive_to": "Windows.Networking.Sockets.MessageWebSocketControl",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebSocketControl",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_MaxMessageSize",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_MaxMessageSize",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MessageType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SocketMessageType",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_MessageType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SocketMessageType",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "MaxMessageSize",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxMessageSize",
+          "setter": "put_MaxMessageSize"
+        },
+        {
+          "name": "MessageType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SocketMessageType",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MessageType",
+          "setter": "put_MessageType"
+        }
+      ]
+    },
+    "IMessageWebSocketControl2": {
+      "guid": "e30fd791-080c-400a-a712-27dfa9e744d8",
+      "exclusive_to": "Windows.Networking.Sockets.MessageWebSocketControl",
+      "methods": [
+        {
+          "name": "get_DesiredUnsolicitedPongInterval",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_DesiredUnsolicitedPongInterval",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ActualUnsolicitedPongInterval",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_ReceiveMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MessageWebSocketReceiveMode",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_ReceiveMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MessageWebSocketReceiveMode",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ClientCertificate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ClientCertificate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ActualUnsolicitedPongInterval",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ActualUnsolicitedPongInterval"
+        },
+        {
+          "name": "ClientCertificate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          },
+          "getter": "get_ClientCertificate",
+          "setter": "put_ClientCertificate"
+        },
+        {
+          "name": "DesiredUnsolicitedPongInterval",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_DesiredUnsolicitedPongInterval",
+          "setter": "put_DesiredUnsolicitedPongInterval"
+        },
+        {
+          "name": "ReceiveMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MessageWebSocketReceiveMode",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ReceiveMode",
+          "setter": "put_ReceiveMode"
+        }
+      ]
+    },
+    "IMessageWebSocketMessageReceivedEventArgs": {
+      "guid": "478c22ac-4c4b-42ed-9ed7-1ef9f94fa3d5",
+      "exclusive_to": "Windows.Networking.Sockets.MessageWebSocketMessageReceivedEventArgs",
+      "methods": [
+        {
+          "name": "get_MessageType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SocketMessageType",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetDataReader",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DataReader",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDataStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IInputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "MessageType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SocketMessageType",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MessageType"
+        }
+      ]
+    },
+    "IMessageWebSocketMessageReceivedEventArgs2": {
+      "guid": "89ce06fd-dd6f-4a07-87f9-f9eb4d89d83d",
+      "exclusive_to": "Windows.Networking.Sockets.MessageWebSocketMessageReceivedEventArgs",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMessageWebSocketMessageReceivedEventArgs",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_IsMessageComplete",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsMessageComplete",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsMessageComplete"
+        }
+      ]
+    },
+    "IServerMessageWebSocket": {
+      "guid": "e3ac9240-813b-5efd-7e11-ae2305fc77f1",
+      "exclusive_to": "Windows.Networking.Sockets.ServerMessageWebSocket",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "add_MessageReceived",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ServerMessageWebSocket",
+                    "namespace": "Windows.Networking.Sockets",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "MessageWebSocketMessageReceivedEventArgs",
+                    "namespace": "Windows.Networking.Sockets",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_MessageReceived",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Control",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ServerMessageWebSocketControl",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Information",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ServerMessageWebSocketInformation",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_OutputStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IOutputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "add_Closed",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ServerMessageWebSocket",
+                    "namespace": "Windows.Networking.Sockets",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebSocketClosedEventArgs",
+                    "namespace": "Windows.Networking.Sockets",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Closed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Close",
+          "overload": "CloseWithStatus",
+          "params": [
+            {
+              "name": "code",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "reason",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Control",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ServerMessageWebSocketControl",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          },
+          "getter": "get_Control"
+        },
+        {
+          "name": "Information",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ServerMessageWebSocketInformation",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          },
+          "getter": "get_Information"
+        },
+        {
+          "name": "OutputStream",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IOutputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_OutputStream"
+        }
+      ],
+      "events": [
+        {
+          "name": "Closed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ServerMessageWebSocket",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebSocketClosedEventArgs",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Closed",
+          "remove_method": "remove_Closed"
+        },
+        {
+          "name": "MessageReceived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ServerMessageWebSocket",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "MessageWebSocketMessageReceivedEventArgs",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_MessageReceived",
+          "remove_method": "remove_MessageReceived"
+        }
+      ]
+    },
+    "IServerMessageWebSocketControl": {
+      "guid": "69c2f051-1c1f-587a-4519-2181610192b7",
+      "exclusive_to": "Windows.Networking.Sockets.ServerMessageWebSocketControl",
+      "methods": [
+        {
+          "name": "get_MessageType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SocketMessageType",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_MessageType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SocketMessageType",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "MessageType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SocketMessageType",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MessageType",
+          "setter": "put_MessageType"
+        }
+      ]
+    },
+    "IServerMessageWebSocketInformation": {
+      "guid": "fc32b45f-4448-5505-6cc9-09afa8915f5d",
+      "exclusive_to": "Windows.Networking.Sockets.ServerMessageWebSocketInformation",
+      "methods": [
+        {
+          "name": "get_BandwidthStatistics",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BandwidthStatistics",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Protocol",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_LocalAddress",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BandwidthStatistics",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BandwidthStatistics",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BandwidthStatistics"
+        },
+        {
+          "name": "LocalAddress",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          },
+          "getter": "get_LocalAddress"
+        },
+        {
+          "name": "Protocol",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Protocol"
+        }
+      ]
+    },
+    "IServerStreamWebSocket": {
+      "guid": "2ced5bbf-74f6-55e4-79df-9132680dfee8",
+      "exclusive_to": "Windows.Networking.Sockets.ServerStreamWebSocket",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Information",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ServerStreamWebSocketInformation",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_InputStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IInputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_OutputStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IOutputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "add_Closed",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ServerStreamWebSocket",
+                    "namespace": "Windows.Networking.Sockets",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebSocketClosedEventArgs",
+                    "namespace": "Windows.Networking.Sockets",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Closed",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Close",
+          "overload": "CloseWithStatus",
+          "params": [
+            {
+              "name": "code",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "reason",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Information",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ServerStreamWebSocketInformation",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          },
+          "getter": "get_Information"
+        },
+        {
+          "name": "InputStream",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IInputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_InputStream"
+        },
+        {
+          "name": "OutputStream",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IOutputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_OutputStream"
+        }
+      ],
+      "events": [
+        {
+          "name": "Closed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ServerStreamWebSocket",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebSocketClosedEventArgs",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Closed",
+          "remove_method": "remove_Closed"
+        }
+      ]
+    },
+    "IServerStreamWebSocketInformation": {
+      "guid": "fc32b45f-4448-5505-6cc9-09aba8915f5d",
+      "exclusive_to": "Windows.Networking.Sockets.ServerStreamWebSocketInformation",
+      "methods": [
+        {
+          "name": "get_BandwidthStatistics",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BandwidthStatistics",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Protocol",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_LocalAddress",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BandwidthStatistics",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BandwidthStatistics",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BandwidthStatistics"
+        },
+        {
+          "name": "LocalAddress",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          },
+          "getter": "get_LocalAddress"
+        },
+        {
+          "name": "Protocol",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Protocol"
+        }
+      ]
+    },
+    "ISocketActivityContext": {
+      "guid": "43b04d64-4c85-4396-a637-1d973f6ebd49",
+      "exclusive_to": "Windows.Networking.Sockets.SocketActivityContext",
+      "methods": [
+        {
+          "name": "get_Data",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Data",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Data"
+        }
+      ]
+    },
+    "ISocketActivityContextFactory": {
+      "guid": "b99fc3c3-088c-4388-83ae-2525138e049a",
+      "exclusive_to": "Windows.Networking.Sockets.SocketActivityContext",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SocketActivityContext",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISocketActivityInformation": {
+      "guid": "8d8a42e4-a87e-4b74-9968-185b2511defe",
+      "exclusive_to": "Windows.Networking.Sockets.SocketActivityInformation",
+      "methods": [
+        {
+          "name": "get_TaskId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SocketKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SocketActivityKind",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Context",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SocketActivityContext",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_DatagramSocket",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DatagramSocket",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_StreamSocket",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StreamSocket",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_StreamSocketListener",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StreamSocketListener",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Context",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SocketActivityContext",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          },
+          "getter": "get_Context"
+        },
+        {
+          "name": "DatagramSocket",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DatagramSocket",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          },
+          "getter": "get_DatagramSocket"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "SocketKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SocketActivityKind",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SocketKind"
+        },
+        {
+          "name": "StreamSocket",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StreamSocket",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          },
+          "getter": "get_StreamSocket"
+        },
+        {
+          "name": "StreamSocketListener",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StreamSocketListener",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          },
+          "getter": "get_StreamSocketListener"
+        },
+        {
+          "name": "TaskId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_TaskId"
+        }
+      ]
+    },
+    "ISocketActivityInformationStatics": {
+      "guid": "8570b47a-7e7d-4736-8041-1327a6543c56",
+      "exclusive_to": "Windows.Networking.Sockets.SocketActivityInformation",
+      "methods": [
+        {
+          "name": "get_AllSockets",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SocketActivityInformation",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllSockets",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IMapView`2",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "SocketActivityInformation",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_AllSockets"
+        }
+      ]
+    },
+    "ISocketActivityTriggerDetails": {
+      "guid": "45f406a7-fc9f-4f81-acad-355fef51e67b",
+      "exclusive_to": "Windows.Networking.Sockets.SocketActivityTriggerDetails",
+      "methods": [
+        {
+          "name": "get_Reason",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SocketActivityTriggerReason",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_SocketInformation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SocketActivityInformation",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Reason",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SocketActivityTriggerReason",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Reason"
+        },
+        {
+          "name": "SocketInformation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SocketActivityInformation",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          },
+          "getter": "get_SocketInformation"
+        }
+      ]
+    },
+    "ISocketErrorStatics": {
+      "guid": "828337f4-7d56-4d8e-b7b4-a07dd7c1bca9",
+      "exclusive_to": "Windows.Networking.Sockets.SocketError",
+      "methods": [
+        {
+          "name": "GetStatus",
+          "params": [
+            {
+              "name": "hresult",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SocketErrorStatus",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          }
+        }
+      ]
+    },
+    "IStreamSocket": {
+      "guid": "69a22cf3-fc7b-4857-af38-f6e7de6a5b49",
+      "exclusive_to": "Windows.Networking.Sockets.StreamSocket",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Control",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StreamSocketControl",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Information",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StreamSocketInformation",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_InputStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IInputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_OutputStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IOutputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ConnectAsync",
+          "overload": "ConnectWithEndpointPairAsync",
+          "params": [
+            {
+              "name": "endpointPair",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EndpointPair",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ConnectAsync",
+          "overload": "ConnectAsync",
+          "is_default_overload": true,
+          "params": [
+            {
+              "name": "remoteHostName",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "remoteServiceName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ConnectAsync",
+          "overload": "ConnectWithEndpointPairAndProtectionLevelAsync",
+          "params": [
+            {
+              "name": "endpointPair",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EndpointPair",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "protectionLevel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SocketProtectionLevel",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ConnectAsync",
+          "overload": "ConnectWithProtectionLevelAsync",
+          "params": [
+            {
+              "name": "remoteHostName",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "remoteServiceName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "protectionLevel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SocketProtectionLevel",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "UpgradeToSslAsync",
+          "params": [
+            {
+              "name": "protectionLevel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SocketProtectionLevel",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "validationHostName",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Control",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StreamSocketControl",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          },
+          "getter": "get_Control"
+        },
+        {
+          "name": "Information",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StreamSocketInformation",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          },
+          "getter": "get_Information"
+        },
+        {
+          "name": "InputStream",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IInputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_InputStream"
+        },
+        {
+          "name": "OutputStream",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IOutputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_OutputStream"
+        }
+      ]
+    },
+    "IStreamSocket2": {
+      "guid": "29d0e575-f314-4d09-adf0-0fbd967fbd9f",
+      "exclusive_to": "Windows.Networking.Sockets.StreamSocket",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "ConnectAsync",
+          "overload": "ConnectWithProtectionLevelAndAdapterAsync",
+          "params": [
+            {
+              "name": "remoteHostName",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "remoteServiceName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "protectionLevel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SocketProtectionLevel",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "adapter",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NetworkAdapter",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IStreamSocket3": {
+      "guid": "3f430b00-9d28-4854-bac3-2301941ec223",
+      "exclusive_to": "Windows.Networking.Sockets.StreamSocket",
+      "methods": [
+        {
+          "name": "CancelIOAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "EnableTransferOwnership",
+          "overload": "EnableTransferOwnership",
+          "params": [
+            {
+              "name": "taskId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ]
+        },
+        {
+          "name": "EnableTransferOwnership",
+          "overload": "EnableTransferOwnershipWithConnectedStandbyAction",
+          "params": [
+            {
+              "name": "taskId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "connectedStandbyAction",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SocketActivityConnectedStandbyAction",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TransferOwnership",
+          "overload": "TransferOwnership",
+          "params": [
+            {
+              "name": "socketId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TransferOwnership",
+          "overload": "TransferOwnershipWithContext",
+          "params": [
+            {
+              "name": "socketId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SocketActivityContext",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TransferOwnership",
+          "overload": "TransferOwnershipWithContextAndKeepAliveTime",
+          "params": [
+            {
+              "name": "socketId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SocketActivityContext",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "keepAliveTime",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IStreamSocketControl": {
+      "guid": "fe25adf1-92ab-4af3-9992-0f4c85e36cc4",
+      "exclusive_to": "Windows.Networking.Sockets.StreamSocketControl",
+      "methods": [
+        {
+          "name": "get_NoDelay",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_NoDelay",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_KeepAlive",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_KeepAlive",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OutboundBufferSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_OutboundBufferSizeInBytes",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_QualityOfService",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SocketQualityOfService",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_QualityOfService",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SocketQualityOfService",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OutboundUnicastHopLimit",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "put_OutboundUnicastHopLimit",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "KeepAlive",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_KeepAlive",
+          "setter": "put_KeepAlive"
+        },
+        {
+          "name": "NoDelay",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_NoDelay",
+          "setter": "put_NoDelay"
+        },
+        {
+          "name": "OutboundBufferSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_OutboundBufferSizeInBytes",
+          "setter": "put_OutboundBufferSizeInBytes"
+        },
+        {
+          "name": "OutboundUnicastHopLimit",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_OutboundUnicastHopLimit",
+          "setter": "put_OutboundUnicastHopLimit"
+        },
+        {
+          "name": "QualityOfService",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SocketQualityOfService",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          },
+          "getter": "get_QualityOfService",
+          "setter": "put_QualityOfService"
+        }
+      ]
+    },
+    "IStreamSocketControl2": {
+      "guid": "c2d09a56-060f-44c1-b8e2-1fbf60bd62c5",
+      "exclusive_to": "Windows.Networking.Sockets.StreamSocketControl",
+      "methods": [
+        {
+          "name": "get_IgnorableServerCertificateErrors",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChainValidationResult",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IgnorableServerCertificateErrors",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChainValidationResult",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_IgnorableServerCertificateErrors"
+        }
+      ]
+    },
+    "IStreamSocketControl3": {
+      "guid": "c56a444c-4e74-403e-894c-b31cae5c7342",
+      "exclusive_to": "Windows.Networking.Sockets.StreamSocketControl",
+      "methods": [
+        {
+          "name": "get_SerializeConnectionAttempts",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_SerializeConnectionAttempts",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ClientCertificate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ClientCertificate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ClientCertificate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          },
+          "getter": "get_ClientCertificate",
+          "setter": "put_ClientCertificate"
+        },
+        {
+          "name": "SerializeConnectionAttempts",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SerializeConnectionAttempts",
+          "setter": "put_SerializeConnectionAttempts"
+        }
+      ]
+    },
+    "IStreamSocketControl4": {
+      "guid": "964e2b3d-ec27-4888-b3ce-c74b418423ad",
+      "exclusive_to": "Windows.Networking.Sockets.StreamSocketControl",
+      "methods": [
+        {
+          "name": "get_MinProtectionLevel",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SocketProtectionLevel",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_MinProtectionLevel",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SocketProtectionLevel",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "MinProtectionLevel",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SocketProtectionLevel",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MinProtectionLevel",
+          "setter": "put_MinProtectionLevel"
+        }
+      ]
+    },
+    "IStreamSocketInformation": {
+      "guid": "3b80ae30-5e68-4205-88f0-dc85d2e25ded",
+      "exclusive_to": "Windows.Networking.Sockets.StreamSocketInformation",
+      "methods": [
+        {
+          "name": "get_LocalAddress",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_LocalPort",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RemoteHostName",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_RemoteAddress",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_RemoteServiceName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RemotePort",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RoundTripTimeStatistics",
+          "return": {
+            "kind": "ApiRef",
+            "name": "RoundTripTimeStatistics",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_BandwidthStatistics",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BandwidthStatistics",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_ProtectionLevel",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SocketProtectionLevel",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_SessionKey",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BandwidthStatistics",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BandwidthStatistics",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BandwidthStatistics"
+        },
+        {
+          "name": "LocalAddress",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          },
+          "getter": "get_LocalAddress"
+        },
+        {
+          "name": "LocalPort",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LocalPort"
+        },
+        {
+          "name": "ProtectionLevel",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SocketProtectionLevel",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ProtectionLevel"
+        },
+        {
+          "name": "RemoteAddress",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          },
+          "getter": "get_RemoteAddress"
+        },
+        {
+          "name": "RemoteHostName",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          },
+          "getter": "get_RemoteHostName"
+        },
+        {
+          "name": "RemotePort",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RemotePort"
+        },
+        {
+          "name": "RemoteServiceName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RemoteServiceName"
+        },
+        {
+          "name": "RoundTripTimeStatistics",
+          "type": {
+            "kind": "ApiRef",
+            "name": "RoundTripTimeStatistics",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Struct"
+          },
+          "getter": "get_RoundTripTimeStatistics"
+        },
+        {
+          "name": "SessionKey",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_SessionKey"
+        }
+      ]
+    },
+    "IStreamSocketInformation2": {
+      "guid": "12c28452-4bdc-4ee4-976a-cf130e9d92e3",
+      "exclusive_to": "Windows.Networking.Sockets.StreamSocketInformation",
+      "methods": [
+        {
+          "name": "get_ServerCertificateErrorSeverity",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SocketSslErrorSeverity",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ServerCertificateErrors",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChainValidationResult",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ServerCertificate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ServerIntermediateCertificates",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ServerCertificate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          },
+          "getter": "get_ServerCertificate"
+        },
+        {
+          "name": "ServerCertificateErrorSeverity",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SocketSslErrorSeverity",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ServerCertificateErrorSeverity"
+        },
+        {
+          "name": "ServerCertificateErrors",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChainValidationResult",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_ServerCertificateErrors"
+        },
+        {
+          "name": "ServerIntermediateCertificates",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_ServerIntermediateCertificates"
+        }
+      ]
+    },
+    "IStreamSocketListener": {
+      "guid": "ff513437-df9f-4df0-bf82-0ec5d7b35aae",
+      "exclusive_to": "Windows.Networking.Sockets.StreamSocketListener",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Control",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StreamSocketListenerControl",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Information",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StreamSocketListenerInformation",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "BindServiceNameAsync",
+          "params": [
+            {
+              "name": "localServiceName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "BindEndpointAsync",
+          "params": [
+            {
+              "name": "localHostName",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "localServiceName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "add_ConnectionReceived",
+          "params": [
+            {
+              "name": "eventHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "StreamSocketListener",
+                    "namespace": "Windows.Networking.Sockets",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "StreamSocketListenerConnectionReceivedEventArgs",
+                    "namespace": "Windows.Networking.Sockets",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ConnectionReceived",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Control",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StreamSocketListenerControl",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          },
+          "getter": "get_Control"
+        },
+        {
+          "name": "Information",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StreamSocketListenerInformation",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          },
+          "getter": "get_Information"
+        }
+      ],
+      "events": [
+        {
+          "name": "ConnectionReceived",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StreamSocketListener",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "StreamSocketListenerConnectionReceivedEventArgs",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ConnectionReceived",
+          "remove_method": "remove_ConnectionReceived"
+        }
+      ]
+    },
+    "IStreamSocketListener2": {
+      "guid": "658dc13e-bb3e-4458-b232-ed1088694b98",
+      "exclusive_to": "Windows.Networking.Sockets.StreamSocketListener",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "BindServiceNameAsync",
+          "overload": "BindServiceNameWithProtectionLevelAsync",
+          "params": [
+            {
+              "name": "localServiceName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "protectionLevel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SocketProtectionLevel",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "BindServiceNameAsync",
+          "overload": "BindServiceNameWithProtectionLevelAndAdapterAsync",
+          "params": [
+            {
+              "name": "localServiceName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "protectionLevel",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SocketProtectionLevel",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "adapter",
+              "type": {
+                "kind": "ApiRef",
+                "name": "NetworkAdapter",
+                "namespace": "Windows.Networking.Connectivity",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IStreamSocketListener3": {
+      "guid": "4798201c-bdf8-4919-8542-28d450e74507",
+      "exclusive_to": "Windows.Networking.Sockets.StreamSocketListener",
+      "methods": [
+        {
+          "name": "CancelIOAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "EnableTransferOwnership",
+          "overload": "EnableTransferOwnership",
+          "params": [
+            {
+              "name": "taskId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ]
+        },
+        {
+          "name": "EnableTransferOwnership",
+          "overload": "EnableTransferOwnershipWithConnectedStandbyAction",
+          "params": [
+            {
+              "name": "taskId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "connectedStandbyAction",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SocketActivityConnectedStandbyAction",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TransferOwnership",
+          "overload": "TransferOwnership",
+          "params": [
+            {
+              "name": "socketId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "TransferOwnership",
+          "overload": "TransferOwnershipWithContext",
+          "params": [
+            {
+              "name": "socketId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "data",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SocketActivityContext",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IStreamSocketListenerConnectionReceivedEventArgs": {
+      "guid": "0c472ea9-373f-447b-85b1-ddd4548803ba",
+      "exclusive_to": "Windows.Networking.Sockets.StreamSocketListenerConnectionReceivedEventArgs",
+      "methods": [
+        {
+          "name": "get_Socket",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StreamSocket",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Socket",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StreamSocket",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          },
+          "getter": "get_Socket"
+        }
+      ]
+    },
+    "IStreamSocketListenerControl": {
+      "guid": "20d8c576-8d8a-4dba-9722-a16c4d984980",
+      "exclusive_to": "Windows.Networking.Sockets.StreamSocketListenerControl",
+      "methods": [
+        {
+          "name": "get_QualityOfService",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SocketQualityOfService",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_QualityOfService",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SocketQualityOfService",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "QualityOfService",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SocketQualityOfService",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          },
+          "getter": "get_QualityOfService",
+          "setter": "put_QualityOfService"
+        }
+      ]
+    },
+    "IStreamSocketListenerControl2": {
+      "guid": "948bb665-2c3e-404b-b8b0-8eb249a2b0a1",
+      "exclusive_to": "Windows.Networking.Sockets.StreamSocketListenerControl",
+      "methods": [
+        {
+          "name": "get_NoDelay",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_NoDelay",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_KeepAlive",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_KeepAlive",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OutboundBufferSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_OutboundBufferSizeInBytes",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OutboundUnicastHopLimit",
+          "return": {
+            "kind": "Native",
+            "name": "U1"
+          }
+        },
+        {
+          "name": "put_OutboundUnicastHopLimit",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U1"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "KeepAlive",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_KeepAlive",
+          "setter": "put_KeepAlive"
+        },
+        {
+          "name": "NoDelay",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_NoDelay",
+          "setter": "put_NoDelay"
+        },
+        {
+          "name": "OutboundBufferSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_OutboundBufferSizeInBytes",
+          "setter": "put_OutboundBufferSizeInBytes"
+        },
+        {
+          "name": "OutboundUnicastHopLimit",
+          "type": {
+            "kind": "Native",
+            "name": "U1"
+          },
+          "getter": "get_OutboundUnicastHopLimit",
+          "setter": "put_OutboundUnicastHopLimit"
+        }
+      ]
+    },
+    "IStreamSocketListenerInformation": {
+      "guid": "e62ba82f-a63a-430b-bf62-29e93e5633b4",
+      "exclusive_to": "Windows.Networking.Sockets.StreamSocketListenerInformation",
+      "methods": [
+        {
+          "name": "get_LocalPort",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "LocalPort",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_LocalPort"
+        }
+      ]
+    },
+    "IStreamSocketStatics": {
+      "guid": "a420bc4a-6e2e-4af5-b556-355ae0cd4f29",
+      "exclusive_to": "Windows.Networking.Sockets.StreamSocket",
+      "methods": [
+        {
+          "name": "GetEndpointPairsAsync",
+          "overload": "GetEndpointPairsAsync",
+          "params": [
+            {
+              "name": "remoteHostName",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "remoteServiceName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EndpointPair",
+                    "namespace": "Windows.Networking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetEndpointPairsAsync",
+          "overload": "GetEndpointPairsWithSortOptionsAsync",
+          "params": [
+            {
+              "name": "remoteHostName",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "remoteServiceName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "sortOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostNameSortOptions",
+                "namespace": "Windows.Networking",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "EndpointPair",
+                    "namespace": "Windows.Networking",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IStreamWebSocket": {
+      "guid": "bd4a49d8-b289-45bb-97eb-c7525205a843",
+      "exclusive_to": "Windows.Networking.Sockets.StreamWebSocket",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebSocket",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Control",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StreamWebSocketControl",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Information",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StreamWebSocketInformation",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_InputStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IInputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Control",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StreamWebSocketControl",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          },
+          "getter": "get_Control"
+        },
+        {
+          "name": "Information",
+          "type": {
+            "kind": "ApiRef",
+            "name": "StreamWebSocketInformation",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Class"
+          },
+          "getter": "get_Information"
+        },
+        {
+          "name": "InputStream",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IInputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_InputStream"
+        }
+      ]
+    },
+    "IStreamWebSocket2": {
+      "guid": "aa4d08cb-93f5-4678-8236-57cce5417ed5",
+      "exclusive_to": "Windows.Networking.Sockets.StreamWebSocket",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IStreamWebSocket",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IWebSocket",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "add_ServerCustomValidationRequested",
+          "params": [
+            {
+              "name": "eventHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "StreamWebSocket",
+                    "namespace": "Windows.Networking.Sockets",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebSocketServerCustomValidationRequestedEventArgs",
+                    "namespace": "Windows.Networking.Sockets",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ServerCustomValidationRequested",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "ServerCustomValidationRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "StreamWebSocket",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebSocketServerCustomValidationRequestedEventArgs",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ServerCustomValidationRequested",
+          "remove_method": "remove_ServerCustomValidationRequested"
+        }
+      ]
+    },
+    "IStreamWebSocketControl": {
+      "guid": "b4f478b1-a45a-48db-953a-645b7d964c07",
+      "exclusive_to": "Windows.Networking.Sockets.StreamWebSocketControl",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebSocketControl",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_NoDelay",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_NoDelay",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "NoDelay",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_NoDelay",
+          "setter": "put_NoDelay"
+        }
+      ]
+    },
+    "IStreamWebSocketControl2": {
+      "guid": "215d9f7e-fa58-40da-9f11-a48dafe95037",
+      "exclusive_to": "Windows.Networking.Sockets.StreamWebSocketControl",
+      "methods": [
+        {
+          "name": "get_DesiredUnsolicitedPongInterval",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_DesiredUnsolicitedPongInterval",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ActualUnsolicitedPongInterval",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_ClientCertificate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ClientCertificate",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ActualUnsolicitedPongInterval",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ActualUnsolicitedPongInterval"
+        },
+        {
+          "name": "ClientCertificate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          },
+          "getter": "get_ClientCertificate",
+          "setter": "put_ClientCertificate"
+        },
+        {
+          "name": "DesiredUnsolicitedPongInterval",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_DesiredUnsolicitedPongInterval",
+          "setter": "put_DesiredUnsolicitedPongInterval"
+        }
+      ]
+    },
+    "IWebSocket": {
+      "guid": "f877396f-99b1-4e18-bc08-850c9adf156e",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_OutputStream",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IOutputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ConnectAsync",
+          "params": [
+            {
+              "name": "uri",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SetRequestHeader",
+          "params": [
+            {
+              "name": "headerName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "headerValue",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Closed",
+          "params": [
+            {
+              "name": "eventHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "IWebSocket",
+                    "namespace": "Windows.Networking.Sockets",
+                    "target_kind": "Interface"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "WebSocketClosedEventArgs",
+                    "namespace": "Windows.Networking.Sockets",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Closed",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Close",
+          "overload": "CloseWithStatus",
+          "params": [
+            {
+              "name": "code",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "reason",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "OutputStream",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IOutputStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_OutputStream"
+        }
+      ],
+      "events": [
+        {
+          "name": "Closed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IWebSocket",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Interface"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "WebSocketClosedEventArgs",
+                "namespace": "Windows.Networking.Sockets",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Closed",
+          "remove_method": "remove_Closed"
+        }
+      ]
+    },
+    "IWebSocketClosedEventArgs": {
+      "guid": "ceb78d07-d0a8-4703-a091-c8c2c0915bc3",
+      "exclusive_to": "Windows.Networking.Sockets.WebSocketClosedEventArgs",
+      "methods": [
+        {
+          "name": "get_Code",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Reason",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Code",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Code"
+        },
+        {
+          "name": "Reason",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Reason"
+        }
+      ]
+    },
+    "IWebSocketControl": {
+      "guid": "2ec4bdc3-d9a5-455a-9811-de24d45337e9",
+      "methods": [
+        {
+          "name": "get_OutboundBufferSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_OutboundBufferSizeInBytes",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ServerCredential",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ServerCredential",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PasswordCredential",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ProxyCredential",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ProxyCredential",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PasswordCredential",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SupportedProtocols",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "OutboundBufferSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_OutboundBufferSizeInBytes",
+          "setter": "put_OutboundBufferSizeInBytes"
+        },
+        {
+          "name": "ProxyCredential",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          },
+          "getter": "get_ProxyCredential",
+          "setter": "put_ProxyCredential"
+        },
+        {
+          "name": "ServerCredential",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          },
+          "getter": "get_ServerCredential",
+          "setter": "put_ServerCredential"
+        },
+        {
+          "name": "SupportedProtocols",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_SupportedProtocols"
+        }
+      ]
+    },
+    "IWebSocketControl2": {
+      "guid": "79c3be03-f2ca-461e-af4e-9665bc2d0620",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebSocketControl",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_IgnorableServerCertificateErrors",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChainValidationResult",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IgnorableServerCertificateErrors",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChainValidationResult",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_IgnorableServerCertificateErrors"
+        }
+      ]
+    },
+    "IWebSocketErrorStatics": {
+      "guid": "27cdf35b-1f61-4709-8e02-61283ada4e9d",
+      "exclusive_to": "Windows.Networking.Sockets.WebSocketError",
+      "methods": [
+        {
+          "name": "GetStatus",
+          "params": [
+            {
+              "name": "hresult",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebErrorStatus",
+            "namespace": "Windows.Web",
+            "target_kind": "Enum"
+          }
+        }
+      ]
+    },
+    "IWebSocketInformation": {
+      "guid": "5e01e316-c92a-47a5-b25f-07847639d181",
+      "methods": [
+        {
+          "name": "get_LocalAddress",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_BandwidthStatistics",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BandwidthStatistics",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Protocol",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BandwidthStatistics",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BandwidthStatistics",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BandwidthStatistics"
+        },
+        {
+          "name": "LocalAddress",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          },
+          "getter": "get_LocalAddress"
+        },
+        {
+          "name": "Protocol",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Protocol"
+        }
+      ]
+    },
+    "IWebSocketInformation2": {
+      "guid": "ce1d39ce-a1b7-4d43-8269-8d5b981bd47a",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebSocketInformation",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_ServerCertificate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ServerCertificateErrorSeverity",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SocketSslErrorSeverity",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ServerCertificateErrors",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChainValidationResult",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ServerIntermediateCertificates",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ServerCertificate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          },
+          "getter": "get_ServerCertificate"
+        },
+        {
+          "name": "ServerCertificateErrorSeverity",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SocketSslErrorSeverity",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ServerCertificateErrorSeverity"
+        },
+        {
+          "name": "ServerCertificateErrors",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChainValidationResult",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_ServerCertificateErrors"
+        },
+        {
+          "name": "ServerIntermediateCertificates",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_ServerIntermediateCertificates"
+        }
+      ]
+    },
+    "IWebSocketServerCustomValidationRequestedEventArgs": {
+      "guid": "ffeffe48-022a-4ab7-8b36-e10af4640e6b",
+      "exclusive_to": "Windows.Networking.Sockets.WebSocketServerCustomValidationRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_ServerCertificate",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ServerCertificateErrorSeverity",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SocketSslErrorSeverity",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ServerCertificateErrors",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChainValidationResult",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ServerIntermediateCertificates",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Reject"
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Deferral",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ServerCertificate",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Certificate",
+            "namespace": "Windows.Security.Cryptography.Certificates",
+            "target_kind": "Class"
+          },
+          "getter": "get_ServerCertificate"
+        },
+        {
+          "name": "ServerCertificateErrorSeverity",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SocketSslErrorSeverity",
+            "namespace": "Windows.Networking.Sockets",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ServerCertificateErrorSeverity"
+        },
+        {
+          "name": "ServerCertificateErrors",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ChainValidationResult",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Enum"
+              }
+            ]
+          },
+          "getter": "get_ServerCertificateErrors"
+        },
+        {
+          "name": "ServerIntermediateCertificates",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Certificate",
+                "namespace": "Windows.Security.Cryptography.Certificates",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_ServerIntermediateCertificates"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "DatagramSocket": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDatagramSocket",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDatagramSocket",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDatagramSocket2",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDatagramSocket3",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Networking.Sockets.IDatagramSocketStatics"
+      ]
+    },
+    "DatagramSocketControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDatagramSocketControl",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDatagramSocketControl",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDatagramSocketControl2",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDatagramSocketControl3",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DatagramSocketInformation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDatagramSocketInformation",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDatagramSocketInformation",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DatagramSocketMessageReceivedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDatagramSocketMessageReceivedEventArgs",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDatagramSocketMessageReceivedEventArgs",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MessageWebSocket": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMessageWebSocket",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMessageWebSocket",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IWebSocket",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMessageWebSocket2",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMessageWebSocket3",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "MessageWebSocketControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMessageWebSocketControl",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMessageWebSocketControl",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IWebSocketControl",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IWebSocketControl2",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMessageWebSocketControl2",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MessageWebSocketInformation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebSocketInformation",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebSocketInformation",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IWebSocketInformation2",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "MessageWebSocketMessageReceivedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IMessageWebSocketMessageReceivedEventArgs",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IMessageWebSocketMessageReceivedEventArgs",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IMessageWebSocketMessageReceivedEventArgs2",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ServerMessageWebSocket": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IServerMessageWebSocket",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IServerMessageWebSocket",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ServerMessageWebSocketControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IServerMessageWebSocketControl",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IServerMessageWebSocketControl",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ServerMessageWebSocketInformation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IServerMessageWebSocketInformation",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IServerMessageWebSocketInformation",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ServerStreamWebSocket": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IServerStreamWebSocket",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IServerStreamWebSocket",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ServerStreamWebSocketInformation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IServerStreamWebSocketInformation",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IServerStreamWebSocketInformation",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SocketActivityContext": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISocketActivityContext",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISocketActivityContext",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Networking.Sockets.ISocketActivityContextFactory"
+      ]
+    },
+    "SocketActivityInformation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISocketActivityInformation",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISocketActivityInformation",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Networking.Sockets.ISocketActivityInformationStatics"
+      ]
+    },
+    "SocketActivityTriggerDetails": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISocketActivityTriggerDetails",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISocketActivityTriggerDetails",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SocketError": {
+      "static_interfaces": [
+        "Windows.Networking.Sockets.ISocketErrorStatics"
+      ]
+    },
+    "StreamSocket": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStreamSocket",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStreamSocket",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStreamSocket2",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStreamSocket3",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.Networking.Sockets.IStreamSocketStatics"
+      ]
+    },
+    "StreamSocketControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStreamSocketControl",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStreamSocketControl",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStreamSocketControl2",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStreamSocketControl3",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStreamSocketControl4",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "StreamSocketInformation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStreamSocketInformation",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStreamSocketInformation",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStreamSocketInformation2",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "StreamSocketListener": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStreamSocketListener",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStreamSocketListener",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStreamSocketListener2",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStreamSocketListener3",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "StreamSocketListenerConnectionReceivedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStreamSocketListenerConnectionReceivedEventArgs",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStreamSocketListenerConnectionReceivedEventArgs",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "StreamSocketListenerControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStreamSocketListenerControl",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStreamSocketListenerControl",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStreamSocketListenerControl2",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "StreamSocketListenerInformation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStreamSocketListenerInformation",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStreamSocketListenerInformation",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "StreamWebSocket": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStreamWebSocket",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStreamWebSocket",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IWebSocket",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStreamWebSocket2",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "StreamWebSocketControl": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStreamWebSocketControl",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStreamWebSocketControl",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IWebSocketControl",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IWebSocketControl2",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStreamWebSocketControl2",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "StreamWebSocketInformation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebSocketInformation",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebSocketInformation",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IWebSocketInformation2",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebSocketClosedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebSocketClosedEventArgs",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebSocketClosedEventArgs",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebSocketError": {
+      "static_interfaces": [
+        "Windows.Networking.Sockets.IWebSocketErrorStatics"
+      ]
+    },
+    "WebSocketKeepAlive": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBackgroundTask",
+        "namespace": "Windows.ApplicationModel.Background",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBackgroundTask",
+          "namespace": "Windows.ApplicationModel.Background",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "WebSocketServerCustomValidationRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebSocketServerCustomValidationRequestedEventArgs",
+        "namespace": "Windows.Networking.Sockets",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebSocketServerCustomValidationRequestedEventArgs",
+          "namespace": "Windows.Networking.Sockets",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

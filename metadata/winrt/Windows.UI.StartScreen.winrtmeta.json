@@ -1,0 +1,2655 @@
+{
+  "namespace": "Windows.UI.StartScreen",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "ForegroundText": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Dark",
+          "value": "0"
+        },
+        {
+          "name": "Light",
+          "value": "1"
+        }
+      ]
+    },
+    "JumpListItemKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Arguments",
+          "value": "0"
+        },
+        {
+          "name": "Separator",
+          "value": "1"
+        }
+      ]
+    },
+    "JumpListSystemGroupKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Frequent",
+          "value": "1"
+        },
+        {
+          "name": "Recent",
+          "value": "2"
+        }
+      ]
+    },
+    "TileMixedRealityModelActivationBehavior": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "None",
+          "value": "1"
+        }
+      ]
+    },
+    "TileOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "ShowNameOnLogo",
+          "value": "1"
+        },
+        {
+          "name": "ShowNameOnWideLogo",
+          "value": "2"
+        },
+        {
+          "name": "CopyOnDeployment",
+          "value": "4"
+        }
+      ]
+    },
+    "TileSize": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "Square30x30",
+          "value": "1"
+        },
+        {
+          "name": "Square70x70",
+          "value": "2"
+        },
+        {
+          "name": "Square150x150",
+          "value": "3"
+        },
+        {
+          "name": "Wide310x150",
+          "value": "4"
+        },
+        {
+          "name": "Square310x310",
+          "value": "5"
+        },
+        {
+          "name": "Square71x71",
+          "value": "6"
+        },
+        {
+          "name": "Square44x44",
+          "value": "7"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IJumpList": {
+      "guid": "b0234c3e-cd6f-4cb6-a611-61fd505f3ed1",
+      "exclusive_to": "Windows.UI.StartScreen.JumpList",
+      "methods": [
+        {
+          "name": "get_Items",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "JumpListItem",
+                "namespace": "Windows.UI.StartScreen",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_SystemGroupKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "JumpListSystemGroupKind",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_SystemGroupKind",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "JumpListSystemGroupKind",
+                "namespace": "Windows.UI.StartScreen",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SaveAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Items",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "JumpListItem",
+                "namespace": "Windows.UI.StartScreen",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Items"
+        },
+        {
+          "name": "SystemGroupKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "JumpListSystemGroupKind",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SystemGroupKind",
+          "setter": "put_SystemGroupKind"
+        }
+      ]
+    },
+    "IJumpListItem": {
+      "guid": "7adb6717-8b5d-4820-995b-9b418dbe48b0",
+      "exclusive_to": "Windows.UI.StartScreen.JumpListItem",
+      "methods": [
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "JumpListItemKind",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Arguments",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_RemovedByUser",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Description",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Description",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DisplayName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_GroupName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_GroupName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Logo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Logo",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Arguments",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Arguments"
+        },
+        {
+          "name": "Description",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Description",
+          "setter": "put_Description"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName",
+          "setter": "put_DisplayName"
+        },
+        {
+          "name": "GroupName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_GroupName",
+          "setter": "put_GroupName"
+        },
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "JumpListItemKind",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        },
+        {
+          "name": "Logo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Logo",
+          "setter": "put_Logo"
+        },
+        {
+          "name": "RemovedByUser",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_RemovedByUser"
+        }
+      ]
+    },
+    "IJumpListItemStatics": {
+      "guid": "f1bfc4e8-c7aa-49cb-8dde-ecfccd7ad7e4",
+      "exclusive_to": "Windows.UI.StartScreen.JumpListItem",
+      "methods": [
+        {
+          "name": "CreateWithArguments",
+          "params": [
+            {
+              "name": "arguments",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "displayName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "JumpListItem",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateSeparator",
+          "return": {
+            "kind": "ApiRef",
+            "name": "JumpListItem",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IJumpListStatics": {
+      "guid": "a7e0c681-e67e-4b74-8250-3f322c4d92c3",
+      "exclusive_to": "Windows.UI.StartScreen.JumpList",
+      "methods": [
+        {
+          "name": "LoadCurrentAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "JumpList",
+                "namespace": "Windows.UI.StartScreen",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "IsSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "ISecondaryTile": {
+      "guid": "9e9e51e0-2bb5-4bc0-bb8d-42b23abcc88d",
+      "exclusive_to": "Windows.UI.StartScreen.SecondaryTile",
+      "methods": [
+        {
+          "name": "put_TileId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TileId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Arguments",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Arguments",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_ShortName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ShortName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DisplayName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_Logo",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Logo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_SmallLogo",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SmallLogo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_WideLogo",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_WideLogo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_LockScreenBadgeLogo",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LockScreenBadgeLogo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_LockScreenDisplayBadgeAndTileText",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LockScreenDisplayBadgeAndTileText",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_TileOptions",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TileOptions",
+                "namespace": "Windows.UI.StartScreen",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_TileOptions",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TileOptions",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_ForegroundText",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ForegroundText",
+                "namespace": "Windows.UI.StartScreen",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ForegroundText",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ForegroundText",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_BackgroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BackgroundColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "RequestCreateAsync",
+          "overload": "RequestCreateAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestCreateAsync",
+          "overload": "RequestCreateAsyncWithPoint",
+          "params": [
+            {
+              "name": "invocationPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestCreateForSelectionAsync",
+          "overload": "RequestCreateAsyncWithRect",
+          "params": [
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestCreateForSelectionAsync",
+          "overload": "RequestCreateAsyncWithRectAndPlacement",
+          "params": [
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "preferredPlacement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Placement",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestDeleteAsync",
+          "overload": "RequestDeleteAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestDeleteAsync",
+          "overload": "RequestDeleteAsyncWithPoint",
+          "params": [
+            {
+              "name": "invocationPoint",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Point",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestDeleteForSelectionAsync",
+          "overload": "RequestDeleteAsyncWithRect",
+          "params": [
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestDeleteForSelectionAsync",
+          "overload": "RequestDeleteAsyncWithRectAndPlacement",
+          "params": [
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "preferredPlacement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Placement",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "UpdateAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Arguments",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Arguments",
+          "setter": "put_Arguments"
+        },
+        {
+          "name": "BackgroundColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BackgroundColor",
+          "setter": "put_BackgroundColor"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName",
+          "setter": "put_DisplayName"
+        },
+        {
+          "name": "ForegroundText",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ForegroundText",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ForegroundText",
+          "setter": "put_ForegroundText"
+        },
+        {
+          "name": "LockScreenBadgeLogo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_LockScreenBadgeLogo",
+          "setter": "put_LockScreenBadgeLogo"
+        },
+        {
+          "name": "LockScreenDisplayBadgeAndTileText",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_LockScreenDisplayBadgeAndTileText",
+          "setter": "put_LockScreenDisplayBadgeAndTileText"
+        },
+        {
+          "name": "Logo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Logo",
+          "setter": "put_Logo"
+        },
+        {
+          "name": "ShortName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ShortName",
+          "setter": "put_ShortName"
+        },
+        {
+          "name": "SmallLogo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_SmallLogo",
+          "setter": "put_SmallLogo"
+        },
+        {
+          "name": "TileId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_TileId",
+          "setter": "put_TileId"
+        },
+        {
+          "name": "TileOptions",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TileOptions",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Enum"
+          },
+          "getter": "get_TileOptions",
+          "setter": "put_TileOptions"
+        },
+        {
+          "name": "WideLogo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_WideLogo",
+          "setter": "put_WideLogo"
+        }
+      ]
+    },
+    "ISecondaryTile2": {
+      "guid": "b2f6cc35-3250-4990-923c-294ab4b694dd",
+      "exclusive_to": "Windows.UI.StartScreen.SecondaryTile",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISecondaryTile",
+          "namespace": "Windows.UI.StartScreen",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "put_PhoneticName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PhoneticName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_VisualElements",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SecondaryTileVisualElements",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_RoamingEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RoamingEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "add_VisualElementsRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SecondaryTile",
+                    "namespace": "Windows.UI.StartScreen",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "VisualElementsRequestedEventArgs",
+                    "namespace": "Windows.UI.StartScreen",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_VisualElementsRequested",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "PhoneticName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PhoneticName",
+          "setter": "put_PhoneticName"
+        },
+        {
+          "name": "RoamingEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_RoamingEnabled",
+          "setter": "put_RoamingEnabled"
+        },
+        {
+          "name": "VisualElements",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SecondaryTileVisualElements",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Class"
+          },
+          "getter": "get_VisualElements"
+        }
+      ],
+      "events": [
+        {
+          "name": "VisualElementsRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SecondaryTile",
+                "namespace": "Windows.UI.StartScreen",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "VisualElementsRequestedEventArgs",
+                "namespace": "Windows.UI.StartScreen",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_VisualElementsRequested",
+          "remove_method": "remove_VisualElementsRequested"
+        }
+      ]
+    },
+    "ISecondaryTileFactory": {
+      "guid": "57f52ca0-51bc-4abf-8ebf-627a0398b05a",
+      "exclusive_to": "Windows.UI.StartScreen.SecondaryTile",
+      "methods": [
+        {
+          "name": "CreateTile",
+          "params": [
+            {
+              "name": "tileId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "shortName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "displayName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "arguments",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "tileOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TileOptions",
+                "namespace": "Windows.UI.StartScreen",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "logoReference",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SecondaryTile",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWideTile",
+          "params": [
+            {
+              "name": "tileId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "shortName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "displayName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "arguments",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "tileOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TileOptions",
+                "namespace": "Windows.UI.StartScreen",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "logoReference",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "wideLogoReference",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SecondaryTile",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithId",
+          "params": [
+            {
+              "name": "tileId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SecondaryTile",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISecondaryTileFactory2": {
+      "guid": "274b8a3b-522d-448e-9eb2-d0672ab345c8",
+      "exclusive_to": "Windows.UI.StartScreen.SecondaryTile",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "ISecondaryTileFactory",
+          "namespace": "Windows.UI.StartScreen",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "CreateMinimalTile",
+          "params": [
+            {
+              "name": "tileId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "displayName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "arguments",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "square150x150Logo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "desiredSize",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TileSize",
+                "namespace": "Windows.UI.StartScreen",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SecondaryTile",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISecondaryTileStatics": {
+      "guid": "99908dae-d051-4676-87fe-9ec242d83c74",
+      "exclusive_to": "Windows.UI.StartScreen.SecondaryTile",
+      "methods": [
+        {
+          "name": "Exists",
+          "params": [
+            {
+              "name": "tileId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "FindAllAsync",
+          "overload": "FindAllAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SecondaryTile",
+                    "namespace": "Windows.UI.StartScreen",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAllAsync",
+          "overload": "FindAllForApplicationAsync",
+          "params": [
+            {
+              "name": "applicationId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SecondaryTile",
+                    "namespace": "Windows.UI.StartScreen",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAllForPackageAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SecondaryTile",
+                    "namespace": "Windows.UI.StartScreen",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ISecondaryTileVisualElements": {
+      "guid": "1d8df333-815e-413f-9f50-a81da70a96b2",
+      "exclusive_to": "Windows.UI.StartScreen.SecondaryTileVisualElements",
+      "methods": [
+        {
+          "name": "put_Square30x30Logo",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Square30x30Logo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Square70x70Logo",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Square70x70Logo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Square150x150Logo",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Square150x150Logo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Wide310x150Logo",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Wide310x150Logo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Square310x310Logo",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Square310x310Logo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ForegroundText",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ForegroundText",
+                "namespace": "Windows.UI.StartScreen",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ForegroundText",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ForegroundText",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_BackgroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BackgroundColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_ShowNameOnSquare150x150Logo",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ShowNameOnSquare150x150Logo",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_ShowNameOnWide310x150Logo",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ShowNameOnWide310x150Logo",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_ShowNameOnSquare310x310Logo",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ShowNameOnSquare310x310Logo",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BackgroundColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BackgroundColor",
+          "setter": "put_BackgroundColor"
+        },
+        {
+          "name": "ForegroundText",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ForegroundText",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ForegroundText",
+          "setter": "put_ForegroundText"
+        },
+        {
+          "name": "ShowNameOnSquare150x150Logo",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ShowNameOnSquare150x150Logo",
+          "setter": "put_ShowNameOnSquare150x150Logo"
+        },
+        {
+          "name": "ShowNameOnSquare310x310Logo",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ShowNameOnSquare310x310Logo",
+          "setter": "put_ShowNameOnSquare310x310Logo"
+        },
+        {
+          "name": "ShowNameOnWide310x150Logo",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ShowNameOnWide310x150Logo",
+          "setter": "put_ShowNameOnWide310x150Logo"
+        },
+        {
+          "name": "Square150x150Logo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Square150x150Logo",
+          "setter": "put_Square150x150Logo"
+        },
+        {
+          "name": "Square30x30Logo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Square30x30Logo",
+          "setter": "put_Square30x30Logo"
+        },
+        {
+          "name": "Square310x310Logo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Square310x310Logo",
+          "setter": "put_Square310x310Logo"
+        },
+        {
+          "name": "Square70x70Logo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Square70x70Logo",
+          "setter": "put_Square70x70Logo"
+        },
+        {
+          "name": "Wide310x150Logo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Wide310x150Logo",
+          "setter": "put_Wide310x150Logo"
+        }
+      ]
+    },
+    "ISecondaryTileVisualElements2": {
+      "guid": "fd2e31d0-57dc-4794-8ecf-5682f5f3e6ef",
+      "exclusive_to": "Windows.UI.StartScreen.SecondaryTileVisualElements",
+      "methods": [
+        {
+          "name": "put_Square71x71Logo",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Square71x71Logo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Square71x71Logo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Square71x71Logo",
+          "setter": "put_Square71x71Logo"
+        }
+      ]
+    },
+    "ISecondaryTileVisualElements3": {
+      "guid": "56b55ad6-d15c-40f4-81e7-57ffd8f8a4e9",
+      "exclusive_to": "Windows.UI.StartScreen.SecondaryTileVisualElements",
+      "methods": [
+        {
+          "name": "put_Square44x44Logo",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Square44x44Logo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Square44x44Logo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Square44x44Logo",
+          "setter": "put_Square44x44Logo"
+        }
+      ]
+    },
+    "ISecondaryTileVisualElements4": {
+      "guid": "66566117-b544-40d2-8d12-74d4ec24d04c",
+      "exclusive_to": "Windows.UI.StartScreen.SecondaryTileVisualElements",
+      "methods": [
+        {
+          "name": "get_MixedRealityModel",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TileMixedRealityModel",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "MixedRealityModel",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TileMixedRealityModel",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Class"
+          },
+          "getter": "get_MixedRealityModel"
+        }
+      ]
+    },
+    "IStartScreenManager": {
+      "guid": "4a1dcbcb-26e9-4eb4-8933-859eb6ecdb29",
+      "exclusive_to": "Windows.UI.StartScreen.StartScreenManager",
+      "methods": [
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SupportsAppListEntry",
+          "params": [
+            {
+              "name": "appListEntry",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppListEntry",
+                "namespace": "Windows.ApplicationModel.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "ContainsAppListEntryAsync",
+          "params": [
+            {
+              "name": "appListEntry",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppListEntry",
+                "namespace": "Windows.ApplicationModel.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestAddAppListEntryAsync",
+          "params": [
+            {
+              "name": "appListEntry",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AppListEntry",
+                "namespace": "Windows.ApplicationModel.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ]
+    },
+    "IStartScreenManager2": {
+      "guid": "08a716b6-316b-4ad9-acb8-fe9cf00bd608",
+      "exclusive_to": "Windows.UI.StartScreen.StartScreenManager",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IStartScreenManager",
+          "namespace": "Windows.UI.StartScreen",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "ContainsSecondaryTileAsync",
+          "params": [
+            {
+              "name": "tileId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryRemoveSecondaryTileAsync",
+          "params": [
+            {
+              "name": "tileId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IStartScreenManagerStatics": {
+      "guid": "7865ef0f-b585-464e-8993-34e8f8738d48",
+      "exclusive_to": "Windows.UI.StartScreen.StartScreenManager",
+      "methods": [
+        {
+          "name": "GetDefault",
+          "return": {
+            "kind": "ApiRef",
+            "name": "StartScreenManager",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "StartScreenManager",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ITileMixedRealityModel": {
+      "guid": "b0764e5b-887d-4242-9a19-3d0a4ea78031",
+      "exclusive_to": "Windows.UI.StartScreen.TileMixedRealityModel",
+      "methods": [
+        {
+          "name": "put_Uri",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Uri",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Uri",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_BoundingBox",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SpatialBoundingBox",
+                    "namespace": "Windows.Perception.Spatial",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BoundingBox",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialBoundingBox",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BoundingBox",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SpatialBoundingBox",
+                "namespace": "Windows.Perception.Spatial",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_BoundingBox",
+          "setter": "put_BoundingBox"
+        },
+        {
+          "name": "Uri",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Uri",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Class"
+          },
+          "getter": "get_Uri",
+          "setter": "put_Uri"
+        }
+      ]
+    },
+    "ITileMixedRealityModel2": {
+      "guid": "439470b2-d7c5-410b-8319-9486a27b6c67",
+      "exclusive_to": "Windows.UI.StartScreen.TileMixedRealityModel",
+      "methods": [
+        {
+          "name": "put_ActivationBehavior",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TileMixedRealityModelActivationBehavior",
+                "namespace": "Windows.UI.StartScreen",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ActivationBehavior",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TileMixedRealityModelActivationBehavior",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ActivationBehavior",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TileMixedRealityModelActivationBehavior",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ActivationBehavior",
+          "setter": "put_ActivationBehavior"
+        }
+      ]
+    },
+    "IVisualElementsRequest": {
+      "guid": "c138333a-9308-4072-88cc-d068db347c68",
+      "exclusive_to": "Windows.UI.StartScreen.VisualElementsRequest",
+      "methods": [
+        {
+          "name": "get_VisualElements",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SecondaryTileVisualElements",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_AlternateVisualElements",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SecondaryTileVisualElements",
+                "namespace": "Windows.UI.StartScreen",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Deadline",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VisualElementsRequestDeferral",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AlternateVisualElements",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SecondaryTileVisualElements",
+                "namespace": "Windows.UI.StartScreen",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_AlternateVisualElements"
+        },
+        {
+          "name": "Deadline",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Deadline"
+        },
+        {
+          "name": "VisualElements",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SecondaryTileVisualElements",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Class"
+          },
+          "getter": "get_VisualElements"
+        }
+      ]
+    },
+    "IVisualElementsRequestDeferral": {
+      "guid": "a1656eb0-0126-4357-8204-bd82bb2a046d",
+      "exclusive_to": "Windows.UI.StartScreen.VisualElementsRequestDeferral",
+      "methods": [
+        {
+          "name": "Complete"
+        }
+      ]
+    },
+    "IVisualElementsRequestedEventArgs": {
+      "guid": "7b6fc982-3a0d-4ece-af96-cd17e1b00b2d",
+      "exclusive_to": "Windows.UI.StartScreen.VisualElementsRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VisualElementsRequest",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VisualElementsRequest",
+            "namespace": "Windows.UI.StartScreen",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "JumpList": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IJumpList",
+        "namespace": "Windows.UI.StartScreen",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IJumpList",
+          "namespace": "Windows.UI.StartScreen",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.StartScreen.IJumpListStatics"
+      ]
+    },
+    "JumpListItem": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IJumpListItem",
+        "namespace": "Windows.UI.StartScreen",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IJumpListItem",
+          "namespace": "Windows.UI.StartScreen",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.StartScreen.IJumpListItemStatics"
+      ]
+    },
+    "SecondaryTile": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISecondaryTile",
+        "namespace": "Windows.UI.StartScreen",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISecondaryTile",
+          "namespace": "Windows.UI.StartScreen",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISecondaryTile2",
+          "namespace": "Windows.UI.StartScreen",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.UI.StartScreen.ISecondaryTileFactory",
+        "Windows.UI.StartScreen.ISecondaryTileFactory2"
+      ],
+      "static_interfaces": [
+        "Windows.UI.StartScreen.ISecondaryTileStatics"
+      ]
+    },
+    "SecondaryTileVisualElements": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISecondaryTileVisualElements",
+        "namespace": "Windows.UI.StartScreen",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISecondaryTileVisualElements",
+          "namespace": "Windows.UI.StartScreen",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISecondaryTileVisualElements2",
+          "namespace": "Windows.UI.StartScreen",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISecondaryTileVisualElements3",
+          "namespace": "Windows.UI.StartScreen",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISecondaryTileVisualElements4",
+          "namespace": "Windows.UI.StartScreen",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "StartScreenManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IStartScreenManager",
+        "namespace": "Windows.UI.StartScreen",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IStartScreenManager",
+          "namespace": "Windows.UI.StartScreen",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IStartScreenManager2",
+          "namespace": "Windows.UI.StartScreen",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.StartScreen.IStartScreenManagerStatics"
+      ]
+    },
+    "TileMixedRealityModel": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITileMixedRealityModel",
+        "namespace": "Windows.UI.StartScreen",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITileMixedRealityModel",
+          "namespace": "Windows.UI.StartScreen",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ITileMixedRealityModel2",
+          "namespace": "Windows.UI.StartScreen",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VisualElementsRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVisualElementsRequest",
+        "namespace": "Windows.UI.StartScreen",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVisualElementsRequest",
+          "namespace": "Windows.UI.StartScreen",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VisualElementsRequestDeferral": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVisualElementsRequestDeferral",
+        "namespace": "Windows.UI.StartScreen",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVisualElementsRequestDeferral",
+          "namespace": "Windows.UI.StartScreen",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VisualElementsRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVisualElementsRequestedEventArgs",
+        "namespace": "Windows.UI.StartScreen",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVisualElementsRequestedEventArgs",
+          "namespace": "Windows.UI.StartScreen",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

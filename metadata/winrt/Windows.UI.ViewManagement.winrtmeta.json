@@ -1,0 +1,4626 @@
+{
+  "namespace": "Windows.UI.ViewManagement",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "ApplicationViewBoundsMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "UseVisible",
+          "value": "0"
+        },
+        {
+          "name": "UseCoreWindow",
+          "value": "1"
+        }
+      ]
+    },
+    "ApplicationViewMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "CompactOverlay",
+          "value": "1"
+        }
+      ]
+    },
+    "ApplicationViewOrientation": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Landscape",
+          "value": "0"
+        },
+        {
+          "name": "Portrait",
+          "value": "1"
+        }
+      ]
+    },
+    "ApplicationViewState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "FullScreenLandscape",
+          "value": "0"
+        },
+        {
+          "name": "Filled",
+          "value": "1"
+        },
+        {
+          "name": "Snapped",
+          "value": "2"
+        },
+        {
+          "name": "FullScreenPortrait",
+          "value": "3"
+        }
+      ]
+    },
+    "ApplicationViewSwitchingOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "SkipAnimation",
+          "value": "1"
+        },
+        {
+          "name": "ConsolidateViews",
+          "value": "2"
+        }
+      ]
+    },
+    "ApplicationViewWindowingMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Auto",
+          "value": "0"
+        },
+        {
+          "name": "PreferredLaunchViewSize",
+          "value": "1"
+        },
+        {
+          "name": "FullScreen",
+          "value": "2"
+        },
+        {
+          "name": "CompactOverlay",
+          "value": "3"
+        },
+        {
+          "name": "Maximized",
+          "value": "4"
+        }
+      ]
+    },
+    "FullScreenSystemOverlayMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Standard",
+          "value": "0"
+        },
+        {
+          "name": "Minimal",
+          "value": "1"
+        }
+      ]
+    },
+    "HandPreference": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "LeftHanded",
+          "value": "0"
+        },
+        {
+          "name": "RightHanded",
+          "value": "1"
+        }
+      ]
+    },
+    "ScreenCaptureDisabledBehavior": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "DrawAsBlack",
+          "value": "0"
+        },
+        {
+          "name": "ExcludeFromCapture",
+          "value": "1"
+        }
+      ]
+    },
+    "UIColorType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Background",
+          "value": "0"
+        },
+        {
+          "name": "Foreground",
+          "value": "1"
+        },
+        {
+          "name": "AccentDark3",
+          "value": "2"
+        },
+        {
+          "name": "AccentDark2",
+          "value": "3"
+        },
+        {
+          "name": "AccentDark1",
+          "value": "4"
+        },
+        {
+          "name": "Accent",
+          "value": "5"
+        },
+        {
+          "name": "AccentLight1",
+          "value": "6"
+        },
+        {
+          "name": "AccentLight2",
+          "value": "7"
+        },
+        {
+          "name": "AccentLight3",
+          "value": "8"
+        },
+        {
+          "name": "Complement",
+          "value": "9"
+        }
+      ]
+    },
+    "UIElementType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "ActiveCaption",
+          "value": "0"
+        },
+        {
+          "name": "Background",
+          "value": "1"
+        },
+        {
+          "name": "ButtonFace",
+          "value": "2"
+        },
+        {
+          "name": "ButtonText",
+          "value": "3"
+        },
+        {
+          "name": "CaptionText",
+          "value": "4"
+        },
+        {
+          "name": "GrayText",
+          "value": "5"
+        },
+        {
+          "name": "Highlight",
+          "value": "6"
+        },
+        {
+          "name": "HighlightText",
+          "value": "7"
+        },
+        {
+          "name": "Hotlight",
+          "value": "8"
+        },
+        {
+          "name": "InactiveCaption",
+          "value": "9"
+        },
+        {
+          "name": "InactiveCaptionText",
+          "value": "10"
+        },
+        {
+          "name": "Window",
+          "value": "11"
+        },
+        {
+          "name": "WindowText",
+          "value": "12"
+        },
+        {
+          "name": "AccentColor",
+          "value": "1000"
+        },
+        {
+          "name": "TextHigh",
+          "value": "1001"
+        },
+        {
+          "name": "TextMedium",
+          "value": "1002"
+        },
+        {
+          "name": "TextLow",
+          "value": "1003"
+        },
+        {
+          "name": "TextContrastWithHigh",
+          "value": "1004"
+        },
+        {
+          "name": "NonTextHigh",
+          "value": "1005"
+        },
+        {
+          "name": "NonTextMediumHigh",
+          "value": "1006"
+        },
+        {
+          "name": "NonTextMedium",
+          "value": "1007"
+        },
+        {
+          "name": "NonTextMediumLow",
+          "value": "1008"
+        },
+        {
+          "name": "NonTextLow",
+          "value": "1009"
+        },
+        {
+          "name": "PageBackground",
+          "value": "1010"
+        },
+        {
+          "name": "PopupBackground",
+          "value": "1011"
+        },
+        {
+          "name": "OverlayOutsidePopup",
+          "value": "1012"
+        }
+      ]
+    },
+    "UserInteractionMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Mouse",
+          "value": "0"
+        },
+        {
+          "name": "Touch",
+          "value": "1"
+        }
+      ]
+    },
+    "ViewSizePreference": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "UseLess",
+          "value": "1"
+        },
+        {
+          "name": "UseHalf",
+          "value": "2"
+        },
+        {
+          "name": "UseMore",
+          "value": "3"
+        },
+        {
+          "name": "UseMinimum",
+          "value": "4"
+        },
+        {
+          "name": "UseNone",
+          "value": "5"
+        },
+        {
+          "name": "Custom",
+          "value": "6"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IAccessibilitySettings": {
+      "guid": "fe0e8147-c4c0-4562-b962-1327b52ad5b9",
+      "exclusive_to": "Windows.UI.ViewManagement.AccessibilitySettings",
+      "methods": [
+        {
+          "name": "get_HighContrast",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_HighContrastScheme",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "add_HighContrastChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AccessibilitySettings",
+                    "namespace": "Windows.UI.ViewManagement",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_HighContrastChanged",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "HighContrast",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HighContrast"
+        },
+        {
+          "name": "HighContrastScheme",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HighContrastScheme"
+        }
+      ],
+      "events": [
+        {
+          "name": "HighContrastChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AccessibilitySettings",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_HighContrastChanged",
+          "remove_method": "remove_HighContrastChanged"
+        }
+      ]
+    },
+    "IActivationViewSwitcher": {
+      "guid": "dca71bb6-7350-492b-aac7-c8a13d7224ad",
+      "exclusive_to": "Windows.UI.ViewManagement.ActivationViewSwitcher",
+      "methods": [
+        {
+          "name": "ShowAsStandaloneAsync",
+          "overload": "ShowAsStandaloneAsync",
+          "params": [
+            {
+              "name": "viewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ShowAsStandaloneAsync",
+          "overload": "ShowAsStandaloneWithSizePreferenceAsync",
+          "params": [
+            {
+              "name": "viewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "sizePreference",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ViewSizePreference",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "IsViewPresentedOnActivationVirtualDesktop",
+          "params": [
+            {
+              "name": "viewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IApplicationView": {
+      "guid": "d222d519-4361-451e-96c4-60f4f9742db0",
+      "exclusive_to": "Windows.UI.ViewManagement.ApplicationView",
+      "methods": [
+        {
+          "name": "get_Orientation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ApplicationViewOrientation",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_AdjacentToLeftDisplayEdge",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_AdjacentToRightDisplayEdge",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsFullScreen",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsOnLockScreen",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsScreenCaptureEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsScreenCaptureEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "put_Title",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Title",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "add_Consolidated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ApplicationView",
+                    "namespace": "Windows.UI.ViewManagement",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "ApplicationViewConsolidatedEventArgs",
+                    "namespace": "Windows.UI.ViewManagement",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Consolidated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AdjacentToLeftDisplayEdge",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AdjacentToLeftDisplayEdge"
+        },
+        {
+          "name": "AdjacentToRightDisplayEdge",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AdjacentToRightDisplayEdge"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "IsFullScreen",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsFullScreen"
+        },
+        {
+          "name": "IsOnLockScreen",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsOnLockScreen"
+        },
+        {
+          "name": "IsScreenCaptureEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsScreenCaptureEnabled",
+          "setter": "put_IsScreenCaptureEnabled"
+        },
+        {
+          "name": "Orientation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ApplicationViewOrientation",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Orientation"
+        },
+        {
+          "name": "Title",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Title",
+          "setter": "put_Title"
+        }
+      ],
+      "events": [
+        {
+          "name": "Consolidated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ApplicationView",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "ApplicationViewConsolidatedEventArgs",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Consolidated",
+          "remove_method": "remove_Consolidated"
+        }
+      ]
+    },
+    "IApplicationView2": {
+      "guid": "e876b196-a545-40dc-b594-450cba68cc00",
+      "exclusive_to": "Windows.UI.ViewManagement.ApplicationView",
+      "methods": [
+        {
+          "name": "get_SuppressSystemOverlays",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_SuppressSystemOverlays",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_VisibleBounds",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "add_VisibleBoundsChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "ApplicationView",
+                    "namespace": "Windows.UI.ViewManagement",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_VisibleBoundsChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetDesiredBoundsMode",
+          "params": [
+            {
+              "name": "boundsMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ApplicationViewBoundsMode",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_DesiredBoundsMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ApplicationViewBoundsMode",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DesiredBoundsMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ApplicationViewBoundsMode",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DesiredBoundsMode"
+        },
+        {
+          "name": "SuppressSystemOverlays",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_SuppressSystemOverlays",
+          "setter": "put_SuppressSystemOverlays"
+        },
+        {
+          "name": "VisibleBounds",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_VisibleBounds"
+        }
+      ],
+      "events": [
+        {
+          "name": "VisibleBoundsChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "ApplicationView",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_VisibleBoundsChanged",
+          "remove_method": "remove_VisibleBoundsChanged"
+        }
+      ]
+    },
+    "IApplicationView3": {
+      "guid": "903c9ce5-793a-4fdf-a2b2-af1ac21e3108",
+      "exclusive_to": "Windows.UI.ViewManagement.ApplicationView",
+      "methods": [
+        {
+          "name": "get_TitleBar",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ApplicationViewTitleBar",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_FullScreenSystemOverlayMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "FullScreenSystemOverlayMode",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_FullScreenSystemOverlayMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "FullScreenSystemOverlayMode",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsFullScreenMode",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TryEnterFullScreenMode",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "ExitFullScreenMode"
+        },
+        {
+          "name": "ShowStandardSystemOverlays"
+        },
+        {
+          "name": "TryResizeView",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Size",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "SetPreferredMinSize",
+          "params": [
+            {
+              "name": "minSize",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Size",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "FullScreenSystemOverlayMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "FullScreenSystemOverlayMode",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Enum"
+          },
+          "getter": "get_FullScreenSystemOverlayMode",
+          "setter": "put_FullScreenSystemOverlayMode"
+        },
+        {
+          "name": "IsFullScreenMode",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsFullScreenMode"
+        },
+        {
+          "name": "TitleBar",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ApplicationViewTitleBar",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Class"
+          },
+          "getter": "get_TitleBar"
+        }
+      ]
+    },
+    "IApplicationView4": {
+      "guid": "15e5cbec-9e0f-46b5-bc3f-9bf653e74b5e",
+      "exclusive_to": "Windows.UI.ViewManagement.ApplicationView",
+      "methods": [
+        {
+          "name": "get_ViewMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ApplicationViewMode",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "IsViewModeSupported",
+          "params": [
+            {
+              "name": "viewMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ApplicationViewMode",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TryEnterViewModeAsync",
+          "overload": "TryEnterViewModeAsync",
+          "params": [
+            {
+              "name": "viewMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ApplicationViewMode",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryEnterViewModeAsync",
+          "overload": "TryEnterViewModeWithPreferencesAsync",
+          "params": [
+            {
+              "name": "viewMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ApplicationViewMode",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "viewModePreferences",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ViewModePreferences",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryConsolidateAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ViewMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ApplicationViewMode",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ViewMode"
+        }
+      ]
+    },
+    "IApplicationView7": {
+      "guid": "a0369647-5faf-5aa6-9c38-befbb12a071e",
+      "exclusive_to": "Windows.UI.ViewManagement.ApplicationView",
+      "methods": [
+        {
+          "name": "get_PersistedStateId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_PersistedStateId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "PersistedStateId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PersistedStateId",
+          "setter": "put_PersistedStateId"
+        }
+      ]
+    },
+    "IApplicationView9": {
+      "guid": "9c6516f9-021a-5f01-93e5-9bdad2647574",
+      "exclusive_to": "Windows.UI.ViewManagement.ApplicationView",
+      "methods": [
+        {
+          "name": "get_WindowingEnvironment",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WindowingEnvironment",
+            "namespace": "Windows.UI.WindowManagement",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDisplayRegions",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayRegion",
+                "namespace": "Windows.UI.WindowManagement",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "WindowingEnvironment",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WindowingEnvironment",
+            "namespace": "Windows.UI.WindowManagement",
+            "target_kind": "Class"
+          },
+          "getter": "get_WindowingEnvironment"
+        }
+      ]
+    },
+    "IApplicationViewConsolidatedEventArgs": {
+      "guid": "514449ec-7ea2-4de7-a6a6-7dfbaaebb6fb",
+      "exclusive_to": "Windows.UI.ViewManagement.ApplicationViewConsolidatedEventArgs",
+      "methods": [
+        {
+          "name": "get_IsUserInitiated",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsUserInitiated",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsUserInitiated"
+        }
+      ]
+    },
+    "IApplicationViewConsolidatedEventArgs2": {
+      "guid": "1c199ecc-6dc1-40f4-afee-07d9ea296430",
+      "exclusive_to": "Windows.UI.ViewManagement.ApplicationViewConsolidatedEventArgs",
+      "methods": [
+        {
+          "name": "get_IsAppInitiated",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsAppInitiated",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAppInitiated"
+        }
+      ]
+    },
+    "IApplicationViewFullscreenStatics": {
+      "guid": "bc792ebd-64fe-4b65-a0c0-901ce2b68636",
+      "exclusive_to": "Windows.UI.ViewManagement.ApplicationView",
+      "methods": [
+        {
+          "name": "TryUnsnapToFullscreen",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IApplicationViewInteropStatics": {
+      "guid": "c446fb5d-4793-4896-a8e2-be57a8bb0f50",
+      "exclusive_to": "Windows.UI.ViewManagement.ApplicationView",
+      "methods": [
+        {
+          "name": "GetApplicationViewIdForWindow",
+          "params": [
+            {
+              "name": "window",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ICoreWindow",
+                "namespace": "Windows.UI.Core",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ]
+    },
+    "IApplicationViewStatics": {
+      "guid": "010a6306-c433-44e5-a9f2-bd84d4030a95",
+      "exclusive_to": "Windows.UI.ViewManagement.ApplicationView",
+      "methods": [
+        {
+          "name": "get_Value",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ApplicationViewState",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "TryUnsnap",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Value",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ApplicationViewState",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Value"
+        }
+      ]
+    },
+    "IApplicationViewStatics2": {
+      "guid": "af338ae5-cf64-423c-85e5-f3e72448fb23",
+      "exclusive_to": "Windows.UI.ViewManagement.ApplicationView",
+      "methods": [
+        {
+          "name": "GetForCurrentView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ApplicationView",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_TerminateAppOnFinalViewClose",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_TerminateAppOnFinalViewClose",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "TerminateAppOnFinalViewClose",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_TerminateAppOnFinalViewClose",
+          "setter": "put_TerminateAppOnFinalViewClose"
+        }
+      ]
+    },
+    "IApplicationViewStatics3": {
+      "guid": "a28d7594-8c41-4e13-9719-5164796fe4c7",
+      "exclusive_to": "Windows.UI.ViewManagement.ApplicationView",
+      "methods": [
+        {
+          "name": "get_PreferredLaunchWindowingMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ApplicationViewWindowingMode",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_PreferredLaunchWindowingMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ApplicationViewWindowingMode",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PreferredLaunchViewSize",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_PreferredLaunchViewSize",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Size",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "PreferredLaunchViewSize",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_PreferredLaunchViewSize",
+          "setter": "put_PreferredLaunchViewSize"
+        },
+        {
+          "name": "PreferredLaunchWindowingMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ApplicationViewWindowingMode",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PreferredLaunchWindowingMode",
+          "setter": "put_PreferredLaunchWindowingMode"
+        }
+      ]
+    },
+    "IApplicationViewStatics4": {
+      "guid": "08fd8d33-2611-5336-a315-d98e6366c9db",
+      "exclusive_to": "Windows.UI.ViewManagement.ApplicationView",
+      "methods": [
+        {
+          "name": "ClearAllPersistedState"
+        },
+        {
+          "name": "ClearPersistedState",
+          "params": [
+            {
+              "name": "key",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IApplicationViewSwitcherStatics": {
+      "guid": "975f2f1e-e656-4c5e-a0a1-717c6ffa7d64",
+      "exclusive_to": "Windows.UI.ViewManagement.ApplicationViewSwitcher",
+      "methods": [
+        {
+          "name": "DisableShowingMainViewOnActivation"
+        },
+        {
+          "name": "TryShowAsStandaloneAsync",
+          "overload": "TryShowAsStandaloneAsync",
+          "params": [
+            {
+              "name": "viewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryShowAsStandaloneAsync",
+          "overload": "TryShowAsStandaloneWithSizePreferenceAsync",
+          "params": [
+            {
+              "name": "viewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "sizePreference",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ViewSizePreference",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryShowAsStandaloneAsync",
+          "overload": "TryShowAsStandaloneWithAnchorViewAndSizePreferenceAsync",
+          "params": [
+            {
+              "name": "viewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "sizePreference",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ViewSizePreference",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "anchorViewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "anchorSizePreference",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ViewSizePreference",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SwitchAsync",
+          "overload": "SwitchAsync",
+          "params": [
+            {
+              "name": "viewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SwitchAsync",
+          "overload": "SwitchFromViewAsync",
+          "params": [
+            {
+              "name": "toViewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "fromViewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SwitchAsync",
+          "overload": "SwitchFromViewWithOptionsAsync",
+          "params": [
+            {
+              "name": "toViewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "fromViewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ApplicationViewSwitchingOptions",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "PrepareForCustomAnimatedSwitchAsync",
+          "params": [
+            {
+              "name": "toViewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "fromViewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ApplicationViewSwitchingOptions",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IApplicationViewSwitcherStatics2": {
+      "guid": "60e995cd-4fc2-48c4-b8e3-395f2b9f0fc1",
+      "exclusive_to": "Windows.UI.ViewManagement.ApplicationViewSwitcher",
+      "methods": [
+        {
+          "name": "DisableSystemViewActivationPolicy"
+        }
+      ]
+    },
+    "IApplicationViewSwitcherStatics3": {
+      "guid": "92059420-80a7-486d-b21f-c7a4a242a383",
+      "exclusive_to": "Windows.UI.ViewManagement.ApplicationViewSwitcher",
+      "methods": [
+        {
+          "name": "TryShowAsViewModeAsync",
+          "overload": "TryShowAsViewModeAsync",
+          "params": [
+            {
+              "name": "viewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "viewMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ApplicationViewMode",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "TryShowAsViewModeAsync",
+          "overload": "TryShowAsViewModeWithPreferencesAsync",
+          "params": [
+            {
+              "name": "viewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "viewMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ApplicationViewMode",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "viewModePreferences",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ViewModePreferences",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IApplicationViewTitleBar": {
+      "guid": "00924ac0-932b-4a6b-9c4b-dc38c82478ce",
+      "exclusive_to": "Windows.UI.ViewManagement.ApplicationViewTitleBar",
+      "methods": [
+        {
+          "name": "put_ForegroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Color",
+                    "namespace": "Windows.UI",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ForegroundColor",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_BackgroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Color",
+                    "namespace": "Windows.UI",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BackgroundColor",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_ButtonForegroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Color",
+                    "namespace": "Windows.UI",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ButtonForegroundColor",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_ButtonBackgroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Color",
+                    "namespace": "Windows.UI",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ButtonBackgroundColor",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_ButtonHoverForegroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Color",
+                    "namespace": "Windows.UI",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ButtonHoverForegroundColor",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_ButtonHoverBackgroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Color",
+                    "namespace": "Windows.UI",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ButtonHoverBackgroundColor",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_ButtonPressedForegroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Color",
+                    "namespace": "Windows.UI",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ButtonPressedForegroundColor",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_ButtonPressedBackgroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Color",
+                    "namespace": "Windows.UI",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ButtonPressedBackgroundColor",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_InactiveForegroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Color",
+                    "namespace": "Windows.UI",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_InactiveForegroundColor",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_InactiveBackgroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Color",
+                    "namespace": "Windows.UI",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_InactiveBackgroundColor",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_ButtonInactiveForegroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Color",
+                    "namespace": "Windows.UI",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ButtonInactiveForegroundColor",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_ButtonInactiveBackgroundColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "Color",
+                    "namespace": "Windows.UI",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ButtonInactiveBackgroundColor",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BackgroundColor",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_BackgroundColor",
+          "setter": "put_BackgroundColor"
+        },
+        {
+          "name": "ButtonBackgroundColor",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ButtonBackgroundColor",
+          "setter": "put_ButtonBackgroundColor"
+        },
+        {
+          "name": "ButtonForegroundColor",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ButtonForegroundColor",
+          "setter": "put_ButtonForegroundColor"
+        },
+        {
+          "name": "ButtonHoverBackgroundColor",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ButtonHoverBackgroundColor",
+          "setter": "put_ButtonHoverBackgroundColor"
+        },
+        {
+          "name": "ButtonHoverForegroundColor",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ButtonHoverForegroundColor",
+          "setter": "put_ButtonHoverForegroundColor"
+        },
+        {
+          "name": "ButtonInactiveBackgroundColor",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ButtonInactiveBackgroundColor",
+          "setter": "put_ButtonInactiveBackgroundColor"
+        },
+        {
+          "name": "ButtonInactiveForegroundColor",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ButtonInactiveForegroundColor",
+          "setter": "put_ButtonInactiveForegroundColor"
+        },
+        {
+          "name": "ButtonPressedBackgroundColor",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ButtonPressedBackgroundColor",
+          "setter": "put_ButtonPressedBackgroundColor"
+        },
+        {
+          "name": "ButtonPressedForegroundColor",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ButtonPressedForegroundColor",
+          "setter": "put_ButtonPressedForegroundColor"
+        },
+        {
+          "name": "ForegroundColor",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ForegroundColor",
+          "setter": "put_ForegroundColor"
+        },
+        {
+          "name": "InactiveBackgroundColor",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_InactiveBackgroundColor",
+          "setter": "put_InactiveBackgroundColor"
+        },
+        {
+          "name": "InactiveForegroundColor",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_InactiveForegroundColor",
+          "setter": "put_InactiveForegroundColor"
+        }
+      ]
+    },
+    "IApplicationViewTransferContext": {
+      "guid": "8574bc63-3c17-408e-9408-8a1a9ea81bfa",
+      "exclusive_to": "Windows.UI.ViewManagement.ApplicationViewTransferContext",
+      "methods": [
+        {
+          "name": "get_ViewId",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "put_ViewId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ViewId",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_ViewId",
+          "setter": "put_ViewId"
+        }
+      ]
+    },
+    "IApplicationViewTransferContextStatics": {
+      "guid": "15a89d92-dd79-4b0b-bc47-d5f195f14661",
+      "exclusive_to": "Windows.UI.ViewManagement.ApplicationViewTransferContext",
+      "methods": [
+        {
+          "name": "get_DataPackageFormatId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DataPackageFormatId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DataPackageFormatId"
+        }
+      ]
+    },
+    "IApplicationViewWithContext": {
+      "guid": "bd55d512-9dc1-44fc-8501-666625df60dc",
+      "exclusive_to": "Windows.UI.ViewManagement.ApplicationView",
+      "methods": [
+        {
+          "name": "get_UIContext",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UIContext",
+            "namespace": "Windows.UI",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "UIContext",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UIContext",
+            "namespace": "Windows.UI",
+            "target_kind": "Class"
+          },
+          "getter": "get_UIContext"
+        }
+      ]
+    },
+    "IInputPane": {
+      "guid": "640ada70-06f3-4c87-a678-9829c9127c28",
+      "exclusive_to": "Windows.UI.ViewManagement.InputPane",
+      "methods": [
+        {
+          "name": "add_Showing",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InputPane",
+                    "namespace": "Windows.UI.ViewManagement",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "InputPaneVisibilityEventArgs",
+                    "namespace": "Windows.UI.ViewManagement",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Showing",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Hiding",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "InputPane",
+                    "namespace": "Windows.UI.ViewManagement",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "InputPaneVisibilityEventArgs",
+                    "namespace": "Windows.UI.ViewManagement",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Hiding",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OccludedRect",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "OccludedRect",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_OccludedRect"
+        }
+      ],
+      "events": [
+        {
+          "name": "Hiding",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InputPane",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "InputPaneVisibilityEventArgs",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Hiding",
+          "remove_method": "remove_Hiding"
+        },
+        {
+          "name": "Showing",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "InputPane",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "InputPaneVisibilityEventArgs",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Showing",
+          "remove_method": "remove_Showing"
+        }
+      ]
+    },
+    "IInputPane2": {
+      "guid": "8a6b3f26-7090-4793-944c-c3f2cde26276",
+      "exclusive_to": "Windows.UI.ViewManagement.InputPane",
+      "methods": [
+        {
+          "name": "TryShow",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TryHide",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IInputPaneControl": {
+      "guid": "088bb24f-962f-489d-aa6e-c6be1a0a6e52",
+      "exclusive_to": "Windows.UI.ViewManagement.InputPane",
+      "methods": [
+        {
+          "name": "get_Visible",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Visible",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Visible",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Visible",
+          "setter": "put_Visible"
+        }
+      ]
+    },
+    "IInputPaneStatics": {
+      "guid": "95f4af3a-ef47-424a-9741-fd2815eba2bd",
+      "exclusive_to": "Windows.UI.ViewManagement.InputPane",
+      "methods": [
+        {
+          "name": "GetForCurrentView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InputPane",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IInputPaneStatics2": {
+      "guid": "1b63529b-d9ec-4531-8445-71bab9fb828e",
+      "exclusive_to": "Windows.UI.ViewManagement.InputPane",
+      "methods": [
+        {
+          "name": "GetForUIContext",
+          "params": [
+            {
+              "name": "context",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIContext",
+                "namespace": "Windows.UI",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "InputPane",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IInputPaneVisibilityEventArgs": {
+      "guid": "d243e016-d907-4fcc-bb8d-f77baa5028f1",
+      "exclusive_to": "Windows.UI.ViewManagement.InputPaneVisibilityEventArgs",
+      "methods": [
+        {
+          "name": "get_OccludedRect",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_EnsuredFocusedElementInView",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_EnsuredFocusedElementInView",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "EnsuredFocusedElementInView",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_EnsuredFocusedElementInView",
+          "setter": "put_EnsuredFocusedElementInView"
+        },
+        {
+          "name": "OccludedRect",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_OccludedRect"
+        }
+      ]
+    },
+    "IProjectionManagerStatics": {
+      "guid": "b65f913d-e2f0-4ffd-ba95-34241647e45c",
+      "exclusive_to": "Windows.UI.ViewManagement.ProjectionManager",
+      "methods": [
+        {
+          "name": "StartProjectingAsync",
+          "overload": "StartProjectingAsync",
+          "params": [
+            {
+              "name": "projectionViewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "anchorViewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SwapDisplaysForViewsAsync",
+          "params": [
+            {
+              "name": "projectionViewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "anchorViewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "StopProjectingAsync",
+          "params": [
+            {
+              "name": "projectionViewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "anchorViewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_ProjectionDisplayAvailable",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "add_ProjectionDisplayAvailableChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "EventHandler`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ProjectionDisplayAvailableChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ProjectionDisplayAvailable",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_ProjectionDisplayAvailable"
+        }
+      ],
+      "events": [
+        {
+          "name": "ProjectionDisplayAvailableChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "EventHandler`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ProjectionDisplayAvailableChanged",
+          "remove_method": "remove_ProjectionDisplayAvailableChanged"
+        }
+      ]
+    },
+    "IProjectionManagerStatics2": {
+      "guid": "f33d2f43-2749-4cde-b977-c0c41e7415d1",
+      "exclusive_to": "Windows.UI.ViewManagement.ProjectionManager",
+      "methods": [
+        {
+          "name": "StartProjectingAsync",
+          "overload": "StartProjectingWithDeviceInfoAsync",
+          "params": [
+            {
+              "name": "projectionViewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "anchorViewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "displayDeviceInfo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DeviceInformation",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "RequestStartProjectingAsync",
+          "overload": "RequestStartProjectingAsync",
+          "params": [
+            {
+              "name": "projectionViewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "anchorViewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestStartProjectingAsync",
+          "overload": "RequestStartProjectingWithPlacementAsync",
+          "params": [
+            {
+              "name": "projectionViewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "anchorViewId",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "selection",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "prefferedPlacement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Placement",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDeviceSelector",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "IUISettings": {
+      "guid": "85361600-1c63-4627-bcb1-3a89e0bc9c55",
+      "exclusive_to": "Windows.UI.ViewManagement.UISettings",
+      "methods": [
+        {
+          "name": "get_HandPreference",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HandPreference",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_CursorSize",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_ScrollBarSize",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_ScrollBarArrowSize",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_ScrollBarThumbBoxSize",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_MessageDuration",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_AnimationsEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_CaretBrowsingEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_CaretBlinkRate",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_CaretWidth",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_DoubleClickTime",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_MouseHoverTime",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "UIElementColor",
+          "params": [
+            {
+              "name": "desiredElement",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIElementType",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AnimationsEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AnimationsEnabled"
+        },
+        {
+          "name": "CaretBlinkRate",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_CaretBlinkRate"
+        },
+        {
+          "name": "CaretBrowsingEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CaretBrowsingEnabled"
+        },
+        {
+          "name": "CaretWidth",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_CaretWidth"
+        },
+        {
+          "name": "CursorSize",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_CursorSize"
+        },
+        {
+          "name": "DoubleClickTime",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_DoubleClickTime"
+        },
+        {
+          "name": "HandPreference",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HandPreference",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Enum"
+          },
+          "getter": "get_HandPreference"
+        },
+        {
+          "name": "MessageDuration",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MessageDuration"
+        },
+        {
+          "name": "MouseHoverTime",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MouseHoverTime"
+        },
+        {
+          "name": "ScrollBarArrowSize",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ScrollBarArrowSize"
+        },
+        {
+          "name": "ScrollBarSize",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ScrollBarSize"
+        },
+        {
+          "name": "ScrollBarThumbBoxSize",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ScrollBarThumbBoxSize"
+        }
+      ]
+    },
+    "IUISettings2": {
+      "guid": "bad82401-2721-44f9-bb91-2bb228be442f",
+      "exclusive_to": "Windows.UI.ViewManagement.UISettings",
+      "methods": [
+        {
+          "name": "get_TextScaleFactor",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "add_TextScaleFactorChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UISettings",
+                    "namespace": "Windows.UI.ViewManagement",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_TextScaleFactorChanged",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "TextScaleFactor",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_TextScaleFactor"
+        }
+      ],
+      "events": [
+        {
+          "name": "TextScaleFactorChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UISettings",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_TextScaleFactorChanged",
+          "remove_method": "remove_TextScaleFactorChanged"
+        }
+      ]
+    },
+    "IUISettings3": {
+      "guid": "03021be4-5254-4781-8194-5168f7d06d7b",
+      "exclusive_to": "Windows.UI.ViewManagement.UISettings",
+      "methods": [
+        {
+          "name": "GetColorValue",
+          "params": [
+            {
+              "name": "desiredColor",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UIColorType",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "add_ColorValuesChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UISettings",
+                    "namespace": "Windows.UI.ViewManagement",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ColorValuesChanged",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "ColorValuesChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UISettings",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ColorValuesChanged",
+          "remove_method": "remove_ColorValuesChanged"
+        }
+      ]
+    },
+    "IUISettings4": {
+      "guid": "52bb3002-919b-4d6b-9b78-8dd66ff4b93b",
+      "exclusive_to": "Windows.UI.ViewManagement.UISettings",
+      "methods": [
+        {
+          "name": "get_AdvancedEffectsEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "add_AdvancedEffectsEnabledChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UISettings",
+                    "namespace": "Windows.UI.ViewManagement",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_AdvancedEffectsEnabledChanged",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AdvancedEffectsEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AdvancedEffectsEnabled"
+        }
+      ],
+      "events": [
+        {
+          "name": "AdvancedEffectsEnabledChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UISettings",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_AdvancedEffectsEnabledChanged",
+          "remove_method": "remove_AdvancedEffectsEnabledChanged"
+        }
+      ]
+    },
+    "IUISettings5": {
+      "guid": "5349d588-0cb5-5f05-bd34-706b3231f0bd",
+      "exclusive_to": "Windows.UI.ViewManagement.UISettings",
+      "methods": [
+        {
+          "name": "get_AutoHideScrollBars",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "add_AutoHideScrollBarsChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UISettings",
+                    "namespace": "Windows.UI.ViewManagement",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "UISettingsAutoHideScrollBarsChangedEventArgs",
+                    "namespace": "Windows.UI.ViewManagement",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_AutoHideScrollBarsChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AutoHideScrollBars",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AutoHideScrollBars"
+        }
+      ],
+      "events": [
+        {
+          "name": "AutoHideScrollBarsChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UISettings",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "UISettingsAutoHideScrollBarsChangedEventArgs",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_AutoHideScrollBarsChanged",
+          "remove_method": "remove_AutoHideScrollBarsChanged"
+        }
+      ]
+    },
+    "IUISettings6": {
+      "guid": "aef19bd7-fe31-5a04-ada4-469aaec6dfa9",
+      "exclusive_to": "Windows.UI.ViewManagement.UISettings",
+      "methods": [
+        {
+          "name": "add_AnimationsEnabledChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UISettings",
+                    "namespace": "Windows.UI.ViewManagement",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "UISettingsAnimationsEnabledChangedEventArgs",
+                    "namespace": "Windows.UI.ViewManagement",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_AnimationsEnabledChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_MessageDurationChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UISettings",
+                    "namespace": "Windows.UI.ViewManagement",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "UISettingsMessageDurationChangedEventArgs",
+                    "namespace": "Windows.UI.ViewManagement",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_MessageDurationChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "AnimationsEnabledChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UISettings",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "UISettingsAnimationsEnabledChangedEventArgs",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_AnimationsEnabledChanged",
+          "remove_method": "remove_AnimationsEnabledChanged"
+        },
+        {
+          "name": "MessageDurationChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UISettings",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "UISettingsMessageDurationChangedEventArgs",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_MessageDurationChanged",
+          "remove_method": "remove_MessageDurationChanged"
+        }
+      ]
+    },
+    "IUISettingsAnimationsEnabledChangedEventArgs": {
+      "guid": "0c7b4b3d-2ea1-533e-894d-415bc5243c29",
+      "exclusive_to": "Windows.UI.ViewManagement.UISettingsAnimationsEnabledChangedEventArgs"
+    },
+    "IUISettingsAutoHideScrollBarsChangedEventArgs": {
+      "guid": "87afd4b2-9146-5f02-8f6b-06d454174c0f",
+      "exclusive_to": "Windows.UI.ViewManagement.UISettingsAutoHideScrollBarsChangedEventArgs"
+    },
+    "IUISettingsMessageDurationChangedEventArgs": {
+      "guid": "338aad52-4a5d-5b59-8002-d930f608fd6e",
+      "exclusive_to": "Windows.UI.ViewManagement.UISettingsMessageDurationChangedEventArgs"
+    },
+    "IUIViewSettings": {
+      "guid": "c63657f6-8850-470d-88f8-455e16ea2c26",
+      "exclusive_to": "Windows.UI.ViewManagement.UIViewSettings",
+      "methods": [
+        {
+          "name": "get_UserInteractionMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserInteractionMode",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "UserInteractionMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "UserInteractionMode",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Enum"
+          },
+          "getter": "get_UserInteractionMode"
+        }
+      ]
+    },
+    "IUIViewSettingsPreferredInteractionMode": {
+      "guid": "426de261-82ec-5f61-bad4-19b2d0d3cf35",
+      "exclusive_to": "Windows.UI.ViewManagement.UIViewSettings",
+      "methods": [
+        {
+          "name": "GetPreferredInteractionMode",
+          "params": [
+            {
+              "name": "supportedModes",
+              "type": {
+                "kind": "Array",
+                "elem": {
+                  "kind": "ApiRef",
+                  "name": "UserInteractionMode",
+                  "namespace": "Windows.UI.ViewManagement",
+                  "target_kind": "Enum"
+                }
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UserInteractionMode",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_PreferredInteractionModeChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "UIViewSettings",
+                    "namespace": "Windows.UI.ViewManagement",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PreferredInteractionModeChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "PreferredInteractionModeChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "UIViewSettings",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_PreferredInteractionModeChanged",
+          "remove_method": "remove_PreferredInteractionModeChanged"
+        }
+      ]
+    },
+    "IUIViewSettingsStatics": {
+      "guid": "595c97a5-f8f6-41cf-b0fb-aacdb81fd5f6",
+      "exclusive_to": "Windows.UI.ViewManagement.UIViewSettings",
+      "methods": [
+        {
+          "name": "GetForCurrentView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "UIViewSettings",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IViewModePreferences": {
+      "guid": "878fcd3a-0b99-42c9-84d0-d3f1d403554b",
+      "exclusive_to": "Windows.UI.ViewManagement.ViewModePreferences",
+      "methods": [
+        {
+          "name": "get_ViewSizePreference",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ViewSizePreference",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_ViewSizePreference",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ViewSizePreference",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CustomSize",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_CustomSize",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Size",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CustomSize",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_CustomSize",
+          "setter": "put_CustomSize"
+        },
+        {
+          "name": "ViewSizePreference",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ViewSizePreference",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ViewSizePreference",
+          "setter": "put_ViewSizePreference"
+        }
+      ]
+    },
+    "IViewModePreferencesStatics": {
+      "guid": "69b60a65-5de5-40d8-8306-3833df7a2274",
+      "exclusive_to": "Windows.UI.ViewManagement.ViewModePreferences",
+      "methods": [
+        {
+          "name": "CreateDefault",
+          "params": [
+            {
+              "name": "mode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ApplicationViewMode",
+                "namespace": "Windows.UI.ViewManagement",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ViewModePreferences",
+            "namespace": "Windows.UI.ViewManagement",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AccessibilitySettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAccessibilitySettings",
+        "namespace": "Windows.UI.ViewManagement",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAccessibilitySettings",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "ActivationViewSwitcher": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IActivationViewSwitcher",
+        "namespace": "Windows.UI.ViewManagement",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IActivationViewSwitcher",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ApplicationView": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IApplicationView",
+        "namespace": "Windows.UI.ViewManagement",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationView",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationView2",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationView3",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationView4",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationView7",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationView9",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationViewWithContext",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.ViewManagement.IApplicationViewStatics3",
+        "Windows.UI.ViewManagement.IApplicationViewFullscreenStatics",
+        "Windows.UI.ViewManagement.IApplicationViewInteropStatics",
+        "Windows.UI.ViewManagement.IApplicationViewStatics",
+        "Windows.UI.ViewManagement.IApplicationViewStatics2",
+        "Windows.UI.ViewManagement.IApplicationViewStatics4"
+      ]
+    },
+    "ApplicationViewConsolidatedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IApplicationViewConsolidatedEventArgs",
+        "namespace": "Windows.UI.ViewManagement",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationViewConsolidatedEventArgs",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationViewConsolidatedEventArgs2",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ApplicationViewSwitcher": {
+      "static_interfaces": [
+        "Windows.UI.ViewManagement.IApplicationViewSwitcherStatics3",
+        "Windows.UI.ViewManagement.IApplicationViewSwitcherStatics",
+        "Windows.UI.ViewManagement.IApplicationViewSwitcherStatics2"
+      ]
+    },
+    "ApplicationViewTitleBar": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IApplicationViewTitleBar",
+        "namespace": "Windows.UI.ViewManagement",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationViewTitleBar",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ApplicationViewTransferContext": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IApplicationViewTransferContext",
+        "namespace": "Windows.UI.ViewManagement",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IApplicationViewTransferContext",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "static_interfaces": [
+        "Windows.UI.ViewManagement.IApplicationViewTransferContextStatics"
+      ]
+    },
+    "InputPane": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInputPane",
+        "namespace": "Windows.UI.ViewManagement",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInputPane",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInputPane2",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IInputPaneControl",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.ViewManagement.IInputPaneStatics2",
+        "Windows.UI.ViewManagement.IInputPaneStatics"
+      ]
+    },
+    "InputPaneVisibilityEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInputPaneVisibilityEventArgs",
+        "namespace": "Windows.UI.ViewManagement",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInputPaneVisibilityEventArgs",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ProjectionManager": {
+      "static_interfaces": [
+        "Windows.UI.ViewManagement.IProjectionManagerStatics",
+        "Windows.UI.ViewManagement.IProjectionManagerStatics2"
+      ]
+    },
+    "UISettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUISettings",
+        "namespace": "Windows.UI.ViewManagement",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUISettings",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IUISettings2",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IUISettings3",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IUISettings4",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IUISettings5",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IUISettings6",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "UISettingsAnimationsEnabledChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUISettingsAnimationsEnabledChangedEventArgs",
+        "namespace": "Windows.UI.ViewManagement",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUISettingsAnimationsEnabledChangedEventArgs",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UISettingsAutoHideScrollBarsChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUISettingsAutoHideScrollBarsChangedEventArgs",
+        "namespace": "Windows.UI.ViewManagement",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUISettingsAutoHideScrollBarsChangedEventArgs",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UISettingsMessageDurationChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUISettingsMessageDurationChangedEventArgs",
+        "namespace": "Windows.UI.ViewManagement",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUISettingsMessageDurationChangedEventArgs",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "UIViewSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUIViewSettings",
+        "namespace": "Windows.UI.ViewManagement",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUIViewSettings",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IUIViewSettingsPreferredInteractionMode",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.ViewManagement.IUIViewSettingsStatics"
+      ]
+    },
+    "ViewModePreferences": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IViewModePreferences",
+        "namespace": "Windows.UI.ViewManagement",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IViewModePreferences",
+          "namespace": "Windows.UI.ViewManagement",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.ViewManagement.IViewModePreferencesStatics"
+      ]
+    }
+  }
+}

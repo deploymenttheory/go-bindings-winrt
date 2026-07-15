@@ -1,0 +1,1935 @@
+{
+  "namespace": "Windows.Data.Text",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "AlternateNormalizationFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "NotNormalized",
+          "value": "0"
+        },
+        {
+          "name": "Number",
+          "value": "1"
+        },
+        {
+          "name": "Currency",
+          "value": "3"
+        },
+        {
+          "name": "Date",
+          "value": "4"
+        },
+        {
+          "name": "Time",
+          "value": "5"
+        }
+      ]
+    },
+    "TextPredictionOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Predictions",
+          "value": "1"
+        },
+        {
+          "name": "Corrections",
+          "value": "2"
+        }
+      ]
+    },
+    "UnicodeGeneralCategory": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "UppercaseLetter",
+          "value": "0"
+        },
+        {
+          "name": "LowercaseLetter",
+          "value": "1"
+        },
+        {
+          "name": "TitlecaseLetter",
+          "value": "2"
+        },
+        {
+          "name": "ModifierLetter",
+          "value": "3"
+        },
+        {
+          "name": "OtherLetter",
+          "value": "4"
+        },
+        {
+          "name": "NonspacingMark",
+          "value": "5"
+        },
+        {
+          "name": "SpacingCombiningMark",
+          "value": "6"
+        },
+        {
+          "name": "EnclosingMark",
+          "value": "7"
+        },
+        {
+          "name": "DecimalDigitNumber",
+          "value": "8"
+        },
+        {
+          "name": "LetterNumber",
+          "value": "9"
+        },
+        {
+          "name": "OtherNumber",
+          "value": "10"
+        },
+        {
+          "name": "SpaceSeparator",
+          "value": "11"
+        },
+        {
+          "name": "LineSeparator",
+          "value": "12"
+        },
+        {
+          "name": "ParagraphSeparator",
+          "value": "13"
+        },
+        {
+          "name": "Control",
+          "value": "14"
+        },
+        {
+          "name": "Format",
+          "value": "15"
+        },
+        {
+          "name": "Surrogate",
+          "value": "16"
+        },
+        {
+          "name": "PrivateUse",
+          "value": "17"
+        },
+        {
+          "name": "ConnectorPunctuation",
+          "value": "18"
+        },
+        {
+          "name": "DashPunctuation",
+          "value": "19"
+        },
+        {
+          "name": "OpenPunctuation",
+          "value": "20"
+        },
+        {
+          "name": "ClosePunctuation",
+          "value": "21"
+        },
+        {
+          "name": "InitialQuotePunctuation",
+          "value": "22"
+        },
+        {
+          "name": "FinalQuotePunctuation",
+          "value": "23"
+        },
+        {
+          "name": "OtherPunctuation",
+          "value": "24"
+        },
+        {
+          "name": "MathSymbol",
+          "value": "25"
+        },
+        {
+          "name": "CurrencySymbol",
+          "value": "26"
+        },
+        {
+          "name": "ModifierSymbol",
+          "value": "27"
+        },
+        {
+          "name": "OtherSymbol",
+          "value": "28"
+        },
+        {
+          "name": "NotAssigned",
+          "value": "29"
+        }
+      ]
+    },
+    "UnicodeNumericType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Decimal",
+          "value": "1"
+        },
+        {
+          "name": "Digit",
+          "value": "2"
+        },
+        {
+          "name": "Numeric",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "TextSegment": {
+      "fields": [
+        {
+          "name": "StartPosition",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "Length",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IAlternateWordForm": {
+      "guid": "47396c1e-51b9-4207-9146-248e636a1d1d",
+      "exclusive_to": "Windows.Data.Text.AlternateWordForm",
+      "methods": [
+        {
+          "name": "get_SourceTextSegment",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TextSegment",
+            "namespace": "Windows.Data.Text",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_AlternateText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NormalizationFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AlternateNormalizationFormat",
+            "namespace": "Windows.Data.Text",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AlternateText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_AlternateText"
+        },
+        {
+          "name": "NormalizationFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AlternateNormalizationFormat",
+            "namespace": "Windows.Data.Text",
+            "target_kind": "Enum"
+          },
+          "getter": "get_NormalizationFormat"
+        },
+        {
+          "name": "SourceTextSegment",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TextSegment",
+            "namespace": "Windows.Data.Text",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SourceTextSegment"
+        }
+      ]
+    },
+    "ISelectableWordSegment": {
+      "guid": "916a4cb7-8aa7-4c78-b374-5dedb752e60b",
+      "exclusive_to": "Windows.Data.Text.SelectableWordSegment",
+      "methods": [
+        {
+          "name": "get_Text",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SourceTextSegment",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TextSegment",
+            "namespace": "Windows.Data.Text",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SourceTextSegment",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TextSegment",
+            "namespace": "Windows.Data.Text",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SourceTextSegment"
+        },
+        {
+          "name": "Text",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Text"
+        }
+      ]
+    },
+    "ISelectableWordsSegmenter": {
+      "guid": "f6dc31e7-4b13-45c5-8897-7d71269e085d",
+      "exclusive_to": "Windows.Data.Text.SelectableWordsSegmenter",
+      "methods": [
+        {
+          "name": "get_ResolvedLanguage",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetTokenAt",
+          "params": [
+            {
+              "name": "text",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "startIndex",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SelectableWordSegment",
+            "namespace": "Windows.Data.Text",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetTokens",
+          "params": [
+            {
+              "name": "text",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SelectableWordSegment",
+                "namespace": "Windows.Data.Text",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Tokenize",
+          "params": [
+            {
+              "name": "text",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "startIndex",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SelectableWordSegmentsTokenizingHandler",
+                "namespace": "Windows.Data.Text",
+                "target_kind": "Delegate"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ResolvedLanguage",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ResolvedLanguage"
+        }
+      ]
+    },
+    "ISelectableWordsSegmenterFactory": {
+      "guid": "8c7a7648-6057-4339-bc70-f210010a4150",
+      "exclusive_to": "Windows.Data.Text.SelectableWordsSegmenter",
+      "methods": [
+        {
+          "name": "CreateWithLanguage",
+          "params": [
+            {
+              "name": "language",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SelectableWordsSegmenter",
+            "namespace": "Windows.Data.Text",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISemanticTextQuery": {
+      "guid": "6a1cab51-1fb2-4909-80b8-35731a2b3e7f",
+      "exclusive_to": "Windows.Data.Text.SemanticTextQuery",
+      "methods": [
+        {
+          "name": "Find",
+          "params": [
+            {
+              "name": "content",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TextSegment",
+                "namespace": "Windows.Data.Text",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindInProperty",
+          "params": [
+            {
+              "name": "propertyContent",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "propertyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TextSegment",
+                "namespace": "Windows.Data.Text",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ISemanticTextQueryFactory": {
+      "guid": "238c0503-f995-4587-8777-a2b7d80acfef",
+      "exclusive_to": "Windows.Data.Text.SemanticTextQuery",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "aqsFilter",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SemanticTextQuery",
+            "namespace": "Windows.Data.Text",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithLanguage",
+          "params": [
+            {
+              "name": "aqsFilter",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "filterLanguage",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SemanticTextQuery",
+            "namespace": "Windows.Data.Text",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ITextConversionGenerator": {
+      "guid": "03606a5e-2aa9-4ab6-af8b-a562b63a8992",
+      "exclusive_to": "Windows.Data.Text.TextConversionGenerator",
+      "methods": [
+        {
+          "name": "get_ResolvedLanguage",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_LanguageAvailableButNotInstalled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetCandidatesAsync",
+          "overload": "GetCandidatesAsync",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetCandidatesAsync",
+          "overload": "GetCandidatesWithMaxCountAsync",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "maxCandidates",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "LanguageAvailableButNotInstalled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_LanguageAvailableButNotInstalled"
+        },
+        {
+          "name": "ResolvedLanguage",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ResolvedLanguage"
+        }
+      ]
+    },
+    "ITextConversionGeneratorFactory": {
+      "guid": "fcaa3781-3083-49ab-be15-56dfbbb74d6f",
+      "exclusive_to": "Windows.Data.Text.TextConversionGenerator",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "languageTag",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "TextConversionGenerator",
+            "namespace": "Windows.Data.Text",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ITextPhoneme": {
+      "guid": "9362a40a-9b7a-4569-94cf-d84f2f38cf9b",
+      "exclusive_to": "Windows.Data.Text.TextPhoneme",
+      "methods": [
+        {
+          "name": "get_DisplayText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ReadingText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayText"
+        },
+        {
+          "name": "ReadingText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ReadingText"
+        }
+      ]
+    },
+    "ITextPredictionGenerator": {
+      "guid": "5eacab07-abf1-4cb6-9d9e-326f2b468756",
+      "exclusive_to": "Windows.Data.Text.TextPredictionGenerator",
+      "methods": [
+        {
+          "name": "get_ResolvedLanguage",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_LanguageAvailableButNotInstalled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetCandidatesAsync",
+          "overload": "GetCandidatesAsync",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetCandidatesAsync",
+          "overload": "GetCandidatesWithMaxCountAsync",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "maxCandidates",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "LanguageAvailableButNotInstalled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_LanguageAvailableButNotInstalled"
+        },
+        {
+          "name": "ResolvedLanguage",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ResolvedLanguage"
+        }
+      ]
+    },
+    "ITextPredictionGenerator2": {
+      "guid": "b84723b8-2c77-486a-900a-a3453eedc15d",
+      "exclusive_to": "Windows.Data.Text.TextPredictionGenerator",
+      "methods": [
+        {
+          "name": "GetCandidatesAsync",
+          "overload": "GetCandidatesWithParametersAsync",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "maxCandidates",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "predictionOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TextPredictionOptions",
+                "namespace": "Windows.Data.Text",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "previousStrings",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetNextWordCandidatesAsync",
+          "params": [
+            {
+              "name": "maxCandidates",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "previousStrings",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_InputScope",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CoreTextInputScope",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_InputScope",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CoreTextInputScope",
+                "namespace": "Windows.UI.Text.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "InputScope",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CoreTextInputScope",
+            "namespace": "Windows.UI.Text.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_InputScope",
+          "setter": "put_InputScope"
+        }
+      ]
+    },
+    "ITextPredictionGeneratorFactory": {
+      "guid": "7257b416-8ba2-4751-9d30-9d85435653a2",
+      "exclusive_to": "Windows.Data.Text.TextPredictionGenerator",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "languageTag",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "TextPredictionGenerator",
+            "namespace": "Windows.Data.Text",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ITextReverseConversionGenerator": {
+      "guid": "51e7f514-9c51-4d86-ae1b-b498fbad8313",
+      "exclusive_to": "Windows.Data.Text.TextReverseConversionGenerator",
+      "methods": [
+        {
+          "name": "get_ResolvedLanguage",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_LanguageAvailableButNotInstalled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "ConvertBackAsync",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "LanguageAvailableButNotInstalled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_LanguageAvailableButNotInstalled"
+        },
+        {
+          "name": "ResolvedLanguage",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ResolvedLanguage"
+        }
+      ]
+    },
+    "ITextReverseConversionGenerator2": {
+      "guid": "1aafd2ec-85d6-46fd-828a-3a4830fa6e18",
+      "exclusive_to": "Windows.Data.Text.TextReverseConversionGenerator",
+      "methods": [
+        {
+          "name": "GetPhonemesAsync",
+          "params": [
+            {
+              "name": "input",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "TextPhoneme",
+                    "namespace": "Windows.Data.Text",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ITextReverseConversionGeneratorFactory": {
+      "guid": "63bed326-1fda-41f6-89d5-23ddea3c729a",
+      "exclusive_to": "Windows.Data.Text.TextReverseConversionGenerator",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "languageTag",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "TextReverseConversionGenerator",
+            "namespace": "Windows.Data.Text",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IUnicodeCharactersStatics": {
+      "guid": "97909e87-9291-4f91-b6c8-b6e359d7a7fb",
+      "exclusive_to": "Windows.Data.Text.UnicodeCharacters",
+      "methods": [
+        {
+          "name": "GetCodepointFromSurrogatePair",
+          "params": [
+            {
+              "name": "highSurrogate",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "lowSurrogate",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "GetSurrogatePairFromCodepoint",
+          "params": [
+            {
+              "name": "codepoint",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "highSurrogate",
+              "type": {
+                "kind": "Native",
+                "name": "Char16"
+              },
+              "out": true
+            },
+            {
+              "name": "lowSurrogate",
+              "type": {
+                "kind": "Native",
+                "name": "Char16"
+              },
+              "out": true
+            }
+          ]
+        },
+        {
+          "name": "IsHighSurrogate",
+          "params": [
+            {
+              "name": "codepoint",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsLowSurrogate",
+          "params": [
+            {
+              "name": "codepoint",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsSupplementary",
+          "params": [
+            {
+              "name": "codepoint",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsNoncharacter",
+          "params": [
+            {
+              "name": "codepoint",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsWhitespace",
+          "params": [
+            {
+              "name": "codepoint",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsAlphabetic",
+          "params": [
+            {
+              "name": "codepoint",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsCased",
+          "params": [
+            {
+              "name": "codepoint",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsUppercase",
+          "params": [
+            {
+              "name": "codepoint",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsLowercase",
+          "params": [
+            {
+              "name": "codepoint",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsIdStart",
+          "params": [
+            {
+              "name": "codepoint",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsIdContinue",
+          "params": [
+            {
+              "name": "codepoint",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsGraphemeBase",
+          "params": [
+            {
+              "name": "codepoint",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsGraphemeExtend",
+          "params": [
+            {
+              "name": "codepoint",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetNumericType",
+          "params": [
+            {
+              "name": "codepoint",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UnicodeNumericType",
+            "namespace": "Windows.Data.Text",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetGeneralCategory",
+          "params": [
+            {
+              "name": "codepoint",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "UnicodeGeneralCategory",
+            "namespace": "Windows.Data.Text",
+            "target_kind": "Enum"
+          }
+        }
+      ]
+    },
+    "IWordSegment": {
+      "guid": "d2d4ba6d-987c-4cc0-b6bd-d49a11b38f9a",
+      "exclusive_to": "Windows.Data.Text.WordSegment",
+      "methods": [
+        {
+          "name": "get_Text",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SourceTextSegment",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TextSegment",
+            "namespace": "Windows.Data.Text",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_AlternateForms",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AlternateWordForm",
+                "namespace": "Windows.Data.Text",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AlternateForms",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AlternateWordForm",
+                "namespace": "Windows.Data.Text",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_AlternateForms"
+        },
+        {
+          "name": "SourceTextSegment",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TextSegment",
+            "namespace": "Windows.Data.Text",
+            "target_kind": "Struct"
+          },
+          "getter": "get_SourceTextSegment"
+        },
+        {
+          "name": "Text",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Text"
+        }
+      ]
+    },
+    "IWordsSegmenter": {
+      "guid": "86b4d4d1-b2fe-4e34-a81d-66640300454f",
+      "exclusive_to": "Windows.Data.Text.WordsSegmenter",
+      "methods": [
+        {
+          "name": "get_ResolvedLanguage",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetTokenAt",
+          "params": [
+            {
+              "name": "text",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "startIndex",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WordSegment",
+            "namespace": "Windows.Data.Text",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetTokens",
+          "params": [
+            {
+              "name": "text",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WordSegment",
+                "namespace": "Windows.Data.Text",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Tokenize",
+          "params": [
+            {
+              "name": "text",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "startIndex",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            },
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WordSegmentsTokenizingHandler",
+                "namespace": "Windows.Data.Text",
+                "target_kind": "Delegate"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ResolvedLanguage",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ResolvedLanguage"
+        }
+      ]
+    },
+    "IWordsSegmenterFactory": {
+      "guid": "e6977274-fc35-455c-8bfb-6d7f4653ca97",
+      "exclusive_to": "Windows.Data.Text.WordsSegmenter",
+      "methods": [
+        {
+          "name": "CreateWithLanguage",
+          "params": [
+            {
+              "name": "language",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WordsSegmenter",
+            "namespace": "Windows.Data.Text",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AlternateWordForm": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAlternateWordForm",
+        "namespace": "Windows.Data.Text",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAlternateWordForm",
+          "namespace": "Windows.Data.Text",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SelectableWordSegment": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISelectableWordSegment",
+        "namespace": "Windows.Data.Text",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISelectableWordSegment",
+          "namespace": "Windows.Data.Text",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SelectableWordsSegmenter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISelectableWordsSegmenter",
+        "namespace": "Windows.Data.Text",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISelectableWordsSegmenter",
+          "namespace": "Windows.Data.Text",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Data.Text.ISelectableWordsSegmenterFactory"
+      ]
+    },
+    "SemanticTextQuery": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISemanticTextQuery",
+        "namespace": "Windows.Data.Text",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISemanticTextQuery",
+          "namespace": "Windows.Data.Text",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Data.Text.ISemanticTextQueryFactory"
+      ]
+    },
+    "TextConversionGenerator": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITextConversionGenerator",
+        "namespace": "Windows.Data.Text",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITextConversionGenerator",
+          "namespace": "Windows.Data.Text",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Data.Text.ITextConversionGeneratorFactory"
+      ]
+    },
+    "TextPhoneme": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITextPhoneme",
+        "namespace": "Windows.Data.Text",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITextPhoneme",
+          "namespace": "Windows.Data.Text",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "TextPredictionGenerator": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITextPredictionGenerator",
+        "namespace": "Windows.Data.Text",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITextPredictionGenerator",
+          "namespace": "Windows.Data.Text",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ITextPredictionGenerator2",
+          "namespace": "Windows.Data.Text",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Data.Text.ITextPredictionGeneratorFactory"
+      ]
+    },
+    "TextReverseConversionGenerator": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ITextReverseConversionGenerator",
+        "namespace": "Windows.Data.Text",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ITextReverseConversionGenerator",
+          "namespace": "Windows.Data.Text",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ITextReverseConversionGenerator2",
+          "namespace": "Windows.Data.Text",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Data.Text.ITextReverseConversionGeneratorFactory"
+      ]
+    },
+    "UnicodeCharacters": {
+      "static_interfaces": [
+        "Windows.Data.Text.IUnicodeCharactersStatics"
+      ]
+    },
+    "WordSegment": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWordSegment",
+        "namespace": "Windows.Data.Text",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWordSegment",
+          "namespace": "Windows.Data.Text",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WordsSegmenter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWordsSegmenter",
+        "namespace": "Windows.Data.Text",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWordsSegmenter",
+          "namespace": "Windows.Data.Text",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Data.Text.IWordsSegmenterFactory"
+      ]
+    }
+  },
+  "delegates": {
+    "SelectableWordSegmentsTokenizingHandler": {
+      "guid": "3a3dfc9c-aede-4dc7-9e6c-41c044bd3592",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "precedingWords",
+            "type": {
+              "kind": "GenericInst",
+              "name": "IIterable`1",
+              "namespace": "Windows.Foundation.Collections",
+              "target_kind": "Interface",
+              "args": [
+                {
+                  "kind": "ApiRef",
+                  "name": "SelectableWordSegment",
+                  "namespace": "Windows.Data.Text",
+                  "target_kind": "Class"
+                }
+              ]
+            }
+          },
+          {
+            "name": "words",
+            "type": {
+              "kind": "GenericInst",
+              "name": "IIterable`1",
+              "namespace": "Windows.Foundation.Collections",
+              "target_kind": "Interface",
+              "args": [
+                {
+                  "kind": "ApiRef",
+                  "name": "SelectableWordSegment",
+                  "namespace": "Windows.Data.Text",
+                  "target_kind": "Class"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "WordSegmentsTokenizingHandler": {
+      "guid": "a5dd6357-bf2a-4c4f-a31f-29e71c6f8b35",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "precedingWords",
+            "type": {
+              "kind": "GenericInst",
+              "name": "IIterable`1",
+              "namespace": "Windows.Foundation.Collections",
+              "target_kind": "Interface",
+              "args": [
+                {
+                  "kind": "ApiRef",
+                  "name": "WordSegment",
+                  "namespace": "Windows.Data.Text",
+                  "target_kind": "Class"
+                }
+              ]
+            }
+          },
+          {
+            "name": "words",
+            "type": {
+              "kind": "GenericInst",
+              "name": "IIterable`1",
+              "namespace": "Windows.Foundation.Collections",
+              "target_kind": "Interface",
+              "args": [
+                {
+                  "kind": "ApiRef",
+                  "name": "WordSegment",
+                  "namespace": "Windows.Data.Text",
+                  "target_kind": "Class"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+}

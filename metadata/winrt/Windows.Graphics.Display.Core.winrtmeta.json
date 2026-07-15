@@ -1,0 +1,647 @@
+{
+  "namespace": "Windows.Graphics.Display.Core",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "HdmiDisplayColorSpace": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "RgbLimited",
+          "value": "0"
+        },
+        {
+          "name": "RgbFull",
+          "value": "1"
+        },
+        {
+          "name": "BT2020",
+          "value": "2"
+        },
+        {
+          "name": "BT709",
+          "value": "3"
+        }
+      ]
+    },
+    "HdmiDisplayHdrOption": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "EotfSdr",
+          "value": "1"
+        },
+        {
+          "name": "Eotf2084",
+          "value": "2"
+        },
+        {
+          "name": "DolbyVisionLowLatency",
+          "value": "3"
+        }
+      ]
+    },
+    "HdmiDisplayPixelEncoding": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Rgb444",
+          "value": "0"
+        },
+        {
+          "name": "Ycc444",
+          "value": "1"
+        },
+        {
+          "name": "Ycc422",
+          "value": "2"
+        },
+        {
+          "name": "Ycc420",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "HdmiDisplayHdr2086Metadata": {
+      "fields": [
+        {
+          "name": "RedPrimaryX",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "RedPrimaryY",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "GreenPrimaryX",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "GreenPrimaryY",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "BluePrimaryX",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "BluePrimaryY",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "WhitePointX",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "WhitePointY",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "MaxMasteringLuminance",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "MinMasteringLuminance",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "MaxContentLightLevel",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "MaxFrameAverageLightLevel",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IHdmiDisplayInformation": {
+      "guid": "130b3c0a-f565-476e-abd5-ea05aee74c69",
+      "exclusive_to": "Windows.Graphics.Display.Core.HdmiDisplayInformation",
+      "methods": [
+        {
+          "name": "GetSupportedDisplayModes",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HdmiDisplayMode",
+                "namespace": "Windows.Graphics.Display.Core",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetCurrentDisplayMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HdmiDisplayMode",
+            "namespace": "Windows.Graphics.Display.Core",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetDefaultDisplayModeAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "RequestSetCurrentDisplayModeAsync",
+          "overload": "RequestSetCurrentDisplayModeAsync",
+          "params": [
+            {
+              "name": "mode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HdmiDisplayMode",
+                "namespace": "Windows.Graphics.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestSetCurrentDisplayModeAsync",
+          "overload": "RequestSetCurrentDisplayModeWithHdrAsync",
+          "params": [
+            {
+              "name": "mode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HdmiDisplayMode",
+                "namespace": "Windows.Graphics.Display.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "hdrOption",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HdmiDisplayHdrOption",
+                "namespace": "Windows.Graphics.Display.Core",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestSetCurrentDisplayModeAsync",
+          "overload": "RequestSetCurrentDisplayModeWithHdrAndMetadataAsync",
+          "params": [
+            {
+              "name": "mode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HdmiDisplayMode",
+                "namespace": "Windows.Graphics.Display.Core",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "hdrOption",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HdmiDisplayHdrOption",
+                "namespace": "Windows.Graphics.Display.Core",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "hdrMetadata",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HdmiDisplayHdr2086Metadata",
+                "namespace": "Windows.Graphics.Display.Core",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_DisplayModesChanged",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "HdmiDisplayInformation",
+                    "namespace": "Windows.Graphics.Display.Core",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DisplayModesChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "DisplayModesChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "HdmiDisplayInformation",
+                "namespace": "Windows.Graphics.Display.Core",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_DisplayModesChanged",
+          "remove_method": "remove_DisplayModesChanged"
+        }
+      ]
+    },
+    "IHdmiDisplayInformationStatics": {
+      "guid": "6ce6b260-f42a-4a15-914c-7b8e2a5a65df",
+      "exclusive_to": "Windows.Graphics.Display.Core.HdmiDisplayInformation",
+      "methods": [
+        {
+          "name": "GetForCurrentView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HdmiDisplayInformation",
+            "namespace": "Windows.Graphics.Display.Core",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IHdmiDisplayMode": {
+      "guid": "0c06d5ad-1b90-4f51-9981-ef5a1c0ddf66",
+      "exclusive_to": "Windows.Graphics.Display.Core.HdmiDisplayMode",
+      "methods": [
+        {
+          "name": "get_ResolutionWidthInRawPixels",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_ResolutionHeightInRawPixels",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_RefreshRate",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_StereoEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_BitsPerPixel",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "IsEqual",
+          "params": [
+            {
+              "name": "mode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HdmiDisplayMode",
+                "namespace": "Windows.Graphics.Display.Core",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_ColorSpace",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HdmiDisplayColorSpace",
+            "namespace": "Windows.Graphics.Display.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_PixelEncoding",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HdmiDisplayPixelEncoding",
+            "namespace": "Windows.Graphics.Display.Core",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_IsSdrLuminanceSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsSmpte2084Supported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Is2086MetadataSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BitsPerPixel",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_BitsPerPixel"
+        },
+        {
+          "name": "ColorSpace",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HdmiDisplayColorSpace",
+            "namespace": "Windows.Graphics.Display.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ColorSpace"
+        },
+        {
+          "name": "Is2086MetadataSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Is2086MetadataSupported"
+        },
+        {
+          "name": "IsSdrLuminanceSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSdrLuminanceSupported"
+        },
+        {
+          "name": "IsSmpte2084Supported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSmpte2084Supported"
+        },
+        {
+          "name": "PixelEncoding",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HdmiDisplayPixelEncoding",
+            "namespace": "Windows.Graphics.Display.Core",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PixelEncoding"
+        },
+        {
+          "name": "RefreshRate",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_RefreshRate"
+        },
+        {
+          "name": "ResolutionHeightInRawPixels",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ResolutionHeightInRawPixels"
+        },
+        {
+          "name": "ResolutionWidthInRawPixels",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ResolutionWidthInRawPixels"
+        },
+        {
+          "name": "StereoEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_StereoEnabled"
+        }
+      ]
+    },
+    "IHdmiDisplayMode2": {
+      "guid": "07cd4e9f-4b3c-42b8-84e7-895368718af2",
+      "exclusive_to": "Windows.Graphics.Display.Core.HdmiDisplayMode",
+      "methods": [
+        {
+          "name": "get_IsDolbyVisionLowLatencySupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsDolbyVisionLowLatencySupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsDolbyVisionLowLatencySupported"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "HdmiDisplayInformation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHdmiDisplayInformation",
+        "namespace": "Windows.Graphics.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHdmiDisplayInformation",
+          "namespace": "Windows.Graphics.Display.Core",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Graphics.Display.Core.IHdmiDisplayInformationStatics"
+      ]
+    },
+    "HdmiDisplayMode": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IHdmiDisplayMode",
+        "namespace": "Windows.Graphics.Display.Core",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IHdmiDisplayMode",
+          "namespace": "Windows.Graphics.Display.Core",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IHdmiDisplayMode2",
+          "namespace": "Windows.Graphics.Display.Core",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

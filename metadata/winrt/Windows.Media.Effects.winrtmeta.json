@@ -1,0 +1,2096 @@
+{
+  "namespace": "Windows.Media.Effects",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "AudioEffectState": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Off",
+          "value": "0"
+        },
+        {
+          "name": "On",
+          "value": "1"
+        }
+      ]
+    },
+    "AudioEffectType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Other",
+          "value": "0"
+        },
+        {
+          "name": "AcousticEchoCancellation",
+          "value": "1"
+        },
+        {
+          "name": "NoiseSuppression",
+          "value": "2"
+        },
+        {
+          "name": "AutomaticGainControl",
+          "value": "3"
+        },
+        {
+          "name": "BeamForming",
+          "value": "4"
+        },
+        {
+          "name": "ConstantToneRemoval",
+          "value": "5"
+        },
+        {
+          "name": "Equalizer",
+          "value": "6"
+        },
+        {
+          "name": "LoudnessEqualizer",
+          "value": "7"
+        },
+        {
+          "name": "BassBoost",
+          "value": "8"
+        },
+        {
+          "name": "VirtualSurround",
+          "value": "9"
+        },
+        {
+          "name": "VirtualHeadphones",
+          "value": "10"
+        },
+        {
+          "name": "SpeakerFill",
+          "value": "11"
+        },
+        {
+          "name": "RoomCorrection",
+          "value": "12"
+        },
+        {
+          "name": "BassManagement",
+          "value": "13"
+        },
+        {
+          "name": "EnvironmentalEffects",
+          "value": "14"
+        },
+        {
+          "name": "SpeakerProtection",
+          "value": "15"
+        },
+        {
+          "name": "SpeakerCompensation",
+          "value": "16"
+        },
+        {
+          "name": "DynamicRangeCompression",
+          "value": "17"
+        },
+        {
+          "name": "FarFieldBeamForming",
+          "value": "18"
+        },
+        {
+          "name": "DeepNoiseSuppression",
+          "value": "19"
+        }
+      ]
+    },
+    "MediaEffectClosedReason": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Done",
+          "value": "0"
+        },
+        {
+          "name": "UnknownError",
+          "value": "1"
+        },
+        {
+          "name": "UnsupportedEncodingFormat",
+          "value": "2"
+        },
+        {
+          "name": "EffectCurrentlyUnloaded",
+          "value": "3"
+        }
+      ]
+    },
+    "MediaMemoryTypes": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Gpu",
+          "value": "0"
+        },
+        {
+          "name": "Cpu",
+          "value": "1"
+        },
+        {
+          "name": "GpuAndCpu",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IAcousticEchoCancellationConfiguration": {
+      "guid": "587e735b-175b-5177-a407-2e33bafe33a5",
+      "exclusive_to": "Windows.Media.Effects.AcousticEchoCancellationConfiguration",
+      "methods": [
+        {
+          "name": "SetEchoCancellationRenderEndpoint",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IAudioCaptureEffectsManager": {
+      "guid": "8f85c271-038d-4393-8298-540110608eef",
+      "exclusive_to": "Windows.Media.Effects.AudioCaptureEffectsManager",
+      "methods": [
+        {
+          "name": "add_AudioCaptureEffectsChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AudioCaptureEffectsManager",
+                    "namespace": "Windows.Media.Effects",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_AudioCaptureEffectsChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetAudioCaptureEffects",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AudioEffect",
+                "namespace": "Windows.Media.Effects",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "events": [
+        {
+          "name": "AudioCaptureEffectsChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AudioCaptureEffectsManager",
+                "namespace": "Windows.Media.Effects",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_AudioCaptureEffectsChanged",
+          "remove_method": "remove_AudioCaptureEffectsChanged"
+        }
+      ]
+    },
+    "IAudioEffect": {
+      "guid": "34aafa51-9207-4055-be93-6e5734a86ae4",
+      "exclusive_to": "Windows.Media.Effects.AudioEffect",
+      "methods": [
+        {
+          "name": "get_AudioEffectType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioEffectType",
+            "namespace": "Windows.Media.Effects",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AudioEffectType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AudioEffectType",
+            "namespace": "Windows.Media.Effects",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AudioEffectType"
+        }
+      ]
+    },
+    "IAudioEffect2": {
+      "guid": "06703cb0-757e-5757-8af0-6ba58a8b2990",
+      "exclusive_to": "Windows.Media.Effects.AudioEffect",
+      "methods": [
+        {
+          "name": "get_AcousticEchoCancellationConfiguration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AcousticEchoCancellationConfiguration",
+            "namespace": "Windows.Media.Effects",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CanSetState",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_State",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioEffectState",
+            "namespace": "Windows.Media.Effects",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "SetState",
+          "params": [
+            {
+              "name": "newState",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AudioEffectState",
+                "namespace": "Windows.Media.Effects",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AcousticEchoCancellationConfiguration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AcousticEchoCancellationConfiguration",
+            "namespace": "Windows.Media.Effects",
+            "target_kind": "Class"
+          },
+          "getter": "get_AcousticEchoCancellationConfiguration"
+        },
+        {
+          "name": "CanSetState",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanSetState"
+        },
+        {
+          "name": "State",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AudioEffectState",
+            "namespace": "Windows.Media.Effects",
+            "target_kind": "Enum"
+          },
+          "getter": "get_State"
+        }
+      ]
+    },
+    "IAudioEffectDefinition": {
+      "guid": "e4d7f974-7d80-4f73-9089-e31c9db9c294",
+      "methods": [
+        {
+          "name": "get_ActivatableClassId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IPropertySet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ActivatableClassId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ActivatableClassId"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IPropertySet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Properties"
+        }
+      ]
+    },
+    "IAudioEffectDefinitionFactory": {
+      "guid": "8e1da646-e705-45ed-8a2b-fc4e4f405a97",
+      "exclusive_to": "Windows.Media.Effects.AudioEffectDefinition",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "activatableClassId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioEffectDefinition",
+            "namespace": "Windows.Media.Effects",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithProperties",
+          "params": [
+            {
+              "name": "activatableClassId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "props",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPropertySet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioEffectDefinition",
+            "namespace": "Windows.Media.Effects",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IAudioEffectsManagerStatics": {
+      "guid": "66406c04-86fa-47cc-a315-f489d8c3fe10",
+      "exclusive_to": "Windows.Media.Effects.AudioEffectsManager",
+      "methods": [
+        {
+          "name": "CreateAudioRenderEffectsManager",
+          "overload": "CreateAudioRenderEffectsManager",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "category",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AudioRenderCategory",
+                "namespace": "Windows.Media.Render",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioRenderEffectsManager",
+            "namespace": "Windows.Media.Effects",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateAudioRenderEffectsManager",
+          "overload": "CreateAudioRenderEffectsManagerWithMode",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "category",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AudioRenderCategory",
+                "namespace": "Windows.Media.Render",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "mode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AudioProcessing",
+                "namespace": "Windows.Media",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioRenderEffectsManager",
+            "namespace": "Windows.Media.Effects",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateAudioCaptureEffectsManager",
+          "overload": "CreateAudioCaptureEffectsManager",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "category",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaCategory",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioCaptureEffectsManager",
+            "namespace": "Windows.Media.Effects",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateAudioCaptureEffectsManager",
+          "overload": "CreateAudioCaptureEffectsManagerWithMode",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "category",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaCategory",
+                "namespace": "Windows.Media.Capture",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "mode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AudioProcessing",
+                "namespace": "Windows.Media",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioCaptureEffectsManager",
+            "namespace": "Windows.Media.Effects",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IAudioRenderEffectsManager": {
+      "guid": "4dc98966-8751-42b2-bfcb-39ca7864bd47",
+      "exclusive_to": "Windows.Media.Effects.AudioRenderEffectsManager",
+      "methods": [
+        {
+          "name": "add_AudioRenderEffectsChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AudioRenderEffectsManager",
+                    "namespace": "Windows.Media.Effects",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_AudioRenderEffectsChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetAudioRenderEffects",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AudioEffect",
+                "namespace": "Windows.Media.Effects",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "events": [
+        {
+          "name": "AudioRenderEffectsChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AudioRenderEffectsManager",
+                "namespace": "Windows.Media.Effects",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_AudioRenderEffectsChanged",
+          "remove_method": "remove_AudioRenderEffectsChanged"
+        }
+      ]
+    },
+    "IAudioRenderEffectsManager2": {
+      "guid": "a844cd09-5ecc-44b3-bb4e-1db07287139c",
+      "exclusive_to": "Windows.Media.Effects.AudioRenderEffectsManager",
+      "methods": [
+        {
+          "name": "get_EffectsProviderThumbnail",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamWithContentType",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_EffectsProviderSettingsLabel",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "ShowSettingsUI"
+        }
+      ],
+      "properties": [
+        {
+          "name": "EffectsProviderSettingsLabel",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_EffectsProviderSettingsLabel"
+        },
+        {
+          "name": "EffectsProviderThumbnail",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamWithContentType",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_EffectsProviderThumbnail"
+        }
+      ]
+    },
+    "IBasicAudioEffect": {
+      "guid": "8c062c53-6bc0-48b8-a99a-4b41550f1359",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaExtension",
+          "namespace": "Windows.Media",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_UseInputFrameForOutput",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SupportedEncodingProperties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AudioEncodingProperties",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SetEncodingProperties",
+          "params": [
+            {
+              "name": "encodingProperties",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AudioEncodingProperties",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ProcessFrame",
+          "params": [
+            {
+              "name": "context",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ProcessAudioFrameContext",
+                "namespace": "Windows.Media.Effects",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Close",
+          "params": [
+            {
+              "name": "reason",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaEffectClosedReason",
+                "namespace": "Windows.Media.Effects",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "DiscardQueuedFrames"
+        }
+      ],
+      "properties": [
+        {
+          "name": "SupportedEncodingProperties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AudioEncodingProperties",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_SupportedEncodingProperties"
+        },
+        {
+          "name": "UseInputFrameForOutput",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_UseInputFrameForOutput"
+        }
+      ]
+    },
+    "IBasicVideoEffect": {
+      "guid": "8262c7ef-b360-40be-949b-2ff42ff35693",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaExtension",
+          "namespace": "Windows.Media",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_IsReadOnly",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SupportedMemoryTypes",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaMemoryTypes",
+            "namespace": "Windows.Media.Effects",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_TimeIndependent",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_SupportedEncodingProperties",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VideoEncodingProperties",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "SetEncodingProperties",
+          "params": [
+            {
+              "name": "encodingProperties",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VideoEncodingProperties",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "device",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IDirect3DDevice",
+                "namespace": "Windows.Graphics.DirectX.Direct3D11",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ProcessFrame",
+          "params": [
+            {
+              "name": "context",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ProcessVideoFrameContext",
+                "namespace": "Windows.Media.Effects",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Close",
+          "params": [
+            {
+              "name": "reason",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaEffectClosedReason",
+                "namespace": "Windows.Media.Effects",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "DiscardQueuedFrames"
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsReadOnly",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsReadOnly"
+        },
+        {
+          "name": "SupportedEncodingProperties",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VideoEncodingProperties",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_SupportedEncodingProperties"
+        },
+        {
+          "name": "SupportedMemoryTypes",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaMemoryTypes",
+            "namespace": "Windows.Media.Effects",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SupportedMemoryTypes"
+        },
+        {
+          "name": "TimeIndependent",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_TimeIndependent"
+        }
+      ]
+    },
+    "ICompositeVideoFrameContext": {
+      "guid": "6c30024b-f514-4278-a5f7-b9188049d110",
+      "exclusive_to": "Windows.Media.Effects.CompositeVideoFrameContext",
+      "methods": [
+        {
+          "name": "get_SurfacesToOverlay",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IDirect3DSurface",
+                "namespace": "Windows.Graphics.DirectX.Direct3D11",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_BackgroundFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoFrame",
+            "namespace": "Windows.Media",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_OutputFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoFrame",
+            "namespace": "Windows.Media",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetOverlayForSurface",
+          "params": [
+            {
+              "name": "surfaceToOverlay",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IDirect3DSurface",
+                "namespace": "Windows.Graphics.DirectX.Direct3D11",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaOverlay",
+            "namespace": "Windows.Media.Editing",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BackgroundFrame",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoFrame",
+            "namespace": "Windows.Media",
+            "target_kind": "Class"
+          },
+          "getter": "get_BackgroundFrame"
+        },
+        {
+          "name": "OutputFrame",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoFrame",
+            "namespace": "Windows.Media",
+            "target_kind": "Class"
+          },
+          "getter": "get_OutputFrame"
+        },
+        {
+          "name": "SurfacesToOverlay",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IDirect3DSurface",
+                "namespace": "Windows.Graphics.DirectX.Direct3D11",
+                "target_kind": "Interface"
+              }
+            ]
+          },
+          "getter": "get_SurfacesToOverlay"
+        }
+      ]
+    },
+    "IProcessAudioFrameContext": {
+      "guid": "4cd92946-1222-4a27-a586-fb3e20273255",
+      "exclusive_to": "Windows.Media.Effects.ProcessAudioFrameContext",
+      "methods": [
+        {
+          "name": "get_InputFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioFrame",
+            "namespace": "Windows.Media",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_OutputFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AudioFrame",
+            "namespace": "Windows.Media",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InputFrame",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AudioFrame",
+            "namespace": "Windows.Media",
+            "target_kind": "Class"
+          },
+          "getter": "get_InputFrame"
+        },
+        {
+          "name": "OutputFrame",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AudioFrame",
+            "namespace": "Windows.Media",
+            "target_kind": "Class"
+          },
+          "getter": "get_OutputFrame"
+        }
+      ]
+    },
+    "IProcessVideoFrameContext": {
+      "guid": "276f0e2b-6461-401e-ba78-0fdad6114eec",
+      "exclusive_to": "Windows.Media.Effects.ProcessVideoFrameContext",
+      "methods": [
+        {
+          "name": "get_InputFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoFrame",
+            "namespace": "Windows.Media",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_OutputFrame",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoFrame",
+            "namespace": "Windows.Media",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "InputFrame",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoFrame",
+            "namespace": "Windows.Media",
+            "target_kind": "Class"
+          },
+          "getter": "get_InputFrame"
+        },
+        {
+          "name": "OutputFrame",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoFrame",
+            "namespace": "Windows.Media",
+            "target_kind": "Class"
+          },
+          "getter": "get_OutputFrame"
+        }
+      ]
+    },
+    "IVideoCompositor": {
+      "guid": "8510b43e-420c-420f-96c7-7c98bba1fc55",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IMediaExtension",
+          "namespace": "Windows.Media",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_TimeIndependent",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "SetEncodingProperties",
+          "params": [
+            {
+              "name": "backgroundProperties",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VideoEncodingProperties",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "device",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IDirect3DDevice",
+                "namespace": "Windows.Graphics.DirectX.Direct3D11",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "CompositeFrame",
+          "params": [
+            {
+              "name": "context",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CompositeVideoFrameContext",
+                "namespace": "Windows.Media.Effects",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "Close",
+          "params": [
+            {
+              "name": "reason",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaEffectClosedReason",
+                "namespace": "Windows.Media.Effects",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "DiscardQueuedFrames"
+        }
+      ],
+      "properties": [
+        {
+          "name": "TimeIndependent",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_TimeIndependent"
+        }
+      ]
+    },
+    "IVideoCompositorDefinition": {
+      "guid": "7946b8d0-2010-4ae3-9ab2-2cef42edd4d2",
+      "methods": [
+        {
+          "name": "get_ActivatableClassId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IPropertySet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ActivatableClassId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ActivatableClassId"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IPropertySet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Properties"
+        }
+      ]
+    },
+    "IVideoCompositorDefinitionFactory": {
+      "guid": "4366fd10-68b8-4d52-89b6-02a968cca899",
+      "exclusive_to": "Windows.Media.Effects.VideoCompositorDefinition",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "activatableClassId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoCompositorDefinition",
+            "namespace": "Windows.Media.Effects",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithProperties",
+          "params": [
+            {
+              "name": "activatableClassId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "props",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPropertySet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoCompositorDefinition",
+            "namespace": "Windows.Media.Effects",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IVideoEffectDefinition": {
+      "guid": "39f38cf0-8d0f-4f3e-84fc-2d46a5297943",
+      "methods": [
+        {
+          "name": "get_ActivatableClassId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IPropertySet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ActivatableClassId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ActivatableClassId"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IPropertySet",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Properties"
+        }
+      ]
+    },
+    "IVideoEffectDefinitionFactory": {
+      "guid": "81439b4e-6e33-428f-9d21-b5aafef7617c",
+      "exclusive_to": "Windows.Media.Effects.VideoEffectDefinition",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "activatableClassId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoEffectDefinition",
+            "namespace": "Windows.Media.Effects",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithProperties",
+          "params": [
+            {
+              "name": "activatableClassId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "props",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPropertySet",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoEffectDefinition",
+            "namespace": "Windows.Media.Effects",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IVideoTransformEffectDefinition": {
+      "guid": "9664bb6a-1ea6-4aa6-8074-abe8851ecae2",
+      "exclusive_to": "Windows.Media.Effects.VideoTransformEffectDefinition",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IVideoEffectDefinition",
+          "namespace": "Windows.Media.Effects",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_PaddingColor",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_PaddingColor",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Color",
+                "namespace": "Windows.UI",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OutputSize",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_OutputSize",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Size",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CropRectangle",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_CropRectangle",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Rect",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Rotation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaRotation",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Rotation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaRotation",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Mirror",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaMirroringOptions",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Mirror",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaMirroringOptions",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "put_ProcessingAlgorithm",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "MediaVideoProcessingAlgorithm",
+                "namespace": "Windows.Media.Transcoding",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ProcessingAlgorithm",
+          "return": {
+            "kind": "ApiRef",
+            "name": "MediaVideoProcessingAlgorithm",
+            "namespace": "Windows.Media.Transcoding",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CropRectangle",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_CropRectangle",
+          "setter": "put_CropRectangle"
+        },
+        {
+          "name": "Mirror",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaMirroringOptions",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Mirror",
+          "setter": "put_Mirror"
+        },
+        {
+          "name": "OutputSize",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_OutputSize",
+          "setter": "put_OutputSize"
+        },
+        {
+          "name": "PaddingColor",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Color",
+            "namespace": "Windows.UI",
+            "target_kind": "Struct"
+          },
+          "getter": "get_PaddingColor",
+          "setter": "put_PaddingColor"
+        },
+        {
+          "name": "ProcessingAlgorithm",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaVideoProcessingAlgorithm",
+            "namespace": "Windows.Media.Transcoding",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ProcessingAlgorithm",
+          "setter": "put_ProcessingAlgorithm"
+        },
+        {
+          "name": "Rotation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "MediaRotation",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Rotation",
+          "setter": "put_Rotation"
+        }
+      ]
+    },
+    "IVideoTransformEffectDefinition2": {
+      "guid": "f0a8089f-66c8-4694-9fd9-1136abf7444a",
+      "exclusive_to": "Windows.Media.Effects.VideoTransformEffectDefinition",
+      "methods": [
+        {
+          "name": "get_SphericalProjection",
+          "return": {
+            "kind": "ApiRef",
+            "name": "VideoTransformSphericalProjection",
+            "namespace": "Windows.Media.Effects",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SphericalProjection",
+          "type": {
+            "kind": "ApiRef",
+            "name": "VideoTransformSphericalProjection",
+            "namespace": "Windows.Media.Effects",
+            "target_kind": "Class"
+          },
+          "getter": "get_SphericalProjection"
+        }
+      ]
+    },
+    "IVideoTransformSphericalProjection": {
+      "guid": "cf4401f0-9bf2-4c39-9f41-e022514a8468",
+      "exclusive_to": "Windows.Media.Effects.VideoTransformSphericalProjection",
+      "methods": [
+        {
+          "name": "get_IsEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_FrameFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SphericalVideoFrameFormat",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_FrameFormat",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SphericalVideoFrameFormat",
+                "namespace": "Windows.Media.MediaProperties",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ProjectionMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SphericalVideoProjectionMode",
+            "namespace": "Windows.Media.Playback",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_ProjectionMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SphericalVideoProjectionMode",
+                "namespace": "Windows.Media.Playback",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_HorizontalFieldOfViewInDegrees",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "put_HorizontalFieldOfViewInDegrees",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ViewOrientation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Quaternion",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_ViewOrientation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Quaternion",
+                "namespace": "Windows.Foundation.Numerics",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "FrameFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SphericalVideoFrameFormat",
+            "namespace": "Windows.Media.MediaProperties",
+            "target_kind": "Enum"
+          },
+          "getter": "get_FrameFormat",
+          "setter": "put_FrameFormat"
+        },
+        {
+          "name": "HorizontalFieldOfViewInDegrees",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_HorizontalFieldOfViewInDegrees",
+          "setter": "put_HorizontalFieldOfViewInDegrees"
+        },
+        {
+          "name": "IsEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsEnabled",
+          "setter": "put_IsEnabled"
+        },
+        {
+          "name": "ProjectionMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SphericalVideoProjectionMode",
+            "namespace": "Windows.Media.Playback",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ProjectionMode",
+          "setter": "put_ProjectionMode"
+        },
+        {
+          "name": "ViewOrientation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Quaternion",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          },
+          "getter": "get_ViewOrientation",
+          "setter": "put_ViewOrientation"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AcousticEchoCancellationConfiguration": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAcousticEchoCancellationConfiguration",
+        "namespace": "Windows.Media.Effects",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAcousticEchoCancellationConfiguration",
+          "namespace": "Windows.Media.Effects",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AudioCaptureEffectsManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAudioCaptureEffectsManager",
+        "namespace": "Windows.Media.Effects",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAudioCaptureEffectsManager",
+          "namespace": "Windows.Media.Effects",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AudioEffect": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAudioEffect",
+        "namespace": "Windows.Media.Effects",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAudioEffect",
+          "namespace": "Windows.Media.Effects",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAudioEffect2",
+          "namespace": "Windows.Media.Effects",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AudioEffectDefinition": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAudioEffectDefinition",
+        "namespace": "Windows.Media.Effects",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAudioEffectDefinition",
+          "namespace": "Windows.Media.Effects",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Media.Effects.IAudioEffectDefinitionFactory"
+      ]
+    },
+    "AudioEffectsManager": {
+      "static_interfaces": [
+        "Windows.Media.Effects.IAudioEffectsManagerStatics"
+      ]
+    },
+    "AudioRenderEffectsManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAudioRenderEffectsManager",
+        "namespace": "Windows.Media.Effects",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAudioRenderEffectsManager",
+          "namespace": "Windows.Media.Effects",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAudioRenderEffectsManager2",
+          "namespace": "Windows.Media.Effects",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CompositeVideoFrameContext": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICompositeVideoFrameContext",
+        "namespace": "Windows.Media.Effects",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICompositeVideoFrameContext",
+          "namespace": "Windows.Media.Effects",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ProcessAudioFrameContext": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IProcessAudioFrameContext",
+        "namespace": "Windows.Media.Effects",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IProcessAudioFrameContext",
+          "namespace": "Windows.Media.Effects",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "ProcessVideoFrameContext": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IProcessVideoFrameContext",
+        "namespace": "Windows.Media.Effects",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IProcessVideoFrameContext",
+          "namespace": "Windows.Media.Effects",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VideoCompositorDefinition": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVideoCompositorDefinition",
+        "namespace": "Windows.Media.Effects",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVideoCompositorDefinition",
+          "namespace": "Windows.Media.Effects",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Media.Effects.IVideoCompositorDefinitionFactory"
+      ]
+    },
+    "VideoEffectDefinition": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVideoEffectDefinition",
+        "namespace": "Windows.Media.Effects",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVideoEffectDefinition",
+          "namespace": "Windows.Media.Effects",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Media.Effects.IVideoEffectDefinitionFactory"
+      ]
+    },
+    "VideoTransformEffectDefinition": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVideoEffectDefinition",
+        "namespace": "Windows.Media.Effects",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVideoEffectDefinition",
+          "namespace": "Windows.Media.Effects",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVideoTransformEffectDefinition",
+          "namespace": "Windows.Media.Effects",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IVideoTransformEffectDefinition2",
+          "namespace": "Windows.Media.Effects",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "VideoTransformSphericalProjection": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVideoTransformSphericalProjection",
+        "namespace": "Windows.Media.Effects",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVideoTransformSphericalProjection",
+          "namespace": "Windows.Media.Effects",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2730 @@
+{
+  "namespace": "Windows.Graphics.Display",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "AdvancedColorKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "StandardDynamicRange",
+          "value": "0"
+        },
+        {
+          "name": "WideColorGamut",
+          "value": "1"
+        },
+        {
+          "name": "HighDynamicRange",
+          "value": "2"
+        }
+      ]
+    },
+    "DisplayBrightnessOverrideOptions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "UseDimmedPolicyWhenBatteryIsLow",
+          "value": "1"
+        }
+      ]
+    },
+    "DisplayBrightnessOverrideScenario": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "IdleBrightness",
+          "value": "0"
+        },
+        {
+          "name": "BarcodeReadingBrightness",
+          "value": "1"
+        },
+        {
+          "name": "FullBrightness",
+          "value": "2"
+        }
+      ]
+    },
+    "DisplayBrightnessScenario": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "DefaultBrightness",
+          "value": "0"
+        },
+        {
+          "name": "IdleBrightness",
+          "value": "1"
+        },
+        {
+          "name": "BarcodeReadingBrightness",
+          "value": "2"
+        },
+        {
+          "name": "FullBrightness",
+          "value": "3"
+        }
+      ]
+    },
+    "DisplayColorOverrideScenario": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Accurate",
+          "value": "0"
+        }
+      ]
+    },
+    "DisplayOrientations": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Landscape",
+          "value": "1"
+        },
+        {
+          "name": "Portrait",
+          "value": "2"
+        },
+        {
+          "name": "LandscapeFlipped",
+          "value": "4"
+        },
+        {
+          "name": "PortraitFlipped",
+          "value": "8"
+        }
+      ]
+    },
+    "HdrMetadataFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Hdr10",
+          "value": "0"
+        },
+        {
+          "name": "Hdr10Plus",
+          "value": "1"
+        }
+      ]
+    },
+    "ResolutionScale": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Invalid",
+          "value": "0"
+        },
+        {
+          "name": "Scale100Percent",
+          "value": "100"
+        },
+        {
+          "name": "Scale120Percent",
+          "value": "120"
+        },
+        {
+          "name": "Scale125Percent",
+          "value": "125"
+        },
+        {
+          "name": "Scale140Percent",
+          "value": "140"
+        },
+        {
+          "name": "Scale150Percent",
+          "value": "150"
+        },
+        {
+          "name": "Scale160Percent",
+          "value": "160"
+        },
+        {
+          "name": "Scale175Percent",
+          "value": "175"
+        },
+        {
+          "name": "Scale180Percent",
+          "value": "180"
+        },
+        {
+          "name": "Scale200Percent",
+          "value": "200"
+        },
+        {
+          "name": "Scale225Percent",
+          "value": "225"
+        },
+        {
+          "name": "Scale250Percent",
+          "value": "250"
+        },
+        {
+          "name": "Scale300Percent",
+          "value": "300"
+        },
+        {
+          "name": "Scale350Percent",
+          "value": "350"
+        },
+        {
+          "name": "Scale400Percent",
+          "value": "400"
+        },
+        {
+          "name": "Scale450Percent",
+          "value": "450"
+        },
+        {
+          "name": "Scale500Percent",
+          "value": "500"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "NitRange": {
+      "fields": [
+        {
+          "name": "MinNits",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "MaxNits",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "StepSizeNits",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IAdvancedColorInfo": {
+      "guid": "8797dcfb-b229-4081-ae9a-2cc85e34ad6a",
+      "exclusive_to": "Windows.Graphics.Display.AdvancedColorInfo",
+      "methods": [
+        {
+          "name": "get_CurrentAdvancedColorKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AdvancedColorKind",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_RedPrimary",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_GreenPrimary",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_BluePrimary",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_WhitePoint",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_MaxLuminanceInNits",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_MinLuminanceInNits",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_MaxAverageFullFrameLuminanceInNits",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_SdrWhiteLevelInNits",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "IsHdrMetadataFormatCurrentlySupported",
+          "params": [
+            {
+              "name": "format",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HdrMetadataFormat",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsAdvancedColorKindAvailable",
+          "params": [
+            {
+              "name": "kind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "AdvancedColorKind",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BluePrimary",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_BluePrimary"
+        },
+        {
+          "name": "CurrentAdvancedColorKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "AdvancedColorKind",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CurrentAdvancedColorKind"
+        },
+        {
+          "name": "GreenPrimary",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_GreenPrimary"
+        },
+        {
+          "name": "MaxAverageFullFrameLuminanceInNits",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_MaxAverageFullFrameLuminanceInNits"
+        },
+        {
+          "name": "MaxLuminanceInNits",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_MaxLuminanceInNits"
+        },
+        {
+          "name": "MinLuminanceInNits",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_MinLuminanceInNits"
+        },
+        {
+          "name": "RedPrimary",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_RedPrimary"
+        },
+        {
+          "name": "SdrWhiteLevelInNits",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_SdrWhiteLevelInNits"
+        },
+        {
+          "name": "WhitePoint",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Point",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_WhitePoint"
+        }
+      ]
+    },
+    "IBrightnessOverride": {
+      "guid": "96c9621a-c143-4392-bedd-4a7e9574c8fd",
+      "exclusive_to": "Windows.Graphics.Display.BrightnessOverride",
+      "methods": [
+        {
+          "name": "get_IsSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsOverrideActive",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_BrightnessLevel",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "SetBrightnessLevel",
+          "params": [
+            {
+              "name": "brightnessLevel",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayBrightnessOverrideOptions",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SetBrightnessScenario",
+          "params": [
+            {
+              "name": "scenario",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayBrightnessScenario",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "options",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayBrightnessOverrideOptions",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetLevelForScenario",
+          "params": [
+            {
+              "name": "scenario",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayBrightnessScenario",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "StartOverride"
+        },
+        {
+          "name": "StopOverride"
+        },
+        {
+          "name": "add_IsSupportedChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BrightnessOverride",
+                    "namespace": "Windows.Graphics.Display",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_IsSupportedChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_IsOverrideActiveChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BrightnessOverride",
+                    "namespace": "Windows.Graphics.Display",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_IsOverrideActiveChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_BrightnessLevelChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BrightnessOverride",
+                    "namespace": "Windows.Graphics.Display",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_BrightnessLevelChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "BrightnessLevel",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_BrightnessLevel"
+        },
+        {
+          "name": "IsOverrideActive",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsOverrideActive"
+        },
+        {
+          "name": "IsSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSupported"
+        }
+      ],
+      "events": [
+        {
+          "name": "BrightnessLevelChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BrightnessOverride",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_BrightnessLevelChanged",
+          "remove_method": "remove_BrightnessLevelChanged"
+        },
+        {
+          "name": "IsOverrideActiveChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BrightnessOverride",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_IsOverrideActiveChanged",
+          "remove_method": "remove_IsOverrideActiveChanged"
+        },
+        {
+          "name": "IsSupportedChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BrightnessOverride",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_IsSupportedChanged",
+          "remove_method": "remove_IsSupportedChanged"
+        }
+      ]
+    },
+    "IBrightnessOverrideSettings": {
+      "guid": "d112ab2a-7604-4dba-bcf8-4b6f49502cb0",
+      "exclusive_to": "Windows.Graphics.Display.BrightnessOverrideSettings",
+      "methods": [
+        {
+          "name": "get_DesiredLevel",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        },
+        {
+          "name": "get_DesiredNits",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DesiredLevel",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_DesiredLevel"
+        },
+        {
+          "name": "DesiredNits",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_DesiredNits"
+        }
+      ]
+    },
+    "IBrightnessOverrideSettingsStatics": {
+      "guid": "d487dc90-6f74-440b-b383-5fe96cf00b0f",
+      "exclusive_to": "Windows.Graphics.Display.BrightnessOverrideSettings",
+      "methods": [
+        {
+          "name": "CreateFromLevel",
+          "params": [
+            {
+              "name": "level",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BrightnessOverrideSettings",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFromNits",
+          "params": [
+            {
+              "name": "nits",
+              "type": {
+                "kind": "Native",
+                "name": "F32"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BrightnessOverrideSettings",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateFromDisplayBrightnessOverrideScenario",
+          "params": [
+            {
+              "name": "overrideScenario",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayBrightnessOverrideScenario",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BrightnessOverrideSettings",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IBrightnessOverrideStatics": {
+      "guid": "03a7b9ed-e1f1-4a68-a11f-946ad8ce5393",
+      "exclusive_to": "Windows.Graphics.Display.BrightnessOverride",
+      "methods": [
+        {
+          "name": "GetDefaultForSystem",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BrightnessOverride",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetForCurrentView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BrightnessOverride",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SaveForSystemAsync",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BrightnessOverride",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IColorOverrideSettings": {
+      "guid": "fbefa134-4a81-4c4d-a5b6-7d1b5c4bd00b",
+      "exclusive_to": "Windows.Graphics.Display.ColorOverrideSettings",
+      "methods": [
+        {
+          "name": "get_DesiredDisplayColorOverrideScenario",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayColorOverrideScenario",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DesiredDisplayColorOverrideScenario",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayColorOverrideScenario",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DesiredDisplayColorOverrideScenario"
+        }
+      ]
+    },
+    "IColorOverrideSettingsStatics": {
+      "guid": "b068e05f-c41f-4ac9-afab-827ab6248f9a",
+      "exclusive_to": "Windows.Graphics.Display.ColorOverrideSettings",
+      "methods": [
+        {
+          "name": "CreateFromDisplayColorOverrideScenario",
+          "params": [
+            {
+              "name": "overrideScenario",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayColorOverrideScenario",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "ColorOverrideSettings",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDisplayEnhancementOverride": {
+      "guid": "429594cf-d97a-4b02-a428-5c4292f7f522",
+      "exclusive_to": "Windows.Graphics.Display.DisplayEnhancementOverride",
+      "methods": [
+        {
+          "name": "get_ColorOverrideSettings",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ColorOverrideSettings",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_ColorOverrideSettings",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "ColorOverrideSettings",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_BrightnessOverrideSettings",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BrightnessOverrideSettings",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_BrightnessOverrideSettings",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BrightnessOverrideSettings",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_CanOverride",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsOverrideActive",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetCurrentDisplayEnhancementOverrideCapabilities",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayEnhancementOverrideCapabilities",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "RequestOverride"
+        },
+        {
+          "name": "StopOverride"
+        },
+        {
+          "name": "add_CanOverrideChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplayEnhancementOverride",
+                    "namespace": "Windows.Graphics.Display",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CanOverrideChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_IsOverrideActiveChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplayEnhancementOverride",
+                    "namespace": "Windows.Graphics.Display",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_IsOverrideActiveChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_DisplayEnhancementOverrideCapabilitiesChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplayEnhancementOverride",
+                    "namespace": "Windows.Graphics.Display",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplayEnhancementOverrideCapabilitiesChangedEventArgs",
+                    "namespace": "Windows.Graphics.Display",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DisplayEnhancementOverrideCapabilitiesChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "BrightnessOverrideSettings",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BrightnessOverrideSettings",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Class"
+          },
+          "getter": "get_BrightnessOverrideSettings",
+          "setter": "put_BrightnessOverrideSettings"
+        },
+        {
+          "name": "CanOverride",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_CanOverride"
+        },
+        {
+          "name": "ColorOverrideSettings",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ColorOverrideSettings",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Class"
+          },
+          "getter": "get_ColorOverrideSettings",
+          "setter": "put_ColorOverrideSettings"
+        },
+        {
+          "name": "IsOverrideActive",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsOverrideActive"
+        }
+      ],
+      "events": [
+        {
+          "name": "CanOverrideChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayEnhancementOverride",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_CanOverrideChanged",
+          "remove_method": "remove_CanOverrideChanged"
+        },
+        {
+          "name": "DisplayEnhancementOverrideCapabilitiesChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayEnhancementOverride",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "DisplayEnhancementOverrideCapabilitiesChangedEventArgs",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_DisplayEnhancementOverrideCapabilitiesChanged",
+          "remove_method": "remove_DisplayEnhancementOverrideCapabilitiesChanged"
+        },
+        {
+          "name": "IsOverrideActiveChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayEnhancementOverride",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_IsOverrideActiveChanged",
+          "remove_method": "remove_IsOverrideActiveChanged"
+        }
+      ]
+    },
+    "IDisplayEnhancementOverrideCapabilities": {
+      "guid": "457060de-ee5a-47b7-9918-1e51e812ccc8",
+      "exclusive_to": "Windows.Graphics.Display.DisplayEnhancementOverrideCapabilities",
+      "methods": [
+        {
+          "name": "get_IsBrightnessControlSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsBrightnessNitsControlSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetSupportedNitRanges",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "NitRange",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsBrightnessControlSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsBrightnessControlSupported"
+        },
+        {
+          "name": "IsBrightnessNitsControlSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsBrightnessNitsControlSupported"
+        }
+      ]
+    },
+    "IDisplayEnhancementOverrideCapabilitiesChangedEventArgs": {
+      "guid": "db61e664-15fa-49da-8b77-07dbd2af585d",
+      "exclusive_to": "Windows.Graphics.Display.DisplayEnhancementOverrideCapabilitiesChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_Capabilities",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayEnhancementOverrideCapabilities",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Capabilities",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayEnhancementOverrideCapabilities",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Class"
+          },
+          "getter": "get_Capabilities"
+        }
+      ]
+    },
+    "IDisplayEnhancementOverrideStatics": {
+      "guid": "cf5b7ec1-9791-4453-b013-29b6f778e519",
+      "exclusive_to": "Windows.Graphics.Display.DisplayEnhancementOverride",
+      "methods": [
+        {
+          "name": "GetForCurrentView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayEnhancementOverride",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IDisplayInformation": {
+      "guid": "bed112ae-adc3-4dc9-ae65-851f4d7d4799",
+      "exclusive_to": "Windows.Graphics.Display.DisplayInformation",
+      "methods": [
+        {
+          "name": "get_CurrentOrientation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayOrientations",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_NativeOrientation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayOrientations",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "add_OrientationChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplayInformation",
+                    "namespace": "Windows.Graphics.Display",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_OrientationChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ResolutionScale",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ResolutionScale",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_LogicalDpi",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_RawDpiX",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "get_RawDpiY",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "add_DpiChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplayInformation",
+                    "namespace": "Windows.Graphics.Display",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DpiChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_StereoEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "add_StereoEnabledChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplayInformation",
+                    "namespace": "Windows.Graphics.Display",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_StereoEnabledChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetColorProfileAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_ColorProfileChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplayInformation",
+                    "namespace": "Windows.Graphics.Display",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ColorProfileChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CurrentOrientation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayOrientations",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CurrentOrientation"
+        },
+        {
+          "name": "LogicalDpi",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_LogicalDpi"
+        },
+        {
+          "name": "NativeOrientation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayOrientations",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Enum"
+          },
+          "getter": "get_NativeOrientation"
+        },
+        {
+          "name": "RawDpiX",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_RawDpiX"
+        },
+        {
+          "name": "RawDpiY",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_RawDpiY"
+        },
+        {
+          "name": "ResolutionScale",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ResolutionScale",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ResolutionScale"
+        },
+        {
+          "name": "StereoEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_StereoEnabled"
+        }
+      ],
+      "events": [
+        {
+          "name": "ColorProfileChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayInformation",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ColorProfileChanged",
+          "remove_method": "remove_ColorProfileChanged"
+        },
+        {
+          "name": "DpiChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayInformation",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_DpiChanged",
+          "remove_method": "remove_DpiChanged"
+        },
+        {
+          "name": "OrientationChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayInformation",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_OrientationChanged",
+          "remove_method": "remove_OrientationChanged"
+        },
+        {
+          "name": "StereoEnabledChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayInformation",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_StereoEnabledChanged",
+          "remove_method": "remove_StereoEnabledChanged"
+        }
+      ]
+    },
+    "IDisplayInformation2": {
+      "guid": "4dcd0021-fad1-4b8e-8edf-775887b8bf19",
+      "exclusive_to": "Windows.Graphics.Display.DisplayInformation",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayInformation",
+          "namespace": "Windows.Graphics.Display",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_RawPixelsPerViewPixel",
+          "return": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RawPixelsPerViewPixel",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          },
+          "getter": "get_RawPixelsPerViewPixel"
+        }
+      ]
+    },
+    "IDisplayInformation3": {
+      "guid": "db15011d-0f09-4466-8ff3-11de9a3c929a",
+      "exclusive_to": "Windows.Graphics.Display.DisplayInformation",
+      "methods": [
+        {
+          "name": "get_DiagonalSizeInInches",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DiagonalSizeInInches",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          },
+          "getter": "get_DiagonalSizeInInches"
+        }
+      ]
+    },
+    "IDisplayInformation4": {
+      "guid": "c972ce2f-1242-46be-b536-e1aafe9e7acf",
+      "exclusive_to": "Windows.Graphics.Display.DisplayInformation",
+      "methods": [
+        {
+          "name": "get_ScreenWidthInRawPixels",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_ScreenHeightInRawPixels",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ScreenHeightInRawPixels",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ScreenHeightInRawPixels"
+        },
+        {
+          "name": "ScreenWidthInRawPixels",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ScreenWidthInRawPixels"
+        }
+      ]
+    },
+    "IDisplayInformation5": {
+      "guid": "3a5442dc-2cde-4a8d-80d1-21dc5adcc1aa",
+      "exclusive_to": "Windows.Graphics.Display.DisplayInformation",
+      "methods": [
+        {
+          "name": "GetAdvancedColorInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AdvancedColorInfo",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_AdvancedColorInfoChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplayInformation",
+                    "namespace": "Windows.Graphics.Display",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_AdvancedColorInfoChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "AdvancedColorInfoChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayInformation",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_AdvancedColorInfoChanged",
+          "remove_method": "remove_AdvancedColorInfoChanged"
+        }
+      ]
+    },
+    "IDisplayInformationStatics": {
+      "guid": "c6a02a6c-d452-44dc-ba07-96f3c6adf9d1",
+      "exclusive_to": "Windows.Graphics.Display.DisplayInformation",
+      "methods": [
+        {
+          "name": "GetForCurrentView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayInformation",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_AutoRotationPreferences",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayOrientations",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_AutoRotationPreferences",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayOrientations",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_DisplayContentsInvalidated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DisplayInformation",
+                    "namespace": "Windows.Graphics.Display",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DisplayContentsInvalidated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AutoRotationPreferences",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayOrientations",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AutoRotationPreferences",
+          "setter": "put_AutoRotationPreferences"
+        }
+      ],
+      "events": [
+        {
+          "name": "DisplayContentsInvalidated",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DisplayInformation",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_DisplayContentsInvalidated",
+          "remove_method": "remove_DisplayContentsInvalidated"
+        }
+      ]
+    },
+    "IDisplayPropertiesStatics": {
+      "guid": "6937ed8d-30ea-4ded-8271-4553ff02f68a",
+      "exclusive_to": "Windows.Graphics.Display.DisplayProperties",
+      "methods": [
+        {
+          "name": "get_CurrentOrientation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayOrientations",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_NativeOrientation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayOrientations",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_AutoRotationPreferences",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DisplayOrientations",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_AutoRotationPreferences",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayOrientations",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_OrientationChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayPropertiesEventHandler",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_OrientationChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ResolutionScale",
+          "return": {
+            "kind": "ApiRef",
+            "name": "ResolutionScale",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_LogicalDpi",
+          "return": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "add_LogicalDpiChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayPropertiesEventHandler",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_LogicalDpiChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_StereoEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "add_StereoEnabledChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayPropertiesEventHandler",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_StereoEnabledChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetColorProfileAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IRandomAccessStream",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_ColorProfileChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayPropertiesEventHandler",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ColorProfileChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_DisplayContentsInvalidated",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DisplayPropertiesEventHandler",
+                "namespace": "Windows.Graphics.Display",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_DisplayContentsInvalidated",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "AutoRotationPreferences",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayOrientations",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Enum"
+          },
+          "getter": "get_AutoRotationPreferences",
+          "setter": "put_AutoRotationPreferences"
+        },
+        {
+          "name": "CurrentOrientation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayOrientations",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CurrentOrientation"
+        },
+        {
+          "name": "LogicalDpi",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          },
+          "getter": "get_LogicalDpi"
+        },
+        {
+          "name": "NativeOrientation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayOrientations",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Enum"
+          },
+          "getter": "get_NativeOrientation"
+        },
+        {
+          "name": "ResolutionScale",
+          "type": {
+            "kind": "ApiRef",
+            "name": "ResolutionScale",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ResolutionScale"
+        },
+        {
+          "name": "StereoEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_StereoEnabled"
+        }
+      ],
+      "events": [
+        {
+          "name": "ColorProfileChanged",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayPropertiesEventHandler",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_ColorProfileChanged",
+          "remove_method": "remove_ColorProfileChanged"
+        },
+        {
+          "name": "DisplayContentsInvalidated",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayPropertiesEventHandler",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_DisplayContentsInvalidated",
+          "remove_method": "remove_DisplayContentsInvalidated"
+        },
+        {
+          "name": "LogicalDpiChanged",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayPropertiesEventHandler",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_LogicalDpiChanged",
+          "remove_method": "remove_LogicalDpiChanged"
+        },
+        {
+          "name": "OrientationChanged",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayPropertiesEventHandler",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_OrientationChanged",
+          "remove_method": "remove_OrientationChanged"
+        },
+        {
+          "name": "StereoEnabledChanged",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DisplayPropertiesEventHandler",
+            "namespace": "Windows.Graphics.Display",
+            "target_kind": "Delegate"
+          },
+          "add_method": "add_StereoEnabledChanged",
+          "remove_method": "remove_StereoEnabledChanged"
+        }
+      ]
+    },
+    "IDisplayServices": {
+      "guid": "1b54f32b-890d-5747-bd26-fdbdeb0c8a71",
+      "exclusive_to": "Windows.Graphics.Display.DisplayServices"
+    },
+    "IDisplayServicesStatics": {
+      "guid": "dc2096bf-730a-5560-b461-91c13d692e0c",
+      "exclusive_to": "Windows.Graphics.Display.DisplayServices",
+      "methods": [
+        {
+          "name": "FindAll",
+          "return": {
+            "kind": "Array",
+            "elem": {
+              "kind": "ApiRef",
+              "name": "DisplayId",
+              "namespace": "Windows.Graphics",
+              "target_kind": "Struct"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AdvancedColorInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAdvancedColorInfo",
+        "namespace": "Windows.Graphics.Display",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAdvancedColorInfo",
+          "namespace": "Windows.Graphics.Display",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BrightnessOverride": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBrightnessOverride",
+        "namespace": "Windows.Graphics.Display",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBrightnessOverride",
+          "namespace": "Windows.Graphics.Display",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Graphics.Display.IBrightnessOverrideStatics"
+      ]
+    },
+    "BrightnessOverrideSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBrightnessOverrideSettings",
+        "namespace": "Windows.Graphics.Display",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBrightnessOverrideSettings",
+          "namespace": "Windows.Graphics.Display",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Graphics.Display.IBrightnessOverrideSettingsStatics"
+      ]
+    },
+    "ColorOverrideSettings": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IColorOverrideSettings",
+        "namespace": "Windows.Graphics.Display",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IColorOverrideSettings",
+          "namespace": "Windows.Graphics.Display",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Graphics.Display.IColorOverrideSettingsStatics"
+      ]
+    },
+    "DisplayEnhancementOverride": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayEnhancementOverride",
+        "namespace": "Windows.Graphics.Display",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayEnhancementOverride",
+          "namespace": "Windows.Graphics.Display",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Graphics.Display.IDisplayEnhancementOverrideStatics"
+      ]
+    },
+    "DisplayEnhancementOverrideCapabilities": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayEnhancementOverrideCapabilities",
+        "namespace": "Windows.Graphics.Display",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayEnhancementOverrideCapabilities",
+          "namespace": "Windows.Graphics.Display",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DisplayEnhancementOverrideCapabilitiesChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayEnhancementOverrideCapabilitiesChangedEventArgs",
+        "namespace": "Windows.Graphics.Display",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayEnhancementOverrideCapabilitiesChangedEventArgs",
+          "namespace": "Windows.Graphics.Display",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "DisplayInformation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayInformation",
+        "namespace": "Windows.Graphics.Display",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayInformation",
+          "namespace": "Windows.Graphics.Display",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayInformation2",
+          "namespace": "Windows.Graphics.Display",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayInformation3",
+          "namespace": "Windows.Graphics.Display",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayInformation4",
+          "namespace": "Windows.Graphics.Display",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayInformation5",
+          "namespace": "Windows.Graphics.Display",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Graphics.Display.IDisplayInformationStatics"
+      ]
+    },
+    "DisplayProperties": {
+      "static_interfaces": [
+        "Windows.Graphics.Display.IDisplayPropertiesStatics"
+      ]
+    },
+    "DisplayServices": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayServices",
+        "namespace": "Windows.Graphics.Display",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayServices",
+          "namespace": "Windows.Graphics.Display",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Graphics.Display.IDisplayServicesStatics"
+      ]
+    }
+  },
+  "delegates": {
+    "DisplayPropertiesEventHandler": {
+      "guid": "dbdd8b01-f1a1-46d1-9ee3-543bcc995980",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "Native",
+              "name": "Object"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

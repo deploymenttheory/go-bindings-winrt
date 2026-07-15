@@ -1,0 +1,38 @@
+{
+  "namespace": "Windows.System.Display",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IDisplayRequest": {
+      "guid": "e5732044-f49f-4b60-8dd4-5e7e3a632ac0",
+      "exclusive_to": "Windows.System.Display.DisplayRequest",
+      "methods": [
+        {
+          "name": "RequestActive"
+        },
+        {
+          "name": "RequestRelease"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "DisplayRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDisplayRequest",
+        "namespace": "Windows.System.Display",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDisplayRequest",
+          "namespace": "Windows.System.Display",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    }
+  }
+}

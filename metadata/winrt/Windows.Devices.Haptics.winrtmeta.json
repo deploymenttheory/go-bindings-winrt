@@ -1,0 +1,1161 @@
+{
+  "namespace": "Windows.Devices.Haptics",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "HapticDeviceType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Generic",
+          "value": "1"
+        },
+        {
+          "name": "Pen",
+          "value": "2"
+        },
+        {
+          "name": "Touchpad",
+          "value": "3"
+        },
+        {
+          "name": "Mouse",
+          "value": "4"
+        }
+      ]
+    },
+    "VibrationAccessStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Allowed",
+          "value": "0"
+        },
+        {
+          "name": "DeniedByUser",
+          "value": "1"
+        },
+        {
+          "name": "DeniedBySystem",
+          "value": "2"
+        },
+        {
+          "name": "DeniedByEnergySaver",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "HapticsControllerOverrideToken": {
+      "fields": [
+        {
+          "name": "Value",
+          "type": {
+            "kind": "Native",
+            "name": "I8"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IInputHapticsManager": {
+      "guid": "040e91df-bb3a-507c-9e25-a2d2c685b2e5",
+      "exclusive_to": "Windows.Devices.Haptics.InputHapticsManager",
+      "methods": [
+        {
+          "name": "get_ThreadId",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_CurrentHapticsControllerDeviceType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HapticDeviceType",
+            "namespace": "Windows.Devices.Haptics",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_CurrentHapticsController",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SimpleHapticsController",
+            "namespace": "Windows.Devices.Haptics",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TrySendHapticWaveform",
+          "overload": "TrySendHapticWaveform",
+          "params": [
+            {
+              "name": "waveform",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "waveformFallback",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TrySendHapticWaveform",
+          "overload": "TrySendHapticWaveformWithIntensity",
+          "params": [
+            {
+              "name": "waveform",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "waveformFallback",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "intensity",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TrySendHapticWaveformForDuration",
+          "params": [
+            {
+              "name": "waveform",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "waveformFallback",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "intensity",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "playDuration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TrySendHapticWaveformForPlayCount",
+          "params": [
+            {
+              "name": "waveform",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "waveformFallback",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "intensity",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "playCount",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "replayPauseInterval",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "TryStopFeedback",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "SetOverrideHapticsController",
+          "params": [
+            {
+              "name": "deviceType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HapticDeviceType",
+                "namespace": "Windows.Devices.Haptics",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "controller",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SimpleHapticsController",
+                "namespace": "Windows.Devices.Haptics",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "HapticsControllerOverrideToken",
+            "namespace": "Windows.Devices.Haptics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "ClearOverrideHapticsController",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HapticsControllerOverrideToken",
+                "namespace": "Windows.Devices.Haptics",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "CurrentHapticsController",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SimpleHapticsController",
+            "namespace": "Windows.Devices.Haptics",
+            "target_kind": "Class"
+          },
+          "getter": "get_CurrentHapticsController"
+        },
+        {
+          "name": "CurrentHapticsControllerDeviceType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HapticDeviceType",
+            "namespace": "Windows.Devices.Haptics",
+            "target_kind": "Enum"
+          },
+          "getter": "get_CurrentHapticsControllerDeviceType"
+        },
+        {
+          "name": "ThreadId",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_ThreadId"
+        }
+      ]
+    },
+    "IInputHapticsManagerStatics": {
+      "guid": "7bb40f77-e187-5322-844e-aa58223c281a",
+      "exclusive_to": "Windows.Devices.Haptics.InputHapticsManager",
+      "methods": [
+        {
+          "name": "IsSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsHapticDevicePresent",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetForCurrentThread",
+          "return": {
+            "kind": "ApiRef",
+            "name": "InputHapticsManager",
+            "namespace": "Windows.Devices.Haptics",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "TryGetForThread",
+          "params": [
+            {
+              "name": "ThreadId",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "InputHapticsManager",
+            "namespace": "Windows.Devices.Haptics",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IKnownSimpleHapticsControllerWaveformsStatics": {
+      "guid": "3d577ef7-4cee-11e6-b535-001bdc06ab3b",
+      "exclusive_to": "Windows.Devices.Haptics.KnownSimpleHapticsControllerWaveforms",
+      "methods": [
+        {
+          "name": "get_Click",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_BuzzContinuous",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_RumbleContinuous",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Press",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Release",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BuzzContinuous",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_BuzzContinuous"
+        },
+        {
+          "name": "Click",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Click"
+        },
+        {
+          "name": "Press",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Press"
+        },
+        {
+          "name": "Release",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Release"
+        },
+        {
+          "name": "RumbleContinuous",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_RumbleContinuous"
+        }
+      ]
+    },
+    "IKnownSimpleHapticsControllerWaveformsStatics2": {
+      "guid": "a7d24c27-b79d-510a-bf79-ff6d49173e1d",
+      "exclusive_to": "Windows.Devices.Haptics.KnownSimpleHapticsControllerWaveforms",
+      "methods": [
+        {
+          "name": "get_BrushContinuous",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_ChiselMarkerContinuous",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_EraserContinuous",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Error",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_GalaxyPenContinuous",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Hover",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_InkContinuous",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_MarkerContinuous",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_PencilContinuous",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Success",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BrushContinuous",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_BrushContinuous"
+        },
+        {
+          "name": "ChiselMarkerContinuous",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_ChiselMarkerContinuous"
+        },
+        {
+          "name": "EraserContinuous",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_EraserContinuous"
+        },
+        {
+          "name": "Error",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Error"
+        },
+        {
+          "name": "GalaxyPenContinuous",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_GalaxyPenContinuous"
+        },
+        {
+          "name": "Hover",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Hover"
+        },
+        {
+          "name": "InkContinuous",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_InkContinuous"
+        },
+        {
+          "name": "MarkerContinuous",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_MarkerContinuous"
+        },
+        {
+          "name": "PencilContinuous",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_PencilContinuous"
+        },
+        {
+          "name": "Success",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Success"
+        }
+      ]
+    },
+    "IKnownSimpleHapticsControllerWaveformsStatics3": {
+      "guid": "ae480ce4-4ab6-5b2f-ad0b-cb52f37d45fb",
+      "exclusive_to": "Windows.Devices.Haptics.KnownSimpleHapticsControllerWaveforms",
+      "methods": [
+        {
+          "name": "get_Collide",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Align",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Step",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Grow",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Align",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Align"
+        },
+        {
+          "name": "Collide",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Collide"
+        },
+        {
+          "name": "Grow",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Grow"
+        },
+        {
+          "name": "Step",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Step"
+        }
+      ]
+    },
+    "ISimpleHapticsController": {
+      "guid": "3d577ef9-4cee-11e6-b535-001bdc06ab3b",
+      "exclusive_to": "Windows.Devices.Haptics.SimpleHapticsController",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SupportedFeedback",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SimpleHapticsControllerFeedback",
+                "namespace": "Windows.Devices.Haptics",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_IsIntensitySupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsPlayCountSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsPlayDurationSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsReplayPauseIntervalSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "StopFeedback"
+        },
+        {
+          "name": "SendHapticFeedback",
+          "overload": "SendHapticFeedback",
+          "params": [
+            {
+              "name": "feedback",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SimpleHapticsControllerFeedback",
+                "namespace": "Windows.Devices.Haptics",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SendHapticFeedback",
+          "overload": "SendHapticFeedbackWithIntensity",
+          "params": [
+            {
+              "name": "feedback",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SimpleHapticsControllerFeedback",
+                "namespace": "Windows.Devices.Haptics",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "intensity",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SendHapticFeedbackForDuration",
+          "params": [
+            {
+              "name": "feedback",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SimpleHapticsControllerFeedback",
+                "namespace": "Windows.Devices.Haptics",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "intensity",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "playDuration",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "SendHapticFeedbackForPlayCount",
+          "params": [
+            {
+              "name": "feedback",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SimpleHapticsControllerFeedback",
+                "namespace": "Windows.Devices.Haptics",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "intensity",
+              "type": {
+                "kind": "Native",
+                "name": "F64"
+              }
+            },
+            {
+              "name": "playCount",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "replayPauseInterval",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "IsIntensitySupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsIntensitySupported"
+        },
+        {
+          "name": "IsPlayCountSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPlayCountSupported"
+        },
+        {
+          "name": "IsPlayDurationSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPlayDurationSupported"
+        },
+        {
+          "name": "IsReplayPauseIntervalSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsReplayPauseIntervalSupported"
+        },
+        {
+          "name": "SupportedFeedback",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SimpleHapticsControllerFeedback",
+                "namespace": "Windows.Devices.Haptics",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_SupportedFeedback"
+        }
+      ]
+    },
+    "ISimpleHapticsControllerFeedback": {
+      "guid": "3d577ef8-4cee-11e6-b535-001bdc06ab3b",
+      "exclusive_to": "Windows.Devices.Haptics.SimpleHapticsControllerFeedback",
+      "methods": [
+        {
+          "name": "get_Waveform",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Duration",
+          "return": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Duration",
+          "type": {
+            "kind": "ApiRef",
+            "name": "TimeSpan",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Duration"
+        },
+        {
+          "name": "Waveform",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Waveform"
+        }
+      ]
+    },
+    "IVibrationDevice": {
+      "guid": "40f21a3e-8844-47ff-b312-06185a3844da",
+      "exclusive_to": "Windows.Devices.Haptics.VibrationDevice",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SimpleHapticsController",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SimpleHapticsController",
+            "namespace": "Windows.Devices.Haptics",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "SimpleHapticsController",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SimpleHapticsController",
+            "namespace": "Windows.Devices.Haptics",
+            "target_kind": "Class"
+          },
+          "getter": "get_SimpleHapticsController"
+        }
+      ]
+    },
+    "IVibrationDeviceStatics": {
+      "guid": "53e2eded-2290-4ac9-8eb3-1a84122eb71c",
+      "exclusive_to": "Windows.Devices.Haptics.VibrationDevice",
+      "methods": [
+        {
+          "name": "RequestAccessAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VibrationAccessStatus",
+                "namespace": "Windows.Devices.Haptics",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDeviceSelector",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VibrationDevice",
+                "namespace": "Windows.Devices.Haptics",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDefaultAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "VibrationDevice",
+                "namespace": "Windows.Devices.Haptics",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAllAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "VibrationDevice",
+                    "namespace": "Windows.Devices.Haptics",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "InputHapticsManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IInputHapticsManager",
+        "namespace": "Windows.Devices.Haptics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IInputHapticsManager",
+          "namespace": "Windows.Devices.Haptics",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Haptics.IInputHapticsManagerStatics"
+      ]
+    },
+    "KnownSimpleHapticsControllerWaveforms": {
+      "static_interfaces": [
+        "Windows.Devices.Haptics.IKnownSimpleHapticsControllerWaveformsStatics2",
+        "Windows.Devices.Haptics.IKnownSimpleHapticsControllerWaveformsStatics",
+        "Windows.Devices.Haptics.IKnownSimpleHapticsControllerWaveformsStatics3"
+      ]
+    },
+    "SimpleHapticsController": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISimpleHapticsController",
+        "namespace": "Windows.Devices.Haptics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISimpleHapticsController",
+          "namespace": "Windows.Devices.Haptics",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SimpleHapticsControllerFeedback": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISimpleHapticsControllerFeedback",
+        "namespace": "Windows.Devices.Haptics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISimpleHapticsControllerFeedback",
+          "namespace": "Windows.Devices.Haptics",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "VibrationDevice": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IVibrationDevice",
+        "namespace": "Windows.Devices.Haptics",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IVibrationDevice",
+          "namespace": "Windows.Devices.Haptics",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Haptics.IVibrationDeviceStatics"
+      ]
+    }
+  }
+}

@@ -1,0 +1,314 @@
+{
+  "namespace": "Windows.Foundation.Numerics",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "structs": {
+    "Matrix3x2": {
+      "fields": [
+        {
+          "name": "M11",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "M12",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "M21",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "M22",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "M31",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "M32",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        }
+      ]
+    },
+    "Matrix4x4": {
+      "fields": [
+        {
+          "name": "M11",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "M12",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "M13",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "M14",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "M21",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "M22",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "M23",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "M24",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "M31",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "M32",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "M33",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "M34",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "M41",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "M42",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "M43",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "M44",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        }
+      ]
+    },
+    "Plane": {
+      "fields": [
+        {
+          "name": "Normal",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Vector3",
+            "namespace": "Windows.Foundation.Numerics",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "D",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        }
+      ]
+    },
+    "Quaternion": {
+      "fields": [
+        {
+          "name": "X",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "Y",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "Z",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "W",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        }
+      ]
+    },
+    "Rational": {
+      "fields": [
+        {
+          "name": "Numerator",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "Denominator",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ]
+    },
+    "Vector2": {
+      "fields": [
+        {
+          "name": "X",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "Y",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        }
+      ]
+    },
+    "Vector3": {
+      "fields": [
+        {
+          "name": "X",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "Y",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "Z",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        }
+      ]
+    },
+    "Vector4": {
+      "fields": [
+        {
+          "name": "X",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "Y",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "Z",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        },
+        {
+          "name": "W",
+          "type": {
+            "kind": "Native",
+            "name": "F32"
+          }
+        }
+      ]
+    }
+  }
+}

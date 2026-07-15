@@ -1,0 +1,1632 @@
+{
+  "namespace": "Windows.Devices.SmartCards",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "SmartCardPinCharacterPolicyOption": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Allow",
+          "value": "0"
+        },
+        {
+          "name": "RequireAtLeastOne",
+          "value": "1"
+        },
+        {
+          "name": "Disallow",
+          "value": "2"
+        }
+      ]
+    },
+    "SmartCardReaderKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Any",
+          "value": "0"
+        },
+        {
+          "name": "Generic",
+          "value": "1"
+        },
+        {
+          "name": "Tpm",
+          "value": "2"
+        },
+        {
+          "name": "Nfc",
+          "value": "3"
+        },
+        {
+          "name": "Uicc",
+          "value": "4"
+        },
+        {
+          "name": "EmbeddedSE",
+          "value": "5"
+        }
+      ]
+    },
+    "SmartCardReaderStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Disconnected",
+          "value": "0"
+        },
+        {
+          "name": "Ready",
+          "value": "1"
+        },
+        {
+          "name": "Exclusive",
+          "value": "2"
+        }
+      ]
+    },
+    "SmartCardStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Disconnected",
+          "value": "0"
+        },
+        {
+          "name": "Ready",
+          "value": "1"
+        },
+        {
+          "name": "Shared",
+          "value": "2"
+        },
+        {
+          "name": "Exclusive",
+          "value": "3"
+        },
+        {
+          "name": "Unresponsive",
+          "value": "4"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "ICardAddedEventArgs": {
+      "guid": "18bbef98-f18b-4dd3-b118-dfb2c8e23cc6",
+      "exclusive_to": "Windows.Devices.SmartCards.CardAddedEventArgs",
+      "methods": [
+        {
+          "name": "get_SmartCard",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmartCard",
+            "namespace": "Windows.Devices.SmartCards",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SmartCard",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmartCard",
+            "namespace": "Windows.Devices.SmartCards",
+            "target_kind": "Class"
+          },
+          "getter": "get_SmartCard"
+        }
+      ]
+    },
+    "ICardRemovedEventArgs": {
+      "guid": "15331aaf-22d7-4945-afc9-03b46f42a6cd",
+      "exclusive_to": "Windows.Devices.SmartCards.CardRemovedEventArgs",
+      "methods": [
+        {
+          "name": "get_SmartCard",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmartCard",
+            "namespace": "Windows.Devices.SmartCards",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SmartCard",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmartCard",
+            "namespace": "Windows.Devices.SmartCards",
+            "target_kind": "Class"
+          },
+          "getter": "get_SmartCard"
+        }
+      ]
+    },
+    "ISmartCard": {
+      "guid": "1b718871-6434-43f4-b55a-6a29623870aa",
+      "exclusive_to": "Windows.Devices.SmartCards.SmartCard",
+      "methods": [
+        {
+          "name": "get_Reader",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmartCardReader",
+            "namespace": "Windows.Devices.SmartCards",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetStatusAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SmartCardStatus",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetAnswerToResetAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Reader",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmartCardReader",
+            "namespace": "Windows.Devices.SmartCards",
+            "target_kind": "Class"
+          },
+          "getter": "get_Reader"
+        }
+      ]
+    },
+    "ISmartCardChallengeContext": {
+      "guid": "192a5319-c9c4-4947-81cc-44794a61ef91",
+      "exclusive_to": "Windows.Devices.SmartCards.SmartCardChallengeContext",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Challenge",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "VerifyResponseAsync",
+          "params": [
+            {
+              "name": "response",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "ProvisionAsync",
+          "overload": "ProvisionAsync",
+          "params": [
+            {
+              "name": "response",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "formatCard",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ProvisionAsync",
+          "overload": "ProvisionAsyncWithNewCardId",
+          "params": [
+            {
+              "name": "response",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "formatCard",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            },
+            {
+              "name": "newCardId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ChangeAdministrativeKeyAsync",
+          "params": [
+            {
+              "name": "response",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "newAdministrativeKey",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Challenge",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Challenge"
+        }
+      ]
+    },
+    "ISmartCardConnect": {
+      "guid": "2fdf87e5-028d-491e-a058-3382c3986f40",
+      "exclusive_to": "Windows.Devices.SmartCards.SmartCard",
+      "methods": [
+        {
+          "name": "ConnectAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SmartCardConnection",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ISmartCardConnection": {
+      "guid": "7edb991a-a81a-47bc-a649-156be6b7f231",
+      "exclusive_to": "Windows.Devices.SmartCards.SmartCardConnection",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "TransmitAsync",
+          "params": [
+            {
+              "name": "command",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ISmartCardPinPolicy": {
+      "guid": "183ce184-4db6-4841-ac9e-2ac1f39b7304",
+      "exclusive_to": "Windows.Devices.SmartCards.SmartCardPinPolicy",
+      "methods": [
+        {
+          "name": "get_MinLength",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_MinLength",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MaxLength",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_MaxLength",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_UppercaseLetters",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmartCardPinCharacterPolicyOption",
+            "namespace": "Windows.Devices.SmartCards",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_UppercaseLetters",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SmartCardPinCharacterPolicyOption",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_LowercaseLetters",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmartCardPinCharacterPolicyOption",
+            "namespace": "Windows.Devices.SmartCards",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_LowercaseLetters",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SmartCardPinCharacterPolicyOption",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Digits",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmartCardPinCharacterPolicyOption",
+            "namespace": "Windows.Devices.SmartCards",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Digits",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SmartCardPinCharacterPolicyOption",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SpecialCharacters",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmartCardPinCharacterPolicyOption",
+            "namespace": "Windows.Devices.SmartCards",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_SpecialCharacters",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SmartCardPinCharacterPolicyOption",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Digits",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmartCardPinCharacterPolicyOption",
+            "namespace": "Windows.Devices.SmartCards",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Digits",
+          "setter": "put_Digits"
+        },
+        {
+          "name": "LowercaseLetters",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmartCardPinCharacterPolicyOption",
+            "namespace": "Windows.Devices.SmartCards",
+            "target_kind": "Enum"
+          },
+          "getter": "get_LowercaseLetters",
+          "setter": "put_LowercaseLetters"
+        },
+        {
+          "name": "MaxLength",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxLength",
+          "setter": "put_MaxLength"
+        },
+        {
+          "name": "MinLength",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MinLength",
+          "setter": "put_MinLength"
+        },
+        {
+          "name": "SpecialCharacters",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmartCardPinCharacterPolicyOption",
+            "namespace": "Windows.Devices.SmartCards",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SpecialCharacters",
+          "setter": "put_SpecialCharacters"
+        },
+        {
+          "name": "UppercaseLetters",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmartCardPinCharacterPolicyOption",
+            "namespace": "Windows.Devices.SmartCards",
+            "target_kind": "Enum"
+          },
+          "getter": "get_UppercaseLetters",
+          "setter": "put_UppercaseLetters"
+        }
+      ]
+    },
+    "ISmartCardPinResetDeferral": {
+      "guid": "18c94aac-7805-4004-85e4-bbefac8f6884",
+      "exclusive_to": "Windows.Devices.SmartCards.SmartCardPinResetDeferral",
+      "methods": [
+        {
+          "name": "Complete"
+        }
+      ]
+    },
+    "ISmartCardPinResetRequest": {
+      "guid": "12fe3c4d-5fb9-4e8e-9ff6-61f475124fef",
+      "exclusive_to": "Windows.Devices.SmartCards.SmartCardPinResetRequest",
+      "methods": [
+        {
+          "name": "get_Challenge",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Deadline",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmartCardPinResetDeferral",
+            "namespace": "Windows.Devices.SmartCards",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SetResponse",
+          "params": [
+            {
+              "name": "response",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Challenge",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IBuffer",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Challenge"
+        },
+        {
+          "name": "Deadline",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Deadline"
+        }
+      ]
+    },
+    "ISmartCardProvisioning": {
+      "guid": "19eeedbd-1fab-477c-b712-1a2c5af1fd6e",
+      "exclusive_to": "Windows.Devices.SmartCards.SmartCardProvisioning",
+      "methods": [
+        {
+          "name": "get_SmartCard",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmartCard",
+            "namespace": "Windows.Devices.SmartCards",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetIdAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetNameAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetChallengeContextAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SmartCardChallengeContext",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestPinChangeAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestPinResetAsync",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SmartCardPinResetHandler",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "SmartCard",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmartCard",
+            "namespace": "Windows.Devices.SmartCards",
+            "target_kind": "Class"
+          },
+          "getter": "get_SmartCard"
+        }
+      ]
+    },
+    "ISmartCardProvisioning2": {
+      "guid": "10fd28eb-3f79-4b66-9b7c-11c149b7d0bc",
+      "exclusive_to": "Windows.Devices.SmartCards.SmartCardProvisioning",
+      "methods": [
+        {
+          "name": "GetAuthorityKeyContainerNameAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ISmartCardProvisioningStatics": {
+      "guid": "13882848-0d13-4e70-9735-51daeca5254f",
+      "exclusive_to": "Windows.Devices.SmartCards.SmartCardProvisioning",
+      "methods": [
+        {
+          "name": "FromSmartCardAsync",
+          "params": [
+            {
+              "name": "card",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SmartCard",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SmartCardProvisioning",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestVirtualSmartCardCreationAsync",
+          "overload": "RequestVirtualSmartCardCreationAsync",
+          "params": [
+            {
+              "name": "friendlyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "administrativeKey",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "pinPolicy",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SmartCardPinPolicy",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SmartCardProvisioning",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestVirtualSmartCardCreationAsync",
+          "overload": "RequestVirtualSmartCardCreationAsyncWithCardId",
+          "params": [
+            {
+              "name": "friendlyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "administrativeKey",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "pinPolicy",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SmartCardPinPolicy",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "cardId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SmartCardProvisioning",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestVirtualSmartCardDeletionAsync",
+          "params": [
+            {
+              "name": "card",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SmartCard",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ISmartCardProvisioningStatics2": {
+      "guid": "3447c6a8-c9a0-4bd6-b50d-251f4e8d3a62",
+      "exclusive_to": "Windows.Devices.SmartCards.SmartCardProvisioning",
+      "methods": [
+        {
+          "name": "RequestAttestedVirtualSmartCardCreationAsync",
+          "overload": "RequestAttestedVirtualSmartCardCreationAsync",
+          "params": [
+            {
+              "name": "friendlyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "administrativeKey",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "pinPolicy",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SmartCardPinPolicy",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SmartCardProvisioning",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "RequestAttestedVirtualSmartCardCreationAsync",
+          "overload": "RequestAttestedVirtualSmartCardCreationAsyncWithCardId",
+          "params": [
+            {
+              "name": "friendlyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "administrativeKey",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            },
+            {
+              "name": "pinPolicy",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SmartCardPinPolicy",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "cardId",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SmartCardProvisioning",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "ISmartCardReader": {
+      "guid": "1074b4e0-54c2-4df0-817a-14c14378f06c",
+      "exclusive_to": "Windows.Devices.SmartCards.SmartCardReader",
+      "methods": [
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Kind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SmartCardReaderKind",
+            "namespace": "Windows.Devices.SmartCards",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetStatusAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SmartCardReaderStatus",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAllCardsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SmartCard",
+                    "namespace": "Windows.Devices.SmartCards",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_CardAdded",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SmartCardReader",
+                    "namespace": "Windows.Devices.SmartCards",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CardAddedEventArgs",
+                    "namespace": "Windows.Devices.SmartCards",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CardAdded",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_CardRemoved",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "SmartCardReader",
+                    "namespace": "Windows.Devices.SmartCards",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "CardRemovedEventArgs",
+                    "namespace": "Windows.Devices.SmartCards",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_CardRemoved",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        },
+        {
+          "name": "Kind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SmartCardReaderKind",
+            "namespace": "Windows.Devices.SmartCards",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Kind"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        }
+      ],
+      "events": [
+        {
+          "name": "CardAdded",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SmartCardReader",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CardAddedEventArgs",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_CardAdded",
+          "remove_method": "remove_CardAdded"
+        },
+        {
+          "name": "CardRemoved",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SmartCardReader",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "CardRemovedEventArgs",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_CardRemoved",
+          "remove_method": "remove_CardRemoved"
+        }
+      ]
+    },
+    "ISmartCardReaderStatics": {
+      "guid": "103c04e1-a1ca-48f2-a281-5b6f669af107",
+      "exclusive_to": "Windows.Devices.SmartCards.SmartCardReader",
+      "methods": [
+        {
+          "name": "GetDeviceSelector",
+          "overload": "GetDeviceSelector",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDeviceSelector",
+          "overload": "GetDeviceSelectorWithKind",
+          "params": [
+            {
+              "name": "kind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SmartCardReaderKind",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SmartCardReader",
+                "namespace": "Windows.Devices.SmartCards",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "CardAddedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICardAddedEventArgs",
+        "namespace": "Windows.Devices.SmartCards",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICardAddedEventArgs",
+          "namespace": "Windows.Devices.SmartCards",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CardRemovedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICardRemovedEventArgs",
+        "namespace": "Windows.Devices.SmartCards",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICardRemovedEventArgs",
+          "namespace": "Windows.Devices.SmartCards",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SmartCard": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISmartCard",
+        "namespace": "Windows.Devices.SmartCards",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmartCard",
+          "namespace": "Windows.Devices.SmartCards",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISmartCardConnect",
+          "namespace": "Windows.Devices.SmartCards",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SmartCardChallengeContext": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISmartCardChallengeContext",
+        "namespace": "Windows.Devices.SmartCards",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmartCardChallengeContext",
+          "namespace": "Windows.Devices.SmartCards",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SmartCardConnection": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISmartCardConnection",
+        "namespace": "Windows.Devices.SmartCards",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmartCardConnection",
+          "namespace": "Windows.Devices.SmartCards",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SmartCardPinPolicy": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISmartCardPinPolicy",
+        "namespace": "Windows.Devices.SmartCards",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmartCardPinPolicy",
+          "namespace": "Windows.Devices.SmartCards",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "SmartCardPinResetDeferral": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISmartCardPinResetDeferral",
+        "namespace": "Windows.Devices.SmartCards",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmartCardPinResetDeferral",
+          "namespace": "Windows.Devices.SmartCards",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SmartCardPinResetRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISmartCardPinResetRequest",
+        "namespace": "Windows.Devices.SmartCards",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmartCardPinResetRequest",
+          "namespace": "Windows.Devices.SmartCards",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "SmartCardProvisioning": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISmartCardProvisioning",
+        "namespace": "Windows.Devices.SmartCards",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmartCardProvisioning",
+          "namespace": "Windows.Devices.SmartCards",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "ISmartCardProvisioning2",
+          "namespace": "Windows.Devices.SmartCards",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.SmartCards.ISmartCardProvisioningStatics",
+        "Windows.Devices.SmartCards.ISmartCardProvisioningStatics2"
+      ]
+    },
+    "SmartCardReader": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ISmartCardReader",
+        "namespace": "Windows.Devices.SmartCards",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ISmartCardReader",
+          "namespace": "Windows.Devices.SmartCards",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.SmartCards.ISmartCardReaderStatics"
+      ]
+    }
+  },
+  "delegates": {
+    "SmartCardPinResetHandler": {
+      "guid": "138d5e40-f3bc-4a5c-b41d-4b4ef684e237",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "sender",
+            "type": {
+              "kind": "ApiRef",
+              "name": "SmartCardProvisioning",
+              "namespace": "Windows.Devices.SmartCards",
+              "target_kind": "Class"
+            }
+          },
+          {
+            "name": "request",
+            "type": {
+              "kind": "ApiRef",
+              "name": "SmartCardPinResetRequest",
+              "namespace": "Windows.Devices.SmartCards",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

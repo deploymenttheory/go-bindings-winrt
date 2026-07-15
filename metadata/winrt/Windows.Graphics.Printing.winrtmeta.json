@@ -1,0 +1,3505 @@
+{
+  "namespace": "Windows.Graphics.Printing",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "PrintBinding": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "NotAvailable",
+          "value": "1"
+        },
+        {
+          "name": "PrinterCustom",
+          "value": "2"
+        },
+        {
+          "name": "None",
+          "value": "3"
+        },
+        {
+          "name": "Bale",
+          "value": "4"
+        },
+        {
+          "name": "BindBottom",
+          "value": "5"
+        },
+        {
+          "name": "BindLeft",
+          "value": "6"
+        },
+        {
+          "name": "BindRight",
+          "value": "7"
+        },
+        {
+          "name": "BindTop",
+          "value": "8"
+        },
+        {
+          "name": "Booklet",
+          "value": "9"
+        },
+        {
+          "name": "EdgeStitchBottom",
+          "value": "10"
+        },
+        {
+          "name": "EdgeStitchLeft",
+          "value": "11"
+        },
+        {
+          "name": "EdgeStitchRight",
+          "value": "12"
+        },
+        {
+          "name": "EdgeStitchTop",
+          "value": "13"
+        },
+        {
+          "name": "Fold",
+          "value": "14"
+        },
+        {
+          "name": "JogOffset",
+          "value": "15"
+        },
+        {
+          "name": "Trim",
+          "value": "16"
+        }
+      ]
+    },
+    "PrintBordering": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "NotAvailable",
+          "value": "1"
+        },
+        {
+          "name": "PrinterCustom",
+          "value": "2"
+        },
+        {
+          "name": "Bordered",
+          "value": "3"
+        },
+        {
+          "name": "Borderless",
+          "value": "4"
+        }
+      ]
+    },
+    "PrintCollation": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "NotAvailable",
+          "value": "1"
+        },
+        {
+          "name": "PrinterCustom",
+          "value": "2"
+        },
+        {
+          "name": "Collated",
+          "value": "3"
+        },
+        {
+          "name": "Uncollated",
+          "value": "4"
+        }
+      ]
+    },
+    "PrintColorMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "NotAvailable",
+          "value": "1"
+        },
+        {
+          "name": "PrinterCustom",
+          "value": "2"
+        },
+        {
+          "name": "Color",
+          "value": "3"
+        },
+        {
+          "name": "Grayscale",
+          "value": "4"
+        },
+        {
+          "name": "Monochrome",
+          "value": "5"
+        },
+        {
+          "name": "AutoSelect",
+          "value": "6"
+        }
+      ]
+    },
+    "PrintDuplex": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "NotAvailable",
+          "value": "1"
+        },
+        {
+          "name": "PrinterCustom",
+          "value": "2"
+        },
+        {
+          "name": "OneSided",
+          "value": "3"
+        },
+        {
+          "name": "TwoSidedShortEdge",
+          "value": "4"
+        },
+        {
+          "name": "TwoSidedLongEdge",
+          "value": "5"
+        }
+      ]
+    },
+    "PrintHolePunch": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "NotAvailable",
+          "value": "1"
+        },
+        {
+          "name": "PrinterCustom",
+          "value": "2"
+        },
+        {
+          "name": "None",
+          "value": "3"
+        },
+        {
+          "name": "LeftEdge",
+          "value": "4"
+        },
+        {
+          "name": "RightEdge",
+          "value": "5"
+        },
+        {
+          "name": "TopEdge",
+          "value": "6"
+        },
+        {
+          "name": "BottomEdge",
+          "value": "7"
+        }
+      ]
+    },
+    "PrintMediaSize": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "NotAvailable",
+          "value": "1"
+        },
+        {
+          "name": "PrinterCustom",
+          "value": "2"
+        },
+        {
+          "name": "BusinessCard",
+          "value": "3"
+        },
+        {
+          "name": "CreditCard",
+          "value": "4"
+        },
+        {
+          "name": "IsoA0",
+          "value": "5"
+        },
+        {
+          "name": "IsoA1",
+          "value": "6"
+        },
+        {
+          "name": "IsoA10",
+          "value": "7"
+        },
+        {
+          "name": "IsoA2",
+          "value": "8"
+        },
+        {
+          "name": "IsoA3",
+          "value": "9"
+        },
+        {
+          "name": "IsoA3Extra",
+          "value": "10"
+        },
+        {
+          "name": "IsoA3Rotated",
+          "value": "11"
+        },
+        {
+          "name": "IsoA4",
+          "value": "12"
+        },
+        {
+          "name": "IsoA4Extra",
+          "value": "13"
+        },
+        {
+          "name": "IsoA4Rotated",
+          "value": "14"
+        },
+        {
+          "name": "IsoA5",
+          "value": "15"
+        },
+        {
+          "name": "IsoA5Extra",
+          "value": "16"
+        },
+        {
+          "name": "IsoA5Rotated",
+          "value": "17"
+        },
+        {
+          "name": "IsoA6",
+          "value": "18"
+        },
+        {
+          "name": "IsoA6Rotated",
+          "value": "19"
+        },
+        {
+          "name": "IsoA7",
+          "value": "20"
+        },
+        {
+          "name": "IsoA8",
+          "value": "21"
+        },
+        {
+          "name": "IsoA9",
+          "value": "22"
+        },
+        {
+          "name": "IsoB0",
+          "value": "23"
+        },
+        {
+          "name": "IsoB1",
+          "value": "24"
+        },
+        {
+          "name": "IsoB10",
+          "value": "25"
+        },
+        {
+          "name": "IsoB2",
+          "value": "26"
+        },
+        {
+          "name": "IsoB3",
+          "value": "27"
+        },
+        {
+          "name": "IsoB4",
+          "value": "28"
+        },
+        {
+          "name": "IsoB4Envelope",
+          "value": "29"
+        },
+        {
+          "name": "IsoB5Envelope",
+          "value": "30"
+        },
+        {
+          "name": "IsoB5Extra",
+          "value": "31"
+        },
+        {
+          "name": "IsoB7",
+          "value": "32"
+        },
+        {
+          "name": "IsoB8",
+          "value": "33"
+        },
+        {
+          "name": "IsoB9",
+          "value": "34"
+        },
+        {
+          "name": "IsoC0",
+          "value": "35"
+        },
+        {
+          "name": "IsoC1",
+          "value": "36"
+        },
+        {
+          "name": "IsoC10",
+          "value": "37"
+        },
+        {
+          "name": "IsoC2",
+          "value": "38"
+        },
+        {
+          "name": "IsoC3",
+          "value": "39"
+        },
+        {
+          "name": "IsoC3Envelope",
+          "value": "40"
+        },
+        {
+          "name": "IsoC4",
+          "value": "41"
+        },
+        {
+          "name": "IsoC4Envelope",
+          "value": "42"
+        },
+        {
+          "name": "IsoC5",
+          "value": "43"
+        },
+        {
+          "name": "IsoC5Envelope",
+          "value": "44"
+        },
+        {
+          "name": "IsoC6",
+          "value": "45"
+        },
+        {
+          "name": "IsoC6C5Envelope",
+          "value": "46"
+        },
+        {
+          "name": "IsoC6Envelope",
+          "value": "47"
+        },
+        {
+          "name": "IsoC7",
+          "value": "48"
+        },
+        {
+          "name": "IsoC8",
+          "value": "49"
+        },
+        {
+          "name": "IsoC9",
+          "value": "50"
+        },
+        {
+          "name": "IsoDLEnvelope",
+          "value": "51"
+        },
+        {
+          "name": "IsoDLEnvelopeRotated",
+          "value": "52"
+        },
+        {
+          "name": "IsoSRA3",
+          "value": "53"
+        },
+        {
+          "name": "Japan2LPhoto",
+          "value": "54"
+        },
+        {
+          "name": "JapanChou3Envelope",
+          "value": "55"
+        },
+        {
+          "name": "JapanChou3EnvelopeRotated",
+          "value": "56"
+        },
+        {
+          "name": "JapanChou4Envelope",
+          "value": "57"
+        },
+        {
+          "name": "JapanChou4EnvelopeRotated",
+          "value": "58"
+        },
+        {
+          "name": "JapanDoubleHagakiPostcard",
+          "value": "59"
+        },
+        {
+          "name": "JapanDoubleHagakiPostcardRotated",
+          "value": "60"
+        },
+        {
+          "name": "JapanHagakiPostcard",
+          "value": "61"
+        },
+        {
+          "name": "JapanHagakiPostcardRotated",
+          "value": "62"
+        },
+        {
+          "name": "JapanKaku2Envelope",
+          "value": "63"
+        },
+        {
+          "name": "JapanKaku2EnvelopeRotated",
+          "value": "64"
+        },
+        {
+          "name": "JapanKaku3Envelope",
+          "value": "65"
+        },
+        {
+          "name": "JapanKaku3EnvelopeRotated",
+          "value": "66"
+        },
+        {
+          "name": "JapanLPhoto",
+          "value": "67"
+        },
+        {
+          "name": "JapanQuadrupleHagakiPostcard",
+          "value": "68"
+        },
+        {
+          "name": "JapanYou1Envelope",
+          "value": "69"
+        },
+        {
+          "name": "JapanYou2Envelope",
+          "value": "70"
+        },
+        {
+          "name": "JapanYou3Envelope",
+          "value": "71"
+        },
+        {
+          "name": "JapanYou4Envelope",
+          "value": "72"
+        },
+        {
+          "name": "JapanYou4EnvelopeRotated",
+          "value": "73"
+        },
+        {
+          "name": "JapanYou6Envelope",
+          "value": "74"
+        },
+        {
+          "name": "JapanYou6EnvelopeRotated",
+          "value": "75"
+        },
+        {
+          "name": "JisB0",
+          "value": "76"
+        },
+        {
+          "name": "JisB1",
+          "value": "77"
+        },
+        {
+          "name": "JisB10",
+          "value": "78"
+        },
+        {
+          "name": "JisB2",
+          "value": "79"
+        },
+        {
+          "name": "JisB3",
+          "value": "80"
+        },
+        {
+          "name": "JisB4",
+          "value": "81"
+        },
+        {
+          "name": "JisB4Rotated",
+          "value": "82"
+        },
+        {
+          "name": "JisB5",
+          "value": "83"
+        },
+        {
+          "name": "JisB5Rotated",
+          "value": "84"
+        },
+        {
+          "name": "JisB6",
+          "value": "85"
+        },
+        {
+          "name": "JisB6Rotated",
+          "value": "86"
+        },
+        {
+          "name": "JisB7",
+          "value": "87"
+        },
+        {
+          "name": "JisB8",
+          "value": "88"
+        },
+        {
+          "name": "JisB9",
+          "value": "89"
+        },
+        {
+          "name": "NorthAmerica10x11",
+          "value": "90"
+        },
+        {
+          "name": "NorthAmerica10x12",
+          "value": "91"
+        },
+        {
+          "name": "NorthAmerica10x14",
+          "value": "92"
+        },
+        {
+          "name": "NorthAmerica11x17",
+          "value": "93"
+        },
+        {
+          "name": "NorthAmerica14x17",
+          "value": "94"
+        },
+        {
+          "name": "NorthAmerica4x6",
+          "value": "95"
+        },
+        {
+          "name": "NorthAmerica4x8",
+          "value": "96"
+        },
+        {
+          "name": "NorthAmerica5x7",
+          "value": "97"
+        },
+        {
+          "name": "NorthAmerica8x10",
+          "value": "98"
+        },
+        {
+          "name": "NorthAmerica9x11",
+          "value": "99"
+        },
+        {
+          "name": "NorthAmericaArchitectureASheet",
+          "value": "100"
+        },
+        {
+          "name": "NorthAmericaArchitectureBSheet",
+          "value": "101"
+        },
+        {
+          "name": "NorthAmericaArchitectureCSheet",
+          "value": "102"
+        },
+        {
+          "name": "NorthAmericaArchitectureDSheet",
+          "value": "103"
+        },
+        {
+          "name": "NorthAmericaArchitectureESheet",
+          "value": "104"
+        },
+        {
+          "name": "NorthAmericaCSheet",
+          "value": "105"
+        },
+        {
+          "name": "NorthAmericaDSheet",
+          "value": "106"
+        },
+        {
+          "name": "NorthAmericaESheet",
+          "value": "107"
+        },
+        {
+          "name": "NorthAmericaExecutive",
+          "value": "108"
+        },
+        {
+          "name": "NorthAmericaGermanLegalFanfold",
+          "value": "109"
+        },
+        {
+          "name": "NorthAmericaGermanStandardFanfold",
+          "value": "110"
+        },
+        {
+          "name": "NorthAmericaLegal",
+          "value": "111"
+        },
+        {
+          "name": "NorthAmericaLegalExtra",
+          "value": "112"
+        },
+        {
+          "name": "NorthAmericaLetter",
+          "value": "113"
+        },
+        {
+          "name": "NorthAmericaLetterExtra",
+          "value": "114"
+        },
+        {
+          "name": "NorthAmericaLetterPlus",
+          "value": "115"
+        },
+        {
+          "name": "NorthAmericaLetterRotated",
+          "value": "116"
+        },
+        {
+          "name": "NorthAmericaMonarchEnvelope",
+          "value": "117"
+        },
+        {
+          "name": "NorthAmericaNote",
+          "value": "118"
+        },
+        {
+          "name": "NorthAmericaNumber10Envelope",
+          "value": "119"
+        },
+        {
+          "name": "NorthAmericaNumber10EnvelopeRotated",
+          "value": "120"
+        },
+        {
+          "name": "NorthAmericaNumber11Envelope",
+          "value": "121"
+        },
+        {
+          "name": "NorthAmericaNumber12Envelope",
+          "value": "122"
+        },
+        {
+          "name": "NorthAmericaNumber14Envelope",
+          "value": "123"
+        },
+        {
+          "name": "NorthAmericaNumber9Envelope",
+          "value": "124"
+        },
+        {
+          "name": "NorthAmericaPersonalEnvelope",
+          "value": "125"
+        },
+        {
+          "name": "NorthAmericaQuarto",
+          "value": "126"
+        },
+        {
+          "name": "NorthAmericaStatement",
+          "value": "127"
+        },
+        {
+          "name": "NorthAmericaSuperA",
+          "value": "128"
+        },
+        {
+          "name": "NorthAmericaSuperB",
+          "value": "129"
+        },
+        {
+          "name": "NorthAmericaTabloid",
+          "value": "130"
+        },
+        {
+          "name": "NorthAmericaTabloidExtra",
+          "value": "131"
+        },
+        {
+          "name": "OtherMetricA3Plus",
+          "value": "132"
+        },
+        {
+          "name": "OtherMetricA4Plus",
+          "value": "133"
+        },
+        {
+          "name": "OtherMetricFolio",
+          "value": "134"
+        },
+        {
+          "name": "OtherMetricInviteEnvelope",
+          "value": "135"
+        },
+        {
+          "name": "OtherMetricItalianEnvelope",
+          "value": "136"
+        },
+        {
+          "name": "Prc10Envelope",
+          "value": "137"
+        },
+        {
+          "name": "Prc10EnvelopeRotated",
+          "value": "138"
+        },
+        {
+          "name": "Prc16K",
+          "value": "139"
+        },
+        {
+          "name": "Prc16KRotated",
+          "value": "140"
+        },
+        {
+          "name": "Prc1Envelope",
+          "value": "141"
+        },
+        {
+          "name": "Prc1EnvelopeRotated",
+          "value": "142"
+        },
+        {
+          "name": "Prc2Envelope",
+          "value": "143"
+        },
+        {
+          "name": "Prc2EnvelopeRotated",
+          "value": "144"
+        },
+        {
+          "name": "Prc32K",
+          "value": "145"
+        },
+        {
+          "name": "Prc32KBig",
+          "value": "146"
+        },
+        {
+          "name": "Prc32KRotated",
+          "value": "147"
+        },
+        {
+          "name": "Prc3Envelope",
+          "value": "148"
+        },
+        {
+          "name": "Prc3EnvelopeRotated",
+          "value": "149"
+        },
+        {
+          "name": "Prc4Envelope",
+          "value": "150"
+        },
+        {
+          "name": "Prc4EnvelopeRotated",
+          "value": "151"
+        },
+        {
+          "name": "Prc5Envelope",
+          "value": "152"
+        },
+        {
+          "name": "Prc5EnvelopeRotated",
+          "value": "153"
+        },
+        {
+          "name": "Prc6Envelope",
+          "value": "154"
+        },
+        {
+          "name": "Prc6EnvelopeRotated",
+          "value": "155"
+        },
+        {
+          "name": "Prc7Envelope",
+          "value": "156"
+        },
+        {
+          "name": "Prc7EnvelopeRotated",
+          "value": "157"
+        },
+        {
+          "name": "Prc8Envelope",
+          "value": "158"
+        },
+        {
+          "name": "Prc8EnvelopeRotated",
+          "value": "159"
+        },
+        {
+          "name": "Prc9Envelope",
+          "value": "160"
+        },
+        {
+          "name": "Prc9EnvelopeRotated",
+          "value": "161"
+        },
+        {
+          "name": "Roll04Inch",
+          "value": "162"
+        },
+        {
+          "name": "Roll06Inch",
+          "value": "163"
+        },
+        {
+          "name": "Roll08Inch",
+          "value": "164"
+        },
+        {
+          "name": "Roll12Inch",
+          "value": "165"
+        },
+        {
+          "name": "Roll15Inch",
+          "value": "166"
+        },
+        {
+          "name": "Roll18Inch",
+          "value": "167"
+        },
+        {
+          "name": "Roll22Inch",
+          "value": "168"
+        },
+        {
+          "name": "Roll24Inch",
+          "value": "169"
+        },
+        {
+          "name": "Roll30Inch",
+          "value": "170"
+        },
+        {
+          "name": "Roll36Inch",
+          "value": "171"
+        },
+        {
+          "name": "Roll54Inch",
+          "value": "172"
+        }
+      ]
+    },
+    "PrintMediaType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "NotAvailable",
+          "value": "1"
+        },
+        {
+          "name": "PrinterCustom",
+          "value": "2"
+        },
+        {
+          "name": "AutoSelect",
+          "value": "3"
+        },
+        {
+          "name": "Archival",
+          "value": "4"
+        },
+        {
+          "name": "BackPrintFilm",
+          "value": "5"
+        },
+        {
+          "name": "Bond",
+          "value": "6"
+        },
+        {
+          "name": "CardStock",
+          "value": "7"
+        },
+        {
+          "name": "Continuous",
+          "value": "8"
+        },
+        {
+          "name": "EnvelopePlain",
+          "value": "9"
+        },
+        {
+          "name": "EnvelopeWindow",
+          "value": "10"
+        },
+        {
+          "name": "Fabric",
+          "value": "11"
+        },
+        {
+          "name": "HighResolution",
+          "value": "12"
+        },
+        {
+          "name": "Label",
+          "value": "13"
+        },
+        {
+          "name": "MultiLayerForm",
+          "value": "14"
+        },
+        {
+          "name": "MultiPartForm",
+          "value": "15"
+        },
+        {
+          "name": "Photographic",
+          "value": "16"
+        },
+        {
+          "name": "PhotographicFilm",
+          "value": "17"
+        },
+        {
+          "name": "PhotographicGlossy",
+          "value": "18"
+        },
+        {
+          "name": "PhotographicHighGloss",
+          "value": "19"
+        },
+        {
+          "name": "PhotographicMatte",
+          "value": "20"
+        },
+        {
+          "name": "PhotographicSatin",
+          "value": "21"
+        },
+        {
+          "name": "PhotographicSemiGloss",
+          "value": "22"
+        },
+        {
+          "name": "Plain",
+          "value": "23"
+        },
+        {
+          "name": "Screen",
+          "value": "24"
+        },
+        {
+          "name": "ScreenPaged",
+          "value": "25"
+        },
+        {
+          "name": "Stationery",
+          "value": "26"
+        },
+        {
+          "name": "TabStockFull",
+          "value": "27"
+        },
+        {
+          "name": "TabStockPreCut",
+          "value": "28"
+        },
+        {
+          "name": "Transparency",
+          "value": "29"
+        },
+        {
+          "name": "TShirtTransfer",
+          "value": "30"
+        },
+        {
+          "name": "None",
+          "value": "31"
+        }
+      ]
+    },
+    "PrintOrientation": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "NotAvailable",
+          "value": "1"
+        },
+        {
+          "name": "PrinterCustom",
+          "value": "2"
+        },
+        {
+          "name": "Portrait",
+          "value": "3"
+        },
+        {
+          "name": "PortraitFlipped",
+          "value": "4"
+        },
+        {
+          "name": "Landscape",
+          "value": "5"
+        },
+        {
+          "name": "LandscapeFlipped",
+          "value": "6"
+        }
+      ]
+    },
+    "PrintQuality": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "NotAvailable",
+          "value": "1"
+        },
+        {
+          "name": "PrinterCustom",
+          "value": "2"
+        },
+        {
+          "name": "Automatic",
+          "value": "3"
+        },
+        {
+          "name": "Draft",
+          "value": "4"
+        },
+        {
+          "name": "Fax",
+          "value": "5"
+        },
+        {
+          "name": "High",
+          "value": "6"
+        },
+        {
+          "name": "Normal",
+          "value": "7"
+        },
+        {
+          "name": "Photographic",
+          "value": "8"
+        },
+        {
+          "name": "Text",
+          "value": "9"
+        }
+      ]
+    },
+    "PrintStaple": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Default",
+          "value": "0"
+        },
+        {
+          "name": "NotAvailable",
+          "value": "1"
+        },
+        {
+          "name": "PrinterCustom",
+          "value": "2"
+        },
+        {
+          "name": "None",
+          "value": "3"
+        },
+        {
+          "name": "StapleTopLeft",
+          "value": "4"
+        },
+        {
+          "name": "StapleTopRight",
+          "value": "5"
+        },
+        {
+          "name": "StapleBottomLeft",
+          "value": "6"
+        },
+        {
+          "name": "StapleBottomRight",
+          "value": "7"
+        },
+        {
+          "name": "StapleDualLeft",
+          "value": "8"
+        },
+        {
+          "name": "StapleDualRight",
+          "value": "9"
+        },
+        {
+          "name": "StapleDualTop",
+          "value": "10"
+        },
+        {
+          "name": "StapleDualBottom",
+          "value": "11"
+        },
+        {
+          "name": "SaddleStitch",
+          "value": "12"
+        }
+      ]
+    },
+    "PrintTaskCompletion": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Abandoned",
+          "value": "0"
+        },
+        {
+          "name": "Canceled",
+          "value": "1"
+        },
+        {
+          "name": "Failed",
+          "value": "2"
+        },
+        {
+          "name": "Submitted",
+          "value": "3"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "PrintPageDescription": {
+      "fields": [
+        {
+          "name": "PageSize",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "ImageableRect",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Rect",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "DpiX",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "DpiY",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IPrintDocumentSource": {
+      "guid": "dedc0c30-f1eb-47df-aae6-ed5427511f01"
+    },
+    "IPrintManager": {
+      "guid": "ff2a9694-8c99-44fd-ae4a-19d9aa9a0f0a",
+      "exclusive_to": "Windows.Graphics.Printing.PrintManager",
+      "methods": [
+        {
+          "name": "add_PrintTaskRequested",
+          "params": [
+            {
+              "name": "eventHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintManager",
+                    "namespace": "Windows.Graphics.Printing",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintTaskRequestedEventArgs",
+                    "namespace": "Windows.Graphics.Printing",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_PrintTaskRequested",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "PrintTaskRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintManager",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PrintTaskRequestedEventArgs",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_PrintTaskRequested",
+          "remove_method": "remove_PrintTaskRequested"
+        }
+      ]
+    },
+    "IPrintManagerStatic": {
+      "guid": "58185dcd-e634-4654-84f0-e0152a8217ac",
+      "exclusive_to": "Windows.Graphics.Printing.PrintManager",
+      "methods": [
+        {
+          "name": "GetForCurrentView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintManager",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "ShowPrintUIAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPrintManagerStatic2": {
+      "guid": "35a99955-e6ab-4139-9abd-b86a729b3598",
+      "exclusive_to": "Windows.Graphics.Printing.PrintManager",
+      "methods": [
+        {
+          "name": "IsSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    },
+    "IPrintPageInfo": {
+      "guid": "dd4be9c9-a6a1-4ada-930e-da872a4f23d3",
+      "exclusive_to": "Windows.Graphics.Printing.PrintPageInfo",
+      "methods": [
+        {
+          "name": "put_MediaSize",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintMediaSize",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MediaSize",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintMediaSize",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_PageSize",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "Size",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PageSize",
+          "return": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_DpiX",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DpiX",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_DpiY",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DpiY",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_Orientation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintOrientation",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Orientation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintOrientation",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DpiX",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_DpiX",
+          "setter": "put_DpiX"
+        },
+        {
+          "name": "DpiY",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_DpiY",
+          "setter": "put_DpiY"
+        },
+        {
+          "name": "MediaSize",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintMediaSize",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MediaSize",
+          "setter": "put_MediaSize"
+        },
+        {
+          "name": "Orientation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintOrientation",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Orientation",
+          "setter": "put_Orientation"
+        },
+        {
+          "name": "PageSize",
+          "type": {
+            "kind": "ApiRef",
+            "name": "Size",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_PageSize",
+          "setter": "put_PageSize"
+        }
+      ]
+    },
+    "IPrintPageRange": {
+      "guid": "f8a06c54-6e7c-51c5-57fd-0660c2d71513",
+      "exclusive_to": "Windows.Graphics.Printing.PrintPageRange",
+      "methods": [
+        {
+          "name": "get_FirstPageNumber",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        },
+        {
+          "name": "get_LastPageNumber",
+          "return": {
+            "kind": "Native",
+            "name": "I4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FirstPageNumber",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_FirstPageNumber"
+        },
+        {
+          "name": "LastPageNumber",
+          "type": {
+            "kind": "Native",
+            "name": "I4"
+          },
+          "getter": "get_LastPageNumber"
+        }
+      ]
+    },
+    "IPrintPageRangeFactory": {
+      "guid": "408fd45f-e047-5f85-7129-fb085a4fad14",
+      "exclusive_to": "Windows.Graphics.Printing.PrintPageRange",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "firstPage",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            },
+            {
+              "name": "lastPage",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintPageRange",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateWithSinglePage",
+          "params": [
+            {
+              "name": "page",
+              "type": {
+                "kind": "Native",
+                "name": "I4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintPageRange",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPrintPageRangeOptions": {
+      "guid": "ce6db728-1357-46b2-a923-79f995f448fc",
+      "exclusive_to": "Windows.Graphics.Printing.PrintPageRangeOptions",
+      "methods": [
+        {
+          "name": "put_AllowAllPages",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AllowAllPages",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AllowCurrentPage",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AllowCurrentPage",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_AllowCustomSetOfPages",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AllowCustomSetOfPages",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AllowAllPages",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AllowAllPages",
+          "setter": "put_AllowAllPages"
+        },
+        {
+          "name": "AllowCurrentPage",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AllowCurrentPage",
+          "setter": "put_AllowCurrentPage"
+        },
+        {
+          "name": "AllowCustomSetOfPages",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AllowCustomSetOfPages",
+          "setter": "put_AllowCustomSetOfPages"
+        }
+      ]
+    },
+    "IPrintTask": {
+      "guid": "61d80247-6cf6-4fad-84e2-a5e82e2d4ceb",
+      "exclusive_to": "Windows.Graphics.Printing.PrintTask",
+      "methods": [
+        {
+          "name": "get_Properties",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DataPackagePropertySet",
+            "namespace": "Windows.ApplicationModel.DataTransfer",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Source",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IPrintDocumentSource",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_Options",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTaskOptions",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_Previewing",
+          "params": [
+            {
+              "name": "eventHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintTask",
+                    "namespace": "Windows.Graphics.Printing",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Previewing",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Submitting",
+          "params": [
+            {
+              "name": "eventHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintTask",
+                    "namespace": "Windows.Graphics.Printing",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Submitting",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Progressing",
+          "params": [
+            {
+              "name": "eventHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintTask",
+                    "namespace": "Windows.Graphics.Printing",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintTaskProgressingEventArgs",
+                    "namespace": "Windows.Graphics.Printing",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Progressing",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_Completed",
+          "params": [
+            {
+              "name": "eventHandler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintTask",
+                    "namespace": "Windows.Graphics.Printing",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PrintTaskCompletedEventArgs",
+                    "namespace": "Windows.Graphics.Printing",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_Completed",
+          "params": [
+            {
+              "name": "eventCookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Options",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTaskOptions",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Class"
+          },
+          "getter": "get_Options"
+        },
+        {
+          "name": "Properties",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DataPackagePropertySet",
+            "namespace": "Windows.ApplicationModel.DataTransfer",
+            "target_kind": "Class"
+          },
+          "getter": "get_Properties"
+        },
+        {
+          "name": "Source",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IPrintDocumentSource",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Source"
+        }
+      ],
+      "events": [
+        {
+          "name": "Completed",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintTask",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PrintTaskCompletedEventArgs",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Completed",
+          "remove_method": "remove_Completed"
+        },
+        {
+          "name": "Previewing",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintTask",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_Previewing",
+          "remove_method": "remove_Previewing"
+        },
+        {
+          "name": "Progressing",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintTask",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PrintTaskProgressingEventArgs",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_Progressing",
+          "remove_method": "remove_Progressing"
+        },
+        {
+          "name": "Submitting",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintTask",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_Submitting",
+          "remove_method": "remove_Submitting"
+        }
+      ]
+    },
+    "IPrintTask2": {
+      "guid": "36234877-3e53-4d9d-8f5e-316ac8dedae1",
+      "exclusive_to": "Windows.Graphics.Printing.PrintTask",
+      "methods": [
+        {
+          "name": "put_IsPreviewEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsPreviewEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsPreviewEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPreviewEnabled",
+          "setter": "put_IsPreviewEnabled"
+        }
+      ]
+    },
+    "IPrintTaskCompletedEventArgs": {
+      "guid": "5bcd34af-24e9-4c10-8d07-14c346ba3fce",
+      "exclusive_to": "Windows.Graphics.Printing.PrintTaskCompletedEventArgs",
+      "methods": [
+        {
+          "name": "get_Completion",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTaskCompletion",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Completion",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTaskCompletion",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Completion"
+        }
+      ]
+    },
+    "IPrintTaskOptions": {
+      "guid": "5a0a66bb-d289-41bb-96dd-57e28338ae3f",
+      "exclusive_to": "Windows.Graphics.Printing.PrintTaskOptions",
+      "methods": [
+        {
+          "name": "put_Bordering",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintBordering",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Bordering",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintBordering",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "GetPagePrintTicket",
+          "params": [
+            {
+              "name": "printPageInfo",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintPageInfo",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStream",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Bordering",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintBordering",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Bordering",
+          "setter": "put_Bordering"
+        }
+      ]
+    },
+    "IPrintTaskOptions2": {
+      "guid": "eb9b1606-9a36-4b59-8617-b217849262e1",
+      "exclusive_to": "Windows.Graphics.Printing.PrintTaskOptions",
+      "methods": [
+        {
+          "name": "get_PageRangeOptions",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintPageRangeOptions",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CustomPageRanges",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintPageRange",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CustomPageRanges",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PrintPageRange",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_CustomPageRanges"
+        },
+        {
+          "name": "PageRangeOptions",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintPageRangeOptions",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Class"
+          },
+          "getter": "get_PageRangeOptions"
+        }
+      ]
+    },
+    "IPrintTaskOptionsCore": {
+      "guid": "1bdbb474-4ed1-41eb-be3c-72d18ed67337",
+      "methods": [
+        {
+          "name": "GetPageDescription",
+          "params": [
+            {
+              "name": "jobPageNumber",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintPageDescription",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Struct"
+          }
+        }
+      ]
+    },
+    "IPrintTaskOptionsCoreProperties": {
+      "guid": "c1b71832-9e93-4e55-814b-3326a59efce1",
+      "methods": [
+        {
+          "name": "put_MediaSize",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintMediaSize",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MediaSize",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintMediaSize",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_MediaType",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintMediaType",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MediaType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintMediaType",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Orientation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintOrientation",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Orientation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintOrientation",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_PrintQuality",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintQuality",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_PrintQuality",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintQuality",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_ColorMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintColorMode",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ColorMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintColorMode",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Duplex",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintDuplex",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Duplex",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintDuplex",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Collation",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintCollation",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Collation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintCollation",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Staple",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintStaple",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Staple",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintStaple",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_HolePunch",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintHolePunch",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_HolePunch",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintHolePunch",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Binding",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintBinding",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Binding",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintBinding",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_MinCopies",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_MaxCopies",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "put_NumberOfCopies",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_NumberOfCopies",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Binding",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintBinding",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Binding",
+          "setter": "put_Binding"
+        },
+        {
+          "name": "Collation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintCollation",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Collation",
+          "setter": "put_Collation"
+        },
+        {
+          "name": "ColorMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintColorMode",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ColorMode",
+          "setter": "put_ColorMode"
+        },
+        {
+          "name": "Duplex",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintDuplex",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Duplex",
+          "setter": "put_Duplex"
+        },
+        {
+          "name": "HolePunch",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintHolePunch",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          },
+          "getter": "get_HolePunch",
+          "setter": "put_HolePunch"
+        },
+        {
+          "name": "MaxCopies",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxCopies"
+        },
+        {
+          "name": "MediaSize",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintMediaSize",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MediaSize",
+          "setter": "put_MediaSize"
+        },
+        {
+          "name": "MediaType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintMediaType",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MediaType",
+          "setter": "put_MediaType"
+        },
+        {
+          "name": "MinCopies",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MinCopies"
+        },
+        {
+          "name": "NumberOfCopies",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_NumberOfCopies",
+          "setter": "put_NumberOfCopies"
+        },
+        {
+          "name": "Orientation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintOrientation",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Orientation",
+          "setter": "put_Orientation"
+        },
+        {
+          "name": "PrintQuality",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintQuality",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PrintQuality",
+          "setter": "put_PrintQuality"
+        },
+        {
+          "name": "Staple",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintStaple",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Staple",
+          "setter": "put_Staple"
+        }
+      ]
+    },
+    "IPrintTaskOptionsCoreUIConfiguration": {
+      "guid": "62e69e23-9a1e-4336-b74f-3cc7f4cff709",
+      "methods": [
+        {
+          "name": "get_DisplayedOptions",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DisplayedOptions",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_DisplayedOptions"
+        }
+      ]
+    },
+    "IPrintTaskProgressingEventArgs": {
+      "guid": "810cd3cb-b410-4282-a073-5ac378234174",
+      "exclusive_to": "Windows.Graphics.Printing.PrintTaskProgressingEventArgs",
+      "methods": [
+        {
+          "name": "get_DocumentPageCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DocumentPageCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_DocumentPageCount"
+        }
+      ]
+    },
+    "IPrintTaskRequest": {
+      "guid": "6ff61e2e-2722-4240-a67c-f364849a17f3",
+      "exclusive_to": "Windows.Graphics.Printing.PrintTaskRequest",
+      "methods": [
+        {
+          "name": "get_Deadline",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "CreatePrintTask",
+          "params": [
+            {
+              "name": "title",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PrintTaskSourceRequestedHandler",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTask",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTaskRequestedDeferral",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Deadline",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Deadline"
+        }
+      ]
+    },
+    "IPrintTaskRequestedDeferral": {
+      "guid": "cfefb3f0-ce3e-42c7-9496-64800c622c44",
+      "exclusive_to": "Windows.Graphics.Printing.PrintTaskRequestedDeferral",
+      "methods": [
+        {
+          "name": "Complete"
+        }
+      ]
+    },
+    "IPrintTaskRequestedEventArgs": {
+      "guid": "d0aff924-a31b-454c-a7b6-5d0cc522fc16",
+      "exclusive_to": "Windows.Graphics.Printing.PrintTaskRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_Request",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTaskRequest",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Request",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PrintTaskRequest",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Class"
+          },
+          "getter": "get_Request"
+        }
+      ]
+    },
+    "IPrintTaskSourceRequestedArgs": {
+      "guid": "f9f067be-f456-41f0-9c98-5ce73e851410",
+      "exclusive_to": "Windows.Graphics.Printing.PrintTaskSourceRequestedArgs",
+      "methods": [
+        {
+          "name": "get_Deadline",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "SetSource",
+          "params": [
+            {
+              "name": "source",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IPrintDocumentSource",
+                "namespace": "Windows.Graphics.Printing",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PrintTaskSourceRequestedDeferral",
+            "namespace": "Windows.Graphics.Printing",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Deadline",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Deadline"
+        }
+      ]
+    },
+    "IPrintTaskSourceRequestedDeferral": {
+      "guid": "4a1560d1-6992-4d9d-8555-4ca4563fb166",
+      "exclusive_to": "Windows.Graphics.Printing.PrintTaskSourceRequestedDeferral",
+      "methods": [
+        {
+          "name": "Complete"
+        }
+      ]
+    },
+    "IPrintTaskTargetDeviceSupport": {
+      "guid": "295d70c0-c2cb-4b7d-b0ea-93095091a220",
+      "exclusive_to": "Windows.Graphics.Printing.PrintTask",
+      "methods": [
+        {
+          "name": "put_IsPrinterTargetEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsPrinterTargetEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_Is3DManufacturingTargetEnabled",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Is3DManufacturingTargetEnabled",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Is3DManufacturingTargetEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_Is3DManufacturingTargetEnabled",
+          "setter": "put_Is3DManufacturingTargetEnabled"
+        },
+        {
+          "name": "IsPrinterTargetEnabled",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPrinterTargetEnabled",
+          "setter": "put_IsPrinterTargetEnabled"
+        }
+      ]
+    },
+    "IStandardPrintTaskOptionsStatic": {
+      "guid": "b4483d26-0dd0-4cd4-baff-930fc7d6a574",
+      "exclusive_to": "Windows.Graphics.Printing.StandardPrintTaskOptions",
+      "methods": [
+        {
+          "name": "get_MediaSize",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_MediaType",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Orientation",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_PrintQuality",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ColorMode",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Duplex",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Collation",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Staple",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_HolePunch",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Binding",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Copies",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_NUp",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_InputBin",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Binding",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Binding"
+        },
+        {
+          "name": "Collation",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Collation"
+        },
+        {
+          "name": "ColorMode",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ColorMode"
+        },
+        {
+          "name": "Copies",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Copies"
+        },
+        {
+          "name": "Duplex",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Duplex"
+        },
+        {
+          "name": "HolePunch",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HolePunch"
+        },
+        {
+          "name": "InputBin",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_InputBin"
+        },
+        {
+          "name": "MediaSize",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MediaSize"
+        },
+        {
+          "name": "MediaType",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_MediaType"
+        },
+        {
+          "name": "NUp",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_NUp"
+        },
+        {
+          "name": "Orientation",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Orientation"
+        },
+        {
+          "name": "PrintQuality",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_PrintQuality"
+        },
+        {
+          "name": "Staple",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Staple"
+        }
+      ]
+    },
+    "IStandardPrintTaskOptionsStatic2": {
+      "guid": "3be38bf4-7a44-4269-9a52-81261e289ee9",
+      "exclusive_to": "Windows.Graphics.Printing.StandardPrintTaskOptions",
+      "methods": [
+        {
+          "name": "get_Bordering",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Bordering",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Bordering"
+        }
+      ]
+    },
+    "IStandardPrintTaskOptionsStatic3": {
+      "guid": "bbf68e86-3858-41b3-a799-55dd9888d475",
+      "exclusive_to": "Windows.Graphics.Printing.StandardPrintTaskOptions",
+      "methods": [
+        {
+          "name": "get_CustomPageRanges",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CustomPageRanges",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_CustomPageRanges"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "PrintManager": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintManager",
+        "namespace": "Windows.Graphics.Printing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintManager",
+          "namespace": "Windows.Graphics.Printing",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Graphics.Printing.IPrintManagerStatic2",
+        "Windows.Graphics.Printing.IPrintManagerStatic"
+      ]
+    },
+    "PrintPageInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintPageInfo",
+        "namespace": "Windows.Graphics.Printing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintPageInfo",
+          "namespace": "Windows.Graphics.Printing",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "PrintPageRange": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintPageRange",
+        "namespace": "Windows.Graphics.Printing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintPageRange",
+          "namespace": "Windows.Graphics.Printing",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.Graphics.Printing.IPrintPageRangeFactory"
+      ]
+    },
+    "PrintPageRangeOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintPageRangeOptions",
+        "namespace": "Windows.Graphics.Printing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintPageRangeOptions",
+          "namespace": "Windows.Graphics.Printing",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintTask": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintTask",
+        "namespace": "Windows.Graphics.Printing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintTask",
+          "namespace": "Windows.Graphics.Printing",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintTaskTargetDeviceSupport",
+          "namespace": "Windows.Graphics.Printing",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintTask2",
+          "namespace": "Windows.Graphics.Printing",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintTaskCompletedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintTaskCompletedEventArgs",
+        "namespace": "Windows.Graphics.Printing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintTaskCompletedEventArgs",
+          "namespace": "Windows.Graphics.Printing",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintTaskOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintTaskOptionsCore",
+        "namespace": "Windows.Graphics.Printing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintTaskOptionsCore",
+          "namespace": "Windows.Graphics.Printing",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintTaskOptionsCoreProperties",
+          "namespace": "Windows.Graphics.Printing",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintTaskOptionsCoreUIConfiguration",
+          "namespace": "Windows.Graphics.Printing",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintTaskOptions",
+          "namespace": "Windows.Graphics.Printing",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPrintTaskOptions2",
+          "namespace": "Windows.Graphics.Printing",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintTaskProgressingEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintTaskProgressingEventArgs",
+        "namespace": "Windows.Graphics.Printing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintTaskProgressingEventArgs",
+          "namespace": "Windows.Graphics.Printing",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintTaskRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintTaskRequest",
+        "namespace": "Windows.Graphics.Printing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintTaskRequest",
+          "namespace": "Windows.Graphics.Printing",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintTaskRequestedDeferral": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintTaskRequestedDeferral",
+        "namespace": "Windows.Graphics.Printing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintTaskRequestedDeferral",
+          "namespace": "Windows.Graphics.Printing",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintTaskRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintTaskRequestedEventArgs",
+        "namespace": "Windows.Graphics.Printing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintTaskRequestedEventArgs",
+          "namespace": "Windows.Graphics.Printing",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintTaskSourceRequestedArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintTaskSourceRequestedArgs",
+        "namespace": "Windows.Graphics.Printing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintTaskSourceRequestedArgs",
+          "namespace": "Windows.Graphics.Printing",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PrintTaskSourceRequestedDeferral": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPrintTaskSourceRequestedDeferral",
+        "namespace": "Windows.Graphics.Printing",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPrintTaskSourceRequestedDeferral",
+          "namespace": "Windows.Graphics.Printing",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "StandardPrintTaskOptions": {
+      "static_interfaces": [
+        "Windows.Graphics.Printing.IStandardPrintTaskOptionsStatic",
+        "Windows.Graphics.Printing.IStandardPrintTaskOptionsStatic3",
+        "Windows.Graphics.Printing.IStandardPrintTaskOptionsStatic2"
+      ]
+    }
+  },
+  "delegates": {
+    "PrintTaskSourceRequestedHandler": {
+      "guid": "6c109fa8-5cb6-4b3a-8663-f39cb02dc9b4",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "args",
+            "type": {
+              "kind": "ApiRef",
+              "name": "PrintTaskSourceRequestedArgs",
+              "namespace": "Windows.Graphics.Printing",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

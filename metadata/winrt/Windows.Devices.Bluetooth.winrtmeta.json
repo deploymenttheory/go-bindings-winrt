@@ -1,0 +1,4607 @@
+{
+  "namespace": "Windows.Devices.Bluetooth",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "BluetoothAddressType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Public",
+          "value": "0"
+        },
+        {
+          "name": "Random",
+          "value": "1"
+        },
+        {
+          "name": "Unspecified",
+          "value": "2"
+        }
+      ]
+    },
+    "BluetoothCacheMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Cached",
+          "value": "0"
+        },
+        {
+          "name": "Uncached",
+          "value": "1"
+        }
+      ]
+    },
+    "BluetoothConnectionStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Disconnected",
+          "value": "0"
+        },
+        {
+          "name": "Connected",
+          "value": "1"
+        }
+      ]
+    },
+    "BluetoothError": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Success",
+          "value": "0"
+        },
+        {
+          "name": "RadioNotAvailable",
+          "value": "1"
+        },
+        {
+          "name": "ResourceInUse",
+          "value": "2"
+        },
+        {
+          "name": "DeviceNotConnected",
+          "value": "3"
+        },
+        {
+          "name": "OtherError",
+          "value": "4"
+        },
+        {
+          "name": "DisabledByPolicy",
+          "value": "5"
+        },
+        {
+          "name": "NotSupported",
+          "value": "6"
+        },
+        {
+          "name": "DisabledByUser",
+          "value": "7"
+        },
+        {
+          "name": "ConsentRequired",
+          "value": "8"
+        },
+        {
+          "name": "TransportNotSupported",
+          "value": "9"
+        }
+      ]
+    },
+    "BluetoothLEPreferredConnectionParametersRequestStatus": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unspecified",
+          "value": "0"
+        },
+        {
+          "name": "Success",
+          "value": "1"
+        },
+        {
+          "name": "DeviceNotAvailable",
+          "value": "2"
+        },
+        {
+          "name": "AccessDenied",
+          "value": "3"
+        }
+      ]
+    },
+    "BluetoothMajorClass": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Miscellaneous",
+          "value": "0"
+        },
+        {
+          "name": "Computer",
+          "value": "1"
+        },
+        {
+          "name": "Phone",
+          "value": "2"
+        },
+        {
+          "name": "NetworkAccessPoint",
+          "value": "3"
+        },
+        {
+          "name": "AudioVideo",
+          "value": "4"
+        },
+        {
+          "name": "Peripheral",
+          "value": "5"
+        },
+        {
+          "name": "Imaging",
+          "value": "6"
+        },
+        {
+          "name": "Wearable",
+          "value": "7"
+        },
+        {
+          "name": "Toy",
+          "value": "8"
+        },
+        {
+          "name": "Health",
+          "value": "9"
+        }
+      ]
+    },
+    "BluetoothMinorClass": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Uncategorized",
+          "value": "0"
+        },
+        {
+          "name": "ComputerDesktop",
+          "value": "1"
+        },
+        {
+          "name": "ComputerServer",
+          "value": "2"
+        },
+        {
+          "name": "ComputerLaptop",
+          "value": "3"
+        },
+        {
+          "name": "ComputerHandheld",
+          "value": "4"
+        },
+        {
+          "name": "ComputerPalmSize",
+          "value": "5"
+        },
+        {
+          "name": "ComputerWearable",
+          "value": "6"
+        },
+        {
+          "name": "ComputerTablet",
+          "value": "7"
+        },
+        {
+          "name": "PhoneCellular",
+          "value": "1"
+        },
+        {
+          "name": "PhoneCordless",
+          "value": "2"
+        },
+        {
+          "name": "PhoneSmartPhone",
+          "value": "3"
+        },
+        {
+          "name": "PhoneWired",
+          "value": "4"
+        },
+        {
+          "name": "PhoneIsdn",
+          "value": "5"
+        },
+        {
+          "name": "NetworkFullyAvailable",
+          "value": "0"
+        },
+        {
+          "name": "NetworkUsed01To17Percent",
+          "value": "8"
+        },
+        {
+          "name": "NetworkUsed17To33Percent",
+          "value": "16"
+        },
+        {
+          "name": "NetworkUsed33To50Percent",
+          "value": "24"
+        },
+        {
+          "name": "NetworkUsed50To67Percent",
+          "value": "32"
+        },
+        {
+          "name": "NetworkUsed67To83Percent",
+          "value": "40"
+        },
+        {
+          "name": "NetworkUsed83To99Percent",
+          "value": "48"
+        },
+        {
+          "name": "NetworkNoServiceAvailable",
+          "value": "56"
+        },
+        {
+          "name": "AudioVideoWearableHeadset",
+          "value": "1"
+        },
+        {
+          "name": "AudioVideoHandsFree",
+          "value": "2"
+        },
+        {
+          "name": "AudioVideoMicrophone",
+          "value": "4"
+        },
+        {
+          "name": "AudioVideoLoudspeaker",
+          "value": "5"
+        },
+        {
+          "name": "AudioVideoHeadphones",
+          "value": "6"
+        },
+        {
+          "name": "AudioVideoPortableAudio",
+          "value": "7"
+        },
+        {
+          "name": "AudioVideoCarAudio",
+          "value": "8"
+        },
+        {
+          "name": "AudioVideoSetTopBox",
+          "value": "9"
+        },
+        {
+          "name": "AudioVideoHifiAudioDevice",
+          "value": "10"
+        },
+        {
+          "name": "AudioVideoVcr",
+          "value": "11"
+        },
+        {
+          "name": "AudioVideoVideoCamera",
+          "value": "12"
+        },
+        {
+          "name": "AudioVideoCamcorder",
+          "value": "13"
+        },
+        {
+          "name": "AudioVideoVideoMonitor",
+          "value": "14"
+        },
+        {
+          "name": "AudioVideoVideoDisplayAndLoudspeaker",
+          "value": "15"
+        },
+        {
+          "name": "AudioVideoVideoConferencing",
+          "value": "16"
+        },
+        {
+          "name": "AudioVideoGamingOrToy",
+          "value": "18"
+        },
+        {
+          "name": "PeripheralJoystick",
+          "value": "1"
+        },
+        {
+          "name": "PeripheralGamepad",
+          "value": "2"
+        },
+        {
+          "name": "PeripheralRemoteControl",
+          "value": "3"
+        },
+        {
+          "name": "PeripheralSensing",
+          "value": "4"
+        },
+        {
+          "name": "PeripheralDigitizerTablet",
+          "value": "5"
+        },
+        {
+          "name": "PeripheralCardReader",
+          "value": "6"
+        },
+        {
+          "name": "PeripheralDigitalPen",
+          "value": "7"
+        },
+        {
+          "name": "PeripheralHandheldScanner",
+          "value": "8"
+        },
+        {
+          "name": "PeripheralHandheldGesture",
+          "value": "9"
+        },
+        {
+          "name": "WearableWristwatch",
+          "value": "1"
+        },
+        {
+          "name": "WearablePager",
+          "value": "2"
+        },
+        {
+          "name": "WearableJacket",
+          "value": "3"
+        },
+        {
+          "name": "WearableHelmet",
+          "value": "4"
+        },
+        {
+          "name": "WearableGlasses",
+          "value": "5"
+        },
+        {
+          "name": "ToyRobot",
+          "value": "1"
+        },
+        {
+          "name": "ToyVehicle",
+          "value": "2"
+        },
+        {
+          "name": "ToyDoll",
+          "value": "3"
+        },
+        {
+          "name": "ToyController",
+          "value": "4"
+        },
+        {
+          "name": "ToyGame",
+          "value": "5"
+        },
+        {
+          "name": "HealthBloodPressureMonitor",
+          "value": "1"
+        },
+        {
+          "name": "HealthThermometer",
+          "value": "2"
+        },
+        {
+          "name": "HealthWeighingScale",
+          "value": "3"
+        },
+        {
+          "name": "HealthGlucoseMeter",
+          "value": "4"
+        },
+        {
+          "name": "HealthPulseOximeter",
+          "value": "5"
+        },
+        {
+          "name": "HealthHeartRateMonitor",
+          "value": "6"
+        },
+        {
+          "name": "HealthHealthDataDisplay",
+          "value": "7"
+        },
+        {
+          "name": "HealthStepCounter",
+          "value": "8"
+        },
+        {
+          "name": "HealthBodyCompositionAnalyzer",
+          "value": "9"
+        },
+        {
+          "name": "HealthPeakFlowMonitor",
+          "value": "10"
+        },
+        {
+          "name": "HealthMedicationMonitor",
+          "value": "11"
+        },
+        {
+          "name": "HealthKneeProsthesis",
+          "value": "12"
+        },
+        {
+          "name": "HealthAnkleProsthesis",
+          "value": "13"
+        },
+        {
+          "name": "HealthGenericHealthManager",
+          "value": "14"
+        },
+        {
+          "name": "HealthPersonalMobilityDevice",
+          "value": "15"
+        }
+      ]
+    },
+    "BluetoothServiceCapabilities": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "LimitedDiscoverableMode",
+          "value": "1"
+        },
+        {
+          "name": "PositioningService",
+          "value": "8"
+        },
+        {
+          "name": "NetworkingService",
+          "value": "16"
+        },
+        {
+          "name": "RenderingService",
+          "value": "32"
+        },
+        {
+          "name": "CapturingService",
+          "value": "64"
+        },
+        {
+          "name": "ObjectTransferService",
+          "value": "128"
+        },
+        {
+          "name": "AudioService",
+          "value": "256"
+        },
+        {
+          "name": "TelephoneService",
+          "value": "512"
+        },
+        {
+          "name": "InformationService",
+          "value": "1024"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IBluetoothAdapter": {
+      "guid": "7974f04c-5f7a-4a34-9225-a855f84b1a8b",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothAdapter",
+      "methods": [
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_BluetoothAddress",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_IsClassicSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsLowEnergySupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsPeripheralRoleSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsCentralRoleSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsAdvertisementOffloadSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "GetRadioAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "Radio",
+                "namespace": "Windows.Devices.Radios",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BluetoothAddress",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_BluetoothAddress"
+        },
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        },
+        {
+          "name": "IsAdvertisementOffloadSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsAdvertisementOffloadSupported"
+        },
+        {
+          "name": "IsCentralRoleSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsCentralRoleSupported"
+        },
+        {
+          "name": "IsClassicSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsClassicSupported"
+        },
+        {
+          "name": "IsLowEnergySupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsLowEnergySupported"
+        },
+        {
+          "name": "IsPeripheralRoleSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsPeripheralRoleSupported"
+        }
+      ]
+    },
+    "IBluetoothAdapter2": {
+      "guid": "ac94cecc-24d5-41b3-916d-1097c50b102b",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothAdapter",
+      "methods": [
+        {
+          "name": "get_AreClassicSecureConnectionsSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_AreLowEnergySecureConnectionsSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AreClassicSecureConnectionsSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AreClassicSecureConnectionsSupported"
+        },
+        {
+          "name": "AreLowEnergySecureConnectionsSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AreLowEnergySecureConnectionsSupported"
+        }
+      ]
+    },
+    "IBluetoothAdapter3": {
+      "guid": "8f8624e0-cba9-5211-9f89-3aac62b4c6b8",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothAdapter",
+      "methods": [
+        {
+          "name": "get_IsExtendedAdvertisingSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_MaxAdvertisementDataLength",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsExtendedAdvertisingSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsExtendedAdvertisingSupported"
+        },
+        {
+          "name": "MaxAdvertisementDataLength",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_MaxAdvertisementDataLength"
+        }
+      ]
+    },
+    "IBluetoothAdapter4": {
+      "guid": "f875f3e1-6d9a-5d5e-aee5-a17248e5f6dd",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothAdapter",
+      "methods": [
+        {
+          "name": "get_IsLowEnergyUncoded2MPhySupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsLowEnergyCodedPhySupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsLowEnergyCodedPhySupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsLowEnergyCodedPhySupported"
+        },
+        {
+          "name": "IsLowEnergyUncoded2MPhySupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsLowEnergyUncoded2MPhySupported"
+        }
+      ]
+    },
+    "IBluetoothAdapterStatics": {
+      "guid": "8b02fb6a-ac4c-4741-8661-8eab7d17ea9f",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothAdapter",
+      "methods": [
+        {
+          "name": "GetDeviceSelector",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BluetoothAdapter",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDefaultAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BluetoothAdapter",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IBluetoothClassOfDevice": {
+      "guid": "d640227e-d7d7-4661-9454-65039ca17a2b",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothClassOfDevice",
+      "methods": [
+        {
+          "name": "get_RawValue",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_MajorClass",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothMajorClass",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_MinorClass",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothMinorClass",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_ServiceCapabilities",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothServiceCapabilities",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "MajorClass",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothMajorClass",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MajorClass"
+        },
+        {
+          "name": "MinorClass",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothMinorClass",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Enum"
+          },
+          "getter": "get_MinorClass"
+        },
+        {
+          "name": "RawValue",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_RawValue"
+        },
+        {
+          "name": "ServiceCapabilities",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothServiceCapabilities",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ServiceCapabilities"
+        }
+      ]
+    },
+    "IBluetoothClassOfDeviceStatics": {
+      "guid": "e46135bd-0fa2-416c-91b4-c1e48ca061c1",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothClassOfDevice",
+      "methods": [
+        {
+          "name": "FromRawValue",
+          "params": [
+            {
+              "name": "rawValue",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothClassOfDevice",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "FromParts",
+          "params": [
+            {
+              "name": "majorClass",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothMajorClass",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "minorClass",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothMinorClass",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "serviceCapabilities",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothServiceCapabilities",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothClassOfDevice",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IBluetoothDevice": {
+      "guid": "2335b156-90d2-4a04-aef5-0e20b9e6b707",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothDevice",
+      "methods": [
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_HostName",
+          "return": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ClassOfDevice",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothClassOfDevice",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_SdpRecords",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_RfcommServices",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RfcommDeviceService",
+                "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ConnectionStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothConnectionStatus",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_BluetoothAddress",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "add_NameChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BluetoothDevice",
+                    "namespace": "Windows.Devices.Bluetooth",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_NameChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_SdpRecordsChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BluetoothDevice",
+                    "namespace": "Windows.Devices.Bluetooth",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SdpRecordsChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ConnectionStatusChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BluetoothDevice",
+                    "namespace": "Windows.Devices.Bluetooth",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ConnectionStatusChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "BluetoothAddress",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_BluetoothAddress"
+        },
+        {
+          "name": "ClassOfDevice",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothClassOfDevice",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          },
+          "getter": "get_ClassOfDevice"
+        },
+        {
+          "name": "ConnectionStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothConnectionStatus",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ConnectionStatus"
+        },
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        },
+        {
+          "name": "HostName",
+          "type": {
+            "kind": "ApiRef",
+            "name": "HostName",
+            "namespace": "Windows.Networking",
+            "target_kind": "Class"
+          },
+          "getter": "get_HostName"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        },
+        {
+          "name": "RfcommServices",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RfcommDeviceService",
+                "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_RfcommServices"
+        },
+        {
+          "name": "SdpRecords",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "IBuffer",
+                "namespace": "Windows.Storage.Streams",
+                "target_kind": "Interface"
+              }
+            ]
+          },
+          "getter": "get_SdpRecords"
+        }
+      ],
+      "events": [
+        {
+          "name": "ConnectionStatusChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BluetoothDevice",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ConnectionStatusChanged",
+          "remove_method": "remove_ConnectionStatusChanged"
+        },
+        {
+          "name": "NameChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BluetoothDevice",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_NameChanged",
+          "remove_method": "remove_NameChanged"
+        },
+        {
+          "name": "SdpRecordsChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BluetoothDevice",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_SdpRecordsChanged",
+          "remove_method": "remove_SdpRecordsChanged"
+        }
+      ]
+    },
+    "IBluetoothDevice2": {
+      "guid": "0133f954-b156-4dd0-b1f5-c11bc31a5163",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothDevice",
+      "methods": [
+        {
+          "name": "get_DeviceInformation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceInformation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          },
+          "getter": "get_DeviceInformation"
+        }
+      ]
+    },
+    "IBluetoothDevice3": {
+      "guid": "57fff78b-651a-4454-b90f-eb21ef0b0d71",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothDevice",
+      "methods": [
+        {
+          "name": "get_DeviceAccessInformation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceAccessInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "RequestAccessAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceAccessStatus",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetRfcommServicesAsync",
+          "overload": "GetRfcommServicesAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RfcommDeviceServicesResult",
+                "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetRfcommServicesAsync",
+          "overload": "GetRfcommServicesWithCacheModeAsync",
+          "params": [
+            {
+              "name": "cacheMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothCacheMode",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RfcommDeviceServicesResult",
+                "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetRfcommServicesForIdAsync",
+          "overload": "GetRfcommServicesForIdAsync",
+          "params": [
+            {
+              "name": "serviceId",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RfcommServiceId",
+                "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RfcommDeviceServicesResult",
+                "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetRfcommServicesForIdAsync",
+          "overload": "GetRfcommServicesForIdWithCacheModeAsync",
+          "params": [
+            {
+              "name": "serviceId",
+              "type": {
+                "kind": "ApiRef",
+                "name": "RfcommServiceId",
+                "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "cacheMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothCacheMode",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "RfcommDeviceServicesResult",
+                "namespace": "Windows.Devices.Bluetooth.Rfcomm",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceAccessInformation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceAccessInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          },
+          "getter": "get_DeviceAccessInformation"
+        }
+      ]
+    },
+    "IBluetoothDevice4": {
+      "guid": "817c34ad-0e9c-42b2-a8dc-3e8094940d12",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothDevice",
+      "methods": [
+        {
+          "name": "get_BluetoothDeviceId",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothDeviceId",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BluetoothDeviceId",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothDeviceId",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          },
+          "getter": "get_BluetoothDeviceId"
+        }
+      ]
+    },
+    "IBluetoothDevice5": {
+      "guid": "b5e0b385-5e85-4559-a10d-1c7281379f96",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothDevice",
+      "methods": [
+        {
+          "name": "get_WasSecureConnectionUsedForPairing",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "WasSecureConnectionUsedForPairing",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_WasSecureConnectionUsedForPairing"
+        }
+      ]
+    },
+    "IBluetoothDeviceId": {
+      "guid": "c17949af-57c1-4642-bcce-e6c06b20ae76",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothDeviceId",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_IsClassicDevice",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsLowEnergyDevice",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "IsClassicDevice",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsClassicDevice"
+        },
+        {
+          "name": "IsLowEnergyDevice",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsLowEnergyDevice"
+        }
+      ]
+    },
+    "IBluetoothDeviceIdStatics": {
+      "guid": "a7884e67-3efb-4f31-bbc2-810e09977404",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothDeviceId",
+      "methods": [
+        {
+          "name": "FromId",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothDeviceId",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IBluetoothDeviceStatics": {
+      "guid": "0991df51-57db-4725-bbd7-84f64327ec2c",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothDevice",
+      "methods": [
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BluetoothDevice",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FromHostNameAsync",
+          "params": [
+            {
+              "name": "hostName",
+              "type": {
+                "kind": "ApiRef",
+                "name": "HostName",
+                "namespace": "Windows.Networking",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BluetoothDevice",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FromBluetoothAddressAsync",
+          "params": [
+            {
+              "name": "address",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BluetoothDevice",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDeviceSelector",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "IBluetoothDeviceStatics2": {
+      "guid": "c29e8e2f-4e14-4477-aa1b-b8b47e5b7ece",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothDevice",
+      "methods": [
+        {
+          "name": "GetDeviceSelectorFromPairingState",
+          "params": [
+            {
+              "name": "pairingState",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDeviceSelectorFromConnectionStatus",
+          "params": [
+            {
+              "name": "connectionStatus",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothConnectionStatus",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDeviceSelectorFromDeviceName",
+          "params": [
+            {
+              "name": "deviceName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDeviceSelectorFromBluetoothAddress",
+          "params": [
+            {
+              "name": "bluetoothAddress",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDeviceSelectorFromClassOfDevice",
+          "params": [
+            {
+              "name": "classOfDevice",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothClassOfDevice",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "IBluetoothLEAppearance": {
+      "guid": "5d2079f2-66a8-4258-985e-02b4d9509f18",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothLEAppearance",
+      "methods": [
+        {
+          "name": "get_RawValue",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Category",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_SubCategory",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Category",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Category"
+        },
+        {
+          "name": "RawValue",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_RawValue"
+        },
+        {
+          "name": "SubCategory",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_SubCategory"
+        }
+      ]
+    },
+    "IBluetoothLEAppearanceCategoriesStatics": {
+      "guid": "6d4d54fe-046a-4185-aab6-824cf0610861",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothLEAppearanceCategories",
+      "methods": [
+        {
+          "name": "get_Uncategorized",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Phone",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Computer",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Watch",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Clock",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Display",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_RemoteControl",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_EyeGlasses",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Tag",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Keyring",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_MediaPlayer",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_BarcodeScanner",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Thermometer",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_HeartRate",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_BloodPressure",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_HumanInterfaceDevice",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_GlucoseMeter",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_RunningWalking",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Cycling",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_PulseOximeter",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_WeightScale",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_OutdoorSportActivity",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BarcodeScanner",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_BarcodeScanner"
+        },
+        {
+          "name": "BloodPressure",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_BloodPressure"
+        },
+        {
+          "name": "Clock",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Clock"
+        },
+        {
+          "name": "Computer",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Computer"
+        },
+        {
+          "name": "Cycling",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Cycling"
+        },
+        {
+          "name": "Display",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Display"
+        },
+        {
+          "name": "EyeGlasses",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_EyeGlasses"
+        },
+        {
+          "name": "GlucoseMeter",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_GlucoseMeter"
+        },
+        {
+          "name": "HeartRate",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_HeartRate"
+        },
+        {
+          "name": "HumanInterfaceDevice",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_HumanInterfaceDevice"
+        },
+        {
+          "name": "Keyring",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Keyring"
+        },
+        {
+          "name": "MediaPlayer",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_MediaPlayer"
+        },
+        {
+          "name": "OutdoorSportActivity",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_OutdoorSportActivity"
+        },
+        {
+          "name": "Phone",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Phone"
+        },
+        {
+          "name": "PulseOximeter",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_PulseOximeter"
+        },
+        {
+          "name": "RemoteControl",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_RemoteControl"
+        },
+        {
+          "name": "RunningWalking",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_RunningWalking"
+        },
+        {
+          "name": "Tag",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Tag"
+        },
+        {
+          "name": "Thermometer",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Thermometer"
+        },
+        {
+          "name": "Uncategorized",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Uncategorized"
+        },
+        {
+          "name": "Watch",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Watch"
+        },
+        {
+          "name": "WeightScale",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_WeightScale"
+        }
+      ]
+    },
+    "IBluetoothLEAppearanceStatics": {
+      "guid": "a193c0c7-4504-4f4a-9ba5-cd1054e5e065",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothLEAppearance",
+      "methods": [
+        {
+          "name": "FromRawValue",
+          "params": [
+            {
+              "name": "rawValue",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEAppearance",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "FromParts",
+          "params": [
+            {
+              "name": "appearanceCategory",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "appearanceSubCategory",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEAppearance",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IBluetoothLEAppearanceSubcategoriesStatics": {
+      "guid": "e57ba606-2144-415a-8312-71ccf291f8d1",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothLEAppearanceSubcategories",
+      "methods": [
+        {
+          "name": "get_Generic",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_SportsWatch",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_ThermometerEar",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_HeartRateBelt",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_BloodPressureArm",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_BloodPressureWrist",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Keyboard",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Mouse",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Joystick",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_Gamepad",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_DigitizerTablet",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_CardReader",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_DigitalPen",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_BarcodeScanner",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_RunningWalkingInShoe",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_RunningWalkingOnShoe",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_RunningWalkingOnHip",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_CyclingComputer",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_CyclingSpeedSensor",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_CyclingCadenceSensor",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_CyclingPowerSensor",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_CyclingSpeedCadenceSensor",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_OximeterFingertip",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_OximeterWristWorn",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_LocationDisplay",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_LocationNavigationDisplay",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_LocationPod",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_LocationNavigationPod",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BarcodeScanner",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_BarcodeScanner"
+        },
+        {
+          "name": "BloodPressureArm",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_BloodPressureArm"
+        },
+        {
+          "name": "BloodPressureWrist",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_BloodPressureWrist"
+        },
+        {
+          "name": "CardReader",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_CardReader"
+        },
+        {
+          "name": "CyclingCadenceSensor",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_CyclingCadenceSensor"
+        },
+        {
+          "name": "CyclingComputer",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_CyclingComputer"
+        },
+        {
+          "name": "CyclingPowerSensor",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_CyclingPowerSensor"
+        },
+        {
+          "name": "CyclingSpeedCadenceSensor",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_CyclingSpeedCadenceSensor"
+        },
+        {
+          "name": "CyclingSpeedSensor",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_CyclingSpeedSensor"
+        },
+        {
+          "name": "DigitalPen",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_DigitalPen"
+        },
+        {
+          "name": "DigitizerTablet",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_DigitizerTablet"
+        },
+        {
+          "name": "Gamepad",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Gamepad"
+        },
+        {
+          "name": "Generic",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Generic"
+        },
+        {
+          "name": "HeartRateBelt",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_HeartRateBelt"
+        },
+        {
+          "name": "Joystick",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Joystick"
+        },
+        {
+          "name": "Keyboard",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Keyboard"
+        },
+        {
+          "name": "LocationDisplay",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_LocationDisplay"
+        },
+        {
+          "name": "LocationNavigationDisplay",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_LocationNavigationDisplay"
+        },
+        {
+          "name": "LocationNavigationPod",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_LocationNavigationPod"
+        },
+        {
+          "name": "LocationPod",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_LocationPod"
+        },
+        {
+          "name": "Mouse",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_Mouse"
+        },
+        {
+          "name": "OximeterFingertip",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_OximeterFingertip"
+        },
+        {
+          "name": "OximeterWristWorn",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_OximeterWristWorn"
+        },
+        {
+          "name": "RunningWalkingInShoe",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_RunningWalkingInShoe"
+        },
+        {
+          "name": "RunningWalkingOnHip",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_RunningWalkingOnHip"
+        },
+        {
+          "name": "RunningWalkingOnShoe",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_RunningWalkingOnShoe"
+        },
+        {
+          "name": "SportsWatch",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_SportsWatch"
+        },
+        {
+          "name": "ThermometerEar",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_ThermometerEar"
+        }
+      ]
+    },
+    "IBluetoothLEConnectionParameters": {
+      "guid": "33cb0771-8da9-508f-a366-1ca388c929ab",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothLEConnectionParameters",
+      "methods": [
+        {
+          "name": "get_LinkTimeout",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_ConnectionLatency",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_ConnectionInterval",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ConnectionInterval",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_ConnectionInterval"
+        },
+        {
+          "name": "ConnectionLatency",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_ConnectionLatency"
+        },
+        {
+          "name": "LinkTimeout",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_LinkTimeout"
+        }
+      ]
+    },
+    "IBluetoothLEConnectionPhy": {
+      "guid": "781e5e48-621e-5a7e-8be6-1b9561ff63c9",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothLEConnectionPhy",
+      "methods": [
+        {
+          "name": "get_TransmitInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEConnectionPhyInfo",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ReceiveInfo",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEConnectionPhyInfo",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ReceiveInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEConnectionPhyInfo",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          },
+          "getter": "get_ReceiveInfo"
+        },
+        {
+          "name": "TransmitInfo",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEConnectionPhyInfo",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          },
+          "getter": "get_TransmitInfo"
+        }
+      ]
+    },
+    "IBluetoothLEConnectionPhyInfo": {
+      "guid": "9a100bdd-602e-5c27-a1ae-b230015a6394",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothLEConnectionPhyInfo",
+      "methods": [
+        {
+          "name": "get_IsUncoded1MPhy",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsUncoded2MPhy",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsCodedPhy",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsCodedPhy",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsCodedPhy"
+        },
+        {
+          "name": "IsUncoded1MPhy",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsUncoded1MPhy"
+        },
+        {
+          "name": "IsUncoded2MPhy",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsUncoded2MPhy"
+        }
+      ]
+    },
+    "IBluetoothLEDevice": {
+      "guid": "b5ee2f7b-4ad8-4642-ac48-80a0b500e887",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothLEDevice",
+      "methods": [
+        {
+          "name": "get_DeviceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_GattServices",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "GattDeviceService",
+                "namespace": "Windows.Devices.Bluetooth.GenericAttributeProfile",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ConnectionStatus",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothConnectionStatus",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_BluetoothAddress",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "GetGattService",
+          "params": [
+            {
+              "name": "serviceUuid",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "GattDeviceService",
+            "namespace": "Windows.Devices.Bluetooth.GenericAttributeProfile",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_NameChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BluetoothLEDevice",
+                    "namespace": "Windows.Devices.Bluetooth",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_NameChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_GattServicesChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BluetoothLEDevice",
+                    "namespace": "Windows.Devices.Bluetooth",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_GattServicesChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ConnectionStatusChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BluetoothLEDevice",
+                    "namespace": "Windows.Devices.Bluetooth",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ConnectionStatusChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "BluetoothAddress",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_BluetoothAddress"
+        },
+        {
+          "name": "ConnectionStatus",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothConnectionStatus",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ConnectionStatus"
+        },
+        {
+          "name": "DeviceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DeviceId"
+        },
+        {
+          "name": "GattServices",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "GattDeviceService",
+                "namespace": "Windows.Devices.Bluetooth.GenericAttributeProfile",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_GattServices"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        }
+      ],
+      "events": [
+        {
+          "name": "ConnectionStatusChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BluetoothLEDevice",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ConnectionStatusChanged",
+          "remove_method": "remove_ConnectionStatusChanged"
+        },
+        {
+          "name": "GattServicesChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BluetoothLEDevice",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_GattServicesChanged",
+          "remove_method": "remove_GattServicesChanged"
+        },
+        {
+          "name": "NameChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BluetoothLEDevice",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_NameChanged",
+          "remove_method": "remove_NameChanged"
+        }
+      ]
+    },
+    "IBluetoothLEDevice2": {
+      "guid": "26f062b3-7aee-4d31-baba-b1b9775f5916",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothLEDevice",
+      "methods": [
+        {
+          "name": "get_DeviceInformation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Appearance",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEAppearance",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_BluetoothAddressType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothAddressType",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Appearance",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEAppearance",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          },
+          "getter": "get_Appearance"
+        },
+        {
+          "name": "BluetoothAddressType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothAddressType",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Enum"
+          },
+          "getter": "get_BluetoothAddressType"
+        },
+        {
+          "name": "DeviceInformation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          },
+          "getter": "get_DeviceInformation"
+        }
+      ]
+    },
+    "IBluetoothLEDevice3": {
+      "guid": "aee9e493-44ac-40dc-af33-b2c13c01ca46",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothLEDevice",
+      "methods": [
+        {
+          "name": "get_DeviceAccessInformation",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DeviceAccessInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "RequestAccessAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DeviceAccessStatus",
+                "namespace": "Windows.Devices.Enumeration",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetGattServicesAsync",
+          "overload": "GetGattServicesAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "GattDeviceServicesResult",
+                "namespace": "Windows.Devices.Bluetooth.GenericAttributeProfile",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetGattServicesAsync",
+          "overload": "GetGattServicesWithCacheModeAsync",
+          "params": [
+            {
+              "name": "cacheMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothCacheMode",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "GattDeviceServicesResult",
+                "namespace": "Windows.Devices.Bluetooth.GenericAttributeProfile",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetGattServicesForUuidAsync",
+          "overload": "GetGattServicesForUuidAsync",
+          "params": [
+            {
+              "name": "serviceUuid",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "GattDeviceServicesResult",
+                "namespace": "Windows.Devices.Bluetooth.GenericAttributeProfile",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetGattServicesForUuidAsync",
+          "overload": "GetGattServicesForUuidWithCacheModeAsync",
+          "params": [
+            {
+              "name": "serviceUuid",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            },
+            {
+              "name": "cacheMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothCacheMode",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "GattDeviceServicesResult",
+                "namespace": "Windows.Devices.Bluetooth.GenericAttributeProfile",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeviceAccessInformation",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DeviceAccessInformation",
+            "namespace": "Windows.Devices.Enumeration",
+            "target_kind": "Class"
+          },
+          "getter": "get_DeviceAccessInformation"
+        }
+      ]
+    },
+    "IBluetoothLEDevice4": {
+      "guid": "2b605031-2248-4b2f-acf0-7cee36fc5870",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothLEDevice",
+      "methods": [
+        {
+          "name": "get_BluetoothDeviceId",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothDeviceId",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BluetoothDeviceId",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothDeviceId",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          },
+          "getter": "get_BluetoothDeviceId"
+        }
+      ]
+    },
+    "IBluetoothLEDevice5": {
+      "guid": "9d6a1260-5287-458e-95ba-17c8b7bb326e",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothLEDevice",
+      "methods": [
+        {
+          "name": "get_WasSecureConnectionUsedForPairing",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "WasSecureConnectionUsedForPairing",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_WasSecureConnectionUsedForPairing"
+        }
+      ]
+    },
+    "IBluetoothLEDevice6": {
+      "guid": "ca7190ef-0cae-573c-a1ca-e1fc5bfc39e2",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothLEDevice",
+      "methods": [
+        {
+          "name": "GetConnectionParameters",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEConnectionParameters",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetConnectionPhy",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEConnectionPhy",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "RequestPreferredConnectionParameters",
+          "params": [
+            {
+              "name": "preferredConnectionParameters",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothLEPreferredConnectionParameters",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEPreferredConnectionParametersRequest",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "add_ConnectionParametersChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BluetoothLEDevice",
+                    "namespace": "Windows.Devices.Bluetooth",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ConnectionParametersChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add_ConnectionPhyChanged",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "BluetoothLEDevice",
+                    "namespace": "Windows.Devices.Bluetooth",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "Native",
+                    "name": "Object"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ConnectionPhyChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "ConnectionParametersChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BluetoothLEDevice",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ConnectionParametersChanged",
+          "remove_method": "remove_ConnectionParametersChanged"
+        },
+        {
+          "name": "ConnectionPhyChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BluetoothLEDevice",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "Object"
+              }
+            ]
+          },
+          "add_method": "add_ConnectionPhyChanged",
+          "remove_method": "remove_ConnectionPhyChanged"
+        }
+      ]
+    },
+    "IBluetoothLEDeviceStatics": {
+      "guid": "c8cf1a19-f0b6-4bf0-8689-41303de2d9f4",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothLEDevice",
+      "methods": [
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "deviceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BluetoothLEDevice",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FromBluetoothAddressAsync",
+          "overload": "FromBluetoothAddressAsync",
+          "params": [
+            {
+              "name": "bluetoothAddress",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BluetoothLEDevice",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetDeviceSelector",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ]
+    },
+    "IBluetoothLEDeviceStatics2": {
+      "guid": "5f12c06b-3bac-43e8-ad16-563271bd41c2",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothLEDevice",
+      "methods": [
+        {
+          "name": "GetDeviceSelectorFromPairingState",
+          "params": [
+            {
+              "name": "pairingState",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDeviceSelectorFromConnectionStatus",
+          "params": [
+            {
+              "name": "connectionStatus",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothConnectionStatus",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDeviceSelectorFromDeviceName",
+          "params": [
+            {
+              "name": "deviceName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDeviceSelectorFromBluetoothAddress",
+          "overload": "GetDeviceSelectorFromBluetoothAddress",
+          "params": [
+            {
+              "name": "bluetoothAddress",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDeviceSelectorFromBluetoothAddress",
+          "overload": "GetDeviceSelectorFromBluetoothAddressWithBluetoothAddressType",
+          "params": [
+            {
+              "name": "bluetoothAddress",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            },
+            {
+              "name": "bluetoothAddressType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothAddressType",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "GetDeviceSelectorFromAppearance",
+          "params": [
+            {
+              "name": "appearance",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothLEAppearance",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FromBluetoothAddressAsync",
+          "overload": "FromBluetoothAddressWithBluetoothAddressTypeAsync",
+          "params": [
+            {
+              "name": "bluetoothAddress",
+              "type": {
+                "kind": "Native",
+                "name": "U8"
+              }
+            },
+            {
+              "name": "bluetoothAddressType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BluetoothAddressType",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BluetoothLEDevice",
+                "namespace": "Windows.Devices.Bluetooth",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IBluetoothLEPreferredConnectionParameters": {
+      "guid": "f2f44344-7372-5f7b-9b34-29c944f5a715",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParameters",
+      "methods": [
+        {
+          "name": "get_LinkTimeout",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_ConnectionLatency",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_MinConnectionInterval",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        },
+        {
+          "name": "get_MaxConnectionInterval",
+          "return": {
+            "kind": "Native",
+            "name": "U2"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ConnectionLatency",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_ConnectionLatency"
+        },
+        {
+          "name": "LinkTimeout",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_LinkTimeout"
+        },
+        {
+          "name": "MaxConnectionInterval",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_MaxConnectionInterval"
+        },
+        {
+          "name": "MinConnectionInterval",
+          "type": {
+            "kind": "Native",
+            "name": "U2"
+          },
+          "getter": "get_MinConnectionInterval"
+        }
+      ]
+    },
+    "IBluetoothLEPreferredConnectionParametersRequest": {
+      "guid": "8a375276-a528-5266-b661-cce6a5ff9739",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParametersRequest",
+      "methods": [
+        {
+          "name": "get_Status",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEPreferredConnectionParametersRequestStatus",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Status",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEPreferredConnectionParametersRequestStatus",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Status"
+        }
+      ]
+    },
+    "IBluetoothLEPreferredConnectionParametersStatics": {
+      "guid": "0e3e8edc-2751-55aa-a838-8faeee818d72",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParameters",
+      "methods": [
+        {
+          "name": "get_Balanced",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEPreferredConnectionParameters",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ThroughputOptimized",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEPreferredConnectionParameters",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_PowerOptimized",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEPreferredConnectionParameters",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Balanced",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEPreferredConnectionParameters",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          },
+          "getter": "get_Balanced"
+        },
+        {
+          "name": "PowerOptimized",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEPreferredConnectionParameters",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          },
+          "getter": "get_PowerOptimized"
+        },
+        {
+          "name": "ThroughputOptimized",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BluetoothLEPreferredConnectionParameters",
+            "namespace": "Windows.Devices.Bluetooth",
+            "target_kind": "Class"
+          },
+          "getter": "get_ThroughputOptimized"
+        }
+      ]
+    },
+    "IBluetoothSignalStrengthFilter": {
+      "guid": "df7b7391-6bb5-4cfe-90b1-5d7324edcf7f",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothSignalStrengthFilter",
+      "methods": [
+        {
+          "name": "get_InRangeThresholdInDBm",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I2"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_InRangeThresholdInDBm",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "I2"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OutOfRangeThresholdInDBm",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I2"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_OutOfRangeThresholdInDBm",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "I2"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OutOfRangeTimeout",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_OutOfRangeTimeout",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "TimeSpan",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SamplingInterval",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_SamplingInterval",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "TimeSpan",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "InRangeThresholdInDBm",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I2"
+              }
+            ]
+          },
+          "getter": "get_InRangeThresholdInDBm",
+          "setter": "put_InRangeThresholdInDBm"
+        },
+        {
+          "name": "OutOfRangeThresholdInDBm",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "I2"
+              }
+            ]
+          },
+          "getter": "get_OutOfRangeThresholdInDBm",
+          "setter": "put_OutOfRangeThresholdInDBm"
+        },
+        {
+          "name": "OutOfRangeTimeout",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_OutOfRangeTimeout",
+          "setter": "put_OutOfRangeTimeout"
+        },
+        {
+          "name": "SamplingInterval",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_SamplingInterval",
+          "setter": "put_SamplingInterval"
+        }
+      ]
+    },
+    "IBluetoothUuidHelperStatics": {
+      "guid": "17df0cd8-cf74-4b21-afe6-f57a11bcdea0",
+      "exclusive_to": "Windows.Devices.Bluetooth.BluetoothUuidHelper",
+      "methods": [
+        {
+          "name": "FromShortId",
+          "params": [
+            {
+              "name": "shortId",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "TryGetShortId",
+          "params": [
+            {
+              "name": "uuid",
+              "type": {
+                "kind": "Native",
+                "name": "Guid"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "BluetoothAdapter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBluetoothAdapter",
+        "namespace": "Windows.Devices.Bluetooth",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothAdapter",
+          "namespace": "Windows.Devices.Bluetooth",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothAdapter2",
+          "namespace": "Windows.Devices.Bluetooth",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothAdapter3",
+          "namespace": "Windows.Devices.Bluetooth",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothAdapter4",
+          "namespace": "Windows.Devices.Bluetooth",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Bluetooth.IBluetoothAdapterStatics"
+      ]
+    },
+    "BluetoothClassOfDevice": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBluetoothClassOfDevice",
+        "namespace": "Windows.Devices.Bluetooth",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothClassOfDevice",
+          "namespace": "Windows.Devices.Bluetooth",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Bluetooth.IBluetoothClassOfDeviceStatics"
+      ]
+    },
+    "BluetoothDevice": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBluetoothDevice",
+        "namespace": "Windows.Devices.Bluetooth",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothDevice",
+          "namespace": "Windows.Devices.Bluetooth",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothDevice2",
+          "namespace": "Windows.Devices.Bluetooth",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothDevice3",
+          "namespace": "Windows.Devices.Bluetooth",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothDevice4",
+          "namespace": "Windows.Devices.Bluetooth",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothDevice5",
+          "namespace": "Windows.Devices.Bluetooth",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Bluetooth.IBluetoothDeviceStatics2",
+        "Windows.Devices.Bluetooth.IBluetoothDeviceStatics"
+      ]
+    },
+    "BluetoothDeviceId": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBluetoothDeviceId",
+        "namespace": "Windows.Devices.Bluetooth",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothDeviceId",
+          "namespace": "Windows.Devices.Bluetooth",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Bluetooth.IBluetoothDeviceIdStatics"
+      ]
+    },
+    "BluetoothLEAppearance": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBluetoothLEAppearance",
+        "namespace": "Windows.Devices.Bluetooth",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothLEAppearance",
+          "namespace": "Windows.Devices.Bluetooth",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Bluetooth.IBluetoothLEAppearanceStatics"
+      ]
+    },
+    "BluetoothLEAppearanceCategories": {
+      "static_interfaces": [
+        "Windows.Devices.Bluetooth.IBluetoothLEAppearanceCategoriesStatics"
+      ]
+    },
+    "BluetoothLEAppearanceSubcategories": {
+      "static_interfaces": [
+        "Windows.Devices.Bluetooth.IBluetoothLEAppearanceSubcategoriesStatics"
+      ]
+    },
+    "BluetoothLEConnectionParameters": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBluetoothLEConnectionParameters",
+        "namespace": "Windows.Devices.Bluetooth",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothLEConnectionParameters",
+          "namespace": "Windows.Devices.Bluetooth",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BluetoothLEConnectionPhy": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBluetoothLEConnectionPhy",
+        "namespace": "Windows.Devices.Bluetooth",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothLEConnectionPhy",
+          "namespace": "Windows.Devices.Bluetooth",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BluetoothLEConnectionPhyInfo": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBluetoothLEConnectionPhyInfo",
+        "namespace": "Windows.Devices.Bluetooth",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothLEConnectionPhyInfo",
+          "namespace": "Windows.Devices.Bluetooth",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BluetoothLEDevice": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBluetoothLEDevice",
+        "namespace": "Windows.Devices.Bluetooth",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothLEDevice",
+          "namespace": "Windows.Devices.Bluetooth",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothLEDevice2",
+          "namespace": "Windows.Devices.Bluetooth",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothLEDevice3",
+          "namespace": "Windows.Devices.Bluetooth",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothLEDevice4",
+          "namespace": "Windows.Devices.Bluetooth",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothLEDevice5",
+          "namespace": "Windows.Devices.Bluetooth",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothLEDevice6",
+          "namespace": "Windows.Devices.Bluetooth",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Bluetooth.IBluetoothLEDeviceStatics",
+        "Windows.Devices.Bluetooth.IBluetoothLEDeviceStatics2"
+      ]
+    },
+    "BluetoothLEPreferredConnectionParameters": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBluetoothLEPreferredConnectionParameters",
+        "namespace": "Windows.Devices.Bluetooth",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothLEPreferredConnectionParameters",
+          "namespace": "Windows.Devices.Bluetooth",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Devices.Bluetooth.IBluetoothLEPreferredConnectionParametersStatics"
+      ]
+    },
+    "BluetoothLEPreferredConnectionParametersRequest": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBluetoothLEPreferredConnectionParametersRequest",
+        "namespace": "Windows.Devices.Bluetooth",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothLEPreferredConnectionParametersRequest",
+          "namespace": "Windows.Devices.Bluetooth",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "BluetoothSignalStrengthFilter": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IBluetoothSignalStrengthFilter",
+        "namespace": "Windows.Devices.Bluetooth",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IBluetoothSignalStrengthFilter",
+          "namespace": "Windows.Devices.Bluetooth",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "BluetoothUuidHelper": {
+      "static_interfaces": [
+        "Windows.Devices.Bluetooth.IBluetoothUuidHelperStatics"
+      ]
+    }
+  }
+}

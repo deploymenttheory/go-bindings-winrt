@@ -1,0 +1,1065 @@
+{
+  "namespace": "Windows.UI.ApplicationSettings",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "SupportedWebAccountActions": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Reconnect",
+          "value": "1"
+        },
+        {
+          "name": "Remove",
+          "value": "2"
+        },
+        {
+          "name": "ViewDetails",
+          "value": "4"
+        },
+        {
+          "name": "Manage",
+          "value": "8"
+        },
+        {
+          "name": "More",
+          "value": "16"
+        }
+      ]
+    },
+    "WebAccountAction": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Reconnect",
+          "value": "0"
+        },
+        {
+          "name": "Remove",
+          "value": "1"
+        },
+        {
+          "name": "ViewDetails",
+          "value": "2"
+        },
+        {
+          "name": "Manage",
+          "value": "3"
+        },
+        {
+          "name": "More",
+          "value": "4"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IAccountsSettingsPane": {
+      "guid": "81ea942c-4f09-4406-a538-838d9b14b7e6",
+      "exclusive_to": "Windows.UI.ApplicationSettings.AccountsSettingsPane",
+      "methods": [
+        {
+          "name": "add_AccountCommandsRequested",
+          "params": [
+            {
+              "name": "handler",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "AccountsSettingsPane",
+                    "namespace": "Windows.UI.ApplicationSettings",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "AccountsSettingsPaneCommandsRequestedEventArgs",
+                    "namespace": "Windows.UI.ApplicationSettings",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_AccountCommandsRequested",
+          "params": [
+            {
+              "name": "cookie",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "AccountCommandsRequested",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "AccountsSettingsPane",
+                "namespace": "Windows.UI.ApplicationSettings",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "AccountsSettingsPaneCommandsRequestedEventArgs",
+                "namespace": "Windows.UI.ApplicationSettings",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_AccountCommandsRequested",
+          "remove_method": "remove_AccountCommandsRequested"
+        }
+      ]
+    },
+    "IAccountsSettingsPaneCommandsRequestedEventArgs": {
+      "guid": "3b68c099-db19-45d0-9abf-95d3773c9330",
+      "exclusive_to": "Windows.UI.ApplicationSettings.AccountsSettingsPaneCommandsRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_WebAccountProviderCommands",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebAccountProviderCommand",
+                "namespace": "Windows.UI.ApplicationSettings",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_WebAccountCommands",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebAccountCommand",
+                "namespace": "Windows.UI.ApplicationSettings",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_CredentialCommands",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CredentialCommand",
+                "namespace": "Windows.UI.ApplicationSettings",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_Commands",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SettingsCommand",
+                "namespace": "Windows.UI.ApplicationSettings",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_HeaderText",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_HeaderText",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "GetDeferral",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AccountsSettingsPaneEventDeferral",
+            "namespace": "Windows.UI.ApplicationSettings",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Commands",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "SettingsCommand",
+                "namespace": "Windows.UI.ApplicationSettings",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Commands"
+        },
+        {
+          "name": "CredentialCommands",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "CredentialCommand",
+                "namespace": "Windows.UI.ApplicationSettings",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_CredentialCommands"
+        },
+        {
+          "name": "HeaderText",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_HeaderText",
+          "setter": "put_HeaderText"
+        },
+        {
+          "name": "WebAccountCommands",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebAccountCommand",
+                "namespace": "Windows.UI.ApplicationSettings",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_WebAccountCommands"
+        },
+        {
+          "name": "WebAccountProviderCommands",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "WebAccountProviderCommand",
+                "namespace": "Windows.UI.ApplicationSettings",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_WebAccountProviderCommands"
+        }
+      ]
+    },
+    "IAccountsSettingsPaneCommandsRequestedEventArgs2": {
+      "guid": "362f7bad-4e37-4967-8c40-e78ee7a1e5bb",
+      "exclusive_to": "Windows.UI.ApplicationSettings.AccountsSettingsPaneCommandsRequestedEventArgs",
+      "methods": [
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ]
+    },
+    "IAccountsSettingsPaneEventDeferral": {
+      "guid": "cbf25d3f-e5ba-40ef-93da-65e096e5fb04",
+      "exclusive_to": "Windows.UI.ApplicationSettings.AccountsSettingsPaneEventDeferral",
+      "methods": [
+        {
+          "name": "Complete"
+        }
+      ]
+    },
+    "IAccountsSettingsPaneStatics": {
+      "guid": "561f8b60-b0ec-4150-a8dc-208ee44b068a",
+      "exclusive_to": "Windows.UI.ApplicationSettings.AccountsSettingsPane",
+      "methods": [
+        {
+          "name": "GetForCurrentView",
+          "return": {
+            "kind": "ApiRef",
+            "name": "AccountsSettingsPane",
+            "namespace": "Windows.UI.ApplicationSettings",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "Show"
+        }
+      ]
+    },
+    "IAccountsSettingsPaneStatics2": {
+      "guid": "d21df7c2-ce0d-484f-b8e8-e823c215765e",
+      "exclusive_to": "Windows.UI.ApplicationSettings.AccountsSettingsPane",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IAccountsSettingsPaneStatics",
+          "namespace": "Windows.UI.ApplicationSettings",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "ShowManageAccountsAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ShowAddAccountAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "IAccountsSettingsPaneStatics3": {
+      "guid": "08410458-a2ba-4c6f-b4ac-48f514331216",
+      "exclusive_to": "Windows.UI.ApplicationSettings.AccountsSettingsPane",
+      "methods": [
+        {
+          "name": "ShowManageAccountsForUserAsync",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "ShowAddAccountForUserAsync",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    },
+    "ICredentialCommand": {
+      "guid": "a5f665e6-6143-4a7a-a971-b017ba978ce2",
+      "exclusive_to": "Windows.UI.ApplicationSettings.CredentialCommand",
+      "methods": [
+        {
+          "name": "get_PasswordCredential",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_CredentialDeleted",
+          "return": {
+            "kind": "ApiRef",
+            "name": "CredentialCommandCredentialDeletedHandler",
+            "namespace": "Windows.UI.ApplicationSettings",
+            "target_kind": "Delegate"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "CredentialDeleted",
+          "type": {
+            "kind": "ApiRef",
+            "name": "CredentialCommandCredentialDeletedHandler",
+            "namespace": "Windows.UI.ApplicationSettings",
+            "target_kind": "Delegate"
+          },
+          "getter": "get_CredentialDeleted"
+        },
+        {
+          "name": "PasswordCredential",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PasswordCredential",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          },
+          "getter": "get_PasswordCredential"
+        }
+      ]
+    },
+    "ICredentialCommandFactory": {
+      "guid": "27e88c17-bc3e-4b80-9495-4ed720e48a91",
+      "exclusive_to": "Windows.UI.ApplicationSettings.CredentialCommand",
+      "methods": [
+        {
+          "name": "CreateCredentialCommand",
+          "params": [
+            {
+              "name": "passwordCredential",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PasswordCredential",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CredentialCommand",
+            "namespace": "Windows.UI.ApplicationSettings",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "CreateCredentialCommandWithHandler",
+          "params": [
+            {
+              "name": "passwordCredential",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PasswordCredential",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "deleted",
+              "type": {
+                "kind": "ApiRef",
+                "name": "CredentialCommandCredentialDeletedHandler",
+                "namespace": "Windows.UI.ApplicationSettings",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "CredentialCommand",
+            "namespace": "Windows.UI.ApplicationSettings",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISettingsCommandFactory": {
+      "guid": "68e15b33-1c83-433a-aa5a-ceeea5bd4764",
+      "exclusive_to": "Windows.UI.ApplicationSettings.SettingsCommand",
+      "methods": [
+        {
+          "name": "CreateSettingsCommand",
+          "params": [
+            {
+              "name": "settingsCommandId",
+              "type": {
+                "kind": "Native",
+                "name": "Object"
+              }
+            },
+            {
+              "name": "label",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "handler",
+              "type": {
+                "kind": "ApiRef",
+                "name": "UICommandInvokedHandler",
+                "namespace": "Windows.UI.Popups",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "SettingsCommand",
+            "namespace": "Windows.UI.ApplicationSettings",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "ISettingsCommandStatics": {
+      "guid": "749ae954-2f69-4b17-8aba-d05ce5778e46",
+      "exclusive_to": "Windows.UI.ApplicationSettings.SettingsCommand",
+      "methods": [
+        {
+          "name": "get_AccountsCommand",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SettingsCommand",
+            "namespace": "Windows.UI.ApplicationSettings",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AccountsCommand",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SettingsCommand",
+            "namespace": "Windows.UI.ApplicationSettings",
+            "target_kind": "Class"
+          },
+          "getter": "get_AccountsCommand"
+        }
+      ]
+    },
+    "IWebAccountCommand": {
+      "guid": "caa39398-9cfa-4246-b0c4-a913a3896541",
+      "exclusive_to": "Windows.UI.ApplicationSettings.WebAccountCommand",
+      "methods": [
+        {
+          "name": "get_WebAccount",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebAccount",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Invoked",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebAccountCommandInvokedHandler",
+            "namespace": "Windows.UI.ApplicationSettings",
+            "target_kind": "Delegate"
+          }
+        },
+        {
+          "name": "get_Actions",
+          "return": {
+            "kind": "ApiRef",
+            "name": "SupportedWebAccountActions",
+            "namespace": "Windows.UI.ApplicationSettings",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Actions",
+          "type": {
+            "kind": "ApiRef",
+            "name": "SupportedWebAccountActions",
+            "namespace": "Windows.UI.ApplicationSettings",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Actions"
+        },
+        {
+          "name": "Invoked",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebAccountCommandInvokedHandler",
+            "namespace": "Windows.UI.ApplicationSettings",
+            "target_kind": "Delegate"
+          },
+          "getter": "get_Invoked"
+        },
+        {
+          "name": "WebAccount",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebAccount",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          },
+          "getter": "get_WebAccount"
+        }
+      ]
+    },
+    "IWebAccountCommandFactory": {
+      "guid": "bfa6cdff-2f2d-42f5-81de-1d56bafc496d",
+      "exclusive_to": "Windows.UI.ApplicationSettings.WebAccountCommand",
+      "methods": [
+        {
+          "name": "CreateWebAccountCommand",
+          "params": [
+            {
+              "name": "webAccount",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAccount",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "invoked",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAccountCommandInvokedHandler",
+                "namespace": "Windows.UI.ApplicationSettings",
+                "target_kind": "Delegate"
+              }
+            },
+            {
+              "name": "actions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SupportedWebAccountActions",
+                "namespace": "Windows.UI.ApplicationSettings",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebAccountCommand",
+            "namespace": "Windows.UI.ApplicationSettings",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IWebAccountInvokedArgs": {
+      "guid": "e7abcc40-a1d8-4c5d-9a7f-1d34b2f90ad2",
+      "exclusive_to": "Windows.UI.ApplicationSettings.WebAccountInvokedArgs",
+      "methods": [
+        {
+          "name": "get_Action",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebAccountAction",
+            "namespace": "Windows.UI.ApplicationSettings",
+            "target_kind": "Enum"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Action",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebAccountAction",
+            "namespace": "Windows.UI.ApplicationSettings",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Action"
+        }
+      ]
+    },
+    "IWebAccountProviderCommand": {
+      "guid": "d69bdd9a-a0a6-4e9b-88dc-c71e757a3501",
+      "exclusive_to": "Windows.UI.ApplicationSettings.WebAccountProviderCommand",
+      "methods": [
+        {
+          "name": "get_WebAccountProvider",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebAccountProvider",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Invoked",
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebAccountProviderCommandInvokedHandler",
+            "namespace": "Windows.UI.ApplicationSettings",
+            "target_kind": "Delegate"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Invoked",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebAccountProviderCommandInvokedHandler",
+            "namespace": "Windows.UI.ApplicationSettings",
+            "target_kind": "Delegate"
+          },
+          "getter": "get_Invoked"
+        },
+        {
+          "name": "WebAccountProvider",
+          "type": {
+            "kind": "ApiRef",
+            "name": "WebAccountProvider",
+            "namespace": "Windows.Security.Credentials",
+            "target_kind": "Class"
+          },
+          "getter": "get_WebAccountProvider"
+        }
+      ]
+    },
+    "IWebAccountProviderCommandFactory": {
+      "guid": "d5658a1b-b176-4776-8469-a9d3ff0b3f59",
+      "exclusive_to": "Windows.UI.ApplicationSettings.WebAccountProviderCommand",
+      "methods": [
+        {
+          "name": "CreateWebAccountProviderCommand",
+          "params": [
+            {
+              "name": "webAccountProvider",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAccountProvider",
+                "namespace": "Windows.Security.Credentials",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "invoked",
+              "type": {
+                "kind": "ApiRef",
+                "name": "WebAccountProviderCommandInvokedHandler",
+                "namespace": "Windows.UI.ApplicationSettings",
+                "target_kind": "Delegate"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "WebAccountProviderCommand",
+            "namespace": "Windows.UI.ApplicationSettings",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "AccountsSettingsPane": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAccountsSettingsPane",
+        "namespace": "Windows.UI.ApplicationSettings",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAccountsSettingsPane",
+          "namespace": "Windows.UI.ApplicationSettings",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.UI.ApplicationSettings.IAccountsSettingsPaneStatics3",
+        "Windows.UI.ApplicationSettings.IAccountsSettingsPaneStatics2",
+        "Windows.UI.ApplicationSettings.IAccountsSettingsPaneStatics"
+      ]
+    },
+    "AccountsSettingsPaneCommandsRequestedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAccountsSettingsPaneCommandsRequestedEventArgs",
+        "namespace": "Windows.UI.ApplicationSettings",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAccountsSettingsPaneCommandsRequestedEventArgs",
+          "namespace": "Windows.UI.ApplicationSettings",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IAccountsSettingsPaneCommandsRequestedEventArgs2",
+          "namespace": "Windows.UI.ApplicationSettings",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "AccountsSettingsPaneEventDeferral": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IAccountsSettingsPaneEventDeferral",
+        "namespace": "Windows.UI.ApplicationSettings",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IAccountsSettingsPaneEventDeferral",
+          "namespace": "Windows.UI.ApplicationSettings",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "CredentialCommand": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "ICredentialCommand",
+        "namespace": "Windows.UI.ApplicationSettings",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "ICredentialCommand",
+          "namespace": "Windows.UI.ApplicationSettings",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.UI.ApplicationSettings.ICredentialCommandFactory"
+      ]
+    },
+    "SettingsCommand": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IUICommand",
+        "namespace": "Windows.UI.Popups",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IUICommand",
+          "namespace": "Windows.UI.Popups",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.UI.ApplicationSettings.ISettingsCommandFactory"
+      ],
+      "static_interfaces": [
+        "Windows.UI.ApplicationSettings.ISettingsCommandStatics"
+      ]
+    },
+    "WebAccountCommand": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebAccountCommand",
+        "namespace": "Windows.UI.ApplicationSettings",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebAccountCommand",
+          "namespace": "Windows.UI.ApplicationSettings",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.UI.ApplicationSettings.IWebAccountCommandFactory"
+      ]
+    },
+    "WebAccountInvokedArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebAccountInvokedArgs",
+        "namespace": "Windows.UI.ApplicationSettings",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebAccountInvokedArgs",
+          "namespace": "Windows.UI.ApplicationSettings",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "WebAccountProviderCommand": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IWebAccountProviderCommand",
+        "namespace": "Windows.UI.ApplicationSettings",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IWebAccountProviderCommand",
+          "namespace": "Windows.UI.ApplicationSettings",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_factories": [
+        "Windows.UI.ApplicationSettings.IWebAccountProviderCommandFactory"
+      ]
+    }
+  },
+  "delegates": {
+    "CredentialCommandCredentialDeletedHandler": {
+      "guid": "61c0e185-0977-4678-b4e2-98727afbeed9",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "command",
+            "type": {
+              "kind": "ApiRef",
+              "name": "CredentialCommand",
+              "namespace": "Windows.UI.ApplicationSettings",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "WebAccountCommandInvokedHandler": {
+      "guid": "1ee6e459-1705-4a9a-b599-a0c3d6921973",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "command",
+            "type": {
+              "kind": "ApiRef",
+              "name": "WebAccountCommand",
+              "namespace": "Windows.UI.ApplicationSettings",
+              "target_kind": "Class"
+            }
+          },
+          {
+            "name": "args",
+            "type": {
+              "kind": "ApiRef",
+              "name": "WebAccountInvokedArgs",
+              "namespace": "Windows.UI.ApplicationSettings",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    },
+    "WebAccountProviderCommandInvokedHandler": {
+      "guid": "b7de5527-4c8f-42dd-84da-5ec493abdb9a",
+      "invoke": {
+        "name": "Invoke",
+        "params": [
+          {
+            "name": "command",
+            "type": {
+              "kind": "ApiRef",
+              "name": "WebAccountProviderCommand",
+              "namespace": "Windows.UI.ApplicationSettings",
+              "target_kind": "Class"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

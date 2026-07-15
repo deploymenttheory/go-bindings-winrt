@@ -1,0 +1,440 @@
+{
+  "namespace": "Windows.Foundation.Metadata",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "AttributeTargets": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "All",
+          "value": "4294967295"
+        },
+        {
+          "name": "Delegate",
+          "value": "1"
+        },
+        {
+          "name": "Enum",
+          "value": "2"
+        },
+        {
+          "name": "Event",
+          "value": "4"
+        },
+        {
+          "name": "Field",
+          "value": "8"
+        },
+        {
+          "name": "Interface",
+          "value": "16"
+        },
+        {
+          "name": "Method",
+          "value": "64"
+        },
+        {
+          "name": "Parameter",
+          "value": "128"
+        },
+        {
+          "name": "Property",
+          "value": "256"
+        },
+        {
+          "name": "RuntimeClass",
+          "value": "512"
+        },
+        {
+          "name": "Struct",
+          "value": "1024"
+        },
+        {
+          "name": "InterfaceImpl",
+          "value": "2048"
+        },
+        {
+          "name": "ApiContract",
+          "value": "8192"
+        }
+      ]
+    },
+    "CompositionType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Protected",
+          "value": "1"
+        },
+        {
+          "name": "Public",
+          "value": "2"
+        }
+      ]
+    },
+    "DeprecationType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Deprecate",
+          "value": "0"
+        },
+        {
+          "name": "Remove",
+          "value": "1"
+        }
+      ]
+    },
+    "FeatureStage": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "AlwaysDisabled",
+          "value": "0"
+        },
+        {
+          "name": "DisabledByDefault",
+          "value": "1"
+        },
+        {
+          "name": "EnabledByDefault",
+          "value": "2"
+        },
+        {
+          "name": "AlwaysEnabled",
+          "value": "3"
+        }
+      ]
+    },
+    "GCPressureAmount": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Low",
+          "value": "0"
+        },
+        {
+          "name": "Medium",
+          "value": "1"
+        },
+        {
+          "name": "High",
+          "value": "2"
+        }
+      ]
+    },
+    "MarshalingType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "None",
+          "value": "1"
+        },
+        {
+          "name": "Agile",
+          "value": "2"
+        },
+        {
+          "name": "Standard",
+          "value": "3"
+        },
+        {
+          "name": "InvalidMarshaling",
+          "value": "0"
+        }
+      ]
+    },
+    "Platform": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Windows",
+          "value": "0"
+        },
+        {
+          "name": "WindowsPhone",
+          "value": "1"
+        }
+      ]
+    },
+    "ThreadingModel": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "STA",
+          "value": "1"
+        },
+        {
+          "name": "MTA",
+          "value": "2"
+        },
+        {
+          "name": "Both",
+          "value": "3"
+        },
+        {
+          "name": "InvalidThreading",
+          "value": "0"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IApiInformationStatics": {
+      "guid": "997439fe-f681-4a11-b416-c13a47e8ba36",
+      "exclusive_to": "Windows.Foundation.Metadata.ApiInformation",
+      "methods": [
+        {
+          "name": "IsTypePresent",
+          "params": [
+            {
+              "name": "typeName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsMethodPresent",
+          "overload": "IsMethodPresent",
+          "params": [
+            {
+              "name": "typeName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "methodName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsMethodPresent",
+          "overload": "IsMethodPresentWithArity",
+          "params": [
+            {
+              "name": "typeName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "methodName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "inputParameterCount",
+              "type": {
+                "kind": "Native",
+                "name": "U4"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsEventPresent",
+          "params": [
+            {
+              "name": "typeName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "eventName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsPropertyPresent",
+          "params": [
+            {
+              "name": "typeName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "propertyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsReadOnlyPropertyPresent",
+          "params": [
+            {
+              "name": "typeName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "propertyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsWriteablePropertyPresent",
+          "params": [
+            {
+              "name": "typeName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "propertyName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsEnumNamedValuePresent",
+          "params": [
+            {
+              "name": "enumTypeName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "valueName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsApiContractPresent",
+          "overload": "IsApiContractPresentByMajor",
+          "params": [
+            {
+              "name": "contractName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "majorVersion",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "IsApiContractPresent",
+          "overload": "IsApiContractPresentByMajorAndMinor",
+          "params": [
+            {
+              "name": "contractName",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "majorVersion",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            },
+            {
+              "name": "minorVersion",
+              "type": {
+                "kind": "Native",
+                "name": "U2"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "ApiInformation": {
+      "static_interfaces": [
+        "Windows.Foundation.Metadata.IApiInformationStatics"
+      ]
+    }
+  }
+}

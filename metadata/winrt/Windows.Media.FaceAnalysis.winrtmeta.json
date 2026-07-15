@@ -1,0 +1,511 @@
+{
+  "namespace": "Windows.Media.FaceAnalysis",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "interfaces": {
+    "IDetectedFace": {
+      "guid": "8200d454-66bc-34df-9410-e89400195414",
+      "exclusive_to": "Windows.Media.FaceAnalysis.DetectedFace",
+      "methods": [
+        {
+          "name": "get_FaceBox",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapBounds",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "FaceBox",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapBounds",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Struct"
+          },
+          "getter": "get_FaceBox"
+        }
+      ]
+    },
+    "IFaceDetector": {
+      "guid": "16b672dc-fe6f-3117-8d95-c3f04d51630c",
+      "exclusive_to": "Windows.Media.FaceAnalysis.FaceDetector",
+      "methods": [
+        {
+          "name": "DetectFacesAsync",
+          "overload": "DetectFacesAsync",
+          "params": [
+            {
+              "name": "image",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SoftwareBitmap",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVector`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DetectedFace",
+                    "namespace": "Windows.Media.FaceAnalysis",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "DetectFacesAsync",
+          "overload": "DetectFacesWithSearchAreaAsync",
+          "params": [
+            {
+              "name": "image",
+              "type": {
+                "kind": "ApiRef",
+                "name": "SoftwareBitmap",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Class"
+              }
+            },
+            {
+              "name": "searchArea",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapBounds",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Struct"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVector`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DetectedFace",
+                    "namespace": "Windows.Media.FaceAnalysis",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_MinDetectableFaceSize",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapSize",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_MinDetectableFaceSize",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapSize",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MaxDetectableFaceSize",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapSize",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_MaxDetectableFaceSize",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapSize",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "MaxDetectableFaceSize",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapSize",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Struct"
+          },
+          "getter": "get_MaxDetectableFaceSize",
+          "setter": "put_MaxDetectableFaceSize"
+        },
+        {
+          "name": "MinDetectableFaceSize",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapSize",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Struct"
+          },
+          "getter": "get_MinDetectableFaceSize",
+          "setter": "put_MinDetectableFaceSize"
+        }
+      ]
+    },
+    "IFaceDetectorStatics": {
+      "guid": "bc042d67-9047-33f6-881b-6746c1b218b8",
+      "exclusive_to": "Windows.Media.FaceAnalysis.FaceDetector",
+      "methods": [
+        {
+          "name": "CreateAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "FaceDetector",
+                "namespace": "Windows.Media.FaceAnalysis",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetSupportedBitmapPixelFormats",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BitmapPixelFormat",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "IsBitmapPixelFormatSupported",
+          "params": [
+            {
+              "name": "bitmapPixelFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapPixelFormat",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSupported"
+        }
+      ]
+    },
+    "IFaceTracker": {
+      "guid": "6ba67d8c-a841-4420-93e6-2420a1884fcf",
+      "exclusive_to": "Windows.Media.FaceAnalysis.FaceTracker",
+      "methods": [
+        {
+          "name": "ProcessNextFrameAsync",
+          "params": [
+            {
+              "name": "videoFrame",
+              "type": {
+                "kind": "ApiRef",
+                "name": "VideoFrame",
+                "namespace": "Windows.Media",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVector`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "DetectedFace",
+                    "namespace": "Windows.Media.FaceAnalysis",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_MinDetectableFaceSize",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapSize",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_MinDetectableFaceSize",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapSize",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_MaxDetectableFaceSize",
+          "return": {
+            "kind": "ApiRef",
+            "name": "BitmapSize",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_MaxDetectableFaceSize",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapSize",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "MaxDetectableFaceSize",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapSize",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Struct"
+          },
+          "getter": "get_MaxDetectableFaceSize",
+          "setter": "put_MaxDetectableFaceSize"
+        },
+        {
+          "name": "MinDetectableFaceSize",
+          "type": {
+            "kind": "ApiRef",
+            "name": "BitmapSize",
+            "namespace": "Windows.Graphics.Imaging",
+            "target_kind": "Struct"
+          },
+          "getter": "get_MinDetectableFaceSize",
+          "setter": "put_MinDetectableFaceSize"
+        }
+      ]
+    },
+    "IFaceTrackerStatics": {
+      "guid": "e9629198-1801-3fa5-932e-31d767af6c4d",
+      "exclusive_to": "Windows.Media.FaceAnalysis.FaceTracker",
+      "methods": [
+        {
+          "name": "CreateAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "FaceTracker",
+                "namespace": "Windows.Media.FaceAnalysis",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetSupportedBitmapPixelFormats",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "BitmapPixelFormat",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            ]
+          }
+        },
+        {
+          "name": "IsBitmapPixelFormatSupported",
+          "params": [
+            {
+              "name": "bitmapPixelFormat",
+              "type": {
+                "kind": "ApiRef",
+                "name": "BitmapPixelFormat",
+                "namespace": "Windows.Graphics.Imaging",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_IsSupported",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsSupported",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSupported"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "DetectedFace": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IDetectedFace",
+        "namespace": "Windows.Media.FaceAnalysis",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IDetectedFace",
+          "namespace": "Windows.Media.FaceAnalysis",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "FaceDetector": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFaceDetector",
+        "namespace": "Windows.Media.FaceAnalysis",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFaceDetector",
+          "namespace": "Windows.Media.FaceAnalysis",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Media.FaceAnalysis.IFaceDetectorStatics"
+      ]
+    },
+    "FaceTracker": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IFaceTracker",
+        "namespace": "Windows.Media.FaceAnalysis",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IFaceTracker",
+          "namespace": "Windows.Media.FaceAnalysis",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Media.FaceAnalysis.IFaceTrackerStatics"
+      ]
+    }
+  }
+}

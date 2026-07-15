@@ -1,0 +1,3202 @@
+{
+  "namespace": "Windows.Media.Import",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "PhotoImportAccessMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "ReadWrite",
+          "value": "0"
+        },
+        {
+          "name": "ReadOnly",
+          "value": "1"
+        },
+        {
+          "name": "ReadAndDelete",
+          "value": "2"
+        }
+      ]
+    },
+    "PhotoImportConnectionTransport": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "Usb",
+          "value": "1"
+        },
+        {
+          "name": "IP",
+          "value": "2"
+        },
+        {
+          "name": "Bluetooth",
+          "value": "3"
+        }
+      ]
+    },
+    "PhotoImportContentType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "Image",
+          "value": "1"
+        },
+        {
+          "name": "Video",
+          "value": "2"
+        }
+      ]
+    },
+    "PhotoImportContentTypeFilter": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "OnlyImages",
+          "value": "0"
+        },
+        {
+          "name": "OnlyVideos",
+          "value": "1"
+        },
+        {
+          "name": "ImagesAndVideos",
+          "value": "2"
+        },
+        {
+          "name": "ImagesAndVideosFromCameraRoll",
+          "value": "3"
+        }
+      ]
+    },
+    "PhotoImportImportMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "ImportEverything",
+          "value": "0"
+        },
+        {
+          "name": "IgnoreSidecars",
+          "value": "1"
+        },
+        {
+          "name": "IgnoreSiblings",
+          "value": "2"
+        },
+        {
+          "name": "IgnoreSidecarsAndSiblings",
+          "value": "3"
+        }
+      ]
+    },
+    "PhotoImportItemSelectionMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "SelectAll",
+          "value": "0"
+        },
+        {
+          "name": "SelectNone",
+          "value": "1"
+        },
+        {
+          "name": "SelectNew",
+          "value": "2"
+        }
+      ]
+    },
+    "PhotoImportPowerSource": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Unknown",
+          "value": "0"
+        },
+        {
+          "name": "Battery",
+          "value": "1"
+        },
+        {
+          "name": "External",
+          "value": "2"
+        }
+      ]
+    },
+    "PhotoImportSourceType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Generic",
+          "value": "0"
+        },
+        {
+          "name": "Camera",
+          "value": "1"
+        },
+        {
+          "name": "MediaPlayer",
+          "value": "2"
+        },
+        {
+          "name": "Phone",
+          "value": "3"
+        },
+        {
+          "name": "Video",
+          "value": "4"
+        },
+        {
+          "name": "PersonalInfoManager",
+          "value": "5"
+        },
+        {
+          "name": "AudioRecorder",
+          "value": "6"
+        }
+      ]
+    },
+    "PhotoImportStage": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "NotStarted",
+          "value": "0"
+        },
+        {
+          "name": "FindingItems",
+          "value": "1"
+        },
+        {
+          "name": "ImportingItems",
+          "value": "2"
+        },
+        {
+          "name": "DeletingImportedItemsFromSource",
+          "value": "3"
+        }
+      ]
+    },
+    "PhotoImportStorageMediumType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Undefined",
+          "value": "0"
+        },
+        {
+          "name": "Fixed",
+          "value": "1"
+        },
+        {
+          "name": "Removable",
+          "value": "2"
+        }
+      ]
+    },
+    "PhotoImportSubfolderCreationMode": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "DoNotCreateSubfolders",
+          "value": "0"
+        },
+        {
+          "name": "CreateSubfoldersFromFileDate",
+          "value": "1"
+        },
+        {
+          "name": "CreateSubfoldersFromExifDate",
+          "value": "2"
+        },
+        {
+          "name": "KeepOriginalFolderStructure",
+          "value": "3"
+        }
+      ]
+    },
+    "PhotoImportSubfolderDateFormat": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Year",
+          "value": "0"
+        },
+        {
+          "name": "YearMonth",
+          "value": "1"
+        },
+        {
+          "name": "YearMonthDay",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "structs": {
+    "PhotoImportProgress": {
+      "fields": [
+        {
+          "name": "ItemsImported",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "TotalItemsToImport",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "BytesImported",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "TotalBytesToImport",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "ImportProgress",
+          "type": {
+            "kind": "Native",
+            "name": "F64"
+          }
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IPhotoImportDeleteImportedItemsFromSourceResult": {
+      "guid": "f4e112f8-843d-428a-a1a6-81510292b0ae",
+      "exclusive_to": "Windows.Media.Import.PhotoImportDeleteImportedItemsFromSourceResult",
+      "methods": [
+        {
+          "name": "get_Session",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhotoImportSession",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_HasSucceeded",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_DeletedItems",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportItem",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_PhotosCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_PhotosSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_VideosCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_VideosSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_SidecarsCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_SidecarsSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_SiblingsCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_SiblingsSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_TotalCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_TotalSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DeletedItems",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportItem",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_DeletedItems"
+        },
+        {
+          "name": "HasSucceeded",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasSucceeded"
+        },
+        {
+          "name": "PhotosCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_PhotosCount"
+        },
+        {
+          "name": "PhotosSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_PhotosSizeInBytes"
+        },
+        {
+          "name": "Session",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhotoImportSession",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Class"
+          },
+          "getter": "get_Session"
+        },
+        {
+          "name": "SiblingsCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SiblingsCount"
+        },
+        {
+          "name": "SiblingsSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_SiblingsSizeInBytes"
+        },
+        {
+          "name": "SidecarsCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SidecarsCount"
+        },
+        {
+          "name": "SidecarsSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_SidecarsSizeInBytes"
+        },
+        {
+          "name": "TotalCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_TotalCount"
+        },
+        {
+          "name": "TotalSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_TotalSizeInBytes"
+        },
+        {
+          "name": "VideosCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_VideosCount"
+        },
+        {
+          "name": "VideosSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_VideosSizeInBytes"
+        }
+      ]
+    },
+    "IPhotoImportFindItemsResult": {
+      "guid": "3915e647-6c78-492b-844e-8fe5e8f6bfb9",
+      "exclusive_to": "Windows.Media.Import.PhotoImportFindItemsResult",
+      "methods": [
+        {
+          "name": "get_Session",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhotoImportSession",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_HasSucceeded",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_FoundItems",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportItem",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_PhotosCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_PhotosSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_VideosCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_VideosSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_SidecarsCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_SidecarsSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_SiblingsCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_SiblingsSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_TotalCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_TotalSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "SelectAll"
+        },
+        {
+          "name": "SelectNone"
+        },
+        {
+          "name": "SelectNewAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "SetImportMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhotoImportImportMode",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_ImportMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhotoImportImportMode",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_SelectedPhotosCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_SelectedPhotosSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_SelectedVideosCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_SelectedVideosSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_SelectedSidecarsCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_SelectedSidecarsSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_SelectedSiblingsCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_SelectedSiblingsSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_SelectedTotalCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_SelectedTotalSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "add_SelectionChanged",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PhotoImportFindItemsResult",
+                    "namespace": "Windows.Media.Import",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PhotoImportSelectionChangedEventArgs",
+                    "namespace": "Windows.Media.Import",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_SelectionChanged",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ImportItemsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportImportItemsResult",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportProgress",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "add_ItemImported",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "TypedEventHandler`2",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Delegate",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PhotoImportFindItemsResult",
+                    "namespace": "Windows.Media.Import",
+                    "target_kind": "Class"
+                  },
+                  {
+                    "kind": "ApiRef",
+                    "name": "PhotoImportItemImportedEventArgs",
+                    "namespace": "Windows.Media.Import",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "EventRegistrationToken",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "remove_ItemImported",
+          "params": [
+            {
+              "name": "token",
+              "type": {
+                "kind": "ApiRef",
+                "name": "EventRegistrationToken",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "FoundItems",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportItem",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_FoundItems"
+        },
+        {
+          "name": "HasSucceeded",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasSucceeded"
+        },
+        {
+          "name": "ImportMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhotoImportImportMode",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ImportMode"
+        },
+        {
+          "name": "PhotosCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_PhotosCount"
+        },
+        {
+          "name": "PhotosSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_PhotosSizeInBytes"
+        },
+        {
+          "name": "SelectedPhotosCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SelectedPhotosCount"
+        },
+        {
+          "name": "SelectedPhotosSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_SelectedPhotosSizeInBytes"
+        },
+        {
+          "name": "SelectedSiblingsCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SelectedSiblingsCount"
+        },
+        {
+          "name": "SelectedSiblingsSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_SelectedSiblingsSizeInBytes"
+        },
+        {
+          "name": "SelectedSidecarsCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SelectedSidecarsCount"
+        },
+        {
+          "name": "SelectedSidecarsSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_SelectedSidecarsSizeInBytes"
+        },
+        {
+          "name": "SelectedTotalCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SelectedTotalCount"
+        },
+        {
+          "name": "SelectedTotalSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_SelectedTotalSizeInBytes"
+        },
+        {
+          "name": "SelectedVideosCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SelectedVideosCount"
+        },
+        {
+          "name": "SelectedVideosSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_SelectedVideosSizeInBytes"
+        },
+        {
+          "name": "Session",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhotoImportSession",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Class"
+          },
+          "getter": "get_Session"
+        },
+        {
+          "name": "SiblingsCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SiblingsCount"
+        },
+        {
+          "name": "SiblingsSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_SiblingsSizeInBytes"
+        },
+        {
+          "name": "SidecarsCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SidecarsCount"
+        },
+        {
+          "name": "SidecarsSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_SidecarsSizeInBytes"
+        },
+        {
+          "name": "TotalCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_TotalCount"
+        },
+        {
+          "name": "TotalSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_TotalSizeInBytes"
+        },
+        {
+          "name": "VideosCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_VideosCount"
+        },
+        {
+          "name": "VideosSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_VideosSizeInBytes"
+        }
+      ],
+      "events": [
+        {
+          "name": "ItemImported",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportFindItemsResult",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportItemImportedEventArgs",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_ItemImported",
+          "remove_method": "remove_ItemImported"
+        },
+        {
+          "name": "SelectionChanged",
+          "type": {
+            "kind": "GenericInst",
+            "name": "TypedEventHandler`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Delegate",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportFindItemsResult",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportSelectionChangedEventArgs",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "add_method": "add_SelectionChanged",
+          "remove_method": "remove_SelectionChanged"
+        }
+      ]
+    },
+    "IPhotoImportFindItemsResult2": {
+      "guid": "fbdd6a3b-ecf9-406a-815e-5015625b0a88",
+      "exclusive_to": "Windows.Media.Import.PhotoImportFindItemsResult",
+      "methods": [
+        {
+          "name": "AddItemsInDateRangeToSelection",
+          "params": [
+            {
+              "name": "rangeStart",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            },
+            {
+              "name": "rangeLength",
+              "type": {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "IPhotoImportImportItemsResult": {
+      "guid": "e4d4f478-d419-4443-a84e-f06a850c0b00",
+      "exclusive_to": "Windows.Media.Import.PhotoImportImportItemsResult",
+      "methods": [
+        {
+          "name": "get_Session",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhotoImportSession",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_HasSucceeded",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_ImportedItems",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportItem",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_PhotosCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_PhotosSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_VideosCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_VideosSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_SidecarsCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_SidecarsSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_SiblingsCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_SiblingsSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_TotalCount",
+          "return": {
+            "kind": "Native",
+            "name": "U4"
+          }
+        },
+        {
+          "name": "get_TotalSizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "DeleteImportedItemsFromSourceAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportDeleteImportedItemsFromSourceResult",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "HasSucceeded",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_HasSucceeded"
+        },
+        {
+          "name": "ImportedItems",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportItem",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_ImportedItems"
+        },
+        {
+          "name": "PhotosCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_PhotosCount"
+        },
+        {
+          "name": "PhotosSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_PhotosSizeInBytes"
+        },
+        {
+          "name": "Session",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhotoImportSession",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Class"
+          },
+          "getter": "get_Session"
+        },
+        {
+          "name": "SiblingsCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SiblingsCount"
+        },
+        {
+          "name": "SiblingsSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_SiblingsSizeInBytes"
+        },
+        {
+          "name": "SidecarsCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_SidecarsCount"
+        },
+        {
+          "name": "SidecarsSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_SidecarsSizeInBytes"
+        },
+        {
+          "name": "TotalCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_TotalCount"
+        },
+        {
+          "name": "TotalSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_TotalSizeInBytes"
+        },
+        {
+          "name": "VideosCount",
+          "type": {
+            "kind": "Native",
+            "name": "U4"
+          },
+          "getter": "get_VideosCount"
+        },
+        {
+          "name": "VideosSizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_VideosSizeInBytes"
+        }
+      ]
+    },
+    "IPhotoImportItem": {
+      "guid": "a9d07e76-9bfc-43b8-b356-633b6a988c9e",
+      "exclusive_to": "Windows.Media.Import.PhotoImportItem",
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ItemKey",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_ContentType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhotoImportContentType",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_SizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_Date",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Sibling",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhotoImportSidecar",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Sidecars",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportSidecar",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_VideoSegments",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportVideoSegment",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_IsSelected",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsSelected",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Thumbnail",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "get_ImportedFileNames",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_DeletedFileNames",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContentType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhotoImportContentType",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ContentType"
+        },
+        {
+          "name": "Date",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Date"
+        },
+        {
+          "name": "DeletedFileNames",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_DeletedFileNames"
+        },
+        {
+          "name": "ImportedFileNames",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_ImportedFileNames"
+        },
+        {
+          "name": "IsSelected",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSelected",
+          "setter": "put_IsSelected"
+        },
+        {
+          "name": "ItemKey",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_ItemKey"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        },
+        {
+          "name": "Sibling",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhotoImportSidecar",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Class"
+          },
+          "getter": "get_Sibling"
+        },
+        {
+          "name": "Sidecars",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportSidecar",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Sidecars"
+        },
+        {
+          "name": "SizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_SizeInBytes"
+        },
+        {
+          "name": "Thumbnail",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Thumbnail"
+        },
+        {
+          "name": "VideoSegments",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportVideoSegment",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_VideoSegments"
+        }
+      ]
+    },
+    "IPhotoImportItem2": {
+      "guid": "f1053505-f53b-46a3-9e30-3610791a9110",
+      "exclusive_to": "Windows.Media.Import.PhotoImportItem",
+      "methods": [
+        {
+          "name": "get_Path",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Path",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Path"
+        }
+      ]
+    },
+    "IPhotoImportItemImportedEventArgs": {
+      "guid": "42cb2fdd-7d68-47b5-bc7c-ceb73e0c77dc",
+      "exclusive_to": "Windows.Media.Import.PhotoImportItemImportedEventArgs",
+      "methods": [
+        {
+          "name": "get_ImportedItem",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhotoImportItem",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ImportedItem",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhotoImportItem",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Class"
+          },
+          "getter": "get_ImportedItem"
+        }
+      ]
+    },
+    "IPhotoImportManagerStatics": {
+      "guid": "2771903d-a046-4f06-9b9c-bfd662e83287",
+      "exclusive_to": "Windows.Media.Import.PhotoImportManager",
+      "methods": [
+        {
+          "name": "IsSupportedAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FindAllSourcesAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PhotoImportSource",
+                    "namespace": "Windows.Media.Import",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetPendingOperations",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportOperation",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPhotoImportOperation": {
+      "guid": "d9f797e4-a09a-4ee4-a4b1-20940277a5be",
+      "exclusive_to": "Windows.Media.Import.PhotoImportOperation",
+      "methods": [
+        {
+          "name": "get_Stage",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhotoImportStage",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Session",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhotoImportSession",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_ContinueFindingItemsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportFindItemsResult",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ContinueImportingItemsAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportImportItemsResult",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportProgress",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_ContinueDeletingImportedItemsFromSourceAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportDeleteImportedItemsFromSourceResult",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContinueDeletingImportedItemsFromSourceAsync",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportDeleteImportedItemsFromSourceResult",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "F64"
+              }
+            ]
+          },
+          "getter": "get_ContinueDeletingImportedItemsFromSourceAsync"
+        },
+        {
+          "name": "ContinueFindingItemsAsync",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportFindItemsResult",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_ContinueFindingItemsAsync"
+        },
+        {
+          "name": "ContinueImportingItemsAsync",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportImportItemsResult",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportProgress",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_ContinueImportingItemsAsync"
+        },
+        {
+          "name": "Session",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhotoImportSession",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Class"
+          },
+          "getter": "get_Session"
+        },
+        {
+          "name": "Stage",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhotoImportStage",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Stage"
+        }
+      ]
+    },
+    "IPhotoImportSelectionChangedEventArgs": {
+      "guid": "10461782-fa9d-4c30-8bc9-4d64911572d5",
+      "exclusive_to": "Windows.Media.Import.PhotoImportSelectionChangedEventArgs",
+      "methods": [
+        {
+          "name": "get_IsSelectionEmpty",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "IsSelectionEmpty",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSelectionEmpty"
+        }
+      ]
+    },
+    "IPhotoImportSession": {
+      "guid": "aa63916e-ecdb-4efe-94c6-5f5cafe34cfb",
+      "exclusive_to": "Windows.Media.Import.PhotoImportSession",
+      "requires": [
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        }
+      ],
+      "methods": [
+        {
+          "name": "get_Source",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhotoImportSource",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_SessionId",
+          "return": {
+            "kind": "Native",
+            "name": "Guid"
+          }
+        },
+        {
+          "name": "put_DestinationFolder",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFolder",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DestinationFolder",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IStorageFolder",
+            "namespace": "Windows.Storage",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "put_AppendSessionDateToDestinationFolder",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_AppendSessionDateToDestinationFolder",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_SubfolderCreationMode",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhotoImportSubfolderCreationMode",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SubfolderCreationMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhotoImportSubfolderCreationMode",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_DestinationFileNamePrefix",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DestinationFileNamePrefix",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "FindItemsAsync",
+          "params": [
+            {
+              "name": "contentTypeFilter",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhotoImportContentTypeFilter",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Enum"
+              }
+            },
+            {
+              "name": "itemSelectionMode",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhotoImportItemSelectionMode",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperationWithProgress`2",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportFindItemsResult",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              },
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "AppendSessionDateToDestinationFolder",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_AppendSessionDateToDestinationFolder",
+          "setter": "put_AppendSessionDateToDestinationFolder"
+        },
+        {
+          "name": "DestinationFileNamePrefix",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DestinationFileNamePrefix",
+          "setter": "put_DestinationFileNamePrefix"
+        },
+        {
+          "name": "DestinationFolder",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IStorageFolder",
+            "namespace": "Windows.Storage",
+            "target_kind": "Interface"
+          },
+          "getter": "get_DestinationFolder",
+          "setter": "put_DestinationFolder"
+        },
+        {
+          "name": "SessionId",
+          "type": {
+            "kind": "Native",
+            "name": "Guid"
+          },
+          "getter": "get_SessionId"
+        },
+        {
+          "name": "Source",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhotoImportSource",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Class"
+          },
+          "getter": "get_Source"
+        },
+        {
+          "name": "SubfolderCreationMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhotoImportSubfolderCreationMode",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SubfolderCreationMode",
+          "setter": "put_SubfolderCreationMode"
+        }
+      ]
+    },
+    "IPhotoImportSession2": {
+      "guid": "2a526710-3ec6-469d-a375-2b9f4785391e",
+      "exclusive_to": "Windows.Media.Import.PhotoImportSession",
+      "methods": [
+        {
+          "name": "put_SubfolderDateFormat",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhotoImportSubfolderDateFormat",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SubfolderDateFormat",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhotoImportSubfolderDateFormat",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_RememberDeselectedItems",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RememberDeselectedItems",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "RememberDeselectedItems",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_RememberDeselectedItems",
+          "setter": "put_RememberDeselectedItems"
+        },
+        {
+          "name": "SubfolderDateFormat",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhotoImportSubfolderDateFormat",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SubfolderDateFormat",
+          "setter": "put_SubfolderDateFormat"
+        }
+      ]
+    },
+    "IPhotoImportSidecar": {
+      "guid": "46d7d757-f802-44c7-9c98-7a71f4bc1486",
+      "exclusive_to": "Windows.Media.Import.PhotoImportSidecar",
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_Date",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Date",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Date"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        },
+        {
+          "name": "SizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_SizeInBytes"
+        }
+      ]
+    },
+    "IPhotoImportSource": {
+      "guid": "1f8ea35e-145b-4cd6-87f1-54965a982fef",
+      "exclusive_to": "Windows.Media.Import.PhotoImportSource",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Description",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Manufacturer",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Model",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SerialNumber",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ConnectionProtocol",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_ConnectionTransport",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhotoImportConnectionTransport",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_Type",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhotoImportSourceType",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_PowerSource",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhotoImportPowerSource",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_BatteryLevelPercent",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_DateTime",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_StorageMedia",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportStorageMedium",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_IsLocked",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_IsMassStorage",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "get_Thumbnail",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "CreateImportSession",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhotoImportSession",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "BatteryLevelPercent",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          },
+          "getter": "get_BatteryLevelPercent"
+        },
+        {
+          "name": "ConnectionProtocol",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ConnectionProtocol"
+        },
+        {
+          "name": "ConnectionTransport",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhotoImportConnectionTransport",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Enum"
+          },
+          "getter": "get_ConnectionTransport"
+        },
+        {
+          "name": "DateTime",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_DateTime"
+        },
+        {
+          "name": "Description",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Description"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "IsLocked",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            ]
+          },
+          "getter": "get_IsLocked"
+        },
+        {
+          "name": "IsMassStorage",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsMassStorage"
+        },
+        {
+          "name": "Manufacturer",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Manufacturer"
+        },
+        {
+          "name": "Model",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Model"
+        },
+        {
+          "name": "PowerSource",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhotoImportPowerSource",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Enum"
+          },
+          "getter": "get_PowerSource"
+        },
+        {
+          "name": "SerialNumber",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SerialNumber"
+        },
+        {
+          "name": "StorageMedia",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportStorageMedium",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_StorageMedia"
+        },
+        {
+          "name": "Thumbnail",
+          "type": {
+            "kind": "ApiRef",
+            "name": "IRandomAccessStreamReference",
+            "namespace": "Windows.Storage.Streams",
+            "target_kind": "Interface"
+          },
+          "getter": "get_Thumbnail"
+        },
+        {
+          "name": "Type",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhotoImportSourceType",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Type"
+        }
+      ]
+    },
+    "IPhotoImportSourceStatics": {
+      "guid": "0528e586-32d8-467c-8cee-23a1b2f43e85",
+      "exclusive_to": "Windows.Media.Import.PhotoImportSource",
+      "methods": [
+        {
+          "name": "FromIdAsync",
+          "params": [
+            {
+              "name": "sourceId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportSource",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "FromFolderAsync",
+          "params": [
+            {
+              "name": "sourceRootFolder",
+              "type": {
+                "kind": "ApiRef",
+                "name": "IStorageFolder",
+                "namespace": "Windows.Storage",
+                "target_kind": "Interface"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportSource",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPhotoImportStorageMedium": {
+      "guid": "f2b9b093-fc85-487f-87c2-58d675d05b07",
+      "exclusive_to": "Windows.Media.Import.PhotoImportStorageMedium",
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Description",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SerialNumber",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_StorageMediumType",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhotoImportStorageMediumType",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_SupportedAccessMode",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhotoImportAccessMode",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "get_CapacityInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_AvailableSpaceInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "Refresh"
+        }
+      ],
+      "properties": [
+        {
+          "name": "AvailableSpaceInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_AvailableSpaceInBytes"
+        },
+        {
+          "name": "CapacityInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_CapacityInBytes"
+        },
+        {
+          "name": "Description",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Description"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        },
+        {
+          "name": "SerialNumber",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SerialNumber"
+        },
+        {
+          "name": "StorageMediumType",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhotoImportStorageMediumType",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Enum"
+          },
+          "getter": "get_StorageMediumType"
+        },
+        {
+          "name": "SupportedAccessMode",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhotoImportAccessMode",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SupportedAccessMode"
+        }
+      ]
+    },
+    "IPhotoImportVideoSegment": {
+      "guid": "623c0289-321a-41d8-9166-8c62a333276c",
+      "exclusive_to": "Windows.Media.Import.PhotoImportVideoSegment",
+      "methods": [
+        {
+          "name": "get_Name",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SizeInBytes",
+          "return": {
+            "kind": "Native",
+            "name": "U8"
+          }
+        },
+        {
+          "name": "get_Date",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "get_Sibling",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhotoImportSidecar",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "get_Sidecars",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportSidecar",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "Date",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_Date"
+        },
+        {
+          "name": "Name",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Name"
+        },
+        {
+          "name": "Sibling",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhotoImportSidecar",
+            "namespace": "Windows.Media.Import",
+            "target_kind": "Class"
+          },
+          "getter": "get_Sibling"
+        },
+        {
+          "name": "Sidecars",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVectorView`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhotoImportSidecar",
+                "namespace": "Windows.Media.Import",
+                "target_kind": "Class"
+              }
+            ]
+          },
+          "getter": "get_Sidecars"
+        },
+        {
+          "name": "SizeInBytes",
+          "type": {
+            "kind": "Native",
+            "name": "U8"
+          },
+          "getter": "get_SizeInBytes"
+        }
+      ]
+    }
+  },
+  "classes": {
+    "PhotoImportDeleteImportedItemsFromSourceResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhotoImportDeleteImportedItemsFromSourceResult",
+        "namespace": "Windows.Media.Import",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhotoImportDeleteImportedItemsFromSourceResult",
+          "namespace": "Windows.Media.Import",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PhotoImportFindItemsResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhotoImportFindItemsResult",
+        "namespace": "Windows.Media.Import",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhotoImportFindItemsResult",
+          "namespace": "Windows.Media.Import",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPhotoImportFindItemsResult2",
+          "namespace": "Windows.Media.Import",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PhotoImportImportItemsResult": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhotoImportImportItemsResult",
+        "namespace": "Windows.Media.Import",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhotoImportImportItemsResult",
+          "namespace": "Windows.Media.Import",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PhotoImportItem": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhotoImportItem",
+        "namespace": "Windows.Media.Import",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhotoImportItem",
+          "namespace": "Windows.Media.Import",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPhotoImportItem2",
+          "namespace": "Windows.Media.Import",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PhotoImportItemImportedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhotoImportItemImportedEventArgs",
+        "namespace": "Windows.Media.Import",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhotoImportItemImportedEventArgs",
+          "namespace": "Windows.Media.Import",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PhotoImportManager": {
+      "static_interfaces": [
+        "Windows.Media.Import.IPhotoImportManagerStatics"
+      ]
+    },
+    "PhotoImportOperation": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhotoImportOperation",
+        "namespace": "Windows.Media.Import",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhotoImportOperation",
+          "namespace": "Windows.Media.Import",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PhotoImportSelectionChangedEventArgs": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhotoImportSelectionChangedEventArgs",
+        "namespace": "Windows.Media.Import",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhotoImportSelectionChangedEventArgs",
+          "namespace": "Windows.Media.Import",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PhotoImportSession": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhotoImportSession",
+        "namespace": "Windows.Media.Import",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhotoImportSession",
+          "namespace": "Windows.Media.Import",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IClosable",
+          "namespace": "Windows.Foundation",
+          "target_kind": "Interface"
+        },
+        {
+          "kind": "ApiRef",
+          "name": "IPhotoImportSession2",
+          "namespace": "Windows.Media.Import",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PhotoImportSidecar": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhotoImportSidecar",
+        "namespace": "Windows.Media.Import",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhotoImportSidecar",
+          "namespace": "Windows.Media.Import",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PhotoImportSource": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhotoImportSource",
+        "namespace": "Windows.Media.Import",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhotoImportSource",
+          "namespace": "Windows.Media.Import",
+          "target_kind": "Interface"
+        }
+      ],
+      "static_interfaces": [
+        "Windows.Media.Import.IPhotoImportSourceStatics"
+      ]
+    },
+    "PhotoImportStorageMedium": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhotoImportStorageMedium",
+        "namespace": "Windows.Media.Import",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhotoImportStorageMedium",
+          "namespace": "Windows.Media.Import",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PhotoImportVideoSegment": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhotoImportVideoSegment",
+        "namespace": "Windows.Media.Import",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhotoImportVideoSegment",
+          "namespace": "Windows.Media.Import",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}

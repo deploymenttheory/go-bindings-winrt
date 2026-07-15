@@ -1,0 +1,1395 @@
+{
+  "namespace": "Windows.ApplicationModel.Calls",
+  "schema_version": 1,
+  "winmd_version": "10.0.26100.8249",
+  "enums": {
+    "PhoneCallHistoryEntryMedia": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Audio",
+          "value": "0"
+        },
+        {
+          "name": "Video",
+          "value": "1"
+        }
+      ]
+    },
+    "PhoneCallHistoryEntryOtherAppReadAccess": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "Full",
+          "value": "0"
+        },
+        {
+          "name": "SystemOnly",
+          "value": "1"
+        }
+      ]
+    },
+    "PhoneCallHistoryEntryQueryDesiredMedia": {
+      "base_type": "uint32",
+      "is_flags": true,
+      "members": [
+        {
+          "name": "None",
+          "value": "0"
+        },
+        {
+          "name": "Audio",
+          "value": "1"
+        },
+        {
+          "name": "Video",
+          "value": "2"
+        },
+        {
+          "name": "All",
+          "value": "4294967295"
+        }
+      ]
+    },
+    "PhoneCallHistoryEntryRawAddressKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "PhoneNumber",
+          "value": "0"
+        },
+        {
+          "name": "Custom",
+          "value": "1"
+        }
+      ]
+    },
+    "PhoneCallHistorySourceIdKind": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "CellularPhoneLineId",
+          "value": "0"
+        },
+        {
+          "name": "PackageFamilyName",
+          "value": "1"
+        }
+      ]
+    },
+    "PhoneCallHistoryStoreAccessType": {
+      "base_type": "int32",
+      "members": [
+        {
+          "name": "AppEntriesReadWrite",
+          "value": "0"
+        },
+        {
+          "name": "AllEntriesLimitedReadWrite",
+          "value": "1"
+        },
+        {
+          "name": "AllEntriesReadWrite",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "interfaces": {
+    "IPhoneCallHistoryEntry": {
+      "guid": "fab0e129-32a4-4b85-83d1-f90d8c23a857",
+      "exclusive_to": "Windows.ApplicationModel.Calls.PhoneCallHistoryEntry",
+      "methods": [
+        {
+          "name": "get_Id",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_Address",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhoneCallHistoryEntryAddress",
+            "namespace": "Windows.ApplicationModel.Calls",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "put_Address",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhoneCallHistoryEntryAddress",
+                "namespace": "Windows.ApplicationModel.Calls",
+                "target_kind": "Class"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Duration",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          }
+        },
+        {
+          "name": "put_Duration",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IReference`1",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "TimeSpan",
+                    "namespace": "Windows.Foundation",
+                    "target_kind": "Struct"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsCallerIdBlocked",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsCallerIdBlocked",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsEmergency",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsEmergency",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsIncoming",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsIncoming",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsMissed",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsMissed",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsRinging",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsRinging",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsSeen",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsSeen",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsSuppressed",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsSuppressed",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_IsVoicemail",
+          "return": {
+            "kind": "Native",
+            "name": "Bool"
+          }
+        },
+        {
+          "name": "put_IsVoicemail",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "Bool"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_Media",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhoneCallHistoryEntryMedia",
+            "namespace": "Windows.ApplicationModel.Calls",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_Media",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhoneCallHistoryEntryMedia",
+                "namespace": "Windows.ApplicationModel.Calls",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_OtherAppReadAccess",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhoneCallHistoryEntryOtherAppReadAccess",
+            "namespace": "Windows.ApplicationModel.Calls",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_OtherAppReadAccess",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhoneCallHistoryEntryOtherAppReadAccess",
+                "namespace": "Windows.ApplicationModel.Calls",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RemoteId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_RemoteId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SourceDisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "get_SourceId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_SourceId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SourceIdKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhoneCallHistorySourceIdKind",
+            "namespace": "Windows.ApplicationModel.Calls",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_SourceIdKind",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhoneCallHistorySourceIdKind",
+                "namespace": "Windows.ApplicationModel.Calls",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_StartTime",
+          "return": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          }
+        },
+        {
+          "name": "put_StartTime",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "DateTime",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Address",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhoneCallHistoryEntryAddress",
+            "namespace": "Windows.ApplicationModel.Calls",
+            "target_kind": "Class"
+          },
+          "getter": "get_Address",
+          "setter": "put_Address"
+        },
+        {
+          "name": "Duration",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IReference`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "TimeSpan",
+                "namespace": "Windows.Foundation",
+                "target_kind": "Struct"
+              }
+            ]
+          },
+          "getter": "get_Duration",
+          "setter": "put_Duration"
+        },
+        {
+          "name": "Id",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_Id"
+        },
+        {
+          "name": "IsCallerIdBlocked",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsCallerIdBlocked",
+          "setter": "put_IsCallerIdBlocked"
+        },
+        {
+          "name": "IsEmergency",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsEmergency",
+          "setter": "put_IsEmergency"
+        },
+        {
+          "name": "IsIncoming",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsIncoming",
+          "setter": "put_IsIncoming"
+        },
+        {
+          "name": "IsMissed",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsMissed",
+          "setter": "put_IsMissed"
+        },
+        {
+          "name": "IsRinging",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsRinging",
+          "setter": "put_IsRinging"
+        },
+        {
+          "name": "IsSeen",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSeen",
+          "setter": "put_IsSeen"
+        },
+        {
+          "name": "IsSuppressed",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsSuppressed",
+          "setter": "put_IsSuppressed"
+        },
+        {
+          "name": "IsVoicemail",
+          "type": {
+            "kind": "Native",
+            "name": "Bool"
+          },
+          "getter": "get_IsVoicemail",
+          "setter": "put_IsVoicemail"
+        },
+        {
+          "name": "Media",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhoneCallHistoryEntryMedia",
+            "namespace": "Windows.ApplicationModel.Calls",
+            "target_kind": "Enum"
+          },
+          "getter": "get_Media",
+          "setter": "put_Media"
+        },
+        {
+          "name": "OtherAppReadAccess",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhoneCallHistoryEntryOtherAppReadAccess",
+            "namespace": "Windows.ApplicationModel.Calls",
+            "target_kind": "Enum"
+          },
+          "getter": "get_OtherAppReadAccess",
+          "setter": "put_OtherAppReadAccess"
+        },
+        {
+          "name": "RemoteId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RemoteId",
+          "setter": "put_RemoteId"
+        },
+        {
+          "name": "SourceDisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SourceDisplayName"
+        },
+        {
+          "name": "SourceId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_SourceId",
+          "setter": "put_SourceId"
+        },
+        {
+          "name": "SourceIdKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhoneCallHistorySourceIdKind",
+            "namespace": "Windows.ApplicationModel.Calls",
+            "target_kind": "Enum"
+          },
+          "getter": "get_SourceIdKind",
+          "setter": "put_SourceIdKind"
+        },
+        {
+          "name": "StartTime",
+          "type": {
+            "kind": "ApiRef",
+            "name": "DateTime",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Struct"
+          },
+          "getter": "get_StartTime",
+          "setter": "put_StartTime"
+        }
+      ]
+    },
+    "IPhoneCallHistoryEntryAddress": {
+      "guid": "30f159da-3955-4042-84e6-66eebf82e67f",
+      "exclusive_to": "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryAddress",
+      "methods": [
+        {
+          "name": "get_ContactId",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_ContactId",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_DisplayName",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_DisplayName",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RawAddress",
+          "return": {
+            "kind": "Native",
+            "name": "HString"
+          }
+        },
+        {
+          "name": "put_RawAddress",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_RawAddressKind",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhoneCallHistoryEntryRawAddressKind",
+            "namespace": "Windows.ApplicationModel.Calls",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_RawAddressKind",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhoneCallHistoryEntryRawAddressKind",
+                "namespace": "Windows.ApplicationModel.Calls",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "ContactId",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_ContactId",
+          "setter": "put_ContactId"
+        },
+        {
+          "name": "DisplayName",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_DisplayName",
+          "setter": "put_DisplayName"
+        },
+        {
+          "name": "RawAddress",
+          "type": {
+            "kind": "Native",
+            "name": "HString"
+          },
+          "getter": "get_RawAddress",
+          "setter": "put_RawAddress"
+        },
+        {
+          "name": "RawAddressKind",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhoneCallHistoryEntryRawAddressKind",
+            "namespace": "Windows.ApplicationModel.Calls",
+            "target_kind": "Enum"
+          },
+          "getter": "get_RawAddressKind",
+          "setter": "put_RawAddressKind"
+        }
+      ]
+    },
+    "IPhoneCallHistoryEntryAddressFactory": {
+      "guid": "fb0fadba-c7f0-4bb6-9f6b-ba5d73209aca",
+      "exclusive_to": "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryAddress",
+      "methods": [
+        {
+          "name": "Create",
+          "params": [
+            {
+              "name": "rawAddress",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            },
+            {
+              "name": "rawAddressKind",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhoneCallHistoryEntryRawAddressKind",
+                "namespace": "Windows.ApplicationModel.Calls",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhoneCallHistoryEntryAddress",
+            "namespace": "Windows.ApplicationModel.Calls",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPhoneCallHistoryEntryQueryOptions": {
+      "guid": "9c5fe15c-8bed-40ca-b06e-c4ca8eae5c87",
+      "exclusive_to": "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryOptions",
+      "methods": [
+        {
+          "name": "get_DesiredMedia",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhoneCallHistoryEntryQueryDesiredMedia",
+            "namespace": "Windows.ApplicationModel.Calls",
+            "target_kind": "Enum"
+          }
+        },
+        {
+          "name": "put_DesiredMedia",
+          "params": [
+            {
+              "name": "value",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhoneCallHistoryEntryQueryDesiredMedia",
+                "namespace": "Windows.ApplicationModel.Calls",
+                "target_kind": "Enum"
+              }
+            }
+          ]
+        },
+        {
+          "name": "get_SourceIds",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "DesiredMedia",
+          "type": {
+            "kind": "ApiRef",
+            "name": "PhoneCallHistoryEntryQueryDesiredMedia",
+            "namespace": "Windows.ApplicationModel.Calls",
+            "target_kind": "Enum"
+          },
+          "getter": "get_DesiredMedia",
+          "setter": "put_DesiredMedia"
+        },
+        {
+          "name": "SourceIds",
+          "type": {
+            "kind": "GenericInst",
+            "name": "IVector`1",
+            "namespace": "Windows.Foundation.Collections",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "HString"
+              }
+            ]
+          },
+          "getter": "get_SourceIds"
+        }
+      ]
+    },
+    "IPhoneCallHistoryEntryReader": {
+      "guid": "61ece4be-8d86-479f-8404-a9846920fee6",
+      "exclusive_to": "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryReader",
+      "methods": [
+        {
+          "name": "ReadBatchAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "GenericInst",
+                "name": "IVectorView`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PhoneCallHistoryEntry",
+                    "namespace": "Windows.ApplicationModel.Calls",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPhoneCallHistoryManagerForUser": {
+      "guid": "d925c523-f55f-4353-9db4-0205a5265a55",
+      "exclusive_to": "Windows.ApplicationModel.Calls.PhoneCallHistoryManagerForUser",
+      "methods": [
+        {
+          "name": "RequestStoreAsync",
+          "params": [
+            {
+              "name": "accessType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhoneCallHistoryStoreAccessType",
+                "namespace": "Windows.ApplicationModel.Calls",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhoneCallHistoryStore",
+                "namespace": "Windows.ApplicationModel.Calls",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "get_User",
+          "return": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          }
+        }
+      ],
+      "properties": [
+        {
+          "name": "User",
+          "type": {
+            "kind": "ApiRef",
+            "name": "User",
+            "namespace": "Windows.System",
+            "target_kind": "Class"
+          },
+          "getter": "get_User"
+        }
+      ]
+    },
+    "IPhoneCallHistoryManagerStatics": {
+      "guid": "f5a6da39-b31f-4f45-ac8e-1b08893c1b50",
+      "exclusive_to": "Windows.ApplicationModel.Calls.PhoneCallHistoryManager",
+      "methods": [
+        {
+          "name": "RequestStoreAsync",
+          "params": [
+            {
+              "name": "accessType",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhoneCallHistoryStoreAccessType",
+                "namespace": "Windows.ApplicationModel.Calls",
+                "target_kind": "Enum"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhoneCallHistoryStore",
+                "namespace": "Windows.ApplicationModel.Calls",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "IPhoneCallHistoryManagerStatics2": {
+      "guid": "efd474f0-a2db-4188-9e92-bc3cfa6813cf",
+      "exclusive_to": "Windows.ApplicationModel.Calls.PhoneCallHistoryManager",
+      "methods": [
+        {
+          "name": "GetForUser",
+          "params": [
+            {
+              "name": "user",
+              "type": {
+                "kind": "ApiRef",
+                "name": "User",
+                "namespace": "Windows.System",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhoneCallHistoryManagerForUser",
+            "namespace": "Windows.ApplicationModel.Calls",
+            "target_kind": "Class"
+          }
+        }
+      ]
+    },
+    "IPhoneCallHistoryStore": {
+      "guid": "2f907db8-b40e-422b-8545-cb1910a61c52",
+      "exclusive_to": "Windows.ApplicationModel.Calls.PhoneCallHistoryStore",
+      "methods": [
+        {
+          "name": "GetEntryAsync",
+          "params": [
+            {
+              "name": "callHistoryEntryId",
+              "type": {
+                "kind": "Native",
+                "name": "HString"
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "ApiRef",
+                "name": "PhoneCallHistoryEntry",
+                "namespace": "Windows.ApplicationModel.Calls",
+                "target_kind": "Class"
+              }
+            ]
+          }
+        },
+        {
+          "name": "GetEntryReader",
+          "overload": "GetEntryReader",
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhoneCallHistoryEntryReader",
+            "namespace": "Windows.ApplicationModel.Calls",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "GetEntryReader",
+          "overload": "GetEntryReaderWithOptions",
+          "params": [
+            {
+              "name": "queryOptions",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhoneCallHistoryEntryQueryOptions",
+                "namespace": "Windows.ApplicationModel.Calls",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "PhoneCallHistoryEntryReader",
+            "namespace": "Windows.ApplicationModel.Calls",
+            "target_kind": "Class"
+          }
+        },
+        {
+          "name": "SaveEntryAsync",
+          "params": [
+            {
+              "name": "callHistoryEntry",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhoneCallHistoryEntry",
+                "namespace": "Windows.ApplicationModel.Calls",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "DeleteEntryAsync",
+          "params": [
+            {
+              "name": "callHistoryEntry",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhoneCallHistoryEntry",
+                "namespace": "Windows.ApplicationModel.Calls",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "DeleteEntriesAsync",
+          "params": [
+            {
+              "name": "callHistoryEntries",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PhoneCallHistoryEntry",
+                    "namespace": "Windows.ApplicationModel.Calls",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "MarkEntryAsSeenAsync",
+          "params": [
+            {
+              "name": "callHistoryEntry",
+              "type": {
+                "kind": "ApiRef",
+                "name": "PhoneCallHistoryEntry",
+                "namespace": "Windows.ApplicationModel.Calls",
+                "target_kind": "Class"
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "MarkEntriesAsSeenAsync",
+          "params": [
+            {
+              "name": "callHistoryEntries",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "ApiRef",
+                    "name": "PhoneCallHistoryEntry",
+                    "namespace": "Windows.ApplicationModel.Calls",
+                    "target_kind": "Class"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetUnseenCountAsync",
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "MarkAllAsSeenAsync",
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        },
+        {
+          "name": "GetSourcesUnseenCountAsync",
+          "params": [
+            {
+              "name": "sourceIds",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "GenericInst",
+            "name": "IAsyncOperation`1",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface",
+            "args": [
+              {
+                "kind": "Native",
+                "name": "U4"
+              }
+            ]
+          }
+        },
+        {
+          "name": "MarkSourcesAsSeenAsync",
+          "params": [
+            {
+              "name": "sourceIds",
+              "type": {
+                "kind": "GenericInst",
+                "name": "IIterable`1",
+                "namespace": "Windows.Foundation.Collections",
+                "target_kind": "Interface",
+                "args": [
+                  {
+                    "kind": "Native",
+                    "name": "HString"
+                  }
+                ]
+              }
+            }
+          ],
+          "return": {
+            "kind": "ApiRef",
+            "name": "IAsyncAction",
+            "namespace": "Windows.Foundation",
+            "target_kind": "Interface"
+          }
+        }
+      ]
+    }
+  },
+  "classes": {
+    "PhoneCallHistoryEntry": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhoneCallHistoryEntry",
+        "namespace": "Windows.ApplicationModel.Calls",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhoneCallHistoryEntry",
+          "namespace": "Windows.ApplicationModel.Calls",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "PhoneCallHistoryEntryAddress": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhoneCallHistoryEntryAddress",
+        "namespace": "Windows.ApplicationModel.Calls",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhoneCallHistoryEntryAddress",
+          "namespace": "Windows.ApplicationModel.Calls",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true,
+      "activatable_factories": [
+        "Windows.ApplicationModel.Calls.IPhoneCallHistoryEntryAddressFactory"
+      ]
+    },
+    "PhoneCallHistoryEntryQueryOptions": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhoneCallHistoryEntryQueryOptions",
+        "namespace": "Windows.ApplicationModel.Calls",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhoneCallHistoryEntryQueryOptions",
+          "namespace": "Windows.ApplicationModel.Calls",
+          "target_kind": "Interface"
+        }
+      ],
+      "activatable_direct": true
+    },
+    "PhoneCallHistoryEntryReader": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhoneCallHistoryEntryReader",
+        "namespace": "Windows.ApplicationModel.Calls",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhoneCallHistoryEntryReader",
+          "namespace": "Windows.ApplicationModel.Calls",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PhoneCallHistoryManager": {
+      "static_interfaces": [
+        "Windows.ApplicationModel.Calls.IPhoneCallHistoryManagerStatics2",
+        "Windows.ApplicationModel.Calls.IPhoneCallHistoryManagerStatics"
+      ]
+    },
+    "PhoneCallHistoryManagerForUser": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhoneCallHistoryManagerForUser",
+        "namespace": "Windows.ApplicationModel.Calls",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhoneCallHistoryManagerForUser",
+          "namespace": "Windows.ApplicationModel.Calls",
+          "target_kind": "Interface"
+        }
+      ]
+    },
+    "PhoneCallHistoryStore": {
+      "default_interface": {
+        "kind": "ApiRef",
+        "name": "IPhoneCallHistoryStore",
+        "namespace": "Windows.ApplicationModel.Calls",
+        "target_kind": "Interface"
+      },
+      "interfaces": [
+        {
+          "kind": "ApiRef",
+          "name": "IPhoneCallHistoryStore",
+          "namespace": "Windows.ApplicationModel.Calls",
+          "target_kind": "Interface"
+        }
+      ]
+    }
+  }
+}
